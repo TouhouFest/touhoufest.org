@@ -23,7 +23,7 @@ jobs:
         run: zola build
       - name: Upload site to GitHub Pages
         id: deployment
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: public/
   deploy:
