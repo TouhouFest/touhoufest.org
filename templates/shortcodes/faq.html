@@ -1,0 +1,4 @@
+{% for qa in load_data(path="data/faq.yml") %}
+<h6>{{ qa.q }}</h6>
+<p>{{ qa.a | markdown(inline=true) | safe }}</p>
+{% endfor %}
