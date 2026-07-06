@@ -1,5 +1,5 @@
 +++
 title = "FAQs"
-weight = 1
+weight = 2
 +++
 {{ faq() }}
