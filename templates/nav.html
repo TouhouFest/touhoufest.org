@@ -15,9 +15,28 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-end">
         <div class="buttons">
-          <a class="button is-dark" href="{{ get_url(path="@/news/_index.md") }}">
-            News
-          </a>
+          {# content/_index.md doesn't actually exist, but we're using it to refer to the root section #}
+          {% set index = get_section(path="_index.md") %}
+          {% for path in index.subsections %}
+            {% set section = get_section(path=path) %}
+            {% if section.pages %}
+              <div class="navbar-item has-dropdown is-hoverable">
+                {% endif %}
+                <a class="navbar-{% if section.pages %}link{% else %}item{% endif %} is-dark button" {% if not section.pages %}href="{{ get_url(path=["@/", path] | join) }}"{% endif %}>
+                  {{ section.title }}
+                </a>
+                {% if section.pages %}
+                  <div class="navbar-dropdown">
+                    {% for page in section.pages %}
+                    <a class="navbar-item" href="{{ page.path }}">
+                      {{ page.title }}
+                    </a>
+                    {% endfor %}
+                  </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
