@@ -18,7 +18,9 @@ jobs:
         with:
           submodules: recursive
       - name: Install zola
-        run: sudo snap install --edge zola
+        uses: taiki-e/install-action@v2
+        with:
+          tool: zola@0.19.2
       - name: Build site
         run: zola build
       - name: Upload site to GitHub Pages
