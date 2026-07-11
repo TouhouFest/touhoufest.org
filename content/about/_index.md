@@ -1,5 +1,5 @@
 +++
 title = "About TouhouFest"
 sort_by = "weight"
-weight = 0
+weight = 1
 +++
