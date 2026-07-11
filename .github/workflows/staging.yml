@@ -1,0 +1,47 @@
+name: Build and deploy Staging (staging.touhoufest.org)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      - name: Install Zola
+        uses: taiki-e/install-action@v2
+        with:
+          tool: zola@0.19.2
+
+      - name: Build site for Staging
+        run: zola build --base-url "https://staging.touhoufest.org"
+
+      - name: Create CNAME for Staging custom domain
+        run: echo "staging.touhoufest.org" > public/CNAME
+
+      - name: Upload site to GitHub Pages
+        id: deployment
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: public/
+
+  deploy:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: staging
+      url: https://staging.touhoufest.org
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages (Staging Environment)
+        uses: actions/deploy-pages@v5
