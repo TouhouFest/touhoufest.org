@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block header %}
+<p class='title is-1'>{{ section.title }}</p>
+{% endblock %}
+{% block content %}
+<div class="post content">
+  {% if section.extra.toc %}
+  {% include "toc.html" %}
+  {% endif %}
+  <p>{{ section.content | safe }}</p>
+</div>
+{% endblock content %}

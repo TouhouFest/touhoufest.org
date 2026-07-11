@@ -1,19 +1,43 @@
 <!-- TODO: Properly style this so that it splits the socials and the copyright -->
-<footer class="footer has-text-centered is-align-items-flex-end mt-auto">
+<footer class="footer section has-text-white is-align-items-flex-end mt-auto">
+  <div class='columns'>
+    <div class='column'>
+      <p><b>Stay Connected</b></p>
+      <p>Follow us @TouhouFest</p>
+      <p>
+        <!-- TODO: Use FontAwesome Icons instead of text -->
+        <a href='{{ config.extra.socials.discord_invite }}'><span class='fa-brands fa-discord'></span></a>
+        <a href='{{ config.extra.socials.bluesky }}'><span class='fa-brands fa-bluesky'></span></a>
+        <a href='{{ config.extra.socials.instagram }}'><span class='fa-brands fa-instagram'></span></a>
+        <a href='{{ config.extra.socials.youtube }}'><span class='fa-brands fa-youtube'></span></a>
+        <a href='{{ config.extra.socials.twitter }}'><span class='fa-brands fa-twitter'></span></a>
+      </p>
+      <p>Email Us @touhoufest.org</p>
+      <p>
+        TouhouFest™ is a production of the
+        <a href="https://amp-organization.com/">AMP Organization</a>.
+      </p>
+      <p>© AMP Organization, {{ now() | date(format="%Y") }}</p>
+    </div>
+    <div class='column'>
+      <p><b>Register</b></p>
+      <p><a>Buy a Badge</a></p>
+      <p><a>Artist Alley Applications</a></p>
+      <p><a>Vendor Booth Applications</a></p>
+      <p><a>Fan Game Table Applications</a></p>
+      <p><a>Panel Applications</a></p>
+      <p><a>Performer Applications</a></p>
+      <p><a>Cosplay Masquerade Applications</a></p>
+      <p><a>Staff Applications</a></p>
+      <p><a>Volunteer Applications</a></p>
+    </div>
+    <div class='column'>
+      <p><b>About</b></p>
+    </div>
+    <div class='column'>
+      <p><b>Learn more about</b></p>
+    </div>
+  </div>
   <p>
-    TouhouFest™ is a production of the
-    <a href="https://amp-organization.com/">AMP Organization</a>.
-  </p>
-  <p>
-    <strong>© 2022 - {{ now() | date(format="%Y") }} AMP Organization</strong>
-  </p>
-  <p>
-    <!-- TODO: Use FontAwesome Icons instead of text -->
-    <a href="/contact-us"</a>Contact Us</a> |
-    <a href="{{ config.extra.socials.discord_invite }}">Discord</a> |
-    <a href="{{ config.extra.socials.twitter }}">Twitter</a> |
-    <a href="{{ config.extra.socials.bluesky }}">BlueSky</a> |
-    <a href="{{ config.extra.socials.instagram }}">Instagram</a> |
-    <a href="{{ config.extra.socials.youtube }}">YouTube</a>
   </p>
 </footer>
