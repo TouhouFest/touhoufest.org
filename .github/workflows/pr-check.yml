@@ -1,0 +1,25 @@
+name: PR Build Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      - name: Install Zola
+        uses: taiki-e/install-action@v2
+        with:
+          tool: zola@0.19.2
+
+      - name: Check and build site
+        run: |
+          zola check
+          zola build
