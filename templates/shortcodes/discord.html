@@ -1,15 +1,12 @@
-<div class='container'>
-  <div class='card has-text-white mt-6 mb-6' style='background-color: #2E2A31'>
-    <div class='card-content'>
-      <div style='display: flex'>
-        <p class='fa-brands fa-discord m-6' style='font-size: 100px'></p>
-        <div>
-          <h2 class='has-text-white title'>Our Discord Server is open</h2>
-          <p>Join our community on the TouhouFest Official Discord Server!</p>
-          <p class='mt-5'><a class='button is-rounded' href='{{ config.extra.socials.discord_invite }}'>Join Our Discord
-              <span class='fa-solid fa-chevron-right'></span></a></p>
-        </div>
-      </div>
+<div class="discord-module-card my-6">
+  <div class="discord-icon-container">
+    <span class="fa-brands fa-discord"></span>
+  </div>
+  <div class="discord-content-block">
+    <h3 class="discord-title mb-2">Join the community on Discord</h3>
+    <p class="discord-body mb-5">Join our community on the TouhouFest Official Discord Server!</p>
+    <div class="discord-buttons">
+      <a class="button is-medium" href="{{ config.extra.socials.discord_invite | default(value='https://discord.gg/touhoufest') }}">Join Discord <span class="fa-solid fa-arrow-right ml-2"></span></a>
     </div>
   </div>
 </div>

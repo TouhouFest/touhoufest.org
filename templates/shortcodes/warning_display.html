@@ -1,0 +1,7 @@
+<div class="warning-display-atom warning-display-module my-4">
+  <span class="fa-solid fa-triangle-exclamation warning-icon"></span>
+  <div>
+    {% if title %}<strong class="warning-title">{{ title }}</strong>{% endif %}
+    <span>{{ body | default(value="Please note this critical requirement before proceeding.") | safe }}</span>
+  </div>
+</div>

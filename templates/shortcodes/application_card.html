@@ -1,0 +1,11 @@
+<div class="application-card {{ class | default(value='') }}">
+  <div>
+    <div class="application-header">
+      <span class="application-title">{{ title }}</span>
+      <span class="status-badge {% if status == 'Open' %}is-open{% else %}is-closed{% endif %}">{{ status | default(value='Open') }}</span>
+    </div>
+    {% if deadline %}<p class="application-dates">Deadline: {{ deadline }}</p>{% endif %}
+    <p class="mb-4">{{ description }}</p>
+  </div>
+  <a class="button is-primary is-fullwidth" href="{{ link | default(value='#') }}">{{ button_text | default(value='Apply Now') }}</a>
+</div>

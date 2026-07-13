@@ -1,0 +1,60 @@
+// =============================================================================
+// TouhouFest Button Styles
+// Aligned with base.html (.button, .btn-red) and Figma interactive states
+// =============================================================================
+
+@use 'variables' as *;
+
+.button {
+  font-size: 1.125em;
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  transition: all 0.2s ease;
+
+  &:hover, &:focus {
+    transform: translateY(-2px);
+  }
+
+  // Primary Button (Yellow/Gold #f8c650)
+  &.is-primary, &.btn-primary {
+    background-color: $color-primary;
+    color: $color-supporting-navy;
+    border: none;
+
+    &:hover, &:focus {
+      background-color: darken($color-primary, 8%);
+      color: $color-supporting-navy;
+      box-shadow: 0 4px 12px rgba($color-primary, 0.3);
+    }
+  }
+
+  // Accent / Red Button (#bf3444)
+  &.is-danger, &.is-accent, &.btn-accent {
+    background-color: $color-readable-red;
+    color: $color-primary-light;
+    border: none;
+
+    &:hover, &:focus {
+      background-color: darken($color-readable-red, 8%);
+      color: $color-primary-light;
+      box-shadow: 0 4px 12px rgba($color-readable-red, 0.3);
+    }
+  }
+
+  // Supporting Dark Button (#373852)
+  &.is-dark, &.btn-dark {
+    background-color: $color-supporting-navy;
+    color: $color-primary-light;
+    border: none;
+
+    &:hover, &:focus {
+      background-color: lighten($color-supporting-navy, 10%);
+      color: $color-primary-light;
+    }
+  }
+}
+
+.btn-red {
+  background: $color-readable-red;
+  color: white;
+}

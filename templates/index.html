@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "macros/assets.html" as assets %}
 
 {% block header %}
 <p class="title">
@@ -12,7 +13,7 @@
 {% block content %}
 <!-- <section class='section'> -->
 <!-- <div class='container'> -->
-<!-- <div class='card has-text-centered mt-6 pt-6' style='background: #000000'> -->
+<!-- <div class='card has-text-centered mt-6 pt-6 index-placeholder-card'> -->
 <!-- <div class='card-content'> -->
 <!-- <h2 class='title'>Our next event will be on June 19th-21st 2026</h2> -->
 <!-- <h3 class='subtitle'>Torrance Cultural Arts Center (TCAC)</h3> -->
@@ -36,22 +37,22 @@
   <div class='columns'>
     <div class='column m-6'>
       <h3>???</h3>
-      <img src='logo.png'>
+      <img src='{{ assets::url(path="logo.png", width=300) }}'>
       <p>TBA!</p>
     </div>
     <div class='column m-6'>
       <h3>???</h3>
-      <img src='logo.png'>
+      <img src='{{ assets::url(path="logo.png", width=300) }}'>
       <p>TBA!</p>
     </div>
     <div class='column m-6'>
       <h3>???</h3>
-      <img src='logo.png'>
+      <img src='{{ assets::url(path="logo.png", width=300) }}'>
       <p>TBA!</p>
     </div>
     <div class='column m-6'>
       <h3>???</h3>
-      <img src='logo.png'>
+      <img src='{{ assets::url(path="logo.png", width=300) }}'>
       <p>TBA!</p>
     </div>
   </div>

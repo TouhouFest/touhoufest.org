@@ -1,0 +1,35 @@
+{% macro url(path, webp=true, width=1440) %}
+{%- if path is starting_with("/") -%}
+  {%- set clean_path = path | trim_start_matches(pat="/") -%}
+{%- else -%}
+  {%- set clean_path = path -%}
+{%- endif -%}
+{%- if clean_path is starting_with("http://") or clean_path is starting_with("https://") or clean_path is starting_with("//") or clean_path is starting_with("data:") or clean_path is starting_with("#") or clean_path == "" -%}
+  {{- path -}}
+{%- elif webp and (clean_path is ending_with(".png") or clean_path is ending_with(".jpg") or clean_path is ending_with(".jpeg")) -%}
+  {%- set resized = resize_image(path=clean_path, width=width, op="fit_width", format="webp") -%}
+  {{- resized.url -}}
+{%- else -%}
+  {{- get_url(path=clean_path, cachebust=true) -}}
+{%- endif -%}
+{% endmacro %}
+
+{% macro image(path, alt="", class="", width=1440, loading="lazy") %}
+{%- if path is starting_with("/") -%}
+  {%- set clean_path = path | trim_start_matches(pat="/") -%}
+{%- else -%}
+  {%- set clean_path = path -%}
+{%- endif -%}
+{%- if clean_path is starting_with("http://") or clean_path is starting_with("https://") or clean_path is starting_with("//") or clean_path is starting_with("data:") or clean_path is starting_with("#") or clean_path == "" -%}
+  <img class="{{ class }}" src="{{ path }}" alt="{{ alt }}" loading="{{ loading }}" />
+{%- elif clean_path is ending_with(".svg") or clean_path is ending_with(".gif") -%}
+  <img class="{{ class }}" src="{{ get_url(path=clean_path, cachebust=true) }}" alt="{{ alt }}" loading="{{ loading }}" />
+{%- else -%}
+  {%- set webp_img = resize_image(path=clean_path, width=width, op="fit_width", format="webp") -%}
+  {%- set orig_img = get_url(path=clean_path, cachebust=true) -%}
+  <picture>
+    <source srcset="{{ webp_img.url }}" type="image/webp" />
+    <img class="{{ class }}" src="{{ orig_img }}" alt="{{ alt }}" loading="{{ loading }}" />
+  </picture>
+{%- endif -%}
+{% endmacro %}

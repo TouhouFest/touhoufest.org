@@ -1,16 +1,9 @@
 +++
-title = "Artists + Vendors"
+title = "Artists Directory"
 weight = 3
 +++
-## Official Artists
-## 2026 Artists and Vendors
-## 2025 Artists and Vendors
-## Maps
-### Vendor Map
-### AA Map
-## AA/Vendor Info
-[Apply](#)
-### Policies
+{{ page_header(title="2026 Artist Alley Directory", subtitle="Explore independent circle booths, doujin creators, illustrators, and fan merchandise inside Toyota Hall.") }}
 
-{{ discord() }}
+{{ exhibitors_grid(type="artists") }}
+
 

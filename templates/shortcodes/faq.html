@@ -1,4 +1,13 @@
-{% for qa in load_data(path="data/faq.yml") %}
-<h6>{{ qa.q }}</h6>
-<p>{{ qa.a | markdown(inline=true) | safe }}</p>
-{% endfor %}
+<div class="columns is-multiline my-4">
+  {% for qa in load_data(path="data/faq.yml") %}
+  <div class="column is-6">
+    <div class="faq-card">
+      <div class="faq-question"><span class="fa-solid fa-circle-question mr-2"></span>{{ qa.q }}</div>
+      <div class="faq-divider"></div>
+      <div class="faq-answer">
+        <p>{{ qa.a | markdown(inline=true) | safe }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

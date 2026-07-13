@@ -1,0 +1,1585 @@
+// =============================================================================
+// TouhouFest Core Website Modules & General Event Info (Exact Figma Match)
+// Implements exact Dev Mode specifications from node 4704:1209743 (3-1 General Event Info)
+// & 2982:263592 (Info Card): 48px paddings, 1px #bf3444 borders, -1.6° borders.
+// =============================================================================
+
+@use 'variables' as *;
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// Basic Text Module / Info Card (Exact Figma Node 4623:598362 / 2982:263592)
+
+// Exact specs: Fill #fffde7, Stroke #bf3444 w=3px, padding 48px, gap 32px, shadow #630f28 3px/4px r=13
+// -----------------------------------------------------------------------------
+.info-card {
+  border-radius: 5px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  height: 100%;
+  box-shadow: 3px 4px 13px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &.has-icon {
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 32px 24px;
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 32px 24px;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .info-card-icon-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+
+    span {
+      font-size: 50px;
+      color: inherit;
+    }
+  }
+
+  .info-card-content-block {
+    flex-grow: 1;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 3px 8px 20px rgba(0, 0, 0, 0.22);
+  }
+
+  &.is-cream {
+    background-color: #fffde7;
+    color: #2f293d;
+    border: 3px solid $color-readable-red;
+
+    .info-card-header {
+      color: $color-readable-red;
+      font-size: $font-size-h3;
+    }
+
+    .info-card-body {
+      color: $color-text-dark;
+    }
+  }
+
+  &.is-red {
+    background-color: $color-readable-red; // #bf3444 exact from Node 2416:72074
+    color: #ffffff;
+    border: none;
+
+    .info-card-header {
+      color: #fffde7; // Exact #fffde7 cream heading from Node 135:1260 / 2416:72074
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .info-card-body {
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  }
+
+  .info-card-header {
+    font-family: $font-family-heading;
+    font-weight: $font-weight-extrabold;
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+  }
+
+  .info-card-body {
+    flex-grow: 1;
+    line-height: 1.6;
+  }
+}
+
+
+
+// -----------------------------------------------------------------------------
+// FAQ Core Card (Exact Figma Node 3275:387839 / 4532:1122380)
+// Exact specs: Question bar (Stroke w=3), solid #bf3444 divider, Answer box (Fill #ffffff, p=32)
+// -----------------------------------------------------------------------------
+.faq-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 3px 4px 13px rgba(#630f28, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 3px 8px 18px rgba(#630f28, 0.22);
+  }
+
+  .faq-question {
+    background-color: $color-primary-light; // #fffde7
+    border: 3px solid $color-readable-red; // Stroke #bf3444 w=3.0
+    border-bottom: none;
+    padding: 18px 22px; // Exact spacing
+    font-family: $font-family-heading;
+    font-size: 20px;
+    font-weight: $font-weight-extrabold;
+    color: $color-readable-red;
+    display: flex;
+    align-items: center;
+  }
+
+  .faq-divider {
+    height: 5px;
+    background-color: $color-readable-red; // Rectangle 23 solid red bar
+    width: 100%;
+  }
+
+  .faq-answer {
+    background-color: #ffffff; // Fill #ffffff
+    border: 3px solid $color-readable-red; // Stroke #bf3444 w=3.0
+    border-top: none;
+    padding: 32px; // Exact p=32.0/32.0/32.0/32.0
+    color: $color-text-dark;
+    font-size: $font-size-body-default;
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Special Modules / Dark Card (Exact Figma Node 3169:355456 / 155:3540)
+// Exact specs: Fill #2f293d (Navy/Dark), padding 48px, gap 40px
+// -----------------------------------------------------------------------------
+.special-card-dark {
+  background-color: $color-dark-bg; // #2f293d
+  border: 1px solid rgba($color-primary, 0.3);
+  border-radius: 16px;
+  padding: $space-xl; // 48px exact
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg; // 40px exact
+  color: #fffde7;
+  height: 100%;
+
+  .special-card-header {
+    font-family: $font-family-heading;
+    font-size: $font-size-h3;
+    font-weight: $font-weight-extrabold;
+    color: $color-primary; // Gold #f8c650
+  }
+
+  .special-card-body {
+    color: #fffde7;
+    font-size: $font-size-body-default;
+    line-height: 1.6;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Map Module & Component 4 Box (Exact Figma Node 3169:346397 / Frame 126)
+// Exact specs: Fill #2e2a31, padding 48px, button padding p=14/39/14/47
+// -----------------------------------------------------------------------------
+.map-module-box {
+  background-color: #2e2a31;
+  border-radius: 16px;
+  padding: $space-xl; // 48px exact
+  color: #fffde7;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md; // 24px exact
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba($color-primary, 0.2);
+
+  .map-module-title {
+    font-family: $font-family-heading;
+    font-size: $font-size-h3;
+    font-weight: $font-weight-bold;
+    color: #ffffff;
+  }
+
+  .map-module-tags {
+    display: flex;
+    gap: $space-sm;
+    flex-wrap: wrap;
+
+    .tag {
+      background-color: #ffffff;
+      color: $color-readable-red;
+      font-weight: $font-weight-bold;
+      border-radius: 6px;
+      padding: 4px 12px;
+    }
+  }
+
+  .map-module-btn {
+    align-self: flex-start;
+    background-color: $color-readable-red;
+    color: #ffffff;
+    font-weight: $font-weight-bold;
+    padding: 14px 39px 14px 47px; // Exact button padding p=14/39/14/47
+    border-radius: 99px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      background-color: darken($color-readable-red, 8%);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Application Card States (Exact Figma Node 2550:92016 / 2560:110317)
+// Exact specs: border-radius 5px, Stroke #bf3444 w=1px, padding 48px, button cr=35 p=14/39/14/47
+// -----------------------------------------------------------------------------
+.application-card {
+  background: var(--bulma-card-background-color, transparent);
+  color: var(--bulma-card-color, var(--bulma-text, #2f293d));
+  border: 1px solid $color-readable-red; // #bf3444 w=1.0 exact stroke
+  border-radius: 5px; // Exact cornerRadius cr=5.0 (NOT 16px!)
+  padding: $space-xl; // 48px exact
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $space-lg; // 32px exact
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  --x0: 50%;
+  --x1: 50%;
+  --x2: 50%;
+  --x3: 50%;
+  --y0: 50%;
+  --y1: 50%;
+  --y2: 50%;
+  --y3: 50%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, --x0 1s, --x1 1s, --x2 1s, --x3 1s, --y0 1s, --y1 1s, --y2 1s, --y3 1s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba($color-readable-red, 0.12);
+    background: radial-gradient(50% 50% at var(--x0) var(--y0), rgba(31, 144, 186, 0.22), transparent),
+                radial-gradient(50% 50% at var(--x1) var(--y1), rgba(213, 5, 255, 0.22), transparent),
+                radial-gradient(50% 50% at var(--x2) var(--y2), rgba(255, 222, 5, 0.22), transparent),
+                radial-gradient(50% 50% at var(--x3) var(--y3), rgba(255, 73, 73, 0.22), transparent),
+                var(--bulma-card-background-color, transparent);
+    --x0: 10%;
+    --x1: 90%;
+    --x2: 90%;
+    --x3: 10%;
+    --y0: 10%;
+    --y1: 10%;
+    --y2: 90%;
+    --y3: 90%;
+  }
+
+
+  .application-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+
+    .application-title {
+      font-family: $font-family-heading;
+      font-size: 28px;
+
+      font-weight: $font-weight-extrabold;
+      color: $color-readable-red; // #bf3444 exact
+    }
+  }
+
+  .status-badge {
+    align-self: flex-start;
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: $font-weight-extrabold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &.is-open {
+      background-color: $color-readable-red;
+      color: #ffffff;
+    }
+
+    &.is-closed {
+      background-color: #cbcbd2;
+      color: $color-supporting-navy;
+    }
+  }
+
+  .application-description {
+    color: $color-text-dark;
+    font-size: $font-size-body-default;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .button {
+    align-self: flex-start;
+    background-color: $color-readable-red;
+    color: #fffde7;
+    font-family: $font-family-heading;
+    font-weight: $font-weight-bold;
+    font-size: 18px;
+    padding: 14px 39px 14px 47px; // Exact Figma button padding p=14/39/14/47
+    border-radius: 35px; // Exact button cr=35.0
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      background-color: darken($color-readable-red, 8%);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Cosplay Masquerade Card (Exact Figma Node 4584:550898 / Basic Text Module Core)
+// Exact specs: Fill #bf3444 (red), Headline #fffde7, Body #ffffff, Buttons #fffde7 cr=35 p=14/39/14/47
+// -----------------------------------------------------------------------------
+.cosplay-masquerade-card {
+  background-color: $color-readable-red; // #bf3444 exact red
+  border-radius: 16px;
+  padding: $space-xl; // 48px exact
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  box-shadow: 3px 4px 13px rgba(#630f28, 0.15);
+
+  .cosplay-header {
+    font-family: $font-family-heading;
+    font-size: 34px;
+    font-weight: 800;
+    color: #fffde7; // Cream title exact
+    margin-bottom: 12px;
+  }
+
+  .cosplay-body {
+    color: #ffffff;
+    font-size: $font-size-body-default;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .cosplay-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .button {
+      background-color: #fffde7;
+      color: $color-readable-red;
+      font-family: $font-family-heading;
+      font-weight: $font-weight-bold;
+      font-size: 16px;
+      padding: 14px 39px 14px 47px; // Exact button padding
+      border-radius: 35px; // Exact pill cr=35
+      border: none;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+
+      &:hover {
+        background-color: #ffffff;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Massive CTA Banner (Exact Figma Node 3169:355684 / 2571:126976)
+// -----------------------------------------------------------------------------
+.massive-cta {
+  background-color: $color-readable-red; // Outer red frame exact
+  border-radius: $radius-card; // cr=5.0 exact from Node 2571:126976
+  padding: 3px; // 3px border frame
+  margin: $space-xxl 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+
+  .massive-cta-inner {
+    background-color: var(--bulma-card-background-color, #ffffff); // Inner white card background exact
+    border-radius: 4px;
+    padding: $space-xxl $space-xl;
+    text-align: center;
+    color: var(--bulma-text, $color-text-dark);
+    position: relative;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--bulma-scheme-main, #fffde7); // Shifts to cream on hover (`2577:282428`)
+    }
+  }
+
+  .massive-cta-title {
+    font-family: $font-family-heading;
+    font-size: $font-size-h2;
+    font-weight: $font-weight-extrabold;
+    color: $color-readable-red;
+    margin-bottom: $space-sm;
+  }
+
+  .massive-cta-subtitle {
+    font-size: $font-size-body-large;
+    color: var(--bulma-text, $color-text-dark);
+    max-width: 720px;
+    margin: 0 auto $space-lg;
+    line-height: 1.6;
+  }
+
+  .massive-cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: $color-accent-pink; // #ff0051 exact from Frame 125
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 10px; // cr=10.0 exact
+    font-family: $font-family-heading;
+    font-weight: $font-weight-bold;
+    font-size: 14px;
+    margin-bottom: $space-md;
+  }
+}
+
+
+// -----------------------------------------------------------------------------
+// 9. Img text Module (Exact Figma Node 155:3298)
+// Exact specs: cr=5px, side-by-side flex lockup, padding 48px, gap 48px
+// -----------------------------------------------------------------------------
+.img-text-module {
+  display: flex;
+  align-items: center;
+  gap: $space-xl; // 48px exact
+  padding: $space-xl 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  .img-frame {
+    flex: 1;
+    border-radius: $radius-card; // cr=5.0
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: inherit;
+    }
+  }
+
+  .text-content-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    color: var(--bulma-text, $color-text-dark);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 10. Img-Callout Module (Exact Figma Node 155:3453)
+// Exact specs: cr=5px, top banner lockup with image container and tag overlay
+// -----------------------------------------------------------------------------
+.img-callout-module {
+  border-radius: $radius-card; // cr=5.0
+  border: 1px solid $color-readable-red;
+  overflow: hidden;
+  background-color: var(--bulma-card-background-color, transparent);
+
+  .callout-banner {
+    background-color: $color-readable-red;
+    color: #ffffff;
+    padding: 12px 24px;
+    font-family: $font-family-heading;
+    font-weight: $font-weight-extrabold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .callout-img-box {
+    position: relative;
+    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .callout-body {
+    padding: $space-lg;
+    color: var(--bulma-text, $color-text-dark);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 11. Hero Module Card (Exact Figma Node 2354:65899)
+// Exact specs: cr=5.0, Fill #bf3444 red, padding 48px, shadow r=13
+// -----------------------------------------------------------------------------
+.hero-module-card {
+  background-color: $color-readable-red; // #bf3444 exact
+  border-radius: $radius-card; // cr=5.0
+  padding: $space-xl; // 48px exact
+  color: #fffde7; // Exact cream text
+  box-shadow: $shadow-card;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  .hero-module-title {
+    font-family: $font-family-heading;
+    font-size: $font-size-h1;
+    font-weight: $font-weight-extrabold;
+    color: inherit;
+    line-height: 1.1;
+
+    @media (max-width: 768px) {
+      font-size: $font-size-h2;
+    }
+  }
+
+  .hero-module-subtitle {
+    font-size: $font-size-body-large;
+    line-height: 1.5;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 12. Artist Feature Card & Minor Feature (Exact Figma Node 2639:153854)
+// Exact specs: cr=5.0, border 1px solid #cbcbd2, padding 32px
+// -----------------------------------------------------------------------------
+.artist-feature-card {
+  background-color: var(--bulma-card-background-color, transparent);
+  border: 1px solid $color-ui-light-gray;
+  border-radius: $radius-card; // cr=5.0
+  padding: $space-lg; // 32px exact
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba($color-readable-red, 0.12);
+  }
+
+  .artist-name {
+    font-family: $font-family-heading;
+    font-size: 24px;
+    font-weight: $font-weight-extrabold;
+    color: var(--bulma-text, $color-text-dark);
+  }
+
+  .artist-img-frame {
+    border-radius: inherit;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}
+
+.minor-feature-card {
+  border: 1px dashed $color-readable-red;
+  border-radius: $radius-card; // cr=5.0
+  padding: $space-md;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// -----------------------------------------------------------------------------
+// 13. Main Feature Card Core (Exact Figma Node 2786:200851)
+// Exact specs: cr=15.0 image block + cr=5.0 gradient frame lockup, padding 48px
+// -----------------------------------------------------------------------------
+.main-feature-card {
+  background-color: var(--bulma-card-background-color, transparent);
+  border: 1px solid $color-readable-red;
+  border-radius: $radius-card; // cr=5.0
+  padding: $space-xl; // 48px exact
+  display: flex;
+  gap: $space-xl;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  .feature-image-lg {
+    flex: 1;
+    border-radius: 15px; // cr=15.0 exact from node 2786:208259
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .feature-content-lg {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $space-lg;
+
+    .feature-title-lg {
+      font-family: $font-family-heading;
+      font-size: $font-size-h2;
+      font-weight: $font-weight-extrabold;
+      color: $color-readable-red;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 14. Photo Gallery Module (Exact Figma Node 3169:310744)
+// Exact specs: top/bottom dark ornamental dividers, multi-column grid, search
+// -----------------------------------------------------------------------------
+.photo-gallery-module {
+  width: 100%;
+  position: relative;
+  padding: $space-xl 0;
+
+  .gallery-search-bar {
+    max-width: 420px;
+    margin: 0 auto $space-xl;
+    display: flex;
+    align-items: center;
+    background-color: var(--bulma-card-background-color, transparent);
+    border: 2px solid $color-readable-red;
+    border-radius: 25px;
+    padding: 8px 20px;
+
+    input {
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+      color: var(--bulma-text, $color-text-dark);
+      font-family: $font-family-body;
+      font-size: 16px;
+    }
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: $space-lg;
+
+    .gallery-item {
+      border-radius: $radius-card; // cr=5.0
+      overflow: hidden;
+      border: 1px solid $color-ui-light-gray;
+      background-color: var(--bulma-card-background-color, transparent);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 15. Big Img Module (Exact Figma Node 3275:398036)
+// Exact specs: cr=5.0 banner + image + description lockup
+// -----------------------------------------------------------------------------
+.big-img-module {
+  border-radius: $radius-card; // cr=5.0
+  border: 1px solid $color-ui-light-gray;
+  overflow: hidden;
+  background-color: var(--bulma-card-background-color, transparent);
+  margin: $space-xl 0;
+
+  .big-img-banner {
+    background-color: $color-readable-red;
+    color: #fffde7;
+    padding: 16px 24px;
+    font-family: $font-family-heading;
+    font-weight: $font-weight-extrabold;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .big-img-box {
+    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .big-img-description {
+    padding: $space-lg $space-xl;
+    color: var(--bulma-text, $color-text-dark);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 16. Section Divider Module (Exact Figma Node 2557:209929)
+// Exact specs: full-width #2e2a31 dark bar with gohei pattern & bottom wave
+// -----------------------------------------------------------------------------
+.section-divider-module {
+  background-color: #2e2a31; // Exact dark base
+  color: #fbf7eb; // Exact cream text
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 64px;
+  margin-bottom: 48px;
+  min-height: 210px;
+  padding-bottom: 40px;
+  scroll-margin-top: 80px; // Ensure anchors are not covered by fixed navbar
+
+  &:hover {
+    .divider-permalink-chip {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+  }
+
+  .divider-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.22;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .divider-gohei-strip {
+    background: url('/gohei.svg?v=d2af2b2f');
+    background-size: 50px 278.44px;
+    height: 100vw;
+    position: absolute;
+    transform: matrix(0, -1, 1, 0, -45, 0);
+    transform-origin: top right;
+    width: 45px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .divider-overlay {
+    position: relative;
+    z-index: 2;
+    padding: 48px 0 16px;
+  }
+
+
+  .divider-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .divider-title {
+      font-family: $font-family-heading;
+      font-size: 38px;
+      font-weight: $font-weight-extrabold;
+      color: #fffde7;
+      line-height: 1.15;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+
+      @media (max-width: 768px) {
+        font-size: 28px;
+        justify-content: center;
+      }
+
+      .divider-permalink-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: $font-family-body;
+        font-size: 14px;
+        font-weight: $font-weight-bold;
+        color: #fffde7;
+
+        background-color: rgba(#000000, 0.45);
+        border: 1px solid rgba(#fffde7, 0.35);
+        border-radius: 20px;
+        padding: 4px 14px;
+        text-decoration: none;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(2px);
+        transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+
+        &:hover {
+          background-color: $color-readable-red;
+          border-color: $color-readable-red;
+          color: #fffde7;
+        }
+
+        @media (hover: none) {
+          opacity: 0.85;
+          pointer-events: auto;
+          transform: none;
+        }
+      }
+    }
+
+
+
+    .divider-subtitle {
+      color: #fbf7eb;
+      font-size: 18px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+  }
+
+  .divider-stars-border {
+    display: none; // Hidden by default; only used in dark mode as specified by user
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    height: 58px;
+    background: url('/divider-stars-border.svg?v=6f4bb48d') repeat-x center top;
+    background-size: auto 58px;
+    pointer-events: none;
+    z-index: 2;
+
+    @media (prefers-color-scheme: dark) {
+      display: block;
+    }
+  }
+
+  [data-theme="dark"] &,
+  .dark-mode &,
+  .dark & {
+    .divider-stars-border {
+      display: block;
+    }
+  }
+
+  .divider-bottom-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: url('/divider-bottom-wave.svg?v=8d3b11f4') repeat-x center bottom;
+    background-size: auto 60px;
+    z-index: 3;
+    pointer-events: none;
+  }
+}
+
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// 17. Discord & Newsletter Module Cards (Responsive Layouts)
+// Exact specs from Figma Node 155:3308 & 135:1443
+// -----------------------------------------------------------------------------
+.discord-module-card {
+  background-color: #2f293d;
+  border-radius: 5px;
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+
+  .discord-icon-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+
+    span {
+      font-size: 56px;
+      color: #ffffff;
+    }
+  }
+
+  .discord-content-block {
+    flex-grow: 1;
+  }
+
+  .discord-title {
+    font-family: $font-family-heading;
+    font-size: 34px;
+    font-weight: $font-weight-extrabold;
+    color: #fffde7;
+    line-height: 1.15;
+  }
+
+  .discord-body {
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.5;
+  }
+
+  .discord-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    .button {
+      background-color: #fffde7;
+      color: #2f293d;
+      font-family: $font-family-heading;
+      font-weight: $font-weight-bold;
+      border-radius: 35px;
+      padding: 12px 36px;
+      border: none;
+
+      &:hover {
+        background-color: #ffffff;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+    padding: 32px 24px;
+
+    .discord-buttons {
+      justify-content: center;
+      margin: 0 auto;
+    }
+  }
+}
+
+.newsletter-module-card {
+  background-color: #fffde7;
+  border: 1px solid #bf3444;
+  border-radius: 5px;
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  box-shadow: 0 4px 20px rgba(99, 15, 40, 0.12);
+  position: relative;
+  overflow: hidden;
+
+  .newsletter-icon-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+  }
+
+  .newsletter-content-block {
+    flex-grow: 1;
+  }
+
+  .newsletter-title {
+    font-family: $font-family-heading;
+    font-size: 34px;
+    font-weight: $font-weight-extrabold;
+    color: #bf3444;
+    line-height: 1.15;
+  }
+
+  .newsletter-body {
+    font-size: 16px;
+    color: #2f293d;
+    line-height: 1.5;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    max-width: 540px;
+
+    .control {
+      flex-grow: 1;
+      min-width: 240px;
+    }
+
+    .input {
+      border: 2px solid #bf3444;
+      border-radius: 5px;
+      background-color: #ffffff;
+      color: #2f293d;
+      height: 48px;
+      font-size: 16px;
+      padding: 0 18px;
+
+      &::placeholder {
+        color: #8c828e;
+      }
+    }
+
+    .button {
+      background-color: #bf3444;
+      color: #fffde7;
+      font-family: $font-family-heading;
+      font-weight: $font-weight-bold;
+      border-radius: 35px;
+      padding: 12px 36px;
+      height: 48px;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #a32937;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+    padding: 32px 24px;
+
+    .newsletter-form {
+      justify-content: center;
+      margin: 0 auto;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 18. Hero Module Card & Miscellaneous Template Classes
+// -----------------------------------------------------------------------------
+.hero-module-card {
+  position: relative;
+  overflow: hidden;
+
+  .hero-card-gohei-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 100%;
+    background: url('/card-gohei.svg?v=ffca4f32') repeat-y center top;
+    background-size: 28px auto;
+    pointer-events: none;
+  }
+
+  .hero-card-gohei-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 28px;
+    height: 100%;
+    background: url('/card-gohei.svg?v=ffca4f32') repeat-y center top;
+    background-size: 28px auto;
+    transform: scaleX(-1);
+    pointer-events: none;
+  }
+
+  .hero-card-inner {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .hero-card-img {
+    height: 220px;
+    width: 220px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid #fffde7;
+    flex-shrink: 0;
+  }
+
+  .hero-card-content {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .hero-module-title {
+    color: #fffde7;
+  }
+
+  .hero-module-subtitle {
+    color: #ffffff;
+  }
+
+  .hero-module-body {
+    color: #fffde7;
+  }
+
+  .hero-module-btn {
+    background-color: #fffde7;
+    color: #2f293d;
+    font-weight: $font-weight-extrabold;
+    width: fit-content;
+    border-radius: 35px;
+
+    &:hover {
+      background-color: #ffffff;
+    }
+  }
+}
+
+.atom-dropdown-section {
+  display: block;
+
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .dropdown-title {
+    font-size: 18px;
+    font-weight: $font-weight-bold;
+    color: $color-readable-red;
+  }
+
+  .dropdown-carrot {
+    color: $color-readable-red;
+  }
+
+  .dropdown-body {
+    border-top: 1px solid rgba(191, 52, 68, 0.2);
+    font-weight: $font-weight-regular;
+  }
+}
+
+.img-callout-card {
+  .status-badge {
+    font-size: 12px;
+    padding: 4px 12px;
+  }
+}
+
+.img-text-module {
+  .img-text-title {
+    font-family: $font-family-heading;
+    font-weight: $font-weight-extrabold;
+    color: $color-readable-red;
+  }
+
+  .img-text-btn {
+    width: fit-content;
+  }
+}
+
+.main-feature-module {
+  .main-feature-btn {
+    width: fit-content;
+  }
+}
+
+.photo-gallery-module {
+  .photo-gallery-icon {
+    color: $color-readable-red;
+  }
+}
+
+.section-divider-module {
+  .divider-btn {
+    background-color: $color-readable-red;
+    color: #fffde7;
+    font-family: $font-family-heading;
+    font-weight: $font-weight-extrabold;
+    border-radius: 35px;
+    padding: 12px 36px;
+    border: 2px solid #fffde7;
+
+    &:hover {
+      background-color: #a32937;
+    }
+  }
+}
+
+.warning-display-module {
+  .warning-title {
+    display: block;
+    color: $color-readable-red;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+}
+
+.faq-link-module {
+  background-color: $color-readable-red;
+
+  .faq-link-flex {
+    display: flex;
+  }
+
+  .faq-link-icon {
+    font-size: 100px;
+  }
+}
+
+.cosplay-masquerade-module {
+  .rules-link {
+    color: #fffde7;
+    text-decoration: underline;
+  }
+}
+
+.cta-banner-module {
+  .cta-banner-btn {
+    background-color: $color-readable-red;
+    color: #fffde7;
+    border-radius: 35px;
+    padding: 14px 47px;
+    font-weight: $font-weight-extrabold;
+    border: none;
+
+    &:hover {
+      background-color: #a32937;
+    }
+  }
+}
+
+.massive-cta {
+  background: linear-gradient(135deg, #221a28 0%, #373852 100%);
+
+  .massive-cta-title {
+    color: #fffde7;
+  }
+}
+
+.atom-app {
+  background: radial-gradient(50% 50% at var(--x0) var(--y0), #1f90ba, transparent),
+    radial-gradient(50% 50% at var(--x1) var(--y1), #d505ff, transparent),
+    radial-gradient(50% 50% at var(--x2) var(--y2), #ffde05, transparent),
+    radial-gradient(50% 50% at var(--x3) var(--y3), #ff4949, transparent);
+  border: 1px solid $color-readable-red;
+  transition: --x0 1s, --x1 1s, --x2 1s, --x3 1s, --y0 1s, --y1 1s, --y2 1s, --y3 1s;
+}
+
+// -----------------------------------------------------------------------------
+// 19. Global Layout & Markdown Content Helper Classes
+// -----------------------------------------------------------------------------
+.navbar-date-tag {
+  color: #ff4949;
+  font-size: 12px;
+  left: 72px;
+  top: 76px;
+  position: absolute;
+}
+
+.navbar-dropdown-link {
+  font-size: 16px;
+  padding: 16px;
+}
+
+.footer-main {
+  background-color: #2e2a31;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-amp-link {
+  text-decoration: underline;
+}
+
+.hero-section-main {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-gohei-strip {
+  background: url('/gohei.svg?v=d2af2b2f');
+  background-size: 50px 278.44px;
+  height: 100vw;
+  position: absolute;
+  transform: matrix(0, -1, 1, 0, -45, 0);
+  transform-origin: top right;
+  width: 45px;
+}
+
+.hero-tag-card {
+  background: $color-readable-red;
+  width: fit-content;
+}
+
+.index-placeholder-card {
+  background: #000000;
+}
+
+.pricing-schedule-table {
+  tr.is-header-row {
+    background-color: #fffde7;
+  }
+
+  td.is-sold-out {
+    background-color: #cbcbd2;
+  }
+
+  td.is-stay-tuned {
+    background-color: #2e2a31;
+    color: #ffffff;
+  }
+}
+
+.guidelines-btn {
+  background-color: #fffde7;
+  color: #2f293d;
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  border-radius: 35px;
+  padding: 12px 36px;
+  border: none;
+
+  &:hover {
+    background-color: #ffffff;
+  }
+}
+
+.staff-divider {
+  background-color: $color-readable-red;
+  height: 2px;
+}
+
+.staff-req-list {
+  list-style: disc;
+  margin-left: 24px;
+  margin-bottom: 20px;
+}
+
+// =============================================================================
+// 20. Footer Top Bar, Search, & Figma Mode Switch (Pure CSS Theme Toggling)
+// =============================================================================
+
+.footer-top-bar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-search-input {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: none;
+  color: #221a28;
+  min-width: 260px;
+
+  &::placeholder {
+    color: #554d60;
+  }
+}
+
+.theme-toggle-container {
+  cursor: pointer;
+  user-select: none;
+}
+
+.theme-switch-track {
+  width: 76px;
+  height: 35px;
+  background-color: #fbf7eb;
+  border: 2px solid #bf3444;
+  border-radius: 18px;
+  padding: 3px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.theme-switch-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(0);
+}
+
+.theme-switch-icon {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+}
+
+// -----------------------------------------------------------------------------
+// Pure-CSS Dark Mode Toggling (#theme-toggle Checkbox Hack + System OS Dark)
+// -----------------------------------------------------------------------------
+
+@mixin apply-dark-mode-theme {
+  --bg-main: #221a28;
+  --text-main: #fbf7eb;
+  background-color: #221a28 !important;
+  color: #fbf7eb !important;
+
+  .card, .info-card, .box, .navbar-dropdown,
+  .application-card, .discord-module-card, .newsletter-module-card,
+  .cosplay-masquerade-card, .faq-card, .main-feature-card,
+  .artist-feature-card, .img-callout-card {
+    background-color: #2f2538 !important;
+    color: #fbf7eb !important;
+  }
+
+  .title, .subtitle, h1, h2, h3, h4, h5, p, strong, b, a:not(.button):not(.footer-social-links a):not(.navbar-item) {
+    color: #fbf7eb !important;
+  }
+
+  // 1. Horizontal gapless star border across top of section-divider-module and hero-section-main
+  .divider-gohei-strip,
+  .hero-gohei-strip {
+    background: url('/divider-stars-border.svg?v=e85a95e3') repeat-x center top !important;
+    background-size: 252px 39px !important;
+    transform: none !important;
+    width: 100% !important;
+    height: 39px !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  // 2. Vertical gapless star border along left/right edge of hero cards (.hero-module-card)
+  .hero-card-gohei-left,
+  .hero-card-gohei-right {
+    background: url('/divider-stars-vertical.svg?v=59c59458') repeat-y center top !important;
+    background-size: 28px auto !important;
+    width: 28px !important;
+  }
+
+  // 3. Recolor bottom wave on dividers and hero sections to blend into dark background (#221a28)
+  .divider-bottom-wave {
+    background: url('/divider-bottom-wave-dark.svg?v=46a333f1') repeat-x center bottom !important;
+    background-size: 1440px 60px !important;
+  }
+
+  // Navbar colors do NOT change in dark mode (stays cream #fffde7 with dark purple #221a28 text)
+  .navbar {
+    background-color: #fffde7 !important;
+    color: #221a28 !important;
+
+    .navbar-item, .navbar-link {
+      color: #221a28 !important;
+      &:hover {
+        color: $color-readable-red !important;
+      }
+    }
+  }
+
+  .theme-switch-track {
+    background-color: #2f2538;
+    border-color: #8a38f5;
+  }
+
+  .theme-switch-thumb {
+    transform: translateX(41px);
+    background-color: transparent !important;
+  }
+
+  .theme-icon-light {
+    display: none !important;
+  }
+
+  .theme-icon-dark {
+    display: inline-block !important;
+  }
+}
+
+// 1. For Light Mode OS (or default browsers): Clicking switch (#theme-toggle checked) turns ON Dark Mode
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+  body:has(#theme-toggle:checked) {
+    @include apply-dark-mode-theme;
+  }
+}
+
+// 2. For Dark Mode OS (prefers-color-scheme: dark):
+// Automatically apply Dark Mode on page load when checkbox is NOT checked.
+// Clicking switch (#theme-toggle checked) reverts to Light Mode!
+@media (prefers-color-scheme: dark) {
+  body:not(:has(#theme-toggle:checked)) {
+    @include apply-dark-mode-theme;
+  }
+}
+
+
+

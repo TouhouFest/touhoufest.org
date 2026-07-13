@@ -7,10 +7,21 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+# Whether to minify HTML output during site build
+minify_html = true
+
 [markdown]
 
 [extra]
 site_name = "TouhouFest"
+
+[extra.event]
+name = "TouhouFest 2026"
+year = 2026
+start_date = "2026-06-19T14:00:00-07:00"
+end_date = "2026-06-21T18:00:00-07:00"
+# If empty (""), event phase ("before", "during", "after") is automatically derived from current datetime relative to start_date and end_date.
+phase = ""
 
 [extra.socials]
 discord_invite = "https://discord.gg/touhoufest"

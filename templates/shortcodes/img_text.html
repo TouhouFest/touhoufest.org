@@ -1,0 +1,13 @@
+{% import "macros/assets.html" as assets %}
+<div class="img-text-module my-5 {% if reverse %}is-flex-direction-row-reverse{% endif %}">
+  <div class="img-frame">
+    <img src="{{ assets::url(path=image) }}" alt="{{ alt | default(value=title | default(value='Image')) }}" />
+  </div>
+  <div class="text-content-block">
+    {% if title %}<h3 class="title is-3 img-text-title mb-2">{{ title }}</h3>{% endif %}
+    <div class="content">
+      {{ body | default(value="") | safe }}
+    </div>
+    {% if url %}<a class="button is-primary img-text-btn mt-3" href="{{ url }}">{{ button_text | default(value="Learn More") }} <span class="fa-solid fa-arrow-right ml-2"></span></a>{% endif %}
+  </div>
+</div>

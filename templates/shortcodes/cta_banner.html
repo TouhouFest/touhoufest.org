@@ -1,0 +1,16 @@
+<div class="massive-cta cta-banner-module my-6 {{ class | default(value='') }}">
+  <div class="massive-cta-inner">
+    {% if badge %}
+    <div class="massive-cta-badge">
+      <span class="fa-solid fa-bell mr-2"></span> {{ badge }}
+    </div>
+    {% endif %}
+    <h2 class="massive-cta-title">{{ title }}</h2>
+    {% if subtitle %}<p class="massive-cta-subtitle">{{ subtitle }}</p>{% endif %}
+    {% if link and button_text %}
+    <div class="mt-4">
+      <a class="button is-primary is-medium cta-banner-btn" href="{{ link }}">{{ button_text }} {% if icon %}<span class="fa-solid fa-{{ icon }} ml-2"></span>{% else %}<span class="fa-solid fa-arrow-right ml-2"></span>{% endif %}</a>
+    </div>
+    {% endif %}
+  </div>
+</div>

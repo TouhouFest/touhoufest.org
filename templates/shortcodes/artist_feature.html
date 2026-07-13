@@ -1,0 +1,12 @@
+{% import "macros/assets.html" as assets %}
+<div class="artist-feature-card my-4">
+  <div class="artist-img-frame">
+    <img src="{{ assets::url(path=image | default(value='/hero.png')) }}" alt="{{ name }}" />
+  </div>
+  <div class="artist-header is-flex is-justify-content-space-between is-align-items-center mt-2">
+    <h3 class="artist-name mb-0">{{ name }}</h3>
+    {% if tag %}<span class="tag-core tag-open">{{ tag }}</span>{% endif %}
+  </div>
+  {% if description %}<p class="mt-2 mb-0">{{ description }}</p>{% endif %}
+  {% if url %}<a class="atom-jumplink mt-3" href="{{ url }}">View Profile <span class="fa-solid fa-arrow-right"></span></a>{% endif %}
+</div>

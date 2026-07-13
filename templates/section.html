@@ -4,7 +4,7 @@
 <p class='title is-1'>{{ section.title }}</p>
 {% endblock %}
 {% block content %}
-<div class="post content">
+<div class="post content container my-5">
   {% if section.extra.toc %}
   {% include "toc.html" %}
   {% endif %}

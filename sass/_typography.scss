@@ -1,0 +1,63 @@
+// =============================================================================
+// TouhouFest Typography Styles
+// Extracted from Figma Node 2215:3662 and aligned with Bulma .title / .content
+// =============================================================================
+
+@use 'variables' as *;
+
+body {
+  font-family: $font-family-body;
+  font-size: $font-size-body-default;
+  font-weight: $font-weight-regular;
+  line-height: 1.5;
+  color: $color-text-dark;
+}
+
+// -----------------------------------------------------------------------------
+// Title & Subtitle Hierarchy (Aligned with base.html & index.html)
+// -----------------------------------------------------------------------------
+
+.title, h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-extrabold;
+}
+
+.title.is-1 {
+  font-size: $font-size-h1-desktop;
+}
+
+h2.title {
+  font-size: 42px;
+}
+
+// Content Block Typography (from base.html inline rules)
+.content {
+  h2 {
+    color: $color-readable-red;
+    font-size: 42px;
+  }
+
+  h3 {
+    color: $color-readable-red;
+    font-weight: 500;
+  }
+}
+
+// Hero Typography
+.hero h2 {
+  color: #ffffff;
+}
+
+// -----------------------------------------------------------------------------
+// Special Body Text Modifiers (from Figma)
+// -----------------------------------------------------------------------------
+.body-large, p.is-large {
+  font-size: $font-size-body-large;
+  font-weight: $font-weight-bold;
+  line-height: 1.5;
+}
+
+.body-small, p.is-small, .disclaimer {
+  font-size: $font-size-body-small;
+  color: $color-text-muted;
+}

@@ -1,0 +1,16 @@
+{% macro get_phase() %}
+{%- set phase = config.extra.event.phase -%}
+{%- if not phase or phase == "" -%}
+  {%- set now_ts = now(timestamp=true) -%}
+  {%- set start_ts = config.extra.event.start_date | date(format="%s") | int -%}
+  {%- set end_ts = config.extra.event.end_date | date(format="%s") | int -%}
+  {%- if now_ts < start_ts -%}
+    {%- set phase = "before" -%}
+  {%- elif now_ts > end_ts -%}
+    {%- set phase = "after" -%}
+  {%- else -%}
+    {%- set phase = "during" -%}
+  {%- endif -%}
+{%- endif -%}
+{{- phase -}}
+{% endmacro %}

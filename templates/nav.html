@@ -1,9 +1,10 @@
+{% import "macros/assets.html" as assets %}
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img height='58.65' src='/banner.png'>
-        <p style='color: #ff4949; font-size: 12px; left: 72px; top: 76px; position: absolute;'><strong>June 19 - 21,
+        <img height='58.65' src='{{ assets::url(path="banner.png", width=400) }}'>
+        <p class="navbar-date-tag"><strong>June 19 - 21,
             2026</strong></p>
       </a>
 
@@ -31,7 +32,7 @@
             {% if section.pages %}
             <div class="navbar-dropdown">
               {% for page in section.pages %}
-              <a class="has-text-light navbar-item" href="{{ page.path }}" style=' font-size: 16px; padding: 16px'>
+              <a class="has-text-light navbar-item navbar-dropdown-link" href="{{ page.path }}">
                 {{ page.title }}
               </a>
               {% endfor %}

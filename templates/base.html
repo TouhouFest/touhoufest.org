@@ -1,221 +1,25 @@
+{% import "macros/assets.html" as assets %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
-  <style>
-    :root {
-      --bulma-navbar-height: 127px;
-      --bulma-scheme-main: var(--pale);
-      --bulma-strong-color: black;
-      --bulma-strong-weight: 700;
-      --bulma-text: black;
-      --pale: #fffde7;
-      --red: #BF3444
-    }
-
-    @property --x0 {
-      inherits: false;
-      initial-value: 25%;
-      syntax: '<percentage>'
-    }
-
-    @property --x1 {
-      inherits: false;
-      initial-value: 125%;
-      syntax: '<percentage>'
-    }
-
-    @property --x2 {
-      inherits: false;
-      initial-value: 75%;
-      syntax: '<percentage>'
-    }
-
-    @property --x3 {
-      inherits: false;
-      initial-value: -25%;
-      syntax: '<percentage>'
-    }
-
-    @property --y0 {
-      inherits: false;
-      initial-value: -25%;
-      syntax: '<percentage>'
-    }
-
-    @property --y1 {
-      inherits: false;
-      initial-value: 25%;
-      syntax: '<percentage>'
-    }
-
-    @property --y2 {
-      inherits: false;
-      initial-value: 125%;
-      syntax: '<percentage>'
-    }
-
-    @property --y3 {
-      inherits: false;
-      initial-value: 75%;
-      syntax: '<percentage>'
-    }
-
-    .btn-red {
-      background: var(--red);
-      color: white
-    }
-
-    .button {
-      font-size: 1.125em
-    }
-
-    .card {
-      --bulma-card-radius: 5px
-    }
-
-    .card-prio {
-      background: radial-gradient(50% 50% at var(--x0) var(--y0), #1f90ba, transparent), radial-gradient(50% 50% at var(--x1) var(--y1), #D505FF, transparent), radial-gradient(50% 50% at var(--x2) var(--y2), #FFDE05, transparent),
-        radial-gradient(50% 50% at var(--x3) var(--y3), #FF4949, transparent);
-      transition: --x0 1s, --x1 1s, --x2 1s, --x3 1s, --y0 1s, --y1 1s, --y2 1s, --y3 1s
-    }
-
-    .card-active:hover {
-      background: radial-gradient(50% 50% at var(--x0) var(--y0), #1f90ba, transparent), radial-gradient(50% 50% at var(--x1) var(--y1), #D505FF, transparent), radial-gradient(50% 50% at var(--x2) var(--y2), #FFDE05, transparent),
-        radial-gradient(50% 50% at var(--x3) var(--y3), #FF4949, transparent);
-      --x0: 10%;
-      --x1: 90%;
-      --x2: 90%;
-      --x3: 10%;
-      --y0: 10%;
-      --y1: 10%;
-      --y2: 90%;
-      --y3: 90%
-    }
-
-    .content {
-      h2 {
-        color: var(--red);
-        font-size: 42px
-      }
-
-      h3 {
-        color: var(--red);
-        font-weight: 500
-      }
-    }
-
-    .footer {
-      --bulma-footer-background-color: #2E2A31;
-      --bulma-link-text: white;
-
-      p {
-        margin: 4px 0;
-      }
-    }
-
-    .hero h2 {
-      color: white
-    }
-
-    .navbar {
-      --bulma-navbar-dropdown-arrow: black;
-      --bulma-navbar-dropdown-item-h: 274;
-      --bulma-navbar-dropdown-item-s: 8%;
-      --bulma-navbar-dropdown-item-background-l: 18%;
-      --bulma-navbar-dropdown-background-color: #FF4949;
-      --bulma-navbar-item-img-max-height: 53.41px
-    }
-
-    .navbar-dropdown .navbar-item:hover {
-      --bulma-navbar-dropdown-item-h: 353;
-      --bulma-navbar-dropdown-item-s: 57%;
-      --bulma-navbar-dropdown-item-background-l: 48%;
-      --bulma-navbar-item-background-l-delta: 0%;
-    }
-
-    .navbar-item,
-    .navbar-link {
-      border-bottom: 2px solid transparent;
-      transition: border-color 1s, color 1s
-    }
-
-    .navbar-item:hover,
-    .navbar-link:hover {
-      background: none;
-      border-color: 2px solid var(--red);
-      color: var(--red);
-    }
-
-    .table th,
-    .tag {
-      font-weight: 700
-    }
-
-    .tag-closed {
-      background: none;
-      color: #564b58;
-    }
-
-    .table th,
-    .tag-open {
-      --bulma-tag-h: 0;
-      --bulma-tag-s: 0%;
-      --bulma-tag-color-l: 100%;
-      background-color: var(--red)
-    }
-
-    .theme-light {
-      --bulma-link-text: var(--red);
-      --bulma-scheme-main: #fffde7
-    }
-
-    .title.is-1 {
-      font-size: 56px
-    }
-
-    h2.title {
-      font-size: 42px
-    }
-
-    table {
-      border-collapse: separate;
-    }
-
-    th:first-of-type {
-      border-top-left-radius: 5px;
-    }
-
-    th:last-of-type {
-      border-top-right-radius: 5px;
-    }
-
-    tr:last-of-type td:first-of-type {
-      border-bottom-left-radius: 5px;
-    }
-
-    tr:last-of-type td:last-of-type {
-      border-bottom-right-radius: 5px;
-    }
-  </style>
+  <link rel="preload" href="/fonts/poppins-v24-latin-800.woff2?v=af4d371a" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="{{ get_url(path="style.css", cachebust=true) }}" />
   <title>{{ config.title }}</title>
   {% include "og_tags.html" %}
 </head>
 
-<body class="is-family-sans is-fullheight theme-light">
+<body class="is-family-sans is-fullheight">
+  <input type="checkbox" id="theme-toggle" class="is-hidden theme-toggle-checkbox" aria-hidden="true" />
   <div class="header">
     {% include "nav.html" %}
   </div>
-  <section class="hero is-dark is-medium" style='background: url("/hero.png"); background-position: center center'>
-    <div
-      style='background: url("/gohei.svg"); background-size: 50px 278.44px; height: 100vw; position: absolute; transform: matrix(0, -1, 1, 0, -45, 0); transform-origin: top right; width: 45px'>
-    </div>
+  <section class="hero is-dark is-medium hero-section-main" style="background-image: url('{{ assets::url(path="hero.png", width=1440) }}');">
+    <div class="hero-gohei-strip"></div>
     <div class="hero-body container">
-      <div class='card' style='background: var(--red); width: fit-content;'>
+      <div class='card hero-tag-card'>
         <div class='card-content'>
           {% block header %}
           {% endblock %}

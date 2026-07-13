@@ -1,0 +1,32 @@
+{% import "macros/event.html" as event %}
+{% import "macros/grid.html" as grid %}
+{% set phase = event::get_phase() %}
+
+{% set exh = load_data(path="data/exhibitors.yml") %}
+{% set status_key = type ~ "_status" %}
+{% set list_status = exh[status_key] | default(value="coming_soon") %}
+{% set list_items = exh[type] | default(value=[]) %}
+
+<div class="columns is-multiline my-5">
+  {% if phase == "after" %}
+  {% set title = config.extra.event.name ~ " Concluded" %}
+  {% set cap_type = type | capitalize %}
+  {% set msg = "Our " ~ cap_type ~ " hall has closed for the season. Thank you to all circles, dealers, and creators who participated!" %}
+  {{ grid::state_card(title=title, message=msg, subtext="Look out for our 2027 exhibitor application announcements coming soon.") }}
+  {% elif list_status == "coming_soon" or list_items | length == 0 %}
+  {% set msg = "Our official 2026 " ~ type ~ " directory and interactive table map are currently being curated. Please check back later!" %}
+  {{ grid::state_card(title="Coming Soon", message=msg, subtext="Are you an independent artist or vendor? Check our application status on the registration page.") }}
+  {% else %}
+    {% for item in list_items %}
+    <div class="column is-4">
+      <div class="info-card">
+        <h3 class="info-card-header mb-2">{{ item.name }}</h3>
+        <div class="info-card-body">
+          <p class="mb-2"><strong>Booth / Table:</strong> {{ item.location }}</p>
+          <p class="body-small">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+</div>

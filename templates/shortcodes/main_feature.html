@@ -1,0 +1,13 @@
+{% import "macros/assets.html" as assets %}
+<div class="main-feature-card main-feature-module my-6">
+  <div class="feature-image-lg">
+    <img src="{{ assets::url(path=image | default(value='/hero.png')) }}" alt="{{ title }}" />
+  </div>
+  <div class="feature-content-lg">
+    <div>
+      <h2 class="feature-title-lg mb-3">{{ title }}</h2>
+      <div class="content">{{ body | default(value="") | safe }}</div>
+    </div>
+    {% if url %}<a class="button is-primary main-feature-btn mt-4" href="{{ url }}">{{ button_text | default(value="Explore Now") }} <span class="fa-solid fa-arrow-right ml-2"></span></a>{% endif %}
+  </div>
+</div>

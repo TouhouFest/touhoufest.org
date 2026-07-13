@@ -1,0 +1,30 @@
+{% import "macros/event.html" as event %}
+{% import "macros/grid.html" as grid %}
+{% set phase = event::get_phase() %}
+
+{% set hotels = load_data(path="data/hotels.yml") %}
+
+<div class="columns is-multiline my-5">
+  {% if phase == "after" or hotels.status == "closed" %}
+  {% set msg = "Our official hotel room blocks for " ~ config.extra.event.name ~ " have closed. Thank you to everyone who stayed with us and supported our convention!" %}
+  {{ grid::state_card(title="Room Blocks Concluded", message=msg, subtext="Stay tuned for future event dates and hotel announcements.") }}
+  {% elif hotels.status == "open" and hotels.room_blocks | length > 0 %}
+    {% for b in hotels.room_blocks %}
+    <div class="column is-6">
+      <div class="info-card">
+        <h3 class="info-card-header mb-2">{{ b.name }}</h3>
+        <div class="info-card-body">
+          <p class="mb-2"><strong>Rate:</strong> {{ b.rate }}</p>
+          {% if b.description %}<p class="mb-3">{{ b.description }}</p>{% endif %}
+          {% if b.booking_url %}
+          <a class="button is-primary is-small is-rounded mt-2" href="{{ b.booking_url }}">Book Room Block</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+  {% set msg = "As of right now, the official discounted hotel room block for " ~ config.extra.event.name ~ " has not opened yet. Please check back later!" %}
+  {{ grid::state_card(title="Coming Soon", message=msg, subtext="Booking within our official hotel blocks directly supports TouhouFest and helps keep our event running strong.") }}
+  {% endif %}
+</div>

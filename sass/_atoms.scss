@@ -1,0 +1,266 @@
+// =============================================================================
+// TouhouFest Figma Design System: Atoms & UI Components
+// Extracted directly from Figma Document: TF-Website (Kuw6qQ3B9gBVhUqLTyjsh0)
+// Node 102:4 (Styles -> Atoms & UI Sections)
+// =============================================================================
+
+@use 'variables' as *;
+
+// -----------------------------------------------------------------------------
+// 1. Tag & Badge Atoms (Tag Core / Tag Variations / Tag Interactive)
+// Exact specs: border-radius 20px (pill), padding 6px 16px, font-weight 800
+// -----------------------------------------------------------------------------
+.tag-core, .status-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: $font-family-heading;
+  font-size: 14px;
+  font-weight: $font-weight-extrabold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+
+  &.tag-open, &.is-open {
+    background-color: $color-readable-red;
+    color: #ffffff;
+  }
+
+  &.tag-closed, &.is-closed {
+    background-color: $color-ui-light-gray;
+    color: $color-supporting-navy;
+  }
+
+  &.tag-coming-soon, &.is-coming-soon {
+    background-color: $color-primary;
+    color: $color-text-dark;
+  }
+
+  &.tag-interactive {
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 2. Map Location Core & Map Location Tags (Node 3797:672905 / 3797:672911)
+// Exact specs: Fill #bf3444, Stroke #fbf7eb w=1px, border-radius 5px, p=8/16
+// -----------------------------------------------------------------------------
+.map-location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: $color-readable-red;
+  border: 1px solid $color-primary-light;
+  border-radius: 5px;
+  color: $color-primary-light;
+  font-family: $font-family-body;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  line-height: 1.4;
+
+  .map-icon {
+    color: $color-primary-light;
+  }
+
+  &.is-interactive {
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    &:hover {
+      background-color: darken($color-readable-red, 8%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 3. Feature Card Atom (Node 135:1319 / 4090:841691)
+// Exact specs: cr=5px, border w=1px red, padding 48px, background transparent
+// -----------------------------------------------------------------------------
+.feature-atom-card {
+  background-color: var(--bulma-card-background-color, transparent);
+  border: 1px solid $color-readable-red;
+  border-radius: 5px;
+  padding: $space-xl; // 48px exact
+  color: var(--bulma-card-color, var(--bulma-text, $color-text-dark));
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba($color-readable-red, 0.12);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 4. Headline Atoms (.icon-headline, .minor-section-title, .app-title)
+// -----------------------------------------------------------------------------
+.icon-headline {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-family: $font-family-heading;
+  font-size: 28px;
+  font-weight: $font-weight-extrabold;
+  color: $color-readable-red;
+}
+
+.minor-section-title {
+  font-family: $font-family-heading;
+  font-size: 24px;
+  font-weight: $font-weight-bold;
+  color: var(--bulma-text, $color-text-dark);
+}
+
+.app-title {
+  font-family: $font-family-heading;
+  font-size: 34px;
+  font-weight: $font-weight-extrabold;
+  color: $color-readable-red;
+}
+
+// -----------------------------------------------------------------------------
+// 5. Input Field & Field Box Atoms (Node 3230:327924 / 3230:328066)
+// -----------------------------------------------------------------------------
+.field-box, .atom-input-field {
+  background-color: var(--bulma-card-background-color, transparent);
+  border: 1px solid $color-ui-light-gray;
+  border-radius: 5px;
+  padding: 14px 24px;
+  font-family: $font-family-body;
+  font-size: 16px;
+  color: var(--bulma-text, $color-text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus-within {
+    border-color: $color-readable-red;
+    box-shadow: 0 0 0 2px rgba($color-readable-red, 0.15);
+  }
+
+  input, select, textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 6. DropDown Section Atom (Node 3233:304911 / 3795:570153)
+// -----------------------------------------------------------------------------
+.atom-dropdown-section {
+  border: 1px solid $color-readable-red;
+  border-radius: 5px;
+  padding: 16px 24px;
+  background-color: var(--bulma-card-background-color, transparent);
+  color: var(--bulma-text, $color-text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $font-family-body;
+  font-weight: $font-weight-bold;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba($color-readable-red, 0.05);
+  }
+
+  .dropdown-carrot {
+    transition: transform 0.3s ease;
+  }
+
+  &.is-expanded .dropdown-carrot {
+    transform: rotate(180deg);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 7. Warning Display Atom (Node 3810:764175)
+// -----------------------------------------------------------------------------
+.warning-display-atom {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  border: 2px solid $color-readable-red;
+  background-color: var(--bulma-scheme-main, $color-page-bg);
+  border-radius: 5px;
+  color: var(--bulma-text, $color-text-dark);
+  font-family: $font-family-body;
+  font-weight: $font-weight-bold;
+  box-shadow: 3px 4px 13px rgba(99, 15, 40, 0.1);
+
+  .warning-icon {
+    color: $color-readable-red;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 8. Tab Button & Jumplink Atoms (Node 3257:420908 / 2527:93433)
+// -----------------------------------------------------------------------------
+.atom-tab-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  font-size: 16px;
+  border: 2px solid $color-readable-red;
+  background-color: transparent;
+  color: var(--bulma-text, $color-text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &.is-active, &:hover {
+    background-color: $color-readable-red;
+    color: #ffffff;
+  }
+}
+
+.atom-jumplink {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  color: $color-readable-red;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateX(4px);
+    text-decoration: underline;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 9. Table Cell Atom (.atom-table-cell / Node 2432:71729)
+// -----------------------------------------------------------------------------
+.atom-table-cell {
+  padding: 18px 22px;
+  border: 1px solid $color-ui-light-gray;
+  font-family: $font-family-body;
+  font-weight: $font-weight-bold;
+  color: var(--bulma-text, $color-text-dark);
+  background-color: var(--bulma-card-background-color, transparent);
+}

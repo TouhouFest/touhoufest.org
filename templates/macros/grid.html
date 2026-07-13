@@ -1,0 +1,11 @@
+{% macro state_card(title, message, subtext="") %}
+<div class="column is-12">
+  <div class="info-card">
+    <h3 class="info-card-header mb-2">{{ title }}</h3>
+    <div class="info-card-body">
+      <p class="mb-3">{{ message }}</p>
+      {% if subtext != "" %}<p class="body-small">{{ subtext }}</p>{% endif %}
+    </div>
+  </div>
+</div>
+{% endmacro %}

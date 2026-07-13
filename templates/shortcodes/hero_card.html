@@ -1,0 +1,14 @@
+{% import "macros/assets.html" as assets %}
+<div class="hero-module-card my-6">
+  <div class="hero-card-gohei-left"></div>
+  <div class="hero-card-gohei-right"></div>
+  <div class="hero-card-inner">
+    <img class="hero-card-img" src="{{ assets::url(path=image) }}" />
+    <div class="hero-card-content">
+      <h2 class="hero-module-title mb-3">{{ title }}</h2>
+      {% if subtitle %}<p class="hero-module-subtitle mb-4">{{ subtitle }}</p>{% endif %}
+      {% if body %}<div class="content hero-module-body mt-3 mb-4">{{ body | safe }}</div>{% endif %}
+      {% if url %}<a class="button hero-module-btn" href="{{ url }}">{{ button_text | default(value="Explore") }} <span class="fa-solid fa-arrow-right ml-2"></span></a>{% endif %}
+    </div>
+  </div>
+</div>

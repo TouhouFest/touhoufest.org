@@ -1,0 +1,11 @@
+<div class="cosplay-masquerade-card cosplay-masquerade-module my-5">
+  <h3 class="cosplay-header">{{ title | default(value="Cosplay Masquerade") }}</h3>
+  <div class="cosplay-body">
+    <p>{{ body | default(value='Please read the rules (found <a class="rules-link" href="//docs.google.com/document/d/1TSzq8HMaD34_8Bpmt5FimZEe8I2hFm4A0ZuuzlTXRYc/">here</a>) completely before applying. Only apply to one category.') | safe }}</p>
+  </div>
+  <div class="cosplay-buttons">
+    <a class="button" href="{{ craft_url | default(value='#') }}">Craftsmanship Application</a>
+    <a class="button" href="{{ perf_url | default(value='#') }}">Performance Application</a>
+    <a class="button" href="{{ exhib_url | default(value='#') }}">Exhibition Application</a>
+  </div>
+</div>

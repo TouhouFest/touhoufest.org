@@ -1,0 +1,106 @@
+// =============================================================================
+// TouhouFest Design System Variables
+// Extracted directly from Figma Document: TF-Website (Kuw6qQ3B9gBVhUqLTyjsh0)
+// Node 102:4 (Styles -> Styleguide -> Colors & Color usage)
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// 1. Color Palette
+// -----------------------------------------------------------------------------
+
+// Primary Colors
+$color-primary: #f8c650;           // Primary yellow/gold
+$color-primary-light: #fbf7eb;     // High contrast light / cream background
+$color-readable-red: #bf3444;      // Readable red for H1/H2 headlines and accent CTAs
+
+// Background Colors
+$color-page-bg: #fbf7eb;           // Default page background
+$color-dark-bg: #221a28;           // Dark section background
+$color-light-yellow: #fffde7;      // Light yellow callout background
+
+// Supporting & Accent Colors
+$color-supporting-navy: #373852;   // Supporting dark navy/slate
+$color-supporting-purple: #501054; // Supporting dark purple/magenta
+$color-supporting-violet: #c13dec; // Supporting bright purple/violet
+$color-supporting-blue: #6278d2;   // Supporting periwinkle blue
+$color-bright-coral: #ff4949;      // Bright coral/red for dark mode headlines (`2215:14597`)
+$color-accent-pink: #ff0051;       // Accent pink-red (`4668:662113`)
+$color-rainbow-cyan: #1f90ba;      // Priority rainbow card cyan (`card-prio`)
+$color-rainbow-magenta: #d505ff;   // Priority rainbow card magenta (`card-prio`)
+$color-rainbow-yellow: #ffde05;    // Priority rainbow card yellow (`card-prio`)
+$color-dark-surface: #2f293d;      // Dark surface / card background (`2215:14597`)
+
+// UI Colors & Borders
+$color-ui-light-gray: #cbcbd2;     // Light gray for borders / disabled elements (`2212:19331`)
+$color-ui-dark-gray: #564b58;      // Muted dark gray-purple for UI / disabled button text
+
+// Text Colors
+$color-text-dark: #2f293d;         // Default dark body copy color (`2212:19362`)
+$color-text-light: #fbf7eb;        // Light body copy color on dark backgrounds
+$color-text-muted: #564b58;        // Muted body text color
+
+// -----------------------------------------------------------------------------
+// 2. Shadows, Radii & Layout Tokens (from Figma Styleguide & Atoms)
+// -----------------------------------------------------------------------------
+$shadow-card: 3px 4px 13px rgba(99, 15, 40, 0.15);      // Deep burgundy drop shadow (`2550:92016`)
+$shadow-card-dark: 3px 4px 13px rgba(0, 0, 0, 0.4);     // Dark mode drop shadow
+$radius-card: 5px;                                      // Standard card / field corner radius (`cr=5.0`)
+$radius-tag: 20px;                                      // Tag / badge pill corner radius (`cr=20.0`)
+$radius-pill: 35px;                                     // Button / pill corner radius (`cr=35.0`)
+
+
+// -----------------------------------------------------------------------------
+// 2. Typography & Font Families
+// -----------------------------------------------------------------------------
+$font-family-heading: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$font-family-body: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+// Font Sizes (from Figma Styleguide Frame 118)
+$font-size-h1: 56px;
+$font-size-h1-desktop: 56px;
+
+$font-size-h1-mobile: 34px;
+$font-size-h2: 34px;
+$font-size-h3: 24px;
+$font-size-body-large: 20px;
+$font-size-body-default: 16px;
+$font-size-body-small: 14px;
+
+// -----------------------------------------------------------------------------
+// 3. Spacing & Layout Tokens (from Figma spacing callouts)
+// -----------------------------------------------------------------------------
+$space-xs: 8px;
+$space-sm: 16px;
+$space-md: 24px;
+$space-lg: 32px;
+$space-xl: 48px;
+$space-xxl: 64px;
+
+$space-h1-bottom: 16px;
+$space-h2-top: 24px;
+$space-h2-bottom: 16px;
+$space-h3-top: 24px;
+$space-h3-bottom: 16px;
+$space-content-block: 32px;
+$space-section: 48px;
+
+// -----------------------------------------------------------------------------
+// 4. Bulma Framework Overrides (if compiling with Bulma)
+// -----------------------------------------------------------------------------
+$primary: $color-primary;
+$info: $color-supporting-blue;
+$success: #48c78e;
+$warning: $color-primary;
+$danger: $color-readable-red;
+
+$background: $color-page-bg;
+$text: $color-text-dark;
+$text-strong: $color-supporting-navy;
+
+$family-primary: $font-family-body;
+$family-secondary: $font-family-heading;

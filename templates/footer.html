@@ -1,43 +1,71 @@
-<!-- TODO: Properly style this so that it splits the socials and the copyright -->
-<footer class="footer section has-text-white is-align-items-flex-end mt-auto">
-  <div class='columns'>
-    <div class='column'>
-      <p><b>Stay Connected</b></p>
-      <p>Follow us @TouhouFest</p>
-      <p>
-        <!-- TODO: Use FontAwesome Icons instead of text -->
-        <a href='{{ config.extra.socials.discord_invite }}'><span class='fa-brands fa-discord'></span></a>
-        <a href='{{ config.extra.socials.bluesky }}'><span class='fa-brands fa-bluesky'></span></a>
-        <a href='{{ config.extra.socials.instagram }}'><span class='fa-brands fa-instagram'></span></a>
-        <a href='{{ config.extra.socials.youtube }}'><span class='fa-brands fa-youtube'></span></a>
-        <a href='{{ config.extra.socials.twitter }}'><span class='fa-brands fa-twitter'></span></a>
-      </p>
-      <p>Email Us @touhoufest.org</p>
-      <p>
-        TouhouFest™ is a production of the
-        <a href="https://amp-organization.com/">AMP Organization</a>.
-      </p>
-      <p>© AMP Organization, {{ now() | date(format="%Y") }}</p>
+<footer class="footer section has-text-white is-align-items-flex-end mt-auto footer-main">
+  <div class="container">
+    <div class="footer-top-bar mb-6 is-flex is-justify-content-space-between is-align-items-center is-flex-wrap-wrap pb-5">
+      <div class="footer-search-control mb-3">
+        <div class="field has-addons">
+          <p class="control has-icons-left">
+            <input class="input is-rounded footer-search-input" type="text" placeholder="Search the site..." aria-label="Search site" />
+            <span class="icon is-small is-left"><span class="fa-solid fa-magnifying-glass"></span></span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-theme-switch mb-3 is-flex is-align-items-center">
+        <span class="theme-switch-label has-text-weight-bold mr-4 is-size-6">Mode</span>
+        <label class="theme-toggle-container is-flex is-align-items-center is-clickable" for="theme-toggle">
+          <span class="theme-mode-text mr-3 is-size-6 has-text-weight-semibold">Light Mode</span>
+          <div class="theme-switch-track is-flex is-align-items-center">
+            <div class="theme-switch-thumb is-flex is-align-items-center is-justify-content-center">
+              <img class="theme-switch-icon theme-icon-light" src="{{ get_url(path="switch-yinyang.svg", cachebust=true) }}" alt="Light Mode Yin-Yang Orb" />
+              <img class="theme-switch-icon theme-icon-dark is-hidden" src="{{ get_url(path="switch-hakkero.svg", cachebust=true) }}" alt="Dark Mode Mini Hakkero" />
+            </div>
+          </div>
+          <span class="theme-mode-text ml-3 is-size-6 has-text-weight-semibold">Dark Mode</span>
+        </label>
+      </div>
     </div>
-    <div class='column'>
-      <p><b>Register</b></p>
-      <p><a>Buy a Badge</a></p>
-      <p><a>Artist Alley Applications</a></p>
-      <p><a>Vendor Booth Applications</a></p>
-      <p><a>Fan Game Table Applications</a></p>
-      <p><a>Panel Applications</a></p>
-      <p><a>Performer Applications</a></p>
-      <p><a>Cosplay Masquerade Applications</a></p>
-      <p><a>Staff Applications</a></p>
-      <p><a>Volunteer Applications</a></p>
-    </div>
-    <div class='column'>
-      <p><b>About</b></p>
-    </div>
-    <div class='column'>
-      <p><b>Learn more about</b></p>
+    <div class="columns is-multiline">
+      <div class="column is-3-desktop is-12-mobile mb-4">
+        <p class="title is-5 has-text-white mb-3"><b>Stay Connected</b></p>
+        <p class="mb-3">Follow us @TouhouFest</p>
+        <p class="is-size-4 mb-4 footer-social-links">
+          <a class="has-text-white" href="{{ config.extra.socials.discord_invite | default(value='https://discord.gg/touhoufest') }}" aria-label="Discord"><span class="fa-brands fa-discord"></span></a>
+          <a class="has-text-white" href="{{ config.extra.socials.bluesky | default(value='https://bsky.app/profile/touhoufest.org') }}" aria-label="Bluesky"><span class="fa-brands fa-bluesky"></span></a>
+          <a class="has-text-white" href="{{ config.extra.socials.instagram | default(value='https://instagram.com/touhoufest') }}" aria-label="Instagram"><span class="fa-brands fa-instagram"></span></a>
+          <a class="has-text-white" href="{{ config.extra.socials.youtube | default(value='https://youtube.com/@touhoufest') }}" aria-label="YouTube"><span class="fa-brands fa-youtube"></span></a>
+          <a class="has-text-white" href="{{ config.extra.socials.twitter | default(value='https://twitter.com/touhoufest') }}" aria-label="Twitter"><span class="fa-brands fa-twitter"></span></a>
+        </p>
+        <p class="mb-4"><a class="has-text-white" href="mailto:contact@touhoufest.org">Email Us @touhoufest.org</a></p>
+        <p class="is-size-7 mb-2">
+          TouhouFest™ is a production of the
+          <a class="has-text-white footer-amp-link" href="https://amp-organization.com/">AMP Organization</a>.
+        </p>
+        <p class="is-size-7">© AMP Organization, {{ now() | date(format="%Y") }}</p>
+      </div>
+
+      <div class="column is-3-desktop is-6-tablet is-12-mobile mb-4">
+        <p class="title is-5 has-text-white mb-3"><b>Register & Applications</b></p>
+        <p class="mb-2"><a class="has-text-white" href="/register/">Buy a Badge</a></p>
+        <p class="mb-2"><a class="has-text-white" href="/register/#exhibitors">Exhibitor Applications</a></p>
+        <p class="mb-2"><a class="has-text-white" href="/register/#content">Content Applications</a></p>
+        <p class="mb-2"><a class="has-text-white" href="/register/#team">Team Applications</a></p>
+        <p class="mb-2"><a class="has-text-white" href="/register/staff/">Staff & Volunteer Applications</a></p>
+      </div>
+
+      <div class="column is-3-desktop is-6-tablet is-12-mobile mb-4">
+        <p class="title is-5 has-text-white mb-3"><b>About</b></p>
+        <p class="mb-2"><a class="has-text-white" href="/about/event/">Event Info</a></p>
+        <p class="mb-2"><a class="has-text-white" href="/about/faq/">FAQ</a></p>
+        <p class="mb-2"><a class="has-text-white" href="/about/hotels/">Hotels & Travel</a></p>
+        <p class="mb-2"><a class="has-text-white" href="/about/guidelines/">Event Guidelines</a></p>
+        <p class="mb-2"><a class="has-text-white" href="/about/contact/">Contact Us</a></p>
+      </div>
+
+      <div class="column is-3-desktop is-6-tablet is-12-mobile mb-4">
+        <p class="title is-5 has-text-white mb-3"><b>Explore</b></p>
+        <p class="mb-2"><a class="has-text-white" href="/schedule/">Schedule</a></p>
+        <p class="mb-2"><a class="has-text-white" href="/artists/">Artist Alley</a></p>
+        <p class="mb-2"><a class="has-text-white" href="/vendors/">Vendors</a></p>
+      </div>
     </div>
   </div>
-  <p>
-  </p>
 </footer>

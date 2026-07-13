@@ -1,0 +1,17 @@
+{% import "macros/assets.html" as assets %}
+<div class="photo-gallery-module my-6">
+  {% if show_search | default(value=true) %}
+  <div class="gallery-search-bar">
+    <span class="fa-solid fa-magnifying-glass photo-gallery-icon mr-3"></span>
+    <input type="text" placeholder="{{ search_placeholder | default(value='Search photo gallery...') }}" />
+  </div>
+  {% endif %}
+  <div class="gallery-grid">
+    {% set images = images | default(value=["/hero.png", "/banner.png", "/hero.png", "/banner.png", "/hero.png", "/banner.png"]) %}
+    {% for img_src in images %}
+    <div class="gallery-item">
+      <img src="{{ assets::url(path=img_src) }}" alt="Gallery Image {{ loop.index }}" loading="lazy" />
+    </div>
+    {% endfor %}
+  </div>
+</div>

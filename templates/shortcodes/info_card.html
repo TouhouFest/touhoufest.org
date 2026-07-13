@@ -1,0 +1,17 @@
+<div class="info-card is-{{ variant | default(value='cream') }} {% if icon %}has-icon{% endif %} {{ class | default(value='') }}">
+  {% if icon %}
+  <div class="info-card-icon-container">
+    <span class="fa-solid fa-{{ icon }}"></span>
+  </div>
+  {% endif %}
+  <div class="info-card-content-block">
+    {% if title %}
+    <h3 class="info-card-header mb-2">
+      {{ title }}
+    </h3>
+    {% endif %}
+    <div class="info-card-body">
+      {{ body | default(value=content | default(value='')) | safe }}
+    </div>
+  </div>
+</div>

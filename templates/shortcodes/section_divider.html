@@ -1,0 +1,29 @@
+{% import "macros/assets.html" as assets %}
+{% set divider_id = id | default(value=title | slugify) %}
+<div class="section-divider-module" id="{{ divider_id }}">
+  {% if image %}
+  <img class="divider-bg-image" src="{{ assets::url(path=image | default(value='/hero.png')) }}" alt="{{ title }}" />
+  {% endif %}
+  <div class="divider-gohei-strip"></div>
+  <div class="divider-stars-border"></div>
+  <div class="divider-overlay">
+    <div class="divider-content">
+      <div>
+        <h2 class="divider-title">
+          <span>{{ title }}</span>
+          <a class="divider-permalink-chip" href="#{{ divider_id }}" aria-label="Permalink to {{ title }}" title="Copy link to {{ title }}">
+            <span class="fa-solid fa-link" aria-hidden="true"></span> #{{ divider_id }}
+          </a>
+        </h2>
+        {% if subtitle %}<p class="divider-subtitle">{{ subtitle }}</p>{% endif %}
+        {% if tag %}<span class="map-location-tag mt-3"><span class="fa-solid fa-location-dot map-icon"></span> {{ tag }}</span>{% endif %}
+      </div>
+      {% if url %}
+      <div>
+        <a class="button is-medium divider-btn" href="{{ url }}">{{ button_text | default(value="Explore Section") }} <span class="fa-solid fa-arrow-right ml-2"></span></a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="divider-bottom-wave"></div>
+</div>

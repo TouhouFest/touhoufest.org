@@ -1,0 +1,36 @@
+{% import "macros/event.html" as event %}
+{% import "macros/grid.html" as grid %}
+{% set phase = event::get_phase() %}
+
+{% set sched = load_data(path="data/schedule.yml") %}
+
+<div class="columns is-multiline my-5">
+  {% if phase == "after" %}
+  {% set title = config.extra.event.name ~ " Concluded" %}
+  {{ grid::state_card(title=title, message="Thank you for joining us for three full days of Touhou celebrations! Our event schedule has wrapped up for the season.", subtext="Keep an eye on our social media and Discord for photo archives, tournament summaries, and future dates.") }}
+  {% elif sched.status == "coming_soon" %}
+    {% for day in sched.days %}
+    <div class="column is-4">
+      <div class="info-card">
+        <h3 class="info-card-header mb-2">{{ day.title }}</h3>
+        <div class="info-card-body">
+          <p class="mb-2"><strong>Hours:</strong> {{ day.hours }}</p>
+          <p class="body-small">{{ day.summary }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    {% for day in sched.days %}
+    <div class="column is-4">
+      <div class="info-card">
+        <h3 class="info-card-header mb-2">{{ day.title }}</h3>
+        <div class="info-card-body">
+          <p class="mb-2"><strong>Hours:</strong> {{ day.hours }}</p>
+          <p class="body-small">{{ day.summary }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+</div>

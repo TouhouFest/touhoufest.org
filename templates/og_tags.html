@@ -25,7 +25,7 @@
 {% endif %}
 
 {% if page.image %}
-  <meta content="{{ get_url(path=page.image) }}" property="og:image">
+  <meta content="{{ get_url(path=page.image, cachebust=true) }}" property="og:image">
 {% endif %}
 
 <!--{% if page.tags %}-->

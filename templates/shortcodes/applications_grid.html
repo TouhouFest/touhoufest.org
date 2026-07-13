@@ -1,0 +1,48 @@
+{% import "macros/event.html" as event %}
+{% set phase = event::get_phase() %}
+
+{% set app_data = load_data(path="data/applications.yml") %}
+{% set list_items = app_data[type] | default(value=[]) %}
+
+<div class="columns is-multiline my-4">
+  {% set count = list_items | length %}
+  {% set col_width = 6 %}
+  {% if count > 0 %}
+    {% set col_width = (12 / count) | round | int %}
+    {% if col_width < 4 %}{% set col_width = 4 %}{% endif %}
+  {% endif %}
+
+  {% if phase == "after" %}
+    {% for item in list_items %}
+    <div class="column is-{{ col_width }}">
+      <div class="application-card">
+        <div>
+          <div class="application-header">
+            <span class="application-title">{{ item.title }}</span>
+            <span class="status-badge is-closed">Closed</span>
+          </div>
+          <p class="mb-4">{{ item.description }}</p>
+        </div>
+        <a class="button is-primary is-fullwidth" href="#">Applications Closed</a>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    {% for item in list_items %}
+    <div class="column is-{{ col_width }}">
+      <div class="application-card">
+        <div>
+          <div class="application-header">
+
+
+            <span class="application-title">{{ item.title }}</span>
+            <span class="status-badge {% if item.status == 'Open' %}is-open{% else %}is-closed{% endif %}">{{ item.status }}</span>
+          </div>
+          <p class="mb-4">{{ item.description }}</p>
+        </div>
+        <a class="button is-primary is-fullwidth" href="{{ item.url | default(value='#') }}">{{ item.button_text | default(value='Apply Now') }}</a>
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+</div>

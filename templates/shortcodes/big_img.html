@@ -1,0 +1,15 @@
+{% import "macros/assets.html" as assets %}
+<div class="big-img-module my-6">
+  <div class="big-img-banner">
+    <span>{{ title }}</span>
+    {% if tag %}<span class="status-badge is-coming-soon">{{ tag }}</span>{% endif %}
+  </div>
+  <div class="big-img-box">
+    <img src="{{ assets::url(path=image | default(value='/hero.png')) }}" alt="{{ title }}" />
+  </div>
+  {% if description %}
+  <div class="big-img-description">
+    {{ description | safe }}
+  </div>
+  {% endif %}
+</div>

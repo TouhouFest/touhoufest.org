@@ -1,0 +1,9 @@
+<details class="atom-dropdown-section my-3">
+  <summary>
+    <span class="dropdown-title">{{ title }}</span>
+    <span class="fa-solid fa-chevron-down dropdown-carrot"></span>
+  </summary>
+  <div class="content dropdown-body pt-3 mt-3">
+    {{ body | default(value=content | default(value='')) | safe }}
+  </div>
+</details>

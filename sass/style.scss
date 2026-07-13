@@ -1,0 +1,41 @@
+// =============================================================================
+// TouhouFest Main SASS Entrypoint
+// Compiles all design tokens from Figma: TF-Website (Kuw6qQ3B9gBVhUqLTyjsh0)
+// =============================================================================
+
+// 0. Embedded Bulma Framework 1.0.4
+@use 'bulma';
+
+// 1. Core Design Tokens and Variables
+@use 'variables' as *;
+
+// 1.5. Self-Hosted Webfonts (@font-face rules)
+@use 'fonts';
+
+// 2. Typography Rules and Scale (.title.is-1, h2.title, .content h2, body)
+@use 'typography';
+
+// 3. Button Components (.button, .btn-red, interactive states)
+@use 'buttons';
+
+// 4. Site Components and Layout Rules (migrated exactly from inline styles)
+@use 'components';
+
+// 5. Website Modules (Info Card, Application Card, Massive CTA, Feature Card)
+@use 'modules';
+
+// 6. Website Atoms & UI Components (Tags, Badges, DropDowns, Tab Buttons, Warnings)
+@use 'atoms';
+
+// 7. Embedded FontAwesome Icons (SVG Data URIs)
+@use 'icons';
+
+
+// -----------------------------------------------------------------------------
+// Helper & Utility Classes
+// -----------------------------------------------------------------------------
+.has-text-red { color: $color-readable-red !important; }
+.has-text-gold { color: $color-primary !important; }
+.has-text-navy { color: $color-supporting-navy !important; }
+.has-bg-dark { background-color: $color-dark-bg !important; }
+.has-bg-cream { background-color: $color-page-bg !important; }

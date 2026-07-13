@@ -1,0 +1,228 @@
+// =============================================================================
+// TouhouFest Site Components & Layout Diffs
+// Migrated from base.html inline <style> block and integrated with Figma tokens
+// =============================================================================
+
+@use 'variables' as *;
+
+// -----------------------------------------------------------------------------
+// CSS Custom Properties for Animated Radial Gradients (.card-prio)
+// -----------------------------------------------------------------------------
+@property --x0 { inherits: false; initial-value: 25%; syntax: '<percentage>'; }
+@property --x1 { inherits: false; initial-value: 125%; syntax: '<percentage>'; }
+@property --x2 { inherits: false; initial-value: 75%; syntax: '<percentage>'; }
+@property --x3 { inherits: false; initial-value: -25%; syntax: '<percentage>'; }
+@property --y0 { inherits: false; initial-value: -25%; syntax: '<percentage>'; }
+@property --y1 { inherits: false; initial-value: 25%; syntax: '<percentage>'; }
+@property --y2 { inherits: false; initial-value: 125%; syntax: '<percentage>'; }
+@property --y3 { inherits: false; initial-value: 75%; syntax: '<percentage>'; }
+
+:root {
+  --bulma-navbar-height: 127px;
+  --bulma-scheme-main: #{$color-page-bg};
+  --bulma-strong-color: #{$color-text-dark};
+  --bulma-strong-weight: 700;
+  --bulma-text: #{$color-text-dark};
+  --pale: #{$color-light-yellow};
+  --red: #{$color-readable-red};
+
+  // Synchronize Bulma card defaults with Figma Design System & Theme
+  --bulma-card-background-color: transparent;
+  --bulma-card-color: var(--bulma-text);
+  --bulma-card-radius: 5px; // Exact cornerRadius cr=5.0 from Figma masters
+  --bulma-card-shadow: 3px 4px 13px rgba(99, 15, 40, 0.15); // Exact deep burgundy shadow
+  --bulma-card-content-padding: 48px; // Exact Figma padding p=48
+  --bulma-card-header-shadow: none;
+}
+
+
+.theme-light {
+  --bulma-link-text: #{$color-readable-red};
+  --bulma-scheme-main: #{$color-light-yellow}; // #fffde7
+  --bulma-text: #{$color-text-dark};
+  --bulma-card-background-color: transparent;
+  --bulma-card-color: var(--bulma-text);
+}
+
+.theme-dark {
+  --bulma-link-text: #{$color-primary};
+  --bulma-scheme-main: #{$color-dark-bg}; // #221a28
+  --bulma-text: #ffffff;
+  --bulma-strong-color: #ffffff;
+  --bulma-card-background-color: transparent;
+  --bulma-card-color: var(--bulma-text);
+  --bulma-card-shadow: 3px 4px 13px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light) {
+    --bulma-link-text: #{$color-primary};
+    --bulma-scheme-main: #{$color-dark-bg}; // #221a28
+    --bulma-text: #ffffff;
+    --bulma-strong-color: #ffffff;
+    --bulma-card-background-color: transparent;
+    --bulma-card-color: var(--bulma-text);
+    --bulma-card-shadow: 3px 4px 13px rgba(0, 0, 0, 0.4);
+  }
+}
+
+
+
+
+// -----------------------------------------------------------------------------
+// Navbar Styles
+// -----------------------------------------------------------------------------
+.navbar {
+  --bulma-navbar-dropdown-arrow: #{$color-text-dark};
+  --bulma-navbar-dropdown-item-h: 274;
+  --bulma-navbar-dropdown-item-s: 8%;
+  --bulma-navbar-dropdown-item-background-l: 18%;
+  --bulma-navbar-dropdown-background-color: #ff4949;
+  --bulma-navbar-item-img-max-height: 53.41px;
+}
+
+.navbar-dropdown .navbar-item:hover {
+  --bulma-navbar-dropdown-item-h: 353;
+  --bulma-navbar-dropdown-item-s: 57%;
+  --bulma-navbar-dropdown-item-background-l: 48%;
+  --bulma-navbar-item-background-l-delta: 0%;
+}
+
+.navbar-item,
+.navbar-link {
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background: none;
+    border-color: $color-readable-red;
+    color: $color-readable-red;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Footer Styles
+// -----------------------------------------------------------------------------
+.footer {
+  --bulma-footer-background-color: #2e2a31;
+  --bulma-link-text: #{$color-primary-light};
+  background-color: #2e2a31;
+  color: $color-primary-light;
+
+  p {
+    margin: 4px 0;
+  }
+
+  a {
+    color: $color-primary-light;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Card & Priority Card Animations
+// -----------------------------------------------------------------------------
+.card {
+  --bulma-card-radius: 5px;
+  border-radius: 5px;
+  box-shadow: var(--bulma-card-shadow);
+  border: 1px solid $color-readable-red;
+  position: relative;
+  overflow: hidden;
+
+  .card-content {
+    padding: 48px !important; // Enforce exact 48px padding from Figma across all cards
+  }
+}
+
+
+.card-prio {
+  background: radial-gradient(50% 50% at var(--x0) var(--y0), #1f90ba, transparent),
+              radial-gradient(50% 50% at var(--x1) var(--y1), #d505ff, transparent),
+              radial-gradient(50% 50% at var(--x2) var(--y2), #ffde05, transparent),
+              radial-gradient(50% 50% at var(--x3) var(--y3), #ff4949, transparent);
+  transition: --x0 1s, --x1 1s, --x2 1s, --x3 1s, --y0 1s, --y1 1s, --y2 1s, --y3 1s;
+}
+
+.card-active:hover {
+  background: radial-gradient(50% 50% at var(--x0) var(--y0), #1f90ba, transparent),
+              radial-gradient(50% 50% at var(--x1) var(--y1), #d505ff, transparent),
+              radial-gradient(50% 50% at var(--x2) var(--y2), #ffde05, transparent),
+              radial-gradient(50% 50% at var(--x3) var(--y3), #ff4949, transparent);
+  --x0: 10%;
+  --x1: 90%;
+  --x2: 90%;
+  --x3: 10%;
+  --y0: 10%;
+  --y1: 10%;
+  --y2: 90%;
+  --y3: 90%;
+}
+
+// -----------------------------------------------------------------------------
+// Content Block Overrides
+// -----------------------------------------------------------------------------
+.content {
+  h2 {
+    color: $color-readable-red;
+    font-size: 42px;
+  }
+
+  h3 {
+    color: $color-readable-red;
+    font-weight: 500;
+  }
+}
+
+.hero h2 {
+  color: $color-primary-light;
+}
+
+// -----------------------------------------------------------------------------
+// Table & Tag Components
+// -----------------------------------------------------------------------------
+.table th,
+.tag {
+  font-weight: 700;
+}
+
+.tag-closed {
+  background: none;
+  color: $color-ui-dark-gray;
+}
+
+.table th,
+.tag-open {
+  --bulma-tag-h: 0;
+  --bulma-tag-s: 0%;
+  --bulma-tag-color-l: 100%;
+  background-color: $color-readable-red;
+  color: $color-primary-light;
+}
+
+table {
+  border-collapse: separate;
+}
+
+th:first-of-type {
+  border-top-left-radius: 5px;
+}
+
+th:last-of-type {
+  border-top-right-radius: 5px;
+}
+
+tr:last-of-type td:first-of-type {
+  border-bottom-left-radius: 5px;
+}
+
+tr:last-of-type td:last-of-type {
+  border-bottom-right-radius: 5px;
+}
+
+.btn-red {
+  background: $color-readable-red;
+  color: $color-primary-light;
+}

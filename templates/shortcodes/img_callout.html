@@ -1,0 +1,16 @@
+{% import "macros/assets.html" as assets %}
+<div class="img-callout-module img-callout-card my-5">
+  <div class="callout-banner">
+    <span>{{ title }}</span>
+    {% if badge %}<span class="status-badge is-open">{{ badge }}</span>{% endif %}
+  </div>
+  <div class="callout-img-box">
+    <img src="{{ assets::url(path=image) }}" alt="{{ alt | default(value=title) }}" />
+  </div>
+  <div class="callout-body">
+    <div class="content">
+      {{ body | default(value="") | safe }}
+    </div>
+    {% if url %}<a class="button is-primary is-fullwidth mt-4" href="{{ url }}">{{ button_text | default(value="Read More") }}</a>{% endif %}
+  </div>
+</div>
