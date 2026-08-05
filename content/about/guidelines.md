@@ -1,6 +1,9 @@
 +++
 title = "Event Guidelines"
 weight = 1
+
+[extra]
+toc = true
 +++
 TouhouFest strives to be a fun, family friendly event to be enjoyed by Touhou fans of all ages and backgrounds. We ask that you keep swearing and any explicitly adult behavior to a minimum.
 1. Please be kind and courteous to others, including fellow attendees. We want you to enjoy the event, but remember others also wish to enjoy the event as well. Be aware of your behavior and how it affects your surroundings.

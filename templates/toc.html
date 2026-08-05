@@ -1,0 +1,4 @@
+<p><b>Jump directly to:</b></p>
+{% for header in page.toc %}
+<p><a href='#{{ header.id }}'>{{ header.title }} <span class='fa-solid fa-chevron-right'></span></a></p>
+{% endfor %}
