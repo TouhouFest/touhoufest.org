@@ -1,14 +1,88 @@
 {% extends "base.html" %}
 
+{% block header %}
+<p class="title">
+  {{ config.extra.site_name }}
+</p>
+<p class="subtitle has-text-white">
+  A summertime festival where Gensokyo comes to life!
+</p>
+<a class='button' href='register'>Buy Badge <span class='fa-solid fa-chevron-right'></span></a>
+{% endblock %}
 {% block content %}
-  <section class="hero is-dark is-medium">
-    <div class="hero-body container">
-      <p class="title">
-        {{ config.extra.site_name | upper() }}
-      </p>
-      <p class="subtitle has-text-primary">
-          A summertime festival where Gensokyo comes to life!
-      </p>
+<!-- <section class='section'> -->
+<!-- <div class='container'> -->
+<!-- <div class='card has-text-centered mt-6 pt-6' style='background: #000000'> -->
+<!-- <div class='card-content'> -->
+<!-- <h2 class='title'>Our next event will be on June 19th-21st 2026</h2> -->
+<!-- <h3 class='subtitle'>Torrance Cultural Arts Center (TCAC)</h3> -->
+<!-- <h3 class='subtitle'>3330 Civic Center Dr.</h3> -->
+<!-- <h3 class='subtitle'>Torrance, CA 90503</h3> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </section> -->
+<section class='section has-text-centered'>
+  <h2 class='title'>Our next event will be on June 19th-21st 2026</h2>
+  <h3 class='subtitle'>Torrance Cultural Arts Center (TCAC)</h3>
+  <h3 class='subtitle'>3330 Civic Center Dr.</h3>
+  <h3 class='subtitle'>Torrance, CA 90503</h3>
+</section>
+<section class='section'>
+  <h2 class='title'>Promo Video</h2>
+</section>
+<section class='content has-text-centered section container'>
+  <h2 class='has-text-centered'>Guests</h2>
+  <div class='columns'>
+    <div class='column m-6'>
+      <h3>???</h3>
+      <img src='logo.png'>
+      <p>TBA!</p>
     </div>
-  </section>
+    <div class='column m-6'>
+      <h3>???</h3>
+      <img src='logo.png'>
+      <p>TBA!</p>
+    </div>
+    <div class='column m-6'>
+      <h3>???</h3>
+      <img src='logo.png'>
+      <p>TBA!</p>
+    </div>
+    <div class='column m-6'>
+      <h3>???</h3>
+      <img src='logo.png'>
+      <p>TBA!</p>
+    </div>
+  </div>
+</section>
+<section class='section'>
+  <h2 class='title'>Venue Info</h2>
+  <a class='button' href='about/event'>Event Info</a>
+</section>
+<section class='section'>
+  <h2 class='title'>Applications Are Open</h2>
+  Applications
+</section>
+<section class='section'>
+  <h2 class='title'>Download App</h2>
+  App Download
+</section>
+<section class='section'>
+  <h2 class='title'>Hotel Info</h2>
+  Hotels
+</section>
+<section class='section'>
+  <h2 class='title'>Questions?</h2>
+  <a href='about/faq'>FAQs</a>
+  Policies
+  Cosplay Policy
+  Contact Us
+</section>
+{{ section.content | safe }}
+<section class='section'>
+  <h2 class='title'>Latest news and tweets!</h2>
+  <a class="twitter-timeline" href="https://twitter.com/TouhouFest?ref_src=twsrc%5Etfw">Tweets by TouhouFest</a>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</section>
 {% endblock content %}
