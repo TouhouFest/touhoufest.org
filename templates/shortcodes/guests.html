@@ -1,0 +1,13 @@
+{% for year, guests in load_data(path="data/guests.yml") %}
+<div class='has-text-centered'>
+  <h2>TouhouFest {{ year }} Guests</h2>
+  <div class='grid is-col-min-16'>
+    {% for guest in guests %}
+    <div class='cell'>
+      <h3>{{ guest.name }}</h3>
+      {{ guest.desc | markdown(inline=true) | safe}}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
