@@ -1,0 +1,119 @@
+- name: Windows Games
+  desc: |
+    Games starting with Touhou 6: Embodiment of Scarlet Devil, and onward were made for the Windows operating system and as such are usually grouped and referred to as ‘Windows Era.’ These games are commonly referred to by their number and their initials.  
+
+    Descriptions are from the [EN Touhou Wiki](//en.touhouwiki.net/wiki/Touhou_Wiki).
+
+    These games can be purchased on Steam: [Touhou Steam Games List](//store.steampowered.com/search/?developer=上海アリス幻樂団&ndl=1)
+  games:
+  - name: "Touhou 6: 東方紅魔郷 ～ Embodiment of Scarlet Devil"
+    desc: (Two famous characters) One day in a peaceful summer Gensoukyou, a heavy scarlet red mist appeared suddenly and swallowed most of the land in Gensoukyou causing it to create darkness and a cold atmosphere. Reimu Hakurei, a shrine maiden from Hakurei Shrine and a magician Marisa Kirisame, are both set out to interrogate the cause of the Scarlet Mist. 
+  - name: "Touhou 7: 東方妖々夢 ～ Perfect Cherry Blossom"
+    desc: In a one comfortable Spring Gensoukyou, Reimu Hakurei a Hakurei shrine maiden, Marisa Kirisame a magician, and new playable character Sakuya Izayoi a head maid of Scarlet Mansion, is out to find the incident of never ending winter following the flow of sakura petals where Netherworld is waiting for their arrival.
+  - name: "Touhou 8: 東方永夜抄 ～ Imperishable Night"
+    desc: It’s the eve of the Harvest Moon Festival in Gensoukyou, however, yokai sense that something is wrong with the moon. It appears that the moon was replaced with a fake moon. To solve this incident, someone must stop the time and find who's behind this incident to bring back the real moon. The girls went to investigate the forest where the answer to this incident may lay.
+  - name: "Touhou 9: 東方花映塚 ～ Phantasmagoria of Flower View"
+    desc: This game takes place in the mystical place Gensoukyou. Spring has arrived, but some things are offset. Fairies are blooming and fairies are acting unusually more active. Even non-season flowers are blooming everywhere around Gensoukyou. This gorgeous view and abnormal happening led the girls since the incident. Girls went out to investigate the cause of this incident starting off from the lake near Scarlet Mansion.
+  - name: "Touhou 10: 東方風神録 ～ Mountain of Faith"
+    desc: It is autumn in Gensokyo. A stranger comes to the Hakurei Shrine and says that the shrine should close for good. Reimu Hakurei won't let it happen so she or Marisa Kirisame goes to investigate the situation.
+  - name: "Touhou 11: 東方地霊殿 ～ Subterranean Animism"
+    desc: In one Cold Winter in Gensoukyo, a sudden geyser erupted out of nowhere near Hakurei Shrine. Sametime, the eruption caused many underground demons to rise in Gensoukyo. To stop the underground demons lurking in Gensoukyo’s surface, Reimu Hakurei and Marisa Kirisame head underground to solve the incident.
+  - name: "Touhou 12: 東方星蓮船 ～ Undefined Fantastic Object"
+    desc: In early Spring in Gensoukyo, there is a rumor sighting a strange flying treasure ship in Gensoukyo. Reimu Hakurei, Marisa Kirisame and Sanae Kochiya went to investigate this flying treasure ship and plunder its treasures.
+  - name: "Touhou 13: 東方神霊廟 ～ Ten Desires"
+    desc: After solving the Undefined Fantastic Object incident, many Divine spirits suddenly appeared in Gensokyo. Reimu Hakurei, Marisa Kirisame, Sanae Kochiya, and Youmu Konpaku went to investigate where the Divine Spirits were coming from.
+  - name: "Touhou 14: 東方輝針城 ～ Double Dealing Character"
+    desc: One day in Gensokyo, Yokais started rebelling, a gust of wind blew over Gensokyo forming a dark cloud carrying an ominous huge building over with unharmonized melody. Three Girls Reimu Hakurei, Marisa Kirisame, and Sakuya Izayoi had a similar strange incident. Their weapons started acting strangely like they were alive. To find the source of this incident, Girls headout to investigate the ominous building in the sky.
+  - name: "Touhou 15: 東方紺珠伝 ～ Legacy of Lunatic Kingdom"
+    desc: After an incident with a mysterious orb, Someone is sending Lunarians to Purify and invade Gensokyo! Girls must stop the Lunarian forces from purifying Gensokyo. Why are they invading? Who is this felon causing the Lunarians to take over Gensokyo? The Answer lies in the Lunarian Capital, the Moon…
+  - name: "Touhou 16: 東方天空璋 ～ Hidden Star in Four Seasons"
+    desc: In the midsummer season in Gensokyo, Seasons are acting strange. Hakurei Shrine is blooming with cherry blossoms, Youkai Mountain is filled with Autumn leaves , and Forest of Magic is covered in snow. However, Fairies started to become more hostile and enraged with power.  Girls went to investigate who is behind the incident.
+  - name: "Touhou 17: 東方鬼形獣 ～ Wily Beast and Weakest Creature"
+    desc: |
+      Beast spirits began to invade from Hell en masse.  
+
+      "They're trying to take over the surface world with brute force and sheer numbers. 
+
+      I beg of you! Venture into Hell with me, and put a stop to their plans!"  
+
+      So she was told, by a beast spirit that was cooperative with humans...
+
+      Reimu, Marisa and Youmu encounter several animal spirits from Hell, who claim that their fellow animal spirits are plotting to take over the surface world. The three heroines team up with the spirits, and venture into Hell to take out this new potential threat.
+  - name: "Touhou 18: 東方虹龍洞 ～ Unconnected Marketeers"
+    desc: One peaceful day in Gensoukyo, ability cards got popular all over Gensokyo. The cards contain magical and mysterious powers that mimic human and Yokai abilities. Reimu felt suspicious about why these ability cards are everywhere and where are these coming from. Girl went to investigate where the source came from…
+  - name: "Touhou 19: 獣王園 〜 Unfinished Dream of All Living Ghost"
+    desc: |
+      Due to the opening of the market, the ownership of the ancient land has been lost. 
+
+      The land that lost its owner will become desolate. 
+
+      But there is no need to worry. 
+
+      The spirits will naturally take possession of the land and it will regain its usual tightness. 
+
+      Unless there are greedy beasts there...
+- name: PC-98 Era
+  desc: The first five games in the Touhou Project series were made for the NEC PC-98 computer by a doujin circle known as Amusement Makers, of which ZUN was a part, hence why these games are usually referred and grouped separately.
+  games:
+  - name: "Touhou 1: 東方靈異伝 ～ The Highly Responsive to Prayers"
+    desc: In a far distant Eastern land, there is a small shrine named “Hakurei Shrine”. However, there are many strange cases happening around Hakurei shrine with “something that is not human” lurking around. Causing people to avoid getting near it. Hakurei Shrine is connected to both Mystical World and Hell. To keep the Yokais from spreading in Gensokyo, a powerful shrine maiden keeps the gate to both dimensions sealed. One day, Hakurei Shrine was destroyed by “something that is not human”. This made Reimu Hakurei, an Hakurei shrine maiden, burst in anger and went through the gate to find her victim. After a while, she finds out the importance of her ancestor's past Generation Weapon, Yin Yang Orb comes in help.
+  - name: "Touhou 2: 東方封魔録 ～ The Story of Eastern Wonderland"
+    desc: On a peaceful day in Gensokyo, shrine maiden of Hakurei Shrine, Reimu Hakurei is out for her training session. When she got back to her Shrine, many monsters gave her an unwelcoming surprise. Reimu’s helper, a giant turtle with an ability to fly Geniji, told Reimu there is a person who’s controlling this incident. He also states there is some sort of mystical foreign power behind it. Reimu and Genji are set out to investigate the incident where many mysteries await…
+  - name: "Touhou 3: 東方夢時空 ～ Phantasmagoria of Dim.Dream"
+    desc: One day in Gensokyo, Reimu Hakurei, a Hakurei shrine maiden, was sweeping around the shrine to keep it clean, until something caught her eye next to her shrine. A Mysterious ruin was standing in front of her. She also saw some girls around the ruin including a known face, Mima. When Reimu asks what this is all about, Mima explains there is something that grants them with “good fortune and blessing”. However, only one can enter the ruin. Can Reimu defeat her opponents? What is behind this ruin? Mystery awaits her…
+  - name: "Touhou 4: 東方幻想郷 ～ Lotus Land Story"
+    desc: On one mundane day in Hakurei Shrine, Reimu Hakurei, a shrine maiden was bored and wishing for something entertaining to happen. Suddenly, many Yokai appeared in front of her and started to attack her. Easily, Yokais are defeated, and Reimu thought she should investigate this incident. She felt something suspicious around the lake in the mountain, so she set off to investigate this incident. Meanwhile, Marisa Kirisame, a strong magic caster senses a powerful magic coming from the lake in the mountain. After sensing the powerful magic, Marisa wants to keep it to herself to become one of the strongest magic users in Gensokyo. This made her also set off to a lake in the mountain to take the strong magic that awaits her.
+  - name: "Touhou 5: 東方怪綺談 ～ Mystic Square"
+    desc: On a rowdy day in Gensokyo, Reimu Hakurei is fighting against constant waves of Yokais invading. Reimu tracked down where these yokai are coming from, and found a cave where many Yokais are walking out from. Reimu jumps into the cave to stop this incident, while Marisa Kirisame, a magic Caster who thought it would be fun to join, sneaks in. Also, another two Mima and a yokai, Yuuka Kazami joins the fight to stop the Yokais coming into the Human village. Rumor has it that a mystical gate in the cave is connected to a magical world, but who knows till they jump in…
+- name: Side Games
+  desc: The side games are a group of non-traditional shooter games which are supplementary to the main games.
+  games:
+  - name: "Touhou 9.5: 東方文花帖 ～ Shoot the Bullet"
+    desc: Bunkacho (also known as Oriental Cultural Album), a photo album filled with articles that only Aya knows. “No one knows why she’s taking photos, except Aya”
+  - name: "Touhou 12.5: ダブルスポイラー ～ 東方文花帖 Double Spolier ~ Touhou Oriental Cultural Album"
+    desc: Aya Shameimaru, a reporter who publishes “Bunbunmaru Newspaper” is out to find interesting events and take pictures for her newspaper article. Suddenly she meets with another Tengu, Hatate Himekaido, another reporter who publishes “Kakashi Spirit News”. Aya insulted Hatate’s Newspaper calling her Newspaper delusional.  Hatate declared war on who took the best picture for the Newspaper.
+  - name: "Touhou 12.8: 妖精大戦争 ～ 東方三月精 Great Fairy Wars ~ Eastern Three Fairies"
+    desc: War has been declared between Fairies! Group of Fairies destroyed Cirno’s house, this caused Cirno to be blasted in fury and went to seek revenge and show them who’s the strongest fairy.
+  - name: "Touhou 14.3: 弾幕アマノジャク ～ Impossible Spell Card"
+    desc: After the recent Incident (Double Dealing), Seija Kijin an Amanojaku is wanted all over Gensokyo with a bounty on her head due to her rebellious act. Now Yokais are using their impossible attacks to capture Seija and redeem a reward. To counter Impossible attacks, Seija fights against it by using cheat Items and running away from everyone in Gensokyo.
+  - name: "Touhou 16.5: 秘封ナイトメアダイアリー　〜 Violet Detector"
+    desc: Sumireko Usami, a psychic teenager, visits Gensokyo frequently by dreaming in her sleep. However, she encounters a nightmare, where people in Gensokyo she knows started to attack her. This caused Sumireko to burst in anger and fight back by taking pictures and spreading it on Social Media. Three weeks of nightmare lingers in her dream…
+  - name: "Touhou 17.5: 東方剛欲異聞 ～ 水没した沈愁地獄"
+    desc: |
+      Black water gushed out onto the surface. The water released an odd odor, and was hard to get off once stuck to one's body. It was not something that you could use as your everyday water. 
+
+      Some saw the gushing water as misfortune, some as good fortune; some saw it as holy, while others as evil; some saw it as a natural disaster, some saw it as a business opportunity, various theories were tossed around. Some even started a festival and made a fuss. 
+
+      But not long after, an event occurred that put a horrific damper on their buoyant moods. From the springs that they drank from, the beautiful clear streams, the hot springs at rest spots... from every location it possibly could, the black water began to gush out. 
+  - name: "Touhou 18.5: バレットフィリア達の闇市場 〜 100th Black Market"
+    desc: Despite Chimata Tenkyuu's assertion that her Ability Cards would fall out of fashion after the events of Unconnected Marketeers, the cards' value is still somehow climbing further and further. Marisa Kirisame sets out to investigate the "black markets" that are trading in cards without Chimata's oversight — and to collect as many cards as she can for herself.
+- name: Fighting Games
+  desc: Touhou Project (ZUN-san) and Tasogane Frontier have collaborated on a set of fighting games (non-standard danmaku games). The play style is in line with more traditional fighting games with a twist of Touhou inspired mechanics. Typically the game number will end with a ‘.5.’
+  games:
+  - name: "Touhou 7.5: 東方 ～ Immaterial and Missing Power"
+    desc: This game takes place in the mystical place Gensoukyou. Spring has arrived, but some things are offset. Fairies are blooming and fairies are acting unusually more active. Even non-season flowers are blooming everywhere around Gensoukyou. This gorgeous view and abnormal happening led the girls since the incident. Girls went out to investigate the cause of this incident starting off from the lake near Scarlet Mansion.
+  - name: "Touhou 10.5: 東方緋想天 ～ Scarlet Weather Rhapsody"
+    desc: A bizarre phenomenon is occurring in Gensokyo. In the middle of summer, untimely rain and hail fall in the Forest of Magic, snow blankets Hakugyokurou, the Scarlet Devil Mansion is enveloped in a cloudy, dense haze, and the Hakurei Shrine is leveled by a sudden earthquake. Throughout the game, Reimu and the other protagonists set out to investigate the source of the strange occurrences.
+  - name: "Touhou 12.3: 東方非想天則 ～ 超弩級ギニョルの謎を追え Unperceiving of Natural Law ~ Chase the Enigma of the Gargantuan Guignol"
+    desc: A mysterious giant is seen wandering around Gensokyo. It can suddenly appear and can just as suddenly vanish seemingly without a trace. Everyone who sees it becomes curious and wonders about the truth behind this strange sight. Sanae Kochiya, Cirno, and Hong Meiling each have their own fears and dreams about the giant, and each sets out in pursuit of this roaming behemoth.
+  - name: "Touhou 13.5: 東方心綺楼 ～ Hopeless Masquerade"
+    desc: In Gensokyo, many humans have lost emotions and hope leaving everyone in a pessimistic mindset,  “We’ll all be the same when we die”.This causes Three major religions; Buddhism, Taoism, and Shinto to clash in battle to grant worship and fame in Gensokyo.
+  - name: "Touhou 14.5: 東方深秘録 ～ Urban Legend in Limbo"
+    desc: Mysterious rumors are spreading all over the human village. Some rumors contain Ghost story, and Urban Legends, this caused many childrens overwhelmed with fear from the story. Suddenly, a mysterious orb appeared and spreaded all over Gensokyo. This mysterious orb gave Reimu Hakurei and others superstitious powers with different Urban Legends. Reimu and others thought to keep it to themselves to prevent harming peoples. However, Gensokyo was struck by a mysterious phenomenon…
+  - name: "Touhou 15.5: 東方憑依華 ～ Antinomy of Common Flowers"
+    desc: |
+       A strange phenomenon called "Perfect Possession" is taking place. A phenomenon where one is taken over by a completely different person, not only in mind but also in body. But have no worry: Reimu is already on her way to investigate the cause behind its occurrence. 
+
+       "The strongest duo have joined forces." 
+
+       "Something bad may be in store for us humans." 
+
+       "An opponent impossible to defeat by anybody alone?" 
+
+       Ludicrous rumors are circulating, seemingly out of the fear in human villagers' hearts. 
+
+       The so-called "Urban Legend Incidents", yet to be resolved, have bestowed unsubstantiable rumors with a tendency to manifest in concrete forms. And this time, the Perfect Possession is obviously yet another Urban Legend Incident. 
+
+       This story is about those who keep watch on Perfect Possession, those who exploit it, those unwittingly dragged into it, and those working to expose the threat behind it... 
+
+       Those who have made the mistake of seeing themselves as the strongest duo. This is a bittersweet story about them. 

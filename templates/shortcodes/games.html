@@ -1,0 +1,14 @@
+{% for section in load_data(path="data/games.yml") %}
+  <div class='has-text-centered'>
+    <h2>{{ section.name }}</h2>
+    <p>{{ section.desc | markdown(inline=true) | safe }}</p>
+    <div class='grid is-col-min-16'>
+      {% for game in section.games %}
+        <div class='cell'>
+          <h3>{{ game.name }}</h3>
+          {{ game.desc | markdown(inline=true) | safe }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
