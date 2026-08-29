@@ -1,0 +1,17 @@
+{
+  "name": "touhoufest.org",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Main website for TouhouFest (Zola + Custom Bulma v1 SASS build)",
+  "scripts": {
+    "dev": "npx --yes concurrently \"sass --watch sass/style.scss static/style.css\" \"zola serve\"",
+    "start": "npm run dev",
+    "build:css": "sass sass/style.scss static/style.css --style=compressed --no-source-map",
+    "watch:css": "sass --watch sass/style.scss static/style.css",
+    "build": "npm run build:css && zola build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "sass": "^1.83.0"
+  }
+}

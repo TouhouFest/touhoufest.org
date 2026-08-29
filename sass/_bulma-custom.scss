@@ -1,0 +1,50 @@
+// =============================================================================
+// Custom Bulma v1 SASS Build (Selective Imports)
+// Strips out unused components (breadcrumb, dropdown, level, media, menu,
+// message, pagination, panel, tabs) to produce a lean, fast stylesheet.
+// =============================================================================
+
+@forward "_vendor/bulma/sass/utilities";
+@forward "_vendor/bulma/sass/themes";
+@forward "_vendor/bulma/sass/base";
+
+// -----------------------------------------------------------------------------
+// Elements (Only essential elements needed by TouhouFest)
+// -----------------------------------------------------------------------------
+@forward "_vendor/bulma/sass/elements/box";
+@forward "_vendor/bulma/sass/elements/button";
+@forward "_vendor/bulma/sass/elements/container";
+@forward "_vendor/bulma/sass/elements/content";
+@forward "_vendor/bulma/sass/elements/icon";
+@forward "_vendor/bulma/sass/elements/image";
+@forward "_vendor/bulma/sass/elements/notification";
+@forward "_vendor/bulma/sass/elements/progress";
+@forward "_vendor/bulma/sass/elements/table";
+@forward "_vendor/bulma/sass/elements/tag";
+@forward "_vendor/bulma/sass/elements/title";
+@forward "_vendor/bulma/sass/elements/other";
+
+// -----------------------------------------------------------------------------
+// Form (Basic form inputs used for contact and vendor/volunteer signups)
+// -----------------------------------------------------------------------------
+@forward "_vendor/bulma/sass/form";
+
+// -----------------------------------------------------------------------------
+// Components (Selective: ONLY Navbar, Card, and Modal)
+// Stripped: breadcrumb, dropdown, level, media, menu, message, pagination, panel, tabs
+// -----------------------------------------------------------------------------
+@forward "_vendor/bulma/sass/components/card";
+@forward "_vendor/bulma/sass/components/modal";
+@forward "_vendor/bulma/sass/components/navbar";
+
+// -----------------------------------------------------------------------------
+// Grid & Layout
+// -----------------------------------------------------------------------------
+@forward "_vendor/bulma/sass/grid";
+@forward "_vendor/bulma/sass/layout";
+
+// -----------------------------------------------------------------------------
+// Helpers & Utilities
+// -----------------------------------------------------------------------------
+@forward "_vendor/bulma/sass/base/skeleton";
+@forward "_vendor/bulma/sass/helpers";
