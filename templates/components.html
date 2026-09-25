@@ -1121,3 +1121,184 @@ description={ev.description | default(value="")}
 </div>
 </div>
 {% endcomponent performers_grid %}
+
+{% component home_stickers() %}
+<div class="home-stickers-wrapper my-6">
+<div class="home-stickers-row">
+<div class="ofuda-sticker-card sticker-tilt-left">
+<div class="ofuda-seal-mark">
+<img src="/img/YIN YANG ORB.png" alt="Yin Yang" />
+</div>
+<div class="sticker-icon-badge cherry-badge">
+<span>🌸</span>
+</div>
+<h3 class="title is-3 mb-2 sticker-heading">Join us for</h3>
+<p class="sticker-text mb-4">A springtime Festival where Gensokyo comes to life</p>
+<a href="/register" class="tf-btn tf-btn-danger">
+<span>Buy ticket</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+<div class="ofuda-sticker-card sticker-tilt-center">
+<div class="ofuda-seal-mark">
+<img src="/img/YIN YANG ORB.png" alt="Yin Yang" />
+</div>
+<div class="sticker-icon-badge location-badge">
+<span class="tf-icon tf-icon-location" style="font-size: 2.2rem; color: var(--tf-color-dark);"></span>
+</div>
+<h3 class="title is-3 mb-2 sticker-heading">Held at</h3>
+<p class="sticker-text">Torrance Cultural Arts Center,<br/>Torrance CA<br/>3330 Civic Center Dr.</p>
+</div>
+<div class="ofuda-sticker-card sticker-tilt-right">
+<div class="ofuda-seal-mark">
+<img src="/img/YIN YANG ORB.png" alt="Yin Yang" />
+</div>
+<div class="sticker-icon-badge clock-badge">
+<span class="tf-icon tf-icon-clock" style="font-size: 2.2rem; color: #51a2d9;"></span>
+</div>
+<h3 class="title is-3 mb-2 sticker-heading">Save the date</h3>
+<p class="sticker-text">Saturday April 27th<br/>Sunday April 28th</p>
+</div>
+</div>
+</div>
+{% endcomponent home_stickers %}
+
+{% component shide_ribbon() %}
+<div class="shide-zigzag-connector my-5"></div>
+{% endcomponent shide_ribbon %}
+
+{% component home_guests_preview() %}
+{%- set guests_data = load_data(path="data/guests.yml") -%}
+<div class="home-guests-preview-section my-6">
+<h2 class="title is-2 has-text-centered mb-5" style="color: var(--tf-color-red);">Guests</h2>
+<div class="columns is-centered is-multiline">
+{%- for p in guests_data.performers %}
+{%- if loop.index <= 3 %}
+<div class="column is-4-desktop is-4-tablet is-12-mobile">
+<div class="home-guest-preview-card has-text-centered">
+<h3 class="title is-4 mb-3" style="color: var(--bulma-text-strong);">{{ p.name }}</h3>
+<div class="tf-gauge-avatar">
+<img src="{{ p.image }}" alt="{{ p.name }}" class="tf-gauge-avatar-img" />
+</div>
+<p class="is-size-6 mt-3" style="color: var(--bulma-text);">{{ p.role | default(value="Performer") }}</p>
+</div>
+</div>
+{%- endif %}
+{%- endfor %}
+</div>
+</div>
+{% endcomponent home_guests_preview %}
+
+{% component home_artist_spotlight() %}
+{%- set artists_data = load_data(path="data/artists.yml") -%}
+{%- set artist = artists_data.featured[0] -%}
+<div class="home-artist-spotlight my-6">
+<div class="tf-featured-card mx-auto" style="max-width: 820px;">
+<div class="card-gohei-trim-left"></div>
+<div class="card-gohei-trim-right"></div>
+<div class="featured-card-thumb-wrap">
+<img src="{{ artist.image }}" alt="{{ artist.name }}" class="featured-card-thumb" />
+</div>
+<div class="featured-card-body">
+<h3 class="featured-card-name">{{ artist.name }}</h3>
+<p class="featured-card-bio">{{ artist.bio }}</p>
+<a href="{{ artist.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
+<span>Visit artist's site</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{% endcomponent home_artist_spotlight %}
+
+
+{% component mascot_banner(title, text="", url="", button_text="Button") %}
+<div class="mascot-banner-card my-6">
+<div class="mascot-banner-art"></div>
+<div class="mascot-banner-overlay">
+<h2 class="title is-2 mascot-overlay-title">{{ title }}</h2>
+<p class="mascot-overlay-body">{% if text %}{{ text }}{% else %}Body Copy here{% endif %}</p>
+{%- if url %}
+<a href="{{ url }}" class="tf-btn tf-btn-white">
+<span>{{ button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+{%- endif %}
+<div class="mascot-banner-fringe"></div>
+</div>
+</div>
+{% endcomponent mascot_banner %}
+
+{% component applications_status_card() %}
+<div class="applications-status-box my-6">
+<div class="status-tags-row mb-3">
+<span class="status-badge-open">OPEN</span>
+<span class="status-badge-closed">CLOSED</span>
+</div>
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red);">Applications are open</h2>
+<p class="is-size-5 mb-4" style="color: var(--bulma-text);">Open</p>
+<a href="/register" class="tf-btn tf-btn-danger">
+<span>Apply</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+{% endcomponent applications_status_card %}
+
+{% component convention_pillars() %}
+<div class="convention-pillars-section my-6">
+<div class="columns is-multiline">
+<div class="column is-6-tablet is-12-mobile">
+<div class="pillar-card">
+<div class="pillar-icon-wrap">
+<img src="/img/reimu.png" alt="Guidelines" class="pillar-avatar-img" />
+</div>
+<h3 class="pillar-title">Event Guidelines</h3>
+<p class="pillar-desc">Before attending, please be sure to check these guidelines</p>
+<a href="/about/guidelines" class="tf-btn tf-btn-white">
+<span>Event Guidelines</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+<div class="column is-6-tablet is-12-mobile">
+<div class="pillar-card">
+<div class="pillar-icon-wrap">
+<img src="/img/reimu.png" alt="FAQs" class="pillar-avatar-img" />
+</div>
+<h3 class="pillar-title">FAQs</h3>
+<p class="pillar-desc">Have questions? See our FAQs page for more info.</p>
+<a href="/about/faq" class="tf-btn tf-btn-white">
+<span>FAQs</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+<div class="column is-6-tablet is-12-mobile">
+<div class="pillar-card">
+<div class="pillar-icon-wrap">
+<img src="/img/reimu.png" alt="Hotel info" class="pillar-avatar-img" />
+</div>
+<h3 class="pillar-title">Hotel info</h3>
+<p class="pillar-desc">Before attending, please be sure to check these guidelines</p>
+<a href="/about/hotels" class="tf-btn tf-btn-white">
+<span>See hotel blocks</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+<div class="column is-6-tablet is-12-mobile">
+<div class="pillar-card">
+<div class="pillar-icon-wrap placeholder-star-wrap">
+<span class="pillar-star-icon">Icon<br/>Placeholder</span>
+</div>
+<h3 class="pillar-title">Download App</h3>
+<p class="pillar-desc">Before attending, please be sure to check these guidelines</p>
+<a href="#" class="tf-btn tf-btn-white">
+<span>Download App</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent convention_pillars %}

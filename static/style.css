@@ -3090,3 +3090,388 @@ body.dark-theme .contact-form .tf-form-select {
     order: -1;
   }
 }
+
+/* ==========================================================================
+   Homepage Master Styles
+   ========================================================================== */
+
+/* Home Hero Banner */
+.home-hero-banner {
+  background: linear-gradient(rgba(18, 12, 28, 0.45), rgba(18, 12, 28, 0.65)), url('/img/lyricalive_photo2.png') center bottom/cover no-repeat;
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4.5rem 2rem 3rem 2rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.home-hero-banner .divider-wave-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: url('/gohei.svg') repeat-x center top;
+  background-size: auto 16px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.home-hero-banner .divider-wave-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: url('/gohei.svg') repeat-x center bottom;
+  background-size: auto 16px;
+  transform: rotate(180deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.home-hero-glass-card {
+  background: rgba(28, 18, 42, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 73, 73, 0.45);
+  border-radius: var(--tf-radius-card);
+  padding: 2.5rem 3.5rem;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 0 24px rgba(255, 73, 73, 0.15);
+  color: #ffffff;
+  position: relative;
+  z-index: 3;
+  margin-bottom: 2rem;
+}
+
+.home-hero-title {
+  color: var(--tf-color-coral, #ff4949) !important;
+  font-family: var(--tf-font-heading);
+  font-weight: 900;
+  font-size: 3.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.home-hero-floating-btn {
+  margin: 1rem auto 0 auto;
+  z-index: 3;
+  box-shadow: 0 6px 20px rgba(184, 38, 56, 0.4);
+}
+
+/* 3 Tilted Sticker Cards & Shide Ribbon */
+.home-stickers-wrapper {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.home-stickers-row {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.ofuda-sticker-card {
+  background-color: #fffde7;
+  border: 1px solid #fae2e2;
+  border-radius: 8px;
+  padding: 2.5rem 2rem 2rem 2rem;
+  position: relative;
+  width: 320px;
+  max-width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease;
+}
+
+.sticker-tilt-left {
+  transform: rotate(-4deg);
+}
+
+.sticker-tilt-center {
+  transform: rotate(1deg);
+}
+
+.sticker-tilt-right {
+  transform: rotate(4deg);
+}
+
+.ofuda-sticker-card:hover {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: 0 14px 32px rgba(184, 38, 56, 0.15);
+}
+
+.sticker-icon-badge {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px dashed #dca5ad;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+  font-size: 2.2rem;
+}
+
+.sticker-heading {
+  color: var(--tf-color-red) !important;
+  font-family: var(--tf-font-heading);
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.sticker-text {
+  color: #5a4f48;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.shide-zigzag-connector {
+  width: 50px;
+  height: 90px;
+  margin: 2rem auto;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--tf-color-red, #a32035) 0,
+    var(--tf-color-red, #a32035) 16px,
+    #781320 16px,
+    #781320 32px
+  );
+  clip-path: polygon(50% 0%, 100% 25%, 50% 50%, 100% 75%, 50% 100%, 0% 75%, 50% 50%, 0% 25%);
+  position: relative;
+  z-index: 1;
+}
+
+/* Mascot Banner Cards */
+.mascot-banner-card {
+  position: relative;
+  border-radius: var(--tf-radius-card);
+  overflow: hidden;
+  min-height: 340px;
+  display: flex;
+  align-items: stretch;
+  background: #fdf7ee;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.mascot-banner-art {
+  flex: 1;
+  background: url('/img/promoarttransparent.png') left center/contain no-repeat;
+  min-height: 280px;
+}
+
+.mascot-banner-overlay {
+  width: 44%;
+  min-width: 320px;
+  background-color: var(--tf-color-red, #a32035);
+  color: #ffffff;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.mascot-overlay-title {
+  color: #ffffff !important;
+  font-family: var(--tf-font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.mascot-overlay-body {
+  color: var(--tf-color-cream, #fffde7);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.mascot-banner-fringe {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: url('/gohei.svg') repeat-x right bottom;
+  background-size: auto 16px;
+  transform: rotate(180deg);
+  pointer-events: none;
+}
+
+/* Applications Status Box */
+.applications-status-box {
+  background: linear-gradient(135deg, #fff2f2 0%, #fffde7 100%);
+  border: 1.5px solid rgba(184, 38, 56, 0.35);
+  border-radius: var(--tf-radius-card);
+  padding: 2.5rem 3rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  max-width: 650px;
+  margin: 3rem auto;
+}
+
+.status-tags-row {
+  display: flex;
+  gap: 8px;
+}
+
+.status-badge-open {
+  background-color: var(--tf-color-red);
+  color: #ffffff;
+  padding: 4px 14px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.status-badge-closed {
+  background-color: #e2dcd3;
+  color: #766b60;
+  padding: 4px 14px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* Convention Pillars (2x2 Grid) */
+.convention-pillars-section {
+  margin: 4rem 0;
+}
+
+.pillar-card {
+  background-color: var(--tf-color-red, #a32035);
+  color: #ffffff;
+  border-radius: var(--tf-radius-card);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(184, 38, 56, 0.25);
+  height: 100%;
+}
+
+.pillar-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.pillar-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder-star-wrap {
+  border: 2px dashed rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.pillar-star-icon {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.pillar-title {
+  color: #ffffff !important;
+  font-family: var(--tf-font-heading);
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.pillar-desc {
+  color: var(--tf-color-cream, #fffde7);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .home-stickers-row {
+    gap: 1.5rem;
+  }
+  .sticker-tilt-left,
+  .sticker-tilt-center,
+  .sticker-tilt-right {
+    transform: none;
+  }
+  .mascot-banner-card {
+    flex-direction: column;
+  }
+  .mascot-banner-overlay {
+    width: 100%;
+  }
+  .applications-status-box {
+    padding: 1.5rem;
+  }
+}
+
+/* Homepage Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ofuda-sticker-card {
+    background-color: #241c2c;
+    border-color: rgba(184, 38, 56, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  :root:not([data-theme="light"]) .sticker-text {
+    color: #cbcbd2;
+  }
+
+  :root:not([data-theme="light"]) .applications-status-box {
+    background: #241c2c;
+    border-color: rgba(184, 38, 56, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  :root:not([data-theme="light"]) .mascot-banner-card {
+    background: #18131d;
+  }
+}
+
+[data-theme="dark"] .ofuda-sticker-card,
+body.dark-theme .ofuda-sticker-card {
+  background-color: #241c2c;
+  border-color: rgba(184, 38, 56, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .sticker-text,
+body.dark-theme .sticker-text {
+  color: #cbcbd2;
+}
+
+[data-theme="dark"] .applications-status-box,
+body.dark-theme .applications-status-box {
+  background: #241c2c;
+  border-color: rgba(184, 38, 56, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .mascot-banner-card,
+body.dark-theme .mascot-banner-card {
+  background: #18131d;
+}
