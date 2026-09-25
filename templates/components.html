@@ -1,46 +1,218 @@
 {% component faq() %}
 {% for qa in load_data(path="data/faq.yml") %}
-<details class="tf-accordion">
-  <summary>
-    <span>{{ qa.q }}</span>
-  </summary>
-  <div class="tf-accordion-content">
-    {{ qa.a | markdown(inline=true) | safe }}
-  </div>
+<details class="tf-accordion" open>
+<summary>
+<span><strong class="tf-faq-badge">Q:</strong> {{ qa.q }}</span>
+</summary>
+<div class="tf-faq-divider"></div>
+<div class="tf-accordion-content">
+{% if qa.ada %}
+<p class="mb-4">{{ qa.intro }}</p>
+<p class="mb-2">The following areas have <strong>full ADA accessibility</strong>:</p>
+<div class="ada-pills mb-4">
+{% for area in qa.full_access %}
+<span class="ada-pill"><span class="tf-icon tf-icon-pin mr-1"></span> {{ area }}</span>
+{% endfor %}
+</div>
+<p class="mb-3">The following areas have <strong>limited ADA accessibility</strong>:</p>
+<div class="ada-limited-list">
+{% for item in qa.limited_access %}
+<div class="ada-limited-row mb-3">
+<div class="ada-limited-pill-col">
+<span class="ada-pill"><span class="tf-icon tf-icon-pin mr-1"></span> {{ item.name }}</span>
+</div>
+<div class="ada-limited-desc-col">
+<p>{{ item.desc | markdown(inline=true) | safe }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<div class="tf-faq-answer">
+{% set paragraphs = qa.a | split(pat="\n\n") %}
+{% for p in paragraphs %}
+<p class="{% if not loop.last %}mb-3{% else %}mb-0{% endif %}">{% if loop.first %}<strong class="tf-faq-badge">A:</strong> {% endif %}{{ p | markdown(inline=true) | safe }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
 </details>
 {% endfor %}
 {% endcomponent faq %}
 
+{% component faq_bottom_callouts() %}
+<div class="columns is-variable is-5 mt-6 mb-6">
+<div class="column is-half">
+<div class="faq-callout-card-vertical faq-callout-red">
+<div class="callout-icon-wrap mb-3">
+<svg class="tf-starburst" viewBox="0 0 100 100" width="80" height="80">
+<polygon points="50.0,4.0 57.4,12.7 67.6,7.5 71.1,18.4 82.5,17.5 81.6,28.9 92.5,32.4 87.3,42.6 96.0,50.0 87.3,57.4 92.5,67.6 81.6,71.1 82.5,82.5 71.1,81.6 67.6,92.5 57.4,87.3 50.0,96.0 42.6,87.3 32.4,92.5 28.9,81.6 17.5,82.5 18.4,71.1 7.5,67.6 12.7,57.4 4.0,50.0 12.7,42.6 7.5,32.4 18.4,28.9 17.5,17.5 28.9,18.4 32.4,7.5 42.6,12.7" fill="#fffde7"/>
+<text x="50" y="46" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Icon</text>
+<text x="50" y="58" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Placeholder</text>
+</svg>
+</div>
+<h3 class="title is-3 has-text-white mb-2">Event Guidelines</h3>
+<p class="has-text-cream mb-4">Before attending, please be sure to check these guidelines</p>
+<div>
+<a class="tf-btn tf-btn-white" href="/about/guidelines/">
+<span>Button</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="column is-half">
+<div class="faq-callout-card-vertical faq-callout-dark">
+<div class="callout-icon-wrap mb-3">
+<span class="tf-icon tf-icon-discord" style="font-size: 64px; color: #ffffff; background-color: #ffffff;"></span>
+</div>
+<h3 class="title is-3 has-text-white mb-2">Join the community on Discord</h3>
+<p class="has-text-grey-light mb-4">Join our community on the TouhouFest Official Discord server!</p>
+<div>
+<a class="tf-btn tf-btn-white" href="https://discord.gg/touhoufest" target="_blank" rel="noopener noreferrer">
+<span>Join Discord</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent faq_bottom_callouts %}
+
+{% component contact_form() %}
+<div class="contact-form-container">
+<form class="contact-form" action="#" method="post" onsubmit="return false;">
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-email">Email<span class="tf-required-star">*</span> <span class="tf-required-tag">(Required)</span></label>
+<input type="email" id="contact-email" name="email" class="tf-form-input" required />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-name">Name<span class="tf-required-star">*</span> <span class="tf-required-tag">(Required)</span></label>
+<input type="text" id="contact-name" name="name" class="tf-form-input" required />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-pronouns">Pronoun(s)</label>
+<input type="text" id="contact-pronouns" name="pronouns" class="tf-form-input" />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-company">Company/Organization</label>
+<input type="text" id="contact-company" name="organization" class="tf-form-input" />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-title">Title</label>
+<input type="text" id="contact-title" name="subject" class="tf-form-input" />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-phone">Phone number</label>
+<input type="tel" id="contact-phone" name="phone" class="tf-form-input" />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-website">Website</label>
+<input type="url" id="contact-website" name="website" class="tf-form-input" />
+</div>
+<div class="tf-form-field">
+<div class="is-flex is-justify-content-between is-align-items-baseline mb-1">
+<label class="tf-form-label mb-0" for="contact-reason">Select the option that best describes the reason for contacting us:</label>
+<span class="tf-required-tag">(Required)</span>
+</div>
+<div class="tf-select-wrapper">
+<select id="contact-reason" name="category" class="tf-form-select" required>
+<option value="" disabled selected>Select an option</option>
+<option value="general">General Inquiry</option>
+<option value="badges">Ticketing / Badges</option>
+<option value="artists">Artist Alley / Vendors</option>
+<option value="panels">Panels &amp; Programming</option>
+<option value="volunteering">Volunteering &amp; Staff</option>
+<option value="press">Press &amp; Media</option>
+<option value="accessibility">Accessibility</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-message">Lorem Ipsum</label>
+<textarea id="contact-message" name="message" class="tf-form-textarea" rows="6"></textarea>
+</div>
+<input type="checkbox" name="privacy" id="contact-privacy" checked style="display:none;" />
+<div class="tf-form-field mt-4">
+<button type="submit" class="tf-btn tf-btn-danger">
+<span>Submit</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</button>
+</div>
+</form>
+</div>
+
+<div class="contact-bottom-cards container my-6">
+<div class="contact-callout-card contact-callout-red mb-5">
+<div class="callout-icon-col">
+<svg class="tf-starburst" viewBox="0 0 100 100" width="80" height="80">
+<polygon points="50.0,4.0 57.4,12.7 67.6,7.5 71.1,18.4 82.5,17.5 81.6,28.9 92.5,32.4 87.3,42.6 96.0,50.0 87.3,57.4 92.5,67.6 81.6,71.1 82.5,82.5 71.1,81.6 67.6,92.5 57.4,87.3 50.0,96.0 42.6,87.3 32.4,92.5 28.9,81.6 17.5,82.5 18.4,71.1 7.5,67.6 12.7,57.4 4.0,50.0 12.7,42.6 7.5,32.4 18.4,28.9 17.5,17.5 28.9,18.4 32.4,7.5 42.6,12.7" fill="#fffde7"/>
+<text x="50" y="46" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Icon</text>
+<text x="50" y="58" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Placeholder</text>
+</svg>
+</div>
+<div class="callout-content-col">
+<h2 class="title is-2 has-text-white mb-2">FAQs</h2>
+<p class="has-text-cream mb-4">Before attending, please be sure to check these guidelines</p>
+<div>
+<a class="tf-btn tf-btn-white" href="/about/faq/">
+<span>Button</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+
+<div class="contact-callout-card contact-callout-dark">
+<div class="callout-icon-col">
+<span class="tf-icon tf-icon-discord" style="font-size: 72px; color: #ffffff; background-color: #ffffff;"></span>
+</div>
+<div class="callout-content-col">
+<h2 class="title is-2 has-text-white mb-2">Join the community on Discord</h2>
+<p class="has-text-grey-light mb-4">Join our community on the TouhouFest Official Discord server!</p>
+<div>
+<a class="tf-btn tf-btn-white" href="https://discord.gg/touhoufest" target="_blank" rel="noopener noreferrer">
+<span>Join Discord</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent contact_form %}
+
+
 {% component discord() %}
 <div class="discord-callout-card my-6">
-  <span class="tf-icon tf-icon-discord discord-icon"></span>
-  <div class="discord-content">
-    <h2 class="discord-title">Join the community on Discord</h2>
-    <p class="discord-subtext">Join our community on the TouhouFest Official Discord server!</p>
-    <a href="https://discord.gg/touhoufest" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
-      <span>Join Discord</span>
-      <span class="tf-icon tf-icon-chevron-right ml-1"></span>
-    </a>
-  </div>
+<span class="tf-icon tf-icon-discord discord-icon"></span>
+<div class="discord-content">
+<h2 class="discord-title">Join the community on Discord</h2>
+<p class="discord-subtext">Join our community on the TouhouFest Official Discord server!</p>
+<a href="https://discord.gg/touhoufest" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
+<span>Join Discord</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
 </div>
 {% endcomponent discord %}
 
 {% component newsletter() %}
 <div class="newsletter-callout-card my-6">
-  <div class="newsletter-icon-wrap">
-    <img src="/email.svg" alt="Newsletter" />
-  </div>
-  <div class="newsletter-content">
-    <h2 class="newsletter-title">The Tengu Newsletter</h2>
-    <p class="newsletter-subtext">Sign up with your email address to receive news and updates.</p>
-    <form class="newsletter-form" action="#" method="post" onsubmit="return false;">
-      <input type="email" class="newsletter-input" placeholder="Email here" required />
-      <button type="submit" class="tf-btn tf-btn-danger">
-        <span>Subscribe</span>
-        <span class="tf-icon tf-icon-chevron-right ml-1"></span>
-      </button>
-    </form>
-  </div>
+<div class="newsletter-icon-wrap">
+<img src="/email.svg" alt="Newsletter" />
+</div>
+<div class="newsletter-content">
+<h2 class="newsletter-title">The Tengu Newsletter</h2>
+<p class="newsletter-subtext">Sign up with your email address to receive news and updates.</p>
+<form class="newsletter-form" action="#" method="post" onsubmit="return false;">
+<input type="email" class="newsletter-input" placeholder="Email here" required />
+<button type="submit" class="tf-btn tf-btn-danger">
+<span>Subscribe</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</button>
+</form>
+</div>
 </div>
 {% endcomponent newsletter %}
 
@@ -48,88 +220,88 @@
 {% set status = "closed" %}
 {% if open %}{% set status = "open" %}{% endif %}
 <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
-  <div class="tf-card">
-    <div class="tf-card-header">
-      <h3 class="title is-5 mb-0">{{ name }}</h3>
-      <span class="tf-tag tf-tag-{{ status }}"><span>{{ status | capitalize }}</span></span>
-    </div>
-    <div class="tf-card-body">
-      {% if description %}
-        <p class="has-text-grey">{{ description }}</p>
-      {% endif %}
-    </div>
-    <div class="tf-card-footer">
-      {% if status == 'open' %}
-        <a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-primary is-fullwidth">
-          <span>Apply Now</span>
-          <span class="tf-icon tf-icon-external-link"></span>
-        </a>
-      {% else %}
-        <span class="tf-btn tf-btn-disabled is-fullwidth">
-          <span>Applications Closed</span>
-        </span>
-      {% endif %}
-    </div>
-  </div>
+<div class="tf-card">
+<div class="tf-card-header">
+<h3 class="title is-5 mb-0">{{ name }}</h3>
+<span class="tf-tag tf-tag-{{ status }}"><span>{{ status | capitalize }}</span></span>
+</div>
+<div class="tf-card-body">
+{% if description %}
+<p class="has-text-grey">{{ description }}</p>
+{% endif %}
+</div>
+<div class="tf-card-footer">
+{% if status == 'open' %}
+<a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-primary is-fullwidth">
+<span>Apply Now</span>
+<span class="tf-icon tf-icon-external-link"></span>
+</a>
+{% else %}
+<span class="tf-btn tf-btn-disabled is-fullwidth">
+<span>Applications Closed</span>
+</span>
+{% endif %}
+</div>
+</div>
 </div>
 {% endcomponent app %}
 
 {% component unpaid(message="This is a volunteer position. All TouhouFest staff positions are unpaid.") %}
 <div class="tf-warning" role="alert">
-  <p class="mb-0">{{ message }}</p>
+<p class="mb-0">{{ message }}</p>
 </div>
 {% endcomponent unpaid %}
 
 {% component faq_link() %}
 <div class='container'>
-  <div class='card has-text-white mt-6 mb-6' style='background-color: var(--red)'>
-    <div class='card-content'>
-      <div style='display: flex'>
-        <p class='fa-brands fa-discord m-6' style='font-size: 100px'></p>
-        <div>
-          <h2 class='has-text-white title'>FAQs</h2>
-          <p>Join our community on the TouhouFest Official Discord Server!</p>
-          <p class='mt-5'><a class='button is-rounded' href='https://discord.gg/touhoufest'>Join Our Discord <span
-                class='fa-solid fa-chevron-right'></span></a></p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class='card has-text-white mt-6 mb-6' style='background-color: var(--red)'>
+<div class='card-content'>
+<div style='display: flex'>
+<p class='fa-brands fa-discord m-6' style='font-size: 100px'></p>
+<div>
+<h2 class='has-text-white title'>FAQs</h2>
+<p>Join our community on the TouhouFest Official Discord Server!</p>
+<p class='mt-5'><a class='button is-rounded' href='https://discord.gg/touhoufest'>Join Our Discord <span
+class='fa-solid fa-chevron-right'></span></a></p>
+</div>
+</div>
+</div>
+</div>
 </div>
 {% endcomponent faq_link %}
 
 {% component games() %}
 {% for section in load_data(path="data/games.yml") %}
-  <div class='has-text-centered'>
-    <h2>{{ section.name }}</h2>
-    <p>{{ section.desc | markdown(inline=true) | safe }}</p>
-    <div class='grid is-col-min-16'>
-      {% for game in section.games %}
-        <div class='cell'>
-          <h3>{{ game.name }}</h3>
-          {{ game.desc | markdown(inline=true) | safe }}
-        </div>
-      {% endfor %}
-    </div>
-  </div>
+<div class='has-text-centered'>
+<h2>{{ section.name }}</h2>
+<p>{{ section.desc | markdown(inline=true) | safe }}</p>
+<div class='grid is-col-min-16'>
+{% for game in section.games %}
+<div class='cell'>
+<h3>{{ game.name }}</h3>
+{{ game.desc | markdown(inline=true) | safe }}
+</div>
+{% endfor %}
+</div>
+</div>
 {% endfor %}
 {% endcomponent games %}
 
 {% component guests() %}
 {% for year, guests in load_data(path="data/guests.yml") %}
 <div class='has-text-centered'>
-  <h2>TouhouFest {{ year }} Guests</h2>
-  <div class='grid is-col-min-16'>
-      {% for guest in guests %}
-      <div class='cell'>
-        <h3>{{ guest.name }}</h3>
-        {{ guest.desc | markdown(inline=true) | safe}}
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-  {% endfor %}
-  {% endcomponent guests %}
+<h2>TouhouFest {{ year }} Guests</h2>
+<div class='grid is-col-min-16'>
+{% for guest in guests %}
+<div class='cell'>
+<h3>{{ guest.name }}</h3>
+{{ guest.desc | markdown(inline=true) | safe}}
+</div>
+{% endfor %}
+</div>
+</div>
+{% endfor %}
+{% endcomponent guests %}
 
 {% component cosplay() %}
 <h3>Cosplay</h3>
@@ -160,7 +332,7 @@
 <div class="page-hero-title-box">
 <h1 class="page-hero-title">{{ title }}</h1>
 {%- if subtitle %}
-<p class="page-hero-subtitle">{{ subtitle }}</p>
+<p class="page-hero-subtitle mt-3">{{ subtitle | safe }}</p>
 {%- endif %}
 {%- if description %}
 <div class="page-hero-body mt-4">{{ description | safe }}</div>
