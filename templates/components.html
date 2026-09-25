@@ -156,3 +156,133 @@
 <h2>Other Events</h2>
 <p>TouhouFest will have a variety of other events! Below are a few we've announced so far, but more are on the way!</p>
 {% endcomponent other %}
+
+{% component page_header(title, subtitle="") %}
+<div class="has-text-centered mb-5">
+<h1 class="title is-1 mb-2">{{ title }}</h1>
+{%- if subtitle %}
+<p class="subtitle is-5 has-text-grey">{{ subtitle }}</p>
+{%- endif %}
+</div>
+{% endcomponent page_header %}
+
+{% component application_card(name, status="open", description="", deadline="", apply_url="#", btn_text="Apply") %}
+{%- set status_lower = status | lower -%}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="tf-card tf-app-card">
+<div class="tf-card-header">
+<span class="tf-tag tf-tag-{{ status_lower }}"><span>{{ status | upper }}</span></span>
+<h3 class="title is-4 mt-2 mb-0">{{ name }}</h3>
+</div>
+<div class="tf-card-body">
+{%- if deadline %}
+<p class="is-size-7 has-text-weight-semibold mb-2">
+<span class="tf-icon tf-icon-calendar mr-1"></span> Deadline: {{ deadline }}
+</p>
+{%- endif %}
+{%- if description %}
+<p class="has-text-grey">{{ description }}</p>
+{%- endif %}
+</div>
+<div class="tf-card-footer">
+{%- if status_lower == 'open' %}
+<a href="{{ apply_url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-danger is-fullwidth">
+<span>{{ btn_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+{%- else %}
+<span class="tf-btn tf-btn-disabled is-fullwidth">
+<span>Applications Closed</span>
+</span>
+{%- endif %}
+</div>
+</div>
+</div>
+{% endcomponent application_card %}
+
+{% component applications_grid(type) %}
+{%- set app_data = load_data(path="data/applications.yml") -%}
+{%- set list_items = app_data[type] | default(value=[]) -%}
+<div class="columns is-multiline my-4">
+{%- for item in list_items %}
+{%- set item_status = item.status | default(value="Open") %}
+{{ <application_card name={item.title} status={item_status} description={item.description | default(value="")} apply_url={item.url | default(value="#")} btn_text={item.button_text | default(value="Apply")} /> }}
+{%- endfor %}
+</div>
+{% endcomponent applications_grid %}
+
+{% component section_divider(title, subtitle="", image="", url="", button_text="Explore Section", id="") %}
+{%- set divider_id = id | default(value=title | slugify) -%}
+<div class="section-divider-module my-6" id="{{ divider_id }}">
+{%- if image %}
+<img class="divider-bg-image" src="{{ image }}" alt="{{ title }}" />
+{%- endif %}
+<div class="divider-overlay">
+<div class="divider-content">
+<div>
+<h2 class="divider-title"><span>{{ title }}</span></h2>
+{%- if subtitle %}
+<p class="divider-subtitle">{{ subtitle }}</p>
+{%- endif %}
+</div>
+{%- if url %}
+<div>
+<a class="tf-btn tf-btn-primary" href="{{ url }}"><span>{{ button_text }}</span></a>
+</div>
+{%- endif %}
+</div>
+</div>
+</div>
+{% endcomponent section_divider %}
+
+{% component hero_card(title, subtitle="", image="", url="", button_text="Buy badge") %}
+<div class="hero-module-card my-6">
+<div class="hero-gohei-left"></div>
+<div class="hero-gohei-right"></div>
+<div class="hero-card-inner">
+{%- if image %}
+<div class="hero-card-image-wrap">
+<img src="{{ image }}" alt="{{ title }}" class="hero-card-image" />
+<div class="hero-card-badge-overlay">
+<span class="hero-card-q">?</span>
+<span class="hero-card-stay-tuned">Stay tuned!</span>
+</div>
+</div>
+{%- endif %}
+<div class="hero-card-content">
+<h2 class="title is-2 mb-3 hero-card-title">{{ title }}</h2>
+{%- if subtitle %}
+<p class="subtitle mb-4 hero-card-subtitle">{{ subtitle }}</p>
+{%- endif %}
+{%- if body %}
+<div class="content mb-4">{{ body | safe }}</div>
+{%- endif %}
+{%- if url %}
+<a class="tf-btn tf-btn-danger hero-card-btn" href="{{ url }}" target="_blank" rel="noopener noreferrer">
+<span>{{ button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+{%- endif %}
+</div>
+</div>
+</div>
+{% endcomponent hero_card %}
+
+{% component cosplay_masquerade(title="Cosplay Masquerade", craft_url="#", perf_url="#", exhib_url="#") %}
+<div class="cosplay-masquerade-card my-5">
+<h3 class="title is-3 mb-3">{{ title }}</h3>
+<div class="content mb-4">
+{%- if body %}
+<p>{{ body | safe }}</p>
+{%- else %}
+<p>Please read the rules completely before applying. You may only apply to one category.</p>
+{%- endif %}
+</div>
+<div class="buttons is-flex is-justify-content-center">
+<a class="tf-btn tf-btn-white" href="{{ craft_url }}"><span>Craftsmanship</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+<a class="tf-btn tf-btn-white" href="{{ perf_url }}"><span>Performance</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+<a class="tf-btn tf-btn-white" href="{{ exhib_url }}"><span>Exhibition</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+</div>
+</div>
+{% endcomponent cosplay_masquerade %}
+
