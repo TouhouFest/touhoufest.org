@@ -19,7 +19,7 @@ created a series of Bullet hell Shoot ‘em up games known as **Touhou Project.*
 his Touhou series from 1997 Touhou, starting from PC-98 東方靈異伝 ~Highly Responsive to Prayers and
 is still publishing games to the current day. [Team Shanghai Alice](//x.com/korindo)
 
-{{ games() }}
+{{ <games /> }}
 
 ## Featured Guests
 

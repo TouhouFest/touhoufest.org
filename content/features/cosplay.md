@@ -63,4 +63,4 @@ joining us as one of our Cosplay Ambassadors. [Learn More](https://discord.gg/hC
 See the event guidelines to learn more about what is allowed at TouhouFest
 [Read Event Guidelines](#)
 
-{{ fumo() }}
+{{ <fumo /> }}

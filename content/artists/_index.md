@@ -21,4 +21,4 @@ weight = 3
 
 ### Policies
 
-{{ discord() }}
+{{ <discord /> }}

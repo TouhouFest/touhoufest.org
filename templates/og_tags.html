@@ -1,35 +1,30 @@
 
-{% if page.title %}
+{% if page is defined and page.title %}
   <meta content="{{ page.title }}" property="og:title">
 {% else %}
   <meta content="{{ config.title }}" property="og:title">
 {% endif %}
 
-{% if page.title %}
+{% if page is defined and page.title %}
   <meta content="article" property="og:type">
 {% else %}
   <meta content="website" property="og:type">
 {% endif %}
 
-{% if page.description %}
+{% if page is defined and page.description %}
   <meta content="{{ page.description }}" property="og:description">
 {% endif %}
 
-{% if page.url %}
-  <meta content="{{ config.site.base_url }}{{ page.url }}" property="og:url">
+{% if page is defined and page.url %}
+  <meta content="{{ config.base_url | default(value='') }}{{ page.url }}" property="og:url">
 {% endif %}
 
-{% if page.date %}
+{% if page is defined and page.date %}
   <meta content="{{ page.date | date(format="%+") }}" property="article:published_time">
   <meta content="{{ get_url(path="/about/") }}" property="article:author">
 {% endif %}
 
-{% if page.image %}
+{% if page is defined and page.image %}
   <meta content="{{ get_url(path=page.image) }}" property="og:image">
 {% endif %}
 
-<!--{% if page.tags %}-->
-  <!--{% for tag in page.tags %}-->
-  <!--<meta content="{{ tag }}" property="article:tag">-->
-  <!--{% endfor %}-->
-<!--{% endif %}-->

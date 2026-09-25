@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} | {% elif section.title %}{{ section.title }} | {% endif %}{{ config.extra.site_name | default(value='TouhouFest') }}</title>
+  <title>{% if page is defined and page.title %}{{ page.title }} | {% elif section is defined and section.title %}{{ section.title }} | {% endif %}{{ config.extra.site_name | default(value='TouhouFest') }}</title>
 
   {# Preload self-hosted primary fonts for instant render #}
   <link rel="preload" href="{{ get_url(path='fonts/poppins-latin-700-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
@@ -21,6 +21,8 @@
   {% include "nav.html" %}
 
   <main>
+    {% block header %}
+    {% endblock header %}
     {% block content %}
     {% endblock content %}
   </main>

@@ -1,4 +1,0 @@
-{% import "macros/molecules.html" as molecules %}
-{% for qa in load_data(path="data/faq.yml") %}
-  {{ molecules::faq_item(question=qa.q, answer=qa.a | markdown(inline=true)) }}
-{% endfor %}

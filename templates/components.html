@@ -1,0 +1,158 @@
+{% component faq() %}
+{% for qa in load_data(path="data/faq.yml") %}
+<details class="tf-accordion">
+  <summary>
+    <span>{{ qa.q }}</span>
+  </summary>
+  <div class="tf-accordion-content">
+    {{ qa.a | markdown(inline=true) | safe }}
+  </div>
+</details>
+{% endfor %}
+{% endcomponent faq %}
+
+{% component discord() %}
+<div class="container my-6">
+  <div class="tf-card has-text-white" style="background-color: var(--tf-color-dark);">
+    <div class="is-flex is-align-items-center is-flex-direction-column-mobile p-4">
+      <div class="mr-5 mb-3 mb-0-tablet">
+        <span class="tf-icon tf-icon-discord" style="font-size: 64px; color: var(--tf-color-primary);"></span>
+      </div>
+      <div class="is-flex-grow-1 has-text-centered-mobile">
+        <h2 class="title is-4 has-text-white mb-2">Our Discord Server is open</h2>
+        <p class="mb-3 has-text-grey-light">Join our community on the TouhouFest Official Discord Server!</p>
+        <a href="https://discord.gg/touhoufest" class="tf-btn tf-btn-primary">
+          <span>Join Our Discord</span>
+          <span class="tf-icon tf-icon-external-link"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endcomponent discord %}
+
+{% component newsletter() %}
+<div class="container my-6">
+  <div class="tf-card has-text-white" style="background-color: var(--tf-color-red);">
+    <div class="is-flex is-align-items-center is-flex-direction-column-mobile p-4">
+      <div class="is-flex-grow-1 has-text-centered-mobile">
+        <h2 class="title is-4 has-text-white mb-2">The Tengu Newsletter</h2>
+        <p class="mb-3 has-text-grey-light">Sign up with your email address to receive news and updates.</p>
+        <a href="https://discord.gg/touhoufest" class="tf-btn tf-btn-primary">
+          <span>Subscribe</span>
+          <span class="tf-icon tf-icon-external-link"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endcomponent newsletter %}
+
+{% component app(name, open=false, description="", url="#") %}
+{% set status = "closed" %}
+{% if open %}{% set status = "open" %}{% endif %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+  <div class="tf-card">
+    <div class="tf-card-header">
+      <h3 class="title is-5 mb-0">{{ name }}</h3>
+      <span class="tf-tag tf-tag-{{ status }}"><span>{{ status | capitalize }}</span></span>
+    </div>
+    <div class="tf-card-body">
+      {% if description %}
+        <p class="has-text-grey">{{ description }}</p>
+      {% endif %}
+    </div>
+    <div class="tf-card-footer">
+      {% if status == 'open' %}
+        <a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-primary is-fullwidth">
+          <span>Apply Now</span>
+          <span class="tf-icon tf-icon-external-link"></span>
+        </a>
+      {% else %}
+        <span class="tf-btn tf-btn-disabled is-fullwidth">
+          <span>Applications Closed</span>
+        </span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endcomponent app %}
+
+{% component unpaid(message="This is a volunteer position. All TouhouFest staff positions are unpaid.") %}
+<div class="tf-warning" role="alert">
+  <p class="mb-0">{{ message }}</p>
+</div>
+{% endcomponent unpaid %}
+
+{% component faq_link() %}
+<div class='container'>
+  <div class='card has-text-white mt-6 mb-6' style='background-color: var(--red)'>
+    <div class='card-content'>
+      <div style='display: flex'>
+        <p class='fa-brands fa-discord m-6' style='font-size: 100px'></p>
+        <div>
+          <h2 class='has-text-white title'>FAQs</h2>
+          <p>Join our community on the TouhouFest Official Discord Server!</p>
+          <p class='mt-5'><a class='button is-rounded' href='https://discord.gg/touhoufest'>Join Our Discord <span
+                class='fa-solid fa-chevron-right'></span></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endcomponent faq_link %}
+
+{% component games() %}
+{% for section in load_data(path="data/games.yml") %}
+  <div class='has-text-centered'>
+    <h2>{{ section.name }}</h2>
+    <p>{{ section.desc | markdown(inline=true) | safe }}</p>
+    <div class='grid is-col-min-16'>
+      {% for game in section.games %}
+        <div class='cell'>
+          <h3>{{ game.name }}</h3>
+          {{ game.desc | markdown(inline=true) | safe }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+{% endcomponent games %}
+
+{% component guests() %}
+{% for year, guests in load_data(path="data/guests.yml") %}
+<div class='has-text-centered'>
+  <h2>TouhouFest {{ year }} Guests</h2>
+  <div class='grid is-col-min-16'>
+      {% for guest in guests %}
+      <div class='cell'>
+        <h3>{{ guest.name }}</h3>
+        {{ guest.desc | markdown(inline=true) | safe}}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+  {% endcomponent guests %}
+
+{% component cosplay() %}
+<h3>Cosplay</h3>
+<p>Cosplaying at TouhouFest? Check out our cosplay page to see what there is to do!</p>
+<a class='button' href='/features/cosplay'>Learn more</a>
+{% endcomponent cosplay %}
+
+{% component fumo() %}
+<h3>Fumo Gathering</h3>
+<p>Our Cosplay Ambassador, Mystical Lala, will co-host the Fumo Gathering at TouhouFest!</p>
+<a class='button' href='/features/other#fumo-meetup'>Learn more</a>
+{% endcomponent fumo %}
+
+{% component gaming() %}
+<h3>Gaming</h3>
+<a class='button' href='/features/gaming'>Learn more</a>
+{% endcomponent gaming %}
+
+{% component other() %}
+<h2>Other Events</h2>
+<p>TouhouFest will have a variety of other events! Below are a few we've announced so far, but more are on the way!</p>
+{% endcomponent other %}

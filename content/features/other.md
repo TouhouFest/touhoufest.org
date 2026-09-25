@@ -104,8 +104,8 @@ Presented by: Megapig9001
 
 [Discord Link](#)
 
-{{ other() }}
+{{ <other /> }}
 
-{{ gaming() }}
+{{ <gaming /> }}
 
-{{ cosplay() }}
+{{ <cosplay /> }}

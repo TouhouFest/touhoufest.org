@@ -348,4 +348,4 @@ If you have any questions or concerns, please reach out to our Cosplay Contest o
 To confirm that you’ve read and understand these rules, please provide the password “Clownpiece” in
 your application.
 
-{{ discord() }} {{ faq_link() }}
+{{ <discord /> }} {{ <faq_link /> }}

@@ -3,8 +3,8 @@ title = "Home"
 +++
 
 <section class='section'>
-  {{ discord() }}
+  {{ <discord /> }}
 </section>
 <section class='section'>
-  {{ newsletter() }}
+  {{ <newsletter /> }}
 </section>

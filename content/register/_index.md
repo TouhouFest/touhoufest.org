@@ -111,7 +111,7 @@ You can verify your badge status and get your QR code [here](//registration.touh
 <section class='section container'>
     <div class='columns'>
         <div class='column'>
-            {{ app(name='Panel', open=true, description='Apply to host a panel at TouhouFest here.') }}
+            {{ <app name="Panel" open={true} description="Apply to host a panel at TouhouFest here." /> }}
             <div class='card card-prio' style='border: 1px solid var(--red)'>
                 <div class='card-content'>
                     <span class='tag is-medium'>OPEN</span>
@@ -202,7 +202,7 @@ openings by joining our [Staff Interest List](//forms.gle/5EZmCaH6ahQ8ViQR6).
 
 **Level:** Specialized Staff (this is a non-management role that requires specialized skills).
 
-{{ unpaid() }}
+{{ <unpaid /> }}
 
 **Location:** All responsibilities of this role can be completed virtually and physical/in-person
 attendance at our event is optional.
@@ -288,7 +288,7 @@ sources, and internal organizational policies / procedures / documents:
 
 **Level:** General Staff (this role does not supervise others).
 
-{{ unpaid() }}
+{{ <unpaid /> }}
 
 **Location:** Pre-show work may be completed virtually. This role requires being
 <ins>in-person</ins> at our TouhouFest event, including set-up day (June 13-15, 2025 in Torrance,
@@ -333,4 +333,4 @@ the lead on small to medium-scale projects as appropriate.
 Please ensure you understand and abide by our Event Guidelines while attending the event.
 [Read Guidelines](/about/guidelines)
 
-{{ discord() }} {{ newsletter() }}
+{{ <discord /> }} {{ <newsletter /> }}

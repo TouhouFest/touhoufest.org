@@ -13,12 +13,12 @@ Official Hashtags: #touhoufestLIVE #東方フェスLIVE #touhoufestLIVE2025 #東
 
 Pictured Above: Rute-san performing for A-One (Photo by Wonder_standing)
 
-{{ guests() }}
+{{ <guests /> }}
 
-{{ other() }}
+{{ <other /> }}
 
-{{ gaming() }}
+{{ <gaming /> }}
 
-{{ cosplay() }}
+{{ <cosplay /> }}
 
-{{ fumo() }}
+{{ <fumo /> }}
