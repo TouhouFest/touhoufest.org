@@ -213,6 +213,11 @@ body.dark-theme {
   mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>');
 }
 
+.tf-icon-phone {
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>');
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>');
+}
+
 .tf-icon-time,
 .tf-icon-clock {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zm0 464A208 208 0 1 0 256 48a208 208 0 1 0 0 416zm16-304v128h96c13.3 0 24 10.7 24 24s-10.7 24-24 24H248c-13.3 0-24-10.7-24-24V160c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg>');
@@ -913,11 +918,12 @@ main {
 .page-hero-banner .page-hero-title-box {
   background-color: var(--tf-color-red);
   color: var(--tf-color-white);
-  padding: 1.5rem 2.5rem;
+  padding: 2rem 2.5rem;
   border-radius: var(--tf-radius-card);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   position: relative;
   z-index: 3;
+  max-width: 680px;
 }
 
 .page-hero-banner .page-hero-title {
@@ -926,7 +932,14 @@ main {
   font-weight: 800;
   font-size: 2.75rem;
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.15;
+}
+
+.page-hero-body {
+  font-family: var(--tf-font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #fffdf0;
 }
 
 @media screen and (max-width: 768px) {
@@ -1329,3 +1342,501 @@ body.dark-theme .tf-ofuda,
   }
 }
 
+/* ==========================================================================
+   Hotel Blocks Module
+   ========================================================================== */
+.hotel-block-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2.5rem;
+}
+
+.hotel-block-photo {
+  background-size: cover;
+  background-position: center;
+  min-height: 540px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2.5rem;
+  position: relative;
+}
+
+.hotel-block-inner {
+  background-color: #FFFDF0;
+  border-radius: 20px;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+
+.hotel-block-ribbon {
+  position: absolute;
+  top: -8px;
+  right: 28px;
+  width: 68px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hotel-block-ribbon img {
+  width: 100%;
+  display: block;
+}
+
+.hotel-block-title {
+  font-family: var(--tf-font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--tf-color-red);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  max-width: calc(100% - 60px);
+}
+
+.hotel-block-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333333;
+  margin-bottom: 1.25rem;
+}
+
+.hotel-block-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.hotel-info-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid #d8cbbf;
+  border-radius: var(--tf-radius-pill);
+  padding: 0.45rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #333333;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================================================
+   Vertical Teaser Cards (2x2 Grid and 2-Column Variants)
+   ========================================================================== */
+.tf-teaser-card.is-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 24px;
+  padding: 2.75rem 2rem 2.25rem 2rem;
+  height: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tf-teaser-card.is-vertical:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.tf-teaser-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tf-teaser-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tf-teaser-title {
+  font-family: var(--tf-font-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #ffffff !important;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.tf-teaser-subtitle {
+  font-size: 1rem;
+  color: #fffdf0;
+  opacity: 0.95;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+  max-width: 340px;
+}
+
+/* ==========================================================================
+   When & Where Ofuda Module
+   ========================================================================== */
+.ofuda-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3.5rem;
+  max-width: 900px;
+  margin: 4rem auto;
+}
+
+.ofuda-item {
+  flex: 1;
+  max-width: 380px;
+  transition: transform 0.25s ease;
+}
+
+.ofuda-item:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.ofuda-item.is-when {
+  margin-top: 0;
+}
+
+.ofuda-item.is-where {
+  margin-top: 2.5rem;
+}
+
+.ofuda-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   TCAC Japanese Garden Polaroid Gallery
+   ========================================================================== */
+.tcac-gallery-module {
+  position: relative;
+  overflow: hidden;
+  background-image: url('/img/event/tcac_bg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 5.5rem 1.5rem 6.5rem 1.5rem;
+  border-radius: var(--tf-radius-card);
+}
+
+.tcac-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 12, 18, 0.45);
+  z-index: 1;
+}
+
+.tcac-gallery-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tcac-gallery-title {
+  font-family: var(--tf-font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 3.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.tcac-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.tcac-polaroid {
+  transition: transform 0.3s ease;
+}
+
+.tcac-polaroid:hover {
+  transform: scale(1.06) rotate(0deg) !important;
+  z-index: 5;
+}
+
+.tcac-polaroid img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Event Maps Module
+   ========================================================================== */
+.event-map-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2.5rem 0 2rem 0;
+  flex-wrap: wrap;
+}
+
+.event-map-tab {
+  padding: 0.65rem 1.75rem;
+  border-radius: var(--tf-radius-pill);
+  font-family: var(--tf-font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1.5px solid var(--tf-color-red);
+  background: transparent;
+  color: var(--tf-color-red);
+}
+
+.event-map-tab.is-active {
+  background-color: var(--tf-color-red);
+  color: #ffffff;
+}
+
+.event-map-tab:not(.is-active):hover {
+  background-color: rgba(191, 52, 68, 0.08);
+}
+
+.event-map-container {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  position: relative;
+  text-align: center;
+}
+
+.event-map-img {
+  width: 100%;
+  max-width: 950px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.event-map-zoom {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #272838;
+  color: #ffffff;
+  border: none;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.event-map-zoom:hover {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   AMP Production Module
+   ========================================================================== */
+.amp-production-module {
+  margin: 4rem 0;
+}
+
+.amp-intro {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 3rem auto;
+}
+
+.amp-title {
+  font-family: var(--tf-font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--tf-color-red);
+  margin-bottom: 1rem;
+}
+
+.amp-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--bulma-text);
+}
+
+.amp-status-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.amp-status-card {
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  border: 1.5px solid rgba(191, 52, 68, 0.25);
+  background: linear-gradient(180deg, #fff0f0 0%, #ffe6e8 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.amp-status-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.amp-status-tag.is-open {
+  background-color: var(--tf-color-red);
+  color: #ffffff;
+}
+
+.amp-status-tag.is-closed {
+  background-color: transparent;
+  color: #666666;
+  border: 1px solid #888888;
+}
+
+.amp-status-name {
+  font-family: var(--tf-font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--tf-color-red);
+  margin-bottom: 0.5rem;
+}
+
+.amp-status-name.is-muted {
+  color: #272838;
+}
+
+.amp-status-desc {
+  font-size: 1rem;
+  color: #555555;
+  margin-bottom: 1.75rem;
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints & Dark Mode
+   ========================================================================== */
+@media screen and (max-width: 1023px) {
+  .tcac-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hotel-block-photo {
+    min-height: auto;
+    padding: 1rem;
+    flex-direction: column;
+  }
+  .hotel-block-inner {
+    max-width: 100%;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+  }
+  .hotel-block-ribbon {
+    right: 16px;
+    width: 52px;
+    top: -6px;
+  }
+  .hotel-block-title {
+    font-size: 1.35rem;
+  }
+  .ofuda-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .ofuda-item.is-where {
+    margin-top: 0;
+  }
+  .tcac-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .amp-status-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hotel-block-inner {
+    background-color: #26212b;
+  }
+  :root:not([data-theme="light"]) .hotel-block-desc {
+    color: #e2dce6;
+  }
+  :root:not([data-theme="light"]) .hotel-info-pill {
+    background-color: rgba(30, 26, 36, 0.85);
+    border-color: #4a4252;
+    color: #e2dce6;
+  }
+  :root:not([data-theme="light"]) .event-map-container {
+    background-color: #26212b;
+  }
+  :root:not([data-theme="light"]) .amp-status-card {
+    background: linear-gradient(180deg, #2f2025 0%, #22171c 100%);
+    border-color: rgba(220, 100, 110, 0.25);
+  }
+  :root:not([data-theme="light"]) .amp-status-desc {
+    color: #d1c8d6;
+  }
+  :root:not([data-theme="light"]) .amp-status-name.is-muted {
+    color: #e2dce6;
+  }
+  :root:not([data-theme="light"]) .amp-status-tag.is-closed {
+    color: #b0a8b6;
+    border-color: #706876;
+  }
+}
+
+[data-theme="dark"] .hotel-block-inner {
+  background-color: #26212b;
+}
+[data-theme="dark"] .hotel-block-desc {
+  color: #e2dce6;
+}
+[data-theme="dark"] .hotel-info-pill {
+  background-color: rgba(30, 26, 36, 0.85);
+  border-color: #4a4252;
+  color: #e2dce6;
+}
+[data-theme="dark"] .event-map-container {
+  background-color: #26212b;
+}
+[data-theme="dark"] .amp-status-card {
+  background: linear-gradient(180deg, #2f2025 0%, #22171c 100%);
+  border-color: rgba(220, 100, 110, 0.25);
+}
+[data-theme="dark"] .amp-status-desc {
+  color: #d1c8d6;
+}
+[data-theme="dark"] .amp-status-name.is-muted {
+  color: #e2dce6;
+}
+[data-theme="dark"] .amp-status-tag.is-closed {
+  color: #b0a8b6;
+  border-color: #706876;
+}
