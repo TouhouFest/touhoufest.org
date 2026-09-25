@@ -282,6 +282,7 @@ h3, .title.is-3, .title.is-5 {
   color: var(--tf-color-subhead);
 }
 
+html,
 body {
   font-family: var(--tf-font-body);
   font-size: var(--tf-font-size-body);
@@ -294,6 +295,13 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+
+.page-body-container {
+  width: 100%;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem 1.5rem;
 }
 
 /* Atomic Buttons (Pill cornerRadius: 35px, padding: 14px 39px 14px 47px) */

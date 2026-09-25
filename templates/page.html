@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
 {% block header %}
-<p class='title is-1'>{{ page.title }}</p>
-{% endblock %}
-{% block content %}
-<section class="section container post content">
-  {% if page.extra.toc %}
-  {% include "toc.html" %}
+  {% if not page.extra.hide_header %}
+    {{ <page_header title={page.title} /> }}
   {% endif %}
-  <p>{{ page.content | safe }}</p>
-</section>
+{% endblock header %}
+
+{% block content %}
+<div class="page-body-container container">
+  {% if page.extra.toc %}
+    {% include "toc.html" %}
+  {% endif %}
+  {{ page.content | safe }}
+</div>
 {% endblock content %}
