@@ -159,9 +159,68 @@
 <div class="divider-wave-bottom"></div>
 <div class="page-hero-title-box">
 <h1 class="page-hero-title">{{ title }}</h1>
+{%- if subtitle %}
+<p class="page-hero-subtitle">{{ subtitle }}</p>
+{%- endif %}
 </div>
 </div>
 {% endcomponent page_header %}
+
+{% component tf_teaser_card(title, subtitle="", icon="", url="", btn_text="Learn more", variant="danger", extra_class="") %}
+<div class="tf-teaser-card is-{{ variant }} {{ extra_class }} my-5">
+<div class="tf-teaser-card-body is-flex is-align-items-center">
+{%- if icon %}
+<div class="tf-teaser-icon-wrap mr-4">
+<span class="tf-icon tf-icon-{{ icon }} is-size-2"></span>
+</div>
+{%- endif %}
+<div class="tf-teaser-content is-flex-grow-1">
+<h3 class="title is-4 mb-1">{{ title }}</h3>
+{%- if subtitle %}
+<p class="subtitle is-6 mb-0">{{ subtitle }}</p>
+{%- endif %}
+</div>
+{%- if url %}
+<div class="tf-teaser-action ml-4">
+<a href="{{ url }}" class="tf-btn tf-btn-white">
+<span>{{ btn_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+{%- endif %}
+</div>
+</div>
+{% endcomponent tf_teaser_card %}
+
+{% component tf_polaroid(image, caption="", alt="", tilt="") %}
+<div class="tf-polaroid {% if tilt %}is-tilted-{{ tilt }}{% endif %}">
+<div class="tf-polaroid-pins">
+<span class="tf-pin tf-pin-left"></span>
+<span class="tf-pin tf-pin-right"></span>
+</div>
+<div class="tf-polaroid-frame">
+<img src="{{ image }}" alt="{{ alt | default(value=caption) }}" loading="lazy" />
+{%- if caption %}
+<p class="tf-polaroid-caption">{{ caption }}</p>
+{%- endif %}
+</div>
+</div>
+{% endcomponent tf_polaroid %}
+
+{% component tf_ofuda(title, subtitle="", icon="", tilt="") %}
+<div class="tf-ofuda {% if tilt %}is-tilted-{{ tilt }}{% endif %}">
+<div class="tf-ofuda-inner">
+<div class="tf-ofuda-tomoe"></div>
+{%- if icon %}
+<span class="tf-icon tf-icon-{{ icon }} tf-ofuda-icon"></span>
+{%- endif %}
+<h4 class="tf-ofuda-title">{{ title }}</h4>
+{%- if subtitle %}
+<p class="tf-ofuda-subtitle">{{ subtitle }}</p>
+{%- endif %}
+</div>
+</div>
+{% endcomponent tf_ofuda %}
 
 {% component application_card(name, status="open", description="", deadline="", apply_url="#", btn_text="Apply") %}
 {%- set status_lower = status | lower -%}

@@ -118,6 +118,7 @@ body.dark-theme {
   --tf-color-dark: #fbf7eb;
   --tf-color-muted: #cbcbd2;
 
+  --bulma-body-background-color: #18131d;
   --bulma-scheme-main: #18131d;
   --bulma-text: #fbf7eb;
   --bulma-text-strong: #ffffff;
@@ -131,6 +132,7 @@ body.dark-theme {
     --tf-color-dark: #fbf7eb;
     --tf-color-muted: #cbcbd2;
 
+    --bulma-body-background-color: #18131d;
     --bulma-scheme-main: #18131d;
     --bulma-text: #fbf7eb;
     --bulma-text-strong: #ffffff;
@@ -1139,5 +1141,191 @@ main {
   list-style: disc;
   margin-left: 1.5rem;
   margin-bottom: 1.25rem;
+}
+
+.tf-teaser-card {
+  border-radius: var(--tf-radius-feature);
+  box-shadow: var(--tf-shadow-card);
+  padding: 2rem 2.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tf-teaser-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 15, 40, 0.2);
+}
+
+.tf-teaser-card.is-danger {
+  background-color: var(--tf-color-red);
+  color: #ffffff;
+}
+
+.tf-teaser-card.is-danger .title,
+.tf-teaser-card.is-danger .subtitle {
+  color: #ffffff !important;
+}
+
+.tf-teaser-card.is-discord {
+  background-color: #2c2f38;
+  color: #ffffff;
+}
+
+.tf-teaser-card.is-discord .title,
+.tf-teaser-card.is-discord .subtitle {
+  color: #ffffff !important;
+}
+
+.tf-teaser-card.is-outline {
+  background-color: var(--tf-color-white);
+  border: 2px solid var(--tf-color-red);
+}
+
+.tf-polaroid {
+  display: inline-block;
+  background-color: #ffffff;
+  padding: 12px 12px 28px 12px;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transition: transform 0.25s ease;
+}
+
+.tf-polaroid:hover {
+  transform: scale(1.03) rotate(0deg) !important;
+  z-index: 5;
+}
+
+.tf-polaroid.is-tilted-left {
+  transform: rotate(-3deg);
+}
+
+.tf-polaroid.is-tilted-right {
+  transform: rotate(3deg);
+}
+
+.tf-polaroid-pins {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.tf-polaroid-pins .tf-pin {
+  width: 8px;
+  height: 8px;
+  background-color: var(--tf-color-red);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tf-polaroid-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.tf-polaroid-caption {
+  font-family: var(--tf-font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--tf-color-dark);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.tf-ofuda {
+  display: inline-block;
+  background: var(--tf-color-cream);
+  border: 2px solid var(--tf-color-red);
+  border-radius: var(--tf-radius-card);
+  padding: 1.5rem 2rem;
+  box-shadow: 3px 4px 12px rgba(99, 15, 40, 0.12);
+  transition: transform 0.2s ease;
+}
+
+.tf-ofuda:hover {
+  transform: scale(1.02);
+}
+
+.tf-ofuda.is-tilted-left {
+  transform: rotate(-2deg);
+}
+
+.tf-ofuda.is-tilted-right {
+  transform: rotate(2deg);
+}
+
+.tf-ofuda-inner {
+  text-align: center;
+}
+
+.tf-ofuda-title {
+  font-family: var(--tf-font-heading);
+  font-weight: 800;
+  color: var(--tf-color-red);
+  margin-bottom: 0.25rem;
+}
+
+.tf-ofuda-subtitle {
+  font-size: 0.95rem;
+  color: var(--bulma-text);
+  margin-bottom: 0;
+}
+
+.input.tf-input-underline,
+.textarea.tf-textarea-underline,
+.select.tf-select-underline select {
+  border: none !important;
+  border-bottom: 3px solid var(--tf-color-red) !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  font-size: 1.05rem;
+  color: var(--bulma-text);
+}
+
+.input.tf-input-underline:focus,
+.textarea.tf-textarea-underline:focus,
+.select.tf-select-underline select:focus {
+  border-bottom-color: var(--tf-color-red-hover) !important;
+  box-shadow: none !important;
+}
+
+body.dark-theme .tf-polaroid,
+[data-theme="dark"] .tf-polaroid {
+  background-color: #221a28;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .tf-polaroid-caption,
+[data-theme="dark"] .tf-polaroid-caption {
+  color: #fbf7eb;
+}
+
+body.dark-theme .tf-ofuda,
+[data-theme="dark"] .tf-ofuda {
+  background: #221a28;
+  border-color: var(--tf-color-red);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tf-polaroid {
+    background-color: #221a28;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+  :root:not([data-theme="light"]) .tf-polaroid-caption {
+    color: #fbf7eb;
+  }
+  :root:not([data-theme="light"]) .tf-ofuda {
+    background: #221a28;
+    border-color: var(--tf-color-red);
+  }
 }
 

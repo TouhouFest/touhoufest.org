@@ -2,7 +2,7 @@
 
 {% block header %}
   {% if not page.extra.hide_header %}
-    {{ <page_header title={page.title} /> }}
+    {{ <page_header title={page.title} subtitle={page.extra.subtitle | default(value="")} /> }}
   {% endif %}
 {% endblock header %}
 
