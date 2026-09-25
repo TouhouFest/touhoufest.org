@@ -1,24 +1,19 @@
 +++
-title = "Artists + Vendors"
+title = "Artists"
 weight = 3
+
+[extra]
+image = "/banner.png"
 +++
 
-## Official Artists
+{{ <featured_artists /> }}
 
-## 2026 Artists and Vendors
+{{ <artist_roster /> }}
 
-## 2025 Artists and Vendors
+{{ <event_maps /> }}
 
-## Maps
+{{ <past_artists_gallery /> }}
 
-### Vendor Map
-
-### AA Map
-
-## AA/Vendor Info
-
-[Apply](#)
-
-### Policies
+{{ <sell_at_event /> }}
 
 {{ <discord /> }}
