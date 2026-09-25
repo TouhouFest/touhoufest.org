@@ -2,7 +2,11 @@
 
 {% block header %}
   {% if not page.extra.hide_header %}
-    {{ <page_header title={page.title} subtitle={page.extra.subtitle | default(value="")} /> }}
+    {% if page.extra.hero_title %}
+      {{ <page_header title={page.extra.hero_title} subtitle={page.extra.subtitle | default(value="")} description={page.extra.hero_body | default(value="")} /> }}
+    {% else %}
+      {{ <page_header title={page.title} subtitle={page.extra.subtitle | default(value="")} /> }}
+    {% endif %}
   {% endif %}
 {% endblock header %}
 
