@@ -998,3 +998,126 @@ description={ev.description | default(value="")}
 {% endif %}
 </div>
 {% endcomponent exhibitors_grid %}
+
+{% component guests_hero(title="2027 Guests", text="") %}
+<div class="guests-hero-banner">
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
+<div class="guests-hero-glass-card">
+<h1 class="guests-hero-title">{{ title }}</h1>
+<div class="guests-hero-body">
+{%- if text %}
+<p>{{ text | safe }}</p>
+{%- elif body %}
+<p>{{ body | safe }}</p>
+{%- else %}
+<p>Touhou Project would not be what it is if not for the music! TouhouFest strives to bring the best music circles and talents from both at home and abroad to give fans the best possible experience! Starting in 2025 we will be ‘rebranding’ our concerts as ‘TouhouFest LIVE’!</p>
+{%- endif %}
+</div>
+</div>
+</div>
+{% endcomponent guests_hero %}
+
+{% component featured_guests() %}
+{%- set guests_data = load_data(path="data/guests.yml") -%}
+<div class="featured-guests-section my-6">
+<div class="columns is-centered is-multiline">
+{%- for guest in guests_data.featured %}
+<div class="column is-6-desktop is-6-tablet is-12-mobile">
+<div class="tf-featured-card">
+<div class="card-gohei-trim-left"></div>
+<div class="card-gohei-trim-right"></div>
+<div class="featured-card-thumb-wrap">
+<img src="{{ guest.image }}" alt="{{ guest.name }}" class="featured-card-thumb" />
+</div>
+<div class="featured-card-body">
+<h3 class="featured-card-name">{{ guest.name }}</h3>
+<p class="featured-card-bio">{{ guest.bio }}</p>
+<a href="{{ guest.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
+<span>Visit artist's site</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent featured_guests %}
+
+{% component guests_timeline() %}
+{%- set guests_data = load_data(path="data/guests.yml") -%}
+<div class="guests-timeline-section my-6">
+<div class="timeline-intro has-text-centered mb-6">
+<h2 class="title is-2" style="color: #ffffff;">Thank you!</h2>
+<p class="is-size-5" style="color: #e8e2f0; max-width: 800px; margin: 0 auto;">TouhouFest owes a great deal of its success to all the wonderful guests, circles, and performers who have joined us over the years. Celebrate the incredible history with us!</p>
+</div>
+<div class="diamond-timeline-track">
+{%- for entry in guests_data.timeline %}
+{%- set is_even = loop.index is even %}
+<div class="diamond-timeline-row {% if is_even %}row-reverse{% endif %}">
+<div class="timeline-side-col timeline-col-left">
+{%- if not is_even %}
+{%- set guest = entry.guests[0] %}
+<div class="timeline-guest-badge">
+<div class="tf-gauge-avatar-sm">
+<img src="{{ guest.image }}" alt="{{ guest.name }}" class="tf-gauge-avatar-img" />
+</div>
+<div class="timeline-guest-info">
+<h4 class="timeline-guest-name">{{ guest.name }}</h4>
+<a href="{{ guest.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white is-small">
+<span>Button</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{%- endif %}
+</div>
+<div class="diamond-center-node">
+<div class="diamond-box">
+<div class="diamond-text">
+<span class="diamond-year">{{ entry.year }}</span>
+<span class="diamond-sub">GUESTS</span>
+</div>
+</div>
+</div>
+<div class="timeline-side-col timeline-col-right">
+{%- if is_even %}
+{%- set guest = entry.guests[0] %}
+<div class="timeline-guest-badge">
+<div class="tf-gauge-avatar-sm">
+<img src="{{ guest.image }}" alt="{{ guest.name }}" class="tf-gauge-avatar-img" />
+</div>
+<div class="timeline-guest-info">
+<h4 class="timeline-guest-name">{{ guest.name }}</h4>
+<a href="{{ guest.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white is-small">
+<span>Button</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{%- endif %}
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent guests_timeline %}
+
+{% component performers_grid() %}
+{%- set guests_data = load_data(path="data/guests.yml") -%}
+<div class="performers-section my-6">
+<h2 class="title is-2 has-text-centered mb-5" style="color: #ffffff;">2027 DJs &amp; Performers</h2>
+<div class="performers-grid">
+{%- for p in guests_data.performers %}
+<div class="performer-card">
+<h3 class="performer-name">{{ p.name }}</h3>
+<div class="tf-gauge-avatar">
+<img src="{{ p.image }}" alt="{{ p.name }}" class="tf-gauge-avatar-img" />
+</div>
+<p class="performer-desc">{{ p.desc }}</p>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent performers_grid %}
