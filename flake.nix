@@ -16,7 +16,8 @@
           pname = "touhoufest-site";
           version = "0.1.0";
           src = ./.;
-          nativeBuildInputs = [ pkgs.zola ];
+          nativeBuildInputs = [ pkgs.zola pkgs.cacert ];
+          SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
           buildPhase = ''
             zola build
           '';
@@ -29,7 +30,8 @@
           pname = "touhoufest-check";
           version = "0.1.0";
           src = ./.;
-          nativeBuildInputs = [ pkgs.zola ];
+          nativeBuildInputs = [ pkgs.zola pkgs.cacert ];
+          SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
           buildPhase = ''
             zola check
             touch $out

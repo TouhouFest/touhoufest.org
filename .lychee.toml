@@ -13,6 +13,8 @@ exclude = [
   '^http://localhost',
   # Skip registration and portal links that require live server authentication
   '^https?://registration\\.touhoufest\\.org',
+  # Skip canonical domain links checked against local files via --root-dir
+  '^https?://(www\\.)?touhoufest\\.org',
   # Skip templates syntax if scanned
   '\\{\\{.*\\}\\}',
 ]
