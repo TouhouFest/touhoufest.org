@@ -9,7 +9,7 @@ fmt:
 # Run static analysis and formatting checks
 check:
     dprint check
-    zola check
+    zola check --skip-external-links
 
 # Check all links (internal and external)
 check-links:

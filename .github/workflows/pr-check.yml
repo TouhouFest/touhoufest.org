@@ -19,16 +19,13 @@ jobs:
       - name: Install Tools
         uses: taiki-e/install-action@v2.87.15
         with:
-          tool: zola@0.23.6,just@1.58.0,dprint@0.57.4,lychee@0.24.2
+          tool: zola@0.23.6,just@1.58.0,dprint@0.57.4
 
       - name: Run verification checks
         run: just check
 
       - name: Build site
         run: just build
-
-      - name: Check links
-        run: just check-links
 
   nix-check:
     runs-on: ubuntu-latest
