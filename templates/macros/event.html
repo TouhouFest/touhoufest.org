@@ -1,0 +1,8 @@
+{# Shared Event Lifecycle Macro #}
+{% macro get_phase() %}
+  {% if config.extra.event and config.extra.event.phase %}
+    {{ config.extra.event.phase }}
+  {% else %}
+    before
+  {% endif %}
+{% endmacro %}

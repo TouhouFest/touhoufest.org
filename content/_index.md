@@ -1,5 +1,7 @@
 +++
+title = "Home"
 +++
+
 <section class='section'>
   {{ discord() }}
 </section>

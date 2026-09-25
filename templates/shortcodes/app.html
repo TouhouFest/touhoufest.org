@@ -1,0 +1,4 @@
+{% import "macros/molecules.html" as molecules %}
+{% set status = "closed" %}
+{% if open %}{% set status = "open" %}{% endif %}
+{{ molecules::application_card(name=name, status=status, description=description | default(value=''), apply_url=url | default(value='#')) }}

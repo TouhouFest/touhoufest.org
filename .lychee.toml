@@ -1,0 +1,21 @@
+# Lychee link checker configuration
+
+root_dir = "public"
+max_redirects = 5
+max_retries = 3
+timeout = 20
+
+exclude = [
+  # Skip mailto links
+  '^mailto:',
+  # Skip local dev hosts
+  '^http://127\\.0\\.0\\.1',
+  '^http://localhost',
+  # Skip registration and portal links that require live server authentication
+  '^https?://registration\\.touhoufest\\.org',
+  # Skip templates syntax if scanned
+  '\\{\\{.*\\}\\}',
+]
+
+# Accept typical HTTP success status codes
+accept = [200, 204, 301, 302, 307, 308]

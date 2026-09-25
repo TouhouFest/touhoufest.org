@@ -1,0 +1,29 @@
+name: PR Build Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      - name: Install Tools
+        uses: taiki-e/install-action@v2.87.15
+        with:
+          tool: zola@0.19.2,just@1.58.0,dprint@0.57.4,lychee@0.24.2
+
+      - name: Run verification checks
+        run: just check
+
+      - name: Build site
+        run: just build
+
+      - name: Check links
+        run: just check-links

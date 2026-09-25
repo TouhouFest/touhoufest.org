@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   # Rebuild at 12 Midnight every day
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 name: Build and deploy GH Pages
 jobs:
@@ -18,7 +18,9 @@ jobs:
         with:
           submodules: recursive
       - name: Install zola
-        run: sudo snap install --edge zola
+        uses: taiki-e/install-action@v2.87.15
+        with:
+          tool: zola@0.19.2
       - name: Build site
         run: zola build
       - name: Upload site to GitHub Pages
