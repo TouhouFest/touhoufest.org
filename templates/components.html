@@ -944,3 +944,57 @@ description={ev.description | default(value="")}
 </div>
 </div>
 {% endcomponent sell_at_event %}
+
+{% component exhibitors_grid(type="artists") %}
+{% set exh = load_data(path="data/exhibitors.yml") %}
+{% set status_key = type ~ "_status" %}
+{% set list_status = exh[status_key] | default(value="coming_soon") %}
+{% set list_items = exh[type] | default(value=[]) %}
+
+<div class="columns is-multiline my-5">
+{% if list_status == "coming_soon" or list_items | length == 0 %}
+<div class="column is-12">
+<div class="tf-card">
+<div class="tf-card-header">
+<h3 class="title is-4 mb-0">Coming Soon</h3>
+</div>
+<div class="tf-card-body">
+<p class="mb-3">Our official 2026 {{ type }} directory and table assignments are currently being curated. Please check back soon!</p>
+<p class="is-size-7 has-text-grey">Are you an independent artist or vendor? Check our application status on the registration page.</p>
+</div>
+</div>
+</div>
+{% else %}
+{% for item in list_items %}
+<div class="column is-4">
+<div class="tf-card">
+<div class="tf-card-header">
+<h3 class="title is-5 mb-0">{{ item.name }}</h3>
+{% if item.tag %}
+<span class="tf-tag tf-tag-open"><span>{{ item.tag }}</span></span>
+{% endif %}
+</div>
+<div class="tf-card-body">
+{% set loc = item.location | default(value=item.booth | default(value=item.table | default(value=""))) %}
+{% if loc %}
+<p class="mb-2"><strong>Booth / Table:</strong> {{ loc }}</p>
+{% endif %}
+{% if item.description %}
+<p class="is-size-7 has-text-grey">{{ item.description }}</p>
+{% endif %}
+</div>
+{% set link = item.url | default(value=item.link | default(value=item.website | default(value=""))) %}
+{% if link %}
+<div class="tf-card-footer">
+<a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-outline is-fullwidth">
+<span>Visit Booth</span>
+<span class="tf-icon tf-icon-external-link"></span>
+</a>
+</div>
+{% endif %}
+</div>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+{% endcomponent exhibitors_grid %}
