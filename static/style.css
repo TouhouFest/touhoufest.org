@@ -861,6 +861,265 @@ main {
   margin-bottom: 0;
 }
 
+.section-divider-module .divider-wave-top,
+.page-hero-banner .divider-wave-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: url('/gohei.svg') repeat-x center top;
+  background-size: auto 16px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.section-divider-module .divider-wave-bottom,
+.page-hero-banner .divider-wave-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: url('/gohei.svg') repeat-x center bottom;
+  background-size: auto 16px;
+  transform: rotate(180deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Page Hero Banner */
+.page-hero-banner {
+  background: url('/hero.png') center/cover no-repeat;
+  position: relative;
+  min-height: 240px;
+  display: flex;
+  align-items: flex-end;
+  padding: 3rem 2rem 2.5rem 2rem;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.page-hero-banner .page-hero-title-box {
+  background-color: var(--tf-color-red);
+  color: var(--tf-color-white);
+  padding: 1.5rem 2.5rem;
+  border-radius: var(--tf-radius-card);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 3;
+}
+
+.page-hero-banner .page-hero-title {
+  color: var(--tf-color-white) !important;
+  font-family: var(--tf-font-heading);
+  font-weight: 800;
+  font-size: 2.75rem;
+  margin: 0;
+  line-height: 1.1;
+}
+
+@media screen and (max-width: 768px) {
+  .page-hero-banner {
+    min-height: 180px;
+    padding: 2rem 1rem 1.5rem 1rem;
+  }
+  .page-hero-banner .page-hero-title-box {
+    padding: 1rem 1.5rem;
+  }
+  .page-hero-banner .page-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-module-card {
+    padding: 2rem 1.5rem;
+  }
+  .hero-module-card .hero-card-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .hero-card-image-wrap {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .section-divider-module {
+    padding: 2rem 1.25rem;
+    min-height: 140px;
+  }
+  .section-divider-module .divider-title {
+    font-size: 1.6rem;
+  }
+
+  .cosplay-masquerade-card {
+    padding: 2rem 1.25rem;
+  }
+  .cosplay-masquerade-card .buttons .tf-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .event-guidelines-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
+  }
+  .event-guidelines-banner .guidelines-icon-wrap {
+    margin: 0 auto;
+  }
+  .event-guidelines-banner .tf-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .discord-callout-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+  .discord-callout-card .discord-icon {
+    margin: 0 auto;
+  }
+  .discord-callout-card .tf-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .newsletter-callout-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+    border-left: none;
+    border-top: 5px solid var(--tf-color-red);
+  }
+  .newsletter-callout-card .newsletter-icon-wrap {
+    margin: 0 auto;
+  }
+  .newsletter-callout-card .newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+  .newsletter-callout-card .newsletter-input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .newsletter-callout-card .newsletter-form .tf-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* Discord Callout Card */
+.discord-callout-card {
+  background-color: #2f293d;
+  color: var(--tf-color-white);
+  border-radius: var(--tf-radius-card);
+  padding: 2rem 3rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.discord-callout-card .discord-icon {
+  font-size: 4rem;
+  color: var(--tf-color-white);
+  background-color: var(--tf-color-white);
+  flex-shrink: 0;
+}
+
+.discord-callout-card .discord-content {
+  flex: 1;
+}
+
+.discord-callout-card .discord-title {
+  color: var(--tf-color-white) !important;
+  font-family: var(--tf-font-heading);
+  font-weight: 800;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.discord-callout-card .discord-subtext {
+  color: #d6d9e0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Tengu Newsletter Callout Card */
+.newsletter-callout-card {
+  background-color: #fffde7;
+  border-left: 5px solid var(--tf-color-red);
+  border-radius: var(--tf-radius-card);
+  padding: 2.5rem 3rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.newsletter-callout-card .newsletter-icon-wrap {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newsletter-callout-card .newsletter-icon-wrap img {
+  width: 100%;
+  height: auto;
+}
+
+.newsletter-callout-card .newsletter-content {
+  flex: 1;
+}
+
+.newsletter-callout-card .newsletter-title {
+  color: var(--tf-color-red) !important;
+  font-family: var(--tf-font-heading);
+  font-weight: 800;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter-callout-card .newsletter-subtext {
+  color: var(--tf-color-subhead);
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+.newsletter-callout-card .newsletter-form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.newsletter-callout-card .newsletter-input {
+  flex: 1;
+  min-width: 240px;
+  max-width: 400px;
+  padding: 10px 16px;
+  border-radius: var(--tf-radius-card);
+  border: 1px solid #d6d9e0;
+  font-family: var(--tf-font-body);
+  font-size: 1rem;
+  outline: none;
+}
+
+.newsletter-callout-card .newsletter-input:focus {
+  border-color: var(--tf-color-red);
+}
+
 /* Staff Page Elements */
 .staff-divider {
   background-color: var(--tf-color-red);

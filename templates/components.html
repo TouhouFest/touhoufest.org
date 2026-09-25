@@ -12,38 +12,34 @@
 {% endcomponent faq %}
 
 {% component discord() %}
-<div class="container my-6">
-  <div class="tf-card has-text-white" style="background-color: var(--tf-color-dark);">
-    <div class="is-flex is-align-items-center is-flex-direction-column-mobile p-4">
-      <div class="mr-5 mb-3 mb-0-tablet">
-        <span class="tf-icon tf-icon-discord" style="font-size: 64px; color: var(--tf-color-primary);"></span>
-      </div>
-      <div class="is-flex-grow-1 has-text-centered-mobile">
-        <h2 class="title is-4 has-text-white mb-2">Our Discord Server is open</h2>
-        <p class="mb-3 has-text-grey-light">Join our community on the TouhouFest Official Discord Server!</p>
-        <a href="https://discord.gg/touhoufest" class="tf-btn tf-btn-primary">
-          <span>Join Our Discord</span>
-          <span class="tf-icon tf-icon-external-link"></span>
-        </a>
-      </div>
-    </div>
+<div class="discord-callout-card my-6">
+  <span class="tf-icon tf-icon-discord discord-icon"></span>
+  <div class="discord-content">
+    <h2 class="discord-title">Join the community on Discord</h2>
+    <p class="discord-subtext">Join our community on the TouhouFest Official Discord server!</p>
+    <a href="https://discord.gg/touhoufest" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
+      <span>Join Discord</span>
+      <span class="tf-icon tf-icon-chevron-right ml-1"></span>
+    </a>
   </div>
 </div>
 {% endcomponent discord %}
 
 {% component newsletter() %}
-<div class="container my-6">
-  <div class="tf-card has-text-white" style="background-color: var(--tf-color-red);">
-    <div class="is-flex is-align-items-center is-flex-direction-column-mobile p-4">
-      <div class="is-flex-grow-1 has-text-centered-mobile">
-        <h2 class="title is-4 has-text-white mb-2">The Tengu Newsletter</h2>
-        <p class="mb-3 has-text-grey-light">Sign up with your email address to receive news and updates.</p>
-        <a href="https://discord.gg/touhoufest" class="tf-btn tf-btn-primary">
-          <span>Subscribe</span>
-          <span class="tf-icon tf-icon-external-link"></span>
-        </a>
-      </div>
-    </div>
+<div class="newsletter-callout-card my-6">
+  <div class="newsletter-icon-wrap">
+    <img src="/email.svg" alt="Newsletter" />
+  </div>
+  <div class="newsletter-content">
+    <h2 class="newsletter-title">The Tengu Newsletter</h2>
+    <p class="newsletter-subtext">Sign up with your email address to receive news and updates.</p>
+    <form class="newsletter-form" action="#" method="post" onsubmit="return false;">
+      <input type="email" class="newsletter-input" placeholder="Email here" required />
+      <button type="submit" class="tf-btn tf-btn-danger">
+        <span>Subscribe</span>
+        <span class="tf-icon tf-icon-chevron-right ml-1"></span>
+      </button>
+    </form>
   </div>
 </div>
 {% endcomponent newsletter %}
@@ -158,11 +154,12 @@
 {% endcomponent other %}
 
 {% component page_header(title, subtitle="") %}
-<div class="has-text-centered mb-5">
-<h1 class="title is-1 mb-2">{{ title }}</h1>
-{%- if subtitle %}
-<p class="subtitle is-5 has-text-grey">{{ subtitle }}</p>
-{%- endif %}
+<div class="page-hero-banner">
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
+<div class="page-hero-title-box">
+<h1 class="page-hero-title">{{ title }}</h1>
+</div>
 </div>
 {% endcomponent page_header %}
 
@@ -214,9 +211,8 @@
 {% component section_divider(title, subtitle="", image="", url="", button_text="Explore Section", id="") %}
 {%- set divider_id = id | default(value=title | slugify) -%}
 <div class="section-divider-module my-6" id="{{ divider_id }}">
-{%- if image %}
-<img class="divider-bg-image" src="{{ image }}" alt="{{ title }}" />
-{%- endif %}
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
 <div class="divider-overlay">
 <div class="divider-content">
 <div>
@@ -240,15 +236,10 @@
 <div class="hero-gohei-left"></div>
 <div class="hero-gohei-right"></div>
 <div class="hero-card-inner">
-{%- if image %}
 <div class="hero-card-image-wrap">
-<img src="{{ image }}" alt="{{ title }}" class="hero-card-image" />
-<div class="hero-card-badge-overlay">
 <span class="hero-card-q">?</span>
 <span class="hero-card-stay-tuned">Stay tuned!</span>
 </div>
-</div>
-{%- endif %}
 <div class="hero-card-content">
 <h2 class="title is-2 mb-3 hero-card-title">{{ title }}</h2>
 {%- if subtitle %}
@@ -285,4 +276,23 @@
 </div>
 </div>
 {% endcomponent cosplay_masquerade %}
+
+{% component event_guidelines(url="/about/guidelines", button_text="Button") %}
+<div class="event-guidelines-banner my-6">
+<div class="guidelines-icon-wrap">
+<span class="tf-icon tf-icon-info"></span>
+</div>
+<div class="guidelines-content">
+<h3 class="title is-3 has-text-white mb-1">Event Guidelines</h3>
+<p class="has-text-cream mb-0">Before attending, please be sure to check these guidelines.</p>
+</div>
+<div>
+<a class="tf-btn tf-btn-white" href="{{ url }}">
+<span>{{ button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{% endcomponent event_guidelines %}
+
 
