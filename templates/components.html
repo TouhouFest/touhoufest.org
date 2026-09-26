@@ -667,5 +667,111 @@ class='fa-solid fa-chevron-right'></span></a></p>
 </div>
 {% endcomponent amp_production_module %}
 
+{% component schedule_block(title, time, room="", category="", host="", description="") %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="tf-card">
+<div class="tf-card-header">
+<div>
+<h3 class="title is-5 mb-1">{{ title }}</h3>
+<p class="is-size-7 has-text-grey">
+<span class="tf-icon tf-icon-clock mr-1"></span>{{ time }}
+</p>
+</div>
+{% if room %}
+<span class="tf-tag tf-tag-room"><span>{{ room }}</span></span>
+{% endif %}
+</div>
+<div class="tf-card-body">
+{% if host %}
+<p class="is-size-7 has-text-weight-semibold mb-2">
+{{ host }}
+</p>
+{% endif %}
+{% if description %}
+<p class="is-size-7 has-text-grey">{{ description }}</p>
+{% endif %}
+</div>
+{% if category %}
+<div class="tf-card-footer">
+<span class="tf-tag tf-tag-pending"><span>{{ category }}</span></span>
+</div>
+{% endif %}
+</div>
+</div>
+{% endcomponent schedule_block %}
 
+{% component schedule_grid() %}
+{% set sched = load_data(path="data/schedule.yml") %}
+<div class="schedule-container my-5">
+<div class="buttons is-centered mb-5">
+{% for day in sched.days %}
+<a href="#{{ day.id }}" class="button is-rounded is-small">
+<span>{{ day.day | default(value=day.title) }}</span>
+</a>
+{% endfor %}
+</div>
+
+<div class="columns is-multiline mb-6">
+{% for day in sched.days %}
+<div class="column is-4">
+<div class="tf-card">
+<div class="tf-card-header">
+<h3 class="title is-5 mb-0">{{ day.title }}</h3>
+</div>
+<div class="tf-card-body">
+<p class="mb-2"><strong>Hours:</strong> {{ day.hours }}</p>
+<p class="is-size-7 has-text-grey">{{ day.summary }}</p>
+</div>
+<div class="tf-card-footer">
+<a href="#{{ day.id }}" class="tf-btn tf-btn-outline is-fullwidth">
+<span>View {{ day.day | default(value="Day") }} Blocks</span>
+<span class="tf-icon tf-icon-chevron-down"></span>
+</a>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+
+{% for day in sched.days %}
+<div id="{{ day.id }}" class="schedule-day-section mb-6 pt-4">
+<div class="is-flex is-justify-content-between is-align-items-center mb-3">
+<div>
+<h2 class="title is-3 mb-1">{{ day.title }}</h2>
+<p class="is-size-7 has-text-grey">
+<span class="tf-icon tf-icon-clock mr-1"></span> {{ day.hours }}
+&bull; <span class="tf-icon tf-icon-calendar ml-2 mr-1"></span> {{ day.date }}
+</p>
+</div>
+<a href="#top" class="tf-btn tf-btn-outline is-small">
+<span class="tf-icon tf-icon-chevron-up"></span>
+<span>Top</span>
+</a>
+</div>
+<p class="mb-4">{{ day.summary }}</p>
+
+{% if day.events %}
+<div class="columns is-multiline">
+{% for ev in day.events %}
+{{ <schedule_block
+title={ev.title}
+time={ev.time}
+room={ev.room | default(value="")}
+category={ev.category | default(value="")}
+host={ev.host | default(value="")}
+description={ev.description | default(value="")}
+/> }}
+{% endfor %}
+</div>
+{% else %}
+<div class="notification is-light">
+<p>Schedule blocks for {{ day.title }} will be announced soon.</p>
+</div>
+{% endif %}
+</div>
+{% endfor %}
+
+{{ <discord /> }}
+</div>
+{% endcomponent schedule_grid %}
 
