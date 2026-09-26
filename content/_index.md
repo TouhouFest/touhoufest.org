@@ -27,4 +27,3 @@ title = "Home"
 {{ <discord /> }}
 
 {{ <newsletter /> }}
-
