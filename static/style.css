@@ -435,21 +435,23 @@ main {
 .tf-accordion {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--tf-radius-card);
-  margin-bottom: 1rem;
-  background-color: var(--tf-color-yellow-light);
+  margin-bottom: 1.25rem;
+  background-color: var(--tf-color-white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   overflow: hidden;
 }
 
 .tf-accordion summary {
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 1.75rem;
   font-family: var(--tf-font-heading);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none;
+  color: var(--bulma-text-strong);
 }
 
 .tf-accordion summary::-webkit-details-marker {
@@ -457,24 +459,138 @@ main {
 }
 
 .tf-accordion summary::after {
-  content: "";
-  display: inline-block;
-  width: 0.85em;
-  height: 0.85em;
-  background-color: currentColor;
-  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>') no-repeat center;
-  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>') no-repeat center;
+  content: "+";
+  color: var(--tf-color-red);
+  font-family: var(--tf-font-heading);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-left: 1rem;
+  flex-shrink: 0;
   transition: transform 0.2s ease;
 }
 
 .tf-accordion[open] summary::after {
-  transform: rotate(180deg);
+  content: "—";
+}
+
+.tf-faq-badge {
+  color: var(--bulma-text-strong);
+  font-weight: 800;
+  margin-right: 0.35rem;
+}
+
+.tf-faq-divider {
+  height: 2px;
+  background-color: var(--tf-color-red);
+  margin: 0 1.75rem 1.25rem 1.75rem;
 }
 
 .tf-accordion-content {
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  padding: 0 1.75rem 1.75rem 1.75rem;
   color: var(--bulma-text);
   line-height: 1.6;
+}
+
+.tf-accordion-content a {
+  color: var(--tf-color-red);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.tf-accordion-content a:hover {
+  color: var(--tf-color-red-hover);
+}
+
+/* ADA Accessibility Facility Table */
+.ada-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ada-pill {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--tf-color-white);
+  border: 1px solid #d6d9e0;
+  border-radius: 9999px;
+  padding: 0.35rem 0.95rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bulma-text-strong);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.ada-pill .tf-icon {
+  color: var(--tf-color-dark);
+  font-size: 0.9rem;
+}
+
+.ada-limited-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ada-limited-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.ada-limited-pill-col {
+  flex-shrink: 0;
+  width: 210px;
+}
+
+.ada-limited-desc-col {
+  flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .ada-limited-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .ada-limited-pill-col {
+    width: 100%;
+  }
+}
+
+[data-theme="dark"] .tf-accordion,
+body.dark-theme .tf-accordion {
+  background-color: var(--tf-color-yellow-light);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .ada-pill,
+body.dark-theme .ada-pill {
+  background-color: #2b2233;
+  border-color: #4a3c57;
+  color: #fbf7eb;
+}
+
+[data-theme="dark"] .ada-pill .tf-icon,
+body.dark-theme .ada-pill .tf-icon {
+  color: #fbf7eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tf-accordion {
+    background-color: var(--tf-color-yellow-light);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  :root:not([data-theme="light"]) .ada-pill {
+    background-color: #2b2233;
+    border-color: #4a3c57;
+    color: #fbf7eb;
+  }
+
+  :root:not([data-theme="light"]) .ada-pill .tf-icon {
+    color: #fbf7eb;
+  }
 }
 
 /* Warnings */
@@ -960,6 +1076,18 @@ body.dark-theme .tf-app-card,
   color: #fffdf0;
 }
 
+.page-hero-banner .page-hero-subtitle {
+  color: var(--tf-color-white);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.page-hero-banner .page-hero-subtitle a {
+  color: var(--tf-color-white);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 @media screen and (max-width: 768px) {
   .page-hero-banner {
     min-height: 180px;
@@ -1360,6 +1488,7 @@ body.dark-theme .tf-ofuda,
   }
 }
 
+<<<<<<< HEAD
 /* ==========================================================================
    Hotel Blocks Module
    ========================================================================== */
@@ -1857,4 +1986,198 @@ body.dark-theme .tf-ofuda,
 [data-theme="dark"] .amp-status-tag.is-closed {
   color: #b0a8b6;
   border-color: #706876;
+}
+
+.faq-callout-card-vertical {
+  border-radius: var(--tf-radius-card);
+  padding: 3rem 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.faq-callout-red {
+  background-color: var(--tf-color-red);
+}
+
+.faq-callout-dark {
+  background-color: #2f293d;
+}
+
+.faq-callout-dark .tf-btn-white,
+.contact-callout-dark .tf-btn-white {
+  color: #221a28 !important;
+}
+
+.faq-callout-dark .tf-btn-white:hover,
+.contact-callout-dark .tf-btn-white:hover {
+  background-color: var(--tf-color-cream);
+  color: #000000 !important;
+}
+
+.faq-callout-card-vertical .callout-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.contact-form-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem 0 3rem 0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form .tf-form-field {
+  margin-bottom: 1.75rem;
+}
+
+.contact-form .tf-form-label {
+  display: block;
+  font-family: var(--tf-font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--bulma-text-strong);
+  margin-bottom: 0.5rem;
+}
+
+.contact-form .tf-required-star {
+  color: var(--tf-color-red);
+  margin-left: 2px;
+}
+
+.contact-form .tf-required-tag {
+  color: #8c827a;
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-left: 4px;
+}
+
+.contact-form .tf-form-input,
+.contact-form .tf-form-select,
+.contact-form .tf-form-textarea {
+  width: 100%;
+  background-color: var(--tf-color-white);
+  border: 1px solid #dcd7cf;
+  border-bottom: 3px solid var(--tf-color-red);
+  border-radius: 5px;
+  padding: 0.85rem 1rem;
+  font-family: var(--tf-font-body);
+  font-size: 1rem;
+  color: var(--bulma-text-strong);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.contact-form .tf-form-input:focus,
+.contact-form .tf-form-select:focus,
+.contact-form .tf-form-textarea:focus {
+  outline: none;
+  border-color: var(--tf-color-red);
+  box-shadow: 0 0 0 3px rgba(191, 52, 68, 0.15);
+}
+
+.contact-form .tf-form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="%23221a28"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1.25rem center;
+  background-size: 14px;
+  padding-right: 2.75rem;
+  cursor: pointer;
+}
+
+.contact-form .tf-form-textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.contact-bottom-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-callout-card {
+  border-radius: var(--tf-radius-card);
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.contact-callout-red {
+  background-color: var(--tf-color-red);
+}
+
+.contact-callout-dark {
+  background-color: #2f293d;
+}
+
+.contact-callout-card .callout-icon-col {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+}
+
+.contact-callout-card .callout-content-col {
+  flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-callout-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+  .contact-callout-card .tf-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+[data-theme="dark"] .contact-form .tf-form-input,
+[data-theme="dark"] .contact-form .tf-form-select,
+[data-theme="dark"] .contact-form .tf-form-textarea,
+body.dark-theme .contact-form .tf-form-input,
+body.dark-theme .contact-form .tf-form-select,
+body.dark-theme .contact-form .tf-form-textarea {
+  background-color: #282030;
+  border-color: #483956;
+  border-bottom-color: var(--tf-color-red);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .contact-form .tf-form-select,
+body.dark-theme .contact-form .tf-form-select {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="%23ffffff"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>');
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .contact-form .tf-form-input,
+  :root:not([data-theme="light"]) .contact-form .tf-form-select,
+  :root:not([data-theme="light"]) .contact-form .tf-form-textarea {
+    background-color: #282030;
+    border-color: #483956;
+    border-bottom-color: var(--tf-color-red);
+    color: #ffffff;
+  }
+
+  :root:not([data-theme="light"]) .contact-form .tf-form-select {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="%23ffffff"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>');
+  }
 }
