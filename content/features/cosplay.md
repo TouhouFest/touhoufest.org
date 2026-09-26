@@ -1,66 +1,29 @@
 +++
-title = "Cosplay"
+title = "Cosplay at TouhouFest"
 weight = 2
 +++
 
-## Cosplay Ambassadors
+{{ <section_divider title="2027 Workshops" subtitle="Themed photoshoots will be organized by our
+Cosplay and Photography team. They are listed below as follows:<br><span class=\"tf-tag
+tf-tag-location mt-2\"><span class=\"tf-icon tf-icon-location mr-1\"></span>Pine Wind Garden</span>"
+/> }}
 
-TouhouFest's cosplay activities will be curated by our Cosplay Ambassadors, all of which have years
-of experience in both the Touhou community and cosplay. [Medukitty](//medukitty.carrd.co/)
-[Mystical Lala](//mysticallala.storenvy.com/) [Pumpking](//rexlandp.carrd.co/)
+{{ <cosplay_meetups /> }}
 
-## Meetups
+{{ <section_divider title="2027 Workshops" /> }}
 
-Cosplay Gatherings will take place in our beautiful Pine Wind Japanese Garden.
+{{ <cosplay_workshops /> }}
 
-Our full meetup and gathering schedule will be released when we get closer to the event!
+{{ <section_divider title="Masquerade" /> }}
 
-## Get the perfect photos
+{{ <cosplay_masquerade_full /> }}
 
-Our venue's Pine Wind Japanese Garden is the perfect place to get photos of your cosplays. At the
-end of each of the TouhouFest cosplay meetups, our photographers will offer free photos in the
-garden for anyone who wants them.
+{{ <section_divider title="2026 Guests" /> }}
 
-## Cosplay Line Up Template
+{{ <cosplay_ambassadors /> }}
 
-Looking to show off your cosplays at TouhouFest?
+{{ <section_divider title="2025 TouhouFest Event Maps" /> }}
 
-The TouhouFest Team has prepared our own template that anyone may use! Feel free to download the
-template on the right to use at your discretion!
+{{ <cosplay_maps /> }}
 
-You may also tag TouhouFest using the following:
-
-@touhoufest (for Twitter, Instagram and Facebook) @touhoufest.org (for Bluesky)
-
-You may also use these hashtags as well: #touhoufest #touhoufest2025 #東方フェス #東方フェス2025
-
-## Cosplay Contest
-
-Mystical Lala, Pumpking and Guest Judge, Uniphants will be judging the Cosplay Contest at
-TouhouFest! There are three categories to choose from, Craftsmanship, Performance and Exhibition.
-This year, Medukitty will be the Master of Ceremonies!
-
-**Please read the rules completely before entering.** [Cosplay Contest Rules](#)
-[Craftsmanship Application Form](#) [Performance Application Form](#)
-[Exhibition Application Form](#)
-
-### Cosplay Guest Judge - Purple Uniphants
-
-You can call me Uni! I've been cosplaying since 2011, and I ventured into Touhou shortly after. I
-have a handful of awards under my belt, but please don't be intimidated: I love seeing how we as
-cosplayers bring fiction to reality with our own styles and personalities. I owe all of my crafting
-knowledge to the internet, but I'm still not done learning!
-[Purple Uniphants](//linktr.ee/purpleuniphants)
-
-## Touhou Cosplay Guild
-
-The Touhou Cosplay Guild Discord Server brings over 350 beginner and seasoned cosplayers together
-and provides learning resources for cosplaying. It was founded by Violet Reverie, who will be
-joining us as one of our Cosplay Ambassadors. [Learn More](https://discord.gg/hC2Sj3G)
-
-## Questions about what cosplays are allowed at TouhouFest?
-
-See the event guidelines to learn more about what is allowed at TouhouFest
-[Read Event Guidelines](#)
-
-{{ <fumo /> }}
+{{ <cosplay_action_cards /> }}

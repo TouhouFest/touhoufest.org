@@ -1302,3 +1302,480 @@ description={ev.description | default(value="")}
 </div>
 </div>
 {% endcomponent convention_pillars %}
+
+{% component cosplay_meetups() %}
+{% set cdata = load_data(path="data/cosplay.yml") %}
+<div class="meetup-schedule-container my-6">
+<div class="meetup-tabs-wrapper">
+<input type="radio" name="meetup-day" id="meetup-day-0" class="meetup-radio" checked>
+<input type="radio" name="meetup-day" id="meetup-day-1" class="meetup-radio">
+<input type="radio" name="meetup-day" id="meetup-day-2" class="meetup-radio">
+<div class="meetup-tab-headers">
+<label for="meetup-day-0" class="meetup-tab-btn" id="label-meetup-0">Fri</label>
+<label for="meetup-day-1" class="meetup-tab-btn" id="label-meetup-1">Sat</label>
+<label for="meetup-day-2" class="meetup-tab-btn" id="label-meetup-2">Sun</label>
+</div>
+<div class="meetup-tab-panels">
+{% for day in cdata.meetups.days %}
+<div class="meetup-panel meetup-panel-{{ loop.index0 }}">
+{% for ev in day.events %}
+<div class="meetup-entry">
+<h4 class="meetup-entry-title">{{ ev.title }}</h4>
+<p class="meetup-entry-time"><span class="tf-icon tf-icon-clock mr-1"></span> {{ ev.time }}</p>
+<p class="meetup-entry-chars"><span class="tf-icon tf-icon-pin mr-1"></span> For characters from: {{ ev.characters }}</p>
+<a href="{{ ev.url }}" class="meetup-entry-link"><span>See more info</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+</div>
+{% endfor %}
+</div>
+{% endfor %}
+</div>
+</div>
+<p class="has-text-grey is-size-7 mt-3">{{ cdata.meetups.note }}</p>
+</div>
+{% endcomponent cosplay_meetups %}
+
+{% component cosplay_workshops() %}
+{% set cdata = load_data(path="data/cosplay.yml") %}
+<div class="cosplay-workshops-section my-6">
+<p class="mb-5">{{ cdata.workshops.body }}</p>
+<div class="columns is-desktop">
+{% for item in cdata.workshops.items %}
+<div class="column is-one-third-desktop is-full-touch">
+<div class="workshop-photo-card">
+<div class="workshop-photo-img-wrap">
+<img src="{{ item.image }}" alt="{{ item.title }}" class="workshop-photo-img">
+</div>
+<div class="workshop-photo-body">
+<h4 class="workshop-photo-title">{{ item.title }}</h4>
+<div class="workshop-location-row mb-3">
+<span class="is-size-7 has-text-weight-bold mr-2">Location:</span>
+<span class="tf-tag tf-tag-location"><span class="tf-icon tf-icon-location mr-1"></span>{{ item.location }}</span>
+</div>
+<p class="is-size-7 has-text-grey mb-0">{{ item.description }}</p>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endcomponent cosplay_workshops %}
+
+{% component cosplay_masquerade_full() %}
+{% set cdata = load_data(path="data/cosplay.yml") %}
+<div class="masquerade-full-section my-6">
+<h3 class="title is-3 mb-2">Categories</h3>
+<p class="has-text-grey is-size-7 mb-5">{{ cdata.masquerade.note }}</p>
+<div class="columns is-desktop mb-6">
+{% for cat in cdata.masquerade.categories %}
+<div class="column is-one-third-desktop is-full-touch">
+<div class="masquerade-category-card">
+<div class="masquerade-card-img-wrap">
+<img src="{{ cat.image }}" alt="{{ cat.name }}" class="masquerade-card-img">
+</div>
+<div class="masquerade-card-body">
+<h4 class="masquerade-card-title">{{ cat.name }}</h4>
+<p class="masquerade-card-desc">{{ cat.description }}</p>
+</div>
+<div class="masquerade-card-footer">
+<a href="{{ cat.apply_url }}" class="tf-btn tf-btn-danger masquerade-pill-btn">
+<span>Apply</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+<div class="masquerade-details-block mb-6">
+<h4 class="title is-4 mb-2">More about Craftsmanship:</h4>
+<p class="mb-4">{{ cdata.masquerade.craftsmanship_desc }}</p>
+<div class="cosplay-bar-header">Awards:</div>
+<div class="cosplay-bar-body columns is-desktop mb-5">
+{% for award in cdata.masquerade.craftsmanship_awards %}
+<div class="column is-one-third-desktop">
+<div class="cosplay-award-item">
+<h5 class="award-item-title"><span class="tf-icon tf-icon-warning mr-1"></span>{{ award.title }}</h5>
+<p class="award-item-prize"><strong>Prize:</strong><br>{{ award.prize }}</p>
+<p class="award-item-desc">{{ award.description }}</p>
+<a href="{{ award.url }}" class="award-item-link"><span>See more info</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+<div class="masquerade-details-block mb-6">
+<h4 class="title is-4 mb-2">More about Performance:</h4>
+<p class="mb-4">{{ cdata.masquerade.performance_desc }}</p>
+<div class="cosplay-bar-header">Awards:</div>
+<div class="cosplay-bar-body columns is-desktop mb-5">
+{% for award in cdata.masquerade.performance_awards %}
+<div class="column is-one-third-desktop">
+<div class="cosplay-award-item">
+<h5 class="award-item-title"><span class="tf-icon tf-icon-warning mr-1"></span>{{ award.title }}</h5>
+<p class="award-item-prize"><strong>Prize:</strong><br>{{ award.prize }}</p>
+<p class="award-item-desc">{{ award.description }}</p>
+<a href="{{ award.url }}" class="award-item-link"><span>See more info</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+<div class="masquerade-itinerary-block mb-6">
+<div class="cosplay-bar-header">Itinerary</div>
+<div class="cosplay-bar-body columns is-desktop mb-3">
+{% for item in cdata.masquerade.itinerary %}
+<div class="column is-one-third-desktop">
+<div class="cosplay-itinerary-item">
+<h5 class="itinerary-item-title">{{ item.title }}</h5>
+<p class="itinerary-item-time"><span class="tf-icon tf-icon-clock mr-1"></span> {{ item.time }}</p>
+<p class="itinerary-item-desc">{{ item.description }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+<p class="has-text-grey is-size-7 mt-3">{{ cdata.masquerade.note }}</p>
+</div>
+</div>
+{% endcomponent cosplay_masquerade_full %}
+
+{% component cosplay_ambassadors() %}
+{% set cdata = load_data(path="data/cosplay.yml") %}
+<div class="cosplay-ambassadors-section my-6">
+<div class="columns is-desktop is-multiline">
+{% for amb in cdata.ambassadors %}
+<div class="column is-half-desktop is-full-touch">
+<div class="ambassador-card">
+<div class="ambassador-header">
+<span class="ambassador-honorific">{{ amb.honorific }}</span>
+<h3 class="ambassador-name">{{ amb.name }}</h3>
+</div>
+<div class="ambassador-portrait-wrap my-4">
+<div class="ambassador-sunburst-border">
+<img src="{{ amb.image }}" alt="{{ amb.name }}" class="ambassador-portrait-img">
+</div>
+</div>
+<p class="ambassador-role">{{ amb.role }}</p>
+<p class="ambassador-bio">{{ amb.bio }}</p>
+<div class="ambassador-socials">
+{% for soc in amb.socials %}
+<a href="{{ soc.url }}" target="_blank" rel="noopener noreferrer" class="ambassador-social-link">
+{% if soc.name == 'Instagram' %}<span class="tf-icon tf-icon-instagram mr-1"></span>{% elif soc.name == 'TikTok' %}<span class="tf-icon tf-icon-youtube mr-1"></span>{% else %}<span class="tf-icon tf-icon-x mr-1"></span>{% endif %}
+<span>{{ soc.name }}</span>
+<span class="tf-icon tf-icon-external-link ml-1"></span>
+</a>
+{% endfor %}
+</div>
+</div>
+</div>
+{% if loop.index == 2 %}
+<div class="column is-full my-4 is-hidden-touch">
+<div class="ambassador-row-divider"></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+</div>
+{% endcomponent cosplay_ambassadors %}
+
+{% component cosplay_maps() %}
+<div class="cosplay-maps-container my-6">
+<div class="buttons is-centered mb-5">
+<button type="button" class="tf-btn tf-btn-danger is-rounded"><span>Event Map</span></button>
+<button type="button" class="tf-btn tf-btn-outline is-rounded"><span>Artist Alley Map</span></button>
+<button type="button" class="tf-btn tf-btn-outline is-rounded"><span>Vendors Map</span></button>
+</div>
+<div class="cosplay-map-card">
+<div class="cosplay-map-img-wrap">
+<img src="/img/TouhouFest_2025_Map_FINAL-01-01.jpg" alt="TouhouFest Event Map" class="cosplay-map-img">
+<button type="button" class="map-zoom-btn" title="Zoom Map"><span class="tf-icon tf-icon-search"></span></button>
+</div>
+</div>
+</div>
+{% endcomponent cosplay_maps %}
+
+{% component cosplay_action_cards() %}
+{% set cdata = load_data(path="data/cosplay.yml") %}
+<div class="cosplay-action-cards-grid my-6">
+<div class="columns is-desktop is-multiline">
+{% for card in cdata.action_cards %}
+<div class="column is-half-desktop is-full-touch">
+<div class="cosplay-action-card">
+<div class="action-card-icon-wrap">
+{% if card.image %}
+<img src="{{ card.image }}" alt="{{ card.title }}" class="action-card-img">
+{% elif card.icon %}
+<span class="tf-icon {{ card.icon }} action-card-icon"></span>
+{% else %}
+<span class="action-card-placeholder">Icon</span>
+{% endif %}
+</div>
+<h3 class="action-card-title">{{ card.title }}</h3>
+<p class="action-card-desc">{{ card.desc }}</p>
+<a href="{{ card.url }}" class="tf-btn tf-btn-white action-card-btn">
+<span>{{ card.btn_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endcomponent cosplay_action_cards %}
+
+{% component gaming_fangames() %}
+{%- set gaming = load_data(path="data/gaming.yml") -%}
+<div class="has-text-centered mb-5">
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ gaming.fangames.title }}</h2>
+<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ gaming.fangames.location }}</span>
+</div>
+<div class="content has-text-centered mb-5">
+<p>{{ gaming.fangames.description | markdown(inline=true) | safe }}</p>
+</div>
+<div class="columns is-multiline is-centered my-5">
+{%- for item in gaming.fangames.items %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="gaming-item-card">
+<h3 class="gaming-item-title">{{ item.title }}<br>{{ item.subtitle }}</h3>
+<div class="gaming-item-image-wrap">
+<img src="{{ item.image }}" alt="{{ item.title }}" />
+</div>
+<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ item.location }}</span>
+<a href="{{ item.link }}" class="gaming-item-link"><span>{{ item.link_text }}</span><span class="tf-icon tf-icon-external-link"></span></a>
+</div>
+</div>
+{%- endfor %}
+</div>
+{% endcomponent gaming_fangames %}
+
+{% component arcade_cabinets() %}
+{%- set gaming = load_data(path="data/gaming.yml") -%}
+<hr class="tf-dashed-divider" />
+<div class="has-text-centered mb-5">
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ gaming.arcade.title }}</h2>
+<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ gaming.arcade.location }}</span>
+</div>
+<div class="columns is-vcentered my-5">
+<div class="column is-half-desktop is-full-touch">
+<div class="arcade-photo-wrap">
+<img src="{{ gaming.arcade.image }}" alt="Arcade Cabinets" />
+</div>
+</div>
+<div class="column is-half-desktop is-full-touch">
+<p class="mb-4">{{ gaming.arcade.description }}</p>
+<div class="arcade-box-list">
+<div class="arcade-cabinet-btn">
+<span class="tf-icon tf-icon-gamepad"></span>
+<span>Dance Dance Revolution</span>
+</div>
+<div class="columns is-mobile is-variable is-2 mb-0">
+<div class="column is-half">
+<div class="arcade-cabinet-btn">
+<span class="tf-icon tf-icon-gamepad"></span>
+<span>Jubeat</span>
+</div>
+</div>
+<div class="column is-half">
+<div class="arcade-cabinet-btn">
+<span class="tf-icon tf-icon-gamepad"></span>
+<span>Chunithm</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="tf-dashed-divider" />
+{% endcomponent arcade_cabinets %}
+
+{% component tabletop_games() %}
+{%- set gaming = load_data(path="data/gaming.yml") -%}
+<div class="has-text-centered mb-5">
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ gaming.tabletop.title }}</h2>
+<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ gaming.tabletop.location }}</span>
+</div>
+<div class="content has-text-centered mb-5">
+<p>{{ gaming.tabletop.description | markdown(inline=true) | safe }}</p>
+</div>
+<div class="columns is-multiline is-centered my-5">
+{%- for item in gaming.tabletop.items %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="gaming-item-card">
+<h3 class="gaming-item-title">{{ item.title }}<br>{{ item.subtitle }}</h3>
+<div class="gaming-item-image-wrap">
+<img src="{{ item.image }}" alt="{{ item.title }}" />
+</div>
+<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ item.location }}</span>
+<a href="{{ item.link }}" class="gaming-item-link"><span>{{ item.link_text }}</span><span class="tf-icon tf-icon-external-link"></span></a>
+</div>
+</div>
+{%- endfor %}
+</div>
+{% endcomponent tabletop_games %}
+
+{% component gaming_prizes() %}
+{%- set gaming = load_data(path="data/gaming.yml") -%}
+<div class="mb-5">
+<h2 class="title is-2 mb-3" style="color: var(--tf-color-dark)">{{ gaming.prizes.title }}</h2>
+<div class="mb-5">{{ gaming.prizes.description | markdown(inline=true) | safe }}</div>
+<div class="columns is-multiline my-4">
+{%- for prize in gaming.prizes.items %}
+<div class="column is-half-desktop is-full-touch">
+<div class="prize-card">
+<div class="prize-icon-wrap">
+<span class="tf-icon tf-icon-medal"></span>
+</div>
+<div class="prize-content">
+<h3 class="prize-title">{{ prize.placement }}</h3>
+<p class="prize-subtitle">{{ prize.bracket }}</p>
+<p class="prize-desc">Prize:<br><strong>{{ prize.prize }}</strong></p>
+<a href="{{ prize.link }}" class="prize-link">
+<span>{{ prize.link_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+<hr class="tf-dashed-divider" />
+{% endcomponent gaming_prizes %}
+
+{% component tournament_waves() %}
+{%- set gaming = load_data(path="data/gaming.yml") -%}
+<div class="mb-5">
+<h2 class="title is-2 mb-3" style="color: var(--tf-color-dark)">{{ gaming.waves.title }}</h2>
+<div class="mb-5">{{ gaming.waves.description | markdown(inline=true) | safe }}</div>
+<div class="columns is-multiline my-4">
+{%- for wave in gaming.waves.items %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="wave-card">
+<div class="wave-header">{{ wave.name }}</div>
+<div class="wave-body">
+{%- for t in wave.tournaments %}
+<a href="{{ t.url }}" target="_blank" rel="noopener noreferrer" class="wave-tournament-item">
+<span>{{ t.name }}</span>
+<span class="tf-icon tf-icon-external-link"></span>
+</a>
+{%- endfor %}
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent tournament_waves %}
+
+{% component intro_guide() %}
+<div class="intro-guide-card my-5">
+<h2 class="title is-2 mb-3" style="color: var(--tf-color-red)">What is Touhou Project?</h2>
+<div class="content is-size-5">
+<p>What makes Touhou Project so special is the unending fan passion for its characters, mesmerizing music, and an absurdly talented global doujin community spanning over 25 years. Touhou originated in 1996 as a series of danmaku (bullet hell) shoot 'em up games, almost entirely conceived, programmed, illustrated, and composed by <strong>ONE man: ZUN</strong>.</p>
+<p>Set in <strong>Gensokyo</strong>—a mystical land sealed away from the outside world where humans and youkai coexist—the series follows shrine maiden Reimu Hakurei, magician Marisa Kirisame, and an ever-growing cast resolving supernatural incidents under the "Spell Card rules," turning fatal confrontations into dazzling, non-lethal displays of bullet patterns.</p>
+</div>
+</div>
+{% endcomponent intro_guide %}
+
+{% component zun_spotlight() %}
+<div class="zun-spotlight-card my-6">
+<div class="columns is-vcentered">
+<div class="column is-one-third-desktop is-full-touch has-text-centered">
+<div class="zun-photo-wrap">
+<img src="/img/IMG_0145 ZUN.jpg" alt="ZUN (Team Shanghai Alice)" />
+</div>
+</div>
+<div class="column is-two-thirds-desktop is-full-touch">
+<span class="tf-tag tf-tag-danger mb-2"><span>CREATOR SPOTLIGHT</span></span>
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">ZUN (Team Shanghai Alice)</h2>
+<p class="subtitle is-6 mb-3 has-text-grey">Musician, Programmer, Designer, and Developer</p>
+<div class="content">
+<p>Jun'ya Ota (known as <strong>ZUN</strong>) published the first Touhou game in 1996 for the NEC PC-9821, <em>Highly Responsive to Prayers</em>. He established <strong>Team Shanghai Alice</strong> in 2002 with <em>Embodiment of Scarlet Devil</em>, ushering in the Windows era.</p>
+<p>ZUN's uniquely generous derivative work guidelines have fostered the largest doujin culture in video game history, inspiring thousands of fan games, musical arrangements, manga, and animations worldwide.</p>
+<a href="https://x.com/korindo" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-danger mt-2">
+<span>Follow @korindo</span>
+<span class="tf-icon tf-icon-external-link"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent zun_spotlight %}
+
+{% component starter_recommendations() %}
+<div class="my-6">
+<div class="has-text-centered mb-5">
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-dark)">Recommended Entry Points</h2>
+<p class="has-text-grey">New to Touhou? Here are the best starting titles recommended by the community.</p>
+</div>
+<div class="columns is-multiline">
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="starter-rec-card">
+<span class="tf-tag tf-tag-open mb-2"><span>BEST FIRST GAME</span></span>
+<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 7: Perfect Cherry Blossom</h3>
+<p class="is-size-7 has-text-grey mb-3">Windows Era • Bullet Hell</p>
+<p class="is-size-6 flex-grow-1">Features the "Cherry Border" system providing free shields when active, forgiving hitboxes, and three distinct playable characters (Reimu, Marisa, Sakuya).</p>
+</div>
+</div>
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="starter-rec-card">
+<span class="tf-tag tf-tag-open mb-2"><span>FORGIVING MECHANICS</span></span>
+<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 8: Imperishable Night</h3>
+<p class="is-size-7 has-text-grey mb-3">Windows Era • Partner Teams</p>
+<p class="is-size-6 flex-grow-1">Allows you to play as four two-person teams (human + youkai) with dedicated Spell Practice mode to master individual boss patterns without restarting stages.</p>
+</div>
+</div>
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="starter-rec-card">
+<span class="tf-tag tf-tag-open mb-2"><span>STREAMLINED CLASSIC</span></span>
+<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 10: Mountain of Faith</h3>
+<p class="is-size-7 has-text-grey mb-3">Windows Era • Modern Engine</p>
+<p class="is-size-6 flex-grow-1">Introduced the second generation of Windows engine. Simplified mechanics where bombs cost power, encouraging dynamic risk-versus-reward routing.</p>
+</div>
+</div>
+<div class="column is-half-desktop is-half-tablet is-full-mobile">
+<div class="starter-rec-card">
+<span class="tf-tag tf-tag-open mb-2"><span>EASY SPELL PRACTICE</span></span>
+<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 13: Ten Desires</h3>
+<p class="is-size-7 has-text-grey mb-3">Windows Era • Spirit System</p>
+<p class="is-size-6 flex-grow-1">One of the most accessible modern titles. Features a Trance mode for invulnerability during dense bullet waves, and generous life fragment drops.</p>
+</div>
+</div>
+<div class="column is-half-desktop is-full-tablet is-full-mobile">
+<div class="starter-rec-card">
+<span class="tf-tag tf-tag-open mb-2"><span>MODERN ROGUE-LITE</span></span>
+<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 18: Unconnected Marketeers</h3>
+<p class="is-size-7 has-text-grey mb-3">Windows Era • Ability Cards</p>
+<p class="is-size-6 flex-grow-1">Collect and equip ability cards between stages granting extra lives, auto-bombs, and customized attacks, offering immense versatility for any play style.</p>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent starter_recommendations %}
+
+{% component games_showcase() %}
+{%- for section in load_data(path="data/games.yml") %}
+<div class="my-6">
+<div class="mb-4">
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ section.name }}</h2>
+<div class="content">{{ section.desc | markdown(inline=true) | safe }}</div>
+</div>
+<div class="columns is-multiline my-4">
+{%- for game in section.games %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="game-grid-card">
+{%- if game.image %}
+<div class="game-cover-wrap">
+<img src="{{ game.image }}" alt="{{ game.name }}" loading="lazy" />
+</div>
+{%- endif %}
+<div class="game-card-content">
+<h3 class="game-card-title">{{ game.name }}</h3>
+<p class="game-card-desc">{{ game.desc | markdown(inline=true) | safe }}</p>
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{%- endfor %}
+{% endcomponent games_showcase %}

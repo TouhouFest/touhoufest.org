@@ -1,10 +1,12 @@
 +++
-title = "Event Guidelines"
+title = "Event Guidelines & Policies"
 weight = 1
 
 [extra]
 toc = true
 +++
+
+<div class="guidelines-policy-card">
 
 ## General Event Guidelines
 
@@ -35,23 +37,27 @@ backgrounds. We ask that you keep swearing and any explicitly adult behavior to 
    form on website, or letting TouhouFest staff know.
 10. Above all, please enjoy and have fun at our events! We look forward to seeing you there!
 
-### Generative AI Art Policy
-
-AI generated artwork (AI Art) is prohibited from being sold and displayed by guests, artists,
+<div class="ai-warning-banner" role="alert">
+<div class="ai-warning-icon-wrap">
+<span class="tf-icon tf-icon-warning"></span>
+</div>
+<div class="ai-warning-content">
+<h3 class="ai-warning-title">Generative AI Art Prohibition Policy</h3>
+<p>AI generated artwork (AI Art) is prohibited from being sold and displayed by guests, artists,
 exhibitors and vendors at TouhouFest. AI art is defined as 'any art that is artificially generated
 by a machine'. Any seller/artist caught selling or displaying AI art WILL be asked to remove the
-image(s) and may be asked to leave the event without a refund.
-
-For the purposes of this policy, TouhouFest considers any work that is created with an AI-program
+image(s) and may be asked to leave the event without a refund.</p>
+<p>For the purposes of this policy, TouhouFest considers any work that is created with an AI-program
 that uses sources the artist does not own or hold rights to, to be in violation. If, in the future,
 such a program is created that allows for only specific images the artist owns to be sourced from,
 it will be the artist’s responsibility to provide proof that the pieces were not created from stolen
-images.
-
-TouhouFest, and its associated parent organization, The AMP Organization, DOES NOT support the use
+images.</p>
+<p class="mb-0">TouhouFest, and its associated parent organization, The AMP Organization, DOES NOT support the use
 of AI Art on the premises or displayed within the confines of the venue. As Touhou is a very
 community driven series, we believe in compensating our artists for their work and their
-contributions to the community.
+contributions to the community.</p>
+</div>
+</div>
 
 ### No real weapons are allowed at TouhouFest
 
@@ -76,8 +82,8 @@ The following items are not permitted at TouhouFest:
   in TouhouFest’s sole discretion, to be dangerous or which would pose or place others at risk or
   harm, immediate or otherwise.
 
-(Note: some venues prohibit other items e.g. glass bottles, food, alcohol, and e-cigarettes. Please
-check with the venue before bringing such items.)
+_(Note: some venues prohibit other items e.g. glass bottles, food, alcohol, and e-cigarettes. Please
+check with the venue before bringing such items.)_
 
 ### Items subject to inspection
 
@@ -106,6 +112,10 @@ or arrangements can be made for items to be picked up, delivered to the next Tou
 Staff Ops. After the period of 30 days has expired, all unclaimed/unconfirmed items in our
 possession will be cleared out with no guarantees on holding thereafter.
 
+</div>
+
+<div class="guidelines-policy-card">
+
 ## Cosplay & Prop Guidelines
 
 TouhouFest celebrates the creativity of cosplayers and encourage everyone to cosplay whomever they
@@ -114,8 +124,8 @@ having fun and creativity!
 
 - No bare feet, some form of foot covering must be worn.
 - No hateful imagery should be included in cosplay for any reason. Cosplays must not be worn to
-  agitate or intentionally offend other attendees (No offensive clothing). o Examples include
-  Nazi/SS imagery, KKK imagery, blackface, etc
+  agitate or intentionally offend other attendees (No offensive clothing). Examples include Nazi/SS
+  imagery, KKK imagery, blackface, etc.
 - Costumes should not obstruct or impede the flow of traffic or entryway.
 - No excessively shedding props or costumes (Use of glitter, feathers, etc).
 - No blades or metal props. PVC and wood are fine!
@@ -169,12 +179,13 @@ inoperable upon inspection.
 In addition, to qualify for Peace Bonding, your prop weapon must meet the following criteria:
 
 - All bladed props, prop firearms and prop knives cannot contain metal, have metal components, or
-  have metal-based paints on them. o Note: Lightsabers with metal hilts are allowed.
+  have metal-based paints on them. _(Note: Lightsabers with metal hilts are allowed.)_
 - Prop explosives or ammunition cannot be made out of metal.
-- All swords and bladed prop weapons must adhere to the following rules: o They cannot be made out
-  of metal o If your non-metal blade has a sharp edge or pointed tip, it must be anchored to a hard
-  sheath for the duration of the Event o If you do not have a hard sheath, your non-metal blade must
-  have a blunt edge and blunt tip
+- All swords and bladed prop weapons must adhere to the following rules:
+  - They cannot be made out of metal.
+  - If your non-metal blade has a sharp edge or pointed tip, it must be anchored to a hard sheath
+    for the duration of the Event.
+  - If you do not have a hard sheath, your non-metal blade must have a blunt edge and blunt tip.
 - All prop bows must be unstrung or have a low-tensile thread with no draw weight and be incapable
   of shooting.
 - All prop arrows must have blunt non-metal tips.
@@ -182,18 +193,18 @@ In addition, to qualify for Peace Bonding, your prop weapon must meet the follow
   armor.
 
 If your prop weapon is a toy, look-alike, or imitation firearm, then federal regulations (15 CFR §
-272.3) require that it either be translucent enough to, permit unmistakable observation of the
+272.3) require that it either be translucent enough to permit unmistakable observation of the
 device’s complete contents or must have at least one of the following:
 
-- An Orange Solid Plug in Barrel: Have a blaze orange (Fed-Std-595B 12199) or orange color brighter
-  than that specified by the federal standard color number solid plug permanently affixed to the
-  muzzle end of the barrel as an integral part of the entire device and recessed no more than 6
-  millimeters from the muzzle end of the barrel; or
-- An Orange Barrel Marking: A blaze orange (Fed-Std-595B 12199) or orange color brighter than that
-  specified by the federal standard color number, marking permanently affixed to the exterior
+- **An Orange Solid Plug in Barrel:** Have a blaze orange (Fed-Std-595B 12199) or orange color
+  brighter than that specified by the federal standard color number solid plug permanently affixed
+  to the muzzle end of the barrel as an integral part of the entire device and recessed no more than
+  6 millimeters from the muzzle end of the barrel; or
+- **An Orange Barrel Marking:** A blaze orange (Fed-Std-595B 12199) or orange color brighter than
+  that specified by the federal standard color number, marking permanently affixed to the exterior
   surface of the barrel, covering the circumference of the barrel from the muzzle end for a depth of
   at least 6 millimeters; or
-- Entire Surface Coloration: Coloration of the entire exterior surface of the device in white,
+- **Entire Surface Coloration:** Coloration of the entire exterior surface of the device in white,
   bright red, bright orange, bright yellow, bright green, bright blue, bright pink, or bright
   purple, either singly or as the predominant color in combination with other colors in any pattern.
 
@@ -241,8 +252,12 @@ The following items are not permitted at TouhouFest:
   in TouhouFest’s sole discretion, to be dangerous or which would pose or place others at risk or
   harm, immediate or otherwise.
 
-(Note: some venues prohibit other items e.g. glass bottles, food, alcohol, and e-cigarettes. Please
-check with the venue before bringing such items.)
+_(Note: some venues prohibit other items e.g. glass bottles, food, alcohol, and e-cigarettes. Please
+check with the venue before bringing such items.)_
+
+</div>
+
+<div class="guidelines-policy-card">
 
 ## Cosplay Contest Guidelines
 
@@ -265,10 +280,12 @@ self-made costume to perform, rather you’ll be judged on how well you’re abl
 audience. This can be through a skit, dance, or anything else you can think of. You can be as
 comedic or dramatic as you’d like, so get creative!
 
-**Exhibition** The Exhibition category is for anyone that wants a chance to walk across the stage,
-but doesn’t want to compete. This is just for fun and is NOT eligible for prizes, so there are no
-limits to whether you’ve made your costume yourself or not. Anyone may participate in this category,
-including staff and guests.
+**Exhibition**
+
+The Exhibition category is for anyone that wants a chance to walk across the stage, but doesn’t want
+to compete. This is just for fun and is NOT eligible for prizes, so there are no limits to whether
+you’ve made your costume yourself or not. Anyone may participate in this category, including staff
+and guests.
 
 ### General Rules
 
@@ -348,4 +365,8 @@ If you have any questions or concerns, please reach out to our Cosplay Contest o
 To confirm that you’ve read and understand these rules, please provide the password “Clownpiece” in
 your application.
 
-{{ <discord /> }} {{ <faq_link /> }}
+</div>
+
+{{ <faq_link /> }}
+
+{{ <discord /> }}
