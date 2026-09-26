@@ -21,9 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
     const savedTheme = localStorage.getItem('tf-theme');
-    if (savedTheme === 'dark') {
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       document.body.classList.add('dark-theme');
       themeToggle.checked = true;
+    } else if (savedTheme === 'light') {
+      document.body.classList.remove('dark-theme');
+      themeToggle.checked = false;
     }
 
     themeToggle.addEventListener('change', () => {
