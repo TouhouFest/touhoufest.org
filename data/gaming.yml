@@ -1,0 +1,141 @@
+location_intro: "Gaming events for official Touhou games will take place in the George Nakano Theatre, (Gaming Hall) located to the right of the Entry Plaza. Arcades are located at the Ken Miller Rec Center ( Arcade Cabinets) next to the Torino Festival Plaza. Tabletop Gaming is located in the Drawing & Painting Studio ( Tabletop Gaming & Mystery Parafait) at the tail end of the Pine Wind Garden."
+
+fangames:
+  title: "Fangames"
+  location: "George Nakano Theatre"
+  description: "Touhou mainline games, fighting games, spinoffs, and select fangames will be playable at various times throughout the con, as marked by events labelled as \"Free Play\". Assistance is graciously provided by [Youkaiverse](https://youkaiverse.org); we thank them for their assistance this year."
+  items:
+    - title: "Item Title goes here"
+      subtitle: "Item Title goes here"
+      image: "/img/promoartFILTERED_webSafe_cropped_2.jpg"
+      location: "Front Circular Drive"
+      link: "#"
+      link_text: "Dev Link"
+    - title: "Item Title goes here"
+      subtitle: "Item Title goes here"
+      image: "/img/promoartFILTERED_webSafe_cropped_2.jpg"
+      location: "Front Circular Drive"
+      link: "#"
+      link_text: "Dev Link"
+    - title: "Item Title goes here"
+      subtitle: "Item Title goes here"
+      image: "/img/promoartFILTERED_webSafe_cropped_2.jpg"
+      location: "Front Circular Drive"
+      link: "#"
+      link_text: "Dev Link"
+
+arcade:
+  title: "Arcade Cabinets"
+  location: "George Nakano Theatre"
+  description: "A variety of different arcade cabinets and rhythm games will be available to play throughout TouhouFest. Below is a selection of some of the offerings:"
+  image: "/img/arcade_cabinets.png"
+  games:
+    - name: "Dance Dance Revolution"
+      featured: true
+    - name: "Jubeat"
+      featured: false
+    - name: "Chunithm"
+      featured: false
+
+tabletop:
+  title: "Tabletop"
+  location: "George Nakano Theatre"
+  description: "TouhouFest is pleased to offer a dedicated section for tabletop gaming this year! Inside the Drawing & Painting Studio ( Tabletop & Mystery Parafait) two tables are available for free-play, and two tables are reserved for games specifically for [\"Danmaku!!\"](https://danmaku.party), the hit Touhou-themed tabletop card game. Feel free to stop by for some engaging tabletop gaming!"
+  items:
+    - title: "Item Title goes here"
+      subtitle: "Item Title goes here"
+      image: "/img/promoartFILTERED_webSafe_cropped_2.jpg"
+      location: "Front Circular Drive"
+      link: "#"
+      link_text: "Dev Link"
+    - title: "Item Title goes here"
+      subtitle: "Item Title goes here"
+      image: "/img/promoartFILTERED_webSafe_cropped_2.jpg"
+      location: "Front Circular Drive"
+      link: "#"
+      link_text: "Dev Link"
+    - title: "Item Title goes here"
+      subtitle: "Item Title goes here"
+      image: "/img/promoartFILTERED_webSafe_cropped_2.jpg"
+      location: "Front Circular Drive"
+      link: "#"
+      link_text: "Dev Link"
+
+competitions:
+  title: "Competitions"
+  description: "Tournaments are being arranged for the below games. Tournament rules for each game are attached below which lead to start.gg.\n\nSign-ups for gaming tournaments at TouhouFest will close/already has closed on June 12th, 2025.\n\nThose interested may visit TouhouFest's start.gg page for more information."
+  button_text: "Sign Up"
+  button_url: "https://start.gg/tf2024"
+
+prizes:
+  title: "Prizes"
+  description: "Touhou mainline games, fighting games, spinoffs, and select fangames will be playable at various times throughout the con, as marked by events labelled as \"Free Play\". Assistance is graciously provided by [Youkaiverse](https://youkaiverse.org); we thank them for their assistance this year."
+  items:
+    - placement: "First Place"
+      bracket: "(per bracket)"
+      prize: "Free TouhouFest 2025 Badge"
+      link: "#"
+      link_text: "See more info"
+    - placement: "First Place"
+      bracket: "(per bracket)"
+      prize: "Free TouhouFest 2025 Badge"
+      link: "#"
+      link_text: "See more info"
+
+waves:
+  title: "Wave Info"
+  description: "Touhou mainline games, fighting games, spinoffs, and select fangames will be playable at various times throughout the con, as marked by events labelled as \"Free Play\". Assistance is graciously provided by [Youkaiverse](https://youkaiverse.org); we thank them for their assistance this year."
+  items:
+    - name: "Wave A"
+      tournaments:
+        - name: "Touhou 9 PoFV (Rework Patch)"
+          url: "https://start.gg/tf2024"
+        - name: "Touhou Rivals Workshop"
+          url: "https://start.gg/tf2024"
+    - name: "Wave B"
+      tournaments:
+        - name: "Touhou 12.3 Hisoutensoku (Soku 2)"
+          url: "https://start.gg/tf2024"
+        - name: "Touhou Rivals Workshop"
+          url: "https://start.gg/tf2024"
+    - name: "Wave C"
+      tournaments:
+        - name: "Touhou 9 PoFV (Rework Patch)"
+          url: "https://start.gg/tf2024"
+        - name: "Touhou 12.3 Hisoutensoku (Soku 2)"
+          url: "https://start.gg/tf2024"
+    - name: "Wave D"
+      tournaments:
+        - name: "Touhou 9 PoFV (Rework Patch) Finals"
+          url: "https://start.gg/tf2024"
+        - name: "Touhou Rivals Workshop Finals"
+          url: "https://start.gg/tf2024"
+        - name: "Touhou 12.3 Hisoutensoku (Soku 2) Finals"
+          url: "https://start.gg/tf2024"
+    - name: "Wave E"
+      tournaments:
+        - name: "Touhou 15.5 AoCF [Full Bracket]"
+          url: "https://start.gg/tf2024"
+    - name: "Wave F"
+      tournaments:
+        - name: "Touhou 19 UDoALG (Balance Patch 1.10c) [Full Bracket]"
+          url: "https://start.gg/tf2024"
+    - name: "Wave G"
+      tournaments:
+        - name: "Touhou Fractured Transience [Full Bracket]"
+          url: "https://start.gg/tf2024"
+
+maps:
+  title: "2026 TouhouFest Event Maps"
+  tabs:
+    - name: "Event Map"
+      image: "/img/map_v2-01.png"
+      active: false
+    - name: "Artist Alley Map"
+      image: "/img/TF_2024_AA_Layout_Agi_edit.png"
+      active: false
+    - name: "Vendors Map"
+      image: "/img/map_v2-01.png"
+      active: true
+  map_title: "Event Map"
+  map_image: "/img/map_v2-01.png"

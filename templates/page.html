@@ -12,10 +12,20 @@
 {% endblock header %}
 
 {% block content %}
+{% if page.extra.toc %}
+<div class="guidelines-page-container container my-6 px-4">
+  <div class="columns is-desktop">
+    <aside class="column is-one-quarter-desktop guidelines-sidebar-col">
+      {% include "toc.html" %}
+    </aside>
+    <main class="column is-three-quarters-desktop guidelines-content-col">
+      {{ page.content | safe }}
+    </main>
+  </div>
+</div>
+{% else %}
 <div class="page-body-container container">
-  {% if page.extra.toc %}
-    {% include "toc.html" %}
-  {% endif %}
   {{ page.content | safe }}
 </div>
+{% endif %}
 {% endblock content %}
