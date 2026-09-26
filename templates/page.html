@@ -1,13 +1,31 @@
 {% extends "base.html" %}
 
 {% block header %}
-<p class='title is-1'>{{ page.title }}</p>
-{% endblock %}
-{% block content %}
-<section class="section container post content">
-  {% if page.extra.toc %}
-  {% include "toc.html" %}
+  {% if not page.extra.hide_header %}
+    {%- set header_title = page.extra.header_title | default(value=page.extra.hero_title | default(value=page.title)) -%}
+    {% if page.extra.hero_body %}
+      {{ <page_header title={header_title} subtitle={page.extra.subtitle | default(value="")} description={page.extra.hero_body} /> }}
+    {% else %}
+      {{ <page_header title={header_title} subtitle={page.extra.subtitle | default(value="")} /> }}
+    {% endif %}
   {% endif %}
-  <p>{{ page.content | safe }}</p>
-</section>
+{% endblock header %}
+
+{% block content %}
+{% if page.extra.toc %}
+<div class="guidelines-page-container container my-6 px-4">
+  <div class="columns is-desktop">
+    <aside class="column is-one-quarter-desktop guidelines-sidebar-col">
+      {% include "toc.html" %}
+    </aside>
+    <main class="column is-three-quarters-desktop guidelines-content-col">
+      {{ page.content | safe }}
+    </main>
+  </div>
+</div>
+{% else %}
+<div class="page-body-container container">
+  {{ page.content | safe }}
+</div>
+{% endif %}
 {% endblock content %}

@@ -2,16 +2,30 @@
 title = "Gaming"
 weight = 1
 +++
-## Setup
-Various PC stations will be available for attendees to play at TouhouFest's gaming hall, ranging from official Windows titles, fangames and PC-98 titles.
 
-## Youkaiverse
-Youkaiverse aims to bring people together, whether that’s through fun casual gaming or competing in tournaments. The project is run by NocturnalJoey, who has years of tournament experience as a competitor, staff, and steamer.
-Youkaiverse will provide TouhouFest’s gaming hall with PC setups for freeplay and for tournaments.
+<p class="gaming-intro-text">Gaming events for official Touhou games will take place in the George Nakano Theatre, (Gaming Hall) located to the right of the Entry Plaza. Arcades are located at the Ken Miller Rec Center ( Arcade Cabinets) next to the Torino Festival Plaza. Tabletop Gaming is located in the Drawing & Painting Studio ( Tabletop Gaming & Mystery Parafait) at the tail end of the Pine Wind Garden.</p>
 
-## Competitions
-### Sign ups are now open!
-All competition signups can be found via our start.gg page below!
-[Sign up here!](//start.gg/tf2024)
+{{ <section_divider title="Free Play" /> }}
 
-## Map
+{{ <gaming_fangames /> }}
+
+{{ <arcade_cabinets /> }}
+
+{{ <tabletop_games /> }}
+
+{{ <section_divider title="Competitions" subtitle="Tournaments are being arranged for the below
+games. Tournament rules for each game are attached below which lead to start.gg. Sign-ups for gaming
+tournaments at TouhouFest will close/already has closed on June 12th, 2025. Those interested may
+visit TouhouFest's start.gg page for more information." url="https://start.gg/tf2024"
+button_text="Sign Up >" /> }}
+
+{{ <gaming_prizes /> }}
+
+{{ <tournament_waves /> }}
+
+{{ <event_maps /> }}
+
+{{ <hero_card title="2026 Full Weekend Badge" button_text="Buy badge"
+url="https://touhoufest.ticketspice.com/touhoufest-2026" /> }}
+
+{{ <discord /> }}

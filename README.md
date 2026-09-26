@@ -3,6 +3,7 @@
 Main website for TouhouFest
 
 ## Building
+
 This website uses the static website generator [Zola](https://www.getzola.org/).
 
 Build a static output:
