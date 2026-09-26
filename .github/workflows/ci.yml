@@ -8,7 +8,7 @@ on:
   schedule:
     - cron: "0 0 * * *"
 
-name: Build and deploy GH Pages
+name: Build site
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,20 +23,3 @@ jobs:
           tool: zola@0.23.6
       - name: Build site
         run: zola build
-      - name: Upload site to GitHub Pages
-        id: deployment
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: public/
-  deploy:
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v5
