@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ <page_header title="Registration & Applications" /> }}
+
+<div class="container my-6">
+
+  <h2 class="title is-2 mb-2" style="color: var(--tf-color-red);">Event Badge</h2>
+  <p class="mb-4">
+    Badges get more expensive the closer we get to the event! Get them while they're still cheap! Please ensure that you understand and abide by our <a href="/about/guidelines" style="color: var(--tf-color-red); font-weight: 600;">Event Guidelines</a> while attending the event. After purchasing your badge, you can verify your badge status and get your QR code <a href="//registration.touhoufest.org/portal" style="color: var(--tf-color-red); font-weight: 600;">here</a>.
+  </p>
+
+  {{ <hero_card title="2026 Weekend Badge" url="//registration.touhoufest.org/touhoufest-2026" button_text="Buy badge" /> }}
+
+  <h3 class="title is-4 mt-6 mb-4" style="color: var(--tf-color-red);">2026 Badge pricing schedule</h3>
+
+  <div class="table-container">
+    <table class="table is-fullwidth pricing-schedule-table">
+      <thead>
+        <tr class="is-header-row">
+          <th style="width: 25%;">Date</th>
+          <th style="width: 25%;">Full Weekend</th>
+          <th style="width: 25%; text-align: center;">Saturday Pass</th>
+          <th style="width: 25%; text-align: center;">Sunday Pass</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Early Tengu</strong><br><span class="is-size-7 has-text-grey">(First 200)</span></td>
+          <td class="is-sold-out"><strike>$40</strike> Sold out</td>
+          <td class="is-stay-tuned" rowspan="6">Stay tuned</td>
+          <td class="is-stay-tuned" rowspan="6">Stay tuned</td>
+        </tr>
+        <tr>
+          <td><strong>July 1st, 2025</strong></td>
+          <td class="is-sold-out"><strike>$55</strike> Sold out</td>
+        </tr>
+        <tr>
+          <td><strong>December 1st, 2025</strong></td>
+          <td>$65</td>
+        </tr>
+        <tr>
+          <td><strong>April 1st, 2026</strong></td>
+          <td>$75</td>
+        </tr>
+        <tr>
+          <td><strong>June 1st, 2026</strong></td>
+          <td>$85</td>
+        </tr>
+        <tr>
+          <td><strong>At-door</strong><br><span class="is-size-7 has-text-grey">(June 19th)</span></td>
+          <td>$95</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  {{ <section_divider title="Exhibitor Applications" id="exhibitor" /> }}
+
+  {{ <applications_grid type="exhibitor" /> }}
+
+  {{ <section_divider title="Content Applications" id="content" /> }}
+
+  {{ <applications_grid type="content" /> }}
+
+  {{ <cosplay_masquerade title="Cosplay Masquerade" craft_url="//docs.google.com/document/d/1TSzq8HMaD34_8Bpmt5FimZEe8I2hFm4A0ZuuzlTXRYc/" perf_url="//docs.google.com/document/d/1TSzq8HMaD34_8Bpmt5FimZEe8I2hFm4A0ZuuzlTXRYc/" exhib_url="//docs.google.com/document/d/1TSzq8HMaD34_8Bpmt5FimZEe8I2hFm4A0ZuuzlTXRYc/" /> }}
+
+  {{ <section_divider title="Team Applications" id="team" /> }}
+
+  {{ <applications_grid type="team" /> }}
+
+  {{ <event_guidelines url="/about/guidelines" button_text="Button" /> }}
+
+  {{ <discord /> }}
+
+  {{ <newsletter /> }}
+
+</div>
+{% endblock content %}

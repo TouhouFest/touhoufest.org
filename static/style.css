@@ -721,6 +721,24 @@ main {
   height: 100%;
 }
 
+body.dark-theme .hero-module-card,
+[data-theme="dark"] .hero-module-card,
+body.dark-theme .tf-app-card,
+[data-theme="dark"] .tf-app-card {
+  background: #241c2c;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-module-card,
+  :root:not([data-theme="light"]) .tf-app-card {
+    background: #241c2c;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+}
+
 .tf-app-card .tf-card-header {
   border-bottom: none;
   padding: 0 0 1rem 0;
