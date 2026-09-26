@@ -1,24 +1,15 @@
 +++
-title = "Guests and Performances"
+title = "Guests & Performances"
 weight = 0
+template = "guests.html"
 +++
 
-## Concerts and Performances
+{{ <featured_guests /> }}
 
-Touhou Project would not be what it is if not for the music! TouhouFest strives to bring the best
-music circles and talents from both at home and abroad to give fans the best possible experience!
-Starting in 2025 we will be ‘rebranding’ our concerts as ‘TouhouFest LIVE’!
+{{ <guests_timeline /> }}
 
-Official Hashtags: #touhoufestLIVE #東方フェスLIVE #touhoufestLIVE2025 #東方フェスLIVE2025
+{{ <performers_grid /> }}
 
-Pictured Above: Rute-san performing for A-One (Photo by Wonder_standing)
+{{ <discord /> }}
 
-{{ <guests /> }}
-
-{{ <other /> }}
-
-{{ <gaming /> }}
-
-{{ <cosplay /> }}
-
-{{ <fumo /> }}
+{{ <newsletter /> }}
