@@ -18,7 +18,7 @@ jobs:
       - name: Install Zola
         uses: taiki-e/install-action@v2.87.15
         with:
-          tool: zola@0.19.2
+          tool: zola@0.23.6
 
       - name: Build site for Staging
         run: zola build --base-url "https://staging.touhoufest.org"

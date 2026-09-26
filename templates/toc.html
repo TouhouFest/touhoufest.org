@@ -1,0 +1,55 @@
+<details class="guidelines-mobile-toc is-hidden-desktop mb-5">
+<summary class="guidelines-mobile-toc-summary">
+<div class="is-flex is-align-items-center">
+<span class="tf-icon tf-icon-menu mr-2"></span>
+<span>Table of Contents</span>
+</div>
+<span class="tf-icon tf-icon-chevron-down"></span>
+</summary>
+<div class="guidelines-mobile-toc-content mt-3">
+<ul class="guidelines-toc-list">
+{% for header in page.toc %}
+<li class="guidelines-toc-item">
+<a href="#{{ header.id }}" class="guidelines-toc-link">
+<span>{{ header.title }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+{% if header.children %}
+<ul class="guidelines-toc-sublist">
+{% for sub in header.children %}
+<li class="guidelines-toc-subitem">
+<a href="#{{ sub.id }}" class="guidelines-toc-sublink">{{ sub.title }}</a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+</div>
+</details>
+
+<div class="guidelines-sticky-sidebar is-hidden-touch">
+<div class="guidelines-toc-card">
+<h3 class="guidelines-toc-title">Jump directly to:</h3>
+<ul class="guidelines-toc-list">
+{% for header in page.toc %}
+<li class="guidelines-toc-item">
+<a href="#{{ header.id }}" class="guidelines-toc-link">
+<span>{{ header.title }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+{% if header.children %}
+<ul class="guidelines-toc-sublist">
+{% for sub in header.children %}
+<li class="guidelines-toc-subitem">
+<a href="#{{ sub.id }}" class="guidelines-toc-sublink">{{ sub.title }}</a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+</div>
+</div>

@@ -1,42 +1,31 @@
 {% extends "base.html" %}
 
-{% block content %}
-  <section class="hero is-dark is-small">
-    <div class="hero-body container has-text-centered">
-      <p class="title">
-        {{ page.title }}
-      </p>
-      {% if page.date or page.updateDate or page.description %}
-        <p class="subtitle">
-          {% if page.date or page.updateDate %}
-            {% if page.date %}
-              {{ page.date | date(format="%B %d %Y") }}
-            {% endif %}
-            {% if page.updateDate %}
-              (Updated {{ page.updateDate | date(format="%B %d %Y") }})
-            {% endif %}
-            {% if page.description %}
-              |
-            {%endif %}
-          {% endif %}
-          {{ page.description }}
-        </p>
-      {% endif %}
-    </div>
-  </section>
-  {% if page.extra.use_toc %}
-    <section class="section container">
-      <div class="columns">
-        <div class="column content is-one-fifth">
-          {% include "toc.html" %}
-        </div>
-        <div class="column content is-four-fifths">
-          <p>{{ page.content | safe }}</p>
-        </div>
-      </div>
-  {% else %}
-    <section class="section container post content">
-      <p>{{ page.content | safe }}</p>
+{% block header %}
+  {% if not page.extra.hide_header %}
+    {%- set header_title = page.extra.header_title | default(value=page.extra.hero_title | default(value=page.title)) -%}
+    {% if page.extra.hero_body %}
+      {{ <page_header title={header_title} subtitle={page.extra.subtitle | default(value="")} description={page.extra.hero_body} /> }}
+    {% else %}
+      {{ <page_header title={header_title} subtitle={page.extra.subtitle | default(value="")} /> }}
+    {% endif %}
   {% endif %}
-  </section>
+{% endblock header %}
+
+{% block content %}
+{% if page.extra.toc %}
+<div class="guidelines-page-container container my-6 px-4">
+  <div class="columns is-desktop">
+    <aside class="column is-one-quarter-desktop guidelines-sidebar-col">
+      {% include "toc.html" %}
+    </aside>
+    <main class="column is-three-quarters-desktop guidelines-content-col">
+      {{ page.content | safe }}
+    </main>
+  </div>
+</div>
+{% else %}
+<div class="page-body-container container">
+  {{ page.content | safe }}
+</div>
+{% endif %}
 {% endblock content %}

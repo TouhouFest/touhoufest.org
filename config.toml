@@ -13,7 +13,7 @@ build_search_index = true
 site_name = "TouhouFest"
 
 [extra.socials]
-discord_invite = "https://discord.gg/RAvBsTdZcK"
+discord_invite = "https://discord.gg/touhoufest"
 twitter = "https://twitter.com/TouhouFest"
 bluesky = "https://bsky.app/profile/touhoufest.org"
 youtube = "https://www.youtube.com/@touhoufestofficial"

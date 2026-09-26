@@ -1,19 +1,65 @@
-<!-- TODO: Properly style this so that it splits the socials and the copyright -->
-<footer class="footer has-text-centered is-align-items-flex-end mt-auto">
-  <p>
-    TouhouFest™ is a production of the
-    <a href="https://amp-organization.com/">AMP Organization</a>.
-  </p>
-  <p>
-    <strong>© 2022 - {{ now() | date(format="%Y") }} AMP Organization</strong>
-  </p>
-  <p>
-    <!-- TODO: Use FontAwesome Icons instead of text -->
-    <a href="/contact-us"</a>Contact Us</a> |
-    <a href="{{ config.extra.socials.discord_invite }}">Discord</a> |
-    <a href="{{ config.extra.socials.twitter }}">Twitter</a> |
-    <a href="{{ config.extra.socials.bluesky }}">BlueSky</a> |
-    <a href="{{ config.extra.socials.instagram }}">Instagram</a> |
-    <a href="{{ config.extra.socials.youtube }}">YouTube</a>
-  </p>
+{# ==========================================================================
+   Footer
+   ========================================================================== #}
+<footer class="tf-footer mt-auto py-6">
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-one-third-desktop is-full-tablet mb-4">
+        <h3 class="title is-5 has-text-white mb-2">Stay Connected</h3>
+        <p class="has-text-grey-light mb-3">Follow us @TouhouFest</p>
+        <div class="is-flex is-align-items-center mb-4" style="gap: 1rem;">
+          {% if config.extra.socials.discord_invite %}
+            <a href="{{ config.extra.socials.discord_invite }}" target="_blank" rel="noopener noreferrer" class="has-text-white" title="Discord">
+              <span class="tf-icon tf-icon-discord" style="font-size: 24px;"></span>
+            </a>
+          {% endif %}
+          {% if config.extra.socials.bluesky %}
+            <a href="{{ config.extra.socials.bluesky }}" target="_blank" rel="noopener noreferrer" class="has-text-white" title="Bluesky">
+              <span class="tf-icon tf-icon-bluesky" style="font-size: 24px;"></span>
+            </a>
+          {% endif %}
+          {% if config.extra.socials.instagram %}
+            <a href="{{ config.extra.socials.instagram }}" target="_blank" rel="noopener noreferrer" class="has-text-white" title="Instagram">
+              <span class="tf-icon tf-icon-instagram" style="font-size: 24px;"></span>
+            </a>
+          {% endif %}
+          {% if config.extra.socials.youtube %}
+            <a href="{{ config.extra.socials.youtube }}" target="_blank" rel="noopener noreferrer" class="has-text-white" title="YouTube">
+              <span class="tf-icon tf-icon-youtube" style="font-size: 24px;"></span>
+            </a>
+          {% endif %}
+          {% if config.extra.socials.twitter %}
+            <a href="{{ config.extra.socials.twitter }}" target="_blank" rel="noopener noreferrer" class="has-text-white" title="X / Twitter">
+              <span class="tf-icon tf-icon-twitter" style="font-size: 24px;"></span>
+            </a>
+          {% endif %}
+        </div>
+        <p class="is-size-7 has-text-grey-light">
+          TouhouFest™ is a production of the <a href="https://amp-organization.com/" class="has-text-white has-text-weight-bold">AMP Organization</a>.<br>
+          © AMP Organization, {{ now() | date(format="%Y") }}
+        </p>
+      </div>
+
+      <div class="column is-one-third-desktop is-half-tablet">
+        <h3 class="title is-5 has-text-white mb-2">Registration & Applications</h3>
+        <ul class="is-size-6" style="list-style: none; padding-left: 0; line-height: 2;">
+          <li><a href="{{ get_url(path='register') }}" class="has-text-grey-light">Buy a Badge</a></li>
+          <li><a href="{{ get_url(path='register') }}" class="has-text-grey-light">Artist Alley Applications</a></li>
+          <li><a href="{{ get_url(path='register') }}" class="has-text-grey-light">Vendor Applications</a></li>
+          <li><a href="{{ get_url(path='register') }}" class="has-text-grey-light">Panel & Performer Applications</a></li>
+          <li><a href="{{ get_url(path='register') }}" class="has-text-grey-light">Volunteer & Staff Opportunities</a></li>
+        </ul>
+      </div>
+
+      <div class="column is-one-third-desktop is-half-tablet">
+        <h3 class="title is-5 has-text-white mb-2">Event Information</h3>
+        <ul class="is-size-6" style="list-style: none; padding-left: 0; line-height: 2;">
+          <li><a href="{{ get_url(path='about/event') }}" class="has-text-grey-light">General Event Info</a></li>
+          <li><a href="{{ get_url(path='about/hotels') }}" class="has-text-grey-light">Hotel Blocks & Lodging</a></li>
+          <li><a href="{{ get_url(path='about/guidelines') }}" class="has-text-grey-light">Event Guidelines & Rules</a></li>
+          <li><a href="{{ get_url(path='about/faq') }}" class="has-text-grey-light">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </footer>

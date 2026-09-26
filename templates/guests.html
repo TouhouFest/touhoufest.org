@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block header %}
+{{ <guests_hero /> }}
+{% endblock header %}
+
+{% block content %}
+<div class="page-body-container container">
+{{ page.content | safe }}
+</div>
+{% endblock content %}

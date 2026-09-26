@@ -1,0 +1,1781 @@
+{% component faq() %}
+{% for qa in load_data(path="data/faq.yml") %}
+<details class="tf-accordion" open>
+<summary>
+<span><strong class="tf-faq-badge">Q:</strong> {{ qa.q }}</span>
+</summary>
+<div class="tf-faq-divider"></div>
+<div class="tf-accordion-content">
+{% if qa.ada %}
+<p class="mb-4">{{ qa.intro }}</p>
+<p class="mb-2">The following areas have <strong>full ADA accessibility</strong>:</p>
+<div class="ada-pills mb-4">
+{% for area in qa.full_access %}
+<span class="ada-pill"><span class="tf-icon tf-icon-pin mr-1"></span> {{ area }}</span>
+{% endfor %}
+</div>
+<p class="mb-3">The following areas have <strong>limited ADA accessibility</strong>:</p>
+<div class="ada-limited-list">
+{% for item in qa.limited_access %}
+<div class="ada-limited-row mb-3">
+<div class="ada-limited-pill-col">
+<span class="ada-pill"><span class="tf-icon tf-icon-pin mr-1"></span> {{ item.name }}</span>
+</div>
+<div class="ada-limited-desc-col">
+<p>{{ item.desc | markdown(inline=true) | safe }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<div class="tf-faq-answer">
+{% set paragraphs = qa.a | split(pat="\n\n") %}
+{% for p in paragraphs %}
+<p class="{% if not loop.last %}mb-3{% else %}mb-0{% endif %}">{% if loop.first %}<strong class="tf-faq-badge">A:</strong> {% endif %}{{ p | markdown(inline=true) | safe }}</p>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+</details>
+{% endfor %}
+{% endcomponent faq %}
+
+{% component faq_bottom_callouts() %}
+<div class="columns is-variable is-5 mt-6 mb-6">
+<div class="column is-half">
+<div class="faq-callout-card-vertical faq-callout-red">
+<div class="callout-icon-wrap mb-3">
+<svg class="tf-starburst" viewBox="0 0 100 100" width="80" height="80">
+<polygon points="50.0,4.0 57.4,12.7 67.6,7.5 71.1,18.4 82.5,17.5 81.6,28.9 92.5,32.4 87.3,42.6 96.0,50.0 87.3,57.4 92.5,67.6 81.6,71.1 82.5,82.5 71.1,81.6 67.6,92.5 57.4,87.3 50.0,96.0 42.6,87.3 32.4,92.5 28.9,81.6 17.5,82.5 18.4,71.1 7.5,67.6 12.7,57.4 4.0,50.0 12.7,42.6 7.5,32.4 18.4,28.9 17.5,17.5 28.9,18.4 32.4,7.5 42.6,12.7" fill="#fffde7"/>
+<text x="50" y="46" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Icon</text>
+<text x="50" y="58" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Placeholder</text>
+</svg>
+</div>
+<h3 class="title is-3 has-text-white mb-2">Event Guidelines</h3>
+<p class="has-text-cream mb-4">Before attending, please be sure to check these guidelines</p>
+<div>
+<a class="tf-btn tf-btn-white" href="/about/guidelines/">
+<span>Button</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="column is-half">
+<div class="faq-callout-card-vertical faq-callout-dark">
+<div class="callout-icon-wrap mb-3">
+<span class="tf-icon tf-icon-discord" style="font-size: 64px; color: #ffffff; background-color: #ffffff;"></span>
+</div>
+<h3 class="title is-3 has-text-white mb-2">Join the community on Discord</h3>
+<p class="has-text-grey-light mb-4">Join our community on the TouhouFest Official Discord server!</p>
+<div>
+<a class="tf-btn tf-btn-white" href="https://discord.gg/touhoufest" target="_blank" rel="noopener noreferrer">
+<span>Join Discord</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent faq_bottom_callouts %}
+
+{% component contact_form() %}
+<div class="contact-form-container">
+<form class="contact-form" action="#" method="post" onsubmit="return false;">
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-email">Email<span class="tf-required-star">*</span> <span class="tf-required-tag">(Required)</span></label>
+<input type="email" id="contact-email" name="email" class="tf-form-input" required />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-name">Name<span class="tf-required-star">*</span> <span class="tf-required-tag">(Required)</span></label>
+<input type="text" id="contact-name" name="name" class="tf-form-input" required />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-pronouns">Pronoun(s)</label>
+<input type="text" id="contact-pronouns" name="pronouns" class="tf-form-input" />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-company">Company/Organization</label>
+<input type="text" id="contact-company" name="organization" class="tf-form-input" />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-title">Title</label>
+<input type="text" id="contact-title" name="subject" class="tf-form-input" />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-phone">Phone number</label>
+<input type="tel" id="contact-phone" name="phone" class="tf-form-input" />
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-website">Website</label>
+<input type="url" id="contact-website" name="website" class="tf-form-input" />
+</div>
+<div class="tf-form-field">
+<div class="is-flex is-justify-content-between is-align-items-baseline mb-1">
+<label class="tf-form-label mb-0" for="contact-reason">Select the option that best describes the reason for contacting us:</label>
+<span class="tf-required-tag">(Required)</span>
+</div>
+<div class="tf-select-wrapper">
+<select id="contact-reason" name="category" class="tf-form-select" required>
+<option value="" disabled selected>Select an option</option>
+<option value="general">General Inquiry</option>
+<option value="badges">Ticketing / Badges</option>
+<option value="artists">Artist Alley / Vendors</option>
+<option value="panels">Panels &amp; Programming</option>
+<option value="volunteering">Volunteering &amp; Staff</option>
+<option value="press">Press &amp; Media</option>
+<option value="accessibility">Accessibility</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+<div class="tf-form-field">
+<label class="tf-form-label" for="contact-message">Lorem Ipsum</label>
+<textarea id="contact-message" name="message" class="tf-form-textarea" rows="6"></textarea>
+</div>
+<input type="checkbox" name="privacy" id="contact-privacy" checked style="display:none;" />
+<div class="tf-form-field mt-4">
+<button type="submit" class="tf-btn tf-btn-danger">
+<span>Submit</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</button>
+</div>
+</form>
+</div>
+
+<div class="contact-bottom-cards container my-6">
+<div class="contact-callout-card contact-callout-red mb-5">
+<div class="callout-icon-col">
+<svg class="tf-starburst" viewBox="0 0 100 100" width="80" height="80">
+<polygon points="50.0,4.0 57.4,12.7 67.6,7.5 71.1,18.4 82.5,17.5 81.6,28.9 92.5,32.4 87.3,42.6 96.0,50.0 87.3,57.4 92.5,67.6 81.6,71.1 82.5,82.5 71.1,81.6 67.6,92.5 57.4,87.3 50.0,96.0 42.6,87.3 32.4,92.5 28.9,81.6 17.5,82.5 18.4,71.1 7.5,67.6 12.7,57.4 4.0,50.0 12.7,42.6 7.5,32.4 18.4,28.9 17.5,17.5 28.9,18.4 32.4,7.5 42.6,12.7" fill="#fffde7"/>
+<text x="50" y="46" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Icon</text>
+<text x="50" y="58" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Placeholder</text>
+</svg>
+</div>
+<div class="callout-content-col">
+<h2 class="title is-2 has-text-white mb-2">FAQs</h2>
+<p class="has-text-cream mb-4">Before attending, please be sure to check these guidelines</p>
+<div>
+<a class="tf-btn tf-btn-white" href="/about/faq/">
+<span>Button</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+
+<div class="contact-callout-card contact-callout-dark">
+<div class="callout-icon-col">
+<span class="tf-icon tf-icon-discord" style="font-size: 72px; color: #ffffff; background-color: #ffffff;"></span>
+</div>
+<div class="callout-content-col">
+<h2 class="title is-2 has-text-white mb-2">Join the community on Discord</h2>
+<p class="has-text-grey-light mb-4">Join our community on the TouhouFest Official Discord server!</p>
+<div>
+<a class="tf-btn tf-btn-white" href="https://discord.gg/touhoufest" target="_blank" rel="noopener noreferrer">
+<span>Join Discord</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent contact_form %}
+
+
+{% component discord() %}
+<div class="discord-callout-card my-6">
+<span class="tf-icon tf-icon-discord discord-icon"></span>
+<div class="discord-content">
+<h2 class="discord-title">Join the community on Discord</h2>
+<p class="discord-subtext">Join our community on the TouhouFest Official Discord server!</p>
+<a href="https://discord.gg/touhoufest" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
+<span>Join Discord</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{% endcomponent discord %}
+
+{% component newsletter() %}
+<div class="newsletter-callout-card my-6">
+<div class="newsletter-icon-wrap">
+<img src="/email.svg" alt="Newsletter" />
+</div>
+<div class="newsletter-content">
+<h2 class="newsletter-title">The Tengu Newsletter</h2>
+<p class="newsletter-subtext">Sign up with your email address to receive news and updates.</p>
+<form class="newsletter-form" action="#" method="post" onsubmit="return false;">
+<input type="email" class="newsletter-input" placeholder="Email here" required />
+<button type="submit" class="tf-btn tf-btn-danger">
+<span>Subscribe</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</button>
+</form>
+</div>
+</div>
+{% endcomponent newsletter %}
+
+{% component app(name, open=false, description="", url="#") %}
+{% set status = "closed" %}
+{% if open %}{% set status = "open" %}{% endif %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="tf-card">
+<div class="tf-card-header">
+<h3 class="title is-5 mb-0">{{ name }}</h3>
+<span class="tf-tag tf-tag-{{ status }}"><span>{{ status | capitalize }}</span></span>
+</div>
+<div class="tf-card-body">
+{% if description %}
+<p class="has-text-grey">{{ description }}</p>
+{% endif %}
+</div>
+<div class="tf-card-footer">
+{% if status == 'open' %}
+<a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-primary is-fullwidth">
+<span>Apply Now</span>
+<span class="tf-icon tf-icon-external-link"></span>
+</a>
+{% else %}
+<span class="tf-btn tf-btn-disabled is-fullwidth">
+<span>Applications Closed</span>
+</span>
+{% endif %}
+</div>
+</div>
+</div>
+{% endcomponent app %}
+
+{% component unpaid(message="This is a volunteer position. All TouhouFest staff positions are unpaid.") %}
+<div class="tf-warning" role="alert">
+<p class="mb-0">{{ message }}</p>
+</div>
+{% endcomponent unpaid %}
+
+{% component faq_link() %}
+<div class='container'>
+<div class='card has-text-white mt-6 mb-6' style='background-color: var(--red)'>
+<div class='card-content'>
+<div style='display: flex'>
+<p class='fa-brands fa-discord m-6' style='font-size: 100px'></p>
+<div>
+<h2 class='has-text-white title'>FAQs</h2>
+<p>Join our community on the TouhouFest Official Discord Server!</p>
+<p class='mt-5'><a class='button is-rounded' href='https://discord.gg/touhoufest'>Join Our Discord <span
+class='fa-solid fa-chevron-right'></span></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent faq_link %}
+
+{% component games() %}
+{% for section in load_data(path="data/games.yml") %}
+<div class='has-text-centered'>
+<h2>{{ section.name }}</h2>
+<p>{{ section.desc | markdown(inline=true) | safe }}</p>
+<div class='grid is-col-min-16'>
+{% for game in section.games %}
+<div class='cell'>
+<h3>{{ game.name }}</h3>
+{{ game.desc | markdown(inline=true) | safe }}
+</div>
+{% endfor %}
+</div>
+</div>
+{% endfor %}
+{% endcomponent games %}
+
+{% component guests() %}
+{% for year, guests in load_data(path="data/guests.yml") %}
+<div class='has-text-centered'>
+<h2>TouhouFest {{ year }} Guests</h2>
+<div class='grid is-col-min-16'>
+{% for guest in guests %}
+<div class='cell'>
+<h3>{{ guest.name }}</h3>
+{{ guest.desc | markdown(inline=true) | safe}}
+</div>
+{% endfor %}
+</div>
+</div>
+{% endfor %}
+{% endcomponent guests %}
+
+{% component cosplay() %}
+<h3>Cosplay</h3>
+<p>Cosplaying at TouhouFest? Check out our cosplay page to see what there is to do!</p>
+<a class='button' href='/features/cosplay'>Learn more</a>
+{% endcomponent cosplay %}
+
+{% component fumo() %}
+<h3>Fumo Gathering</h3>
+<p>Our Cosplay Ambassador, Mystical Lala, will co-host the Fumo Gathering at TouhouFest!</p>
+<a class='button' href='/features/other#fumo-meetup'>Learn more</a>
+{% endcomponent fumo %}
+
+{% component gaming() %}
+<h3>Gaming</h3>
+<a class='button' href='/features/gaming'>Learn more</a>
+{% endcomponent gaming %}
+
+{% component other() %}
+<h2>Other Events</h2>
+<p>TouhouFest will have a variety of other events! Below are a few we've announced so far, but more are on the way!</p>
+{% endcomponent other %}
+
+{% component page_header(title, subtitle="", image="", description="") %}
+<div class="page-hero-banner"{% if image %} style="background-image: url('{{ image }}');"{% endif %}>
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
+<div class="page-hero-title-box">
+<h1 class="page-hero-title">{{ title }}</h1>
+{%- if subtitle %}
+<p class="page-hero-subtitle mt-3">{{ subtitle | safe }}</p>
+{%- endif %}
+{%- if description %}
+<div class="page-hero-body mt-4">{{ description | safe }}</div>
+{%- endif %}
+</div>
+</div>
+{% endcomponent page_header %}
+
+{% component tf_teaser_card(title, subtitle="", icon="", url="", btn_text="Learn more", variant="danger", extra_class="") %}
+<div class="tf-teaser-card is-{{ variant }} {{ extra_class }} my-5">
+<div class="tf-teaser-card-body is-flex is-align-items-center">
+{%- if icon %}
+<div class="tf-teaser-icon-wrap mr-4">
+<span class="tf-icon tf-icon-{{ icon }} is-size-2"></span>
+</div>
+{%- endif %}
+<div class="tf-teaser-content is-flex-grow-1">
+<h3 class="title is-4 mb-1">{{ title }}</h3>
+{%- if subtitle %}
+<p class="subtitle is-6 mb-0">{{ subtitle }}</p>
+{%- endif %}
+</div>
+{%- if url %}
+<div class="tf-teaser-action ml-4">
+<a href="{{ url }}" class="tf-btn tf-btn-white">
+<span>{{ btn_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+{%- endif %}
+</div>
+</div>
+{% endcomponent tf_teaser_card %}
+
+{% component tf_polaroid(image, caption="", alt="", tilt="") %}
+<div class="tf-polaroid {% if tilt %}is-tilted-{{ tilt }}{% endif %}">
+<div class="tf-polaroid-pins">
+<span class="tf-pin tf-pin-left"></span>
+<span class="tf-pin tf-pin-right"></span>
+</div>
+<div class="tf-polaroid-frame">
+<img src="{{ image }}" alt="{{ alt | default(value=caption) }}" loading="lazy" />
+{%- if caption %}
+<p class="tf-polaroid-caption">{{ caption }}</p>
+{%- endif %}
+</div>
+</div>
+{% endcomponent tf_polaroid %}
+
+{% component tf_ofuda(title, subtitle="", icon="", tilt="") %}
+<div class="tf-ofuda {% if tilt %}is-tilted-{{ tilt }}{% endif %}">
+<div class="tf-ofuda-inner">
+<div class="tf-ofuda-tomoe"></div>
+{%- if icon %}
+<span class="tf-icon tf-icon-{{ icon }} tf-ofuda-icon"></span>
+{%- endif %}
+<h4 class="tf-ofuda-title">{{ title }}</h4>
+{%- if subtitle %}
+<p class="tf-ofuda-subtitle">{{ subtitle }}</p>
+{%- endif %}
+</div>
+</div>
+{% endcomponent tf_ofuda %}
+
+{% component application_card(name, status="open", description="", deadline="", apply_url="#", btn_text="Apply") %}
+{%- set status_lower = status | lower -%}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="tf-card tf-app-card">
+<div class="tf-card-header">
+<span class="tf-tag tf-tag-{{ status_lower }}"><span>{{ status | upper }}</span></span>
+<h3 class="title is-4 mt-2 mb-0">{{ name }}</h3>
+</div>
+<div class="tf-card-body">
+{%- if deadline %}
+<p class="is-size-7 has-text-weight-semibold mb-2">
+<span class="tf-icon tf-icon-calendar mr-1"></span> Deadline: {{ deadline }}
+</p>
+{%- endif %}
+{%- if description %}
+<p class="has-text-grey">{{ description }}</p>
+{%- endif %}
+</div>
+<div class="tf-card-footer">
+{%- if status_lower == 'open' %}
+<a href="{{ apply_url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-danger is-fullwidth">
+<span>{{ btn_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+{%- else %}
+<span class="tf-btn tf-btn-disabled is-fullwidth">
+<span>Applications Closed</span>
+</span>
+{%- endif %}
+</div>
+</div>
+</div>
+{% endcomponent application_card %}
+
+{% component applications_grid(type) %}
+{%- set app_data = load_data(path="data/applications.yml") -%}
+{%- set list_items = app_data[type] | default(value=[]) -%}
+<div class="columns is-multiline my-4">
+{%- for item in list_items %}
+{%- set item_status = item.status | default(value="Open") %}
+{{ <application_card name={item.title} status={item_status} description={item.description | default(value="")} apply_url={item.url | default(value="#")} btn_text={item.button_text | default(value="Apply")} /> }}
+{%- endfor %}
+</div>
+{% endcomponent applications_grid %}
+
+{% component section_divider(title, subtitle="", image="", url="", button_text="Explore Section", id="") %}
+{%- set divider_id = id | default(value=title | slugify) -%}
+<div class="section-divider-module my-6" id="{{ divider_id }}">
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
+<div class="divider-overlay">
+<div class="divider-content">
+<div>
+<h2 class="divider-title"><span>{{ title }}</span></h2>
+{%- if subtitle %}
+<p class="divider-subtitle">{{ subtitle }}</p>
+{%- endif %}
+</div>
+{%- if url %}
+<div>
+<a class="tf-btn tf-btn-primary" href="{{ url }}"><span>{{ button_text }}</span></a>
+</div>
+{%- endif %}
+</div>
+</div>
+</div>
+{% endcomponent section_divider %}
+
+{% component hero_card(title, subtitle="", image="", url="", button_text="Buy badge") %}
+<div class="hero-module-card my-6">
+<div class="hero-gohei-left"></div>
+<div class="hero-gohei-right"></div>
+<div class="hero-card-inner">
+<div class="hero-card-image-wrap">
+<span class="hero-card-q">?</span>
+<span class="hero-card-stay-tuned">Stay tuned!</span>
+</div>
+<div class="hero-card-content">
+<h2 class="title is-2 mb-3 hero-card-title">{{ title }}</h2>
+{%- if subtitle %}
+<p class="subtitle mb-4 hero-card-subtitle">{{ subtitle }}</p>
+{%- endif %}
+{%- if body %}
+<div class="content mb-4">{{ body | safe }}</div>
+{%- endif %}
+{%- if url %}
+<a class="tf-btn tf-btn-danger hero-card-btn" href="{{ url }}" target="_blank" rel="noopener noreferrer">
+<span>{{ button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+{%- endif %}
+</div>
+</div>
+</div>
+{% endcomponent hero_card %}
+
+{% component cosplay_masquerade(title="Cosplay Masquerade", craft_url="#", perf_url="#", exhib_url="#") %}
+<div class="cosplay-masquerade-card my-5">
+<h3 class="title is-3 mb-3">{{ title }}</h3>
+<div class="content mb-4">
+{%- if body %}
+<p>{{ body | safe }}</p>
+{%- else %}
+<p>Please read the rules completely before applying. You may only apply to one category.</p>
+{%- endif %}
+</div>
+<div class="buttons is-flex is-justify-content-center">
+<a class="tf-btn tf-btn-white" href="{{ craft_url }}"><span>Craftsmanship</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+<a class="tf-btn tf-btn-white" href="{{ perf_url }}"><span>Performance</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+<a class="tf-btn tf-btn-white" href="{{ exhib_url }}"><span>Exhibition</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+</div>
+</div>
+{% endcomponent cosplay_masquerade %}
+
+{% component event_guidelines(url="/about/guidelines", button_text="Button") %}
+<div class="event-guidelines-banner my-6">
+<div class="guidelines-icon-wrap">
+<span class="tf-icon tf-icon-info"></span>
+</div>
+<div class="guidelines-content">
+<h3 class="title is-3 has-text-white mb-1">Event Guidelines</h3>
+<p class="has-text-cream mb-0">Before attending, please be sure to check these guidelines.</p>
+</div>
+<div>
+<a class="tf-btn tf-btn-white" href="{{ url }}">
+<span>{{ button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{% endcomponent event_guidelines %}
+
+{% component hotel_card(name, rate="", description="", address="", phone="", photo="", booking_url="#") %}
+<div class="hotel-block-card my-6">
+<div class="hotel-block-photo" style="background-image: url('{{ photo }}');">
+<div class="hotel-block-inner">
+<div class="hotel-block-ribbon">
+<img src="/img/hotels/hotel_ribbon.svg" alt="" aria-hidden="true" />
+</div>
+<h3 class="hotel-block-title">{{ name }}</h3>
+<p class="hotel-block-desc">{{ description }}</p>
+<div class="hotel-block-details">
+{%- if address %}
+<div class="hotel-info-pill">
+<span class="tf-icon tf-icon-pin mr-2"></span>
+<span>{{ address }}</span>
+</div>
+{%- endif %}
+{%- if phone %}
+<div class="hotel-info-pill">
+<span class="tf-icon tf-icon-phone mr-2"></span>
+<span>{{ phone }}</span>
+</div>
+{%- endif %}
+</div>
+<div class="hotel-block-action mt-4">
+<a href="{{ booking_url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-danger">
+<span>Book now</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent hotel_card %}
+
+{% component hotel_blocks() %}
+{%- set hotel_data = load_data(path="data/hotels.yml") -%}
+{%- for hotel in hotel_data.hotels %}
+{{ <hotel_card name={hotel.name} rate={hotel.rate} description={hotel.description} address={hotel.address} phone={hotel.phone} photo={hotel.photo} booking_url={hotel.booking_url} /> }}
+{%- endfor %}
+{% endcomponent hotel_blocks %}
+
+{% component teaser_card(title, subtitle="", button_text="Button", url="#", theme="danger", icon="") %}
+<div class="tf-teaser-card is-{{ theme }}">
+{%- if icon == 'discord' %}
+<div class="tf-teaser-avatar">
+<span class="tf-icon tf-icon-discord" style="font-size: 56px; color: #fff;"></span>
+</div>
+{%- elif icon %}
+<div class="tf-teaser-avatar">
+<img src="{{ icon }}" alt="" />
+</div>
+{%- endif %}
+<h3 class="tf-teaser-title">{{ title }}</h3>
+{%- if subtitle %}
+<p class="tf-teaser-subtitle">{{ subtitle }}</p>
+{%- endif %}
+<div class="tf-teaser-action">
+<a href="{{ url }}" class="tf-btn tf-btn-white">
+<span>{{ button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{% endcomponent teaser_card %}
+
+{% component when_where_ofuda() %}
+<div class="ofuda-container my-6">
+<div class="ofuda-item is-when">
+<img src="/img/event/ofuda_1.png" alt="When: June 19th-21st 2026" />
+</div>
+<div class="ofuda-item is-where">
+<img src="/img/event/ofuda_2.png" alt="Where: Torrance Cultural Arts Center (TCAC), 3330 Civic Center Dr, Torrance, CA 90503" />
+</div>
+</div>
+{% endcomponent when_where_ofuda %}
+
+{% component tcac_gallery() %}
+<div class="tcac-gallery-module my-6">
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
+<div class="tcac-gallery-overlay"></div>
+<div class="tcac-gallery-content">
+<h2 class="tcac-gallery-title">The Torrance Cultural Arts Center</h2>
+<div class="tcac-gallery-grid">
+<div class="tcac-polaroid"><img src="/img/event/polaroid_1.png" alt="TCAC Entrance" /></div>
+<div class="tcac-polaroid"><img src="/img/event/polaroid_2.png" alt="TCAC Pine Wind Garden Stream" /></div>
+<div class="tcac-polaroid"><img src="/img/event/polaroid_3.png" alt="TCAC Fumo Meetup in Garden" /></div>
+<div class="tcac-polaroid"><img src="/img/event/polaroid_4.png" alt="TouhouFest Cosplayers" /></div>
+<div class="tcac-polaroid"><img src="/img/event/polaroid_5.png" alt="TouhouFest Attendees" /></div>
+<div class="tcac-polaroid"><img src="/img/event/polaroid_6.png" alt="TouhouFest Concert and Performance" /></div>
+</div>
+</div>
+</div>
+{% endcomponent tcac_gallery %}
+
+{% component event_map_module() %}
+{{ <section_divider title="2026 TouhouFest Event Maps" id="maps" /> }}
+<div class="event-map-module my-6">
+<div class="event-map-tabs">
+<button class="event-map-tab is-active" type="button">Event Map</button>
+<button class="event-map-tab" type="button">Artist Alley Map</button>
+<button class="event-map-tab" type="button">Vendors Map</button>
+</div>
+<div class="event-map-container">
+<img src="/img/event/event_map.png" alt="TouhouFest 2026 Event Map" class="event-map-img" />
+<button class="event-map-zoom" type="button" aria-label="Zoom Map">
+<span class="tf-icon tf-icon-search"></span>
+</button>
+</div>
+</div>
+{% endcomponent event_map_module %}
+
+{% component amp_production_module() %}
+{{ <section_divider title="TouhouFest Team" id="team" /> }}
+<div class="amp-production-module my-6">
+<div class="amp-intro">
+<h3 class="amp-title">Run by AMP</h3>
+<p class="amp-desc">The AMP Organization is an event production group based in Southern California that organizes grassroots anime and pop culture events. Established in 2018, AMP is rooted in the Little Tokyo District of Los Angeles and produces a portfolio of community-driven events across the region.</p>
+</div>
+<div class="amp-status-cards">
+<div class="amp-status-card">
+<span class="amp-status-tag is-open">Open</span>
+<h4 class="amp-status-name">Staff</h4>
+<p class="amp-status-desc">Join the team here.</p>
+<a href="/register" class="tf-btn tf-btn-danger">
+<span>Apply</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+<div class="amp-status-card">
+<span class="amp-status-tag is-closed">Closed</span>
+<h4 class="amp-status-name is-muted">Volunteer</h4>
+<p class="amp-status-desc">Help out during the event.</p>
+</div>
+</div>
+</div>
+{% endcomponent amp_production_module %}
+
+{% component schedule_block(title, time, room="", category="", host="", description="") %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="tf-card">
+<div class="tf-card-header">
+<div>
+<h3 class="title is-5 mb-1">{{ title }}</h3>
+<p class="is-size-7 has-text-grey">
+<span class="tf-icon tf-icon-clock mr-1"></span>{{ time }}
+</p>
+</div>
+{% if room %}
+<span class="tf-tag tf-tag-room"><span>{{ room }}</span></span>
+{% endif %}
+</div>
+<div class="tf-card-body">
+{% if host %}
+<p class="is-size-7 has-text-weight-semibold mb-2">
+{{ host }}
+</p>
+{% endif %}
+{% if description %}
+<p class="is-size-7 has-text-grey">{{ description }}</p>
+{% endif %}
+</div>
+{% if category %}
+<div class="tf-card-footer">
+<span class="tf-tag tf-tag-pending"><span>{{ category }}</span></span>
+</div>
+{% endif %}
+</div>
+</div>
+{% endcomponent schedule_block %}
+
+{% component schedule_grid() %}
+{% set sched = load_data(path="data/schedule.yml") %}
+<div class="schedule-container my-5">
+<div class="buttons is-centered mb-5">
+{% for day in sched.days %}
+<a href="#{{ day.id }}" class="button is-rounded is-small">
+<span>{{ day.day | default(value=day.title) }}</span>
+</a>
+{% endfor %}
+</div>
+
+<div class="columns is-multiline mb-6">
+{% for day in sched.days %}
+<div class="column is-4">
+<div class="tf-card">
+<div class="tf-card-header">
+<h3 class="title is-5 mb-0">{{ day.title }}</h3>
+</div>
+<div class="tf-card-body">
+<p class="mb-2"><strong>Hours:</strong> {{ day.hours }}</p>
+<p class="is-size-7 has-text-grey">{{ day.summary }}</p>
+</div>
+<div class="tf-card-footer">
+<a href="#{{ day.id }}" class="tf-btn tf-btn-outline is-fullwidth">
+<span>View {{ day.day | default(value="Day") }} Blocks</span>
+<span class="tf-icon tf-icon-chevron-down"></span>
+</a>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+
+{% for day in sched.days %}
+<div id="{{ day.id }}" class="schedule-day-section mb-6 pt-4">
+<div class="is-flex is-justify-content-between is-align-items-center mb-3">
+<div>
+<h2 class="title is-3 mb-1">{{ day.title }}</h2>
+<p class="is-size-7 has-text-grey">
+<span class="tf-icon tf-icon-clock mr-1"></span> {{ day.hours }}
+&bull; <span class="tf-icon tf-icon-calendar ml-2 mr-1"></span> {{ day.date }}
+</p>
+</div>
+<a href="#top" class="tf-btn tf-btn-outline is-small">
+<span class="tf-icon tf-icon-chevron-up"></span>
+<span>Top</span>
+</a>
+</div>
+<p class="mb-4">{{ day.summary }}</p>
+
+{% if day.events %}
+<div class="columns is-multiline">
+{% for ev in day.events %}
+{{ <schedule_block
+title={ev.title}
+time={ev.time}
+room={ev.room | default(value="")}
+category={ev.category | default(value="")}
+host={ev.host | default(value="")}
+description={ev.description | default(value="")}
+/> }}
+{% endfor %}
+</div>
+{% else %}
+<div class="notification is-light">
+<p>Schedule blocks for {{ day.title }} will be announced soon.</p>
+</div>
+{% endif %}
+</div>
+{% endfor %}
+
+{{ <discord /> }}
+</div>
+{% endcomponent schedule_grid %}
+
+{% component featured_artists() %}
+{%- set artists_data = load_data(path="data/artists.yml") -%}
+<div class="featured-artists-section my-6">
+<h2 class="title is-2 has-text-centered mb-5" style="color: var(--tf-color-red);">2026 Featured Artists</h2>
+<div class="columns is-centered is-multiline">
+{%- for artist in artists_data.featured %}
+<div class="column is-5-desktop is-6-tablet is-12-mobile">
+<div class="tf-featured-card">
+<div class="card-gohei-trim-left"></div>
+<div class="card-gohei-trim-right"></div>
+<div class="featured-card-thumb-wrap">
+<img src="{{ artist.image }}" alt="{{ artist.name }}" class="featured-card-thumb" />
+</div>
+<div class="featured-card-body">
+<h3 class="featured-card-name">{{ artist.name }}</h3>
+<p class="featured-card-bio">{{ artist.bio }}</p>
+<a href="{{ artist.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
+<span>Visit artist's site</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent featured_artists %}
+
+{% component artist_roster() %}
+{%- set artists_data = load_data(path="data/artists.yml") -%}
+<div class="artist-roster-section my-6">
+<h2 class="title is-2 has-text-centered mb-4" style="color: var(--tf-color-red);">2026 Full Artist Alley List</h2>
+<div class="artist-search-bar my-4">
+<span class="tf-icon tf-icon-search search-icon mr-2"></span>
+<input type="text" class="artist-search-input" placeholder="Search for an Artist" aria-label="Search for an Artist" />
+</div>
+<div class="artist-roster-grid">
+{%- for item in artists_data.roster %}
+<div class="artist-roster-item">
+<div class="artist-roster-name">{{ item.name }}</div>
+<div class="artist-roster-card">
+<img src="{{ item.image }}" alt="{{ item.name }}" class="artist-roster-img" />
+<div class="artist-roster-tag">{{ item.table }}</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent artist_roster %}
+
+{% component event_maps() %}
+<div class="event-maps-section my-6">
+<div class="section-divider-module" style="background-image: url('/banner.png'); margin-bottom: 2rem;">
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
+<div class="divider-overlay">
+<div class="divider-content has-text-centered">
+<h2 class="divider-title" style="color: #ffffff;">2025 TouhouFest Event Maps</h2>
+</div>
+</div>
+</div>
+<div class="map-switcher-container">
+<input type="radio" name="event-map-tabs" id="map-tab-1" class="map-radio-toggle" checked />
+<input type="radio" name="event-map-tabs" id="map-tab-2" class="map-radio-toggle" />
+<input type="radio" name="event-map-tabs" id="map-tab-3" class="map-radio-toggle" />
+<div class="map-tabs-bar mb-5">
+<label for="map-tab-1" class="map-tab-pill tab-pill-1">Event Map</label>
+<label for="map-tab-2" class="map-tab-pill tab-pill-2">Artist Alley Map</label>
+<label for="map-tab-3" class="map-tab-pill tab-pill-3">Vendors Map</label>
+</div>
+<div class="map-display-card">
+<div class="map-view-panel panel-1">
+<h3 class="title is-4 has-text-centered mb-4" style="color: var(--tf-color-red);">Event Map</h3>
+<div class="map-img-frame">
+<img src="/img/TouhouFest_2025_Map_FINAL-01-01.jpg" alt="Event Map" class="map-display-img" />
+<div class="map-zoom-btn">+</div>
+</div>
+</div>
+<div class="map-view-panel panel-2">
+<h3 class="title is-4 has-text-centered mb-4" style="color: var(--tf-color-red);">Artist Alley Map</h3>
+<div class="map-img-frame">
+<img src="/img/Toyota_Hall_2025_TF_AA_final copy.png" alt="Artist Alley Map" class="map-display-img" />
+<div class="map-zoom-btn">+</div>
+</div>
+</div>
+<div class="map-view-panel panel-3">
+<h3 class="title is-4 has-text-centered mb-4" style="color: var(--tf-color-red);">Vendors Map</h3>
+<div class="map-img-frame">
+<img src="/img/TF_2025_Festival_Plaza Vendors Final.png" alt="Vendors Map" class="map-display-img" />
+<div class="map-zoom-btn">+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent event_maps %}
+
+{% component past_artists_gallery() %}
+{%- set artists_data = load_data(path="data/artists.yml") -%}
+<div class="past-artists-section my-6">
+<div class="section-divider-module" style="background-image: url('/banner.png'); margin-bottom: 2rem;">
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
+<div class="divider-overlay">
+<div class="divider-content has-text-centered">
+<h2 class="divider-title" style="color: #ffffff;">Thank you 2025 Artists!</h2>
+</div>
+</div>
+</div>
+<div class="polaroid-grid">
+{%- for item in artists_data.past_artists %}
+<div class="polaroid-item">
+<div class="polaroid-thumb-wrap">
+<img src="{{ item.image }}" alt="{{ item.name }}" class="polaroid-thumb" />
+</div>
+<div class="polaroid-label">
+<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
+<span>{{ item.name }}</span>
+<span class="tf-icon tf-icon-external-link ml-1"></span>
+</a>
+</div>
+</div>
+{%- endfor %}
+</div>
+<div class="polaroid-pager my-5">
+<button class="polaroid-pager-arrow" aria-label="Previous page">&lt;</button>
+<span class="polaroid-pager-dot active"></span>
+<span class="polaroid-pager-dot"></span>
+<span class="polaroid-pager-dot"></span>
+<button class="polaroid-pager-arrow" aria-label="Next page">&gt;</button>
+</div>
+</div>
+{% endcomponent past_artists_gallery %}
+
+{% component sell_at_event() %}
+<div class="sell-event-section my-6">
+<h2 class="title is-2 has-text-centered mb-6" style="color: var(--tf-color-red);">Want to sell at the event?</h2>
+<div class="ofuda-stickers-row">
+<div class="ofuda-card ofuda-card-tilt-left">
+<div class="ofuda-seal-mark">
+<img src="/img/YIN YANG ORB.png" alt="Yin Yang" />
+</div>
+<div class="ofuda-placeholder-badge">
+<span>Icon<br/>Placeholder</span>
+</div>
+<h3 class="title is-3 mb-2 ofuda-card-heading">Learn more</h3>
+<p class="ofuda-card-text mb-5">Learn more about the rules before applying.</p>
+<a href="/about/guidelines" class="tf-btn tf-btn-danger">
+<span>Read Guidelines</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+<div class="ofuda-card ofuda-card-tilt-right">
+<div class="ofuda-seal-mark">
+<img src="/img/YIN YANG ORB.png" alt="Yin Yang" />
+</div>
+<div class="ofuda-placeholder-badge">
+<span>Icon<br/>Placeholder</span>
+</div>
+<h3 class="title is-3 mb-2 ofuda-card-heading">Apply:</h3>
+<p class="ofuda-card-text mb-5">Ready to apply?</p>
+<a href="/register" class="tf-btn tf-btn-danger">
+<span>Apply here</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{% endcomponent sell_at_event %}
+
+{% component exhibitors_grid(type="artists") %}
+{% set exh = load_data(path="data/exhibitors.yml") %}
+{% set status_key = type ~ "_status" %}
+{% set list_status = exh[status_key] | default(value="coming_soon") %}
+{% set list_items = exh[type] | default(value=[]) %}
+
+<div class="columns is-multiline my-5">
+{% if list_status == "coming_soon" or list_items | length == 0 %}
+<div class="column is-12">
+<div class="tf-card">
+<div class="tf-card-header">
+<h3 class="title is-4 mb-0">Coming Soon</h3>
+</div>
+<div class="tf-card-body">
+<p class="mb-3">Our official 2026 {{ type }} directory and table assignments are currently being curated. Please check back soon!</p>
+<p class="is-size-7 has-text-grey">Are you an independent artist or vendor? Check our application status on the registration page.</p>
+</div>
+</div>
+</div>
+{% else %}
+{% for item in list_items %}
+<div class="column is-4">
+<div class="tf-card">
+<div class="tf-card-header">
+<h3 class="title is-5 mb-0">{{ item.name }}</h3>
+{% if item.tag %}
+<span class="tf-tag tf-tag-open"><span>{{ item.tag }}</span></span>
+{% endif %}
+</div>
+<div class="tf-card-body">
+{% set loc = item.location | default(value=item.booth | default(value=item.table | default(value=""))) %}
+{% if loc %}
+<p class="mb-2"><strong>Booth / Table:</strong> {{ loc }}</p>
+{% endif %}
+{% if item.description %}
+<p class="is-size-7 has-text-grey">{{ item.description }}</p>
+{% endif %}
+</div>
+{% set link = item.url | default(value=item.link | default(value=item.website | default(value=""))) %}
+{% if link %}
+<div class="tf-card-footer">
+<a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-outline is-fullwidth">
+<span>Visit Booth</span>
+<span class="tf-icon tf-icon-external-link"></span>
+</a>
+</div>
+{% endif %}
+</div>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+{% endcomponent exhibitors_grid %}
+
+{% component guests_hero(title="2027 Guests", text="") %}
+<div class="guests-hero-banner">
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
+<div class="guests-hero-glass-card">
+<h1 class="guests-hero-title">{{ title }}</h1>
+<div class="guests-hero-body">
+{%- if text %}
+<p>{{ text | safe }}</p>
+{%- elif body %}
+<p>{{ body | safe }}</p>
+{%- else %}
+<p>Touhou Project would not be what it is if not for the music! TouhouFest strives to bring the best music circles and talents from both at home and abroad to give fans the best possible experience! Starting in 2025 we will be ‘rebranding’ our concerts as ‘TouhouFest LIVE’!</p>
+{%- endif %}
+</div>
+</div>
+</div>
+{% endcomponent guests_hero %}
+
+{% component featured_guests() %}
+{%- set guests_data = load_data(path="data/guests.yml") -%}
+<div class="featured-guests-section my-6">
+<div class="columns is-centered is-multiline">
+{%- for guest in guests_data.featured %}
+<div class="column is-6-desktop is-6-tablet is-12-mobile">
+<div class="tf-featured-card">
+<div class="card-gohei-trim-left"></div>
+<div class="card-gohei-trim-right"></div>
+<div class="featured-card-thumb-wrap">
+<img src="{{ guest.image }}" alt="{{ guest.name }}" class="featured-card-thumb" />
+</div>
+<div class="featured-card-body">
+<h3 class="featured-card-name">{{ guest.name }}</h3>
+<p class="featured-card-bio">{{ guest.bio }}</p>
+<a href="{{ guest.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
+<span>Visit artist's site</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent featured_guests %}
+
+{% component guests_timeline() %}
+{%- set guests_data = load_data(path="data/guests.yml") -%}
+<div class="guests-timeline-section my-6">
+<div class="timeline-intro has-text-centered mb-6">
+<h2 class="title is-2" style="color: #ffffff;">Thank you!</h2>
+<p class="is-size-5" style="color: #e8e2f0; max-width: 800px; margin: 0 auto;">TouhouFest owes a great deal of its success to all the wonderful guests, circles, and performers who have joined us over the years. Celebrate the incredible history with us!</p>
+</div>
+<div class="diamond-timeline-track">
+{%- for entry in guests_data.timeline %}
+{%- set is_even = loop.index is even %}
+<div class="diamond-timeline-row {% if is_even %}row-reverse{% endif %}">
+<div class="timeline-side-col timeline-col-left">
+{%- if not is_even %}
+{%- set guest = entry.guests[0] %}
+<div class="timeline-guest-badge">
+<div class="tf-gauge-avatar-sm">
+<img src="{{ guest.image }}" alt="{{ guest.name }}" class="tf-gauge-avatar-img" />
+</div>
+<div class="timeline-guest-info">
+<h4 class="timeline-guest-name">{{ guest.name }}</h4>
+<a href="{{ guest.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white is-small">
+<span>Button</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{%- endif %}
+</div>
+<div class="diamond-center-node">
+<div class="diamond-box">
+<div class="diamond-text">
+<span class="diamond-year">{{ entry.year }}</span>
+<span class="diamond-sub">GUESTS</span>
+</div>
+</div>
+</div>
+<div class="timeline-side-col timeline-col-right">
+{%- if is_even %}
+{%- set guest = entry.guests[0] %}
+<div class="timeline-guest-badge">
+<div class="tf-gauge-avatar-sm">
+<img src="{{ guest.image }}" alt="{{ guest.name }}" class="tf-gauge-avatar-img" />
+</div>
+<div class="timeline-guest-info">
+<h4 class="timeline-guest-name">{{ guest.name }}</h4>
+<a href="{{ guest.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white is-small">
+<span>Button</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{%- endif %}
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent guests_timeline %}
+
+{% component performers_grid() %}
+{%- set guests_data = load_data(path="data/guests.yml") -%}
+<div class="performers-section my-6">
+<h2 class="title is-2 has-text-centered mb-5" style="color: #ffffff;">2027 DJs &amp; Performers</h2>
+<div class="performers-grid">
+{%- for p in guests_data.performers %}
+<div class="performer-card">
+<h3 class="performer-name">{{ p.name }}</h3>
+<div class="tf-gauge-avatar">
+<img src="{{ p.image }}" alt="{{ p.name }}" class="tf-gauge-avatar-img" />
+</div>
+<p class="performer-desc">{{ p.desc }}</p>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent performers_grid %}
+
+{% component home_stickers() %}
+<div class="home-stickers-wrapper my-6">
+<div class="home-stickers-row">
+<div class="ofuda-sticker-card sticker-tilt-left">
+<div class="ofuda-seal-mark">
+<img src="/img/YIN YANG ORB.png" alt="Yin Yang" />
+</div>
+<div class="sticker-icon-badge cherry-badge">
+<span>🌸</span>
+</div>
+<h3 class="title is-3 mb-2 sticker-heading">Join us for</h3>
+<p class="sticker-text mb-4">A springtime Festival where Gensokyo comes to life</p>
+<a href="/register" class="tf-btn tf-btn-danger">
+<span>Buy ticket</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+<div class="ofuda-sticker-card sticker-tilt-center">
+<div class="ofuda-seal-mark">
+<img src="/img/YIN YANG ORB.png" alt="Yin Yang" />
+</div>
+<div class="sticker-icon-badge location-badge">
+<span class="tf-icon tf-icon-location" style="font-size: 2.2rem; color: var(--tf-color-dark);"></span>
+</div>
+<h3 class="title is-3 mb-2 sticker-heading">Held at</h3>
+<p class="sticker-text">Torrance Cultural Arts Center,<br/>Torrance CA<br/>3330 Civic Center Dr.</p>
+</div>
+<div class="ofuda-sticker-card sticker-tilt-right">
+<div class="ofuda-seal-mark">
+<img src="/img/YIN YANG ORB.png" alt="Yin Yang" />
+</div>
+<div class="sticker-icon-badge clock-badge">
+<span class="tf-icon tf-icon-clock" style="font-size: 2.2rem; color: #51a2d9;"></span>
+</div>
+<h3 class="title is-3 mb-2 sticker-heading">Save the date</h3>
+<p class="sticker-text">Saturday April 27th<br/>Sunday April 28th</p>
+</div>
+</div>
+</div>
+{% endcomponent home_stickers %}
+
+{% component shide_ribbon() %}
+<div class="shide-zigzag-connector my-5"></div>
+{% endcomponent shide_ribbon %}
+
+{% component home_guests_preview() %}
+{%- set guests_data = load_data(path="data/guests.yml") -%}
+<div class="home-guests-preview-section my-6">
+<h2 class="title is-2 has-text-centered mb-5" style="color: var(--tf-color-red);">Guests</h2>
+<div class="columns is-centered is-multiline">
+{%- for p in guests_data.performers %}
+{%- if loop.index <= 3 %}
+<div class="column is-4-desktop is-4-tablet is-12-mobile">
+<div class="home-guest-preview-card has-text-centered">
+<h3 class="title is-4 mb-3" style="color: var(--bulma-text-strong);">{{ p.name }}</h3>
+<div class="tf-gauge-avatar">
+<img src="{{ p.image }}" alt="{{ p.name }}" class="tf-gauge-avatar-img" />
+</div>
+<p class="is-size-6 mt-3" style="color: var(--bulma-text);">{{ p.role | default(value="Performer") }}</p>
+</div>
+</div>
+{%- endif %}
+{%- endfor %}
+</div>
+</div>
+{% endcomponent home_guests_preview %}
+
+{% component home_artist_spotlight() %}
+{%- set artists_data = load_data(path="data/artists.yml") -%}
+{%- set artist = artists_data.featured[0] -%}
+<div class="home-artist-spotlight my-6">
+<div class="tf-featured-card mx-auto" style="max-width: 820px;">
+<div class="card-gohei-trim-left"></div>
+<div class="card-gohei-trim-right"></div>
+<div class="featured-card-thumb-wrap">
+<img src="{{ artist.image }}" alt="{{ artist.name }}" class="featured-card-thumb" />
+</div>
+<div class="featured-card-body">
+<h3 class="featured-card-name">{{ artist.name }}</h3>
+<p class="featured-card-bio">{{ artist.bio }}</p>
+<a href="{{ artist.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
+<span>Visit artist's site</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{% endcomponent home_artist_spotlight %}
+
+
+{% component mascot_banner(title, text="", url="", button_text="Button") %}
+<div class="mascot-banner-card my-6">
+<div class="mascot-banner-art"></div>
+<div class="mascot-banner-overlay">
+<h2 class="title is-2 mascot-overlay-title">{{ title }}</h2>
+<p class="mascot-overlay-body">{% if text %}{{ text }}{% else %}Body Copy here{% endif %}</p>
+{%- if url %}
+<a href="{{ url }}" class="tf-btn tf-btn-white">
+<span>{{ button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+{%- endif %}
+<div class="mascot-banner-fringe"></div>
+</div>
+</div>
+{% endcomponent mascot_banner %}
+
+{% component applications_status_card() %}
+<div class="applications-status-box my-6">
+<div class="status-tags-row mb-3">
+<span class="status-badge-open">OPEN</span>
+<span class="status-badge-closed">CLOSED</span>
+</div>
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red);">Applications are open</h2>
+<p class="is-size-5 mb-4" style="color: var(--bulma-text);">Open</p>
+<a href="/register" class="tf-btn tf-btn-danger">
+<span>Apply</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+{% endcomponent applications_status_card %}
+
+{% component convention_pillars() %}
+<div class="convention-pillars-section my-6">
+<div class="columns is-multiline">
+<div class="column is-6-tablet is-12-mobile">
+<div class="pillar-card">
+<div class="pillar-icon-wrap">
+<img src="/img/reimu.png" alt="Guidelines" class="pillar-avatar-img" />
+</div>
+<h3 class="pillar-title">Event Guidelines</h3>
+<p class="pillar-desc">Before attending, please be sure to check these guidelines</p>
+<a href="/about/guidelines" class="tf-btn tf-btn-white">
+<span>Event Guidelines</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+<div class="column is-6-tablet is-12-mobile">
+<div class="pillar-card">
+<div class="pillar-icon-wrap">
+<img src="/img/reimu.png" alt="FAQs" class="pillar-avatar-img" />
+</div>
+<h3 class="pillar-title">FAQs</h3>
+<p class="pillar-desc">Have questions? See our FAQs page for more info.</p>
+<a href="/about/faq" class="tf-btn tf-btn-white">
+<span>FAQs</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+<div class="column is-6-tablet is-12-mobile">
+<div class="pillar-card">
+<div class="pillar-icon-wrap">
+<img src="/img/reimu.png" alt="Hotel info" class="pillar-avatar-img" />
+</div>
+<h3 class="pillar-title">Hotel info</h3>
+<p class="pillar-desc">Before attending, please be sure to check these guidelines</p>
+<a href="/about/hotels" class="tf-btn tf-btn-white">
+<span>See hotel blocks</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+<div class="column is-6-tablet is-12-mobile">
+<div class="pillar-card">
+<div class="pillar-icon-wrap placeholder-star-wrap">
+<span class="pillar-star-icon">Icon<br/>Placeholder</span>
+</div>
+<h3 class="pillar-title">Download App</h3>
+<p class="pillar-desc">Before attending, please be sure to check these guidelines</p>
+<a href="#" class="tf-btn tf-btn-white">
+<span>Download App</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent convention_pillars %}
+
+{% component cosplay_meetups() %}
+{% set cdata = load_data(path="data/cosplay.yml") %}
+<div class="meetup-schedule-container my-6">
+<div class="meetup-tabs-wrapper">
+<input type="radio" name="meetup-day" id="meetup-day-0" class="meetup-radio" checked>
+<input type="radio" name="meetup-day" id="meetup-day-1" class="meetup-radio">
+<input type="radio" name="meetup-day" id="meetup-day-2" class="meetup-radio">
+<div class="meetup-tab-headers">
+<label for="meetup-day-0" class="meetup-tab-btn" id="label-meetup-0">Fri</label>
+<label for="meetup-day-1" class="meetup-tab-btn" id="label-meetup-1">Sat</label>
+<label for="meetup-day-2" class="meetup-tab-btn" id="label-meetup-2">Sun</label>
+</div>
+<div class="meetup-tab-panels">
+{% for day in cdata.meetups.days %}
+<div class="meetup-panel meetup-panel-{{ loop.index0 }}">
+{% for ev in day.events %}
+<div class="meetup-entry">
+<h4 class="meetup-entry-title">{{ ev.title }}</h4>
+<p class="meetup-entry-time"><span class="tf-icon tf-icon-clock mr-1"></span> {{ ev.time }}</p>
+<p class="meetup-entry-chars"><span class="tf-icon tf-icon-pin mr-1"></span> For characters from: {{ ev.characters }}</p>
+<a href="{{ ev.url }}" class="meetup-entry-link"><span>See more info</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+</div>
+{% endfor %}
+</div>
+{% endfor %}
+</div>
+</div>
+<p class="has-text-grey is-size-7 mt-3">{{ cdata.meetups.note }}</p>
+</div>
+{% endcomponent cosplay_meetups %}
+
+{% component cosplay_workshops() %}
+{% set cdata = load_data(path="data/cosplay.yml") %}
+<div class="cosplay-workshops-section my-6">
+<p class="mb-5">{{ cdata.workshops.body }}</p>
+<div class="columns is-desktop">
+{% for item in cdata.workshops.items %}
+<div class="column is-one-third-desktop is-full-touch">
+<div class="workshop-photo-card">
+<div class="workshop-photo-img-wrap">
+<img src="{{ item.image }}" alt="{{ item.title }}" class="workshop-photo-img">
+</div>
+<div class="workshop-photo-body">
+<h4 class="workshop-photo-title">{{ item.title }}</h4>
+<div class="workshop-location-row mb-3">
+<span class="is-size-7 has-text-weight-bold mr-2">Location:</span>
+<span class="tf-tag tf-tag-location"><span class="tf-icon tf-icon-location mr-1"></span>{{ item.location }}</span>
+</div>
+<p class="is-size-7 has-text-grey mb-0">{{ item.description }}</p>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endcomponent cosplay_workshops %}
+
+{% component cosplay_masquerade_full() %}
+{% set cdata = load_data(path="data/cosplay.yml") %}
+<div class="masquerade-full-section my-6">
+<h3 class="title is-3 mb-2">Categories</h3>
+<p class="has-text-grey is-size-7 mb-5">{{ cdata.masquerade.note }}</p>
+<div class="columns is-desktop mb-6">
+{% for cat in cdata.masquerade.categories %}
+<div class="column is-one-third-desktop is-full-touch">
+<div class="masquerade-category-card">
+<div class="masquerade-card-img-wrap">
+<img src="{{ cat.image }}" alt="{{ cat.name }}" class="masquerade-card-img">
+</div>
+<div class="masquerade-card-body">
+<h4 class="masquerade-card-title">{{ cat.name }}</h4>
+<p class="masquerade-card-desc">{{ cat.description }}</p>
+</div>
+<div class="masquerade-card-footer">
+<a href="{{ cat.apply_url }}" class="tf-btn tf-btn-danger masquerade-pill-btn">
+<span>Apply</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+<div class="masquerade-details-block mb-6">
+<h4 class="title is-4 mb-2">More about Craftsmanship:</h4>
+<p class="mb-4">{{ cdata.masquerade.craftsmanship_desc }}</p>
+<div class="cosplay-bar-header">Awards:</div>
+<div class="cosplay-bar-body columns is-desktop mb-5">
+{% for award in cdata.masquerade.craftsmanship_awards %}
+<div class="column is-one-third-desktop">
+<div class="cosplay-award-item">
+<h5 class="award-item-title"><span class="tf-icon tf-icon-warning mr-1"></span>{{ award.title }}</h5>
+<p class="award-item-prize"><strong>Prize:</strong><br>{{ award.prize }}</p>
+<p class="award-item-desc">{{ award.description }}</p>
+<a href="{{ award.url }}" class="award-item-link"><span>See more info</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+<div class="masquerade-details-block mb-6">
+<h4 class="title is-4 mb-2">More about Performance:</h4>
+<p class="mb-4">{{ cdata.masquerade.performance_desc }}</p>
+<div class="cosplay-bar-header">Awards:</div>
+<div class="cosplay-bar-body columns is-desktop mb-5">
+{% for award in cdata.masquerade.performance_awards %}
+<div class="column is-one-third-desktop">
+<div class="cosplay-award-item">
+<h5 class="award-item-title"><span class="tf-icon tf-icon-warning mr-1"></span>{{ award.title }}</h5>
+<p class="award-item-prize"><strong>Prize:</strong><br>{{ award.prize }}</p>
+<p class="award-item-desc">{{ award.description }}</p>
+<a href="{{ award.url }}" class="award-item-link"><span>See more info</span><span class="tf-icon tf-icon-chevron-right ml-1"></span></a>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+<div class="masquerade-itinerary-block mb-6">
+<div class="cosplay-bar-header">Itinerary</div>
+<div class="cosplay-bar-body columns is-desktop mb-3">
+{% for item in cdata.masquerade.itinerary %}
+<div class="column is-one-third-desktop">
+<div class="cosplay-itinerary-item">
+<h5 class="itinerary-item-title">{{ item.title }}</h5>
+<p class="itinerary-item-time"><span class="tf-icon tf-icon-clock mr-1"></span> {{ item.time }}</p>
+<p class="itinerary-item-desc">{{ item.description }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+<p class="has-text-grey is-size-7 mt-3">{{ cdata.masquerade.note }}</p>
+</div>
+</div>
+{% endcomponent cosplay_masquerade_full %}
+
+{% component cosplay_ambassadors() %}
+{% set cdata = load_data(path="data/cosplay.yml") %}
+<div class="cosplay-ambassadors-section my-6">
+<div class="columns is-desktop is-multiline">
+{% for amb in cdata.ambassadors %}
+<div class="column is-half-desktop is-full-touch">
+<div class="ambassador-card">
+<div class="ambassador-header">
+<span class="ambassador-honorific">{{ amb.honorific }}</span>
+<h3 class="ambassador-name">{{ amb.name }}</h3>
+</div>
+<div class="ambassador-portrait-wrap my-4">
+<div class="ambassador-sunburst-border">
+<img src="{{ amb.image }}" alt="{{ amb.name }}" class="ambassador-portrait-img">
+</div>
+</div>
+<p class="ambassador-role">{{ amb.role }}</p>
+<p class="ambassador-bio">{{ amb.bio }}</p>
+<div class="ambassador-socials">
+{% for soc in amb.socials %}
+<a href="{{ soc.url }}" target="_blank" rel="noopener noreferrer" class="ambassador-social-link">
+{% if soc.name == 'Instagram' %}<span class="tf-icon tf-icon-instagram mr-1"></span>{% elif soc.name == 'TikTok' %}<span class="tf-icon tf-icon-youtube mr-1"></span>{% else %}<span class="tf-icon tf-icon-x mr-1"></span>{% endif %}
+<span>{{ soc.name }}</span>
+<span class="tf-icon tf-icon-external-link ml-1"></span>
+</a>
+{% endfor %}
+</div>
+</div>
+</div>
+{% if loop.index == 2 %}
+<div class="column is-full my-4 is-hidden-touch">
+<div class="ambassador-row-divider"></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+</div>
+{% endcomponent cosplay_ambassadors %}
+
+{% component cosplay_maps() %}
+<div class="cosplay-maps-container my-6">
+<div class="buttons is-centered mb-5">
+<button type="button" class="tf-btn tf-btn-danger is-rounded"><span>Event Map</span></button>
+<button type="button" class="tf-btn tf-btn-outline is-rounded"><span>Artist Alley Map</span></button>
+<button type="button" class="tf-btn tf-btn-outline is-rounded"><span>Vendors Map</span></button>
+</div>
+<div class="cosplay-map-card">
+<div class="cosplay-map-img-wrap">
+<img src="/img/TouhouFest_2025_Map_FINAL-01-01.jpg" alt="TouhouFest Event Map" class="cosplay-map-img">
+<button type="button" class="map-zoom-btn" title="Zoom Map"><span class="tf-icon tf-icon-search"></span></button>
+</div>
+</div>
+</div>
+{% endcomponent cosplay_maps %}
+
+{% component cosplay_action_cards() %}
+{% set cdata = load_data(path="data/cosplay.yml") %}
+<div class="cosplay-action-cards-grid my-6">
+<div class="columns is-desktop is-multiline">
+{% for card in cdata.action_cards %}
+<div class="column is-half-desktop is-full-touch">
+<div class="cosplay-action-card">
+<div class="action-card-icon-wrap">
+{% if card.image %}
+<img src="{{ card.image }}" alt="{{ card.title }}" class="action-card-img">
+{% elif card.icon %}
+<span class="tf-icon {{ card.icon }} action-card-icon"></span>
+{% else %}
+<span class="action-card-placeholder">Icon</span>
+{% endif %}
+</div>
+<h3 class="action-card-title">{{ card.title }}</h3>
+<p class="action-card-desc">{{ card.desc }}</p>
+<a href="{{ card.url }}" class="tf-btn tf-btn-white action-card-btn">
+<span>{{ card.btn_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endcomponent cosplay_action_cards %}
+
+{% component gaming_fangames() %}
+{%- set gaming = load_data(path="data/gaming.yml") -%}
+<div class="has-text-centered mb-5">
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ gaming.fangames.title }}</h2>
+<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ gaming.fangames.location }}</span>
+</div>
+<div class="content has-text-centered mb-5">
+<p>{{ gaming.fangames.description | markdown(inline=true) | safe }}</p>
+</div>
+<div class="columns is-multiline is-centered my-5">
+{%- for item in gaming.fangames.items %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="gaming-item-card">
+<h3 class="gaming-item-title">{{ item.title }}<br>{{ item.subtitle }}</h3>
+<div class="gaming-item-image-wrap">
+<img src="{{ item.image }}" alt="{{ item.title }}" />
+</div>
+<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ item.location }}</span>
+<a href="{{ item.link }}" class="gaming-item-link"><span>{{ item.link_text }}</span><span class="tf-icon tf-icon-external-link"></span></a>
+</div>
+</div>
+{%- endfor %}
+</div>
+{% endcomponent gaming_fangames %}
+
+{% component arcade_cabinets() %}
+{%- set gaming = load_data(path="data/gaming.yml") -%}
+<hr class="tf-dashed-divider" />
+<div class="has-text-centered mb-5">
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ gaming.arcade.title }}</h2>
+<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ gaming.arcade.location }}</span>
+</div>
+<div class="columns is-vcentered my-5">
+<div class="column is-half-desktop is-full-touch">
+<div class="arcade-photo-wrap">
+<img src="{{ gaming.arcade.image }}" alt="Arcade Cabinets" />
+</div>
+</div>
+<div class="column is-half-desktop is-full-touch">
+<p class="mb-4">{{ gaming.arcade.description }}</p>
+<div class="arcade-box-list">
+<div class="arcade-cabinet-btn">
+<span class="tf-icon tf-icon-gamepad"></span>
+<span>Dance Dance Revolution</span>
+</div>
+<div class="columns is-mobile is-variable is-2 mb-0">
+<div class="column is-half">
+<div class="arcade-cabinet-btn">
+<span class="tf-icon tf-icon-gamepad"></span>
+<span>Jubeat</span>
+</div>
+</div>
+<div class="column is-half">
+<div class="arcade-cabinet-btn">
+<span class="tf-icon tf-icon-gamepad"></span>
+<span>Chunithm</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="tf-dashed-divider" />
+{% endcomponent arcade_cabinets %}
+
+{% component tabletop_games() %}
+{%- set gaming = load_data(path="data/gaming.yml") -%}
+<div class="has-text-centered mb-5">
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ gaming.tabletop.title }}</h2>
+<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ gaming.tabletop.location }}</span>
+</div>
+<div class="content has-text-centered mb-5">
+<p>{{ gaming.tabletop.description | markdown(inline=true) | safe }}</p>
+</div>
+<div class="columns is-multiline is-centered my-5">
+{%- for item in gaming.tabletop.items %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="gaming-item-card">
+<h3 class="gaming-item-title">{{ item.title }}<br>{{ item.subtitle }}</h3>
+<div class="gaming-item-image-wrap">
+<img src="{{ item.image }}" alt="{{ item.title }}" />
+</div>
+<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ item.location }}</span>
+<a href="{{ item.link }}" class="gaming-item-link"><span>{{ item.link_text }}</span><span class="tf-icon tf-icon-external-link"></span></a>
+</div>
+</div>
+{%- endfor %}
+</div>
+{% endcomponent tabletop_games %}
+
+{% component gaming_prizes() %}
+{%- set gaming = load_data(path="data/gaming.yml") -%}
+<div class="mb-5">
+<h2 class="title is-2 mb-3" style="color: var(--tf-color-dark)">{{ gaming.prizes.title }}</h2>
+<div class="mb-5">{{ gaming.prizes.description | markdown(inline=true) | safe }}</div>
+<div class="columns is-multiline my-4">
+{%- for prize in gaming.prizes.items %}
+<div class="column is-half-desktop is-full-touch">
+<div class="prize-card">
+<div class="prize-icon-wrap">
+<span class="tf-icon tf-icon-medal"></span>
+</div>
+<div class="prize-content">
+<h3 class="prize-title">{{ prize.placement }}</h3>
+<p class="prize-subtitle">{{ prize.bracket }}</p>
+<p class="prize-desc">Prize:<br><strong>{{ prize.prize }}</strong></p>
+<a href="{{ prize.link }}" class="prize-link">
+<span>{{ prize.link_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+<hr class="tf-dashed-divider" />
+{% endcomponent gaming_prizes %}
+
+{% component tournament_waves() %}
+{%- set gaming = load_data(path="data/gaming.yml") -%}
+<div class="mb-5">
+<h2 class="title is-2 mb-3" style="color: var(--tf-color-dark)">{{ gaming.waves.title }}</h2>
+<div class="mb-5">{{ gaming.waves.description | markdown(inline=true) | safe }}</div>
+<div class="columns is-multiline my-4">
+{%- for wave in gaming.waves.items %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="wave-card">
+<div class="wave-header">{{ wave.name }}</div>
+<div class="wave-body">
+{%- for t in wave.tournaments %}
+<a href="{{ t.url }}" target="_blank" rel="noopener noreferrer" class="wave-tournament-item">
+<span>{{ t.name }}</span>
+<span class="tf-icon tf-icon-external-link"></span>
+</a>
+{%- endfor %}
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent tournament_waves %}
+
+{% component intro_guide() %}
+<div class="intro-guide-card my-5">
+<h2 class="title is-2 mb-3" style="color: var(--tf-color-red)">What is Touhou Project?</h2>
+<div class="content is-size-5">
+<p>What makes Touhou Project so special is the unending fan passion for its characters, mesmerizing music, and an absurdly talented global doujin community spanning over 25 years. Touhou originated in 1996 as a series of danmaku (bullet hell) shoot 'em up games, almost entirely conceived, programmed, illustrated, and composed by <strong>ONE man: ZUN</strong>.</p>
+<p>Set in <strong>Gensokyo</strong>—a mystical land sealed away from the outside world where humans and youkai coexist—the series follows shrine maiden Reimu Hakurei, magician Marisa Kirisame, and an ever-growing cast resolving supernatural incidents under the "Spell Card rules," turning fatal confrontations into dazzling, non-lethal displays of bullet patterns.</p>
+</div>
+</div>
+{% endcomponent intro_guide %}
+
+{% component zun_spotlight() %}
+<div class="zun-spotlight-card my-6">
+<div class="columns is-vcentered">
+<div class="column is-one-third-desktop is-full-touch has-text-centered">
+<div class="zun-photo-wrap">
+<img src="/img/IMG_0145 ZUN.jpg" alt="ZUN (Team Shanghai Alice)" />
+</div>
+</div>
+<div class="column is-two-thirds-desktop is-full-touch">
+<span class="tf-tag tf-tag-danger mb-2"><span>CREATOR SPOTLIGHT</span></span>
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">ZUN (Team Shanghai Alice)</h2>
+<p class="subtitle is-6 mb-3 has-text-grey">Musician, Programmer, Designer, and Developer</p>
+<div class="content">
+<p>Jun'ya Ota (known as <strong>ZUN</strong>) published the first Touhou game in 1996 for the NEC PC-9821, <em>Highly Responsive to Prayers</em>. He established <strong>Team Shanghai Alice</strong> in 2002 with <em>Embodiment of Scarlet Devil</em>, ushering in the Windows era.</p>
+<p>ZUN's uniquely generous derivative work guidelines have fostered the largest doujin culture in video game history, inspiring thousands of fan games, musical arrangements, manga, and animations worldwide.</p>
+<a href="https://x.com/korindo" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-danger mt-2">
+<span>Follow @korindo</span>
+<span class="tf-icon tf-icon-external-link"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent zun_spotlight %}
+
+{% component starter_recommendations() %}
+<div class="my-6">
+<div class="has-text-centered mb-5">
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-dark)">Recommended Entry Points</h2>
+<p class="has-text-grey">New to Touhou? Here are the best starting titles recommended by the community.</p>
+</div>
+<div class="columns is-multiline">
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="starter-rec-card">
+<span class="tf-tag tf-tag-open mb-2"><span>BEST FIRST GAME</span></span>
+<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 7: Perfect Cherry Blossom</h3>
+<p class="is-size-7 has-text-grey mb-3">Windows Era • Bullet Hell</p>
+<p class="is-size-6 flex-grow-1">Features the "Cherry Border" system providing free shields when active, forgiving hitboxes, and three distinct playable characters (Reimu, Marisa, Sakuya).</p>
+</div>
+</div>
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="starter-rec-card">
+<span class="tf-tag tf-tag-open mb-2"><span>FORGIVING MECHANICS</span></span>
+<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 8: Imperishable Night</h3>
+<p class="is-size-7 has-text-grey mb-3">Windows Era • Partner Teams</p>
+<p class="is-size-6 flex-grow-1">Allows you to play as four two-person teams (human + youkai) with dedicated Spell Practice mode to master individual boss patterns without restarting stages.</p>
+</div>
+</div>
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="starter-rec-card">
+<span class="tf-tag tf-tag-open mb-2"><span>STREAMLINED CLASSIC</span></span>
+<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 10: Mountain of Faith</h3>
+<p class="is-size-7 has-text-grey mb-3">Windows Era • Modern Engine</p>
+<p class="is-size-6 flex-grow-1">Introduced the second generation of Windows engine. Simplified mechanics where bombs cost power, encouraging dynamic risk-versus-reward routing.</p>
+</div>
+</div>
+<div class="column is-half-desktop is-half-tablet is-full-mobile">
+<div class="starter-rec-card">
+<span class="tf-tag tf-tag-open mb-2"><span>EASY SPELL PRACTICE</span></span>
+<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 13: Ten Desires</h3>
+<p class="is-size-7 has-text-grey mb-3">Windows Era • Spirit System</p>
+<p class="is-size-6 flex-grow-1">One of the most accessible modern titles. Features a Trance mode for invulnerability during dense bullet waves, and generous life fragment drops.</p>
+</div>
+</div>
+<div class="column is-half-desktop is-full-tablet is-full-mobile">
+<div class="starter-rec-card">
+<span class="tf-tag tf-tag-open mb-2"><span>MODERN ROGUE-LITE</span></span>
+<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 18: Unconnected Marketeers</h3>
+<p class="is-size-7 has-text-grey mb-3">Windows Era • Ability Cards</p>
+<p class="is-size-6 flex-grow-1">Collect and equip ability cards between stages granting extra lives, auto-bombs, and customized attacks, offering immense versatility for any play style.</p>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent starter_recommendations %}
+
+{% component games_showcase() %}
+{%- for section in load_data(path="data/games.yml") %}
+<div class="my-6">
+<div class="mb-4">
+<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ section.name }}</h2>
+<div class="content">{{ section.desc | markdown(inline=true) | safe }}</div>
+</div>
+<div class="columns is-multiline my-4">
+{%- for game in section.games %}
+<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+<div class="game-grid-card">
+{%- if game.image %}
+<div class="game-cover-wrap">
+<img src="{{ game.image }}" alt="{{ game.name }}" loading="lazy" />
+</div>
+{%- endif %}
+<div class="game-card-content">
+<h3 class="game-card-title">{{ game.name }}</h3>
+<p class="game-card-desc">{{ game.desc | markdown(inline=true) | safe }}</p>
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{%- endfor %}
+{% endcomponent games_showcase %}

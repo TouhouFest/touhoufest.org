@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block header %}
+  {% if not section.extra.hide_header %}
+    {{ <page_header title={section.title} image={section.extra.image | default(value="")} /> }}
+  {% endif %}
+{% endblock header %}
+
+{% block content %}
+<div class="page-body-container container">
+  {% if section.extra.toc %}
+    {% include "toc.html" %}
+  {% endif %}
+  {{ section.content | safe }}
+</div>
+{% endblock content %}
