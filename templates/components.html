@@ -325,8 +325,8 @@ class='fa-solid fa-chevron-right'></span></a></p>
 <p>TouhouFest will have a variety of other events! Below are a few we've announced so far, but more are on the way!</p>
 {% endcomponent other %}
 
-{% component page_header(title, subtitle="", description="") %}
-<div class="page-hero-banner">
+{% component page_header(title, subtitle="", image="", description="") %}
+<div class="page-hero-banner"{% if image %} style="background-image: url('{{ image }}');"{% endif %}>
 <div class="divider-wave-top"></div>
 <div class="divider-wave-bottom"></div>
 <div class="page-hero-title-box">
@@ -775,3 +775,226 @@ description={ev.description | default(value="")}
 </div>
 {% endcomponent schedule_grid %}
 
+{% component featured_artists() %}
+{%- set artists_data = load_data(path="data/artists.yml") -%}
+<div class="featured-artists-section my-6">
+<h2 class="title is-2 has-text-centered mb-5" style="color: var(--tf-color-red);">2026 Featured Artists</h2>
+<div class="columns is-centered is-multiline">
+{%- for artist in artists_data.featured %}
+<div class="column is-5-desktop is-6-tablet is-12-mobile">
+<div class="tf-featured-card">
+<div class="card-gohei-trim-left"></div>
+<div class="card-gohei-trim-right"></div>
+<div class="featured-card-thumb-wrap">
+<img src="{{ artist.image }}" alt="{{ artist.name }}" class="featured-card-thumb" />
+</div>
+<div class="featured-card-body">
+<h3 class="featured-card-name">{{ artist.name }}</h3>
+<p class="featured-card-bio">{{ artist.bio }}</p>
+<a href="{{ artist.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
+<span>Visit artist's site</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent featured_artists %}
+
+{% component artist_roster() %}
+{%- set artists_data = load_data(path="data/artists.yml") -%}
+<div class="artist-roster-section my-6">
+<h2 class="title is-2 has-text-centered mb-4" style="color: var(--tf-color-red);">2026 Full Artist Alley List</h2>
+<div class="artist-search-bar my-4">
+<span class="tf-icon tf-icon-search search-icon mr-2"></span>
+<input type="text" class="artist-search-input" placeholder="Search for an Artist" aria-label="Search for an Artist" />
+</div>
+<div class="artist-roster-grid">
+{%- for item in artists_data.roster %}
+<div class="artist-roster-item">
+<div class="artist-roster-name">{{ item.name }}</div>
+<div class="artist-roster-card">
+<img src="{{ item.image }}" alt="{{ item.name }}" class="artist-roster-img" />
+<div class="artist-roster-tag">{{ item.table }}</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+{% endcomponent artist_roster %}
+
+{% component event_maps() %}
+<div class="event-maps-section my-6">
+<div class="section-divider-module" style="background-image: url('/banner.png'); margin-bottom: 2rem;">
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
+<div class="divider-overlay">
+<div class="divider-content has-text-centered">
+<h2 class="divider-title" style="color: #ffffff;">2025 TouhouFest Event Maps</h2>
+</div>
+</div>
+</div>
+<div class="map-switcher-container">
+<input type="radio" name="event-map-tabs" id="map-tab-1" class="map-radio-toggle" checked />
+<input type="radio" name="event-map-tabs" id="map-tab-2" class="map-radio-toggle" />
+<input type="radio" name="event-map-tabs" id="map-tab-3" class="map-radio-toggle" />
+<div class="map-tabs-bar mb-5">
+<label for="map-tab-1" class="map-tab-pill tab-pill-1">Event Map</label>
+<label for="map-tab-2" class="map-tab-pill tab-pill-2">Artist Alley Map</label>
+<label for="map-tab-3" class="map-tab-pill tab-pill-3">Vendors Map</label>
+</div>
+<div class="map-display-card">
+<div class="map-view-panel panel-1">
+<h3 class="title is-4 has-text-centered mb-4" style="color: var(--tf-color-red);">Event Map</h3>
+<div class="map-img-frame">
+<img src="/img/TouhouFest_2025_Map_FINAL-01-01.jpg" alt="Event Map" class="map-display-img" />
+<div class="map-zoom-btn">+</div>
+</div>
+</div>
+<div class="map-view-panel panel-2">
+<h3 class="title is-4 has-text-centered mb-4" style="color: var(--tf-color-red);">Artist Alley Map</h3>
+<div class="map-img-frame">
+<img src="/img/Toyota_Hall_2025_TF_AA_final copy.png" alt="Artist Alley Map" class="map-display-img" />
+<div class="map-zoom-btn">+</div>
+</div>
+</div>
+<div class="map-view-panel panel-3">
+<h3 class="title is-4 has-text-centered mb-4" style="color: var(--tf-color-red);">Vendors Map</h3>
+<div class="map-img-frame">
+<img src="/img/TF_2025_Festival_Plaza Vendors Final.png" alt="Vendors Map" class="map-display-img" />
+<div class="map-zoom-btn">+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent event_maps %}
+
+{% component past_artists_gallery() %}
+{%- set artists_data = load_data(path="data/artists.yml") -%}
+<div class="past-artists-section my-6">
+<div class="section-divider-module" style="background-image: url('/banner.png'); margin-bottom: 2rem;">
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
+<div class="divider-overlay">
+<div class="divider-content has-text-centered">
+<h2 class="divider-title" style="color: #ffffff;">Thank you 2025 Artists!</h2>
+</div>
+</div>
+</div>
+<div class="polaroid-grid">
+{%- for item in artists_data.past_artists %}
+<div class="polaroid-item">
+<div class="polaroid-thumb-wrap">
+<img src="{{ item.image }}" alt="{{ item.name }}" class="polaroid-thumb" />
+</div>
+<div class="polaroid-label">
+<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
+<span>{{ item.name }}</span>
+<span class="tf-icon tf-icon-external-link ml-1"></span>
+</a>
+</div>
+</div>
+{%- endfor %}
+</div>
+<div class="polaroid-pager my-5">
+<button class="polaroid-pager-arrow" aria-label="Previous page">&lt;</button>
+<span class="polaroid-pager-dot active"></span>
+<span class="polaroid-pager-dot"></span>
+<span class="polaroid-pager-dot"></span>
+<button class="polaroid-pager-arrow" aria-label="Next page">&gt;</button>
+</div>
+</div>
+{% endcomponent past_artists_gallery %}
+
+{% component sell_at_event() %}
+<div class="sell-event-section my-6">
+<h2 class="title is-2 has-text-centered mb-6" style="color: var(--tf-color-red);">Want to sell at the event?</h2>
+<div class="ofuda-stickers-row">
+<div class="ofuda-card ofuda-card-tilt-left">
+<div class="ofuda-seal-mark">
+<img src="/img/YIN YANG ORB.png" alt="Yin Yang" />
+</div>
+<div class="ofuda-placeholder-badge">
+<span>Icon<br/>Placeholder</span>
+</div>
+<h3 class="title is-3 mb-2 ofuda-card-heading">Learn more</h3>
+<p class="ofuda-card-text mb-5">Learn more about the rules before applying.</p>
+<a href="/about/guidelines" class="tf-btn tf-btn-danger">
+<span>Read Guidelines</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+<div class="ofuda-card ofuda-card-tilt-right">
+<div class="ofuda-seal-mark">
+<img src="/img/YIN YANG ORB.png" alt="Yin Yang" />
+</div>
+<div class="ofuda-placeholder-badge">
+<span>Icon<br/>Placeholder</span>
+</div>
+<h3 class="title is-3 mb-2 ofuda-card-heading">Apply:</h3>
+<p class="ofuda-card-text mb-5">Ready to apply?</p>
+<a href="/register" class="tf-btn tf-btn-danger">
+<span>Apply here</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+{% endcomponent sell_at_event %}
+
+{% component exhibitors_grid(type="artists") %}
+{% set exh = load_data(path="data/exhibitors.yml") %}
+{% set status_key = type ~ "_status" %}
+{% set list_status = exh[status_key] | default(value="coming_soon") %}
+{% set list_items = exh[type] | default(value=[]) %}
+
+<div class="columns is-multiline my-5">
+{% if list_status == "coming_soon" or list_items | length == 0 %}
+<div class="column is-12">
+<div class="tf-card">
+<div class="tf-card-header">
+<h3 class="title is-4 mb-0">Coming Soon</h3>
+</div>
+<div class="tf-card-body">
+<p class="mb-3">Our official 2026 {{ type }} directory and table assignments are currently being curated. Please check back soon!</p>
+<p class="is-size-7 has-text-grey">Are you an independent artist or vendor? Check our application status on the registration page.</p>
+</div>
+</div>
+</div>
+{% else %}
+{% for item in list_items %}
+<div class="column is-4">
+<div class="tf-card">
+<div class="tf-card-header">
+<h3 class="title is-5 mb-0">{{ item.name }}</h3>
+{% if item.tag %}
+<span class="tf-tag tf-tag-open"><span>{{ item.tag }}</span></span>
+{% endif %}
+</div>
+<div class="tf-card-body">
+{% set loc = item.location | default(value=item.booth | default(value=item.table | default(value=""))) %}
+{% if loc %}
+<p class="mb-2"><strong>Booth / Table:</strong> {{ loc }}</p>
+{% endif %}
+{% if item.description %}
+<p class="is-size-7 has-text-grey">{{ item.description }}</p>
+{% endif %}
+</div>
+{% set link = item.url | default(value=item.link | default(value=item.website | default(value=""))) %}
+{% if link %}
+<div class="tf-card-footer">
+<a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-outline is-fullwidth">
+<span>Visit Booth</span>
+<span class="tf-icon tf-icon-external-link"></span>
+</a>
+</div>
+{% endif %}
+</div>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+{% endcomponent exhibitors_grid %}
