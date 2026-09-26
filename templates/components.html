@@ -153,7 +153,7 @@
 <p>TouhouFest will have a variety of other events! Below are a few we've announced so far, but more are on the way!</p>
 {% endcomponent other %}
 
-{% component page_header(title, subtitle="") %}
+{% component page_header(title, subtitle="", description="") %}
 <div class="page-hero-banner">
 <div class="divider-wave-top"></div>
 <div class="divider-wave-bottom"></div>
@@ -161,6 +161,9 @@
 <h1 class="page-hero-title">{{ title }}</h1>
 {%- if subtitle %}
 <p class="page-hero-subtitle">{{ subtitle }}</p>
+{%- endif %}
+{%- if description %}
+<div class="page-hero-body mt-4">{{ description | safe }}</div>
 {%- endif %}
 </div>
 </div>
@@ -353,5 +356,144 @@
 </div>
 </div>
 {% endcomponent event_guidelines %}
+
+{% component hotel_card(name, rate="", description="", address="", phone="", photo="", booking_url="#") %}
+<div class="hotel-block-card my-6">
+<div class="hotel-block-photo" style="background-image: url('{{ photo }}');">
+<div class="hotel-block-inner">
+<div class="hotel-block-ribbon">
+<img src="/img/hotels/hotel_ribbon.svg" alt="" aria-hidden="true" />
+</div>
+<h3 class="hotel-block-title">{{ name }}</h3>
+<p class="hotel-block-desc">{{ description }}</p>
+<div class="hotel-block-details">
+{%- if address %}
+<div class="hotel-info-pill">
+<span class="tf-icon tf-icon-pin mr-2"></span>
+<span>{{ address }}</span>
+</div>
+{%- endif %}
+{%- if phone %}
+<div class="hotel-info-pill">
+<span class="tf-icon tf-icon-phone mr-2"></span>
+<span>{{ phone }}</span>
+</div>
+{%- endif %}
+</div>
+<div class="hotel-block-action mt-4">
+<a href="{{ booking_url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-danger">
+<span>Book now</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endcomponent hotel_card %}
+
+{% component hotel_blocks() %}
+{%- set hotel_data = load_data(path="data/hotels.yml") -%}
+{%- for hotel in hotel_data.hotels %}
+{{ <hotel_card name={hotel.name} rate={hotel.rate} description={hotel.description} address={hotel.address} phone={hotel.phone} photo={hotel.photo} booking_url={hotel.booking_url} /> }}
+{%- endfor %}
+{% endcomponent hotel_blocks %}
+
+{% component teaser_card(title, subtitle="", button_text="Button", url="#", theme="danger", icon="") %}
+<div class="tf-teaser-card is-{{ theme }}">
+{%- if icon == 'discord' %}
+<div class="tf-teaser-avatar">
+<span class="tf-icon tf-icon-discord" style="font-size: 56px; color: #fff;"></span>
+</div>
+{%- elif icon %}
+<div class="tf-teaser-avatar">
+<img src="{{ icon }}" alt="" />
+</div>
+{%- endif %}
+<h3 class="tf-teaser-title">{{ title }}</h3>
+{%- if subtitle %}
+<p class="tf-teaser-subtitle">{{ subtitle }}</p>
+{%- endif %}
+<div class="tf-teaser-action">
+<a href="{{ url }}" class="tf-btn tf-btn-white">
+<span>{{ button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{% endcomponent teaser_card %}
+
+{% component when_where_ofuda() %}
+<div class="ofuda-container my-6">
+<div class="ofuda-item is-when">
+<img src="/img/event/ofuda_1.png" alt="When: June 19th-21st 2026" />
+</div>
+<div class="ofuda-item is-where">
+<img src="/img/event/ofuda_2.png" alt="Where: Torrance Cultural Arts Center (TCAC), 3330 Civic Center Dr, Torrance, CA 90503" />
+</div>
+</div>
+{% endcomponent when_where_ofuda %}
+
+{% component tcac_gallery() %}
+<div class="tcac-gallery-module my-6">
+<div class="divider-wave-top"></div>
+<div class="divider-wave-bottom"></div>
+<div class="tcac-gallery-overlay"></div>
+<div class="tcac-gallery-content">
+<h2 class="tcac-gallery-title">The Torrance Cultural Arts Center</h2>
+<div class="tcac-gallery-grid">
+<div class="tcac-polaroid"><img src="/img/event/polaroid_1.png" alt="TCAC Entrance" /></div>
+<div class="tcac-polaroid"><img src="/img/event/polaroid_2.png" alt="TCAC Pine Wind Garden Stream" /></div>
+<div class="tcac-polaroid"><img src="/img/event/polaroid_3.png" alt="TCAC Fumo Meetup in Garden" /></div>
+<div class="tcac-polaroid"><img src="/img/event/polaroid_4.png" alt="TouhouFest Cosplayers" /></div>
+<div class="tcac-polaroid"><img src="/img/event/polaroid_5.png" alt="TouhouFest Attendees" /></div>
+<div class="tcac-polaroid"><img src="/img/event/polaroid_6.png" alt="TouhouFest Concert and Performance" /></div>
+</div>
+</div>
+</div>
+{% endcomponent tcac_gallery %}
+
+{% component event_map_module() %}
+{{ <section_divider title="2026 TouhouFest Event Maps" id="maps" /> }}
+<div class="event-map-module my-6">
+<div class="event-map-tabs">
+<button class="event-map-tab is-active" type="button">Event Map</button>
+<button class="event-map-tab" type="button">Artist Alley Map</button>
+<button class="event-map-tab" type="button">Vendors Map</button>
+</div>
+<div class="event-map-container">
+<img src="/img/event/event_map.png" alt="TouhouFest 2026 Event Map" class="event-map-img" />
+<button class="event-map-zoom" type="button" aria-label="Zoom Map">
+<span class="tf-icon tf-icon-search"></span>
+</button>
+</div>
+</div>
+{% endcomponent event_map_module %}
+
+{% component amp_production_module() %}
+{{ <section_divider title="TouhouFest Team" id="team" /> }}
+<div class="amp-production-module my-6">
+<div class="amp-intro">
+<h3 class="amp-title">Run by AMP</h3>
+<p class="amp-desc">The AMP Organization is an event production group based in Southern California that organizes grassroots anime and pop culture events. Established in 2018, AMP is rooted in the Little Tokyo District of Los Angeles and produces a portfolio of community-driven events across the region.</p>
+</div>
+<div class="amp-status-cards">
+<div class="amp-status-card">
+<span class="amp-status-tag is-open">Open</span>
+<h4 class="amp-status-name">Staff</h4>
+<p class="amp-status-desc">Join the team here.</p>
+<a href="/register" class="tf-btn tf-btn-danger">
+<span>Apply</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+<div class="amp-status-card">
+<span class="amp-status-tag is-closed">Closed</span>
+<h4 class="amp-status-name is-muted">Volunteer</h4>
+<p class="amp-status-desc">Help out during the event.</p>
+</div>
+</div>
+</div>
+{% endcomponent amp_production_module %}
+
 
 
