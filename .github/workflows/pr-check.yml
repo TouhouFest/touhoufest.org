@@ -17,7 +17,7 @@ jobs:
           submodules: recursive
 
       - name: Install Tools
-        uses: taiki-e/install-action@v2.87.22
+        uses: taiki-e/install-action@v2.87.29
         with:
           tool: zola@0.23.6,just@1.58.0,dprint@0.57.4
 
