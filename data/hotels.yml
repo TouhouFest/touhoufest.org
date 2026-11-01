@@ -1,17 +1,54 @@
+intro_blocks:
+  - heading: "Stay tuned!"
+    lead: "This page will be updated when hotel blocks are ready. If you want the latest news on hotle blocks, check out our Newsletter or Discord below:"
+  - heading: "Official Event Hotel blocks"
+    sublead: 'Booking with the below hotel(s) supports TouhouFest, so it is strongly recommended that attendees book in the hotels listed above. In the event that there are no more available rooms, or the options do not suit your needs, alternative accommodations nearby can be found on this <a href="https://www.google.com/maps/search/hotels+near+Torrance+Cultural+Arts+Center,+Civic+Center+Drive,+Torrance,+CA/@33.830818,-118.3609346,14z?entry=ttu&g_ep=EgoyMDI1MDMyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Google Maps view</a>.'
+
 hotels:
   - name: "Courtyard by Marriott Los Angeles Torrance/Palos Verdes"
     rate: "$259 per night"
-    description: "Hotel block is open! Special event room rate at $259 per night! Please book your rooms with the link below!"
+    description: "Hotel block is open!  Special event room rate at $259 per night!  Please book your rooms with the link below!"
     address: "3701 Torrance Blvd, Torrance, CA 90503"
     phone: "(310) 543-4566"
-    photo: "/img/hotels/courtyard.png"
+    photo: "img/hotels/courtyard.png"
     booking_url: "https://www.marriott.com/event-reservations/reservation-link.mi?id=1725573428987&key=GRP&app=resvlink"
     booking_code: "TF2026"
+    button_text: "Book now"
   - name: "Residence Inn by Marriott Los Angeles Torrance/Redondo Beach"
     rate: "$259 per night"
-    description: "Hotel block is open! Special event room rate at $259 per night! Please book your rooms with the link below!"
+    description: "Hotel block is open!  Special event room rate at $259 per night!  Please book your rooms with the link below!"
     address: "3701 Torrance Blvd, Torrance, CA 90503"
     phone: "(310) 543-4566"
-    photo: "/img/hotels/residence_inn.png"
+    photo: "img/hotels/residence_inn.png"
     booking_url: "https://www.marriott.com/event-reservations/reservation-link.mi?id=1725573428987&key=GRP&app=resvlink"
     booking_code: "TF2026"
+    button_text: "Book now"
+
+badge_cta:
+  title: "2026 Weekend Badge"
+  mobile_title: "2026 Full Weekend Badge"
+  image: "img/hotels/badge_hero.png"
+  url: "/register"
+  button_text: "Buy badge"
+
+teasers:
+  - title: "Download App"
+    subtitle: "Make sure you download our app before attending for the best TouhouFest experience!"
+    button_text: "Button"
+    url: "#"
+  - title: "Join the community on Discord"
+    subtitle: "Join our community on the TouhouFest Official Discord server!"
+    button_text: "Join Discord"
+    url: "https://discord.gg/touhoufest"
+
+newsletter_cta:
+  title: "The Tengu Newsletter"
+  subtext: "Sign up with your email address to receive news and updates."
+  placeholder: "Email here"
+  button_text: "Subscribe"
+
+discord_cta:
+  title: "Join the community on Discord"
+  subtext: "Join our community on the TouhouFest Official Discord server!"
+  url: "https://discord.gg/touhoufest"
+  button_text: "Join Discord"
