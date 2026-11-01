@@ -191,14 +191,14 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {% endcomponent discord %}
 
 {% component newsletter(extra_class="", title="The Tengu Newsletter", subtext="Sign up with your email address to receive news and updates.", placeholder="Email here", button_text="Subscribe", icon="email.svg") %}
-<div class="newsletter-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
-<div class="tf-newsletter-envelope newsletter-icon-wrap">
+<div class="tf-mod-callout tf-mod-callout--horiz is-newsletter newsletter-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
+<div class="tf-mod-callout-icon tf-newsletter-envelope newsletter-icon-wrap">
 <img src="{{ get_url(path=icon) }}" alt="Newsletter" />
 </div>
 <div class="newsletter-content">
-<div class="newsletter-copy">
-<h2 class="newsletter-title">{{ title }}</h2>
-<p class="newsletter-subtext">{{ subtext }}</p>
+<div class="tf-mod-callout-copy newsletter-copy">
+<h2 class="tf-mod-callout-title newsletter-title">{{ title }}</h2>
+<p class="tf-mod-callout-desc newsletter-subtext">{{ subtext }}</p>
 </div>
 <form class="tf-newsletter-form newsletter-form" action="#" method="post" onsubmit="return false;">
 <input type="email" class="tf-newsletter-input newsletter-input" placeholder="{{ placeholder }}" required />
@@ -1295,7 +1295,7 @@ description={ev.description | default(value="")}
 </div>
 </div>
 
-<div class="tf-mod-callout tf-mod-callout--horiz guests-callout-card guests-newsletter-card">
+<div class="tf-mod-callout tf-mod-callout--horiz is-newsletter guests-callout-card guests-newsletter-card">
 <div class="tf-mod-callout-icon guests-callout-icon">
 <img src="{{ get_url(path='email.svg') }}" alt="Newsletter" />
 </div>
@@ -1304,8 +1304,8 @@ description={ev.description | default(value="")}
 <h2 class="tf-mod-callout-title guests-newsletter-title">The Tengu Newsletter</h2>
 <p class="tf-mod-callout-desc">Sign up with your email address to receive news and updates.</p>
 </div>
-<form class="guests-newsletter-form" action="#" method="post" onsubmit="return false;">
-<input type="email" class="guests-newsletter-input" placeholder="Email here" required />
+<form class="tf-newsletter-form guests-newsletter-form" action="#" method="post" onsubmit="return false;">
+<input type="email" class="tf-newsletter-input guests-newsletter-input" placeholder="Email here" required />
 <button type="submit" class="tf-btn tf-mod-callout-btn guests-newsletter-btn">
 <span>Subscribe</span>
 <span class="tf-icon tf-icon-chevron-right ml-1"></span>
@@ -1558,8 +1558,8 @@ description={ev.description | default(value="")}
 <h2 class="tf-mod-callout-title home-newsletter-title">{{ home_data.newsletter.title }}</h2>
 <p class="tf-mod-callout-desc home-newsletter-body">{{ home_data.newsletter.body }}</p>
 </div>
-<form class="home-newsletter-form" action="#" method="post">
-<input type="email" class="home-newsletter-input" placeholder="{{ home_data.newsletter.placeholder }}" aria-label="{{ home_data.newsletter.placeholder }}" required />
+<form class="tf-newsletter-form home-newsletter-form" action="#" method="post">
+<input type="email" class="tf-newsletter-input home-newsletter-input" placeholder="{{ home_data.newsletter.placeholder }}" aria-label="{{ home_data.newsletter.placeholder }}" required />
 <button type="submit" class="tf-btn tf-btn-danger tf-mod-callout-btn home-cta-btn home-newsletter-submit">
 <span class="home-cta-label">{{ home_data.newsletter.button_text }}</span>
 <span class="home-cta-chevron" aria-hidden="true"></span>

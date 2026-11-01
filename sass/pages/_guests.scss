@@ -1083,22 +1083,11 @@ body:has(.guests-hero-section) .guests-page-content {
   }
   .guests-newsletter-card {
     margin: 48px auto 48px auto;
-    background: linear-gradient(160.883deg, #fbf7eb 15.322%, #ffe1e1 111%);
-    border-left: 3px dashed #bf3444;
-    align-items: flex-start;
     .guests-callout-content {
       min-width: 230px;
       justify-content: center;
     }
-    .guests-newsletter-title {
-      color: var(--tf-accent);
-    }
     .guests-newsletter-form {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 24px;
       .guests-newsletter-btn {
         background-color: var(--tf-accent);
         color: #fffde7;
@@ -1106,27 +1095,6 @@ body:has(.guests-hero-section) .guests-page-content {
         .tf-icon-chevron-right {
           background-image: url("/img/shared/chevron_cream.svg");
         }
-      }
-    }
-    .guests-newsletter-input {
-      flex: 1 0 0;
-      min-width: 230px;
-      max-width: none;
-      height: 47px;
-      padding: 12px 21px;
-      box-sizing: border-box;
-      background-color: #ffffff;
-      border: none;
-      border-bottom: 3px solid var(--tf-accent);
-      border-radius: 5px;
-      box-shadow: none;
-      font:
-        400 16px / 1.3 "Open Sans",
-        sans-serif;
-      color: var(--tf-ink);
-      &::placeholder {
-        color: var(--tf-ink);
-        opacity: 0.5;
       }
     }
   }
@@ -1608,21 +1576,10 @@ body:has(.guests-hero-section) .guests-page-content {
       .guests-discord-card .tf-icon-chevron-right {
         background-image: url("/img/shared/chevron_cream.svg");
       }
-      .guests-newsletter-card {
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        background: linear-gradient(160.88deg, #221a28 15.32%, #30293e 111%);
-        border-color: #fbf7eb;
-        .tf-mod-callout-desc {
-          color: #fbf7eb;
-        }
-        .guests-newsletter-input {
-          background-color: #373852;
-        }
-        .guests-newsletter-btn {
-          color: #511154;
-          .tf-icon-chevron-right {
-            background-image: url("/img/shared/chevron_dark.svg");
-          }
+      .guests-newsletter-card .guests-newsletter-btn {
+        color: #511154;
+        .tf-icon-chevron-right {
+          background-image: url("/img/shared/chevron_dark.svg");
         }
       }
     }

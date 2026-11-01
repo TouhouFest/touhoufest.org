@@ -56,39 +56,22 @@ body:has(.page-hero-hotels) {
       background-color 300ms ease-out;
   }
 
-  :is(
-    .hero-card-content,
-    .newsletter-content,
-    .hotels-discord .tf-mod-callout-copy,
-    .tf-teaser-body
-  ) {
+  :is(.hero-card-content, .hotels-discord .tf-mod-callout-copy, .tf-teaser-body) {
     @include flex-column;
     align-items: flex-start;
     text-align: left;
     gap: 24px;
   }
 
-  :is(.hotel-block-copy, .newsletter-copy, .discord-copy) {
+  :is(.hotel-block-copy, .discord-copy) {
     @include flex-column;
     gap: 8px;
     width: 100%;
   }
 
-  :is(.hotels-badge-card .hero-card-title, .hotels-newsletter .newsletter-title) {
+  .hotels-badge-card .hero-card-title {
     @include tf-h2;
     color: var(--tf-accent);
-  }
-
-  .hotels-newsletter .newsletter-subtext {
-    @include tf-body;
-    color: var(--tf-ink);
-  }
-
-  .newsletter-icon-wrap {
-    width: 100px;
-    height: 100px;
-    margin: 0;
-    flex-shrink: 0;
   }
 }
 
@@ -406,55 +389,6 @@ body:has(.page-hero-hotels) {
     }
   }
 
-  /* Newsletter & Discord Bottom Callouts on Hotels Page */
-  .newsletter-callout-card.hotels-newsletter {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 48px;
-    border-radius: 5px;
-    border: none;
-    border-left: 3px dashed #bf3444;
-    background: #fbf7eb linear-gradient(160.883deg, #fbf7eb 15.322%, #ffe1e1 111%);
-    box-shadow: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 40px;
-
-    .newsletter-content {
-      flex: 1 1 230px;
-      min-width: min(230px, 100%);
-    }
-    .newsletter-form {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 24px;
-      width: 100%;
-    }
-    .newsletter-input {
-      flex: 1 1 230px;
-      min-width: min(230px, 100%);
-      max-width: none;
-      height: 47px;
-      padding: 12px 21px;
-      background-color: #ffffff;
-      border: none;
-      border-bottom: 3px solid #bf3444;
-      border-radius: 5px;
-      font-family: var(--tf-font-body);
-      font-size: 16px;
-      line-height: 1.3;
-      color: #30293e;
-      &::placeholder {
-        color: #30293e;
-        opacity: 0.5;
-      }
-    }
-  }
-
   .hotels-discord {
     margin: 0;
     box-shadow: none;
@@ -652,29 +586,6 @@ body:has(.page-hero-hotels) {
       }
     }
 
-    .newsletter-callout-card.hotels-newsletter {
-      flex-direction: row;
-      flex-wrap: wrap;
-      text-align: left;
-      border-top: none;
-      border-left: 3px dashed #bf3444;
-      .newsletter-form {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 24px;
-        width: 100%;
-        .tf-btn {
-          width: auto;
-        }
-      }
-      .newsletter-input {
-        flex: 1 1 230px;
-        min-width: min(230px, 100%);
-        height: 47px;
-        max-height: 47px;
-      }
-    }
-
     .hotels-discord {
       padding: 48px;
       gap: 40px;
@@ -761,20 +672,6 @@ body:has(.page-hero-hotels) {
       border-color: #6279d3;
       :is(.tf-mod-callout-title, .tf-teaser-title, .tf-mod-callout-desc, .tf-teaser-subtitle) {
         color: #fbf7eb;
-      }
-    }
-
-    .newsletter-callout-card.hotels-newsletter {
-      background: #221a28 linear-gradient(160.883deg, #221a28 15.322%, #30293e 111%);
-      border-left-color: #fbf7eb;
-      .newsletter-input {
-        background-color: #373852;
-        color: #fbf7eb;
-        border-bottom-color: #f9c650;
-        &::placeholder {
-          color: #fbf7eb;
-          opacity: 0.6;
-        }
       }
     }
   }

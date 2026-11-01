@@ -319,7 +319,6 @@ body:has(.page-hero-banner.is-schedule) {
     }
     &.is-newsletter {
       height: 503px;
-      background: linear-gradient(160.88deg, #fbf7eb 15.32%, #ffe1e1 111%);
       &::before {
         content: "";
         position: absolute;
@@ -330,11 +329,7 @@ body:has(.page-hero-banner.is-schedule) {
         background: repeating-linear-gradient(to bottom, #bf3444 0 15px, transparent 15px 30px);
         pointer-events: none;
       }
-      .schedule-cta-title {
-        color: var(--tf-accent, #bf3444);
-      }
       .schedule-cta-desc {
-        color: var(--tf-ink, #30293e);
         margin-bottom: 1.25rem;
       }
     }
@@ -362,25 +357,14 @@ body:has(.page-hero-banner.is-schedule) {
   }
   .schedule-newsletter-form {
     @include flex-column;
+    flex-wrap: nowrap;
     align-items: flex-start;
     gap: 24px;
   }
   .schedule-newsletter-input {
+    flex: 0 0 auto;
     width: 100%;
     min-width: 0;
-    max-width: none;
-    height: 47px;
-    background-color: var(--tf-surface, #ffffff);
-    border: none;
-    border-bottom: 3px solid var(--tf-accent, #bf3444);
-    border-radius: 5px;
-    padding: 0 21px;
-    font-size: 16px;
-    color: var(--tf-ink, #30293e);
-    &::placeholder {
-      color: var(--tf-ink, #30293e);
-      opacity: 0.5;
-    }
   }
   .schedule-newsletter-btn {
     align-self: flex-start;
@@ -584,20 +568,8 @@ body:has(.page-hero-banner.is-schedule) {
         color: #564b58;
       }
     }
-    .schedule-cta-card.is-newsletter {
-      background: linear-gradient(160.88deg, #221a28 15.32%, #30293e 111%);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      &::before {
-        background: repeating-linear-gradient(to bottom, #fbf7eb 0 15px, transparent 15px 30px);
-      }
-      .schedule-cta-desc {
-        color: #e2dcd4;
-      }
-      .schedule-newsletter-input {
-        background-color: #1a1420;
-        border-color: #4b3d54;
-        color: #fbf7eb;
-      }
+    .schedule-cta-card.is-newsletter::before {
+      background: repeating-linear-gradient(to bottom, #fbf7eb 0 15px, transparent 15px 30px);
     }
     :is(.schedule-badge-btn, .schedule-newsletter-btn) .schedule-btn-carrot {
       filter: brightness(0) saturate(100%) invert(11%) sepia(50%) saturate(3015%) hue-rotate(282deg)

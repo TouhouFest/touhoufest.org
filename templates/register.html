@@ -270,18 +270,18 @@
 </div>
 </div>
 
-<div class="register-callout-card is-newsletter">
-<div class="callout-icon-wrap">
+<div class="tf-mod-callout tf-mod-callout--horiz is-newsletter register-callout-card">
+<div class="tf-mod-callout-icon callout-icon-wrap">
 <img src="{{ get_url(path='img/register/icon_email.svg') }}" alt="{{ reg_data.newsletter.title }}" class="callout-icon" width="100" height="100">
 </div>
 <div class="callout-body is-newsletter-body">
-<div class="callout-content">
-<h3 class="callout-title">{{ reg_data.newsletter.title }}</h3>
-<p class="callout-subtext">{{ reg_data.newsletter.subtitle }}</p>
+<div class="tf-mod-callout-copy callout-content">
+<h3 class="tf-mod-callout-title callout-title">{{ reg_data.newsletter.title }}</h3>
+<p class="tf-mod-callout-desc callout-subtext">{{ reg_data.newsletter.subtitle }}</p>
 </div>
 <div class="callout-action is-newsletter-action">
-<form class="newsletter-form" action="#" method="post" onsubmit="return false;">
-<input type="email" class="newsletter-input" placeholder="{{ reg_data.newsletter.placeholder }}" required>
+<form class="tf-newsletter-form newsletter-form" action="#" method="post" onsubmit="return false;">
+<input type="email" class="tf-newsletter-input newsletter-input" placeholder="{{ reg_data.newsletter.placeholder }}" required>
 <button type="submit" class="tf-btn-pill-red newsletter-submit-btn">
 <span class="tf-btn-label">{{ reg_data.newsletter.button_text }}</span>
 <span class="tf-btn-carrot" aria-hidden="true"></span>
