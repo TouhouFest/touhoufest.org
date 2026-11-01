@@ -2,12 +2,14 @@
 
 {% block header %}
   {% if not section.extra.hide_header %}
-    {{ <page_header title={section.title} image={section.extra.image | default(value="")} /> }}
+    {%- set hero_img = section.extra.hero_image | default(value=section.extra.image | default(value="")) -%}
+    {%- set hero_class = section.extra.hero_class | default(value=section.extra.extra_class | default(value="")) -%}
+    {{ <page_header title={section.title} image={hero_img} extra_class={hero_class} /> }}
   {% endif %}
 {% endblock header %}
 
 {% block content %}
-<div class="page-body-container container">
+<div class="page-body-container container{% if section.extra.container_class %} {{ section.extra.container_class }}{% endif %}">
   {% if section.extra.toc %}
     {% include "toc.html" %}
   {% endif %}

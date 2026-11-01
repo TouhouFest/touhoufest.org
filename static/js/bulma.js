@@ -24,20 +24,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       document.body.classList.add('dark-theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
       themeToggle.checked = true;
     } else if (savedTheme === 'light') {
       document.body.classList.remove('dark-theme');
+      document.documentElement.setAttribute('data-theme', 'light');
       themeToggle.checked = false;
     }
 
     themeToggle.addEventListener('change', () => {
+      const mode = themeToggle.checked ? 'dark' : 'light';
       if (themeToggle.checked) {
         document.body.classList.add('dark-theme');
-        localStorage.setItem('tf-theme', 'dark');
       } else {
         document.body.classList.remove('dark-theme');
-        localStorage.setItem('tf-theme', 'light');
       }
+      document.documentElement.setAttribute('data-theme', mode);
+      localStorage.setItem('tf-theme', mode);
     });
   }
 });

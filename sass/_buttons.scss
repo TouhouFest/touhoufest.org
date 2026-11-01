@@ -1,0 +1,137 @@
+// Button Variants & Pill Toggles
+.tf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 14px 39px 14px 47px;
+  font-family: var(--tf-font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  border-radius: var(--tf-radius-pill, 35px);
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color 300ms ease-out,
+    color 300ms ease-out,
+    border-color 300ms ease-out;
+  min-height: 44px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.tf-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.tf-btn-primary,
+.tf-btn-color,
+.tf-btn-danger,
+.tf-btn-red {
+  background-color: var(--tf-color-red, #bf3444);
+  color: var(--tf-color-white, #ffffff);
+}
+:is(.tf-btn-primary, .tf-btn-color, .tf-btn-danger, .tf-btn-red, .tf-btn-pill-red)::before {
+  background: linear-gradient(90deg, #bf3444 25%, #ff4949 80%);
+}
+:is(.tf-btn-primary, .tf-btn-color, .tf-btn-danger, .tf-btn-red, .tf-btn-pill-red):hover::before {
+  opacity: 1;
+}
+:is(.tf-btn-primary, .tf-btn-color, .tf-btn-danger, .tf-btn-red, .tf-btn-pill-red):active {
+  background-color: #ff4949;
+}
+:is(.tf-btn-primary, .tf-btn-color, .tf-btn-danger, .tf-btn-red, .tf-btn-pill-red):active::before {
+  background: #ff4949;
+  opacity: 1;
+}
+
+.tf-btn-outline {
+  background-color: transparent;
+  border-color: currentColor;
+  color: inherit;
+}
+
+.tf-btn-white {
+  font-family: var(--tf-font-heading);
+  font-weight: 700;
+  border-radius: var(--tf-radius-pill, 35px);
+  padding: 10px 28px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--tf-color-white, #ffffff);
+  color: var(--tf-color-red, #bf3444);
+}
+
+:is(.tf-btn-pill-white, .tf-btn-pill-red) {
+  border-radius: var(--tf-radius-pill, 35px);
+  padding: 12px 32px;
+  font-family: var(--tf-font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+}
+.tf-btn-pill-white {
+  background-color: #fffde7;
+  color: #30293e;
+}
+.tf-btn-pill-red {
+  background-color: var(--tf-color-red, #bf3444);
+  color: #fffde7;
+}
+:is(.tf-btn-white, .tf-btn-pill-white)::before {
+  background: linear-gradient(90deg, #fffde7 40.9%, #ff4949 100%);
+}
+:is(.tf-btn-white, .tf-btn-pill-white):hover::before {
+  opacity: 1;
+}
+:is(.tf-btn-white, .tf-btn-pill-white):active::before {
+  background: linear-gradient(90deg, #ffffff 0%, #ff4949 100%);
+  opacity: 1;
+}
+
+@include dark-mode {
+  .tf-btn-pill-white {
+    background-color: #511154;
+    color: #fbf7eb;
+  }
+  .tf-btn-pill-red {
+    background-color: #f9c650;
+    color: #511154;
+  }
+}
+
+.tf-btn-carrot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 300ms ease-out;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+:is(.tf-btn:hover, a:hover) .tf-btn-carrot {
+  transform: translateX(2px) rotate(45deg);
+}
+@media screen and (max-width: 768px) {
+  .tf-btn {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+}

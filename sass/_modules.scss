@@ -1,0 +1,551 @@
+// ==========================================================================
+// Canonical Cross-Page Figma Modules (5 Core Modules)
+// ==========================================================================
+
+/* 1. Module 1 — Event Map Switcher (artists, cosplay, event, gaming, vendors) */
+.tf-mod-map {
+  width: 100%;
+  @include flex-col-center;
+  gap: 24px;
+  position: relative;
+  box-sizing: border-box;
+}
+.tf-mod-map-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+.tf-mod-map-tabs {
+  @include flex-center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 100%;
+}
+.tf-mod-map-tab {
+  height: 48px;
+  border-radius: 35px;
+  padding: 14px 39px;
+  border: 1px solid var(--tf-accent, #bf3444);
+  border-bottom: 0;
+  background: transparent;
+  font:
+    500 18px / 20px "Poppins",
+    sans-serif;
+  color: var(--tf-accent, #bf3444);
+  text-decoration: underline;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+  &.is-active {
+    background: #bf3444;
+    border: 2px solid #bf3444;
+    font-weight: 700;
+    color: #fbf7eb;
+    text-decoration: none;
+  }
+}
+.tf-mod-map-stage {
+  position: relative;
+  width: min(842px, calc(100vw - 48px));
+  aspect-ratio: 842 / 662;
+  border-radius: 5px;
+  box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
+  background: var(--tf-surface-card, #ffffff);
+}
+.tf-mod-map-panel {
+  display: none;
+  @include absolute-fill;
+  border-radius: 5px;
+  overflow: hidden;
+  &.is-active {
+    display: block;
+  }
+}
+.tf-mod-map-panel :where(img) {
+  @include absolute-fill;
+  object-fit: cover;
+  display: block;
+  max-width: none;
+}
+@for $i from 1 through 4 {
+  #tf-map-tab-#{$i}:checked ~ .tf-mod-map-tabs .tf-mod-map-tab--#{$i} {
+    background: #bf3444;
+    border: 2px solid #bf3444;
+    font-weight: 700;
+    color: #fbf7eb;
+    text-decoration: none;
+  }
+  #tf-map-tab-#{$i}:checked ~ .tf-mod-map-stage .tf-mod-map-panel--#{$i} {
+    display: block;
+  }
+}
+.tf-mod-map-zoom {
+  position: absolute;
+  right: -23px;
+  bottom: 29px;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  filter: drop-shadow(3px 4px 6.5px rgba(99, 15, 40, 0.2));
+  cursor: pointer;
+}
+.tf-mod-map-zoom-circle {
+  position: absolute;
+  inset: 0;
+  width: 60px;
+  height: 60px;
+  display: block;
+}
+.tf-mod-map-zoom-plus {
+  position: absolute;
+  inset: 25%;
+  width: 50%;
+  height: 50%;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .tf-mod-map-tabs {
+    order: 2;
+    width: min(328px, calc(100vw - 32px));
+    justify-content: flex-start;
+  }
+  .tf-mod-map-stage {
+    order: 1;
+  }
+  .tf-mod-map-zoom {
+    right: 25px;
+    bottom: -39px;
+  }
+}
+@include dark-mode {
+  .tf-mod-map-stage {
+    background: var(--tf-surface-navy, #373852);
+  }
+  .tf-mod-map-tab {
+    color: var(--tf-accent, #f9c650);
+    border-color: var(--tf-accent, #f9c650);
+    &.is-active {
+      background: #f9c650;
+      border-color: #f9c650;
+      color: #511154;
+    }
+  }
+  @for $i from 1 through 4 {
+    #tf-map-tab-#{$i}:checked ~ .tf-mod-map-tabs .tf-mod-map-tab--#{$i} {
+      background: #f9c650;
+      border-color: #f9c650;
+      color: #511154;
+    }
+  }
+}
+
+/* 2. Module 2 — Full-Bleed Gohei Section Divider (artists, cosplay, event, gaming, register, vendors) */
+.tf-mod-divider {
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 260px;
+  padding: 64px 32px;
+  position: relative;
+  @include flex-center;
+  overflow: hidden;
+}
+.tf-mod-divider-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.tf-mod-divider-bg :where(img) {
+  @include absolute-fill;
+  object-fit: cover;
+  max-width: none;
+}
+.tf-mod-divider-vignette {
+  @include absolute-fill;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(46, 16, 49, 0.56) 42.536%, rgba(49, 16, 48, 0) 100%);
+  z-index: 2;
+}
+.tf-mod-divider-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 58px;
+  pointer-events: none;
+  z-index: 4;
+  background: url("img/shared/divider_gohei_top.svg") repeat-x left top / 1440px 58px;
+  filter: drop-shadow(3px 4px 13px rgba(99, 15, 40, 0.15));
+}
+.tf-mod-divider-inner {
+  position: relative;
+  z-index: 5;
+  width: min(850px, calc(100% - 62px));
+  margin: 0 auto;
+  @include flex-column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  &.is-wide {
+    width: min(1171px, calc(100% - 62px));
+  }
+}
+.tf-mod-divider-title {
+  margin: 0;
+  font:
+    800 34px / 1.1 "Poppins",
+    sans-serif;
+  color: #ffffff;
+  text-align: left;
+}
+.tf-mod-divider-subtitle {
+  margin: 0;
+  font:
+    700 16px / 1.3 "Open Sans",
+    sans-serif;
+  color: #ffffff;
+  text-align: left;
+}
+.tf-mod-divider-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 59px;
+  pointer-events: none;
+  z-index: 4;
+  background: #fbf7eb;
+  -webkit-mask: url("divider_bottom.svg") repeat-x center bottom;
+  mask: url("divider_bottom.svg") repeat-x center bottom;
+}
+.tf-mod-divider-silhouette {
+  position: absolute;
+  left: 76.74%;
+  bottom: 4.5px;
+  width: 82px;
+  height: 54px;
+  z-index: 5;
+  background-color: #fbf7eb;
+  -webkit-mask: url("img/reimu_marisa_silhouette.png") center bottom / contain no-repeat;
+  mask: url("img/reimu_marisa_silhouette.png") center bottom / contain no-repeat;
+}
+
+@media (max-width: 768px) {
+  .tf-mod-divider-title {
+    font-size: 27px;
+  }
+  .tf-mod-divider-silhouette {
+    left: 31px;
+  }
+}
+@include dark-mode {
+  :is(.tf-mod-divider-bottom, .tf-mod-divider-silhouette) {
+    background-color: var(--tf-surface, #30293e);
+  }
+}
+
+/* 3. Module 3 — Discord & Newsletter Action Callouts (12 pages — all except cosplay, register) */
+.tf-mod-callout {
+  border-radius: 5px;
+  padding: 48px;
+  box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
+  box-sizing: border-box;
+  text-align: left;
+}
+.tf-mod-callout--horiz {
+  width: min(850px, 100%);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.tf-mod-callout-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: min(850px, 100%);
+}
+.tf-mod-callout--vert {
+  @include flex-col-center;
+  text-align: center;
+  gap: 24px;
+}
+.tf-mod-callout.is-discord {
+  background-color: #30293e;
+  color: #ffffff;
+}
+.tf-mod-callout.is-red {
+  background-color: #bf3444;
+  color: #ffffff;
+}
+.tf-mod-callout-icon {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  @include flex-center;
+}
+.tf-mod-callout-icon :where(img) {
+  width: 100px;
+  height: 100px;
+  display: block;
+  object-fit: contain;
+}
+.tf-mod-callout-copy {
+  flex: 1 0 190px;
+  min-width: min(190px, 100%);
+  @include flex-column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.tf-mod-callout-title {
+  font:
+    800 34px / 1.1 "Poppins",
+    sans-serif;
+  color: var(--tf-text-title-dark, #fffde7);
+  margin: 0;
+}
+.tf-mod-callout-desc {
+  font:
+    400 16px / 1.3 "Open Sans",
+    sans-serif;
+  color: #ffffff;
+  margin: 0;
+}
+.tf-mod-callout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 14px 39px 14px 47px;
+  border-radius: 35px;
+  border: none;
+  font:
+    600 18px / 1.1 "Poppins",
+    sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: #fbf7eb;
+  color: #30293e;
+  span {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tf-mod-callout--horiz {
+    padding: 32px 24px;
+    gap: 24px;
+  }
+  .tf-mod-callout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@include dark-mode {
+  .tf-mod-callout.is-discord {
+    background-color: #fbf7eb;
+    color: #30293e;
+    .tf-mod-callout-icon {
+      background-color: #30293e;
+      -webkit-mask: url("img/discord_card_icon.svg") center / 100px 100px no-repeat;
+      mask: url("img/discord_card_icon.svg") center / 100px 100px no-repeat;
+      :where(img) {
+        opacity: 0;
+      }
+    }
+  }
+  .tf-mod-callout.is-red {
+    background-color: var(--tf-accent, #f9c650);
+    color: #30293e;
+  }
+  :is(.tf-mod-callout.is-discord, .tf-mod-callout.is-red) {
+    .tf-mod-callout-title {
+      color: #511154;
+    }
+    .tf-mod-callout-desc {
+      color: #30293e;
+    }
+    .tf-mod-callout-btn {
+      background-color: #511154;
+      color: #fbf7eb;
+    }
+  }
+}
+
+/* 4. Module 4 — Polaroid Gallery Cards (artists, event, home, vendors) */
+.tf-mod-polaroid {
+  background: #ffffff;
+  border-radius: 5px;
+  filter: drop-shadow(3px 4px 6.5px rgba(99, 15, 40, 0.15));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2px;
+  position: relative;
+  box-sizing: border-box;
+}
+.tf-mod-polaroid--sm {
+  width: 150px;
+  height: 184px;
+  padding: 11px 2px 38px 11px;
+  .tf-mod-polaroid-photo {
+    width: 127px;
+    height: 135px;
+  }
+}
+.tf-mod-polaroid--md {
+  width: 230.167px;
+  height: 271px;
+  padding: 11px 2px 54px 11px;
+  .tf-mod-polaroid-photo {
+    flex: 1 0 0;
+    height: 100%;
+  }
+}
+.tf-mod-polaroid-photo {
+  border-radius: 5px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+.tf-mod-polaroid-photo :where(img) {
+  @include absolute-fill;
+  object-fit: cover;
+  display: block;
+}
+.tf-mod-polaroid-dots {
+  width: 8px;
+  height: 19px;
+  flex-shrink: 0;
+  :where(img) {
+    width: 8px;
+    height: 19px;
+    display: block;
+  }
+}
+
+/* 5. Module 5 — Tilted Ofuda Card Shell (artists, event, home, vendors) */
+.tf-mod-ofuda {
+  width: 329px;
+  height: 418px;
+  border-radius: 5px;
+  box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
+  position: relative;
+  @include flex-column;
+  align-items: flex-start;
+  background: var(--tf-surface-paper, #fffde7);
+  box-sizing: border-box;
+}
+.tf-mod-ofuda-decor {
+  @include absolute-fill;
+  pointer-events: none;
+}
+.tf-mod-ofuda-stroke {
+  position: absolute;
+  left: 10.03%;
+  top: 29px;
+  width: 80.55%;
+  height: 359px;
+  max-width: none;
+  display: block;
+  pointer-events: none;
+}
+.tf-mod-ofuda-seal {
+  position: absolute;
+  left: 15px;
+  top: 8px;
+  width: 42.196px;
+  height: 56.261px;
+  display: block;
+  pointer-events: none;
+}
+.tf-mod-ofuda-vspike {
+  position: absolute;
+  left: 10.33%;
+  top: 67px;
+  width: 13px;
+  height: 320px;
+  pointer-events: none;
+}
+.tf-mod-ofuda-hspike {
+  position: absolute;
+  left: 18.84%;
+  top: 29px;
+  width: 235px;
+  height: 11px;
+  @include flex-center;
+  pointer-events: none;
+}
+.tf-mod-ofuda-body {
+  width: 71.48%;
+  margin-left: 13.33%;
+  position: relative;
+  z-index: 2;
+  @include flex-col-center;
+  text-align: center;
+  gap: 24px;
+}
+.tf-mod-ofuda-title {
+  font:
+    800 34px / 1.1 "Poppins",
+    sans-serif;
+  color: var(--tf-accent, #bf3444);
+  margin: 0;
+}
+.tf-mod-ofuda-desc {
+  font:
+    400 16px / 1.3 "Open Sans",
+    sans-serif;
+  color: var(--tf-ink, #30293e);
+  margin: 0;
+}
+.tf-mod-ofuda-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 48px;
+  padding: 14px 39px;
+  border-radius: 35px;
+  background: var(--tf-accent, #bf3444);
+  color: #fbf7eb;
+  font:
+    500 18px / 1.1 "Poppins",
+    sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@include dark-mode {
+  .tf-mod-ofuda {
+    background: #221a28;
+  }
+  .tf-mod-ofuda-title {
+    color: #f9c650;
+  }
+  .tf-mod-ofuda-desc {
+    color: #fbf7eb;
+  }
+  .tf-mod-ofuda-btn {
+    background: #f9c650;
+    color: #511154;
+  }
+}

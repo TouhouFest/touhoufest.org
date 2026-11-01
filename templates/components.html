@@ -183,74 +183,44 @@
 {% endcomponent contact_form %}
 
 
-{% component discord() %}
-<div class="discord-callout-card my-6">
-<span class="tf-icon tf-icon-discord discord-icon"></span>
+{% component discord(extra_class="", title="Join the community on Discord", subtext="Join our community on the TouhouFest Official Discord server!", url="https://discord.gg/touhoufest", button_text="Join Discord", icon="img/discord_card_icon.svg") %}
+<div class="discord-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
+<div class="discord-icon">
+<img src="{{ get_url(path=icon) }}" alt="Discord" />
+</div>
 <div class="discord-content">
-<h2 class="discord-title">Join the community on Discord</h2>
-<p class="discord-subtext">Join our community on the TouhouFest Official Discord server!</p>
-<a href="https://discord.gg/touhoufest" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
-<span>Join Discord</span>
+<div class="discord-copy">
+<h2 class="discord-title">{{ title }}</h2>
+<p class="discord-subtext">{{ subtext }}</p>
+</div>
+<a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
+<span>{{ button_text }}</span>
 <span class="tf-icon tf-icon-chevron-right ml-1"></span>
 </a>
 </div>
 </div>
 {% endcomponent discord %}
 
-{% component newsletter() %}
-<div class="newsletter-callout-card my-6">
+{% component newsletter(extra_class="", title="The Tengu Newsletter", subtext="Sign up with your email address to receive news and updates.", placeholder="Email here", button_text="Subscribe", icon="email.svg") %}
+<div class="newsletter-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
 <div class="newsletter-icon-wrap">
-<img src="/email.svg" alt="Newsletter" />
+<img src="{{ get_url(path=icon) }}" alt="Newsletter" />
 </div>
 <div class="newsletter-content">
-<h2 class="newsletter-title">The Tengu Newsletter</h2>
-<p class="newsletter-subtext">Sign up with your email address to receive news and updates.</p>
+<div class="newsletter-copy">
+<h2 class="newsletter-title">{{ title }}</h2>
+<p class="newsletter-subtext">{{ subtext }}</p>
+</div>
 <form class="newsletter-form" action="#" method="post" onsubmit="return false;">
-<input type="email" class="newsletter-input" placeholder="Email here" required />
+<input type="email" class="newsletter-input" placeholder="{{ placeholder }}" required />
 <button type="submit" class="tf-btn tf-btn-danger">
-<span>Subscribe</span>
+<span>{{ button_text }}</span>
 <span class="tf-icon tf-icon-chevron-right ml-1"></span>
 </button>
 </form>
 </div>
 </div>
 {% endcomponent newsletter %}
-
-{% component app(name, open=false, description="", url="#") %}
-{% set status = "closed" %}
-{% if open %}{% set status = "open" %}{% endif %}
-<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
-<div class="tf-card">
-<div class="tf-card-header">
-<h3 class="title is-5 mb-0">{{ name }}</h3>
-<span class="tf-tag tf-tag-{{ status }}"><span>{{ status | capitalize }}</span></span>
-</div>
-<div class="tf-card-body">
-{% if description %}
-<p class="has-text-grey">{{ description }}</p>
-{% endif %}
-</div>
-<div class="tf-card-footer">
-{% if status == 'open' %}
-<a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-primary is-fullwidth">
-<span>Apply Now</span>
-<span class="tf-icon tf-icon-external-link"></span>
-</a>
-{% else %}
-<span class="tf-btn tf-btn-disabled is-fullwidth">
-<span>Applications Closed</span>
-</span>
-{% endif %}
-</div>
-</div>
-</div>
-{% endcomponent app %}
-
-{% component unpaid(message="This is a volunteer position. All TouhouFest staff positions are unpaid.") %}
-<div class="tf-warning" role="alert">
-<p class="mb-0">{{ message }}</p>
-</div>
-{% endcomponent unpaid %}
 
 {% component faq_link() %}
 <div class='container'>
@@ -270,50 +240,11 @@ class='fa-solid fa-chevron-right'></span></a></p>
 </div>
 {% endcomponent faq_link %}
 
-{% component games() %}
-{% for section in load_data(path="data/games.yml") %}
-<div class='has-text-centered'>
-<h2>{{ section.name }}</h2>
-<p>{{ section.desc | markdown(inline=true) | safe }}</p>
-<div class='grid is-col-min-16'>
-{% for game in section.games %}
-<div class='cell'>
-<h3>{{ game.name }}</h3>
-{{ game.desc | markdown(inline=true) | safe }}
-</div>
-{% endfor %}
-</div>
-</div>
-{% endfor %}
-{% endcomponent games %}
-
-{% component guests() %}
-{% for year, guests in load_data(path="data/guests.yml") %}
-<div class='has-text-centered'>
-<h2>TouhouFest {{ year }} Guests</h2>
-<div class='grid is-col-min-16'>
-{% for guest in guests %}
-<div class='cell'>
-<h3>{{ guest.name }}</h3>
-{{ guest.desc | markdown(inline=true) | safe}}
-</div>
-{% endfor %}
-</div>
-</div>
-{% endfor %}
-{% endcomponent guests %}
-
 {% component cosplay() %}
 <h3>Cosplay</h3>
 <p>Cosplaying at TouhouFest? Check out our cosplay page to see what there is to do!</p>
 <a class='button' href='/features/cosplay'>Learn more</a>
 {% endcomponent cosplay %}
-
-{% component fumo() %}
-<h3>Fumo Gathering</h3>
-<p>Our Cosplay Ambassador, Mystical Lala, will co-host the Fumo Gathering at TouhouFest!</p>
-<a class='button' href='/features/other#fumo-meetup'>Learn more</a>
-{% endcomponent fumo %}
 
 {% component gaming() %}
 <h3>Gaming</h3>
@@ -325,77 +256,23 @@ class='fa-solid fa-chevron-right'></span></a></p>
 <p>TouhouFest will have a variety of other events! Below are a few we've announced so far, but more are on the way!</p>
 {% endcomponent other %}
 
-{% component page_header(title, subtitle="", image="", description="") %}
-<div class="page-hero-banner"{% if image %} style="background-image: url('{{ image }}');"{% endif %}>
+{% component page_header(title, subtitle="", image="", description="", extra_class="", hide_bottom_wave=false) %}
+<div class="page-hero-banner{% if extra_class %} {{ extra_class }}{% endif %}">
 <div class="divider-wave-top"></div>
+{% if not hide_bottom_wave %}
 <div class="divider-wave-bottom"></div>
-<div class="page-hero-title-box">
-<h1 class="page-hero-title">{{ title }}</h1>
+{% endif %}
+<div class="page-hero-title-box hero-title-box">
+<h1 class="page-hero-title hero-title">{{ title }}</h1>
 {%- if subtitle %}
-<p class="page-hero-subtitle mt-3">{{ subtitle | safe }}</p>
+<p class="page-hero-subtitle hero-subtitle mt-3">{{ subtitle | safe }}</p>
 {%- endif %}
 {%- if description %}
-<div class="page-hero-body mt-4">{{ description | safe }}</div>
+<div class="page-hero-body hero-body-text mt-4">{{ description | safe }}</div>
 {%- endif %}
 </div>
 </div>
 {% endcomponent page_header %}
-
-{% component tf_teaser_card(title, subtitle="", icon="", url="", btn_text="Learn more", variant="danger", extra_class="") %}
-<div class="tf-teaser-card is-{{ variant }} {{ extra_class }} my-5">
-<div class="tf-teaser-card-body is-flex is-align-items-center">
-{%- if icon %}
-<div class="tf-teaser-icon-wrap mr-4">
-<span class="tf-icon tf-icon-{{ icon }} is-size-2"></span>
-</div>
-{%- endif %}
-<div class="tf-teaser-content is-flex-grow-1">
-<h3 class="title is-4 mb-1">{{ title }}</h3>
-{%- if subtitle %}
-<p class="subtitle is-6 mb-0">{{ subtitle }}</p>
-{%- endif %}
-</div>
-{%- if url %}
-<div class="tf-teaser-action ml-4">
-<a href="{{ url }}" class="tf-btn tf-btn-white">
-<span>{{ btn_text }}</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
-</a>
-</div>
-{%- endif %}
-</div>
-</div>
-{% endcomponent tf_teaser_card %}
-
-{% component tf_polaroid(image, caption="", alt="", tilt="") %}
-<div class="tf-polaroid {% if tilt %}is-tilted-{{ tilt }}{% endif %}">
-<div class="tf-polaroid-pins">
-<span class="tf-pin tf-pin-left"></span>
-<span class="tf-pin tf-pin-right"></span>
-</div>
-<div class="tf-polaroid-frame">
-<img src="{{ image }}" alt="{{ alt | default(value=caption) }}" loading="lazy" />
-{%- if caption %}
-<p class="tf-polaroid-caption">{{ caption }}</p>
-{%- endif %}
-</div>
-</div>
-{% endcomponent tf_polaroid %}
-
-{% component tf_ofuda(title, subtitle="", icon="", tilt="") %}
-<div class="tf-ofuda {% if tilt %}is-tilted-{{ tilt }}{% endif %}">
-<div class="tf-ofuda-inner">
-<div class="tf-ofuda-tomoe"></div>
-{%- if icon %}
-<span class="tf-icon tf-icon-{{ icon }} tf-ofuda-icon"></span>
-{%- endif %}
-<h4 class="tf-ofuda-title">{{ title }}</h4>
-{%- if subtitle %}
-<p class="tf-ofuda-subtitle">{{ subtitle }}</p>
-{%- endif %}
-</div>
-</div>
-{% endcomponent tf_ofuda %}
 
 {% component application_card(name, status="open", description="", deadline="", apply_url="#", btn_text="Apply") %}
 {%- set status_lower = status | lower -%}
@@ -444,9 +321,10 @@ class='fa-solid fa-chevron-right'></span></a></p>
 
 {% component section_divider(title, subtitle="", image="", url="", button_text="Explore Section", id="") %}
 {%- set divider_id = id | default(value=title | slugify) -%}
-<div class="section-divider-module my-6" id="{{ divider_id }}">
-<div class="divider-wave-top"></div>
-<div class="divider-wave-bottom"></div>
+<div class="tf-section-divider section-divider-module my-6" id="{{ divider_id }}">
+<div class="tf-section-divider__wave-top divider-wave-top"></div>
+<div class="tf-section-divider__streamers"></div>
+<div class="tf-section-divider__wave-bottom divider-wave-bottom"></div>
 <div class="divider-overlay">
 <div class="divider-content">
 <div>
@@ -465,22 +343,26 @@ class='fa-solid fa-chevron-right'></span></a></p>
 </div>
 {% endcomponent section_divider %}
 
-{% component hero_card(title, subtitle="", image="", url="", button_text="Buy badge") %}
-<div class="hero-module-card my-6">
+{% component hero_card(title, mobile_title="", subtitle="", image="img/badge_teaser.png", button_text="Buy badge", url="/register", extra_class="") %}
+<div class="hero-module-card badge-hero-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
 <div class="hero-gohei-left"></div>
 <div class="hero-gohei-right"></div>
 <div class="hero-card-inner">
 <div class="hero-card-image-wrap">
-<span class="hero-card-q">?</span>
-<span class="hero-card-stay-tuned">Stay tuned!</span>
+{%- if image %}
+<img src="{{ get_url(path=image) }}" alt="{{ title }}" />
+{%- else %}
+<img src="{{ get_url(path="img/badge_teaser.png") }}" alt="{{ title }}" />
+{%- endif %}
 </div>
 <div class="hero-card-content">
+{%- if mobile_title %}
+<h2 class="title is-2 mb-3 hero-card-title"><span class="hero-title-desktop">{{ title }}</span><span class="hero-title-mobile">{{ mobile_title }}</span></h2>
+{%- else %}
 <h2 class="title is-2 mb-3 hero-card-title">{{ title }}</h2>
+{%- endif %}
 {%- if subtitle %}
 <p class="subtitle mb-4 hero-card-subtitle">{{ subtitle }}</p>
-{%- endif %}
-{%- if body %}
-<div class="content mb-4">{{ body | safe }}</div>
 {%- endif %}
 {%- if url %}
 <a class="tf-btn tf-btn-danger hero-card-btn" href="{{ url }}" target="_blank" rel="noopener noreferrer">
@@ -571,25 +453,29 @@ class='fa-solid fa-chevron-right'></span></a></p>
 {% endcomponent hotel_blocks %}
 
 {% component teaser_card(title, subtitle="", button_text="Button", url="#", theme="danger", icon="") %}
-<div class="tf-teaser-card is-{{ theme }}">
+<div class="tf-callout-card tf-teaser-card is-vertical is-{{ theme }}">
 {%- if icon == 'discord' %}
-<div class="tf-teaser-avatar">
-<span class="tf-icon tf-icon-discord" style="font-size: 56px; color: #fff;"></span>
+<div class="tf-teaser-avatar action-card-icon-wrap">
+<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="Discord" class="action-card-img" />
 </div>
 {%- elif icon %}
-<div class="tf-teaser-avatar">
-<img src="{{ icon }}" alt="" />
+<div class="tf-teaser-avatar action-card-icon-wrap">
+<img src="{{ get_url(path=icon) }}" alt="{{ title }}" class="action-card-img" />
 </div>
 {%- endif %}
-<h3 class="tf-teaser-title">{{ title }}</h3>
+<div class="tf-teaser-body">
+<div class="tf-teaser-copy">
+<h3 class="tf-teaser-title action-card-title tf-callout-title">{{ title }}</h3>
 {%- if subtitle %}
-<p class="tf-teaser-subtitle">{{ subtitle }}</p>
+<p class="tf-teaser-subtitle action-card-desc tf-callout-desc">{{ subtitle }}</p>
 {%- endif %}
+</div>
 <div class="tf-teaser-action">
-<a href="{{ url }}" class="tf-btn tf-btn-white">
+<a href="{{ url }}" class="tf-btn tf-btn-white tf-btn-pill-white action-card-btn tf-callout-btn">
 <span>{{ button_text }}</span>
 <span class="tf-icon tf-icon-chevron-right ml-1"></span>
 </a>
+</div>
 </div>
 </div>
 {% endcomponent teaser_card %}
@@ -613,12 +499,12 @@ class='fa-solid fa-chevron-right'></span></a></p>
 <div class="tcac-gallery-content">
 <h2 class="tcac-gallery-title">The Torrance Cultural Arts Center</h2>
 <div class="tcac-gallery-grid">
-<div class="tcac-polaroid"><img src="/img/event/polaroid_1.png" alt="TCAC Entrance" /></div>
-<div class="tcac-polaroid"><img src="/img/event/polaroid_2.png" alt="TCAC Pine Wind Garden Stream" /></div>
-<div class="tcac-polaroid"><img src="/img/event/polaroid_3.png" alt="TCAC Fumo Meetup in Garden" /></div>
-<div class="tcac-polaroid"><img src="/img/event/polaroid_4.png" alt="TouhouFest Cosplayers" /></div>
-<div class="tcac-polaroid"><img src="/img/event/polaroid_5.png" alt="TouhouFest Attendees" /></div>
-<div class="tcac-polaroid"><img src="/img/event/polaroid_6.png" alt="TouhouFest Concert and Performance" /></div>
+<div class="tf-polaroid-card tcac-polaroid"><img src="/img/event/polaroid_1.png" alt="TCAC Entrance" /></div>
+<div class="tf-polaroid-card tcac-polaroid"><img src="/img/event/polaroid_2.png" alt="TCAC Pine Wind Garden Stream" /></div>
+<div class="tf-polaroid-card tcac-polaroid"><img src="/img/event/polaroid_3.png" alt="TCAC Fumo Meetup in Garden" /></div>
+<div class="tf-polaroid-card tcac-polaroid"><img src="/img/event/polaroid_4.png" alt="TouhouFest Cosplayers" /></div>
+<div class="tf-polaroid-card tcac-polaroid"><img src="/img/event/polaroid_5.png" alt="TouhouFest Attendees" /></div>
+<div class="tf-polaroid-card tcac-polaroid"><img src="/img/event/polaroid_6.png" alt="TouhouFest Concert and Performance" /></div>
 </div>
 </div>
 </div>
@@ -626,17 +512,19 @@ class='fa-solid fa-chevron-right'></span></a></p>
 
 {% component event_map_module() %}
 {{ <section_divider title="2026 TouhouFest Event Maps" id="maps" /> }}
-<div class="event-map-module my-6">
-<div class="event-map-tabs">
-<button class="event-map-tab is-active" type="button">Event Map</button>
-<button class="event-map-tab" type="button">Artist Alley Map</button>
-<button class="event-map-tab" type="button">Vendors Map</button>
+<div class="tf-map-module event-map-module my-6">
+<div class="tf-map-tabs event-map-tabs">
+<button class="tf-map-tab tf-map-tab-active event-map-tab is-active" type="button">Event Map</button>
+<button class="tf-map-tab tf-map-tab-inactive event-map-tab" type="button">Artist Alley Map</button>
+<button class="tf-map-tab tf-map-tab-inactive event-map-tab" type="button">Vendors Map</button>
 </div>
-<div class="event-map-container">
-<img src="/img/event/event_map.png" alt="TouhouFest 2026 Event Map" class="event-map-img" />
-<button class="event-map-zoom" type="button" aria-label="Zoom Map">
+<div class="tf-map-stage map-display-card event-map-container">
+<div class="map-img-frame">
+<img src="/img/event/event_map.png" alt="TouhouFest 2026 Event Map" class="map-display-img event-map-img" />
+<button class="map-zoom-btn event-map-zoom" type="button" aria-label="Zoom Map">
 <span class="tf-icon tf-icon-search"></span>
 </button>
+</div>
 </div>
 </div>
 {% endcomponent event_map_module %}
@@ -811,11 +699,11 @@ description={ev.description | default(value="")}
 <span class="tf-icon tf-icon-search search-icon mr-2"></span>
 <input type="text" class="artist-search-input" placeholder="Search for an Artist" aria-label="Search for an Artist" />
 </div>
-<div class="artist-roster-grid">
+<div class="tf-roster-grid artist-roster-grid">
 {%- for item in artists_data.roster %}
 <div class="artist-roster-item">
 <div class="artist-roster-name">{{ item.name }}</div>
-<div class="artist-roster-card">
+<div class="tf-roster-card artist-roster-card">
 <img src="{{ item.image }}" alt="{{ item.name }}" class="artist-roster-img" />
 <div class="artist-roster-tag">{{ item.table }}</div>
 </div>
@@ -827,41 +715,40 @@ description={ev.description | default(value="")}
 
 {% component event_maps() %}
 <div class="event-maps-section my-6">
-<div class="section-divider-module" style="background-image: url('/banner.png'); margin-bottom: 2rem;">
+<div class="section-divider-module mb-5">
 <div class="divider-wave-top"></div>
 <div class="divider-wave-bottom"></div>
-<div class="divider-overlay">
+<div class="divider-overlay"></div>
 <div class="divider-content has-text-centered">
-<h2 class="divider-title" style="color: #ffffff;">2025 TouhouFest Event Maps</h2>
-</div>
+<h2 class="divider-title has-text-white">2025 TouhouFest Event Maps</h2>
 </div>
 </div>
 <div class="map-switcher-container">
 <input type="radio" name="event-map-tabs" id="map-tab-1" class="map-radio-toggle" checked />
 <input type="radio" name="event-map-tabs" id="map-tab-2" class="map-radio-toggle" />
 <input type="radio" name="event-map-tabs" id="map-tab-3" class="map-radio-toggle" />
-<div class="map-tabs-bar mb-5">
-<label for="map-tab-1" class="map-tab-pill tab-pill-1">Event Map</label>
-<label for="map-tab-2" class="map-tab-pill tab-pill-2">Artist Alley Map</label>
-<label for="map-tab-3" class="map-tab-pill tab-pill-3">Vendors Map</label>
+<div class="tf-map-tabs map-tabs-bar mb-5">
+<label for="map-tab-1" class="tf-map-tab map-tab-pill tab-pill-1">Event Map</label>
+<label for="map-tab-2" class="tf-map-tab map-tab-pill tab-pill-2">Artist Alley Map</label>
+<label for="map-tab-3" class="tf-map-tab map-tab-pill tab-pill-3">Vendors Map</label>
 </div>
 <div class="map-display-card">
 <div class="map-view-panel panel-1">
-<h3 class="title is-4 has-text-centered mb-4" style="color: var(--tf-color-red);">Event Map</h3>
+<h3 class="title is-4 has-text-centered mb-4 map-panel-title">Event Map</h3>
 <div class="map-img-frame">
 <img src="/img/TouhouFest_2025_Map_FINAL-01-01.jpg" alt="Event Map" class="map-display-img" />
 <div class="map-zoom-btn">+</div>
 </div>
 </div>
 <div class="map-view-panel panel-2">
-<h3 class="title is-4 has-text-centered mb-4" style="color: var(--tf-color-red);">Artist Alley Map</h3>
+<h3 class="title is-4 has-text-centered mb-4 map-panel-title">Artist Alley Map</h3>
 <div class="map-img-frame">
 <img src="/img/Toyota_Hall_2025_TF_AA_final copy.png" alt="Artist Alley Map" class="map-display-img" />
 <div class="map-zoom-btn">+</div>
 </div>
 </div>
 <div class="map-view-panel panel-3">
-<h3 class="title is-4 has-text-centered mb-4" style="color: var(--tf-color-red);">Vendors Map</h3>
+<h3 class="title is-4 has-text-centered mb-4 map-panel-title">Vendors Map</h3>
 <div class="map-img-frame">
 <img src="/img/TF_2025_Festival_Plaza Vendors Final.png" alt="Vendors Map" class="map-display-img" />
 <div class="map-zoom-btn">+</div>
@@ -875,18 +762,17 @@ description={ev.description | default(value="")}
 {% component past_artists_gallery() %}
 {%- set artists_data = load_data(path="data/artists.yml") -%}
 <div class="past-artists-section my-6">
-<div class="section-divider-module" style="background-image: url('/banner.png'); margin-bottom: 2rem;">
+<div class="section-divider-module mb-5">
 <div class="divider-wave-top"></div>
 <div class="divider-wave-bottom"></div>
-<div class="divider-overlay">
+<div class="divider-overlay"></div>
 <div class="divider-content has-text-centered">
-<h2 class="divider-title" style="color: #ffffff;">Thank you 2025 Artists!</h2>
-</div>
+<h2 class="divider-title has-text-white">Thank you 2025 Artists!</h2>
 </div>
 </div>
 <div class="polaroid-grid">
 {%- for item in artists_data.past_artists %}
-<div class="polaroid-item">
+<div class="tf-polaroid-card polaroid-item">
 <div class="polaroid-thumb-wrap">
 <img src="{{ item.image }}" alt="{{ item.name }}" class="polaroid-thumb" />
 </div>
@@ -1479,14 +1365,14 @@ description={ev.description | default(value="")}
 
 {% component cosplay_maps() %}
 <div class="cosplay-maps-container my-6">
-<div class="buttons is-centered mb-5">
-<button type="button" class="tf-btn tf-btn-danger is-rounded"><span>Event Map</span></button>
-<button type="button" class="tf-btn tf-btn-outline is-rounded"><span>Artist Alley Map</span></button>
-<button type="button" class="tf-btn tf-btn-outline is-rounded"><span>Vendors Map</span></button>
+<div class="tf-map-tabs cosplay-maps-tabs buttons is-centered mb-5">
+<button type="button" class="tf-map-tab tf-map-tab-active cosplay-map-tab tf-btn tf-btn-danger is-rounded"><span>Event Map</span></button>
+<button type="button" class="tf-map-tab tf-map-tab-inactive cosplay-map-tab tf-btn tf-btn-outline is-rounded"><span>Artist Alley Map</span></button>
+<button type="button" class="tf-map-tab tf-map-tab-inactive cosplay-map-tab tf-btn tf-btn-outline is-rounded"><span>Vendors Map</span></button>
 </div>
-<div class="cosplay-map-card">
-<div class="cosplay-map-img-wrap">
-<img src="/img/TouhouFest_2025_Map_FINAL-01-01.jpg" alt="TouhouFest Event Map" class="cosplay-map-img">
+<div class="map-display-card cosplay-map-card">
+<div class="map-img-frame cosplay-map-img-wrap">
+<img src="/img/TouhouFest_2025_Map_FINAL-01-01.jpg" alt="TouhouFest Event Map" class="map-display-img cosplay-map-img">
 <button type="button" class="map-zoom-btn" title="Zoom Map"><span class="tf-icon tf-icon-search"></span></button>
 </div>
 </div>
@@ -1495,11 +1381,9 @@ description={ev.description | default(value="")}
 
 {% component cosplay_action_cards() %}
 {% set cdata = load_data(path="data/cosplay.yml") %}
-<div class="cosplay-action-cards-grid my-6">
-<div class="columns is-desktop is-multiline">
+<div class="tf-callout-grid cosplay-action-cards-grid my-6">
 {% for card in cdata.action_cards %}
-<div class="column is-half-desktop is-full-touch">
-<div class="cosplay-action-card">
+<div class="tf-callout-card tf-teaser-card cosplay-action-card">
 <div class="action-card-icon-wrap">
 {% if card.image %}
 <img src="{{ card.image }}" alt="{{ card.title }}" class="action-card-img">
@@ -1509,16 +1393,14 @@ description={ev.description | default(value="")}
 <span class="action-card-placeholder">Icon</span>
 {% endif %}
 </div>
-<h3 class="action-card-title">{{ card.title }}</h3>
-<p class="action-card-desc">{{ card.desc }}</p>
-<a href="{{ card.url }}" class="tf-btn tf-btn-white action-card-btn">
+<h3 class="action-card-title tf-callout-title">{{ card.title }}</h3>
+<p class="action-card-desc tf-callout-desc">{{ card.desc }}</p>
+<a href="{{ card.url }}" class="tf-btn tf-btn-white tf-callout-btn action-card-btn">
 <span>{{ card.btn_text }}</span>
 <span class="tf-icon tf-icon-chevron-right ml-1"></span>
 </a>
 </div>
-</div>
 {% endfor %}
-</div>
 </div>
 {% endcomponent cosplay_action_cards %}
 

@@ -1,87 +1,98 @@
 {# ==========================================================================
    Footer
    ========================================================================== #}
-<footer class="tf-footer mt-auto py-6">
-  <div class="container">
-    <div class="footer-top-bar is-flex is-justify-content-space-between is-align-items-center is-flex-wrap-wrap mb-6 pb-4" style="gap: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-      <div class="footer-search">
-        <label class="is-block is-size-7 has-text-grey-light mb-1 has-text-weight-bold">Search the site</label>
-        <div class="field">
-          <div class="control has-icons-left">
-            <input class="input is-rounded footer-search-input" type="search" placeholder="Search" aria-label="Search">
-            <span class="icon is-left">
-              <span class="tf-icon tf-icon-search"></span>
-            </span>
-          </div>
+<footer class="tf-footer">
+  <div class="tf-footer-inner">
+    <div class="tf-footer-top">
+      <div class="tf-footer-search">
+        <label class="tf-footer-search-label" for="tf-site-search">Search the site</label>
+        <div class="tf-footer-search-row">
+          <svg class="tf-footer-search-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="11.5" cy="11.5" r="9.5" stroke="currentColor" stroke-width="2"/>
+            <path d="M11.5 2C16.7467 2 21 6.25329 21 11.5C21 16.7467 16.7467 21 11.5 21C14.1234 21 16.25 18.8734 16.25 16.25C16.25 13.6266 14.1234 11.5 11.5 11.5C8.87665 11.5 6.75 9.37335 6.75 6.75C6.75 4.12665 8.87665 2 11.5 2Z" fill="currentColor"/>
+            <circle class="is-yin-dot" cx="11.5" cy="6.75" r="1.6" fill="#30293E"/>
+            <circle cx="11.5" cy="16.25" r="1.6" fill="currentColor"/>
+            <line x1="18.6" y1="18.6" x2="26" y2="26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <input id="tf-site-search" class="footer-search-input" type="search" placeholder="Search" aria-label="Search">
         </div>
       </div>
 
-      <div class="footer-theme-toggle is-flex is-align-items-center">
-        <span class="has-text-grey-light is-size-7 mr-2 has-text-weight-bold">Light Mode</span>
+      <div class="tf-footer-mode">
+        <span class="tf-mode-label is-light-label">Light Mode</span>
         <label class="tf-theme-switch" title="Toggle theme">
-          <input type="checkbox" id="theme-toggle">
+          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
           <span class="tf-theme-slider"></span>
         </label>
-        <span class="has-text-grey-light is-size-7 ml-2 has-text-weight-bold">Dark Mode</span>
+        <span class="tf-mode-label is-dark-label">Dark Mode</span>
       </div>
     </div>
 
-    <div class="columns is-multiline">
-      <div class="column is-one-third-desktop is-full-tablet mb-4">
-        <h3 class="title is-5 has-text-white mb-2">Stay Connected</h3>
-        <p class="has-text-grey-light mb-3">Follow us @TouhouFest</p>
-        <div class="is-flex is-align-items-center mb-4" style="gap: 1rem;">
-          {% if config.extra.socials.discord_invite %}
-            <a href="{{ config.extra.socials.discord_invite }}" target="_blank" rel="noopener noreferrer" class="has-text-white" title="Discord">
-              <span class="tf-icon tf-icon-discord" style="font-size: 24px;"></span>
-            </a>
-          {% endif %}
-          {% if config.extra.socials.bluesky %}
-            <a href="{{ config.extra.socials.bluesky }}" target="_blank" rel="noopener noreferrer" class="has-text-white" title="Bluesky">
-              <span class="tf-icon tf-icon-bluesky" style="font-size: 24px;"></span>
-            </a>
-          {% endif %}
-          {% if config.extra.socials.instagram %}
-            <a href="{{ config.extra.socials.instagram }}" target="_blank" rel="noopener noreferrer" class="has-text-white" title="Instagram">
-              <span class="tf-icon tf-icon-instagram" style="font-size: 24px;"></span>
-            </a>
-          {% endif %}
-          {% if config.extra.socials.youtube %}
-            <a href="{{ config.extra.socials.youtube }}" target="_blank" rel="noopener noreferrer" class="has-text-white" title="YouTube">
-              <span class="tf-icon tf-icon-youtube" style="font-size: 24px;"></span>
-            </a>
-          {% endif %}
-          {% if config.extra.socials.twitter %}
-            <a href="{{ config.extra.socials.twitter }}" target="_blank" rel="noopener noreferrer" class="has-text-white" title="X / Twitter">
-              <span class="tf-icon tf-icon-twitter" style="font-size: 24px;"></span>
-            </a>
-          {% endif %}
+    <div class="tf-footer-bottom">
+      <div class="tf-footer-socials">
+        <p class="tf-footer-heading">Stay Connected</p>
+        <p class="tf-footer-text">Follow us @TouhouFest</p>
+        <div class="tf-footer-social-row">
+          <a href="{{ config.extra.socials.discord_invite | default(value='https://discord.gg/touhoufest') }}" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+            <span class="tf-icon tf-icon-discord"></span>
+          </a>
+          <a href="{{ config.extra.socials.bluesky | default(value='https://bsky.app/profile/touhoufest.org') }}" target="_blank" rel="noopener noreferrer" aria-label="Bluesky" class="is-soft-social">
+            <span class="tf-icon tf-icon-bluesky"></span>
+          </a>
+          <a href="{{ config.extra.socials.instagram | default(value='http://www.instagram.com/touhoufest') }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <span class="tf-icon tf-icon-instagram"></span>
+          </a>
+          <a href="{{ config.extra.socials.youtube | default(value='https://www.youtube.com/@touhoufestofficial') }}" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <span class="tf-icon tf-icon-youtube"></span>
+          </a>
+          <a href="https://www.facebook.com/touhoufest" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="is-soft-social">
+            <span class="tf-icon tf-icon-facebook"></span>
+          </a>
+          <a href="{{ config.extra.socials.twitter | default(value='https://twitter.com/TouhouFest') }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="is-soft-social">
+            <span class="tf-icon tf-icon-twitter-bird"></span>
+          </a>
         </div>
-        <p class="is-size-7 has-text-grey-light">
-          TouhouFest™ is a production of the <a href="https://amp-organization.com/" class="has-text-white has-text-weight-bold">AMP Organization</a>.<br>
-          © AMP Organization, {{ now() | date(format="%Y") }}
+        <p class="tf-footer-text">
+          <a href="{{ get_url(path='about/contact') }}" class="tf-footer-underline">Email Us @TouhouFest.org</a>
         </p>
+        <div class="tf-footer-legal">
+          <p>TouhouFest™ is a production of the <a href="https://amp-organization.com/" target="_blank" rel="noopener noreferrer" class="tf-footer-underline">AMP Organization</a>.</p>
+          <p>© AMP Organization, 2026</p>
+        </div>
       </div>
 
-      <div class="column is-one-third-desktop is-half-tablet">
-        <h3 class="title is-5 has-text-white mb-2">Registration & Applications</h3>
-        <ul class="is-size-6" style="list-style: none; padding-left: 0; line-height: 2;">
-          <li><a href="{{ get_url(path='register') }}" class="has-text-grey-light">Buy a Badge</a></li>
-          <li><a href="{{ get_url(path='register') }}" class="has-text-grey-light">Artist Alley Applications</a></li>
-          <li><a href="{{ get_url(path='register') }}" class="has-text-grey-light">Vendor Applications</a></li>
-          <li><a href="{{ get_url(path='register') }}" class="has-text-grey-light">Panel & Performer Applications</a></li>
-          <li><a href="{{ get_url(path='register') }}" class="has-text-grey-light">Volunteer & Staff Opportunities</a></li>
-        </ul>
-      </div>
+      <div class="tf-footer-links">
+        <div class="tf-footer-col is-col-register">
+          <p class="tf-footer-heading">Register</p>
+          <a href="{{ get_url(path='register') }}">Buy a Badge</a>
+          <a href="{{ get_url(path='artists') }}">Artist Alley Registration</a>
+          <a href="{{ get_url(path='vendors') }}">Vender Registration</a>
+          <a href="{{ get_url(path='register') }}">Performer Applications</a>
+          <a href="{{ get_url(path='features/gaming') }}">Fan Game Table Applications</a>
+          <a href="{{ get_url(path='register') }}">Panel Applications</a>
+          <a href="{{ get_url(path='features/cosplay') }}">Cosplay Contest</a>
+          <a href="{{ get_url(path='register/staff') }}">Staff Applications</a>
+          <a href="{{ get_url(path='register/staff') }}">Volunteer Applications</a>
+        </div>
 
-      <div class="column is-one-third-desktop is-half-tablet">
-        <h3 class="title is-5 has-text-white mb-2">Event Information</h3>
-        <ul class="is-size-6" style="list-style: none; padding-left: 0; line-height: 2;">
-          <li><a href="{{ get_url(path='about/event') }}" class="has-text-grey-light">General Event Info</a></li>
-          <li><a href="{{ get_url(path='about/hotels') }}" class="has-text-grey-light">Hotel Blocks & Lodging</a></li>
-          <li><a href="{{ get_url(path='about/guidelines') }}" class="has-text-grey-light">Event Guidelines & Rules</a></li>
-          <li><a href="{{ get_url(path='about/faq') }}" class="has-text-grey-light">Frequently Asked Questions</a></li>
-        </ul>
+        <div class="tf-footer-col is-col-about">
+          <p class="tf-footer-heading">About</p>
+          <a href="{{ get_url(path='schedule') }}">Schedule</a>
+          <a href="{{ get_url(path='about/hotels') }}">Hotels</a>
+          <a href="{{ get_url(path='about/event') }}">Event Info</a>
+          <a href="{{ get_url(path='about/guidelines') }}">Event Guidelines</a>
+          <a href="{{ get_url(path='about/faq') }}">FAQs</a>
+          <a href="{{ get_url(path='about/guidelines') }}">Policies</a>
+        </div>
+
+        <div class="tf-footer-col is-col-learn">
+          <p class="tf-footer-heading">Learn more about</p>
+          <a href="{{ get_url(path='features/guests') }}">Guests &amp; Features</a>
+          <a href="{{ get_url(path='features/gaming') }}">Gaming</a>
+          <a href="{{ get_url(path='features/cosplay') }}">Cosplay</a>
+          <a href="{{ get_url(path='artists') }}">Artists &amp; Vendors</a>
+          <a href="{{ get_url(path='intro') }}">Intro to Touhou</a>
+        </div>
       </div>
     </div>
   </div>
