@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% set sched = load_data(path="data/schedule.yml") -%}
+<section class="tf-hero-banner page-hero-banner is-schedule">
+<div class="schedule-hero-container">
+  <div class="schedule-hero-copy">
+  <h1 class="schedule-hero-title">{{ sched.hero.title }}</h1>
+  <p class="schedule-hero-subtitle">{{ sched.hero.subtitle }}</p>
+  </div>
+  <div class="schedule-hero-buttons">
+  {% for btn in sched.app_buttons -%}
+  {% if loop.index == 1 -%}
+  {% set btn_icon = "img/icon_web.svg" -%}
+  {% elif loop.index == 2 -%}
+  {% set btn_icon = "img/icon_playstore.svg" -%}
+  {% else -%}
+  {% set btn_icon = "img/icon_appstore.svg" -%}
+  {% endif -%}
+  <a href="{{ btn.url | safe }}" target="_blank" rel="noopener noreferrer" class="schedule-app-btn">
+  <span class="schedule-app-btn-inner">
+  <span class="schedule-app-icon-wrap">
+  <img src="{{ get_url(path=btn_icon) }}" alt="" class="schedule-app-icon" width="50" height="50">
+  </span>
+  <span class="schedule-app-label">{{ btn.label | safe }}</span>
+  </span>
+  <img src="{{ get_url(path='icons/icon_external.svg') }}" alt="" class="schedule-app-ext" width="20" height="20">
+  </a>
+  {% endfor -%}
+  </div>
+</div>
+</section>
+{% endblock header %}
+
+{% block content %}
+{% set sched = load_data(path="data/schedule.yml") %}
+<div class="schedule-layout">
+<div class="schedule-phones-section">
+  <img src="{{ get_url(path=sched.phones_preview.image) }}" alt="{{ sched.phones_preview.alt }}" width="850" height="486" class="schedule-phones-composite">
+</div>
+<div class="schedule-container">
+  <div class="tf-fcard hero-module-card schedule-badge-card">
+  <div class="schedule-badge-card-bg" aria-hidden="true"></div>
+  <div class="hero-gohei-left card-gohei-trim-left" aria-hidden="true"></div>
+  <div class="hero-gohei-right card-gohei-trim-right" aria-hidden="true"></div>
+  <div class="hero-card-image-wrap schedule-badge-art">
+  <img src="{{ get_url(path=sched.badge_cta.image) }}" alt="{{ sched.badge_cta.alt }}" width="306" height="287" class="schedule-badge-img">
+  </div>
+  <div class="hero-card-content schedule-badge-info">
+  <h2 class="hero-card-title schedule-badge-title desktop-title">{{ sched.badge_cta.desktop_title }}</h2>
+  <h2 class="hero-card-title schedule-badge-title mobile-title">{{ sched.badge_cta.mobile_title }}</h2>
+  <a href="{{ get_url(path=sched.badge_cta.button_path) }}" class="hero-card-btn tf-btn tf-btn-danger tf-btn-pill-red schedule-badge-btn">
+  <span>{{ sched.badge_cta.button_label }}</span>
+  <img src="{{ get_url(path='img/shared/chevron_cream.svg') }}" alt="" class="schedule-btn-carrot" width="15" height="16">
+  </a>
+  </div>
+  </div>
+
+  <div class="schedule-cta-row tf-mod-callout-grid">
+  <div class="schedule-cta-card is-discord tf-mod-callout tf-mod-callout--vert">
+  <div class="schedule-cta-icon-wrap tf-mod-callout-icon">
+  <img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="{{ sched.discord_cta.icon_alt }}" width="100" height="100" class="schedule-cta-icon">
+  </div>
+  <div class="schedule-cta-body">
+  <div class="schedule-cta-content tf-mod-callout-copy">
+  <h2 class="schedule-cta-title tf-mod-callout-title">{{ sched.discord_cta.title }}</h2>
+  <p class="schedule-cta-desc tf-mod-callout-desc">{{ sched.discord_cta.description }}</p>
+  </div>
+  <a href="{{ sched.discord_cta.button_url | safe }}" target="_blank" rel="noopener noreferrer" class="tf-btn schedule-discord-btn tf-mod-callout-btn">
+  <span>{{ sched.discord_cta.button_label }}</span>
+  <img src="{{ get_url(path='img/shared/chevron_dark.svg') }}" alt="" class="schedule-btn-carrot" width="15" height="16">
+  </a>
+  </div>
+  </div>
+
+  <div class="schedule-cta-card is-newsletter tf-mod-callout tf-mod-callout--vert">
+  <div class="schedule-cta-icon-wrap tf-mod-callout-icon">
+  <img src="{{ get_url(path='img/shared/icon_email.svg') }}" alt="{{ sched.newsletter_cta.icon_alt }}" width="100" height="100" class="schedule-cta-icon">
+  </div>
+  <div class="schedule-cta-body">
+  <div class="schedule-cta-content tf-mod-callout-copy">
+  <h2 class="schedule-cta-title tf-mod-callout-title">{{ sched.newsletter_cta.title }}</h2>
+  <p class="schedule-cta-desc tf-mod-callout-desc">{{ sched.newsletter_cta.description }}</p>
+  </div>
+  <form class="tf-newsletter-form newsletter-form schedule-newsletter-form" action="#" method="post" onsubmit="return false;">
+  <input type="email" class="tf-newsletter-input newsletter-input schedule-newsletter-input" placeholder="{{ sched.newsletter_cta.input_placeholder }}" aria-label="{{ sched.newsletter_cta.input_aria_label }}" required>
+  <button type="submit" class="tf-btn tf-btn-danger schedule-newsletter-btn tf-mod-callout-btn">
+  <span>{{ sched.newsletter_cta.button_label }}</span>
+  <img src="{{ get_url(path='img/shared/chevron_cream.svg') }}" alt="" class="schedule-btn-carrot" width="15" height="16">
+  </button>
+  </form>
+  </div>
+  </div>
+  </div>
+</div>
+
+<section class="schedule-sr-accessible tf-timeline is-sr-only" aria-label="Convention Schedule Listings">
+  <h2>{{ sched.sr_heading }} (Status: {{ sched.status }})</h2>
+  {% for day in sched.days %}
+  <div class="schedule-sr-day tf-timeline-item" id="{{ day.id }}">
+  <h3 class="tf-timeline-time">{{ day.title }} ({{ day.date }}) &mdash; {{ day.hours }}</h3>
+  <p>{{ day.summary }}</p>
+  <ul class="tf-pill-cluster">
+  {% for ev in day.events %}
+  <li class="tf-timeline-card">
+  <strong class="tf-pill tf-pill--gold">{{ ev.time }}</strong>: {{ ev.title }} | <span class="tf-pill tf-pill--outline">Room: {{ ev.room | default(value="TBA") }}</span> | <span class="tf-pill tf-pill--red">Category: {{ ev.category | default(value="General") }}</span> | Host: {{ ev.host | default(value="Staff") }}
+  <p>{{ ev.description | default(value="") }}</p>
+  </li>
+  {% endfor %}
+  </ul>
+  </div>
+  {% endfor %}
+</section>
+</div>
+{% endblock content %}

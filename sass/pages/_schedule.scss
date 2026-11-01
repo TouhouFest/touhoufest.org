@@ -1,0 +1,610 @@
+/* ==========================================================================
+   Schedule Page Styles (Compound Scoped Selectors)
+   ========================================================================== */
+
+/* Scoped Page Canvas */
+body:has(.page-hero-banner.is-schedule) {
+  background: #fbf7eb linear-gradient(157.13deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+}
+
+/* Hero Banner Scoped Overrides */
+.page-hero-banner.is-schedule {
+  background-color: var(--tf-accent, #bf3444);
+  background-image: none;
+  position: relative;
+  height: 642px;
+  min-height: 642px;
+  @include flex-col-center;
+  justify-content: flex-start;
+  padding: 268px 24px 102px;
+  margin-bottom: 0;
+  overflow: hidden;
+
+  .schedule-hero-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    @include flex-column;
+    gap: 38px;
+  }
+  .schedule-hero-copy {
+    @include flex-column;
+    gap: 8px;
+    margin: 0;
+    text-align: left;
+  }
+  .schedule-hero-title {
+    font: 800 56px / 1.1 var(--tf-font-heading, "Poppins", sans-serif);
+    letter-spacing: 0;
+    color: var(--tf-text-title-dark, #fffde7);
+    margin: 0;
+  }
+  .schedule-hero-subtitle {
+    font: 700 20px / 1.1 var(--tf-font-body, "Open Sans", sans-serif);
+    color: var(--tf-surface, #ffffff);
+    margin: 0;
+  }
+  .schedule-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .schedule-app-btn {
+    background-color: var(--tf-text-title-dark, #fffde7);
+    border-radius: 75px;
+    padding: 14px 24px 14px 30px;
+    height: 78px;
+    min-height: 78px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    text-decoration: none;
+    box-shadow: none;
+    transition:
+      transform 300ms ease-out,
+      box-shadow 300ms ease-out;
+    &:nth-of-type(1) {
+      width: 273px;
+    }
+    &:nth-of-type(2) {
+      width: 249px;
+    }
+    &:nth-of-type(3) {
+      width: 248px;
+    }
+    &:hover {
+      box-shadow: var(--tf-drop-shadow-hover, 0 4px 22px 3px rgba(191, 52, 68, 0.5));
+    }
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  .schedule-app-btn-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .schedule-app-icon-wrap {
+    width: 50px;
+    height: 50px;
+    @include flex-center;
+    flex-shrink: 0;
+  }
+  .schedule-app-icon {
+    width: 50px;
+    height: 50px;
+    display: block;
+    object-fit: contain;
+  }
+  .schedule-app-label {
+    font: 500 18px / 1.1 var(--tf-font-heading, "Poppins", sans-serif);
+    color: var(--tf-ink, #30293e);
+    text-decoration: underline;
+    text-underline-position: from-font;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .schedule-app-ext {
+    width: 20px;
+    height: 20px;
+    display: block;
+    flex-shrink: 0;
+  }
+}
+
+/* Schedule Main Layout */
+.schedule-layout {
+  background: transparent;
+  display: flow-root;
+  width: 100%;
+  padding-bottom: 48px;
+  position: relative;
+
+  .schedule-phones-section {
+    position: relative;
+    z-index: 4;
+    margin: -60px 0 60px;
+    height: 465px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .schedule-phones-composite {
+    width: 850px;
+    height: 486px;
+    max-width: none;
+    flex-shrink: 0;
+    display: block;
+  }
+  .schedule-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    @include flex-column;
+    gap: 48px;
+  }
+
+  /* Weekend Badge Card */
+  .schedule-badge-card {
+    width: 100%;
+    height: 341px;
+    min-height: 341px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 4px 13px 0 rgba(99, 15, 40, 0.15);
+    position: relative;
+    overflow: hidden;
+    @include flex-center;
+    gap: 40px;
+    padding: 0 48px;
+    transition:
+      transform 300ms ease-out,
+      box-shadow 300ms ease-out,
+      border-color 300ms ease-out,
+      background-color 300ms ease-out;
+    &:hover {
+      box-shadow: var(--tf-drop-shadow-hover, 0 4px 22px 3px rgba(191, 52, 68, 0.5));
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 8px solid var(--tf-accent, #bf3444);
+      border-bottom: none;
+      border-radius: 5px 5px 0 0;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .schedule-badge-card-bg {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 362px;
+      background: linear-gradient(180deg, #fff5f5 0%, #ffffff 45%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    :is(.card-gohei-trim-left, .card-gohei-trim-right) {
+      position: absolute;
+      top: -73px;
+      width: 44px;
+      height: 262px;
+      background: url("/card-gohei.svg") no-repeat center top / 44px 262px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .card-gohei-trim-left {
+      left: 0;
+    }
+    .card-gohei-trim-right {
+      right: 0;
+      transform: scaleX(-1);
+    }
+    .schedule-badge-art {
+      flex: 1 1 0%;
+      min-width: 0;
+      width: auto;
+      height: auto;
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+      overflow: visible;
+      @include flex-center;
+      padding: 16px 0 0 3px;
+      position: relative;
+      z-index: 2;
+    }
+    .schedule-badge-img {
+      width: 306px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .schedule-badge-info {
+      flex: 1 1 0%;
+      min-width: 0;
+      @include flex-column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .schedule-badge-title {
+      @include tf-h2;
+      color: var(--tf-accent, #bf3444);
+      text-align: left;
+      &.desktop-title {
+        display: block;
+      }
+      &.mobile-title {
+        display: none;
+      }
+    }
+  }
+
+  /* Shared CTA Pill Buttons */
+  .schedule-badge-btn {
+    padding: 14px 39px 14px 47px;
+    gap: 10px;
+    font: 500 18px / 1.1 var(--tf-font-heading, "Poppins", sans-serif);
+    transition:
+      transform 300ms ease-out,
+      box-shadow 300ms ease-out,
+      background-color 300ms ease-out;
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  :is(.schedule-badge-btn, .schedule-newsletter-btn) {
+    background-color: var(--tf-accent, #bf3444);
+    color: var(--tf-text-title-dark, #fffde7);
+    &:hover {
+      background-color: var(--tf-accent-hover, #a82a39);
+      box-shadow: var(--tf-drop-shadow-hover, 0 4px 22px 3px rgba(191, 52, 68, 0.5));
+    }
+  }
+
+  :is(.schedule-badge-btn, .schedule-discord-btn, .schedule-newsletter-btn) {
+    font-weight: 500;
+    box-shadow: none;
+    span {
+      text-decoration: underline;
+      text-underline-position: from-font;
+      text-underline-offset: auto;
+      white-space: nowrap;
+    }
+  }
+
+  .schedule-btn-carrot {
+    width: 15px;
+    height: 16px;
+    margin: 0 -3.5px;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  /* CTA Action Cards */
+  .schedule-cta-card {
+    min-height: 499px;
+    box-shadow: none;
+    @include flex-column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 40px;
+    position: relative;
+    .schedule-cta-icon-wrap {
+      width: 100%;
+    }
+    .schedule-cta-icon {
+      width: 100px;
+      height: 100px;
+      display: block;
+    }
+    &.is-discord {
+      height: 499px;
+      transition: none;
+    }
+    &.is-newsletter {
+      height: 503px;
+      background: linear-gradient(160.88deg, #fbf7eb 15.32%, #ffe1e1 111%);
+      &::before {
+        content: "";
+        position: absolute;
+        left: -13px;
+        top: 4px;
+        bottom: 4px;
+        width: 2px;
+        background: repeating-linear-gradient(to bottom, #bf3444 0 15px, transparent 15px 30px);
+        pointer-events: none;
+      }
+      .schedule-cta-title {
+        color: var(--tf-accent, #bf3444);
+      }
+      .schedule-cta-desc {
+        color: var(--tf-ink, #30293e);
+        margin-bottom: 1.25rem;
+      }
+    }
+  }
+
+  .schedule-cta-body {
+    @include flex-column;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+  }
+  .schedule-cta-content {
+    text-align: left;
+    width: 100%;
+    flex: 0 0 auto;
+  }
+  .schedule-discord-btn {
+    background-color: var(--tf-text-title-dark, #fffde7);
+    color: var(--tf-surface-dark, #30293e);
+    align-self: flex-start;
+    &:hover {
+      background-color: #f7f3da;
+      box-shadow: var(--tf-drop-shadow-hover, 0 4px 22px 3px rgba(191, 52, 68, 0.5));
+    }
+  }
+  .schedule-newsletter-form {
+    @include flex-column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .schedule-newsletter-input {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: 47px;
+    background-color: var(--tf-surface, #ffffff);
+    border: none;
+    border-bottom: 3px solid var(--tf-accent, #bf3444);
+    border-radius: 5px;
+    padding: 0 21px;
+    font-size: 16px;
+    color: var(--tf-ink, #30293e);
+    &::placeholder {
+      color: var(--tf-ink, #30293e);
+      opacity: 0.5;
+    }
+  }
+  .schedule-newsletter-btn {
+    align-self: flex-start;
+  }
+}
+
+/* Intermediate / Tablet Responsive Scaling (769px - 898px) */
+@media screen and (max-width: 898px) {
+  .schedule-layout {
+    .schedule-container {
+      padding: 0 24px;
+    }
+    .schedule-cta-card,
+    .schedule-cta-card.is-newsletter {
+      padding: 40px 32px;
+    }
+  }
+}
+
+/* Mobile Responsive Styles (<= 768px) */
+@media screen and (max-width: 768px) {
+  body:has(.page-hero-banner.is-schedule) {
+    background: #fbf7eb linear-gradient(175.82deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  }
+
+  .page-hero-banner.is-schedule {
+    height: 813px;
+    min-height: 813px;
+    padding: 208px 31px 104px;
+    justify-content: flex-start;
+    .schedule-hero-container {
+      max-width: 100%;
+      gap: 40px;
+    }
+    .schedule-hero-title {
+      font-size: 34px;
+      line-height: 1.1;
+    }
+    .schedule-hero-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      width: 100%;
+    }
+    .schedule-app-btn {
+      width: auto;
+      max-width: 100%;
+      padding: 14px 39px 14px 30px;
+      justify-content: center;
+    }
+  }
+
+  .schedule-layout {
+    background: transparent;
+    .schedule-container {
+      max-width: 100%;
+      padding: 0 31px;
+    }
+
+    .schedule-badge-card {
+      height: 527px;
+      min-height: 527px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 44px 48px 40px;
+      gap: 28px;
+      box-shadow: 0 4px 20px 0 rgba(191, 52, 68, 0.2);
+      :is(.card-gohei-trim-left, .card-gohei-trim-right) {
+        top: -87px;
+      }
+      .schedule-badge-art {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+      }
+      .schedule-badge-img {
+        width: 226px;
+        max-width: 100%;
+      }
+      .schedule-badge-info {
+        flex: 0 0 auto;
+        width: 204px;
+        max-width: 100%;
+        text-align: left;
+      }
+      .schedule-badge-title {
+        &.desktop-title {
+          display: none;
+        }
+        &.mobile-title {
+          display: block;
+        }
+      }
+    }
+
+    :is(.schedule-badge-btn, .schedule-newsletter-btn) {
+      height: 48px;
+      min-height: 48px;
+      justify-content: center;
+    }
+    .schedule-badge-btn {
+      width: 202px;
+      min-width: 202px;
+      padding: 14px 24px;
+    }
+
+    .schedule-cta-card {
+      padding: 48px;
+      &.is-newsletter {
+        min-height: 524px;
+        padding: 35px 48px 48px;
+        &::before {
+          left: -1px;
+          top: 1px;
+          bottom: 1px;
+          width: 2px;
+        }
+      }
+    }
+    .schedule-cta-card .schedule-discord-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .schedule-cta-card .schedule-newsletter-btn {
+      width: 194px;
+      padding: 14px 20px;
+    }
+  }
+}
+
+/* Narrow Small-Screen Guard (320px - 374px) */
+@media screen and (max-width: 374px) {
+  .page-hero-banner.is-schedule {
+    height: auto;
+    min-height: 0;
+    padding: 192px 16px 88px;
+    .schedule-app-btn {
+      padding: 12px 20px;
+    }
+  }
+  .schedule-layout {
+    .schedule-container {
+      padding: 0 16px;
+    }
+    .schedule-badge-card {
+      height: auto;
+      padding: 40px 24px;
+    }
+    .schedule-cta-card,
+    .schedule-cta-card.is-newsletter {
+      padding: 36px 24px;
+    }
+    .schedule-discord-btn,
+    .schedule-newsletter-btn {
+      max-width: 100%;
+      padding: 14px 24px 14px 28px;
+    }
+  }
+}
+
+/* Dark Mode Overrides */
+@include dark-mode {
+  &:is(body:has(.page-hero-banner.is-schedule)),
+  body:has(.page-hero-banner.is-schedule) {
+    background: #30293e linear-gradient(157.13deg, #30293e 28.353%, #221a28 93.86%);
+    color: var(--tf-ink, #fbf7eb);
+    @media screen and (max-width: 768px) {
+      background-image: linear-gradient(175.82deg, #30293e 28.353%, #221a28 93.86%);
+    }
+  }
+
+  .page-hero-banner.is-schedule {
+    .schedule-app-label {
+      color: #ffffff;
+    }
+    :is(.schedule-app-icon, .schedule-app-ext) {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  .schedule-layout {
+    .schedule-badge-card {
+      background-color: var(--tf-surface-navy, #373852);
+    }
+    .schedule-badge-card-bg {
+      background: linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%);
+    }
+    .schedule-badge-card :is(.card-gohei-trim-left, .card-gohei-trim-right) {
+      filter: brightness(0) saturate(100%) invert(84%) sepia(43%) saturate(835%) hue-rotate(345deg)
+        brightness(101%) contrast(96%);
+    }
+    .schedule-cta-card.is-discord {
+      transition: none;
+      .schedule-cta-title {
+        color: #30293e;
+      }
+      .schedule-cta-desc {
+        color: #564b58;
+      }
+    }
+    .schedule-cta-card.is-newsletter {
+      background: linear-gradient(160.88deg, #221a28 15.32%, #30293e 111%);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      &::before {
+        background: repeating-linear-gradient(to bottom, #fbf7eb 0 15px, transparent 15px 30px);
+      }
+      .schedule-cta-desc {
+        color: #e2dcd4;
+      }
+      .schedule-newsletter-input {
+        background-color: #1a1420;
+        border-color: #4b3d54;
+        color: #fbf7eb;
+      }
+    }
+    :is(.schedule-badge-btn, .schedule-newsletter-btn) .schedule-btn-carrot {
+      filter: brightness(0) saturate(100%) invert(11%) sepia(50%) saturate(3015%) hue-rotate(282deg)
+        brightness(90%) contrast(105%);
+    }
+    .schedule-discord-btn .schedule-btn-carrot {
+      filter: brightness(0) invert(1);
+    }
+  }
+}
