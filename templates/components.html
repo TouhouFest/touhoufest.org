@@ -1393,149 +1393,349 @@ description={ev.description | default(value="")}
 </div>
 {% endcomponent cosplay_action_cards %}
 
-{% component gaming_fangames() %}
-{%- set gaming = load_data(path="data/gaming.yml") -%}
-<div class="has-text-centered mb-5">
-<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ gaming.fangames.title }}</h2>
-<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ gaming.fangames.location }}</span>
+{% component gaming_hero() %}
+{%- set gdata = load_data(path="data/gaming.yml") -%}
+<section class="tf-hero-banner page-hero-banner is-gaming gaming-hero-banner">
+<div class="tf-hero-bg gaming-hero-bg">
+<img src="{{ get_url(path=gdata.hero.image) | safe }}" alt="" class="tf-hero-bg-img gaming-hero-bg-img">
 </div>
-<div class="content has-text-centered mb-5">
-<p>{{ gaming.fangames.description | markdown(inline=true) | safe }}</p>
+<div class="tf-mod-divider-top divider-wave-top gaming-divider-top-streamers" aria-hidden="true"><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span></div>
+<div class="tf-hero-container gaming-hero-container">
+<div class="tf-hero-box gaming-hero-box">
+<h1 class="tf-hero-title gaming-hero-title">{{ gdata.hero.title }}</h1>
 </div>
-<div class="columns is-multiline is-centered my-5">
-{%- for item in gaming.fangames.items %}
-<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+</div>
+</section>
+{% endcomponent gaming_hero %}
+
+{% component gaming_intro() %}
+{%- set gdata = load_data(path="data/gaming.yml") -%}
+<div class="gaming-intro-block">
+<p class="gaming-intro-copy">{{ gdata.intro.text }}</p>
+</div>
+{% endcomponent gaming_intro %}
+
+{% component gaming_freeplay_divider() %}
+{%- set gdata = load_data(path="data/gaming.yml") -%}
+<section class="tf-mod-divider gaming-divider-module is-freeplay">
+<div class="tf-mod-divider-bg gaming-divider-bg"></div>
+<div class="tf-mod-divider-vignette gaming-divider-vignette"></div>
+<div class="tf-mod-divider-top divider-wave-top gaming-divider-top-streamers" aria-hidden="true"><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span></div>
+<div class="tf-mod-divider-inner gaming-divider-content">
+<div class="gaming-divider-text-block is-centered">
+<h2 class="tf-mod-divider-title gaming-divider-heading">{{ gdata.freeplay_divider.title }}</h2>
+</div>
+</div>
+<div class="tf-mod-divider-bottom gaming-divider-bottom-wave" aria-hidden="true"></div>
+</section>
+{% endcomponent gaming_freeplay_divider %}
+
+{% component gaming_fangames_section() %}
+{%- set gdata = load_data(path="data/gaming.yml") -%}
+<div class="gaming-text-block">
+<h2 class="gaming-section-heading">{{ gdata.fangames.title }}</h2>
+<div class="gaming-location-row">
+<span class="tf-location-pill"><span class="gaming-pin-icon"></span><span>{{ gdata.fangames.location }}</span></span>
+</div>
+<div class="gaming-body-copy">
+<p>{{ gdata.fangames.description_prefix }}<a href="{{ gdata.fangames.partner_url | safe }}" target="_blank" rel="noopener noreferrer" class="gaming-inline-link">{{ gdata.fangames.partner_name }}</a>{{ gdata.fangames.description_suffix }}</p>
+</div>
+</div>
+<div class="gaming-cards-grid">
+{%- for item in gdata.fangames.items %}
 <div class="gaming-item-card">
-<h3 class="gaming-item-title">{{ item.title }}<br>{{ item.subtitle }}</h3>
+<div class="gaming-item-header">
+<p class="gaming-item-overline">{{ item.overline }}</p>
+<h3 class="gaming-item-title">{{ item.title }}</h3>
+<div class="gaming-item-feature">
+<div class="gaming-item-image-frame">
 <div class="gaming-item-image-wrap">
-<img src="{{ item.image }}" alt="{{ item.title }}" />
-</div>
-<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ item.location }}</span>
-<a href="{{ item.link }}" class="gaming-item-link"><span>{{ item.link_text }}</span><span class="tf-icon tf-icon-external-link"></span></a>
-</div>
-</div>
-{%- endfor %}
-</div>
-{% endcomponent gaming_fangames %}
-
-{% component arcade_cabinets() %}
-{%- set gaming = load_data(path="data/gaming.yml") -%}
-<hr class="tf-dashed-divider" />
-<div class="has-text-centered mb-5">
-<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ gaming.arcade.title }}</h2>
-<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ gaming.arcade.location }}</span>
-</div>
-<div class="columns is-vcentered my-5">
-<div class="column is-half-desktop is-full-touch">
-<div class="arcade-photo-wrap">
-<img src="{{ gaming.arcade.image }}" alt="Arcade Cabinets" />
-</div>
-</div>
-<div class="column is-half-desktop is-full-touch">
-<p class="mb-4">{{ gaming.arcade.description }}</p>
-<div class="arcade-box-list">
-<div class="arcade-cabinet-btn">
-<span class="tf-icon tf-icon-gamepad"></span>
-<span>Dance Dance Revolution</span>
-</div>
-<div class="columns is-mobile is-variable is-2 mb-0">
-<div class="column is-half">
-<div class="arcade-cabinet-btn">
-<span class="tf-icon tf-icon-gamepad"></span>
-<span>Jubeat</span>
-</div>
-</div>
-<div class="column is-half">
-<div class="arcade-cabinet-btn">
-<span class="tf-icon tf-icon-gamepad"></span>
-<span>Chunithm</span>
+<img src="{{ get_url(path=item.image) | safe }}" alt="{{ item.title }}" class="gaming-item-img">
 </div>
 </div>
 </div>
 </div>
+<div class="gaming-item-content">
+<div class="gaming-location-row is-centered">
+<span class="tf-location-pill"><span class="gaming-pin-icon"></span><span>{{ item.location }}</span></span>
 </div>
-</div>
-<hr class="tf-dashed-divider" />
-{% endcomponent arcade_cabinets %}
-
-{% component tabletop_games() %}
-{%- set gaming = load_data(path="data/gaming.yml") -%}
-<div class="has-text-centered mb-5">
-<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ gaming.tabletop.title }}</h2>
-<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ gaming.tabletop.location }}</span>
-</div>
-<div class="content has-text-centered mb-5">
-<p>{{ gaming.tabletop.description | markdown(inline=true) | safe }}</p>
-</div>
-<div class="columns is-multiline is-centered my-5">
-{%- for item in gaming.tabletop.items %}
-<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
-<div class="gaming-item-card">
-<h3 class="gaming-item-title">{{ item.title }}<br>{{ item.subtitle }}</h3>
-<div class="gaming-item-image-wrap">
-<img src="{{ item.image }}" alt="{{ item.title }}" />
-</div>
-<span class="tf-location-pill"><span class="tf-icon tf-icon-location mr-1"></span> {{ item.location }}</span>
-<a href="{{ item.link }}" class="gaming-item-link"><span>{{ item.link_text }}</span><span class="tf-icon tf-icon-external-link"></span></a>
-</div>
-</div>
-{%- endfor %}
-</div>
-{% endcomponent tabletop_games %}
-
-{% component gaming_prizes() %}
-{%- set gaming = load_data(path="data/gaming.yml") -%}
-<div class="mb-5">
-<h2 class="title is-2 mb-3" style="color: var(--tf-color-dark)">{{ gaming.prizes.title }}</h2>
-<div class="mb-5">{{ gaming.prizes.description | markdown(inline=true) | safe }}</div>
-<div class="columns is-multiline my-4">
-{%- for prize in gaming.prizes.items %}
-<div class="column is-half-desktop is-full-touch">
-<div class="prize-card">
-<div class="prize-icon-wrap">
-<span class="tf-icon tf-icon-medal"></span>
-</div>
-<div class="prize-content">
-<h3 class="prize-title">{{ prize.placement }}</h3>
-<p class="prize-subtitle">{{ prize.bracket }}</p>
-<p class="prize-desc">Prize:<br><strong>{{ prize.prize }}</strong></p>
-<a href="{{ prize.link }}" class="prize-link">
-<span>{{ prize.link_text }}</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+<div class="gaming-item-links">
+<a href="{{ item.link_url | safe }}" target="_blank" rel="noopener noreferrer" class="gaming-item-link">
+<span>{{ item.link_label }}</span>
+<span class="gaming-ext-icon"></span>
 </a>
 </div>
 </div>
 </div>
 {%- endfor %}
 </div>
-</div>
-<hr class="tf-dashed-divider" />
-{% endcomponent gaming_prizes %}
+{% endcomponent gaming_fangames_section %}
 
-{% component tournament_waves() %}
-{%- set gaming = load_data(path="data/gaming.yml") -%}
-<div class="mb-5">
-<h2 class="title is-2 mb-3" style="color: var(--tf-color-dark)">{{ gaming.waves.title }}</h2>
-<div class="mb-5">{{ gaming.waves.description | markdown(inline=true) | safe }}</div>
-<div class="columns is-multiline my-4">
-{%- for wave in gaming.waves.items %}
-<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
-<div class="wave-card">
-<div class="wave-header">{{ wave.name }}</div>
-<div class="wave-body">
+{% component gaming_ribbon() %}
+<div class="tf-dashed-divider gaming-dashed-ribbon" aria-hidden="true"></div>
+{% endcomponent gaming_ribbon %}
+
+{% component gaming_arcade_section() %}
+{%- set gdata = load_data(path="data/gaming.yml") -%}
+<div class="gaming-text-block">
+<h2 class="gaming-section-heading">{{ gdata.arcade.title }}</h2>
+<div class="gaming-location-row">
+<span class="tf-location-pill"><span class="gaming-pin-icon"></span><span>{{ gdata.arcade.location }}</span></span>
+</div>
+</div>
+<div class="gaming-arcade-row">
+<div class="arcade-photo-wrap arcade-photo-frame">
+<div class="arcade-photo-main">
+<div class="arcade-photo-inner">
+<img src="{{ get_url(path=gdata.arcade.image) | safe }}" alt="{{ gdata.arcade.title }}" class="arcade-photo-img">
+</div>
+</div>
+<div class="arcade-photo-shadow">
+<div class="arcade-photo-red-fill"></div>
+<img src="{{ get_url(path="img/shared/card_dots.svg") | safe }}" alt="" class="arcade-photo-dots" aria-hidden="true">
+<button type="button" class="arcade-photo-jumplink">
+<span>{{ gdata.arcade.button_label }}</span>
+<span class="gaming-ext-icon is-cream"></span>
+</button>
+</div>
+</div>
+<div class="arcade-right-col">
+<p class="arcade-body-copy">{{ gdata.arcade.description }}</p>
+<div class="arcade-box-list arcade-callouts-stack">
+<div class="arcade-callout-full">
+<div class="arcade-cabinet-btn">
+<img src="{{ get_url(path="/img/gaming/icon_gamepad.svg") | safe }}" alt="" class="arcade-gamepad-icon" aria-hidden="true">
+<span>{{ gdata.arcade.top_cabinet }}</span>
+</div>
+</div>
+<div class="arcade-callout-pair">
+{%- for cab in gdata.arcade.bottom_cabinets %}
+<div class="arcade-callout-half">
+<div class="arcade-cabinet-btn">
+<img src="{{ get_url(path="/img/gaming/icon_gamepad.svg") | safe }}" alt="" class="arcade-gamepad-icon" aria-hidden="true">
+<span>{{ cab }}</span>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+</div>
+</div>
+{% endcomponent gaming_arcade_section %}
+
+{% component gaming_tabletop_section() %}
+{%- set gdata = load_data(path="data/gaming.yml") -%}
+<div class="gaming-text-block">
+<h2 class="gaming-section-heading">{{ gdata.tabletop.title }}</h2>
+<div class="gaming-location-row">
+<span class="tf-location-pill"><span class="gaming-pin-icon"></span><span>{{ gdata.tabletop.location }}</span></span>
+</div>
+<div class="gaming-body-copy">
+<p>{{ gdata.tabletop.description_prefix }}<span class="gaming-inline-link">{{ gdata.tabletop.game_quote }}</span><a href="{{ gdata.tabletop.game_url | safe }}" target="_blank" rel="noopener noreferrer" class="gaming-inline-link">{{ gdata.tabletop.game_name }}</a><span class="gaming-inline-link">{{ gdata.tabletop.game_quote }}</span>{{ gdata.tabletop.description_suffix }}</p>
+</div>
+</div>
+<div class="gaming-cards-grid">
+{%- for item in gdata.tabletop.items %}
+<div class="gaming-item-card">
+<div class="gaming-item-header">
+<p class="gaming-item-overline">{{ item.overline }}</p>
+<h3 class="gaming-item-title">{{ item.title }}</h3>
+<div class="gaming-item-feature">
+<div class="gaming-item-image-frame">
+<div class="gaming-item-image-wrap crop-tabletop-{{ loop.index }}">
+<img src="{{ get_url(path=item.image) | safe }}" alt="{{ item.title }}" class="gaming-item-img">
+</div>
+</div>
+</div>
+</div>
+<div class="gaming-item-content">
+<div class="gaming-location-row is-centered">
+<span class="tf-location-pill"><span class="gaming-pin-icon"></span><span>{{ item.location }}</span></span>
+</div>
+<div class="gaming-item-links">
+<a href="{{ item.link_url | safe }}" target="_blank" rel="noopener noreferrer" class="gaming-item-link">
+<span>{{ item.link_label }}</span>
+<span class="gaming-ext-icon"></span>
+</a>
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+{% endcomponent gaming_tabletop_section %}
+
+{% component gaming_competitions_divider() %}
+{%- set gdata = load_data(path="data/gaming.yml") -%}
+<section class="tf-mod-divider gaming-divider-module is-competitions">
+<div class="tf-mod-divider-bg gaming-divider-bg"></div>
+<div class="tf-mod-divider-vignette gaming-divider-vignette"></div>
+<div class="tf-mod-divider-top divider-wave-top gaming-divider-top-streamers" aria-hidden="true"><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span></div>
+<div class="tf-mod-divider-inner gaming-divider-content">
+<div class="gaming-divider-text-block">
+<h2 class="tf-mod-divider-title gaming-divider-heading">{{ gdata.competitions_divider.title }}</h2>
+<div class="tf-mod-divider-subtitle gaming-divider-copy">
+<p class="gaming-comp-p1">{{ gdata.competitions_divider.p1 }}</p>
+<p class="gaming-comp-p2">{{ gdata.competitions_divider.p2 }}</p>
+<p class="gaming-comp-p3">{{ gdata.competitions_divider.p3_prefix }}<a href="{{ gdata.competitions_divider.p3_url | safe }}" target="_blank" rel="noopener noreferrer" class="gaming-comp-link-plain">{{ gdata.competitions_divider.p3_link_text }}</a><a href="{{ gdata.competitions_divider.p3_url | safe }}" target="_blank" rel="noopener noreferrer" class="gaming-comp-link-dot">{{ gdata.competitions_divider.p3_link_dot }}</a></p>
+</div>
+<a href="{{ gdata.competitions_divider.button_url | safe }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-danger gaming-pill-btn-red">
+<span>{{ gdata.competitions_divider.button_label }}</span>
+<span class="gaming-caret-right is-cream"></span>
+</a>
+</div>
+</div>
+<div class="tf-mod-divider-bottom gaming-divider-bottom-wave" aria-hidden="true"></div>
+</section>
+{% endcomponent gaming_competitions_divider %}
+
+{% component gaming_prizes_and_waves() %}
+{%- set gdata = load_data(path="data/gaming.yml") -%}
+<div class="gaming-prizes-waves-block">
+<div class="gaming-prizes-section">
+<div class="gaming-prizes-intro">
+<h3 class="gaming-sub-heading">{{ gdata.prizes.title }}</h3>
+<div class="gaming-body-copy">
+<p>{{ gdata.prizes.description_prefix }}<a href="{{ gdata.prizes.partner_url | safe }}" target="_blank" rel="noopener noreferrer" class="gaming-inline-link">{{ gdata.prizes.partner_name }}</a>{{ gdata.prizes.description_suffix }}</p>
+</div>
+</div>
+<div class="gaming-prizes-grid">
+{%- for prize in gdata.prizes.items %}
+<div class="prize-card gaming-prize-col">
+<div class="gaming-prize-head">
+<div class="prize-icon-wrap gaming-prize-medal-wrap">
+<img src="{{ get_url(path="/img/gaming/icon_medal.svg") | safe }}" alt="" class="gaming-prize-medal" aria-hidden="true">
+</div>
+<div class="prize-content gaming-prize-titles">
+<h4 class="prize-title gaming-prize-title">{{ prize.title }}</h4>
+<p class="prize-subtitle gaming-prize-subtitle">{{ prize.subtitle }}</p>
+</div>
+</div>
+<p class="prize-desc gaming-prize-desc"><strong>{{ prize.prize_bold }}</strong><br><strong>{{ prize.prize_text }}</strong></p>
+<div class="gaming-prize-links">
+<a href="{{ prize.link_url | safe }}" target="_blank" rel="noopener noreferrer" class="prize-link gaming-prize-jumplink">
+<span>{{ prize.link_label }}</span>
+<span class="gaming-caret-right is-red"></span>
+</a>
+</div>
+</div>
+{%- endfor %}
+</div>
+</div>
+<div class="tf-dashed-divider gaming-dashed-ribbon" aria-hidden="true"></div>
+<div class="gaming-waves-section">
+<div class="gaming-prizes-intro gaming-waves-intro">
+<h3 class="gaming-sub-heading">{{ gdata.waves.title }}</h3>
+<div class="gaming-body-copy">
+<p>{{ gdata.waves.description_prefix }}<a href="{{ gdata.waves.partner_url | safe }}" target="_blank" rel="noopener noreferrer" class="gaming-inline-link">{{ gdata.waves.partner_name }}</a>{{ gdata.waves.description_suffix }}</p>
+</div>
+</div>
+<div class="gaming-waves-grid">
+{%- for wave in gdata.waves.items %}
+<div class="wave-card gaming-wave-card">
+<div class="wave-header gaming-wave-header">{{ wave.header }}</div>
+<div class="wave-body gaming-wave-body">
 {%- for t in wave.tournaments %}
-<a href="{{ t.url }}" target="_blank" rel="noopener noreferrer" class="wave-tournament-item">
-<span>{{ t.name }}</span>
-<span class="tf-icon tf-icon-external-link"></span>
+<a href="{{ t.url | safe }}" target="_blank" rel="noopener noreferrer" class="wave-tournament-item gaming-wave-item">
+<span class="gaming-wave-item-text">
+{%- for line in t.lines -%}
+{{ line }}{% if not loop.last %}<br>{% endif %}
+{%- endfor -%}
+</span>
+<span class="gaming-ext-icon"></span>
 </a>
 {%- endfor %}
 </div>
 </div>
-</div>
 {%- endfor %}
 </div>
 </div>
-{% endcomponent tournament_waves %}
+</div>
+{% endcomponent gaming_prizes_and_waves %}
+
+{% component gaming_event_maps() %}
+{%- set gdata = load_data(path="data/gaming.yml") -%}
+<section class="tf-mod-map gaming-maps-module">
+<div class="tf-mod-divider gaming-divider-module is-maps">
+<div class="tf-mod-divider-bg gaming-divider-bg"></div>
+<div class="tf-mod-divider-vignette gaming-divider-vignette"></div>
+<div class="tf-mod-divider-top divider-wave-top gaming-divider-top-streamers" aria-hidden="true"><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span></div>
+<div class="tf-mod-divider-inner gaming-divider-content">
+<div class="gaming-divider-text-block is-centered">
+<h2 class="tf-mod-divider-title gaming-divider-heading">
+<span class="gaming-maps-title-desktop">{{ gdata.maps.title_desktop }}</span>
+<span class="gaming-maps-title-mobile">{{ gdata.maps.title_mobile }}</span>
+</h2>
+</div>
+</div>
+<div class="tf-mod-divider-bottom gaming-divider-bottom-wave" aria-hidden="true"></div>
+</div>
+<div class="tf-mod-map-tabs gaming-maps-tabs" role="tablist">
+{%- for tab in gdata.maps.tabs %}
+<button type="button" role="tab" aria-selected="{% if tab.active %}true{% else %}false{% endif %}" class="tf-mod-map-tab gaming-map-tab{% if tab.active %} is-active{% endif %}">
+<span>{{ tab.label }}</span>
+</button>
+{%- endfor %}
+</div>
+<div class="tf-mod-map-stage gaming-map-card">
+<div class="tf-mod-map-panel is-active gaming-map-img-wrap">
+<img src="{{ get_url(path=gdata.maps.image) | safe }}" alt="{{ gdata.maps.alt }}" class="gaming-map-img">
+</div>
+<button type="button" class="tf-mod-map-zoom gaming-map-zoom" aria-label="Zoom in">
+<span class="gaming-map-zoom-circle"></span>
+<span class="gaming-map-zoom-plus"></span>
+</button>
+</div>
+</section>
+{% endcomponent gaming_event_maps %}
+
+{% component gaming_bottom_ctas() %}
+{%- set gdata = load_data(path="data/gaming.yml") -%}
+<section class="gaming-bottom-ctas">
+<div class="gaming-badge-cta-wrap">
+<div class="hero-module-card gaming-badge-cta-card">
+<div class="gaming-badge-cta-bg" aria-hidden="true">
+<div class="gaming-badge-cta-gradient"></div>
+<div class="hero-gohei-left gaming-badge-cta-streamer is-left"></div>
+<div class="hero-gohei-right gaming-badge-cta-streamer is-right"></div>
+<div class="gaming-badge-cta-stroke"></div>
+</div>
+<div class="hero-card-inner gaming-badge-cta-inner">
+<div class="hero-card-image-wrap gaming-badge-cta-img-col">
+<div class="gaming-badge-cta-img-frame">
+<div class="gaming-badge-cta-img-inner">
+<img src="{{ get_url(path=gdata.badge_cta.image) | safe }}" alt="{{ gdata.badge_cta.title }}" class="gaming-badge-cta-img">
+</div>
+</div>
+</div>
+<div class="hero-card-content gaming-badge-cta-content">
+<h2 class="hero-card-title gaming-badge-cta-title">{{ gdata.badge_cta.title }}</h2>
+<a href="{{ gdata.badge_cta.button_url | safe }}" class="hero-card-btn tf-btn tf-btn-danger gaming-pill-btn-red">
+<span>{{ gdata.badge_cta.button_label }}</span>
+<span class="gaming-caret-right is-cream"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="tf-mod-callout tf-mod-callout--horiz is-discord gaming-discord-cta-card">
+<div class="tf-mod-callout-icon gaming-discord-icon-box" aria-hidden="true">
+<img src="{{ get_url(path="/img/discord_card_icon.svg") | safe }}" alt="" class="gaming-discord-icon-img">
+</div>
+<div class="tf-mod-callout-copy gaming-discord-content">
+<div class="tf-mod-callout-copy gaming-discord-copy">
+<h2 class="tf-mod-callout-title gaming-discord-title">{{ gdata.discord_cta.title }}</h2>
+<p class="tf-mod-callout-desc gaming-discord-desc">{{ gdata.discord_cta.description }}</p>
+</div>
+<div class="gaming-discord-actions">
+<a href="{{ gdata.discord_cta.button_url | safe }}" target="_blank" rel="noopener noreferrer" class="tf-mod-callout-btn tf-btn tf-btn-white gaming-pill-btn-cream">
+<span>{{ gdata.discord_cta.button_label }}</span>
+<span class="gaming-caret-right is-dark"></span>
+</a>
+</div>
+</div>
+</div>
+</section>
+{% endcomponent gaming_bottom_ctas %}
 
 {% component intro_guide() %}
 <div class="intro-guide-card my-5">
