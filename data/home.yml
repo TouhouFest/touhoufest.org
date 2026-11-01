@@ -1,0 +1,99 @@
+hero:
+  title: "Year 5 Announced!"
+  date: "June 19th-20th 2027"
+  button_text: "Buy Badge"
+  button_url: "register"
+  background_image: "img/home/hero-bg.png"
+
+stickers:
+  - title: "Join us for"
+    body: "A springtime Festival where Gensokyo comes to life"
+    button_text: "Buy ticket"
+    button_url: "register"
+  - title: "Held at"
+    lines:
+      - "Torrance Cultural Arts Center, Torrance CA"
+      - "3330 Civic Center Dr."
+    button_text: "Venue Info"
+    button_url: "about/event"
+  - title: "Save \nthe date"
+    lines:
+      - "Saturday April 27th"
+      - "Sunday April 28th"
+    button_text: "Schedule Info"
+    button_url: "schedule"
+
+featured_announcement:
+  title: "Featured Announcement Area"
+  button_text: "Buy badge"
+  button_url: "register"
+  image: "img/home/announcement-bg.png"
+
+guests:
+  title: "Guests"
+  button_text: "Previous years’ guests"
+  button_url: "features/guests"
+  items:
+    - name: "???"
+      role: "Musical Artist"
+      avatar: "img/home/guest-artist.png"
+    - name: "???"
+      role: "Musical Artist"
+      avatar: "img/home/guest-artist.png"
+    - name: "???"
+      role: "Vendor"
+      avatar: "img/home/guest-vendor.png"
+
+pillars:
+  - title: "Applications are open"
+    body: "Staff, Vendor, Artists, and everything else - if you want to apply for something, find it here!"
+    buttons:
+      - text: "Applciation Page"
+        url: "register"
+    image: "img/home/polaroid-1.png"
+    image_alt: "Performers on stage"
+  - title: "Hotel Blocks"
+    body: "Stay tuned for when TouhouFest Hotel blocks are announced!"
+    buttons:
+      - text: "Check out Hotels"
+        url: "about/hotels"
+    image: "img/home/polaroid-2.png"
+    image_alt: "Attendees in garden"
+  - title: "Download App"
+    body: "Make sure you download our app before attending for the best TouhouFest experience!"
+    buttons:
+      - text: "Visit the app page"
+        url: "about/event"
+    image: "img/home/polaroid-3.png"
+    image_alt: "Convention crowd group photo"
+  - title: "Have Questions?"
+    body: "Check out our FAQs and Policies pages for answers."
+    buttons:
+      - text: "FAQs"
+        url: "about/faq"
+      - text: "Policies"
+        url: "about/guidelines"
+    image: "img/home/polaroid-4.png"
+    image_alt: "Live concert performance"
+
+venue:
+  title: "Returning to Torrance"
+  body: "TouhouFest will once again be taking place at the Torrance Cultural Arts Center in CA! The most notable feature of TCAC is its Pine Wind Japanese Garden, a little Gensokyo here in LA where we are excited to host our events at!"
+  button_text: "Learn more"
+  button_url: "about/event"
+  image: "img/home/venue-bg.png"
+
+discord:
+  title: "Join the community on Discord"
+  body: "Join our community on the TouhouFest Official Discord server!"
+  button_text: "Join Discord"
+  button_url: "https://discord.gg/touhoufest"
+
+newsletter:
+  title: "The Tengu Newsletter"
+  body: "Sign up with your email address to receive news and updates."
+  placeholder: "Email here"
+  button_text: "Subscribe"
+
+twitter:
+  title: "Twitter Embed"
