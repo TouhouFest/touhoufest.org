@@ -1,0 +1,1052 @@
+/* ==========================================================================
+   Cosplay Page Scoped Styles (.cosplay-page)
+   ========================================================================== */
+@mixin cp-mask($w, $h, $bg, $uri) {
+  width: $w;
+  height: $h;
+  background-color: $bg;
+  -webkit-mask-image: url($uri);
+  mask-image: url($uri);
+}
+
+.cosplay-page {
+  --cp-red: var(--tf-accent);
+  --cp-heading: var(--tf-accent);
+  --cp-dark: var(--tf-ink);
+  --cp-cream: #fbf7eb;
+  --cp-cream-bright: #fffde7;
+  --cp-pink: #ffe1e1;
+  --cp-text: var(--tf-ink);
+  --cp-surface: #fffde7;
+  --cp-pill-border-dark: var(--tf-ink);
+  @include flex-col-center;
+  gap: 48px;
+  padding-bottom: 48px;
+  width: 100%;
+  position: relative;
+  overflow-x: clip;
+  background-image: linear-gradient(121.61866890397609deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  color: var(--cp-text);
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Hero */
+.cosplay-hero {
+  width: 100%;
+  height: 600px;
+  min-height: 600px;
+  padding: 238px max(31px, calc((100% - 1171px) / 2)) 0;
+  position: relative;
+  @include flex-column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+  &__bg {
+    @include absolute-fill;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  &__bg-img {
+    position: absolute;
+    width: 100%;
+    height: 160.02%;
+    left: 0;
+    top: -42.86%;
+    max-width: none;
+    object-fit: cover;
+  }
+  &__content {
+    width: 100%;
+    max-width: 1171px;
+    padding: 48px 0;
+    position: relative;
+    z-index: 2;
+    @include flex-column;
+    align-items: flex-start;
+  }
+}
+
+/* Main Content Stack */
+.cosplay-main-stack {
+  width: min(850px, calc(100% - 62px));
+  @include flex-col-center;
+  gap: 42px;
+  position: relative;
+}
+
+/* Full-Bleed Section Dividers Local Deltas */
+.cosplay-divider {
+  padding-left: 0;
+  padding-right: 0;
+  &__bg-img--photoshoots {
+    height: 349.13%;
+    top: -42.37%;
+  }
+  &__bg-img--workshops {
+    height: 372.39%;
+    top: -113.38%;
+  }
+  &__bg-img--masquerade {
+    height: 369.28%;
+    top: -111.31%;
+  }
+  &__bg-img--guests {
+    height: 369.28%;
+    top: -146.15%;
+  }
+  &__bg-img--maps {
+    height: 359.95%;
+    top: -135%;
+  }
+  &__title-group {
+    width: 100%;
+    @include flex-column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  &__bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    z-index: 3;
+    pointer-events: none;
+  }
+  &__bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10.5px;
+    background-color: var(--cp-cream);
+  }
+}
+
+/* Location Pills */
+.cosplay-location-pill {
+  padding: 8px 16px 8px 8px;
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font:
+    400 14px / 1.3 "Open Sans",
+    sans-serif;
+  &--light {
+    border: 1px solid #fbf7eb;
+    color: #fbf7eb;
+  }
+  &--dark {
+    border: 1px solid var(--cp-pill-border-dark);
+    color: var(--cp-text);
+  }
+}
+
+/* Block 1: Photoshoots */
+.cosplay-photoshoots {
+  width: 100%;
+  @include flex-col-center;
+  gap: 43px;
+  padding-bottom: 5px;
+}
+.cosplay-schedule-box {
+  width: 100%;
+  background-color: var(--cp-surface);
+  border: 1px solid #bf3444;
+  border-radius: 5px;
+  overflow: hidden;
+  @include flex-column;
+}
+.cosplay-schedule-tabs {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #bf3444;
+}
+.cosplay-schedule-tab {
+  flex: 1 1 0;
+  height: 51px;
+  padding: 16px;
+  background-color: var(--cp-surface);
+  color: var(--cp-text);
+  @include flex-center;
+  font:
+    400 16px / 1.3 "Open Sans",
+    sans-serif;
+  &--middle {
+    border-inline: 1px solid #bf3444;
+  }
+  &--active {
+    background-color: #bf3444;
+    color: #fffde7;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.1;
+  }
+}
+.cosplay-schedule-cell {
+  width: 100%;
+  padding: 16px;
+  border-top: 1px solid #bf3444;
+  @include flex-column;
+  gap: 8px;
+  align-items: flex-start;
+  .cosplay-schedule-tabs + & {
+    border-top: none;
+  }
+  &__time,
+  &__info-label {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font:
+      700 16px / 1.3 "Open Sans",
+      sans-serif;
+    color: var(--cp-text);
+  }
+  &__info {
+    width: 100%;
+    @include flex-column;
+    gap: 2px;
+    align-items: flex-start;
+  }
+}
+
+/* Shared Typography Group: 24px Poppins 700 Headings */
+:is(
+  .cosplay-workshop-card__title,
+  .cosplay-section-h3,
+  .cosplay-category-card__title,
+  .cosplay-guest-card__name
+) {
+  width: 100%;
+  margin: 0;
+  font:
+    700 24px / 1.2 "Poppins",
+    sans-serif;
+  color: var(--cp-heading);
+}
+:is(.cosplay-workshop-card__title, .cosplay-guest-card__name) {
+  text-align: center;
+}
+
+/* Shared Typography Group: 20px Poppins 700 Headings */
+:is(.cosplay-schedule-cell__title, .cosplay-award-col__title) {
+  margin: 0;
+  font:
+    700 20px / 1.2 "Poppins",
+    sans-serif;
+  color: var(--cp-heading);
+}
+
+/* Shared Typography Group: 14px Open Sans 400 Body Copy */
+:is(
+  .cosplay-schedule-cell__characters,
+  .cosplay-category-card__desc,
+  .cosplay-detail-block__desc,
+  .cosplay-itinerary-col__desc
+) {
+  margin: 0;
+  font:
+    400 14px / 1.3 "Open Sans",
+    sans-serif;
+  color: var(--cp-text);
+}
+
+/* Shared Typography Group: 16px Open Sans 400 Body Copy */
+:is(
+  .cosplay-body-note,
+  .cosplay-workshop-card__desc,
+  .cosplay-award-col__desc,
+  .cosplay-guest-card__bio
+) {
+  width: 100%;
+  margin: 0;
+  font:
+    400 16px / 1.3 "Open Sans",
+    sans-serif;
+  color: var(--cp-text);
+}
+
+/* Shared Jumplink Styles */
+:is(.cosplay-jumplink, .cosplay-guest-link) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font:
+    500 18px / 1.1 "Poppins",
+    sans-serif;
+  text-decoration: none;
+}
+.cosplay-jumplink {
+  color: var(--cp-heading);
+}
+.cosplay-guest-link {
+  color: var(--cp-text);
+}
+:is(.cosplay-jumplink__text, .cosplay-guest-link__text) {
+  text-decoration: underline;
+}
+
+/* Block 2: Workshops */
+.cosplay-workshops-row {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.cosplay-workshop-card {
+  flex: 1 1 0;
+  min-width: 0;
+  @include flex-column;
+  gap: 8px;
+  align-items: flex-start;
+  &__header {
+    width: 100%;
+    @include flex-col-center;
+    gap: 8px;
+  }
+  &__loc-heading {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font:
+      700 16px / 1.3 "Open Sans",
+      sans-serif;
+    color: var(--cp-text);
+  }
+  &__body {
+    width: 100%;
+    @include flex-column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
+:is(.cosplay-workshop-card__image-pad, .cosplay-guest-card__portrait-pad) {
+  width: 100%;
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+}
+.cosplay-workshop-card__image-frame {
+  width: 100%;
+  max-width: 288px;
+  height: 272px;
+  border-radius: 5px;
+  box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+:is(.cosplay-workshop-card__image, .cosplay-category-card__image) {
+  position: absolute;
+  max-width: none;
+  object-fit: cover;
+}
+.cosplay-workshop-card__image {
+  &--1 {
+    width: 141.78%;
+    height: 100.12%;
+    left: -35.82%;
+    top: 0;
+  }
+  &--2 {
+    width: 100%;
+    height: 159%;
+    left: 0;
+    top: -37%;
+  }
+  &--3 {
+    width: 156.98%;
+    height: 110.22%;
+    left: -30.52%;
+    top: -2%;
+  }
+}
+
+/* Block 3: Masquerade */
+.cosplay-masquerade {
+  width: 100%;
+  @include flex-col-center;
+  gap: 48px;
+  padding-bottom: 48px;
+}
+.cosplay-categories-block {
+  width: 100%;
+  @include flex-column;
+  gap: 24px;
+  align-items: flex-start;
+}
+.cosplay-categories-row {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.cosplay-category-card {
+  flex: 0 0 278px;
+  width: 278px;
+  max-width: 278px;
+  min-width: 0;
+  padding: 32px;
+  border: 1px solid #bf3444;
+  border-radius: 5px;
+  background-image: linear-gradient(180deg, rgba(251, 247, 235, 0) 0%, #ffe1e1 100%);
+  @include flex-col-center;
+  gap: 24px;
+  &__top {
+    width: 100%;
+    @include flex-column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  &__image-frame {
+    width: 100%;
+    aspect-ratio: 214 / 196;
+    border-radius: 5px;
+    box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  &__image--craftsmanship {
+    width: 140%;
+    height: 110%;
+    left: -30%;
+    top: -5%;
+  }
+  &__image--performance {
+    width: 152%;
+    height: 108%;
+    left: -36%;
+    top: -8%;
+  }
+  &__image--exhibition {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    object-position: center top;
+  }
+}
+:is(.cosplay-btn-red, .cosplay-btn-cream) {
+  padding: 14px 39px 14px 47px;
+  border-radius: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font:
+    18px / 1.1 "Poppins",
+    sans-serif;
+  text-decoration: none;
+}
+:is(.cosplay-btn-red__text, .cosplay-btn-cream__text) {
+  text-decoration: underline;
+}
+.cosplay-btn-red {
+  background-color: #bf3444;
+  font-weight: 600;
+  color: #fffde7;
+}
+.cosplay-btn-cream {
+  background-color: #fffde7;
+  font-weight: 500;
+  color: #30293e;
+}
+
+/* Detail & Awards Blocks */
+.cosplay-detail-block {
+  width: 100%;
+  @include flex-column;
+  gap: 24px;
+  align-items: flex-start;
+}
+.cosplay-red-bar {
+  width: 100%;
+  height: 51px;
+  padding: 16px;
+  background-color: #bf3444;
+  border-bottom: 1px solid #373852;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  align-items: center;
+  font:
+    700 16px / 1.3 "Open Sans",
+    sans-serif;
+  color: #fffde7;
+}
+.cosplay-awards-row {
+  width: 100%;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+.cosplay-award-col {
+  flex: 1 1 0;
+  min-width: 0;
+  padding-top: 0;
+  @include flex-col-center;
+  gap: 10px;
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  &__title {
+    flex: 1 1 0;
+    @include flex-column;
+  }
+  &__prize {
+    width: 100%;
+    @include flex-column;
+    font:
+      700 16px / 1.3 "Open Sans",
+      sans-serif;
+    color: var(--cp-text);
+  }
+  &__desc-bold {
+    font-weight: 700;
+    font-size: 14px;
+  }
+  &__link-wrap {
+    width: 100%;
+    padding-top: 8px;
+    display: flex;
+    justify-content: center;
+  }
+}
+.cosplay-ribbon {
+  width: 100%;
+  height: 24px;
+  margin: 1px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: url("img/cosplay/ribbon_dashed.svg") repeat-x center / 401px 3px;
+  }
+  &--mobile-only {
+    display: none;
+  }
+}
+.cosplay-itinerary-block {
+  width: 100%;
+  @include flex-column;
+}
+.cosplay-itinerary-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cosplay-itinerary-col {
+  flex: 1 1 150px;
+  min-width: 150px;
+  padding: 8px 0;
+  @include flex-column;
+  gap: 4px;
+  align-items: flex-start;
+  &__title {
+    margin: 0;
+    font:
+      700 20px / 1.1 "Open Sans",
+      sans-serif;
+    color: var(--cp-heading);
+  }
+  &__meta {
+    @include flex-column;
+    gap: 2px;
+    font:
+      700 16px / 1.3 "Open Sans",
+      sans-serif;
+    color: var(--cp-text);
+  }
+  &__day {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+}
+
+/* Block 4: Cosplay Guests */
+.cosplay-guests-grid {
+  width: 100%;
+  margin: 9px 0 14px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 50px;
+  row-gap: 48px;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.cosplay-guest-card {
+  flex: 0 0 400px;
+  width: 400px;
+  max-width: 400px;
+  @include flex-column;
+  gap: 16px;
+  align-items: flex-start;
+  .cosplay-ribbon {
+    margin-top: auto;
+  }
+  &__header {
+    width: 100%;
+    @include flex-col-center;
+    gap: 8px;
+  }
+  &__role {
+    width: 100%;
+    font:
+      700 20px / 1.1 "Open Sans",
+      sans-serif;
+    color: var(--cp-heading);
+    text-align: center;
+  }
+  &__portrait-frame {
+    width: 288px;
+    max-width: 100%;
+    height: 272px;
+    position: relative;
+  }
+  &__circle-bg {
+    position: absolute;
+    left: 24px;
+    top: 14px;
+    width: 264px;
+    height: 264px;
+    pointer-events: none;
+  }
+  &__photo-wrap {
+    position: absolute;
+    left: 16px;
+    top: 0;
+    width: 256px;
+    height: 256px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
+  }
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__body {
+    width: 100%;
+    @include flex-column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  &__links {
+    width: 100%;
+    padding: 8px 0;
+    @include flex-column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}
+
+/* Block 5: Event Maps */
+.cosplay-maps-section {
+  width: 100%;
+  @include flex-col-center;
+  gap: 77px;
+  margin: 19px 0 46px;
+}
+.cosplay-maps-tabs {
+  width: min(850px, calc(100% - 62px));
+}
+.cosplay-map-tab {
+  height: auto;
+  line-height: 1.1;
+  transition: none;
+}
+.cosplay-map-card {
+  width: min(842px, calc(100% - 62px));
+  background: transparent;
+  overflow: hidden;
+  &__zoom {
+    right: 26px;
+    bottom: 28px;
+    border-radius: 35px;
+    background-color: #30293e;
+    border: 1px solid #30293e;
+    filter: none;
+    @include flex-center;
+  }
+}
+
+/* Block 6: 4 Red Action Callouts */
+.cosplay-callouts-grid {
+  width: min(850px, calc(100% - 62px));
+  margin-top: -58px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.cosplay-callout-card {
+  flex: 1 1 300px;
+  max-width: 401px;
+  min-width: min(300px, 100%);
+  padding: 46px 44px 45px;
+  background-color: #bf3444;
+  border: 1px solid #bf3444;
+  border-radius: 5px;
+  @include flex-col-center;
+  justify-content: center;
+  gap: 40px;
+  &__icon-wrap {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    flex-shrink: 0;
+    @include flex-center;
+  }
+  &__icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    &--fumo {
+      object-fit: cover;
+    }
+    &--guild {
+      border-radius: 100px;
+      object-fit: cover;
+    }
+  }
+  &__content {
+    width: 100%;
+    @include flex-column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  &__copy {
+    width: 100%;
+    @include flex-column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  &__title {
+    width: 100%;
+    @include tf-h2;
+    color: #fffde7;
+  }
+  &__desc {
+    width: 100%;
+    @include tf-body;
+    color: #ffffff;
+  }
+}
+
+/* Icons via Local SVG Masks */
+.cosplay-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  &--brand-tiktok {
+    @include cp-mask(
+      20px,
+      20px,
+      var(--tf-accent),
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='black' d='M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z'/%3E%3C/svg%3E"
+    );
+  }
+  &--brand-instagram {
+    @include cp-mask(
+      20px,
+      20px,
+      var(--tf-accent),
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='black' d='M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z'/%3E%3C/svg%3E"
+    );
+  }
+  &--brand-twitter {
+    @include cp-mask(
+      20px,
+      20px,
+      var(--tf-accent),
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='black' d='M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z'/%3E%3C/svg%3E"
+    );
+  }
+  &--caret-right,
+  &--caret-right-light,
+  &--caret-right-dark {
+    width: 9px;
+    height: 15px;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='black' d='M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='black' d='M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z'/%3E%3C/svg%3E");
+  }
+  &--caret-right {
+    background-color: var(--tf-accent);
+  }
+  &--caret-right-light {
+    background-color: #fffde7;
+  }
+  &--caret-right-dark {
+    background-color: var(--cp-text);
+  }
+  &--location,
+  &--location-dark {
+    width: 17px;
+    height: 17px;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='black' d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='black' d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z'/%3E%3C/svg%3E");
+  }
+  &--location {
+    background-color: #fbf7eb;
+  }
+  &--location-dark {
+    background-color: var(--cp-text);
+  }
+  &--clock {
+    @include cp-mask(
+      20px,
+      20px,
+      var(--cp-text),
+      'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zm0 464A208 208 0 1 0 256 48a208 208 0 1 0 0 416zm16-304v128h96c13.3 0 24 10.7 24 24s-10.7 24-24 24H248c-13.3 0-24-10.7-24-24V160c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg>'
+    );
+  }
+  &--person-burst {
+    @include cp-mask(
+      20px,
+      20px,
+      var(--cp-text),
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath fill='black' d='M480 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-8 384V352h16V480c0 17.7 14.3 32 32 32s32-14.3 32-32V256.9l28.6 47.5c9.1 15.1 28.8 20 43.9 10.9s20-28.8 10.9-43.9l-58.3-97c-17.4-28.9-48.6-46.6-82.3-46.6H465.1c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L408 256.9V480c0 17.7 14.3 32 32 32s32-14.3 32-32zM190.9 18.1C188.4 12 182.6 8 176 8s-12.4 4-14.9 10.1l-29.4 74L55.6 68.9c-6.3-1.9-13.1 .2-17.2 5.3s-4.6 12.2-1.4 17.9l39.5 69.1L10.9 206.4c-5.4 3.7-8 10.3-6.5 16.7s6.7 11.2 13.1 12.2l78.7 12.2L90.6 327c-.5 6.5 3.1 12.7 9 15.5s12.9 1.8 17.8-2.6L176 286.1l58.6 53.9c4.8 4.4 11.9 5.5 17.8 2.6s9.5-9 9-15.5l-5.6-79.4 50.5-7.8 24.3-40.5-55.2-38L315 92.2c3.3-5.7 2.7-12.8-1.4-17.9s-10.9-7.2-17.2-5.3L220.3 92.1l-29.4-74z'/%3E%3C/svg%3E"
+    );
+  }
+  &--medal {
+    @include cp-mask(
+      30px,
+      30px,
+      var(--tf-accent),
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='black' d='M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0H133.9c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0H487.4C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z'/%3E%3C/svg%3E"
+    );
+  }
+  &--external-dark {
+    @include cp-mask(
+      20px,
+      20px,
+      var(--cp-text),
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='black' d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z'/%3E%3C/svg%3E"
+    );
+  }
+  &--plus {
+    @include cp-mask(
+      24px,
+      24px,
+      #fffde7,
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='black' d='M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z'/%3E%3C/svg%3E"
+    );
+  }
+}
+
+:is(
+  .cosplay-btn-cream .cosplay-icon--caret-right-dark,
+  .cosplay-btn-cream .cosplay-icon--external-dark
+) {
+  background-color: #30293e;
+}
+
+/* Mobile Breakpoint (<= 768px) */
+@media (max-width: 768px) {
+  :is(html:has(.cosplay-page), body:has(.cosplay-page), .cosplay-page) {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  .cosplay-page {
+    background-image: linear-gradient(96.2168091451578deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  }
+  .cosplay-hero {
+    height: 435px;
+    min-height: 435px;
+    padding: 238px 31px 0;
+    justify-content: flex-end;
+    &__bg-img {
+      height: 159.98%;
+      top: -42.84%;
+    }
+    &__content {
+      width: 100%;
+      padding: 48px 0;
+    }
+  }
+  .cosplay-main-stack {
+    width: calc(100% - 62px);
+    gap: 48px;
+  }
+  .cosplay-divider__vignette {
+    background-image: none;
+    background-color: rgba(46, 42, 49, 0.7);
+  }
+  .cosplay-divider--photoshoots .cosplay-divider__title {
+    max-width: 220px;
+  }
+  .cosplay-divider--guests .cosplay-divider__title {
+    max-width: 240px;
+  }
+  .cosplay-divider--maps .cosplay-divider__title {
+    max-width: 260px;
+  }
+  .cosplay-workshops-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cosplay-workshop-card {
+    width: 100%;
+    flex: none;
+  }
+  .cosplay-detail-block {
+    gap: 24px;
+    &__h3 {
+      max-width: 250px;
+    }
+  }
+  .cosplay-categories-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cosplay-category-card {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+    height: auto;
+    padding: 24px;
+    gap: 20px;
+    &__image-frame {
+      height: 272px;
+      aspect-ratio: auto;
+    }
+  }
+  .cosplay-awards-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cosplay-award-col {
+    width: 100%;
+    flex: none;
+  }
+  .cosplay-itinerary-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cosplay-itinerary-col {
+    width: 100%;
+    min-width: 0;
+    flex: none;
+  }
+  .cosplay-ribbon--mobile-only {
+    display: flex;
+  }
+  .cosplay-guests-grid {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+  .cosplay-guest-card {
+    width: 100%;
+    max-width: 301px;
+    min-width: 0;
+    flex: none;
+    &__links {
+      padding: 8px 0;
+      gap: 12px;
+    }
+  }
+  .cosplay-maps-section {
+    gap: 32px;
+  }
+  .cosplay-maps-tabs {
+    width: calc(100% - 62px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    order: 3;
+  }
+  .cosplay-schedule-tab {
+    height: 36px;
+    padding: 8px;
+  }
+  .cosplay-map-card {
+    width: calc(100% - 62px);
+    aspect-ratio: 328 / 291;
+    background-color: #ffffff;
+    order: 2;
+    &__zoom {
+      right: 26px;
+      bottom: 28px;
+    }
+  }
+  .cosplay-callouts-grid {
+    width: min(328px, calc(100% - 62px));
+    margin: 54px auto 45px auto;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .cosplay-callout-card {
+    width: 100%;
+    max-width: 328px;
+    min-width: 0;
+    flex: none;
+    padding: 48px 24px;
+    gap: 38px;
+    box-sizing: border-box;
+    &__title {
+      font-size: 34px;
+      line-height: 1.1;
+    }
+    .cosplay-btn-cream {
+      align-self: center;
+    }
+  }
+  :is(
+    .cosplay-workshop-card__title,
+    .cosplay-section-h3,
+    .cosplay-category-card__title,
+    .cosplay-guest-card__name
+  ) {
+    font-size: 22px;
+  }
+  :is(.cosplay-schedule-cell__title, .cosplay-award-col__title) {
+    font-size: 18px;
+  }
+}
+
+/* Dark Mode Overrides */
+@include dark-mode {
+  .cosplay-page {
+    --cp-surface: #30293e;
+    --cp-cream: #30293e;
+    background-image: linear-gradient(121.61866890397609deg, #30293e 28.353%, #564b58 93.86%);
+    .cosplay-category-card {
+      background-image: linear-gradient(180deg, rgba(48, 41, 62, 0) 0%, #564b58 100%);
+    }
+    .cosplay-map-card {
+      background: transparent;
+    }
+    .cosplay-map-tab {
+      color: #fffde7;
+      border-color: #bf3444;
+      &.is-active,
+      &--active {
+        background-color: #bf3444;
+        border-color: #bf3444;
+        color: #fbf7eb;
+      }
+    }
+  }
+}
