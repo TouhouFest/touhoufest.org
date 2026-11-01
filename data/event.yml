@@ -1,0 +1,108 @@
+hero:
+  title: "What is TouhouFest?"
+  p1: "TouhouFest is a convention run by Touhou Fans, for Touhou Fans.  It is held at the Torrance Cultural Arts Center in Torrance, California. Touhou fans from across the country will gather to celebrate the coming season and enjoy all the Touhou community has to offer such as art, music, and more!"
+  p2: "Enjoy the festival yourself with joyous music at the Touhou concerts, merry games at our gaming hall, magnificent art from our artist alley, and delicious food! Wear your cosplays for a stroll along the backdrop of the beautiful Pine Wind Japanese Garden and the festival games in the plaza. We invite you to come yonder from the human village while the Youkai are distracted with merriment, and enjoy all the wonders Gensokyo has to offer!"
+  desktop_image: "img/event/hero_event.png"
+  mobile_image: "img/event/hero_event_mobile.png"
+
+when:
+  title: "When"
+  line1: "June 19th-21st "
+  line2: "2026"
+
+where:
+  title: "Where"
+  venue: " Torrance Cultural Arts Center (TCAC)"
+  address_line_1: "3330 Civic Center Dr,  "
+  address_line_2: "Torrance, CA 90503"
+
+gallery:
+  title: "The Torrance Cultural Arts Center"
+  bg_image: "img/event/tcac_bg.jpg"
+  photos:
+    - src: "img/event/photo_1.jpg"
+      alt: "Torrance Cultural Arts Center outdoor plaza"
+    - src: "img/event/photo_2.jpg"
+      alt: "Torrance Cultural Arts Center courtyard"
+    - src: "img/event/photo_3.jpg"
+      alt: "Pine Wind Japanese Garden pond and bridge"
+    - src: "img/event/photo_4.jpg"
+      alt: "Torrance Cultural Arts Center theater seating"
+    - src: "img/event/photo_5.jpg"
+      alt: "TouhouFest attendees in hall"
+    - src: "img/event/photo_6.jpg"
+      alt: "Torrance Cultural Arts Center walkways"
+    - src: "img/event/photo_7.jpg"
+      alt: "Torrance Cultural Arts Center meeting hall"
+    - src: "img/event/photo_8.jpg"
+      alt: "Torrance Cultural Arts Center garden path"
+
+maps:
+  desktop_title: "2026 TouhouFest Event Maps"
+  mobile_title: "2025 TouhouFest Event Maps"
+  divider_image: "img/event/divider_maps.jpg"
+  map_image: "img/event/event_map.png"
+  map_alt: "TouhouFest Event Map"
+  tabs_aria: "Event maps"
+  tabs:
+    - label: "Event Map"
+      active: true
+    - label: "Artist Alley Map"
+      active: false
+    - label: "Vendors Map"
+      active: false
+
+info_cards:
+  guidelines:
+    title: "Event Guidelines"
+    body: "Before attending, please be sure to check these guidelines"
+    cta_label: "Event Guidelines"
+    cta_path: "about/guidelines"
+  faqs:
+    title: "FAQs"
+    body: "Have questions? See our FAQs page for more info."
+    cta_label: "FAQs"
+    cta_path: "about/faq"
+    symbol: "?"
+  hotel:
+    title: "Hotel Info"
+    image: "img/event/hotel_room.jpg"
+    image_alt: "Hotel Room"
+    ext_label: "Button"
+    cta_label: "See hotel blocks"
+    cta_path: "about/hotels"
+  app:
+    title: "Download App"
+    body: "Make sure you download our app before attending for the best TouhouFest experience!"
+    cta_label: "Download App"
+    cta_path: "schedule"
+
+badge_cta:
+  title: "2026 Full Weekend Badge"
+  cta_label: "Buy badge"
+  cta_path: "register"
+  image: "img/event/badge_stay_tuned.png"
+  image_alt: "2026 Full Weekend Badge"
+
+discord_cta:
+  title: "Find us on"
+  body: "Join our community on the TouhouFest Official Discord server!"
+  cta_label: "Join Discord"
+  cta_url: "https://discord.gg/touhoufest"
+
+team:
+  title: "TouhouFest Team"
+  divider_image: "img/event/divider_team.jpg"
+  mobile_divider_image: "img/event/divider_team.jpg"
+  heading: "Run by AMP"
+  body: "The AMP Organization is an event production group based in Southern California that organizes grassroots anime and pop culture events. Established in 2018, AMP is rooted in the Little Tokyo District of Los Angeles and produces a portfolio of community-driven events across the region.The AMP Organization is an event production group based in Southern California that organizes grassroots anime and pop culture events. Established in 2018, AMP is rooted in the Little Tokyo District of Los Angeles and produces a portfolio of community-driven events across the region."
+  staff:
+    status: "OPEN"
+    title: "Staff"
+    body: "Join the team here."
+    cta_label: "Apply"
+    cta_path: "register"
+  volunteer:
+    status: "CLOSED"
+    title: "Volunteer"
+    body: "Help out during the event."
