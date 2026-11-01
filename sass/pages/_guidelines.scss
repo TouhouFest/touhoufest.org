@@ -1,0 +1,345 @@
+@include dark-mode {
+  .guidelines-page-wrapper {
+    background: linear-gradient(157.13deg, #30293e 28.353%, #221a28 93.86%);
+  }
+}
+
+.guidelines-hero-banner {
+  position: relative;
+  min-height: 600px;
+  height: 600px;
+  margin-bottom: 0;
+  padding: 0;
+  background: url("img/guidelines/hero.jpg") no-repeat;
+  background-size: 100% 884.88px;
+  background-position: 0 -34.33px;
+  display: flex;
+  align-items: flex-start;
+  overflow: visible;
+  .divider-wave-top {
+    display: none;
+  }
+}
+
+.guidelines-hero-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 286px 135px 0 135px;
+  position: relative;
+  z-index: 3;
+}
+
+.guidelines-hero-box {
+  height: 174px;
+  align-items: center;
+}
+body:has(.guidelines-page-wrapper) main {
+  flex: none;
+}
+
+.guidelines-page-wrapper {
+  background: linear-gradient(122.61deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  padding: 77px 0;
+}
+
+.guidelines-content-container {
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Jump directly to block */
+.guidelines-jump-box {
+  margin-bottom: 48px;
+  @include flex-column;
+  gap: 24px;
+}
+.guidelines-jump-title {
+  font: 700 20px / 1.1 var(--tf-font-body);
+  color: var(--tf-ink);
+  margin: 0;
+}
+.guidelines-jump-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include flex-column;
+  gap: 24px;
+}
+.guidelines-jump-item {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  min-height: 20px;
+  line-height: 1;
+}
+.guidelines-jump-link {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--tf-accent);
+  transition: opacity 300ms ease-out;
+  &:hover {
+    opacity: 0.85;
+  }
+}
+:is(.guidelines-jump-icon, .guidelines-jump-arrow) {
+  flex-shrink: 0;
+  color: var(--tf-accent);
+  background-color: currentColor;
+}
+.guidelines-jump-icon {
+  width: 20px;
+  height: 20px;
+}
+.guidelines-jump-text {
+  font: 600 18px / 1.1 var(--tf-font-heading);
+  text-decoration: underline;
+  color: var(--tf-accent);
+}
+.guidelines-jump-arrow {
+  width: 8px;
+  height: 16px;
+  margin-left: 0;
+}
+.tf-icon-hat {
+  @include tf-mask-icon("img/guidelines/icon_hat.png");
+}
+.tf-icon-medal {
+  @include tf-mask-icon("img/guidelines/icon_medal.png");
+}
+
+/* Markdown typography inside guidelines */
+.guidelines-markdown-body {
+  font: 400 16px / 22.3px var(--tf-font-body);
+  color: var(--tf-ink);
+
+  :is(h2, h3) {
+    font-family: var(--tf-font-heading);
+    font-weight: 700;
+    border: none;
+    padding: 0;
+  }
+  h2 {
+    color: var(--tf-accent);
+    font-size: 34px;
+    line-height: 1.1;
+    margin: 48px 0 24px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  h3 {
+    color: var(--tf-ink);
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 32px 0 16px;
+  }
+
+  :is(p, ol, ul) {
+    font: 400 16px / 22.3px var(--tf-font-body);
+    color: var(--tf-ink);
+    margin: 0 0 10px;
+  }
+  p {
+    &:has(+ .tf-gl-subblock) {
+      margin-bottom: 24px;
+    }
+    &:has(+ .tf-gl-contest-cats) {
+      margin-bottom: 20px;
+    }
+  }
+
+  :is(.tf-gl-subblock, .tf-gl-contest-cats) {
+    margin: 0;
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  :is(ol, ul) {
+    padding-left: 28px;
+    margin-left: 0;
+    margin-inline-start: 0;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  ul {
+    list-style-type: disc;
+  }
+
+  li {
+    margin: 0 0 5.3px;
+    line-height: 22.3px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    > :is(ul, ol) {
+      list-style-type: disc;
+      padding-left: 24px;
+      margin: 10px 0 0;
+      margin-inline-start: 0;
+    }
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+  strong {
+    font-weight: 700;
+    color: inherit;
+  }
+  a {
+    color: var(--tf-accent, #bf3444);
+    text-decoration: underline;
+    font-weight: inherit;
+    transition: opacity 300ms ease-out;
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+/* Guidelines Bottom Callouts (FAQs & Discord) */
+.tf-faq-callouts-container {
+  @include flex-column;
+  gap: 48px;
+  margin: 92px 0 0;
+}
+
+.guidelines-callout-card {
+  box-shadow: none;
+  transition:
+    transform 300ms ease-out,
+    box-shadow 300ms ease-out,
+    border-color 300ms ease-out,
+    background-color 300ms ease-out;
+
+  .guidelines-card-content-col {
+    gap: 0;
+  }
+  .guidelines-card-title {
+    margin-bottom: 8px;
+  }
+  .guidelines-card-desc {
+    margin-bottom: 24px;
+  }
+  .tf-mod-callout-btn {
+    background-color: #fffde7;
+    gap: 8px;
+    span {
+      text-underline-offset: auto;
+    }
+  }
+  .tf-icon {
+    width: 8px;
+    height: 16px;
+    margin-left: 0;
+  }
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 1024px) {
+  .guidelines-hero-container {
+    padding: 286px 48px 0 48px;
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .guidelines-content-container {
+    padding: 0 31px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .guidelines-hero-banner {
+    min-height: 472px;
+    height: 472px;
+    padding: 0;
+    background-size: 695.84px 464px;
+    background-position: -297.45px 8px;
+  }
+  .guidelines-hero-container {
+    padding: 286px 31px 0 31px;
+  }
+  .guidelines-hero-box {
+    height: 138px;
+  }
+  .guidelines-page-wrapper {
+    background: linear-gradient(95.51deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  }
+  .guidelines-jump-box {
+    margin: 3px 0 60px;
+    gap: 16px;
+  }
+
+  .guidelines-markdown-body {
+    h2 {
+      font-size: 28px;
+      margin: 48px 0 30px;
+    }
+    h3 {
+      font-size: 20px;
+      margin: 36px 0 16px;
+    }
+    p {
+      line-height: 21px;
+      margin-bottom: 20px;
+      &:has(+ ol),
+      &:has(+ ul),
+      &:has(+ .tf-gl-subblock) {
+        margin-bottom: 10px;
+      }
+      &:has(+ .tf-gl-contest-cats) {
+        margin-bottom: 28px;
+      }
+    }
+    :is(ol, ul) {
+      line-height: 21px;
+      margin-bottom: 10px;
+    }
+    ol {
+      padding-left: 39px;
+    }
+    ul {
+      padding-left: 24px;
+    }
+    li {
+      line-height: 21px;
+      margin-bottom: 9.2px;
+      > :is(ul, ol) {
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .guidelines-callout-card {
+    padding: 48px;
+    gap: 40px;
+  }
+  .tf-faq-callouts-container {
+    margin-top: 55px;
+  }
+}
+
+@media screen and (min-width: 391px) and (max-width: 768px) {
+  .guidelines-hero-banner {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .guidelines-hero-container {
+    padding: 286px 16px 0 16px;
+  }
+  .guidelines-content-container {
+    padding: 0 16px;
+  }
+}
