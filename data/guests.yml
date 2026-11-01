@@ -1,79 +1,274 @@
+hero:
+  title: "2027 Guests"
+  subtitle: "Welcome our 2027 Guests!"
+  bg_image: "/img/guests/hero_bg.png"
+  cards:
+    - name: "beatMario"
+      bio_paragraphs:
+        - "beatMARIO is an arranger, composer, and singer, and the leader of the doujin circle COOL&CREATE. Around 2001, he began participating in Comiket as a circle and started producing and distributing doujin arrangement CDs. "
+      url: "https://cool-create.cc/"
+      link_label: "Visit artist’s site"
+      image: "/img/guests/hero_beatmario_thumb.png"
+    - name: "YaboiMatoi"
+      bio_paragraphs:
+        - "YaboiMatoi comes to TouhouFest to perform his first ever concert for you!  "
+        - "YaboiMatoi (Fabian Fach) is a Polish-German guitarist, singer and producer creating metal covers of Touhou, Vocaloid, anime and meme songs. He's worked with fellow creators like RichaadEB, MTB and Jonathan Young. "
+      url: "https://www.youtube.com/@YaboiMatoi"
+      link_label: "Visit artist’s site"
+      image: "/img/guests/hero_yaboimatoi_thumb.png"
+
+featured_section:
+  title: "2027 Guests"
+
 featured:
-  - name: "A-One Records"
-    role: "Featured Guest"
-    image: "/img/a-one.jpg"
-    bio: "The Touhou Eurobeat Masters are back for TouhouFest! Founded by Yassie and ELEMENTAS in 2008, producing the legendary TOHO EUROBEAT, SUPER EURO SMASH, and EUROBEAT ATTACK!! album series."
-    url: "https://lit.link/en/aonejp"
-  - name: "TAMUSIC"
-    role: "Featured Guest"
-    image: "/img/TAM.JPG"
-    bio: "Run by head musician TAM, TAMUSIC is the world's most prolific Doujin music circle, composing with 30 different instruments and producing over 2,000 rearrange tracks worldwide."
-    url: "https://twitter.com/tamusic"
+  - role: "Tokyo Active NEETs"
+    name: "Akai Ryu-sei"
+    avatar: "/img/guests/featured_akai_ryusei.png"
+    bio_paragraphs:
+      - "Akai Ryusei is a Japan-based multi-creator who masters jazz, rock, and chiptune. With impressive piano technique and skillful self-production, he delivers worldwide a truly one-of-a kind sound born from game music roots."
+      - "紅維流星は、日本を拠点にジャズ、ロック、チップチューンを自在に操るマルチクリエイター。圧巻のピアノと高度なセルフプロデュースで、ゲーム音楽をルーツにした唯一無二のサウンドを世界へ届けている。"
+    socials:
+      - platform: "instagram"
+        label: "Instagram"
+        url: "https://www.instagram.com/"
+      - platform: "tiktok"
+        label: "Tiktok"
+        url: "https://www.tiktok.com/"
+      - platform: "twitter"
+        label: "Twitter"
+        url: "https://x.com/akairyusei"
+  - role: "Guitarist"
+    name: "YaboiMatoi"
+    avatar: "/img/guests/featured_yaboimatoi.png"
+    bio_paragraphs:
+      - "YaboiMatoi comes to TouhouFest to perform his first ever concert for you!  "
+      - "YaboiMatoi (Fabian Fach) is a Polish-German guitarist, singer and producer creating metal covers of Touhou, Vocaloid, anime and meme songs. He's worked with fellow creators like RichaadEB, MTB and Jonathan Young. "
+      - " Having two Touhou Metal albums (Youkai & Lunatic) and over 10 million YouTube views under his belt, YaboiMatoi is now bringing you your favorite Touhou songs live on stage."
+    socials:
+      - platform: "instagram"
+        label: "Instagram"
+        url: "https://www.instagram.com/yaboimatoi"
+      - platform: "tiktok"
+        label: "Tiktok"
+        url: "https://www.tiktok.com/@yaboimatoi"
+  - role: "Band"
+    name: "YONA"
+    avatar: "/img/guests/featured_yona.png"
+    bio_paragraphs:
+      - "Body copy goes here. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus..Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi."
+    socials:
+      - platform: "instagram"
+        label: "Instagram"
+        url: "https://www.instagram.com/"
+      - platform: "tiktok"
+        label: "Tiktok"
+        url: "https://www.tiktok.com/"
+      - platform: "twitter"
+        label: "Twitter"
+        url: "https://x.com/"
+  - role: "COOL&CREATE"
+    name: "beatMario"
+    avatar: "/img/guests/featured_beatmario.png"
+    bio_paragraphs:
+      - "beatMARIO is an arranger, composer, and singer, and the leader of the doujin circle COOL&CREATE. Around 2001, he began participating in Comiket as a circle and started producing and distributing doujin arrangement CDs.  "
+      - "In 2006, he began performing live more actively starting with the Touhou live event “Flowering Night.” His notable performances include: Animelo Summer Live 2009 with the debut of “Help me, ERINNNNNN!!” , hit single “Ringo Karenka”, sung by his mother Junko Ozaki (2012), collaboration with Sachiko Kobayashi at Comic Market (2014, 2015)  "
+      - "In recent years, his music has also been frequently featured in rhythm games. In particular, the Touhou arrangement “Night of Nights” has ranked among the top-played songs in rhythm games from multiple companies."
+    socials:
+      - platform: "instagram"
+        label: "Instagram"
+        url: "https://www.instagram.com/"
+      - platform: "tiktok"
+        label: "Tiktok"
+        url: "https://www.tiktok.com/"
+      - platform: "twitter"
+        label: "Twitter"
+        url: "https://x.com/beatmario"
+  - role: "IOSYS"
+    name: "Maron"
+    avatar: "/img/guests/featured_maron.png"
+    bio_paragraphs:
+      - "Maron is a creator and DJ belonging to the creator collective IOSYS. "
+      - "Active since joining IOSYS in 2016, he is known for composing and producing songs for top VTubers, including Hololive and NIJISANJI, as well a contributing music to various rhythm games and performing live mainly in Tokyo. "
+      - "Drawing inspiration from the early days of NicoNicoDouga in the late 2000s, Maron’s signature style blends the essential DNA of otaku culture into infections denpa-inspired tracks. As a DJ, he is active in the A-POP club scene, recognized for his playful, themepark-esque sound direction and performances that captivate and overwhelm the floor with a world entirely of his own."
+    socials:
+      - platform: "instagram"
+        label: "Instagram"
+        url: "https://www.instagram.com/"
+      - platform: "tiktok"
+        label: "Tiktok"
+        url: "https://www.tiktok.com/"
+      - platform: "twitter"
+        label: "Twitter"
+        url: "https://x.com/maron_iosys"
+
+thank_you:
+  title: "Thank you!"
+  body: "Body copy goes here. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus..Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi."
+
+timeline_config:
+  guest_suffix: "GUESTS"
+  link_label: "Artist’s Site"
 
 timeline:
-  - year: "2026"
-    guests:
-      - name: "A-One Records"
-        image: "/img/A-One_Records_Logo_Square.png"
-        role: "Live Eurobeat"
-        url: "https://lit.link/en/aonejp"
-      - name: "TAMUSIC"
-        image: "/img/Tama thumbnail.png"
-        role: "Violin & Piano"
-        url: "https://twitter.com/tamusic"
-  - year: "2025"
-    guests:
-      - name: "SHIHORI"
-        image: "/img/Shihori sq.png"
-        role: "J-Pop Vocalist"
-        url: "https://www.shihoriartist.com/"
-      - name: "miko"
-        image: "/img/Miko Sq.png"
-        role: "IOSYS Vocalist"
-        url: "https://miko-nyu.booth.pm/"
-  - year: "2024"
-    guests:
-      - name: "Odyssey Eurobeat"
-        image: "/img/Odyssey - EB Icon.png"
-        role: "Eurobeat Producer"
-        url: "https://linktr.ee/odysseyeurobeat"
-      - name: "Renko"
-        image: "/img/Renko_OJAM-FELT.jpg"
-        role: "ORANGE★JAM & FELT"
-        url: "https://twitter.com/renko_"
-  - year: "2023"
-    guests:
-      - name: "A-One Records"
-        image: "/img/A-One_Records_Logo_Square.png"
-        role: "Inaugural Performance"
-        url: "https://lit.link/en/aonejp"
-      - name: "Punderfullll"
-        image: "/img/Pun Photo Square.png"
-        role: "Cosplay & Streaming"
-        url: "https://linktr.ee/punderfullll"
+  - year_top: "20"
+    year_bottom: "26"
+    bg_images:
+      - "/img/guests/timeline_1_left.png"
+      - "/img/guests/timeline_1_right.png"
+    left_sections:
+      - empty: false
+        name: "beatMario"
+        avatar: "/img/guests/tl_beatmario.png"
+        url: "https://cool-create.cc/"
+      - empty: false
+        name: "MARON"
+        avatar: "/img/guests/tl_maron.png"
+        url: "https://www.iosysos.com/"
+    right_sections:
+      - empty: false
+        name: "Yaboi Matoi"
+        avatar: "/img/guests/tl_yaboimatoi.png"
+        url: "https://www.youtube.com/@YaboiMatoi"
+      - empty: false
+        name: "Suzukann"
+        avatar: "/img/guests/tl_suzukann.png"
+        url: "https://x.com/suzukannn"
+  - year_top: "20"
+    year_bottom: "27"
+    bg_images:
+      - "/img/guests/timeline_2_col1.png"
+      - "/img/guests/timeline_2_col2.png"
+      - "/img/guests/timeline_2_col3.png"
+      - "/img/guests/timeline_2_col4.png"
+    left_sections:
+      - empty: true
+      - empty: false
+        name: "Akai Ryu-sei"
+        avatar: "/img/guests/tl_akai_ryusei.png"
+        url: "https://x.com/akairyusei"
+      - empty: true
+    right_sections:
+      - empty: false
+        name: "Hoshibako Works"
+        avatar: "/img/guests/tl_hoshibako.png"
+        url: "https://hoshibako.thebase.in/"
+      - empty: false
+        name: "YONA"
+        avatar: "/img/guests/tl_yona.svg"
+        url: "https://x.com/"
+  - year_top: "20"
+    year_bottom: "25"
+    bg_images:
+      - "/img/guests/timeline_3_left.png"
+      - "/img/guests/timeline_3_right.png"
+    left_sections:
+      - empty: false
+        name: "A-One"
+        avatar: "/img/guests/tl_aone.png"
+        url: "http://a-one-records.com/"
+      - empty: false
+        name: "TAMusic"
+        avatar: "/img/guests/tl_tamusic.png"
+        url: "http://tamusic.jp/"
+      - empty: false
+        name: "Miko"
+        avatar: "/img/guests/tl_miko.png"
+        url: "https://www.iosysos.com/"
+    right_sections:
+      - empty: false
+        name: "Shihori"
+        avatar: "/img/guests/tl_shihori.png"
+        url: "https://www.shihori.com/"
+      - empty: false
+        name: "Suzukann"
+        avatar: "/img/guests/tl_suzukann.png"
+        url: "https://x.com/suzukannn"
+      - empty: false
+        name: "Hakurei "
+        name_line2: "Shrine Office"
+        avatar: "/img/guests/tl_hakurei.png"
+        url: "https://hakurei-sukeikai.com/"
+  - year_top: "20"
+    year_bottom: "24"
+    bg_images:
+      - "/img/guests/timeline_4_left.png"
+      - "/img/guests/timeline_4_right.png"
+    left_sections:
+      - empty: false
+        name: "A-One"
+        avatar: "/img/guests/tl_aone.png"
+        url: "http://a-one-records.com/"
+      - empty: false
+        name: "Punderfullll"
+        avatar: "/img/guests/tl_punderful.png"
+        url: "https://www.twitch.tv/punderfullll"
+      - empty: false
+        name: "TAMusic"
+        avatar: "/img/guests/tl_tamusic.png"
+        url: "http://tamusic.jp/"
+    right_sections:
+      - empty: false
+        name: "Shihori"
+        avatar: "/img/guests/tl_shihori.png"
+        url: "https://www.shihori.com/"
+      - empty: false
+        name: "Renko"
+        avatar: "/img/guests/tl_renko.png"
+        url: "https://orange-jam.net/"
+      - empty: false
+        name: "Odyssey "
+        name_line2: "Eurobeat"
+        avatar: "/img/guests/tl_odyssey.png"
+        url: "https://odysseyeurobeat.com/"
+  - year_top: "20"
+    year_bottom: "23"
+    bg_images:
+      - "/img/guests/timeline_5_left.png"
+      - "/img/guests/timeline_5_right.png"
+    left_sections:
+      - empty: false
+        name: "Lyrica Live"
+        avatar: "/img/guests/tl_lyrica.png"
+        url: "https://www.youtube.com/@LyricaLive"
+      - empty: false
+        name: "TAMusic"
+        avatar: "/img/guests/tl_tamusic.png"
+        url: "http://tamusic.jp/"
+    right_sections:
+      - empty: false
+        name: "Odyssey "
+        name_line2: "Eurobeat"
+        avatar: "/img/guests/tl_odyssey.png"
+        url: "https://odysseyeurobeat.com/"
+      - empty: false
+        name: "Punderfullll"
+        avatar: "/img/guests/tl_punderful.png"
+        url: "https://www.twitch.tv/punderfullll"
+      - empty: false
+        name: "Gensokyo Radio"
+        avatar: "/img/guests/tl_gensokyo_radio.png"
+        url: "https://gensokyoradio.net/"
+
+performers_section:
+  title: "2027 DJs & Performers"
 
 performers:
-  - name: "A-One"
-    image: "/img/A-One_Records_Logo_Square.png"
-    desc: "The Eurobeat powerhouses return to ignite the stage with relentless energy and classic Touhou anthems."
-    url: "https://lit.link/en/aonejp"
-  - name: "TAMUSIC"
-    image: "/img/Tama thumbnail.png"
-    desc: "Coming back for another unforgettable year, please give a warm welcome back to the talented musicians of TAMusic!"
-    url: "https://twitter.com/tamusic"
-  - name: "SHIHORI"
-    image: "/img/Shihori sq.png"
-    desc: "Renowned international singer/songwriter delivering electrifying vocal performances across anime and Touhou arranges."
-    url: "https://www.shihoriartist.com/"
-  - name: "Odyssey"
-    image: "/img/Odyssey - EB Icon.png"
-    desc: "Blistering eurobeat synthesizers and unforgettable vocal melodies that rock the convention hall."
-    url: "https://linktr.ee/odysseyeurobeat"
-  - name: "miko"
-    image: "/img/Miko Sq.png"
-    desc: "Iconic vocalist behind classic Touhou hits like Cirno's Perfect Math Class and Marisa Stole the Precious Thing."
-    url: "https://miko-nyu.booth.pm/"
-  - name: "Renko"
-    image: "/img/Renko_OJAM-FELT.jpg"
-    desc: "Celebrated English lyricist and vocalist bringing poignant melodies and evocative storytelling to life."
-    url: "https://twitter.com/renko_"
+  - name: "Name here"
+    image: "/img/guests/perf_1.png"
+    label: "Coming back for a third year, please give a warm welcome back to the talented musicians of TAMusic!  .."
+    more_text: ".see more"
+  - name: "Name here"
+    image: "/img/guests/perf_2.png"
+    label: "Label here"
+  - name: "Name here"
+    image: "/img/guests/perf_3.png"
+    label: "Label here"
+  - name: "Name here"
+    image: "/img/guests/perf_4.png"
+    label: "Label here"
+  - name: "Name here"
+    image: "/img/guests/perf_5.png"
+    label: "Label here"
+  - name: "Name here"
+    image: "/img/guests/perf_6.png"
+    label: "Label here"
