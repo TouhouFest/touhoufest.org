@@ -1,9 +1,10 @@
 +++
-title = "Vendors Directory"
+title = "Vendors"
 weight = 4
+
+[extra]
+hide_header = true
+container_class = "tf-vendors-page-body"
 +++
 
-{{ <page_header title="2026 Vendor Hall Directory" subtitle="Discover official anime merchandise
-dealers, commercial exhibit booths, apparel shops, and figure retailers." /> }}
-
-{{ <exhibitors_grid type="vendors" /> }}
+{{ <vendors_page /> }}

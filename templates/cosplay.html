@@ -1,0 +1,318 @@
+{% extends "base.html" %}
+{% block content %}
+{% set data = load_data(path="data/cosplay.yml") %}
+<div class="cosplay-page">
+<section class="cosplay-hero">
+<div class="cosplay-hero__bg" aria-hidden="true">
+<img src="{{ get_url(path=data.hero.image) }}" alt="{{ data.hero.image_alt }}" class="cosplay-hero__bg-img">
+</div>
+<div class="cosplay-hero__content">
+<div class="cosplay-hero__title-box tf-hero-box">
+<h1 class="cosplay-hero__title tf-hero-title">{{ data.hero.title }}</h1>
+</div>
+</div>
+</section>
+<div class="cosplay-main-stack">
+<section class="cosplay-photoshoots" id="photoshoots">
+<div class="tf-mod-divider cosplay-divider cosplay-divider--photoshoots">
+<div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
+<img src="{{ get_url(path=data.photoshoots.divider_image) }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--photoshoots">
+<div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
+</div>
+<div class="tf-mod-divider-top cosplay-divider__top-gohei" aria-hidden="true"></div>
+<div class="tf-mod-divider-inner cosplay-divider__content cosplay-divider__content--with-details">
+<div class="cosplay-divider__title-group">
+<h2 class="tf-mod-divider-title cosplay-divider__title">{{ data.photoshoots.title }}</h2>
+<p class="tf-mod-divider-subtitle cosplay-divider__subtitle">{{ data.photoshoots.subtitle }}</p>
+</div>
+<div class="cosplay-location-pill cosplay-location-pill--light">
+<span class="cosplay-icon cosplay-icon--location"></span>
+<span>{{ data.photoshoots.location }}</span>
+</div>
+</div>
+<div class="cosplay-divider__bottom" aria-hidden="true">
+<div class="cosplay-divider__bottom-bar"></div>
+<div class="tf-mod-divider-silhouette cosplay-divider__silhouette"></div>
+</div>
+</div>
+<div class="cosplay-schedule-box">
+<div class="cosplay-schedule-tabs">
+{% for tab in data.photoshoots.tabs %}
+<div class="cosplay-schedule-tab{% if tab.active %} cosplay-schedule-tab--active{% endif %}{% if loop.index == 2 %} cosplay-schedule-tab--middle{% endif %}">
+<span>{{ tab.label }}</span>
+</div>
+{% endfor %}
+</div>
+{% for event in data.photoshoots.events %}
+<div class="cosplay-schedule-cell">
+<h3 class="cosplay-schedule-cell__title">{{ event.title }}</h3>
+<div class="cosplay-schedule-cell__time">
+<span class="cosplay-icon cosplay-icon--clock"></span>
+<span>{{ event.time }}</span>
+</div>
+<div class="cosplay-schedule-cell__info">
+<div class="cosplay-schedule-cell__info-label">
+<span class="cosplay-icon cosplay-icon--person-burst"></span>
+<span>{{ data.photoshoots.characters_label }}</span>
+</div>
+<p class="cosplay-schedule-cell__characters">{{ event.characters }}</p>
+</div>
+<a href="{{ event.url }}" class="cosplay-jumplink">
+<span class="cosplay-jumplink__text">{{ data.photoshoots.link_label }}</span>
+<span class="cosplay-icon cosplay-icon--caret-right"></span>
+</a>
+</div>
+{% endfor %}
+</div>
+<p class="cosplay-body-note">{{ data.photoshoots.note }}</p>
+</section>
+<div class="tf-mod-divider cosplay-divider cosplay-divider--workshops">
+<div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
+<img src="{{ get_url(path=data.workshops.divider_image) }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--workshops">
+<div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
+</div>
+<div class="tf-mod-divider-top cosplay-divider__top-gohei" aria-hidden="true"></div>
+<div class="tf-mod-divider-inner cosplay-divider__content">
+<h2 class="tf-mod-divider-title cosplay-divider__title">{{ data.workshops.title }}</h2>
+</div>
+<div class="cosplay-divider__bottom" aria-hidden="true">
+<div class="cosplay-divider__bottom-bar"></div>
+<div class="tf-mod-divider-silhouette cosplay-divider__silhouette"></div>
+</div>
+</div>
+<p class="cosplay-body-note">{{ data.workshops.intro }}</p>
+<div class="cosplay-workshops-row">
+{% for item in data.workshops.items %}
+<article class="cosplay-workshop-card">
+<div class="cosplay-workshop-card__header">
+<h3 class="cosplay-workshop-card__title">{{ item.title }}</h3>
+<div class="cosplay-workshop-card__image-pad">
+<div class="cosplay-workshop-card__image-frame">
+<img src="{{ get_url(path=item.image) }}" alt="{{ item.image_alt }}" class="cosplay-workshop-card__image cosplay-workshop-card__image--{{ loop.index }}">
+</div>
+</div>
+</div>
+<div class="cosplay-workshop-card__loc-heading">
+<span>{{ data.workshops.location_heading }}</span>
+<span>{{ item.location_name }}</span>
+</div>
+<div class="cosplay-workshop-card__body">
+<div class="cosplay-location-pill cosplay-location-pill--dark">
+<span class="cosplay-icon cosplay-icon--location-dark"></span>
+<span>{{ item.location_tag }}</span>
+</div>
+<p class="cosplay-workshop-card__desc">{{ item.description }}</p>
+</div>
+</article>
+{% if not loop.last %}
+<div class="cosplay-ribbon cosplay-ribbon--mobile-only" aria-hidden="true"></div>
+{% endif %}
+{% endfor %}
+</div>
+<section class="cosplay-masquerade" id="masquerade">
+<div class="tf-mod-divider cosplay-divider cosplay-divider--masquerade">
+<div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
+<img src="{{ get_url(path=data.masquerade.divider_image) }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--masquerade">
+<div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
+</div>
+<div class="tf-mod-divider-top cosplay-divider__top-gohei" aria-hidden="true"></div>
+<div class="tf-mod-divider-inner cosplay-divider__content">
+<h2 class="tf-mod-divider-title cosplay-divider__title">{{ data.masquerade.title }}</h2>
+</div>
+<div class="cosplay-divider__bottom" aria-hidden="true">
+<div class="cosplay-divider__bottom-bar"></div>
+<div class="tf-mod-divider-silhouette cosplay-divider__silhouette"></div>
+</div>
+</div>
+<div class="cosplay-categories-block">
+<h3 class="cosplay-section-h3">{{ data.masquerade.categories_heading }}</h3>
+<p class="cosplay-body-note">{{ data.masquerade.categories_intro }}</p>
+<div class="cosplay-categories-row">
+{% for cat in data.masquerade.categories %}
+<article class="cosplay-category-card">
+<div class="cosplay-category-card__top">
+<div class="cosplay-category-card__image-frame">
+<img src="{{ get_url(path=cat.image) }}" alt="{{ cat.image_alt }}" class="cosplay-category-card__image cosplay-category-card__image--{{ cat.key }}">
+</div>
+<h4 class="cosplay-category-card__title">{{ cat.title }}</h4>
+<p class="cosplay-category-card__desc">{{ cat.description }}</p>
+</div>
+<a href="{{ cat.url }}" class="cosplay-btn-red">
+<span class="cosplay-btn-red__text">{{ data.masquerade.apply_label }}</span>
+<span class="cosplay-icon cosplay-icon--caret-right-light"></span>
+</a>
+</article>
+{% endfor %}
+</div>
+</div>
+{% for detail in data.masquerade.details %}
+<div class="cosplay-detail-block">
+<h3 class="cosplay-section-h3 cosplay-detail-block__h3">{{ detail.heading }}</h3>
+<p class="cosplay-detail-block__desc">{{ detail.description }}</p>
+<div class="cosplay-red-bar">
+<span>{{ detail.awards_bar }}</span>
+</div>
+<div class="cosplay-awards-row">
+{% for award in detail.awards %}
+<article class="cosplay-award-col">
+<div class="cosplay-award-col__header">
+<span class="cosplay-icon cosplay-icon--medal"></span>
+<h4 class="cosplay-award-col__title">
+<span>{{ award.title_line1 }}</span>
+{% if award.title_line2 %}
+<span>{{ award.title_line2 }}</span>
+{% endif %}
+</h4>
+</div>
+<div class="cosplay-award-col__prize">
+<span>{{ detail.prize_label }}</span>
+<span>{{ award.prize }}</span>
+</div>
+<p class="cosplay-award-col__desc">{{ award.desc_prefix }}{% if award.desc_bold %}<strong class="cosplay-award-col__desc-bold">{{ award.desc_bold }}</strong>{% endif %}{% if award.desc_suffix %}{{ award.desc_suffix }}{% endif %}</p>
+<div class="cosplay-award-col__link-wrap">
+<a href="{{ award.url }}" class="cosplay-jumplink">
+<span class="cosplay-jumplink__text">{{ detail.link_label }}</span>
+<span class="cosplay-icon cosplay-icon--caret-right"></span>
+</a>
+</div>
+</article>
+{% if not loop.last %}
+<div class="cosplay-ribbon cosplay-ribbon--mobile-only" aria-hidden="true"></div>
+{% endif %}
+{% endfor %}
+</div>
+{% if loop.first %}
+<div class="cosplay-ribbon" aria-hidden="true"></div>
+{% endif %}
+</div>
+{% endfor %}
+<div class="cosplay-itinerary-block">
+<div class="cosplay-red-bar">
+<span>{{ data.masquerade.itinerary.heading }}</span>
+</div>
+<div class="cosplay-itinerary-row">
+{% for item in data.masquerade.itinerary.items %}
+<div class="cosplay-itinerary-col">
+<h4 class="cosplay-itinerary-col__title">{{ item.title }}</h4>
+<div class="cosplay-itinerary-col__meta">
+<div class="cosplay-itinerary-col__day">
+<span class="cosplay-icon cosplay-icon--clock"></span>
+<span>{{ item.day }}</span>
+</div>
+<div class="cosplay-itinerary-col__time">{{ item.time }}</div>
+</div>
+<p class="cosplay-itinerary-col__desc">{{ item.description }}</p>
+</div>
+{% endfor %}
+</div>
+</div>
+<p class="cosplay-body-note">{{ data.masquerade.note }}</p>
+</section>
+<div class="tf-mod-divider cosplay-divider cosplay-divider--guests">
+<div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
+<img src="{{ get_url(path=data.guests.divider_image) }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--guests">
+<div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
+</div>
+<div class="tf-mod-divider-top cosplay-divider__top-gohei" aria-hidden="true"></div>
+<div class="tf-mod-divider-inner cosplay-divider__content">
+<h2 class="tf-mod-divider-title cosplay-divider__title">{{ data.guests.title }}</h2>
+</div>
+<div class="cosplay-divider__bottom" aria-hidden="true">
+<div class="cosplay-divider__bottom-bar"></div>
+<div class="tf-mod-divider-silhouette cosplay-divider__silhouette"></div>
+</div>
+</div>
+<div class="cosplay-guests-grid">
+{% for guest in data.guests.items %}
+<article class="cosplay-guest-card">
+<div class="cosplay-guest-card__header">
+<div class="cosplay-guest-card__role">{{ guest.role }}</div>
+<h3 class="cosplay-guest-card__name">{{ guest.name }}</h3>
+<div class="cosplay-guest-card__portrait-pad">
+<div class="cosplay-guest-card__portrait-frame">
+<img src="{{ get_url(path=data.guests.circle_bg) }}" alt="" class="cosplay-guest-card__circle-bg">
+<div class="cosplay-guest-card__photo-wrap">
+<img src="{{ get_url(path=guest.image) }}" alt="{{ guest.name }}" class="cosplay-guest-card__photo">
+</div>
+</div>
+</div>
+</div>
+<div class="cosplay-guest-card__body">
+<p class="cosplay-guest-card__bio">{{ guest.bio }}</p>
+<div class="cosplay-guest-card__links">
+{% for link in guest.links %}
+<a href="{{ link.url }}" class="cosplay-guest-link">
+<span class="cosplay-icon cosplay-icon--brand-{{ link.label | lower }}"></span>
+<span class="cosplay-guest-link__text">{{ link.label }}</span>
+{% if link.label != "Twitter" %}
+<span class="cosplay-icon cosplay-icon--caret-right-dark"></span>
+{% endif %}
+<span class="cosplay-icon cosplay-icon--external-dark"></span>
+</a>
+{% endfor %}
+</div>
+</div>
+{% if loop.index <= 2 %}
+<div class="cosplay-ribbon" aria-hidden="true"></div>
+{% elif loop.index == 3 %}
+<div class="cosplay-ribbon cosplay-ribbon--mobile-only" aria-hidden="true"></div>
+{% endif %}
+</article>
+{% endfor %}
+</div>
+</div>
+<section class="cosplay-maps-section" id="maps">
+<div class="tf-mod-divider cosplay-divider cosplay-divider--maps">
+<div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
+<img src="{{ get_url(path=data.maps.divider_image) }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--maps">
+<div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
+</div>
+<div class="tf-mod-divider-top cosplay-divider__top-gohei" aria-hidden="true"></div>
+<div class="tf-mod-divider-inner cosplay-divider__content">
+<h2 class="tf-mod-divider-title cosplay-divider__title">{{ data.maps.title }}</h2>
+</div>
+<div class="cosplay-divider__bottom" aria-hidden="true">
+<div class="cosplay-divider__bottom-bar"></div>
+<div class="tf-mod-divider-silhouette cosplay-divider__silhouette"></div>
+</div>
+</div>
+<div class="cosplay-maps-tabs tf-mod-map-tabs">
+{% for tab in data.maps.tabs %}
+<button type="button" class="cosplay-map-tab tf-mod-map-tab{% if tab.active %} cosplay-map-tab--active is-active{% endif %}">
+<span>{{ tab.label }}</span>
+</button>
+{% endfor %}
+</div>
+<div class="cosplay-map-card tf-mod-map-stage">
+<div class="tf-mod-map-panel is-active">
+<img src="{{ get_url(path=data.maps.card_image) }}" alt="{{ data.maps.card_alt }}" class="cosplay-map-card__img">
+</div>
+<button type="button" class="cosplay-map-card__zoom tf-mod-map-zoom" aria-label="{{ data.maps.zoom_label }}">
+<span class="cosplay-icon cosplay-icon--plus"></span>
+</button>
+</div>
+</section>
+<section class="cosplay-callouts-grid">
+{% for card in data.callouts %}
+<article class="cosplay-callout-card cosplay-callout-card--{{ card.key }}">
+<div class="cosplay-callout-card__icon-wrap">
+<img src="{{ get_url(path=card.image) }}" alt="" class="cosplay-callout-card__icon cosplay-callout-card__icon--{{ card.key }}">
+</div>
+<div class="cosplay-callout-card__content">
+<div class="cosplay-callout-card__copy">
+<h3 class="cosplay-callout-card__title">{{ card.title }}</h3>
+<p class="cosplay-callout-card__desc">{{ card.description }}</p>
+</div>
+<a href="{{ card.button_url }}" class="cosplay-btn-cream">
+<span class="cosplay-btn-cream__text">{{ card.button_label }}</span>
+<span class="cosplay-icon cosplay-icon--caret-right-dark"></span>
+{% if card.external %}
+<span class="cosplay-icon cosplay-icon--external-dark"></span>
+{% endif %}
+</a>
+</div>
+</article>
+{% endfor %}
+</section>
+</div>
+{% endblock content %}

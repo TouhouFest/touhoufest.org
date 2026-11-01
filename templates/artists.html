@@ -1,0 +1,329 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+{% set data = load_data(path="data/artists.yml") %}
+<div class="tf-artists-page">
+<section class="tf-hero-banner tf-artists-hero">
+<div class="tf-artists-hero-bg" aria-hidden="true">
+<img src="{{ get_url(path=data.hero.bg_image) }}" alt="" />
+</div>
+<div class="tf-hero-container tf-artists-hero-inner">
+<div class="tf-hero-box tf-artists-hero-card">
+<h1 class="tf-hero-title tf-artists-hero-title">{{ data.hero.title }}</h1>
+</div>
+</div>
+</section>
+
+<div class="tf-artists-main">
+<section class="tf-artists-section tf-artists-featured-sec">
+<div class="tf-artists-section-head">
+<h2 class="tf-artists-h2">{{ data.featured_section.title }}</h2>
+</div>
+<div class="tf-artists-feat-grid">
+{% for artist in data.featured %}
+<article class="tf-artists-feat-card">
+<div class="tf-artists-feat-art">
+<img class="tf-artists-feat-img" src="{{ get_url(path=artist.image) }}" alt="{{ artist.name }}" />
+</div>
+<div class="tf-artists-feat-content">
+<div class="tf-artists-feat-headline">
+<div class="tf-artists-feat-title">
+<p>{{ artist.name }}</p>
+</div>
+</div>
+<div class="tf-artists-feat-body">
+<p class="tf-artists-feat-bio">{{ artist.bio }}</p>
+<a class="tf-artists-feat-btn" href="{{ artist.url }}">
+<span class="tf-artists-feat-btn-label">{{ data.featured_section.cta_label }}</span>
+<span class="tf-artists-feat-btn-icon"><img src="{{ get_url(path='img/shared/chevron_dark.svg') }}" alt="" /></span>
+</a>
+</div>
+</div>
+<div class="tf-artists-feat-frame" aria-hidden="true">
+<div class="tf-artists-feat-top-glow">
+<img class="tf-artists-feat-glow-desktop" src="{{ get_url(path='img/artists/card_top_gradient.svg') }}" alt="" />
+<img class="tf-artists-feat-glow-mobile" src="{{ get_url(path='img/artists/card_top_gradient_mobile.svg') }}" alt="" />
+</div>
+{% for side in ["left", "right"] %}
+<div class="tf-artists-feat-corner tf-artists-feat-corner--{{ side }}">
+{% if side == "right" %}<div class="tf-artists-feat-corner-mirror">{% endif %}
+<div class="tf-artists-feat-corner-border">
+<div class="tf-artists-feat-corner-accent-box">
+<div class="tf-artists-feat-corner-accent-rot">
+<img class="tf-artists-feat-corner-accent" src="{{ get_url(path='img/shared/card_accent.svg') }}" alt="" />
+</div>
+</div>
+<img class="tf-artists-feat-corner-base" src="{{ get_url(path='img/shared/card_streamer.svg') }}" alt="" />
+</div>
+{% if side == "right" %}</div>{% endif %}
+</div>
+{% endfor %}
+<div class="tf-artists-feat-border"></div>
+</div>
+</article>
+{% endfor %}
+</div>
+</section>
+
+<section class="tf-artists-section tf-artists-roster-sec">
+<div class="tf-artists-section-head">
+<h2 class="tf-artists-h2">{{ data.roster_section.title }}</h2>
+</div>
+<div class="tf-artists-roster-wrap">
+<div class="tf-artists-search-outer">
+<div class="tf-artists-search-bar">
+<div class="tf-artists-search-icon" aria-hidden="true">
+<img src="{{ get_url(path='img/artists/icon_search.svg') }}" alt="" />
+</div>
+<div class="tf-artists-search-input">
+<span>{{ data.roster_section.search_placeholder }}</span>
+</div>
+</div>
+</div>
+<div class="tf-artists-roster-grid">
+{% for artist in data.roster %}
+<div class="tf-roster-card tf-roster-card--frameless tf-artists-roster-card">
+<div class="tf-artists-roster-inner">
+<div class="tf-artists-roster-name">
+{% if artist.lines %}
+{% for line in artist.lines %}
+<p>{{ line }}</p>
+{% endfor %}
+{% else %}
+<p>{{ artist.name }}</p>
+{% endif %}
+</div>
+<div class="tf-artists-roster-frame">
+<div class="tf-artists-roster-back">
+<div class="tf-artists-roster-back-fill"></div>
+<img class="tf-artists-roster-dots" src="{{ get_url(path='img/shared/card_dots.svg') }}" alt="" aria-hidden="true" />
+<a class="tf-artists-roster-link" href="{{ artist.url }}">
+<span class="tf-artists-roster-link-text">{{ data.roster_section.cta_label }}</span>
+<img class="tf-artists-roster-link-icon" src="{{ get_url(path='img/shared/icon_external_cream.svg') }}" alt="" />
+</a>
+</div>
+<div class="tf-artists-roster-avatar">
+{% if artist.bg_image %}
+<img src="{{ get_url(path=artist.bg_image) }}" alt="" aria-hidden="true" />
+{% endif %}
+<img src="{{ get_url(path=artist.image) }}" alt="{{ artist.name }}" />
+</div>
+</div>
+<p class="tf-artists-roster-table">{{ artist.table }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</section>
+
+<section class="tf-artists-fullbleed tf-artists-maps-sec">
+<div class="tf-artists-divider tf-artists-divider--maps tf-mod-divider">
+<div class="tf-artists-divider-bg tf-mod-divider-bg" aria-hidden="true">
+<img class="tf-artists-divider-bg-base" src="{{ get_url(path='img/Freeze Background.png') }}" alt="" />
+<img class="tf-artists-divider-bg-photo" src="{{ get_url(path='img/artists/maps_banner_bg.jpg') }}" alt="" />
+<div class="tf-artists-divider-bg-tint"></div>
+</div>
+<div class="tf-artists-divider-vignette tf-mod-divider-vignette" aria-hidden="true"></div>
+<div class="tf-artists-divider-top-deco" aria-hidden="true">
+{% for _ in range(end=8) %}
+<div class="tf-artists-divider-tile">
+<div class="tf-artists-divider-tile-rot">
+<div class="tf-artists-divider-tile-repeat">
+<div class="tf-artists-streamer-border">
+<div class="tf-artists-streamer-accent-box">
+<div class="tf-artists-streamer-accent-rot">
+<img class="tf-artists-streamer-accent" src="{{ get_url(path='img/shared/streamer_accent_cream.svg') }}" alt="" />
+</div>
+</div>
+<img class="tf-artists-streamer-base" src="{{ get_url(path='img/artists/streamer_cream.svg') }}" alt="" />
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+<div class="tf-artists-divider-bottom-wave tf-mod-divider-bottom" aria-hidden="true"></div>
+<div class="tf-artists-divider-inner tf-mod-divider-inner">
+<h2 class="tf-artists-divider-title tf-mod-divider-title">{{ data.maps_section.title }}</h2>
+</div>
+</div>
+
+<div class="tf-map-switcher tf-artists-maps-body tf-mod-map">
+{% for tab in data.maps_section.tabs %}
+<input class="tf-artists-map-radio tf-mod-map-radio" type="radio" name="tf-artists-map-tab" id="tf-map-tab-{{ loop.index }}"{% if tab.checked %} checked{% endif %} />
+{% endfor %}
+<div class="tf-artists-map-tabs tf-mod-map-tabs" role="tablist" aria-label="{{ data.maps_section.title }}">
+{% for tab in data.maps_section.tabs %}
+<label class="tf-artists-map-tab tf-artists-map-tab--{{ loop.index }} tf-mod-map-tab tf-mod-map-tab--{{ loop.index }}" for="tf-map-tab-{{ loop.index }}">{{ tab.title }}</label>
+{% endfor %}
+</div>
+<div class="tf-artists-map-viewer tf-mod-map-stage">
+<div class="tf-artists-map-canvas">
+{% for tab in data.maps_section.tabs %}
+<img class="tf-artists-map-img tf-artists-map-img--{{ loop.index }} tf-mod-map-panel tf-mod-map-panel--{{ loop.index }}" src="{{ get_url(path=tab.image) }}" alt="{{ tab.alt }}" />
+{% endfor %}
+</div>
+<button class="tf-artists-map-zoom tf-mod-map-zoom" type="button" aria-label="{{ data.maps_section.zoom_label }}">
+<img class="tf-artists-map-zoom-circle tf-mod-map-zoom-circle" src="{{ get_url(path='img/shared/zoom_circle.svg') }}" alt="" />
+<img class="tf-artists-map-zoom-plus tf-mod-map-zoom-plus" src="{{ get_url(path='img/shared/zoom_plus.svg') }}" alt="" />
+</button>
+</div>
+</div>
+</section>
+
+<section class="tf-artists-fullbleed tf-artists-past-sec">
+<div class="tf-artists-divider tf-artists-divider--past tf-mod-divider">
+<div class="tf-artists-divider-bg tf-mod-divider-bg" aria-hidden="true">
+<img class="tf-artists-divider-bg-past-desktop" src="{{ get_url(path='img/artists/past_banner_bg.jpg') }}" alt="" />
+<img class="tf-artists-divider-bg-past-mobile" src="{{ get_url(path='img/Freeze Background.png') }}" alt="" />
+<div class="tf-artists-divider-bg-tint"></div>
+</div>
+<div class="tf-artists-divider-vignette tf-mod-divider-vignette" aria-hidden="true"></div>
+<div class="tf-artists-divider-top-deco" aria-hidden="true">
+{% for _ in range(end=8) %}
+<div class="tf-artists-divider-tile">
+<div class="tf-artists-divider-tile-rot">
+<div class="tf-artists-divider-tile-repeat">
+<div class="tf-artists-streamer-border">
+<div class="tf-artists-streamer-accent-box">
+<div class="tf-artists-streamer-accent-rot">
+<img class="tf-artists-streamer-accent" src="{{ get_url(path='img/shared/streamer_accent_cream.svg') }}" alt="" />
+</div>
+</div>
+<img class="tf-artists-streamer-base" src="{{ get_url(path='img/artists/streamer_cream.svg') }}" alt="" />
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+<div class="tf-artists-divider-bottom-wave tf-mod-divider-bottom" aria-hidden="true"></div>
+<div class="tf-artists-divider-inner tf-mod-divider-inner">
+<h2 class="tf-artists-divider-title tf-mod-divider-title">{{ data.past_section.title }}</h2>
+</div>
+</div>
+
+<div class="tf-artists-polaroid-viewport">
+<div class="tf-artists-polaroid-wall">
+{% for item in data.past_artists %}
+<div class="tf-artists-polaroid-slot">
+<div class="tf-artists-polaroid-rot">
+<div class="tf-artists-polaroid-card tf-mod-polaroid tf-mod-polaroid--sm">
+<div class="tf-artists-polaroid-photo tf-mod-polaroid-photo">
+<img class="tf-artists-polaroid-photo-fg" src="{{ get_url(path=item.image) }}" alt="{{ item.lines | join(sep=' ') }}" />
+</div>
+<div class="tf-artists-polaroid-dots tf-mod-polaroid-dots">
+<img src="{{ get_url(path='img/shared/polaroid_dots.svg') }}" alt="" aria-hidden="true" />
+</div>
+<a class="tf-artists-polaroid-link" href="{{ item.url }}">
+<span class="tf-artists-polaroid-link-text">
+{% for line in item.lines %}
+<span class="tf-artists-polaroid-line">{{ line }}</span>
+{% endfor %}
+</span>
+<img class="tf-artists-polaroid-link-icon" src="{{ get_url(path='img/shared/icon_external_red.svg') }}" alt="" />
+</a>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+
+<div class="tf-artists-pager" aria-label="{{ data.past_section.title }}">
+{% for dir in ["prev", "next"] %}
+{% if dir == "next" %}
+<div class="tf-artists-pager-dots">
+<img src="{{ get_url(path='img/shared/pager_dot_inactive.svg') }}" alt="" />
+<img src="{{ get_url(path='img/shared/pager_dot_active.svg') }}" alt="" />
+<img src="{{ get_url(path='img/shared/pager_dot_inactive.svg') }}" alt="" />
+</div>
+{% endif %}
+<button class="tf-artists-pager-arrow tf-artists-pager-arrow--{{ dir }}" type="button" aria-label="{% if dir == 'prev' %}{{ data.past_section.prev_label }}{% else %}{{ data.past_section.next_label }}{% endif %}">
+<span class="tf-artists-pager-arrow-rot">
+<img class="tf-artists-pager-inner" src="{{ get_url(path='img/shared/zoom_circle.svg') }}" alt="" />
+<img class="tf-artists-pager-ring" src="{{ get_url(path='img/artists/pager_ring.svg') }}" alt="" />
+<img class="tf-artists-pager-chev" src="{{ get_url(path='img/artists/pager_chevron.svg') }}" alt="" />
+</span>
+</button>
+{% endfor %}
+</div>
+</section>
+
+<section class="tf-artists-section tf-artists-apply-sec">
+<div class="tf-artists-section-head">
+<h2 class="tf-artists-h2">{{ data.apply_section.title }}</h2>
+</div>
+<div class="tf-artists-ofuda-viewport">
+<div class="tf-artists-ofuda-pair">
+{% for card in data.apply_section.cards %}
+<div class="tf-artists-ofuda-slot tf-artists-ofuda-slot--{{ loop.index }}">
+<div class="tf-artists-ofuda-rot tf-artists-ofuda-rot--{{ loop.index }}">
+<article class="tf-artists-ofuda-card tf-mod-ofuda">
+<div class="tf-artists-ofuda-decor tf-mod-ofuda-decor" aria-hidden="true">
+<img class="tf-artists-ofuda-stroke tf-mod-ofuda-stroke" src="{{ get_url(path='img/shared/ofuda_stroke.svg') }}" alt="" />
+<img class="tf-artists-ofuda-seal tf-mod-ofuda-seal" src="{{ get_url(path='img/shared/ofuda_seal.svg') }}" alt="" />
+<div class="tf-artists-ofuda-vspike tf-mod-ofuda-vspike">
+<img class="tf-artists-ofuda-vdot" src="{{ get_url(path='img/artists/ofuda_dot.svg') }}" alt="" />
+<img class="tf-artists-ofuda-vbar" src="{{ get_url(path='img/shared/ofuda_spike_v.svg') }}" alt="" />
+</div>
+<div class="tf-artists-ofuda-hspike tf-mod-ofuda-hspike">
+<div class="tf-artists-ofuda-hspike-inner">
+<img class="tf-artists-ofuda-hdot" src="{{ get_url(path='img/artists/ofuda_dot.svg') }}" alt="" />
+<img class="tf-artists-ofuda-hbar" src="{{ get_url(path='img/shared/ofuda_spike_h.svg') }}" alt="" />
+</div>
+</div>
+</div>
+<div class="tf-artists-ofuda-content tf-artists-ofuda-content--{{ loop.index }} tf-mod-ofuda-body">
+{% if loop.index == 1 %}
+<div class="tf-artists-ofuda-icon tf-artists-ofuda-icon--pin" aria-hidden="true">
+<div class="tf-artists-pin-desktop">
+<img class="tf-artists-pin-shadow" src="{{ get_url(path='img/artists/ofuda_pin_shadow.svg') }}" alt="" />
+<img class="tf-artists-pin-ring" src="{{ get_url(path='img/artists/ofuda_pin_ring.svg') }}" alt="" />
+<img class="tf-artists-pin-body" src="{{ get_url(path='img/artists/ofuda_pin_body.svg') }}" alt="" />
+</div>
+<img class="tf-artists-pin-mobile" src="{{ get_url(path='img/artists/ofuda_yinyang_mobile.svg') }}" alt="" />
+</div>
+{% else %}
+<div class="tf-artists-ofuda-icon tf-artists-ofuda-icon--sakura" aria-hidden="true">
+{% for p in range(start=1, end=6) %}
+<span class="tf-artists-sakura-p tf-artists-sakura-p--{{ p }}"><img src="{{ get_url(path='img/artists/sakura_petal.svg') }}" alt="" /></span>
+{% endfor %}
+<img class="tf-artists-sakura-center" src="{{ get_url(path='img/artists/sakura_center.svg') }}" alt="" />
+</div>
+{% endif %}
+<h3 class="tf-artists-ofuda-title tf-mod-ofuda-title">{{ card.title }}</h3>
+<p class="tf-artists-ofuda-desc tf-mod-ofuda-desc">{{ card.desc }}</p>
+<a class="tf-artists-ofuda-btn tf-mod-ofuda-btn" href="{% if card.url %}{{ card.url }}{% else %}{{ get_url(path=card.path) }}{% endif %}">
+<span class="tf-artists-ofuda-btn-label">{{ card.cta_label }}</span>
+<span class="tf-artists-ofuda-btn-icon"><img src="{{ get_url(path='img/shared/chevron_cream.svg') }}" alt="" /></span>
+</a>
+</div>
+</article>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</section>
+
+<section class="tf-artists-discord-card tf-mod-callout tf-mod-callout--horiz is-discord">
+<div class="tf-artists-discord-icon tf-mod-callout-icon">
+<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="{{ data.discord_cta.icon_alt }}" />
+</div>
+<div class="tf-artists-discord-body tf-mod-callout-copy">
+<h2 class="tf-artists-discord-title tf-mod-callout-title">{{ data.discord_cta.title }}</h2>
+<p class="tf-artists-discord-desc tf-mod-callout-desc">{{ data.discord_cta.desc }}</p>
+<a class="tf-artists-discord-btn tf-mod-callout-btn" href="{{ data.discord_cta.url }}">
+<span class="tf-artists-discord-btn-label">{{ data.discord_cta.cta_label }}</span>
+<span class="tf-artists-discord-btn-icon"><img src="{{ get_url(path='img/shared/chevron_dark.svg') }}" alt="" /></span>
+</a>
+</div>
+</section>
+</div>
+</div>
+{% endblock content %}

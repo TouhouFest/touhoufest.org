@@ -1,0 +1,212 @@
+// ==========================================================================
+// TouhouFest Design Tokens, Variables & Mixins
+// ==========================================================================
+
+$tf-color-primary: #f9c650;
+$tf-color-primary-hover: #e5b33d;
+$tf-color-red: #bf3444;
+$tf-color-red-hover: #a82a39;
+$tf-color-dark: #221a28;
+$tf-color-subhead: #30293e;
+$tf-color-cream: #fbf7eb;
+$tf-color-yellow-light: #fffde7;
+$tf-color-white: #ffffff;
+$tf-color-muted: #564b58;
+$tf-color-disabled: #cbcbd2;
+$tf-color-coral: #ff4949;
+$tf-color-red-tint: #ffe1e1;
+$tf-color-accent-navy: #373852;
+$tf-color-accent-purple: #511154;
+$tf-color-accent-violet: #c13ded;
+$tf-color-accent-blue: #6279d3;
+$tf-font-heading: "Poppins", sans-serif;
+$tf-font-body: "Open Sans", sans-serif;
+$tf-radius-card: 5px;
+$tf-radius-feature: 15px;
+$tf-radius-tag: 20px;
+$tf-radius-pill: 35px;
+$tf-shadow-card: 3px 4px 13px rgba(99, 15, 40, 0.15);
+
+:root {
+  --tf-color-primary: #{$tf-color-primary};
+  --tf-color-primary-hover: #{$tf-color-primary-hover};
+  --tf-color-red: #{$tf-color-red};
+  --tf-color-red-hover: #{$tf-color-red-hover};
+  --tf-color-dark: #{$tf-color-dark};
+  --tf-color-subhead: #{$tf-color-subhead};
+  --tf-color-cream: #{$tf-color-cream};
+  --tf-color-yellow-light: #{$tf-color-yellow-light};
+  --tf-color-white: #{$tf-color-white};
+  --tf-color-muted: #{$tf-color-muted};
+  --tf-color-disabled: #{$tf-color-disabled};
+  --tf-color-coral: #{$tf-color-coral};
+  --tf-color-red-tint: #{$tf-color-red-tint};
+  --tf-color-accent-navy: #{$tf-color-accent-navy};
+  --tf-color-accent-purple: #{$tf-color-accent-purple};
+  --tf-color-accent-violet: #{$tf-color-accent-violet};
+  --tf-color-accent-blue: #{$tf-color-accent-blue};
+  --tf-font-heading: #{$tf-font-heading};
+  --tf-font-body: #{$tf-font-body};
+  --tf-font-size-h1: 56px;
+  --tf-font-size-h1-mobile: 34px;
+  --tf-font-size-h2: 34px;
+  --tf-font-size-h3: 24px;
+  --tf-font-size-body-lg: 20px;
+  --tf-font-size-body: 16px;
+  --tf-font-size-sm: 14px;
+  --tf-font-size-xs: 10px;
+  --tf-radius-card: #{$tf-radius-card};
+  --tf-radius-feature: #{$tf-radius-feature};
+  --tf-radius-tag: #{$tf-radius-tag};
+  --tf-radius-pill: #{$tf-radius-pill};
+  --tf-shadow-card: #{$tf-shadow-card};
+  --tf-gap-xs: 4px;
+  --tf-gap-sm: 8px;
+  --tf-gap-md: 16px;
+  --tf-gap-card: 24px;
+  --tf-gap-lg: 32px;
+  --tf-gap-section: 72px;
+  --tf-canvas-bg: #fbf7eb;
+  --tf-canvas-gradient: linear-gradient(144.4377deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  --tf-header-surface: #ffffff;
+  --tf-footer-surface: #30293e;
+  --tf-surface: #ffffff;
+  --tf-surface-card: #ffffff;
+  --tf-surface-paper: #fffde7;
+  --tf-surface-inset: #fbf7eb;
+  --tf-surface-navy: #373852;
+  --tf-surface-cream: #fbf7eb;
+  --tf-surface-dark: #30293e;
+  --tf-ink: #30293e;
+  --tf-text-primary: #221a28;
+  --tf-text-subtle: #7a7285;
+  --tf-text-title-dark: #fffde7;
+  --tf-accordion-ink: var(--bulma-text, #30293e);
+  --tf-border-subtle: rgba(0, 0, 0, 0.08);
+  --tf-border-card: #30293e;
+  --tf-border-strong: #4a3c57;
+  --tf-divider-svg: url("/border_top.svg");
+  --tf-accent: #bf3444;
+  --tf-accent-hover: #a82a39;
+  --tf-accent-purple: #511154;
+  --tf-accent-navy: #373852;
+  --bulma-primary: var(--tf-color-primary);
+  --bulma-danger: var(--tf-color-red);
+  --bulma-scheme-main: var(--tf-color-cream);
+  --bulma-text: var(--tf-color-subhead);
+  --bulma-text-strong: var(--tf-color-dark);
+  --bulma-family-primary: var(--tf-font-body);
+  --bulma-family-secondary: var(--tf-font-heading);
+}
+
+@mixin dark-mode {
+  :is([data-theme="dark"], body.dark-theme, :has(#theme-toggle:checked)) {
+    @content;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      @content;
+    }
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@mixin mask-stretch($uri) {
+  -webkit-mask: url($uri) no-repeat center / 100% 100%;
+  mask: url($uri) no-repeat center / 100% 100%;
+}
+@mixin absolute-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@mixin tf-h2 {
+  font:
+    800 34px / 1.1 "Poppins",
+    sans-serif;
+  margin: 0;
+}
+@mixin tf-h3 {
+  font:
+    700 24px / 1.2 "Poppins",
+    sans-serif;
+  margin: 0;
+}
+@mixin tf-body {
+  font:
+    400 16px / 1.3 "Open Sans",
+    sans-serif;
+  margin: 0;
+}
+@mixin tf-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 14px 39px;
+  border-radius: 35px;
+  font:
+    500 18px / 1.1 "Poppins",
+    sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+@mixin tf-canvas($deg: 138.51deg) {
+  width: 100%;
+  max-width: 100%;
+  @include flex-col-center;
+  gap: 48px;
+  padding-bottom: 48px;
+  background: #fbf7eb linear-gradient($deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+}
+
+@include dark-mode {
+  --tf-canvas-bg: #18131d;
+  --tf-canvas-gradient: linear-gradient(144.4377deg, #30293e 28.353%, #221a28 93.86%);
+  --tf-header-surface: #373852;
+  --tf-footer-surface: #241c2c;
+  --tf-surface: #30293e;
+  --tf-surface-card: #221a28;
+  --tf-surface-paper: #221a28;
+  --tf-surface-inset: #2a2538;
+  --tf-surface-navy: #373852;
+  --tf-surface-cream: #2b2233;
+  --tf-surface-dark: #1e1927;
+  --tf-ink: #fbf7eb;
+  --tf-text-primary: #fbf7eb;
+  --tf-text-subtle: #b8b0c2;
+  --tf-text-title-dark: #511154;
+  --tf-accordion-ink: #e2dce6;
+  --tf-border-subtle: rgba(255, 255, 255, 0.1);
+  --tf-border-card: #4f4a5c;
+  --tf-border-strong: #f9c650;
+  --tf-accent: #f9c650;
+  --tf-accent-hover: #e5b33d;
+  --tf-accent-purple: #c13ded;
+  --tf-accent-navy: #6279d3;
+  --tf-color-cream: #18131d;
+  --tf-color-yellow-light: #221a28;
+  --tf-color-subhead: #fbf7eb;
+  --tf-color-dark: #fbf7eb;
+  --tf-color-muted: #cbcbd2;
+  --bulma-body-background-color: #18131d;
+  --bulma-scheme-main: #18131d;
+  --bulma-text: #fbf7eb;
+  --bulma-text-strong: #ffffff;
+}

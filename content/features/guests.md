@@ -10,6 +10,4 @@ template = "guests.html"
 
 {{ <performers_grid /> }}
 
-{{ <discord /> }}
-
-{{ <newsletter /> }}
+{{ <guests_bottom_ctas /> }}

@@ -1,0 +1,383 @@
+/* ==========================================================================
+   FAQ Page
+   ========================================================================== */
+
+body:has(.tf-faq-page-body) {
+  background: var(--tf-surface-cream) linear-gradient(135.332deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+}
+main:has(.tf-faq-page-body) {
+  background: transparent;
+}
+
+.page-body-container.container.tf-faq-page-body,
+.container:not(.is-max-tablet):not(.is-max-desktop):not(.is-max-widescreen).tf-faq-page-body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.page-hero-banner.tf-faq-hero {
+  @include flex-column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 600px;
+  margin-bottom: 0;
+  padding: 286px max(24px, calc(50% - 585.5px)) 48px;
+  background: #30293e url("img/faq/hero_banner.jpg") no-repeat center 43.8px / cover;
+
+  .divider-wave-top {
+    display: none;
+  }
+  .page-hero-title-box {
+    width: 632px;
+    max-width: 100%;
+    padding: 56px 48px;
+    background-color: var(--tf-accent);
+    border-radius: 5px;
+    box-shadow: none;
+  }
+  .page-hero-title {
+    font: 800 56px / 1.1 var(--tf-font-heading);
+    color: var(--tf-text-title-dark);
+    margin: 0;
+  }
+}
+
+/* FAQ Accordion */
+.tf-faq-container,
+.tf-faq-callouts-container {
+  width: min(850px, calc(100% - 62px));
+}
+
+.tf-faq-container {
+  @include flex-column;
+  margin: 77px auto 0;
+  gap: 32px;
+
+  .tf-accordion {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+  .tf-faq-summary {
+    @include flex-column;
+    list-style: none;
+    cursor: pointer;
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+  .tf-faq-divider {
+    width: 100%;
+    height: 3px;
+    border-radius: 40px;
+    background-color: var(--tf-accent);
+  }
+
+  .tf-accordion-content {
+    padding: 32px;
+    border-radius: 0 0 30px 0;
+    background-color: var(--tf-surface-card);
+    color: var(--tf-ink);
+    font: 400 16px / 1.3 var(--tf-font-body);
+    transition:
+      background-color 300ms ease-out,
+      color 300ms ease-out;
+
+    a {
+      color: var(--tf-accent);
+      font-weight: 400;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 300ms ease-out;
+      &:hover {
+        color: var(--tf-color-red-hover);
+      }
+    }
+  }
+
+  .ada-pills,
+  .ada-limited-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ada-pills {
+    flex-wrap: wrap;
+  }
+  .ada-limited-row {
+    width: 100%;
+  }
+
+  .ada-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: 7px;
+    padding: 8px 14px 8px 8px;
+    border: 1px solid var(--tf-ink);
+    border-radius: 40px;
+    font: 400 14px / 1.3 var(--tf-font-body);
+    color: var(--tf-ink);
+    white-space: nowrap;
+    transition:
+      background-color 300ms ease-out,
+      color 300ms ease-out,
+      border-color 300ms ease-out,
+      transform 300ms ease-out;
+
+    .tf-icon {
+      flex-shrink: 0;
+      width: 17px;
+      height: 17px;
+      font-size: 17px;
+      vertical-align: 0;
+      color: var(--tf-ink);
+      -webkit-mask-size: 10.2px 13.7px;
+      mask-size: 10.2px 13.7px;
+    }
+  }
+
+  .ada-limited-row .ada-pill {
+    gap: 8px;
+    padding: 8px 16px 8px 8px;
+  }
+}
+
+.tf-faq-summary-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px 5px 0 0;
+  transition:
+    background-color 300ms ease-out,
+    color 300ms ease-out;
+}
+
+.tf-faq-q-prefix,
+.tf-faq-q-text {
+  font: 700 20px / 1.1 var(--tf-font-body);
+  color: var(--tf-ink);
+}
+.tf-faq-q-prefix {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tf-faq-q-text,
+.ada-limited-desc {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+.tf-faq-q-text {
+  text-align: left;
+}
+.tf-faq-q-mobile {
+  display: none;
+}
+.tf-faq-toggle-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--tf-accent);
+}
+.tf-faq-answer,
+.tf-ada-slot,
+.tf-ada-full-group {
+  @include flex-column;
+}
+.tf-faq-answer {
+  gap: 16px;
+}
+.tf-ada-slot {
+  gap: 24px;
+}
+.tf-ada-full-group {
+  gap: 10px;
+}
+.tf-faq-p {
+  margin: 0;
+  strong {
+    font-weight: 700;
+    color: inherit;
+  }
+}
+
+/* FAQ Bottom Callout Cards (layered on .tf-mod-callout-grid / .tf-mod-callout--vert) */
+.tf-faq-callouts-container {
+  margin: 77px auto;
+  align-items: flex-start;
+
+  .faq-callout-card {
+    justify-content: center;
+    gap: 40px;
+    min-width: 0;
+    min-height: 469px;
+    text-align: left;
+    box-shadow: none;
+    transition:
+      transform 300ms ease-out,
+      box-shadow 300ms ease-out,
+      border-color 300ms ease-out,
+      background-color 300ms ease-out;
+  }
+
+  .faq-callout-card-guidelines {
+    border: 1px solid var(--tf-accent);
+  }
+  .faq-callout-card-discord {
+    border: 1px solid transparent;
+  }
+  .faq-callout-icon,
+  .faq-discord-icon {
+    display: block;
+    width: 100px;
+    height: 100px;
+  }
+
+  .faq-discord-icon {
+    background-color: currentColor;
+    -webkit-mask: url("img/discord_card_icon.svg") center / contain no-repeat;
+    mask: url("img/discord_card_icon.svg") center / contain no-repeat;
+  }
+
+  .faq-callout-content {
+    @include flex-column;
+    flex: 0 0 auto;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+  }
+  .faq-callout-copy {
+    flex: 0 1 auto;
+    width: 100%;
+  }
+  .faq-callout-btn-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .faq-callout-btn {
+    width: auto;
+    min-height: 0;
+    box-shadow: none;
+    background-color: #fffde7;
+    transition:
+      background-color 300ms ease-out,
+      color 300ms ease-out,
+      border-color 300ms ease-out,
+      transform 300ms ease-out,
+      box-shadow 300ms ease-out;
+    &:hover {
+      background-color: #fffde7;
+      color: var(--tf-ink);
+    }
+  }
+
+  .faq-callout-chevron {
+    flex-shrink: 0;
+    width: 15px;
+    height: 16px;
+    margin: 0 -4px 0 -3px;
+  }
+}
+
+/* FAQ Responsive Breakpoints */
+@media screen and (max-width: 768px) {
+  .page-hero-banner.tf-faq-hero {
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 400px;
+    padding: 286px 31px 48px;
+    background-size: 226.1% auto;
+    background-position: 88.25% 18.6px;
+
+    .page-hero-title-box {
+      width: 100%;
+      padding: 32px 24px;
+    }
+    .page-hero-title {
+      font-size: 34px;
+    }
+  }
+
+  .tf-faq-q-desktop {
+    display: none;
+  }
+  .tf-faq-q-mobile {
+    display: inline;
+  }
+  .tf-faq-q-text {
+    padding-right: 18px;
+  }
+
+  .tf-faq-container {
+    .tf-accordion:is(:nth-child(9), :nth-child(12)) .tf-faq-q-text {
+      padding-right: 0;
+    }
+    .tf-accordion-content {
+      padding: 24px;
+    }
+    .ada-limited-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .tf-faq-callouts-container .faq-callout-card-discord {
+    min-height: 490px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .page-hero-banner.tf-faq-hero {
+    padding: 260px 16px 40px;
+    background-size: cover;
+    background-position: 80% bottom;
+  }
+  .tf-faq-container,
+  .tf-faq-callouts-container {
+    width: calc(100% - 32px);
+  }
+  .faq-callout-btn {
+    max-width: 100%;
+  }
+}
+
+/* FAQ Dark Mode */
+@include dark-mode {
+  &:is(body:has(.tf-faq-page-body)),
+  body:has(.tf-faq-page-body) {
+    background-image: linear-gradient(135.332deg, #30293e 28.353%, #221a28 93.86%);
+    @media screen and (max-width: 768px) {
+      background-image: linear-gradient(108.747deg, #30293e 28.353%, #221a28 93.86%);
+    }
+  }
+
+  .tf-faq-container .tf-accordion {
+    background-color: transparent;
+    border: none;
+  }
+
+  .tf-faq-callouts-container {
+    .faq-callout-card-guidelines {
+      background-color: #6279d3;
+      :is(.faq-callout-title, .faq-callout-desc) {
+        color: #fbf7eb;
+      }
+    }
+    :is(.faq-callout-card-discord, .faq-discord-icon, .faq-callout-card-discord .faq-callout-desc) {
+      color: #30293e;
+    }
+    :is(.faq-callout-btn, .faq-callout-btn:hover) {
+      background-color: #511154;
+    }
+  }
+}

@@ -3,28 +3,33 @@
 {% block header %}
   {% if not page.extra.hide_header %}
     {%- set header_title = page.extra.header_title | default(value=page.extra.hero_title | default(value=page.title)) -%}
+    {%- set hero_img = page.extra.hero_image | default(value=page.extra.image | default(value="")) -%}
+    {%- set hero_class = page.extra.hero_class | default(value="") -%}
+    {%- set hero_hide_wave = page.extra.hero_no_wave_bottom | default(value=false) -%}
     {% if page.extra.hero_body %}
-      {{ <page_header title={header_title} subtitle={page.extra.subtitle | default(value="")} description={page.extra.hero_body} /> }}
+      {{ <page_header title={header_title} subtitle={page.extra.subtitle | default(value="")} image={hero_img} hide_bottom_wave={hero_hide_wave} extra_class={hero_class} description={page.extra.hero_body} /> }}
     {% else %}
-      {{ <page_header title={header_title} subtitle={page.extra.subtitle | default(value="")} /> }}
+      {{ <page_header title={header_title} subtitle={page.extra.subtitle | default(value="")} image={hero_img} hide_bottom_wave={hero_hide_wave} extra_class={hero_class} /> }}
     {% endif %}
   {% endif %}
 {% endblock header %}
 
 {% block content %}
 {% if page.extra.toc %}
-<div class="guidelines-page-container container my-6 px-4">
-  <div class="columns is-desktop">
-    <aside class="column is-one-quarter-desktop guidelines-sidebar-col">
-      {% include "toc.html" %}
-    </aside>
-    <main class="column is-three-quarters-desktop guidelines-content-col">
+<div class="guidelines-page-wrapper">
+  <div class="guidelines-content-container">
+    {% include "toc.html" %}
+    <div class="guidelines-markdown-body">
       {{ page.content | safe }}
-    </main>
+    </div>
   </div>
 </div>
+{% elif page.extra.full_bleed %}
+<div class="page-body-fullbleed">
+  {{ page.content | safe }}
+</div>
 {% else %}
-<div class="page-body-container container">
+<div class="{% if page.extra.container_class %}{{ page.extra.container_class }}{% else %}page-body-container container{% endif %}">
   {{ page.content | safe }}
 </div>
 {% endif %}

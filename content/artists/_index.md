@@ -1,19 +1,5 @@
 +++
 title = "Artists"
-weight = 3
-
-[extra]
-image = "/banner.png"
+description = "Check out the talented artists participating in TouhouFest's Artist Alley!"
+template = "artists.html"
 +++
-
-{{ <featured_artists /> }}
-
-{{ <artist_roster /> }}
-
-{{ <event_maps /> }}
-
-{{ <past_artists_gallery /> }}
-
-{{ <sell_at_event /> }}
-
-{{ <discord /> }}
