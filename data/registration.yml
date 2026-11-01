@@ -1,0 +1,143 @@
+hero:
+  title_line1: "Registration &"
+  title_line2: "Applications"
+
+event_badge:
+  title: "Event Badge"
+  intro: "Badges get more expensive the closer we get to the event. Get them while they’re still cheap!"
+  guidelines_prefix: "Please ensure that you understand and abide by our "
+  guidelines_label: "Event Guidelines"
+  guidelines_url: "about/guidelines"
+  guidelines_suffix: " while attending the event."
+  verify_prefix: "After purchasing your badge, you can verify your badge status and get your QR code "
+  verify_label: "here"
+  verify_url: "https://registration.touhoufest.org/landing/"
+  verify_suffix: "."
+
+hero_badge:
+  title: "2026 Weekend Badge"
+  mobile_title: "2026 Full Weekend Badge"
+  button_text: "Buy badge"
+  url: "https://registration.touhoufest.org/touhoufest-2026"
+  stay_tuned_text: "Stay tuned!"
+
+pricing_schedule:
+  title: "2027 Badge pricing schedule"
+  headers:
+    date: "Date"
+    full_weekend: "Full Weekend"
+    saturday_pass: "Saturday Pass"
+    sunday_pass: "Sunday Pass"
+  tiers:
+    - name: "Early Tengu"
+      note: "(First 200)"
+      price: "$40"
+      status: "sold_out"
+    - name: "July 1st, 2026"
+      note: ""
+      price: "$55"
+      status: "sold_out"
+    - name: "December 1st, 2026"
+      note: ""
+      price: "$65"
+      status: "active"
+    - name: "April 1st, 2027"
+      note: ""
+      price: "$75"
+      status: "upcoming"
+    - name: "June 1st, 2027"
+      note: ""
+      price: "$85"
+      status: "upcoming"
+    - name: "At-door"
+      note: "(June 22nd)"
+      price: "$95"
+      status: "upcoming"
+  single_day:
+    saturday:
+      title: "Saturday Pass"
+      status: "Stay tuned"
+    sunday:
+      title: "Sunday Pass"
+      status: "Stay tuned"
+
+applications:
+  exhibitor:
+    section_title: "Exhibitor Applications"
+    section_id: "exhibitor"
+    items:
+      - title: "Artist Alley"
+        status: "Open"
+        description: ""
+        url: "#"
+        button_text: "Apply"
+      - title: "Vendor Booth"
+        status: "Open"
+        description: ""
+        url: "#"
+        button_text: "Apply"
+      - title: "Fan Game Table"
+        status: "Open"
+        description: ""
+        url: "#"
+        button_text: "Apply"
+  content:
+    section_title: "Content Applications"
+    section_id: "content"
+    items:
+      - title: "Panel"
+        status: "Open"
+        description: "Apply to host a panel at TouhouFest here."
+        url: "#"
+        button_text: "Apply"
+      - title: "Performer"
+        status: "Closed"
+        description: "Apply to perform at TouhouFest here."
+        url: "#"
+        button_text: ""
+  cosplay:
+    title: "Cosplay Masquerade"
+    description: "Please read the rules here completely before applying. You may only apply to one category."
+    desc_prefix: "Please read the rules "
+    rules_link_text: "here"
+    desc_suffix: " completely before applying. You may only apply to one category."
+    rules_url: "https://docs.google.com/document/d/1TSzq8HMaD34_8Bpmt5FimZEe8I2hFm4A0ZuuzlTXRYc/"
+    categories:
+      - label: "Craftsmanship"
+        url: "https://docs.google.com/document/d/1TSzq8HMaD34_8Bpmt5FimZEe8I2hFm4A0ZuuzlTXRYc/"
+      - label: "Performance"
+        url: "https://docs.google.com/document/d/1TSzq8HMaD34_8Bpmt5FimZEe8I2hFm4A0ZuuzlTXRYc/"
+      - label: "Exhibition"
+        url: "https://docs.google.com/document/d/1TSzq8HMaD34_8Bpmt5FimZEe8I2hFm4A0ZuuzlTXRYc/"
+  team:
+    section_title: "Team Applications"
+    section_id: "team"
+    items:
+      - title: "Staff"
+        status: "Open"
+        description: "Join the team here."
+        url: "#"
+        button_text: "Apply"
+      - title: "Volunteer"
+        status: "Closed"
+        description: "Help out during the event."
+        url: "#"
+        button_text: ""
+
+event_guidelines:
+  title: "Event Guidelines"
+  subtitle: "Before attending, please be sure to check these guidelines."
+  button_text: "Button"
+  url: "/about/guidelines"
+
+discord:
+  title: "Join the community on Discord"
+  subtitle: "Join our community on the TouhouFest Official Discord server!"
+  button_text: "Join Discord"
+  url: "https://discord.gg/touhoufest"
+
+newsletter:
+  title: "The Tengu Newsletter"
+  subtitle: "Sign up with your email address to receive news and updates."
+  button_text: "Subscribe"
+  placeholder: "Email here"
