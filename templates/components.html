@@ -192,7 +192,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 
 {% component newsletter(extra_class="", title="The Tengu Newsletter", subtext="Sign up with your email address to receive news and updates.", placeholder="Email here", button_text="Subscribe", icon="email.svg") %}
 <div class="newsletter-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
-<div class="newsletter-icon-wrap">
+<div class="tf-newsletter-envelope newsletter-icon-wrap">
 <img src="{{ get_url(path=icon) }}" alt="Newsletter" />
 </div>
 <div class="newsletter-content">
@@ -200,9 +200,9 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <h2 class="newsletter-title">{{ title }}</h2>
 <p class="newsletter-subtext">{{ subtext }}</p>
 </div>
-<form class="newsletter-form" action="#" method="post" onsubmit="return false;">
-<input type="email" class="newsletter-input" placeholder="{{ placeholder }}" required />
-<button type="submit" class="tf-btn tf-btn-danger">
+<form class="tf-newsletter-form newsletter-form" action="#" method="post" onsubmit="return false;">
+<input type="email" class="tf-newsletter-input newsletter-input" placeholder="{{ placeholder }}" required />
+<button type="submit" class="tf-btn tf-btn-danger tf-newsletter-btn">
 <span>{{ button_text }}</span>
 <span class="tf-icon tf-icon-chevron-right ml-1"></span>
 </button>
@@ -251,8 +251,8 @@ class='fa-solid fa-chevron-right'></span></a></p>
 {% if not hide_bottom_wave %}
 <div class="divider-wave-bottom"></div>
 {% endif %}
-<div class="page-hero-title-box hero-title-box">
-<h1 class="page-hero-title hero-title">{{ title }}</h1>
+<div class="tf-hero-box page-hero-title-box hero-title-box">
+<h1 class="tf-hero-title page-hero-title hero-title">{{ title }}</h1>
 {%- if subtitle %}
 <p class="page-hero-subtitle hero-subtitle mt-3">{{ subtitle | safe }}</p>
 {%- endif %}
@@ -354,7 +354,7 @@ class='fa-solid fa-chevron-right'></span></a></p>
 <p class="subtitle mb-4 hero-card-subtitle">{{ subtitle }}</p>
 {%- endif %}
 {%- if url %}
-<a class="tf-btn tf-btn-danger hero-card-btn" href="{{ url }}" target="_blank" rel="noopener noreferrer">
+<a class="tf-btn tf-btn-danger hero-card-btn" href="{{ get_url(path=url) }}">
 <span>{{ button_text }}</span>
 <span class="tf-icon tf-icon-chevron-right ml-1"></span>
 </a>
@@ -400,34 +400,36 @@ class='fa-solid fa-chevron-right'></span></a></p>
 </div>
 {% endcomponent event_guidelines %}
 
-{% component hotel_card(name, rate="", description="", address="", phone="", photo="", booking_url="#") %}
-<div class="hotel-block-card my-6">
-<div class="hotel-block-photo" style="background-image: url('{{ photo }}');">
+{% component hotel_card(name, rate="", description="", address="", phone="", photo="", booking_url="#", button_text="Book now", index=1) %}
+<div class="hotel-block-card hotel-card-{{ index }}">
+<div class="hotel-block-photo">
 <div class="hotel-block-inner">
-<div class="hotel-block-ribbon">
-<img src="/img/hotels/hotel_ribbon.svg" alt="" aria-hidden="true" />
-</div>
-<h3 class="hotel-block-title">{{ name }}</h3>
+<div class="hotel-block-ribbon" aria-hidden="true"></div>
+<div class="hotel-block-body">
+<div class="hotel-block-copy">
+<h3 class="hotel-block-title">{{ name | replace(from="/", to="/&#8203;") | safe }}</h3>
 <p class="hotel-block-desc">{{ description }}</p>
 <div class="hotel-block-details">
 {%- if address %}
-<div class="hotel-info-pill">
-<span class="tf-icon tf-icon-pin mr-2"></span>
+<div class="hotel-info-pill is-address">
+<span class="tf-icon tf-icon-pin"></span>
 <span>{{ address }}</span>
 </div>
 {%- endif %}
 {%- if phone %}
-<div class="hotel-info-pill">
-<span class="tf-icon tf-icon-phone mr-2"></span>
+<a href="tel:{{ phone | replace(from=' ', to='') | replace(from='(', to='') | replace(from=')', to='') | replace(from='-', to='') }}" class="hotel-info-pill is-phone">
+<span class="tf-icon tf-icon-phone"></span>
 <span>{{ phone }}</span>
-</div>
+</a>
 {%- endif %}
 </div>
-<div class="hotel-block-action mt-4">
+</div>
+<div class="hotel-block-action">
 <a href="{{ booking_url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-danger">
-<span>Book now</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+<span>{{ button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right"></span>
 </a>
+</div>
 </div>
 </div>
 </div>
@@ -436,31 +438,123 @@ class='fa-solid fa-chevron-right'></span></a></p>
 
 {% component hotel_blocks() %}
 {%- set hotel_data = load_data(path="data/hotels.yml") -%}
-{%- for hotel in hotel_data.hotels %}
-{{ <hotel_card name={hotel.name} rate={hotel.rate} description={hotel.description} address={hotel.address} phone={hotel.phone} photo={hotel.photo} booking_url={hotel.booking_url} /> }}
+<div class="hotels-main-group has-spacing-card">
+{%- if hotel_data.intro_blocks %}
+{%- for block in hotel_data.intro_blocks %}
+<div class="hotels-intro-block has-spacing-card">
+<h2 class="tf-heading tf-heading--2 hotels-heading">{{ block.heading }}</h2>
+{%- if block.lead %}
+<p class="tf-narrative tf-narrative--lead hotels-lead">{{ block.lead | safe }}</p>
+{%- endif %}
+{%- if block.sublead %}
+<p class="tf-narrative hotels-sublead">{{ block.sublead | safe }}</p>
+{%- endif %}
+</div>
 {%- endfor %}
+{%- endif %}
+{%- for hotel in hotel_data.hotels %}
+<div class="hotel-block-card is-radius-md hotel-card-{{ loop.index }}">
+<div class="hotel-block-photo is-radius-md">
+<div class="hotel-block-inner">
+<div class="hotel-block-ribbon" aria-hidden="true"></div>
+<div class="hotel-block-body">
+<div class="hotel-block-copy">
+<h3 class="hotel-block-title">{{ hotel.name | replace(from="/", to="/&#8203;") | safe }}</h3>
+<p class="hotel-block-desc">{{ hotel.description }}</p>
+<div class="hotel-block-details">
+{%- if hotel.address %}
+<div class="hotel-info-pill is-radius-pill has-spacing-sm is-address">
+<span class="tf-icon tf-icon-pin"></span>
+<span>{{ hotel.address }}</span>
+</div>
+{%- endif %}
+{%- if hotel.phone %}
+<a href="tel:{{ hotel.phone | replace(from=' ', to='') | replace(from='(', to='') | replace(from=')', to='') | replace(from='-', to='') }}" class="hotel-info-pill is-radius-pill has-spacing-sm is-phone">
+<span class="tf-icon tf-icon-phone"></span>
+<span>{{ hotel.phone }}</span>
+</a>
+{%- endif %}
+</div>
+</div>
+<div class="hotel-block-action">
+<a href="{{ hotel.booking_url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-danger">
+<span>{{ hotel.button_text | default(value="Book now") }}</span>
+<span class="tf-icon tf-icon-chevron-right"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+{%- endfor %}
+</div>
+{%- if hotel_data.badge_cta or hotel_data.teasers %}
+<div class="hotels-late-group has-spacing-card">
+{%- if hotel_data.badge_cta %}
+{{ <hero_card title={hotel_data.badge_cta.title} mobile_title={hotel_data.badge_cta.mobile_title | default(value="")} image={hotel_data.badge_cta.image} url={hotel_data.badge_cta.url} button_text={hotel_data.badge_cta.button_text} extra_class="hotels-badge-card" /> }}
+{%- endif %}
+{%- if hotel_data.teasers %}
+<div class="hotels-teasers-grid tf-mod-callout-grid has-spacing-card">
+{%- for teaser in hotel_data.teasers %}
+{%- if loop.index == 1 %}
+{%- set teaser_theme = "red" -%}
+{%- set teaser_icon = "img/hotels/app_icon.png" -%}
+{%- else %}
+{%- set teaser_theme = "discord" -%}
+{%- set teaser_icon = "discord" -%}
+{%- endif %}
+{{ <teaser_card title={teaser.title} subtitle={teaser.subtitle} button_text={teaser.button_text} url={teaser.url} theme={teaser_theme} icon={teaser_icon} /> }}
+{%- endfor %}
+</div>
+{%- endif %}
+</div>
+{%- endif %}
+{%- if hotel_data.newsletter_cta or hotel_data.discord_cta %}
+<div class="hotels-early-group has-spacing-card">
+{%- if hotel_data.newsletter_cta %}
+{{ <newsletter extra_class="hotels-newsletter" title={hotel_data.newsletter_cta.title} subtext={hotel_data.newsletter_cta.subtext} placeholder={hotel_data.newsletter_cta.placeholder} button_text={hotel_data.newsletter_cta.button_text} /> }}
+{%- endif %}
+{%- if hotel_data.discord_cta %}
+<div class="tf-mod-callout tf-mod-callout--horiz is-discord hotels-discord">
+<div class="tf-mod-callout-icon">
+<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="Discord" />
+</div>
+<div class="tf-mod-callout-copy">
+<div class="discord-copy">
+<h2 class="tf-mod-callout-title">{{ hotel_data.discord_cta.title }}</h2>
+<p class="tf-mod-callout-desc">{{ hotel_data.discord_cta.subtext }}</p>
+</div>
+<a href="{{ hotel_data.discord_cta.url }}" target="_blank" rel="noopener noreferrer" class="tf-mod-callout-btn">
+<span>{{ hotel_data.discord_cta.button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+</div>
+</div>
+{%- endif %}
+</div>
+{%- endif %}
 {% endcomponent hotel_blocks %}
 
-{% component teaser_card(title, subtitle="", button_text="Button", url="#", theme="danger", icon="") %}
-<div class="tf-callout-card tf-teaser-card is-vertical is-{{ theme }}">
+{% component teaser_card(title, subtitle="", button_text="Button", url="#", theme="red", icon="") %}
+<div class="tf-mod-callout tf-mod-callout--vert is-{{ theme }} tf-teaser-card">
 {%- if icon == 'discord' %}
-<div class="tf-teaser-avatar action-card-icon-wrap">
-<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="Discord" class="action-card-img" />
+<div class="tf-mod-callout-icon tf-teaser-avatar">
+<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="Discord" />
 </div>
 {%- elif icon %}
-<div class="tf-teaser-avatar action-card-icon-wrap">
-<img src="{{ get_url(path=icon) }}" alt="{{ title }}" class="action-card-img" />
+<div class="tf-mod-callout-icon tf-teaser-avatar">
+<img src="{{ get_url(path=icon) }}" alt="{{ title }}" />
 </div>
 {%- endif %}
 <div class="tf-teaser-body">
-<div class="tf-teaser-copy">
-<h3 class="tf-teaser-title action-card-title tf-callout-title">{{ title }}</h3>
+<div class="tf-mod-callout-copy tf-teaser-copy">
+<h3 class="tf-mod-callout-title tf-teaser-title">{{ title }}</h3>
 {%- if subtitle %}
-<p class="tf-teaser-subtitle action-card-desc tf-callout-desc">{{ subtitle }}</p>
+<p class="tf-mod-callout-desc tf-teaser-subtitle">{{ subtitle }}</p>
 {%- endif %}
 </div>
 <div class="tf-teaser-action">
-<a href="{{ url }}" class="tf-btn tf-btn-white tf-btn-pill-white action-card-btn tf-callout-btn">
+<a href="{{ url }}" class="tf-mod-callout-btn tf-teaser-btn">
 <span>{{ button_text }}</span>
 <span class="tf-icon tf-icon-chevron-right ml-1"></span>
 </a>

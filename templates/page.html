@@ -29,7 +29,7 @@
   {{ page.content | safe }}
 </div>
 {% else %}
-<div class="page-body-container container{% if page.extra.container_class %} {{ page.extra.container_class }}{% endif %}">
+<div class="{% if page.extra.container_class %}{{ page.extra.container_class }}{% else %}page-body-container container{% endif %}">
   {{ page.content | safe }}
 </div>
 {% endif %}
