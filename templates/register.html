@@ -1,79 +1,297 @@
 {% extends "base.html" %}
 
+{% block header %}
+{% set reg_data = load_data(path="data/registration.yml") %}
+<section class="page-hero-banner is-register tf-hero-banner">
+<img src="{{ get_url(path='img/register/hero_bg.png') }}" alt="" class="register-banner-img">
+<div class="register-hero-content-container">
+<div class="register-hero-title-box tf-hero-box">
+<h1 class="register-hero-title tf-hero-title">{{ reg_data.hero.title_line1 }}<br>{{ reg_data.hero.title_line2 }}</h1>
+</div>
+</div>
+</section>
+{% endblock header %}
+
 {% block content %}
-{{ <page_header title="Registration & Applications" /> }}
+{% set reg_data = load_data(path="data/registration.yml") %}
+<div class="register-page-layout">
+<div class="register-content-container">
 
-<div class="container my-6">
+<div class="register-section-head">
+<h2 class="register-heading">{{ reg_data.event_badge.title }}</h2>
+<p class="register-narrative">{{ reg_data.event_badge.intro }} {{ reg_data.event_badge.guidelines_prefix }}<a href="{{ get_url(path=reg_data.event_badge.guidelines_url) }}" class="register-link">{{ reg_data.event_badge.guidelines_label }}</a>{{ reg_data.event_badge.guidelines_suffix }} {{ reg_data.event_badge.verify_prefix }}<a href="{{ reg_data.event_badge.verify_url }}" class="register-link" target="_blank" rel="noopener noreferrer">{{ reg_data.event_badge.verify_label }}</a>{{ reg_data.event_badge.verify_suffix }}</p>
+</div>
 
-  <h2 class="title is-2 mb-2" style="color: var(--tf-color-red);">Event Badge</h2>
-  <p class="mb-4">
-    Badges get more expensive the closer we get to the event! Get them while they're still cheap! Please ensure that you understand and abide by our <a href="/about/guidelines" style="color: var(--tf-color-red); font-weight: 600;">Event Guidelines</a> while attending the event. After purchasing your badge, you can verify your badge status and get your QR code <a href="//registration.touhoufest.org/portal" style="color: var(--tf-color-red); font-weight: 600;">here</a>.
-  </p>
+<div class="register-hero-card">
+<div class="card-gohei-trim-left" aria-hidden="true"></div>
+<div class="card-gohei-trim-right" aria-hidden="true"></div>
+<div class="hero-card-left">
+<div class="hero-card-badge-frame">
+<img src="{{ get_url(path='img/badge_teaser.png') }}" alt="{{ reg_data.hero_badge.title }}" class="hero-card-badge-img">
+</div>
+</div>
+<div class="hero-card-right">
+<h2 class="hero-card-title is-desktop-title">{{ reg_data.hero_badge.title }}</h2>
+<h2 class="hero-card-title is-mobile-title">{{ reg_data.hero_badge.mobile_title }}</h2>
+<a href="{{ reg_data.hero_badge.url }}" class="tf-btn-pill-red" target="_blank" rel="noopener noreferrer">
+<span class="tf-btn-label">{{ reg_data.hero_badge.button_text }}</span>
+<span class="tf-btn-carrot" aria-hidden="true"></span>
+</a>
+</div>
+</div>
 
-  {{ <hero_card title="2026 Weekend Badge" url="//registration.touhoufest.org/touhoufest-2026" button_text="Buy badge" /> }}
+<div class="register-pricing-wrap">
+<h3 class="register-subheading">{{ reg_data.pricing_schedule.title }}</h3>
 
-  <h3 class="title is-4 mt-6 mb-4" style="color: var(--tf-color-red);">2026 Badge pricing schedule</h3>
+<div class="pricing-table-container">
+<div class="pricing-left-table">
+<div class="pricing-header-row">
+<div class="pricing-th th-date">{{ reg_data.pricing_schedule.headers.date }}</div>
+<div class="pricing-th th-weekend">{{ reg_data.pricing_schedule.headers.full_weekend }}</div>
+</div>
+<div class="pricing-body-rows">
+{% for tier in reg_data.pricing_schedule.tiers %}
+<div class="pricing-row {% if tier.status == 'sold_out' %}is-sold-out{% endif %}">
+<div class="pricing-td td-date">
+<p class="td-date-text"><span class="tier-name">{{ tier.name }}</span>{% if tier.note %}<br><span class="tier-note">{{ tier.note }}</span>{% endif %}</p>
+</div>
+<div class="pricing-td td-price">
+<span>{{ tier.price }}</span>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+<div class="pricing-single-day-columns">
+<div class="pricing-column col-saturday">
+<div class="pricing-th th-single">{{ reg_data.pricing_schedule.headers.saturday_pass }}</div>
+<div class="pricing-stay-tuned-cell">
+<div class="pricing-stay-tuned">
+<span>{{ reg_data.pricing_schedule.single_day.saturday.status }}</span>
+</div>
+</div>
+</div>
+<div class="pricing-column col-sunday">
+<div class="pricing-th th-single">{{ reg_data.pricing_schedule.headers.sunday_pass }}</div>
+<div class="pricing-stay-tuned-cell">
+<div class="pricing-stay-tuned">
+<span>{{ reg_data.pricing_schedule.single_day.sunday.status }}</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-  <div class="table-container">
-    <table class="table is-fullwidth pricing-schedule-table">
-      <thead>
-        <tr class="is-header-row">
-          <th style="width: 25%;">Date</th>
-          <th style="width: 25%;">Full Weekend</th>
-          <th style="width: 25%; text-align: center;">Saturday Pass</th>
-          <th style="width: 25%; text-align: center;">Sunday Pass</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Early Tengu</strong><br><span class="is-size-7 has-text-grey">(First 200)</span></td>
-          <td class="is-sold-out"><strike>$40</strike> Sold out</td>
-          <td class="is-stay-tuned" rowspan="6">Stay tuned</td>
-          <td class="is-stay-tuned" rowspan="6">Stay tuned</td>
-        </tr>
-        <tr>
-          <td><strong>July 1st, 2025</strong></td>
-          <td class="is-sold-out"><strike>$55</strike> Sold out</td>
-        </tr>
-        <tr>
-          <td><strong>December 1st, 2025</strong></td>
-          <td>$65</td>
-        </tr>
-        <tr>
-          <td><strong>April 1st, 2026</strong></td>
-          <td>$75</td>
-        </tr>
-        <tr>
-          <td><strong>June 1st, 2026</strong></td>
-          <td>$85</td>
-        </tr>
-        <tr>
-          <td><strong>At-door</strong><br><span class="is-size-7 has-text-grey">(June 19th)</span></td>
-          <td>$95</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+</div>
 
-  {{ <section_divider title="Exhibitor Applications" id="exhibitor" /> }}
+<div class="tf-mod-divider is-register-divider" id="{{ reg_data.applications.exhibitor.section_id }}">
+<div class="tf-mod-divider-bg">
+<img src="{{ get_url(path='img/register/exhibitor_bg.png') }}" alt="" class="register-banner-img">
+</div>
+<div class="tf-mod-divider-vignette" aria-hidden="true"></div>
+<div class="tf-mod-divider-top" aria-hidden="true"></div>
+<div class="tf-mod-divider-inner">
+<h2 class="tf-mod-divider-title">{{ reg_data.applications.exhibitor.section_title }}</h2>
+</div>
+<div class="tf-mod-divider-bottom" aria-hidden="true"></div>
+</div>
 
-  {{ <applications_grid type="exhibitor" /> }}
+<div class="register-content-container">
+<div class="app-grid-3">
+{% for item in reg_data.applications.exhibitor.items %}
+<div class="app-card is-3col">
+<div class="app-card-inner">
+<div class="app-card-top">
+<div class="app-badge-wrap">
+{% if item.status == 'Open' %}
+<span class="app-badge-open">{{ item.status | upper }}</span>
+{% else %}
+<span class="app-badge-closed">{{ item.status | upper }}</span>
+{% endif %}
+</div>
+<h3 class="app-card-title">{{ item.title }}</h3>
+{% if item.description %}
+<p class="app-card-desc">{{ item.description }}</p>
+{% endif %}
+</div>
+{% if item.status == 'Open' %}
+<div class="app-card-bottom">
+<a href="{{ item.url }}" class="tf-btn-pill-red" target="_blank" rel="noopener noreferrer">
+<span class="tf-btn-label">{{ item.button_text }}</span>
+<span class="tf-btn-carrot" aria-hidden="true"></span>
+</a>
+</div>
+{% endif %}
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
 
-  {{ <section_divider title="Content Applications" id="content" /> }}
+<div class="tf-mod-divider is-register-divider" id="{{ reg_data.applications.content.section_id }}">
+<div class="tf-mod-divider-bg">
+<img src="{{ get_url(path='img/register/content_bg.png') }}" alt="" class="register-banner-img">
+</div>
+<div class="tf-mod-divider-vignette" aria-hidden="true"></div>
+<div class="tf-mod-divider-top" aria-hidden="true"></div>
+<div class="tf-mod-divider-inner">
+<h2 class="tf-mod-divider-title">{{ reg_data.applications.content.section_title }}</h2>
+</div>
+<div class="tf-mod-divider-bottom" aria-hidden="true"></div>
+</div>
 
-  {{ <applications_grid type="content" /> }}
+<div class="register-content-container">
+<div class="app-grid-2">
+{% for item in reg_data.applications.content.items %}
+<div class="app-card is-2col">
+<div class="app-card-inner">
+<div class="app-card-top">
+<div class="app-badge-wrap">
+{% if item.status == 'Open' %}
+<span class="app-badge-open">{{ item.status | upper }}</span>
+{% else %}
+<span class="app-badge-closed">{{ item.status | upper }}</span>
+{% endif %}
+</div>
+<h3 class="app-card-title">{{ item.title }}</h3>
+{% if item.description %}
+<p class="app-card-desc">{{ item.description }}</p>
+{% endif %}
+</div>
+{% if item.status == 'Open' %}
+<div class="app-card-bottom">
+<a href="{{ item.url }}" class="tf-btn-pill-red" target="_blank" rel="noopener noreferrer">
+<span class="tf-btn-label">{{ item.button_text }}</span>
+<span class="tf-btn-carrot" aria-hidden="true"></span>
+</a>
+</div>
+{% endif %}
+</div>
+</div>
+{% endfor %}
+</div>
 
-  {{ <cosplay_masquerade title="Cosplay Masquerade" craft_url="//docs.google.com/document/d/1TSzq8HMaD34_8Bpmt5FimZEe8I2hFm4A0ZuuzlTXRYc/" perf_url="//docs.google.com/document/d/1TSzq8HMaD34_8Bpmt5FimZEe8I2hFm4A0ZuuzlTXRYc/" exhib_url="//docs.google.com/document/d/1TSzq8HMaD34_8Bpmt5FimZEe8I2hFm4A0ZuuzlTXRYc/" /> }}
+<div class="cosplay-masquerade-card">
+<div class="cosplay-card-copy">
+<h3 class="cosplay-card-title">{{ reg_data.applications.cosplay.title }}</h3>
+<p class="cosplay-card-desc">
+{{ reg_data.applications.cosplay.desc_prefix }}<a href="{{ reg_data.applications.cosplay.rules_url }}" class="cosplay-rules-link" target="_blank" rel="noopener noreferrer">{{ reg_data.applications.cosplay.rules_link_text }}</a>{{ reg_data.applications.cosplay.desc_suffix }}
+</p>
+</div>
+<div class="cosplay-buttons-wrap">
+{% for cat in reg_data.applications.cosplay.categories %}
+<a href="{{ cat.url }}" class="tf-btn-pill-cream" target="_blank" rel="noopener noreferrer">
+<span class="tf-btn-label">{{ cat.label }}</span>
+<span class="tf-btn-carrot" aria-hidden="true"></span>
+</a>
+{% endfor %}
+</div>
+</div>
+</div>
 
-  {{ <section_divider title="Team Applications" id="team" /> }}
+<div class="tf-mod-divider is-register-divider" id="{{ reg_data.applications.team.section_id }}">
+<div class="tf-mod-divider-bg">
+<img src="{{ get_url(path='img/register/team_bg.png') }}" alt="" class="register-banner-img">
+</div>
+<div class="tf-mod-divider-vignette" aria-hidden="true"></div>
+<div class="tf-mod-divider-top" aria-hidden="true"></div>
+<div class="tf-mod-divider-inner">
+<h2 class="tf-mod-divider-title">{{ reg_data.applications.team.section_title }}</h2>
+</div>
+<div class="tf-mod-divider-bottom" aria-hidden="true"></div>
+</div>
 
-  {{ <applications_grid type="team" /> }}
+<div class="register-content-container">
+<div class="app-grid-2">
+{% for item in reg_data.applications.team.items %}
+<div class="app-card is-team">
+<div class="app-card-inner">
+<div class="app-card-top">
+<div class="app-badge-wrap">
+{% if item.status == 'Open' %}
+<span class="app-badge-open">{{ item.status | upper }}</span>
+{% else %}
+<span class="app-badge-closed">{{ item.status | upper }}</span>
+{% endif %}
+</div>
+<h3 class="app-card-title">{{ item.title }}</h3>
+{% if item.description %}
+<p class="app-card-desc">{{ item.description }}</p>
+{% endif %}
+</div>
+{% if item.status == 'Open' %}
+<div class="app-card-bottom">
+<a href="{{ item.url }}" class="tf-btn-pill-red" target="_blank" rel="noopener noreferrer">
+<span class="tf-btn-label">{{ item.button_text }}</span>
+<span class="tf-btn-carrot" aria-hidden="true"></span>
+</a>
+</div>
+{% endif %}
+</div>
+</div>
+{% endfor %}
+</div>
 
-  {{ <event_guidelines url="/about/guidelines" button_text="Button" /> }}
+<div class="register-bottom-ctas">
+<div class="register-callout-card is-red">
+<div class="callout-icon-wrap">
+<img src="{{ get_url(path='img/guidelines_icon.svg') }}" alt="{{ reg_data.event_guidelines.title }}" class="callout-icon" width="100" height="100">
+</div>
+<div class="callout-body">
+<div class="callout-content">
+<h3 class="callout-title">{{ reg_data.event_guidelines.title }}</h3>
+<p class="callout-subtext">{{ reg_data.event_guidelines.subtitle }}</p>
+</div>
+<div class="callout-action">
+<a href="{{ get_url(path=reg_data.event_guidelines.url) }}" class="tf-btn-pill-cream">
+<span class="tf-btn-label">{{ reg_data.event_guidelines.button_text }}</span>
+<span class="tf-btn-carrot" aria-hidden="true"></span>
+</a>
+</div>
+</div>
+</div>
 
-  {{ <discord /> }}
+<div class="register-callout-card is-dark">
+<div class="callout-icon-wrap">
+<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="{{ reg_data.discord.title }}" class="callout-icon" width="100" height="100">
+</div>
+<div class="callout-body">
+<div class="callout-content">
+<h3 class="callout-title">{{ reg_data.discord.title }}</h3>
+<p class="callout-subtext">{{ reg_data.discord.subtitle }}</p>
+</div>
+<div class="callout-action">
+<a href="{{ reg_data.discord.url }}" class="tf-btn-pill-cream" target="_blank" rel="noopener noreferrer">
+<span class="tf-btn-label">{{ reg_data.discord.button_text }}</span>
+<span class="tf-btn-carrot" aria-hidden="true"></span>
+</a>
+</div>
+</div>
+</div>
 
-  {{ <newsletter /> }}
+<div class="register-callout-card is-newsletter">
+<div class="callout-icon-wrap">
+<img src="{{ get_url(path='img/register/icon_email.svg') }}" alt="{{ reg_data.newsletter.title }}" class="callout-icon" width="100" height="100">
+</div>
+<div class="callout-body is-newsletter-body">
+<div class="callout-content">
+<h3 class="callout-title">{{ reg_data.newsletter.title }}</h3>
+<p class="callout-subtext">{{ reg_data.newsletter.subtitle }}</p>
+</div>
+<div class="callout-action is-newsletter-action">
+<form class="newsletter-form" action="#" method="post" onsubmit="return false;">
+<input type="email" class="newsletter-input" placeholder="{{ reg_data.newsletter.placeholder }}" required>
+<button type="submit" class="tf-btn-pill-red newsletter-submit-btn">
+<span class="tf-btn-label">{{ reg_data.newsletter.button_text }}</span>
+<span class="tf-btn-carrot" aria-hidden="true"></span>
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
 
+</div>
 </div>
 {% endblock content %}
