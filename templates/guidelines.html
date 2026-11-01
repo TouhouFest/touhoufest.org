@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block header %}
+{%- set data = load_data(path="data/guidelines.yml") -%}
+<section class="page-hero-banner guidelines-hero-banner">
+<div class="divider-wave-top"></div>
+<div class="guidelines-hero-container">
+<div class="tf-hero-box guidelines-hero-box">
+<h1 class="tf-hero-title guidelines-hero-title">{{ data.hero.title }}</h1>
+</div>
+</div>
+</section>
+{% endblock header %}
+
+{% block content %}
+{%- set data = load_data(path="data/guidelines.yml") -%}
+<div class="guidelines-page-wrapper">
+<div class="guidelines-content-container">
+<div class="guidelines-jump-box">
+<h2 class="guidelines-jump-title">{{ data.jumplinks.label }}</h2>
+<ul class="guidelines-jump-list">
+{% for item in data.jumplinks.items %}
+{%- if loop.index == 1 -%}{%- set icon_name = "info" -%}{%- elif loop.index == 2 -%}{%- set icon_name = "hat" -%}{%- else -%}{%- set icon_name = "medal" -%}{%- endif -%}
+<li class="guidelines-jump-item">
+<a href="{{ item.url }}" class="guidelines-jump-link">
+<span class="guidelines-jump-icon tf-icon tf-icon-{{ icon_name }}"></span>
+<span class="guidelines-jump-text">{{ item.title }}</span>
+<span class="tf-icon tf-icon-chevron-right guidelines-jump-arrow"></span>
+</a>
+</li>
+{% endfor %}
+</ul>
+</div>
+<div class="guidelines-markdown-body">
+{{ page.content | safe }}
+</div>
+<div class="tf-faq-callouts-container">
+{% for card in data.callouts %}
+<div class="tf-mod-callout tf-mod-callout--horiz guidelines-callout-card {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
+<div class="tf-mod-callout-icon guidelines-card-icon-col">
+<img src="{{ get_url(path=card.image) }}" alt="{{ card.title }}" class="{% if loop.index == 1 %}guidelines-faq-mascot{% else %}discord-card-icon{% endif %}" />
+</div>
+<div class="tf-mod-callout-copy guidelines-card-content-col">
+<h2 class="tf-mod-callout-title guidelines-card-title">{{ card.title }}</h2>
+<p class="tf-mod-callout-desc guidelines-card-desc">{{ card.description }}</p>
+<div>
+{% if loop.index == 2 %}
+<a href="{{ card.button_url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-pill-white tf-mod-callout-btn">
+<span>{{ card.button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+{% else %}
+<a href="{{ get_url(path=card.button_url) }}" class="tf-btn tf-btn-pill-white tf-mod-callout-btn">
+<span>{{ card.button_text }}</span>
+<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</a>
+{% endif %}
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+hero:
+  title: "Event Guidelines"
+  image: "img/guidelines/hero.jpg"
+
+jumplinks:
+  label: "Jump directly to:"
+  items:
+    - title: "General Event Guidelines"
+      url: "#general-event-guidelines"
+    - title: "Cosplay & Props Guidelines"
+      url: "#cosplay-prop-guidelines"
+    - title: "Cosplay Contest Guidelines"
+      url: "#cosplay-contest-guidelines"
+
+callouts:
+  - title: "FAQs"
+    description: "Have questions? See our FAQs page for more info."
+    button_text: "Button"
+    button_url: "about/faq"
+    image: "img/guidelines/faq_icon.svg"
+  - title: "Join the community on Discord"
+    description: "Join our community on the TouhouFest Official Discord server!"
+    button_text: "Join Discord"
+    button_url: "https://discord.gg/touhoufest"
+    image: "img/discord_card_icon.svg"
