@@ -10,7 +10,7 @@
       <div class="divider-wave-bottom home-hero-divider-bottom" aria-hidden="true"></div>
       <div class="home-hero-glass-card">
         <h1 class="home-hero-title">{{ home_data.hero.title }}</h1>
-        <p class="home-hero-date">{{ home_data.hero.date }}</p>
+        <p class="home-hero-date">{{ <event_date /> }}</p>
         <a class="tf-btn tf-btn-danger home-cta-btn" href="{{ get_url(path=home_data.hero.button_url) }}">
           <span class="home-cta-label">{{ home_data.hero.button_text }}</span>
           <span class="home-cta-chevron" aria-hidden="true"></span>

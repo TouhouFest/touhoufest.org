@@ -11,6 +11,8 @@ build_search_index = true
 
 [extra]
 site_name = "TouhouFest"
+event_start = "2027-06-19"
+event_end = "2027-06-20"
 
 [extra.socials]
 discord_invite = "https://discord.gg/touhoufest"

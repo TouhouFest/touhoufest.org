@@ -1,6 +1,5 @@
 hero:
   title: "Year 5 Announced!"
-  date: "June 19th-20th 2027"
   button_text: "Buy Badge"
   button_url: "register"
   background_image: "img/home/hero-bg.png"
@@ -17,9 +16,6 @@ stickers:
     button_text: "Venue Info"
     button_url: "about/event"
   - title: "Save \nthe date"
-    lines:
-      - "Saturday April 27th"
-      - "Sunday April 28th"
     button_text: "Schedule Info"
     button_url: "schedule"
 
