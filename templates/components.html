@@ -2094,116 +2094,195 @@ description={ev.description | default(value="")}
 </section>
 {% endcomponent gaming_bottom_ctas %}
 
+
+{% component intro_nav() %}
+{%- set intro = load_data(path="data/intro.yml") -%}
+<nav class="intro-quick-nav" aria-label="{{ intro.nav.aria_label }}">
+<a class="intro-nav-home" href="{{ get_url(path='@/_index.md') }}">
+<span>{{ intro.nav.home_label }}</span>
+<span class="tf-icon tf-icon-chevron-right"></span>
+</a>
+<div class="intro-nav-links">
+{%- for link in intro.nav.links %}
+<a class="intro-nav-pill" href="{{ link.href }}">{{ link.label }}</a>
+{%- endfor %}
+</div>
+</nav>
+{% endcomponent intro_nav %}
+
 {% component intro_guide() %}
-<div class="intro-guide-card my-5">
-<h2 class="title is-2 mb-3" style="color: var(--tf-color-red)">What is Touhou Project?</h2>
-<div class="content is-size-5">
-<p>What makes Touhou Project so special is the unending fan passion for its characters, mesmerizing music, and an absurdly talented global doujin community spanning over 25 years. Touhou originated in 1996 as a series of danmaku (bullet hell) shoot 'em up games, almost entirely conceived, programmed, illustrated, and composed by <strong>ONE man: ZUN</strong>.</p>
-<p>Set in <strong>Gensokyo</strong>—a mystical land sealed away from the outside world where humans and youkai coexist—the series follows shrine maiden Reimu Hakurei, magician Marisa Kirisame, and an ever-growing cast resolving supernatural incidents under the "Spell Card rules," turning fatal confrontations into dazzling, non-lethal displays of bullet patterns.</p>
+{%- set intro = load_data(path="data/intro.yml") -%}
+<section id="{{ intro.guide.id }}" class="intro-guide-card">
+<div class="card-gohei-trim-left intro-gohei-left" aria-hidden="true"></div>
+<div class="intro-guide-grid">
+<div class="intro-guide-copy">
+<span class="tf-tag intro-pill-tag is-solid">{{ intro.guide.tag }}</span>
+<h2 class="intro-h2 is-red">{{ intro.guide.title }}</h2>
+<p class="intro-body-lead">{{ intro.guide.lead | safe }}</p>
+<p class="intro-body-text">{{ intro.guide.body | safe }}</p>
+<div class="intro-stat-strip">
+{%- for stat in intro.guide.stats %}
+<div class="intro-stat-chip">
+<span class="intro-stat-value">{{ stat.value }}</span>
+<span class="intro-stat-label">{{ stat.label }}</span>
+</div>
+{%- endfor %}
 </div>
 </div>
+<figure class="intro-danmaku-figure">
+<img src="{{ get_url(path=intro.guide.figure.image) }}" alt="{{ intro.guide.figure.alt }}" loading="lazy" />
+<figcaption class="intro-danmaku-caption">{{ intro.guide.figure.caption | safe }}</figcaption>
+</figure>
+</div>
+</section>
 {% endcomponent intro_guide %}
 
 {% component zun_spotlight() %}
-<div class="zun-spotlight-card my-6">
-<div class="columns is-vcentered">
-<div class="column is-one-third-desktop is-full-touch has-text-centered">
+{%- set intro = load_data(path="data/intro.yml") -%}
+<section id="{{ intro.zun.id }}" class="zun-spotlight-card">
+<div class="zun-spotlight-grid">
+<div class="zun-photo-col">
 <div class="zun-photo-wrap">
-<img src="/img/IMG_0145 ZUN.jpg" alt="ZUN (Team Shanghai Alice)" />
+<img src="{{ get_url(path=intro.zun.image) }}" alt="{{ intro.zun.image_alt }}" loading="lazy" />
 </div>
 </div>
-<div class="column is-two-thirds-desktop is-full-touch">
-<span class="tf-tag tf-tag-danger mb-2"><span>CREATOR SPOTLIGHT</span></span>
-<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">ZUN (Team Shanghai Alice)</h2>
-<p class="subtitle is-6 mb-3 has-text-grey">Musician, Programmer, Designer, and Developer</p>
-<div class="content">
-<p>Jun'ya Ota (known as <strong>ZUN</strong>) published the first Touhou game in 1996 for the NEC PC-9821, <em>Highly Responsive to Prayers</em>. He established <strong>Team Shanghai Alice</strong> in 2002 with <em>Embodiment of Scarlet Devil</em>, ushering in the Windows era.</p>
-<p>ZUN's uniquely generous derivative work guidelines have fostered the largest doujin culture in video game history, inspiring thousands of fan games, musical arrangements, manga, and animations worldwide.</p>
-<a href="https://x.com/korindo" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-danger mt-2">
-<span>Follow @korindo</span>
-<span class="tf-icon tf-icon-external-link"></span>
+<div class="zun-spotlight-body">
+<span class="tf-tag intro-pill-tag is-solid">{{ intro.zun.tag }}</span>
+<h2 class="intro-h2 is-red">{{ intro.zun.title }}</h2>
+<p class="zun-role-subtitle">{{ intro.zun.subtitle }}</p>
+{%- for para in intro.zun.paragraphs %}
+<p class="intro-body-text">{{ para | safe }}</p>
+{%- endfor %}
+<div class="intro-cta-row">
+{%- for btn in intro.zun.buttons %}
+<a href="{{ btn.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn {% if loop.index == 1 %}tf-btn-danger intro-cta-btn{% else %}intro-cta-btn intro-cta-outline{% endif %}">
+<span>{{ btn.label }}</span>
+<span class="tf-icon {% if loop.index == 1 %}tf-icon-chevron-right{% else %}tf-icon-external-link{% endif %}"></span>
 </a>
+{%- endfor %}
 </div>
 </div>
 </div>
-</div>
+</section>
 {% endcomponent zun_spotlight %}
 
 {% component starter_recommendations() %}
-<div class="my-6">
-<div class="has-text-centered mb-5">
-<h2 class="title is-2 mb-2" style="color: var(--tf-color-dark)">Recommended Entry Points</h2>
-<p class="has-text-grey">New to Touhou? Here are the best starting titles recommended by the community.</p>
+{%- set intro = load_data(path="data/intro.yml") -%}
+<section id="{{ intro.starter_recommendations.id }}" class="intro-section-block">
+<div class="intro-section-head is-centered">
+<h2 class="intro-h2">{{ intro.starter_recommendations.title }}</h2>
+<p class="intro-section-sub">{{ intro.starter_recommendations.subtitle }}</p>
 </div>
-<div class="columns is-multiline">
-<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
-<div class="starter-rec-card">
-<span class="tf-tag tf-tag-open mb-2"><span>BEST FIRST GAME</span></span>
-<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 7: Perfect Cherry Blossom</h3>
-<p class="is-size-7 has-text-grey mb-3">Windows Era • Bullet Hell</p>
-<p class="is-size-6 flex-grow-1">Features the "Cherry Border" system providing free shields when active, forgiving hitboxes, and three distinct playable characters (Reimu, Marisa, Sakuya).</p>
-</div>
-</div>
-<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
-<div class="starter-rec-card">
-<span class="tf-tag tf-tag-open mb-2"><span>FORGIVING MECHANICS</span></span>
-<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 8: Imperishable Night</h3>
-<p class="is-size-7 has-text-grey mb-3">Windows Era • Partner Teams</p>
-<p class="is-size-6 flex-grow-1">Allows you to play as four two-person teams (human + youkai) with dedicated Spell Practice mode to master individual boss patterns without restarting stages.</p>
+<div class="starter-rec-grid">
+{%- for card in intro.starter_recommendations.cards %}
+<article class="starter-rec-card{% if loop.index >= 4 %} is-wide-pair{% endif %}{% if loop.index == 5 %} is-last-odd{% endif %}">
+<div class="starter-rec-top">
+<img class="starter-rec-thumb" src="{{ get_url(path=card.image) }}" alt="{{ card.alt }}" loading="lazy" />
+<div class="starter-rec-meta">
+<span class="tf-tag intro-pill-tag">{{ card.tag }}</span>
+<span class="starter-rec-era">{{ card.era }}</span>
 </div>
 </div>
-<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
-<div class="starter-rec-card">
-<span class="tf-tag tf-tag-open mb-2"><span>STREAMLINED CLASSIC</span></span>
-<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 10: Mountain of Faith</h3>
-<p class="is-size-7 has-text-grey mb-3">Windows Era • Modern Engine</p>
-<p class="is-size-6 flex-grow-1">Introduced the second generation of Windows engine. Simplified mechanics where bombs cost power, encouraging dynamic risk-versus-reward routing.</p>
+<h3 class="starter-rec-title">{{ card.title }}</h3>
+<p class="starter-rec-desc">{{ card.desc }}</p>
+</article>
+{%- endfor %}
 </div>
-</div>
-<div class="column is-half-desktop is-half-tablet is-full-mobile">
-<div class="starter-rec-card">
-<span class="tf-tag tf-tag-open mb-2"><span>EASY SPELL PRACTICE</span></span>
-<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 13: Ten Desires</h3>
-<p class="is-size-7 has-text-grey mb-3">Windows Era • Spirit System</p>
-<p class="is-size-6 flex-grow-1">One of the most accessible modern titles. Features a Trance mode for invulnerability during dense bullet waves, and generous life fragment drops.</p>
-</div>
-</div>
-<div class="column is-half-desktop is-full-tablet is-full-mobile">
-<div class="starter-rec-card">
-<span class="tf-tag tf-tag-open mb-2"><span>MODERN ROGUE-LITE</span></span>
-<h3 class="title is-4 mb-2" style="color: var(--tf-color-red)">Touhou 18: Unconnected Marketeers</h3>
-<p class="is-size-7 has-text-grey mb-3">Windows Era • Ability Cards</p>
-<p class="is-size-6 flex-grow-1">Collect and equip ability cards between stages granting extra lives, auto-bombs, and customized attacks, offering immense versatility for any play style.</p>
-</div>
-</div>
-</div>
-</div>
+</section>
 {% endcomponent starter_recommendations %}
 
 {% component games_showcase() %}
+{%- set intro = load_data(path="data/intro.yml") -%}
 {%- for section in load_data(path="data/games.yml") %}
-<div class="my-6">
-<div class="mb-4">
-<h2 class="title is-2 mb-2" style="color: var(--tf-color-red)">{{ section.name }}</h2>
-<div class="content">{{ section.desc | markdown(inline=true) | safe }}</div>
+<section id="{{ section.name | slugify }}" class="intro-section-block">
+<div class="intro-section-head">
+<div class="intro-section-title-row">
+<h2 class="intro-h2 is-red">{{ section.name }}</h2>
+<span class="intro-count-pill">{{ section.games | length }} {{ intro.catalog.unit_label }}</span>
 </div>
-<div class="columns is-multiline my-4">
+<div class="intro-section-desc">{{ section.desc | markdown | safe }}</div>
+</div>
+<div class="games-catalog-grid">
 {%- for game in section.games %}
-<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
-<div class="game-grid-card">
+<article class="game-grid-card">
 {%- if game.image %}
 <div class="game-cover-wrap">
-<img src="{{ game.image }}" alt="{{ game.name }}" loading="lazy" />
+<img src="{{ get_url(path=game.image) }}" alt="{{ game.name }}" loading="lazy" />
+</div>
+{%- else %}
+<div class="game-era-banner">
+<span class="game-era-chip">{{ intro.catalog.pc98_chip }}</span>
+<span class="game-era-num">#0{{ loop.index }}</span>
 </div>
 {%- endif %}
 <div class="game-card-content">
 <h3 class="game-card-title">{{ game.name }}</h3>
-<p class="game-card-desc">{{ game.desc | markdown(inline=true) | safe }}</p>
+<div class="game-card-desc">{{ game.desc | markdown | safe }}</div>
 </div>
-</div>
-</div>
+</article>
 {%- endfor %}
 </div>
-</div>
+</section>
 {%- endfor %}
 {% endcomponent games_showcase %}
+
+{% component intro_featured_guests() %}
+{%- set intro = load_data(path="data/intro.yml") -%}
+<section id="{{ intro.featured_guests.id }}" class="intro-guests-card">
+<div class="card-gohei-trim-left intro-gohei-left" aria-hidden="true"></div>
+<div class="card-gohei-trim-right intro-gohei-right" aria-hidden="true"></div>
+<div class="intro-guests-inner">
+<div class="intro-guests-copy">
+<span class="tf-tag intro-pill-tag is-solid">{{ intro.featured_guests.tag }}</span>
+<h2 class="intro-h2 is-red">{{ intro.featured_guests.title }}</h2>
+<p class="intro-body-text">{{ intro.featured_guests.body }}</p>
+</div>
+<div class="intro-guests-actions">
+{%- for btn in intro.featured_guests.buttons %}
+<a href="{{ get_url(path=btn.path) }}" class="tf-btn {% if loop.index == 1 %}tf-btn-danger intro-cta-btn{% else %}intro-cta-btn intro-cta-outline{% endif %}">
+<span>{{ btn.label }}</span>
+<span class="tf-icon tf-icon-chevron-right"></span>
+</a>
+{%- endfor %}
+</div>
+</div>
+</section>
+{% endcomponent intro_featured_guests %}
+
+{% component intro_badge_cta() %}
+{%- set intro = load_data(path="data/intro.yml") -%}
+<section class="hero-module-card intro-badge-card">
+<div class="hero-gohei-left intro-gohei-left" aria-hidden="true"></div>
+<div class="hero-gohei-right intro-gohei-right" aria-hidden="true"></div>
+<div class="hero-card-inner intro-badge-inner">
+<div class="hero-card-image-wrap intro-badge-art">
+<img src="{{ get_url(path=intro.badge_cta.image) }}" alt="{{ intro.badge_cta.image_alt }}" loading="lazy" />
+</div>
+<div class="hero-card-content intro-badge-content">
+<h2 class="hero-card-title intro-h2">{{ intro.badge_cta.title }}</h2>
+<p class="hero-card-subtitle intro-body-text">{{ intro.badge_cta.body }}</p>
+<a class="tf-btn tf-btn-danger hero-card-btn intro-cta-btn" href="{{ intro.badge_cta.button_url }}" target="_blank" rel="noopener noreferrer">
+<span>{{ intro.badge_cta.button_label }}</span>
+<span class="tf-icon tf-icon-chevron-right"></span>
+</a>
+</div>
+</div>
+</section>
+{% endcomponent intro_badge_cta %}
+
+{% component intro_discord_cta() %}
+{%- set intro = load_data(path="data/intro.yml") -%}
+<section class="tf-mod-callout tf-mod-callout--horiz is-discord intro-discord-card">
+<div class="tf-mod-callout-icon">
+<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="{{ intro.discord_cta.icon_label }}" />
+</div>
+<div class="tf-mod-callout-copy intro-discord-content">
+<h2 class="tf-mod-callout-title">{{ intro.discord_cta.title }}</h2>
+<p class="tf-mod-callout-desc">{{ intro.discord_cta.subtitle }}</p>
+<a href="{{ intro.discord_cta.button_url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-mod-callout-btn">
+<span>{{ intro.discord_cta.button_label }}</span>
+<span class="tf-icon tf-icon-chevron-right"></span>
+</a>
+</div>
+</section>
+{% endcomponent intro_discord_cta %}

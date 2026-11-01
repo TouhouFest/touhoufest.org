@@ -1,7 +1,13 @@
 +++
 title = "Intro to Touhou Project"
 weight = 4
+
+[extra]
+hero_class = "is-intro-hero"
+container_class = "tf-intro-page"
 +++
+
+{{ <intro_nav /> }}
 
 {{ <intro_guide /> }}
 
@@ -11,7 +17,8 @@ weight = 4
 
 {{ <games_showcase /> }}
 
-{{ <hero_card title="2026 Full Weekend Badge" button_text="Buy badge"
-url="https://touhoufest.ticketspice.com/touhoufest-2026" /> }}
+{{ <intro_featured_guests /> }}
 
-{{ <discord /> }}
+{{ <intro_badge_cta /> }}
+
+{{ <intro_discord_cta /> }}
