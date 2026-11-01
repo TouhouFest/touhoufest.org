@@ -1,81 +1,90 @@
 {% component faq() %}
-{% for qa in load_data(path="data/faq.yml") %}
+{%- set faq_data = load_data(path="data/faq.yml") -%}
+<div class="tf-faq-container">
+{%- for qa in faq_data.items -%}
 <details class="tf-accordion" open>
-<summary>
-<span><strong class="tf-faq-badge">Q:</strong> {{ qa.q }}</span>
-</summary>
+<summary class="tf-faq-summary">
+<div class="tf-faq-summary-row tf-accordion-header">
+<span class="tf-faq-q-prefix">Q:</span>
+{%- if qa.q_mobile -%}
+<span class="tf-faq-q-text tf-faq-q-desktop">{{ qa.q }}</span>
+<span class="tf-faq-q-text tf-faq-q-mobile">{{ qa.q_mobile }}</span>
+{%- else -%}
+<span class="tf-faq-q-text">{{ qa.q }}</span>
+{%- endif -%}
+<span class="tf-faq-toggle-icon tf-accordion-toggle--plus" aria-hidden="true"></span>
+</div>
 <div class="tf-faq-divider"></div>
+</summary>
 <div class="tf-accordion-content">
-{% if qa.ada %}
-<p class="mb-4">{{ qa.intro }}</p>
-<p class="mb-2">The following areas have <strong>full ADA accessibility</strong>:</p>
-<div class="ada-pills mb-4">
-{% for area in qa.full_access %}
-<span class="ada-pill"><span class="tf-icon tf-icon-pin mr-1"></span> {{ area }}</span>
-{% endfor %}
-</div>
-<p class="mb-3">The following areas have <strong>limited ADA accessibility</strong>:</p>
-<div class="ada-limited-list">
-{% for item in qa.limited_access %}
-<div class="ada-limited-row mb-3">
-<div class="ada-limited-pill-col">
-<span class="ada-pill"><span class="tf-icon tf-icon-pin mr-1"></span> {{ item.name }}</span>
-</div>
-<div class="ada-limited-desc-col">
-<p>{{ item.desc | markdown(inline=true) | safe }}</p>
+{%- if qa.ada -%}
+<div class="tf-ada-slot">
+<p class="tf-faq-p">A: {{ qa.intro }}</p>
+<div class="tf-ada-full-group">
+<p class="tf-faq-p">{{ faq_data.full_access_label | markdown(inline=true) | safe }}</p>
+<div class="ada-pills">
+{%- for area in qa.full_access -%}
+<span class="ada-pill tf-tag"><span class="tf-icon tf-icon-location" aria-hidden="true"></span><span>{{ area }}</span></span>
+{%- endfor -%}
 </div>
 </div>
-{% endfor %}
+<p class="tf-faq-p">{{ faq_data.limited_access_label | markdown(inline=true) | safe }}</p>
+{%- for item in qa.limited_access -%}
+<div class="ada-limited-row">
+<span class="ada-pill tf-tag"><span class="tf-icon tf-icon-location" aria-hidden="true"></span><span>{{ item.name }}</span></span>
+<p class="tf-faq-p ada-limited-desc">{{ item.desc | markdown(inline=true) | safe }}</p>
 </div>
-{% else %}
+{%- endfor -%}
+</div>
+{%- else -%}
 <div class="tf-faq-answer">
-{% set paragraphs = qa.a | split(pat="\n\n") %}
-{% for p in paragraphs %}
-<p class="{% if not loop.last %}mb-3{% else %}mb-0{% endif %}">{% if loop.first %}<strong class="tf-faq-badge">A:</strong> {% endif %}{{ p | markdown(inline=true) | safe }}</p>
-{% endfor %}
+{%- set paragraphs = qa.a | split(pat="\n\n") -%}
+{%- for p in paragraphs -%}
+<p class="tf-faq-p">{% if loop.first %}A: {% endif %}{{ p | markdown(inline=true) | safe }}</p>
+{%- endfor -%}
 </div>
-{% endif %}
+{%- endif -%}
 </div>
 </details>
-{% endfor %}
+{%- endfor -%}
+</div>
+<script>
+if (window.innerWidth <= 768) {
+document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el) { el.removeAttribute('open'); });
+}
+</script>
 {% endcomponent faq %}
 
 {% component faq_bottom_callouts() %}
-<div class="columns is-variable is-5 mt-6 mb-6">
-<div class="column is-half">
-<div class="faq-callout-card-vertical faq-callout-red">
-<div class="callout-icon-wrap mb-3">
-<svg class="tf-starburst" viewBox="0 0 100 100" width="80" height="80">
-<polygon points="50.0,4.0 57.4,12.7 67.6,7.5 71.1,18.4 82.5,17.5 81.6,28.9 92.5,32.4 87.3,42.6 96.0,50.0 87.3,57.4 92.5,67.6 81.6,71.1 82.5,82.5 71.1,81.6 67.6,92.5 57.4,87.3 50.0,96.0 42.6,87.3 32.4,92.5 28.9,81.6 17.5,82.5 18.4,71.1 7.5,67.6 12.7,57.4 4.0,50.0 12.7,42.6 7.5,32.4 18.4,28.9 17.5,17.5 28.9,18.4 32.4,7.5 42.6,12.7" fill="#fffde7"/>
-<text x="50" y="46" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Icon</text>
-<text x="50" y="58" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Placeholder</text>
-</svg>
+{%- set faq_data = load_data(path="data/faq.yml") -%}
+<div class="tf-faq-callouts-container tf-mod-callout-grid">
+{%- for card in faq_data.callouts -%}
+<div class="faq-callout-card tf-mod-callout tf-mod-callout--vert {% if loop.index == 1 %}faq-callout-card-guidelines is-red{% else %}faq-callout-card-discord is-discord{% endif %}">
+<div class="faq-callout-icon-wrap tf-mod-callout-icon">
+{%- if loop.index == 1 -%}
+<img src="{{ get_url(path='img/guidelines_icon.svg') }}" alt="" aria-hidden="true" width="100" height="100" class="faq-callout-icon" />
+{%- else -%}
+<span class="faq-discord-icon" aria-hidden="true"></span>
+{%- endif -%}
 </div>
-<h3 class="title is-3 has-text-white mb-2">Event Guidelines</h3>
-<p class="has-text-cream mb-4">Before attending, please be sure to check these guidelines</p>
-<div>
-<a class="tf-btn tf-btn-white" href="/about/guidelines/">
-<span>Button</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+<div class="faq-callout-content">
+<div class="faq-callout-copy tf-mod-callout-copy">
+<h3 class="faq-callout-title tf-mod-callout-title">{{ card.title }}</h3>
+<p class="faq-callout-desc tf-mod-callout-desc">{{ card.desc }}</p>
+</div>
+<div class="faq-callout-btn-wrap">
+{%- if card.btn_url -%}
+<a class="faq-callout-btn tf-mod-callout-btn tf-btn tf-btn-white" href="{{ card.btn_url }}" target="_blank" rel="noopener noreferrer">
+{%- else -%}
+<a class="faq-callout-btn tf-mod-callout-btn tf-btn tf-btn-white" href="{{ get_url(path=card.btn_path) }}">
+{%- endif -%}
+<span>{{ card.btn_label }}</span>
+<svg class="faq-callout-chevron" width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M11.3924 8.25644C11.8025 7.83806 11.8025 7.1586 11.3924 6.74021L5.09368 0.31379C4.6836 -0.104597 4.01764 -0.104597 3.60756 0.313789C3.19748 0.732176 3.19748 1.41164 3.60756 1.83002L9.16491 7.5L3.61084 13.17C3.20076 13.5884 3.20076 14.2678 3.61084 14.6862C4.02091 15.1046 4.68688 15.1046 5.09695 14.6862L11.3957 8.25979L11.3924 8.25644Z" fill="currentColor"/></svg>
 </a>
 </div>
 </div>
 </div>
-<div class="column is-half">
-<div class="faq-callout-card-vertical faq-callout-dark">
-<div class="callout-icon-wrap mb-3">
-<span class="tf-icon tf-icon-discord" style="font-size: 64px; color: #ffffff; background-color: #ffffff;"></span>
-</div>
-<h3 class="title is-3 has-text-white mb-2">Join the community on Discord</h3>
-<p class="has-text-grey-light mb-4">Join our community on the TouhouFest Official Discord server!</p>
-<div>
-<a class="tf-btn tf-btn-white" href="https://discord.gg/touhoufest" target="_blank" rel="noopener noreferrer">
-<span>Join Discord</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
-</a>
-</div>
-</div>
-</div>
+{%- endfor -%}
 </div>
 {% endcomponent faq_bottom_callouts %}
 
