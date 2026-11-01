@@ -80,104 +80,84 @@
 {% endcomponent faq_bottom_callouts %}
 
 {% component contact_form() %}
+{%- set cdata = load_data(path="data/contact.yml") -%}
+<div class="tf-contact-page">
+<section class="page-hero-banner contact-hero-section">
+<div class="contact-hero-inner">
+<div class="hero-title-box page-hero-title-box contact-hero-box">
+<div class="contact-hero-copy-wrap">
+<h1 class="page-hero-title contact-hero-title">{{ cdata.hero.title }}</h1>
+<div class="page-hero-body contact-hero-copy">
+<p class="contact-hero-lead">{{ cdata.hero.lead }}</p>
+<p class="contact-hero-refund">{{ cdata.hero.refund_prefix }} <a href="{{ cdata.hero.refund_url }}">{{ cdata.hero.refund_link_text }}</a>{{ cdata.hero.refund_suffix }}</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <div class="contact-form-container">
 <form class="contact-form" action="#" method="post" onsubmit="return false;">
+{%- for field in cdata.fields %}
 <div class="tf-form-field">
-<label class="tf-form-label" for="contact-email">Email<span class="tf-required-star">*</span> <span class="tf-required-tag">(Required)</span></label>
-<input type="email" id="contact-email" name="email" class="tf-form-input" required />
+<div class="tf-field-label-row">
+<div class="tf-field-label-main">
+<label class="tf-form-label" for="{{ field.id }}">{{ field.label }}</label>
+{%- if field.required %}<span class="tf-required-star">*</span>{% endif -%}
 </div>
-<div class="tf-form-field">
-<label class="tf-form-label" for="contact-name">Name<span class="tf-required-star">*</span> <span class="tf-required-tag">(Required)</span></label>
-<input type="text" id="contact-name" name="name" class="tf-form-input" required />
+{%- if field.required %}<span class="tf-required-tag">{{ cdata.required_tag }}</span>{% endif %}
 </div>
-<div class="tf-form-field">
-<label class="tf-form-label" for="contact-pronouns">Pronoun(s)</label>
-<input type="text" id="contact-pronouns" name="pronouns" class="tf-form-input" />
+<input type="{{ field.type }}" id="{{ field.id }}" name="{{ field.name }}" class="tf-form-input"{% if field.required %} required{% endif %} />
 </div>
+{%- endfor %}
 <div class="tf-form-field">
-<label class="tf-form-label" for="contact-company">Company/Organization</label>
-<input type="text" id="contact-company" name="organization" class="tf-form-input" />
-</div>
-<div class="tf-form-field">
-<label class="tf-form-label" for="contact-title">Title</label>
-<input type="text" id="contact-title" name="subject" class="tf-form-input" />
-</div>
-<div class="tf-form-field">
-<label class="tf-form-label" for="contact-phone">Phone number</label>
-<input type="tel" id="contact-phone" name="phone" class="tf-form-input" />
-</div>
-<div class="tf-form-field">
-<label class="tf-form-label" for="contact-website">Website</label>
-<input type="url" id="contact-website" name="website" class="tf-form-input" />
-</div>
-<div class="tf-form-field">
-<div class="is-flex is-justify-content-between is-align-items-baseline mb-1">
-<label class="tf-form-label mb-0" for="contact-reason">Select the option that best describes the reason for contacting us:</label>
-<span class="tf-required-tag">(Required)</span>
+<div class="tf-select-label-row">
+<label class="tf-form-label" for="{{ cdata.reason_field.id }}">{{ cdata.reason_field.label }}</label>
+<span class="tf-required-tag">{{ cdata.required_tag }}</span>
 </div>
 <div class="tf-select-wrapper">
-<select id="contact-reason" name="category" class="tf-form-select" required>
-<option value="" disabled selected>Select an option</option>
-<option value="general">General Inquiry</option>
-<option value="badges">Ticketing / Badges</option>
-<option value="artists">Artist Alley / Vendors</option>
-<option value="panels">Panels &amp; Programming</option>
-<option value="volunteering">Volunteering &amp; Staff</option>
-<option value="press">Press &amp; Media</option>
-<option value="accessibility">Accessibility</option>
-<option value="other">Other</option>
+<select id="{{ cdata.reason_field.id }}" name="{{ cdata.reason_field.name }}" class="tf-form-select" required>
+{%- for opt in cdata.reasons %}
+<option value="{{ opt.value }}"{% if opt.disabled %} disabled selected{% endif %}>{{ opt.label }}</option>
+{%- endfor %}
 </select>
+<span class="tf-select-chevron" aria-hidden="true"></span>
 </div>
 </div>
 <div class="tf-form-field">
-<label class="tf-form-label" for="contact-message">Lorem Ipsum</label>
-<textarea id="contact-message" name="message" class="tf-form-textarea" rows="6"></textarea>
+<div class="tf-field-label-row">
+<div class="tf-field-label-main">
+<label class="tf-form-label" for="{{ cdata.message_field.id }}">{{ cdata.message_field.label }}</label>
 </div>
-<input type="checkbox" name="privacy" id="contact-privacy" checked style="display:none;" />
-<div class="tf-form-field mt-4">
-<button type="submit" class="tf-btn tf-btn-danger">
-<span>Submit</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+</div>
+<textarea id="{{ cdata.message_field.id }}" name="{{ cdata.message_field.name }}" class="tf-form-textarea" rows="6"></textarea>
+</div>
+<input type="checkbox" name="privacy" id="contact-privacy" checked hidden />
+<button type="submit" class="tf-btn tf-btn-danger tf-btn-contact-submit">
+<span class="tf-btn-label">{{ cdata.submit_text }}</span>
+<span class="tf-btn-carrot" aria-hidden="true"></span>
 </button>
-</div>
 </form>
 </div>
-
-<div class="contact-bottom-cards container my-6">
-<div class="contact-callout-card contact-callout-red mb-5">
-<div class="callout-icon-col">
-<svg class="tf-starburst" viewBox="0 0 100 100" width="80" height="80">
-<polygon points="50.0,4.0 57.4,12.7 67.6,7.5 71.1,18.4 82.5,17.5 81.6,28.9 92.5,32.4 87.3,42.6 96.0,50.0 87.3,57.4 92.5,67.6 81.6,71.1 82.5,82.5 71.1,81.6 67.6,92.5 57.4,87.3 50.0,96.0 42.6,87.3 32.4,92.5 28.9,81.6 17.5,82.5 18.4,71.1 7.5,67.6 12.7,57.4 4.0,50.0 12.7,42.6 7.5,32.4 18.4,28.9 17.5,17.5 28.9,18.4 32.4,7.5 42.6,12.7" fill="#fffde7"/>
-<text x="50" y="46" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Icon</text>
-<text x="50" y="58" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" fill="#221a28" text-anchor="middle">Placeholder</text>
-</svg>
+<div class="contact-bottom-cards">
+{%- for card in cdata.callouts %}
+<div class="contact-callout-card tf-mod-callout tf-mod-callout--horiz {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
+<div class="callout-icon-col tf-mod-callout-icon">
+<img src="{% if loop.index == 1 %}{{ get_url(path='img/contact/faq_icon.svg') }}{% else %}{{ get_url(path='img/discord_card_icon.svg') }}{% endif %}" alt="" class="callout-icon-img" width="100" height="100" />
 </div>
-<div class="callout-content-col">
-<h2 class="title is-2 has-text-white mb-2">FAQs</h2>
-<p class="has-text-cream mb-4">Before attending, please be sure to check these guidelines</p>
-<div>
-<a class="tf-btn tf-btn-white" href="/about/faq/">
-<span>Button</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
+<div class="callout-content-col tf-mod-callout-copy">
+<div class="callout-copy-group">
+<h2 class="callout-card-title tf-mod-callout-title">{{ card.title }}</h2>
+<p class="callout-card-desc tf-mod-callout-desc">{{ card.description }}</p>
+</div>
+<div class="callout-actions">
+<a class="tf-btn tf-btn-white tf-btn-pill-white tf-mod-callout-btn" href="{% if card.external %}{{ card.url }}{% else %}{{ get_url(path=card.url) }}{% endif %}"{% if card.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+<span class="tf-btn-label">{{ card.button_text }}</span>
+<span class="tf-btn-carrot" aria-hidden="true"></span>
 </a>
 </div>
 </div>
 </div>
-
-<div class="contact-callout-card contact-callout-dark">
-<div class="callout-icon-col">
-<span class="tf-icon tf-icon-discord" style="font-size: 72px; color: #ffffff; background-color: #ffffff;"></span>
-</div>
-<div class="callout-content-col">
-<h2 class="title is-2 has-text-white mb-2">Join the community on Discord</h2>
-<p class="has-text-grey-light mb-4">Join our community on the TouhouFest Official Discord server!</p>
-<div>
-<a class="tf-btn tf-btn-white" href="https://discord.gg/touhoufest" target="_blank" rel="noopener noreferrer">
-<span>Join Discord</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
-</a>
-</div>
-</div>
+{%- endfor %}
 </div>
 </div>
 {% endcomponent contact_form %}

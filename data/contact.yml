@@ -1,0 +1,94 @@
+hero:
+  title: "Questions for TouhouFest?"
+  lead: "For questions and inquiries, please fill out the form and the TouhouFest Team will get back to you soon!"
+  refund_prefix: "If you are looking for a badge refund, please check"
+  refund_link_text: "this link"
+  refund_url: "https://amp-organization.com"
+  refund_suffix: "."
+
+required_tag: "(Required)"
+
+fields:
+  - id: "contact-email"
+    name: "email"
+    label: "Email"
+    type: "email"
+    required: true
+  - id: "contact-name"
+    name: "name"
+    label: "Name"
+    type: "text"
+    required: true
+  - id: "contact-pronouns"
+    name: "pronouns"
+    label: "Pronoun(s)"
+    type: "text"
+    required: false
+  - id: "contact-company"
+    name: "organization"
+    label: "Company/Organization"
+    type: "text"
+    required: false
+  - id: "contact-title"
+    name: "subject"
+    label: "Title"
+    type: "text"
+    required: false
+  - id: "contact-phone"
+    name: "phone"
+    label: "Phone number"
+    type: "tel"
+    required: false
+  - id: "contact-website"
+    name: "website"
+    label: "Website"
+    type: "url"
+    required: false
+
+reason_field:
+  id: "contact-reason"
+  name: "category"
+  label: "Select the option that best describes the reason for contacting us:"
+  placeholder: "Select an option"
+
+reasons:
+  - value: ""
+    label: "Select an option"
+    disabled: true
+  - value: "general"
+    label: "General Inquiry"
+  - value: "badges"
+    label: "Ticketing / Badges"
+  - value: "artists"
+    label: "Artist Alley / Vendors"
+  - value: "panels"
+    label: "Panels & Programming"
+  - value: "volunteering"
+    label: "Volunteering & Staff"
+  - value: "press"
+    label: "Press & Media"
+  - value: "accessibility"
+    label: "Accessibility"
+  - value: "other"
+    label: "Other"
+
+message_field:
+  id: "contact-message"
+  name: "message"
+  label: "Lorem Ipsum"
+
+submit_text: "Submit"
+
+callouts:
+  - id: "faq"
+    title: "FAQs"
+    description: "Before attending, please be sure to check these guidelines"
+    button_text: "Button"
+    url: "@/about/faq.md"
+    external: false
+  - id: "discord"
+    title: "Join the community on Discord"
+    description: "Join our community on the TouhouFest Official Discord server!"
+    button_text: "Join Discord"
+    url: "https://discord.gg/touhoufest"
+    external: true
