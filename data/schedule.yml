@@ -1,4 +1,38 @@
 status: "published"
+hero:
+  title: "Download our app for the latest schedule info"
+  subtitle: "The Touhoufest App is avaliable on:"
+app_buttons:
+  - url: "https://schedule.touhoufest.org"
+    label: "View on web"
+  - url: "https://play.google.com/store/apps"
+    label: "View in<br>Play Store"
+  - url: "https://apple.com/app-store"
+    label: "View in<br>App Store"
+phones_preview:
+  image: "img/schedule_app_phones.png"
+  alt: "TouhouFest Schedule App Screens"
+badge_cta:
+  image: "img/badge_teaser.png"
+  alt: "2026 Weekend Badge"
+  desktop_title: "2026 Weekend Badge"
+  mobile_title: "2026 Full Weekend Badge"
+  button_label: "Buy badge"
+  button_path: "register"
+discord_cta:
+  icon_alt: "Discord"
+  title: "Join the community on Discord"
+  description: "Join our community on the TouhouFest Official Discord server!"
+  button_label: "Join Discord"
+  button_url: "https://discord.gg/touhoufest"
+newsletter_cta:
+  icon_alt: "The Tengu Newsletter"
+  title: "The Tengu Newsletter"
+  description: "Sign up with your email address to receive news and updates."
+  input_placeholder: "Email here"
+  input_aria_label: "Email address"
+  button_label: "Subscribe"
+sr_heading: "TouhouFest 2026 Official Schedule"
 days:
   - id: "day-1"
     day: "Day 1"
