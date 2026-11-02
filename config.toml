@@ -6,6 +6,9 @@ description = "TouhouFest is an annual Touhou Project fan convention held at the
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
+# Minify generated HTML, inline CSS/JS, and compiled Sass
+minify_html = true
+
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 

@@ -19,10 +19,6 @@ check-links:
 build:
     zola build
 
-# Compile SASS stylesheets using grass
-sass:
-    grass sass/style.scss static/style.css
-
 # Run local development server
 serve:
     zola serve
