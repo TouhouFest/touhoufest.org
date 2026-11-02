@@ -1126,29 +1126,23 @@ body:has(.guests-hero-section) .guests-page-content {
 /* Mobile Breakpoint (390px Figma Ground Truth) */
 @media screen and (max-width: 768px) {
   .guests-hero-section {
-    min-height: 923px;
-    height: 923px;
-    max-height: 923px;
+    min-height: 512px;
+    height: auto;
+    max-height: none;
     padding: 270px 0 73px 0;
   }
   .guests-hero-vignette {
-    height: 923px;
+    height: 100%;
   }
   .guests-hero-content {
     width: calc(100% - 62px);
     gap: 0;
   }
   .guests-hero-title-box {
-    height: 580px;
-    min-height: 580px;
-    max-height: 580px;
+    height: auto;
+    min-height: 169px;
+    max-height: none;
     padding: 48px 24px;
-    justify-content: space-between;
-  }
-  :is(.guests-hero-title-core, .guests-hero-title-copy) {
-    height: 100%;
-    @include flex-col-center;
-    justify-content: space-between;
   }
   .guests-hero-title {
     font-size: 40px;

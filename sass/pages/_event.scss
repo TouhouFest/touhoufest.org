@@ -911,7 +911,7 @@ $ev-polaroid-slots: (
     text-align: center;
     max-width: 240px;
   }
-  :is(.ev-red-card-body, .ev-discord-title, .ev-discord-body) {
+  .ev-red-card-body {
     text-align: center;
   }
   .ev-red-card-btns {
@@ -966,12 +966,21 @@ $ev-polaroid-slots: (
   .ev-discord-card {
     width: 328px;
     max-width: 100%;
-    padding: 48px 24px;
+    padding: 48px;
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
-    text-align: center;
+    text-align: left;
     gap: 40px;
-    height: 416px;
+    height: auto;
+    min-height: 416px;
+    :is(.ev-red-card-content, .ev-red-card-copy) {
+      align-items: flex-start;
+      text-align: left;
+    }
+    .ev-red-card-btns {
+      justify-content: flex-start;
+    }
   }
   .ev-team-sec {
     width: 100%;

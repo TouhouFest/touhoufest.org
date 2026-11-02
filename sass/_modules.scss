@@ -417,6 +417,9 @@
   .tf-mod-callout--horiz {
     padding: 32px 24px;
     gap: 24px;
+    > .tf-mod-callout-copy {
+      flex: 0 1 auto;
+    }
   }
   .tf-mod-callout-grid {
     grid-template-columns: 1fr;

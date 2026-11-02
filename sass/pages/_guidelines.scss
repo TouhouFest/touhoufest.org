@@ -198,7 +198,7 @@ body:has(.guidelines-page-wrapper) main {
 }
 
 /* Guidelines Bottom Callouts (FAQs & Discord) */
-.tf-faq-callouts-container {
+.guidelines-callouts-container {
   @include flex-column;
   gap: 48px;
   margin: 92px 0 0;
@@ -307,7 +307,7 @@ body:has(.guidelines-page-wrapper) main {
     padding: 48px;
     gap: 40px;
   }
-  .tf-faq-callouts-container {
+  .guidelines-callouts-container {
     margin-top: 55px;
   }
 }

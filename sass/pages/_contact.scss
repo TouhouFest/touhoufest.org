@@ -219,26 +219,6 @@ body:has(.tf-contact-page) {
       text-underline-offset: auto;
       white-space: nowrap;
     }
-    .tf-btn-carrot {
-      position: relative;
-      display: inline-block;
-      width: 8px;
-      height: 16px;
-      flex-shrink: 0;
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -3px;
-        width: 15px;
-        height: 16px;
-        background-color: currentColor;
-        -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 16'><path d='M11.3932 8.25644C11.8033 7.83806 11.8033 7.1586 11.3932 6.74021L5.09446 0.31379C4.68438 -0.104597 4.01842 -0.104597 3.60834 0.313789C3.19826 0.732176 3.19826 1.41164 3.60834 1.83002L9.16569 7.5L3.61162 13.17C3.20154 13.5884 3.20154 14.2678 3.61162 14.6862C4.02169 15.1046 4.68766 15.1046 5.09773 14.6862L11.3965 8.25979L11.3932 8.25644Z'/></svg>")
-          center / 15px 16px no-repeat;
-        mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 16'><path d='M11.3932 8.25644C11.8033 7.83806 11.8033 7.1586 11.3932 6.74021L5.09446 0.31379C4.68438 -0.104597 4.01842 -0.104597 3.60834 0.313789C3.19826 0.732176 3.19826 1.41164 3.60834 1.83002L9.16569 7.5L3.61162 13.17C3.20154 13.5884 3.20154 14.2678 3.61162 14.6862C4.02169 15.1046 4.68766 15.1046 5.09773 14.6862L11.3965 8.25979L11.3932 8.25644Z'/></svg>")
-          center / 15px 16px no-repeat;
-      }
-    }
   }
 
   .tf-btn-contact-submit {
@@ -318,15 +298,10 @@ body:has(.tf-contact-page) {
 @media screen and (max-width: 768px) {
   body:has(.tf-contact-page) {
     background-image: linear-gradient(112.55deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
-    .tf-nav-wave {
-      display: none;
-    }
   }
   .tf-contact-page {
     .contact-hero-section {
-      margin-top: 148px;
-      min-height: 447px;
-      padding: 138px 0 48px;
+      min-height: 595px;
       background-image: url("img/contact/hero_contact_mobile.png");
     }
     .contact-hero-inner {

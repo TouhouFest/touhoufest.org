@@ -98,6 +98,29 @@
   opacity: 1;
 }
 
+.tf-btn-carrot {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  margin: 0;
+  border: 0;
+  background-color: currentColor;
+  -webkit-mask: url("#{$svg-chevron-right}") no-repeat center / contain;
+  mask: url("#{$svg-chevron-right}") no-repeat center / contain;
+  transform: none;
+  flex-shrink: 0;
+  transition: transform 300ms ease-out;
+}
+:is(.tf-btn:hover, a:hover, button:hover) .tf-btn-carrot {
+  transform: translateX(2px);
+}
+@media screen and (max-width: 768px) {
+  .tf-btn {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+}
+
 @include dark-mode {
   .tf-btn-pill-white {
     background-color: #511154;
@@ -106,26 +129,5 @@
   .tf-btn-pill-red {
     background-color: #f9c650;
     color: #511154;
-  }
-}
-
-.tf-btn-carrot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid currentColor;
-  border-right: 2px solid currentColor;
-  transform: rotate(45deg);
-  transition: transform 300ms ease-out;
-  margin-left: 0.4rem;
-  vertical-align: middle;
-}
-:is(.tf-btn:hover, a:hover) .tf-btn-carrot {
-  transform: translateX(2px) rotate(45deg);
-}
-@media screen and (max-width: 768px) {
-  .tf-btn {
-    padding: 10px 24px;
-    font-size: 0.95rem;
   }
 }

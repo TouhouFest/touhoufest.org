@@ -149,10 +149,10 @@
 .hero-card-badge-img {
   width: 273px;
   max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 0;
-  box-shadow: none;
+  aspect-ratio: 273 / 255;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
   display: block;
 }
 .hero-card-right {
@@ -188,18 +188,6 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   white-space: nowrap;
-}
-.tf-btn-carrot {
-  width: 8px;
-  height: 16px;
-  margin: 0;
-  flex-shrink: 0;
-  display: inline-block;
-  background-color: currentColor;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 16'%3E%3Cpath d='M1 1.5L6.5 8L1 14.5' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
-    no-repeat center / 8px 16px;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 16'%3E%3Cpath d='M1 1.5L6.5 8L1 14.5' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
-    no-repeat center / 8px 16px;
 }
 
 /* Pricing Schedule */
@@ -611,9 +599,7 @@
   .hero-card-badge-img {
     width: 197px;
     height: 184px;
-    max-width: 100%;
-    border-radius: 5px;
-    box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
+    aspect-ratio: auto;
   }
   .hero-card-right {
     flex: 0 0 auto;

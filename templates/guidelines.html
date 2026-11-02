@@ -33,7 +33,7 @@
 <div class="guidelines-markdown-body">
 {{ page.content | replace(from='>here</a>', to='>here<span class="is-sr-only"> (official cosplay contest rules and applications)</span></a>') | safe }}
 </div>
-<div class="tf-faq-callouts-container">
+<div class="guidelines-callouts-container">
 {% for card in data.callouts %}
 <div class="tf-mod-callout tf-mod-callout--horiz guidelines-callout-card {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
 <div class="tf-mod-callout-icon guidelines-card-icon-col">
