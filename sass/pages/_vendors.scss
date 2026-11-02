@@ -193,9 +193,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   @include flex-col-center;
 }
 .tf-v-fcard-headline {
-  width: 100%;
   height: 194px;
-  padding: 88px 56px 32px;
   @include flex-column;
   justify-content: flex-end;
   align-items: flex-start;
@@ -210,21 +208,16 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   @include tf-h2;
   @include flex-column;
   line-height: 37px;
-  color: #fffde7;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 .tf-v-fcard-body {
-  width: 100%;
   height: 212px;
   background: #bf3444;
-  padding: 0 56px 48px;
-  @include flex-col-center;
   justify-content: space-between;
 }
 .tf-v-fcard-bio {
   @include tf-body;
   line-height: 21px;
-  color: #ffffff;
   width: 100%;
   text-align: left;
 }
@@ -281,23 +274,12 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 .tf-v-roster-heading {
   margin-bottom: 0;
 }
-.tf-v-roster-section {
-  @include flex-col-center;
-  gap: 42px;
-}
 .tf-v-search-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   width: 331px;
   max-width: 100%;
-  height: 48px;
 }
 .tf-v-search-icon-wrap {
-  width: 48px;
-  height: 48px;
   @include flex-center;
-  flex-shrink: 0;
 }
 .tf-v-search-icon {
   width: 38px;
@@ -305,13 +287,8 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   display: block;
 }
 .tf-v-search-pill {
-  flex: 1;
-  height: 48px;
   border-radius: 30px;
-  border: 2px solid var(--tf-accent);
   background: linear-gradient(90deg, #cbcbd2 0%, #fbf7eb 100%);
-  display: flex;
-  align-items: center;
   padding: 0 23px;
 }
 .tf-v-search-placeholder {
@@ -320,25 +297,18 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   color: var(--tf-ink);
 }
 .tf-v-roster-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 32px 24px;
   width: 1056px;
   max-width: 100%;
 }
 .tf-v-rcard {
-  width: 192px;
   height: 268px;
   @include flex-column;
-  justify-content: flex-end;
 }
 .tf-v-rcard-inner {
   width: 192px;
   height: 268px;
-  @include flex-col-center;
   justify-content: flex-end;
-  gap: 8px;
 }
 .tf-v-rcard-name {
   width: 192px;
@@ -347,17 +317,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  text-align: center;
-  font:
-    500 18px / 22px "Poppins",
-    sans-serif;
-  color: var(--tf-ink);
-}
-.tf-v-rcard-frame {
-  position: relative;
-  width: 192px;
-  height: 192px;
-  flex-shrink: 0;
 }
 .tf-v-rcard-shadow {
   @include absolute-fill;
@@ -369,8 +328,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   left: 16px;
   width: 176px;
   height: 176px;
-  background: #ff4949;
-  border-radius: 5px;
 }
 .tf-v-rcard-dots {
   position: absolute;
@@ -430,13 +387,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 }
 .tf-v-rcard:nth-child(13) .tf-v-rcard-img.is-real {
   object-fit: contain;
-}
-.tf-v-rcard-table {
-  font:
-    400 12px / 16px "Open Sans",
-    sans-serif;
-  color: var(--tf-ink);
-  text-align: center;
 }
 
 /* Section Dividers & Maps */
@@ -627,7 +577,6 @@ $tf-v-polaroid-angles:
 }
 
 .tf-vendors-root .tf-v-pager {
-  @include flex-center;
   gap: 17px;
   height: 73px;
   margin-top: 0;
@@ -635,10 +584,6 @@ $tf-v-polaroid-angles:
 .tf-v-pager-arrow {
   width: 60px;
   height: 60px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
   img {
     width: 60px;
     height: 60px;
@@ -649,8 +594,6 @@ $tf-v-polaroid-angles:
   }
 }
 .tf-v-pager-dots {
-  display: flex;
-  align-items: center;
   gap: 12px;
 }
 .tf-v-pager-dot {
@@ -685,12 +628,6 @@ $tf-v-polaroid-angles:
   top: 80px;
   z-index: 2;
 }
-.tf-v-ofuda-rot.is-card-1 {
-  transform: rotate(-5.13deg);
-}
-.tf-v-ofuda-rot.is-card-2 {
-  transform: rotate(11.34deg);
-}
 .tf-v-ofuda-card {
   width: 330px;
   height: 420px;
@@ -723,8 +660,6 @@ $tf-v-polaroid-angles:
   gap: 14px;
 }
 .tf-v-ofuda-icon-wrap {
-  width: 100px;
-  height: 100px;
   @include flex-center;
 }
 .tf-v-ofuda-icon {
@@ -1165,7 +1100,7 @@ $tf-v-polaroid-angles:
     background: #30293e linear-gradient(131.5326deg, #30293e 28.353%, #221a28 93.86%);
     color: #fbf7eb;
   }
-  :is(.tf-v-fcard-backing, .tf-v-fcard-body, .tf-v-search-pill) {
+  .tf-v-fcard-backing {
     background: #373852;
   }
   .tf-v-fcard-headline {
@@ -1174,12 +1109,6 @@ $tf-v-polaroid-angles:
   .tf-vendors-root .tf-v-fcard-streamer {
     filter: brightness(0) saturate(100%) invert(84%) sepia(43%) saturate(835%) hue-rotate(345deg)
       brightness(101%) contrast(96%) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
-  }
-  .tf-v-fcard-title {
-    color: #f9c650;
-  }
-  .tf-v-fcard-bio {
-    color: #fbf7eb;
   }
   .tf-vendors-root .tf-v-fcard .tf-v-btn-cream {
     background-color: #f9c650;

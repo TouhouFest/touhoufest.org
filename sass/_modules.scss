@@ -613,3 +613,114 @@
     color: #511154;
   }
 }
+
+/* 6. Module 6 — Exhibitor Directory, Search & Pager (artists, vendors) */
+:is(.tf-artists-feat-headline, .tf-v-fcard-headline) {
+  width: 100%;
+  padding: 88px 56px 32px;
+}
+:is(.tf-artists-feat-title, .tf-v-fcard-title) {
+  color: #fffde7;
+}
+:is(.tf-artists-feat-body, .tf-v-fcard-body) {
+  width: 100%;
+  padding: 0 56px 48px;
+  @include flex-col-center;
+}
+:is(.tf-artists-feat-bio, .tf-v-fcard-bio) {
+  color: #ffffff;
+}
+:is(.tf-artists-roster-wrap, .tf-v-roster-section) {
+  @include flex-col-center;
+  gap: 42px;
+}
+:is(.tf-artists-search-bar, .tf-v-search-row) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+}
+:is(.tf-artists-search-icon, .tf-v-search-icon-wrap) {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+:is(.tf-artists-search-input, .tf-v-search-pill) {
+  flex: 1 0 0;
+  height: 48px;
+  border: 2px solid var(--tf-accent, #bf3444);
+  display: flex;
+  align-items: center;
+}
+:is(.tf-artists-roster-grid, .tf-v-roster-grid) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+:is(.tf-artists-roster-card, .tf-v-rcard) {
+  width: 192px;
+  justify-content: flex-end;
+}
+:is(.tf-artists-roster-inner, .tf-v-rcard-inner) {
+  @include flex-col-center;
+  gap: 8px;
+}
+:is(.tf-artists-roster-name, .tf-v-rcard-name) {
+  font:
+    500 18px / 22px "Poppins",
+    sans-serif;
+  color: var(--tf-ink);
+  text-align: center;
+}
+:is(.tf-artists-roster-frame, .tf-v-rcard-frame) {
+  width: 192px;
+  height: 192px;
+  position: relative;
+  flex-shrink: 0;
+}
+:is(.tf-artists-roster-back-fill, .tf-v-rcard-shadow-fill) {
+  background: #ff4949;
+  border-radius: 5px;
+}
+:is(.tf-artists-roster-table, .tf-v-rcard-table) {
+  font:
+    400 12px / 16px "Open Sans",
+    sans-serif;
+  color: var(--tf-ink);
+  text-align: center;
+}
+:is(.tf-artists-pager, .tf-vendors-root .tf-v-pager) {
+  @include flex-center;
+}
+:is(.tf-artists-pager-arrow, .tf-v-pager-arrow) {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+:is(.tf-artists-pager-dots, .tf-v-pager-dots) {
+  display: flex;
+  align-items: center;
+}
+:is(.tf-artists-ofuda-rot--1, .tf-v-ofuda-rot.is-card-1) {
+  transform: rotate(-5.13deg);
+}
+:is(.tf-artists-ofuda-rot--2, .tf-v-ofuda-rot.is-card-2) {
+  transform: rotate(11.34deg);
+}
+:is(.tf-artists-ofuda-icon, .tf-v-ofuda-icon-wrap) {
+  width: 100px;
+  height: 100px;
+}
+
+@include dark-mode {
+  :is(.tf-artists-feat-title, .tf-v-fcard-title) {
+    color: #f9c650;
+  }
+  :is(.tf-artists-feat-body, .tf-v-fcard-body, .tf-artists-search-input, .tf-v-search-pill) {
+    background: var(--tf-surface-navy, #373852);
+  }
+  :is(.tf-artists-feat-bio, .tf-v-fcard-bio) {
+    color: #fbf7eb;
+  }
+}
