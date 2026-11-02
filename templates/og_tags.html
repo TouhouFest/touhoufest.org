@@ -19,11 +19,11 @@
 {%- endif -%}
 
 {%- if page is defined and page.extra.hero_image -%}
-  {%- set meta_img = get_url(path=page.extra.hero_image) -%}
+  {%- set og_img_path = page.extra.hero_image -%}
 {%- elif page is defined and page.image -%}
-  {%- set meta_img = get_url(path=page.image) -%}
+  {%- set og_img_path = page.image -%}
 {%- else -%}
-  {%- set meta_img = get_url(path=config.extra.default_og_image | default(value="banner.png")) -%}
+  {%- set og_img_path = config.extra.default_og_image | default(value="banner.png") -%}
 {%- endif -%}
 
 {% if meta_desc %}
@@ -38,14 +38,14 @@
 {% if current_url is defined %}
   <meta property="og:url" content="{{ current_url | safe }}">
 {% endif %}
-  <meta property="og:image" content="{{ meta_img | safe }}">
+  <meta property="og:image" content="{{ <img_url path={og_img_path} /> }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@TouhouFest">
   <meta name="twitter:title" content="{{ meta_title }}">
 {% if meta_desc %}
   <meta name="twitter:description" content="{{ meta_desc }}">
 {% endif %}
-  <meta name="twitter:image" content="{{ meta_img | safe }}">
+  <meta name="twitter:image" content="{{ <img_url path={og_img_path} /> }}">
 {% if page is defined and page.date %}
   <meta content="{{ page.date | date(format="%+") }}" property="article:published_time">
   <meta content="{{ get_url(path="/about/event/") }}" property="article:author">

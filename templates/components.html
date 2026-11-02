@@ -5,7 +5,7 @@
 {%- set processed = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format="webp", quality=quality) -%}
 {{ processed.url | safe }}
 {%- else -%}
-{{ get_url(path=path) | safe }}
+{{ get_url(path=path, cachebust=true) | safe }}
 {%- endif -%}
 {%- endcomponent img_url %}
 
@@ -190,7 +190,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {% set svg_path = "templates/" ~ icon %}
 <img src="data:image/svg+xml,{{ load_data(path=svg_path) | urlencode }}" alt="Newsletter" />
 {% else %}
-<img src="{{ get_url(path=icon) }}" alt="Newsletter" />
+<img src="{{ <img_url path={icon} /> }}" alt="Newsletter" loading="lazy" decoding="async" />
 {% endif %}
 </div>
 <div class="newsletter-content">
@@ -233,9 +233,9 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="hero-card-inner">
 <div class="hero-card-image-wrap">
 {%- if image %}
-<img src="{{ get_url(path=image) }}" alt="{{ title }}" />
+<img src="{{ <img_url path={image} /> }}" alt="{{ title }}" loading="lazy" decoding="async" />
 {%- else %}
-<img src="{{ get_url(path="img/badge_teaser.png") }}" alt="{{ title }}" />
+<img src="{{ <img_url path="img/badge_teaser.png" /> }}" alt="{{ title }}" loading="lazy" decoding="async" />
 {%- endif %}
 </div>
 <div class="hero-card-content">
@@ -365,7 +365,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 </div>
 {%- elif icon %}
 <div class="tf-mod-callout-icon tf-teaser-avatar">
-<img src="{{ get_url(path=icon) }}" alt="{{ title }}" />
+<img src="{{ <img_url path={icon} /> }}" alt="{{ title }}" loading="lazy" decoding="async" />
 </div>
 {%- endif %}
 <div class="tf-teaser-body">
@@ -448,11 +448,11 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/card_top_gradient.svg') | urlencode }}" alt="" class="hero-card-top-grad" />
 <div class="hero-card-border-stroke"></div>
 <div class="hero-card-streamer hero-card-streamer-left">
-<img src="{{ get_url(path='img/shared/card_streamer.svg') }}" alt="" class="streamer-main" />
+<img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}" alt="" class="streamer-main" />
 <img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="streamer-accent" />
 </div>
 <div class="hero-card-streamer hero-card-streamer-right">
-<img src="{{ get_url(path='img/shared/card_streamer.svg') }}" alt="" class="streamer-main" />
+<img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}" alt="" class="streamer-main" />
 <img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="streamer-accent" />
 </div>
 </div>
@@ -585,7 +585,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 </div>
 <a href="{{ guest.url }}" target="_blank" rel="noopener noreferrer" class="timeline-pill-link">
 <span>{{ guests_data.timeline_config.link_label }}</span>
-<img src="{{ get_url(path='img/guests/icon_external_light.svg') }}" alt="" class="tl-ext-icon" />
+<img src="{{ <img_url path="img/guests/icon_external_light.svg" /> }}" alt="" class="tl-ext-icon" />
 </a>
 </div>
 </div>
@@ -619,7 +619,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 </div>
 <a href="{{ guest.url }}" target="_blank" rel="noopener noreferrer" class="timeline-pill-link">
 <span>{{ guests_data.timeline_config.link_label }}</span>
-<img src="{{ get_url(path='img/guests/icon_external_light.svg') }}" alt="" class="tl-ext-icon" />
+<img src="{{ <img_url path="img/guests/icon_external_light.svg" /> }}" alt="" class="tl-ext-icon" />
 </a>
 </div>
 </div>
@@ -632,10 +632,10 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="timeline-date-null-1"></div>
 <div class="timeline-gohei-musician">
 <div class="timeline-shide-wrap is-desktop">
-<img src="{{ get_url(path='img/guests/timeline_shide_desktop.svg') }}" alt="" />
+<img src="{{ <img_url path="img/guests/timeline_shide_desktop.svg" /> }}" alt="" />
 </div>
 <div class="timeline-shide-wrap is-mobile">
-<img src="{{ get_url(path='img/guests/timeline_shide_mobile.svg') }}" alt="" />
+<img src="{{ <img_url path="img/guests/timeline_shide_mobile.svg" /> }}" alt="" />
 </div>
 <div class="timeline-gohei-text-wrap">
 <div class="timeline-gohei-text">
@@ -1616,10 +1616,10 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="tf-v-rcard-frame">
 <div class="tf-v-rcard-shadow">
 <div class="tf-v-rcard-shadow-fill"></div>
-<img src="{{ get_url(path='img/shared/card_dots.svg') }}" alt="" class="tf-v-rcard-dots" aria-hidden="true" />
+<img src="{{ <img_url path="img/shared/card_dots.svg" /> }}" alt="" class="tf-v-rcard-dots" aria-hidden="true" />
 <a href="{{ item.url }}" class="tf-v-rcard-visit">
 <span class="tf-v-rcard-visit-text">{{ exhibitors_data.page.roster_visit_label }}</span>
-<img src="{{ get_url(path='img/shared/icon_external_cream.svg') }}" alt="" class="tf-v-rcard-visit-icon" />
+<img src="{{ <img_url path="img/shared/icon_external_cream.svg" /> }}" alt="" class="tf-v-rcard-visit-icon" />
 </a>
 </div>
 <div class="tf-v-rcard-img-pad">
@@ -1692,7 +1692,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <img src="{{ <img_url path={item.image} /> }}" alt="{{ item.name }}" class="tf-v-polaroid-thumb" loading="lazy" decoding="async" />
 </div>
 <div class="tf-v-polaroid-dots tf-mod-polaroid-dots" aria-hidden="true">
-<img src="{{ get_url(path='img/shared/polaroid_dots.svg') }}" alt="" />
+<img src="{{ <img_url path="img/shared/polaroid_dots.svg" /> }}" alt="" />
 </div>
 <a href="{{ item.url }}" class="tf-v-polaroid-link">
 <span class="tf-v-polaroid-text">
@@ -1700,7 +1700,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {{ line }}{% if not loop.last %}<br />{% endif %}
 {%- endfor %}
 </span>
-<img src="{{ get_url(path='img/shared/icon_external_red.svg') }}" alt="" class="tf-v-polaroid-ext" />
+<img src="{{ <img_url path="img/shared/icon_external_red.svg" /> }}" alt="" class="tf-v-polaroid-ext" />
 </a>
 </div>
 </div>

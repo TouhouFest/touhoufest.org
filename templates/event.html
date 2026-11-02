@@ -190,7 +190,7 @@
 {% endif -%}
 </div>
 <div class="ev-polaroid-dots tf-mod-polaroid-dots" aria-hidden="true">
-<img src="{{ get_url(path='img/shared/polaroid_dots.svg') | safe }}" alt="" class="ev-polaroid-dots-img">
+<img src="{{ <img_url path="img/shared/polaroid_dots.svg" /> }}" alt="" class="ev-polaroid-dots-img">
 </div>
 </div>
 </div>
@@ -369,11 +369,11 @@
 <img src="data:image/svg+xml,{{ load_data(path='templates/img/event/cta_gradient.svg') | urlencode }}" alt="" class="ev-badge-cta-grad">
 <div class="hero-card-streamer hero-card-streamer-left">
 <div class="ev-badge-accent-wrap"><div class="ev-badge-accent-rot"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="ev-badge-accent-img"></div></div>
-<img src="{{ get_url(path='img/shared/card_streamer.svg') | safe }}" alt="" class="streamer-main">
+<img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}" alt="" class="streamer-main">
 </div>
 <div class="hero-card-streamer hero-card-streamer-right">
 <div class="ev-badge-accent-wrap"><div class="ev-badge-accent-rot"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="ev-badge-accent-img"></div></div>
-<img src="{{ get_url(path='img/shared/card_streamer.svg') | safe }}" alt="" class="streamer-main">
+<img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}" alt="" class="streamer-main">
 </div>
 <div class="ev-badge-cta-stroke"></div>
 </div>

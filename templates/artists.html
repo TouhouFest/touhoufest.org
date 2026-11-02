@@ -56,7 +56,7 @@
 <img class="tf-artists-feat-corner-accent" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" />
 </div>
 </div>
-<img class="tf-artists-feat-corner-base" src="{{ get_url(path='img/shared/card_streamer.svg') }}" alt="" />
+<img class="tf-artists-feat-corner-base" src="{{ <img_url path="img/shared/card_streamer.svg" /> }}" alt="" />
 </div>
 {% if side == "right" %}</div>{% endif %}
 </div>
@@ -99,10 +99,10 @@
 <div class="tf-artists-roster-frame">
 <div class="tf-artists-roster-back">
 <div class="tf-artists-roster-back-fill"></div>
-<img class="tf-artists-roster-dots" src="{{ get_url(path='img/shared/card_dots.svg') }}" alt="" aria-hidden="true" />
+<img class="tf-artists-roster-dots" src="{{ <img_url path="img/shared/card_dots.svg" /> }}" alt="" aria-hidden="true" />
 <a class="tf-artists-roster-link" href="{{ artist.url }}">
 <span class="tf-artists-roster-link-text">{{ data.roster_section.cta_label }}</span>
-<img class="tf-artists-roster-link-icon" src="{{ get_url(path='img/shared/icon_external_cream.svg') }}" alt="" />
+<img class="tf-artists-roster-link-icon" src="{{ <img_url path="img/shared/icon_external_cream.svg" /> }}" alt="" />
 </a>
 </div>
 <div class="tf-artists-roster-avatar">
@@ -183,7 +183,7 @@
 <img class="tf-artists-polaroid-photo-fg" src="{{ <img_url path={item.image} /> }}" alt="{{ item.lines | join(sep=' ') }}" loading="lazy" decoding="async" />
 </div>
 <div class="tf-artists-polaroid-dots tf-mod-polaroid-dots">
-<img src="{{ get_url(path='img/shared/polaroid_dots.svg') }}" alt="" aria-hidden="true" />
+<img src="{{ <img_url path="img/shared/polaroid_dots.svg" /> }}" alt="" aria-hidden="true" />
 </div>
 <a class="tf-artists-polaroid-link" href="{{ item.url }}">
 <span class="tf-artists-polaroid-link-text">
@@ -191,7 +191,7 @@
 <span class="tf-artists-polaroid-line">{{ line }}</span>
 {% endfor %}
 </span>
-<img class="tf-artists-polaroid-link-icon" src="{{ get_url(path='img/shared/icon_external_red.svg') }}" alt="" />
+<img class="tf-artists-polaroid-link-icon" src="{{ <img_url path="img/shared/icon_external_red.svg" /> }}" alt="" />
 </a>
 </div>
 </div>

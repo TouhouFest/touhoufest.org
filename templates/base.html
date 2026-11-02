@@ -10,11 +10,11 @@
   {% endif %}
 
   {# Preload self-hosted primary fonts for instant render #}
-  <link rel="preload" href="{{ get_url(path='fonts/poppins-latin-700-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ get_url(path='fonts/open-sans-latin-400-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ get_url(path='fonts/poppins-latin-700-normal.woff2', cachebust=true) }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ get_url(path='fonts/open-sans-latin-400-normal.woff2', cachebust=true) }}" as="font" type="font/woff2" crossorigin>
 
   {# Single Unified Stylesheet: Vendored Bulma 1.0 + Figma Tokens + Components #}
-  <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+  <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
 
   {% include "og_tags.html" %}
   {% include "json_ld.html" %}
