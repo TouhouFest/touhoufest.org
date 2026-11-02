@@ -1,15 +1,19 @@
 // Button Variants & Pill Toggles
-.tf-btn {
+:is(.tf-btn, .tf-btn-white, .tf-btn-pill-white, .tf-btn-pill-red) {
   display: inline-flex;
   align-items: center;
+  border-radius: var(--tf-radius-pill, 35px);
+}
+:is(.tf-btn, .tf-btn-pill-white, .tf-btn-pill-red) {
   justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.tf-btn {
   gap: 0.5rem;
   padding: 14px 39px 14px 47px;
   font: 800 1rem var(--tf-font-heading);
-  border-radius: var(--tf-radius-pill, 35px);
   border: 2px solid transparent;
-  cursor: pointer;
-  text-decoration: none;
   transition:
     background-color 300ms ease-out,
     color 300ms ease-out,
@@ -18,83 +22,72 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+    z-index: -1;
+    pointer-events: none;
+  }
 }
-.tf-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 300ms ease-out;
-  z-index: -1;
-  pointer-events: none;
+:is(.tf-btn-white, .tf-btn-pill-white, .tf-btn-pill-red) {
+  border: none;
 }
 
-.tf-btn-primary,
-.tf-btn-danger {
+:is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red) {
   background-color: var(--tf-color-red, #bf3444);
+  &::before {
+    background: linear-gradient(90deg, #bf3444 25%, #ff4949 80%);
+  }
+  &:active {
+    background-color: #ff4949;
+    &::before {
+      background: #ff4949;
+      opacity: 1;
+    }
+  }
+}
+:is(.tf-btn-primary, .tf-btn-danger) {
   color: var(--tf-color-white, #ffffff);
 }
-:is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red)::before {
-  background: linear-gradient(90deg, #bf3444 25%, #ff4949 80%);
-}
-:is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red):hover::before {
-  opacity: 1;
-}
-:is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red):active {
-  background-color: #ff4949;
-}
-:is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red):active::before {
-  background: #ff4949;
-  opacity: 1;
-}
-
 .tf-btn-outline {
   background-color: transparent;
   border-color: currentColor;
   color: inherit;
 }
-
 .tf-btn-white {
   font-family: var(--tf-font-heading);
   font-weight: 700;
-  border-radius: var(--tf-radius-pill, 35px);
   padding: 10px 28px;
-  border: none;
-  display: inline-flex;
-  align-items: center;
   background-color: var(--tf-color-white, #ffffff);
   color: var(--tf-color-red, #bf3444);
 }
-
 :is(.tf-btn-pill-white, .tf-btn-pill-red) {
-  border-radius: var(--tf-radius-pill, 35px);
   padding: 12px 32px;
   font: 700 1rem var(--tf-font-heading);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   gap: 8px;
-  border: none;
-  cursor: pointer;
 }
 .tf-btn-pill-white {
   background-color: #fffde7;
   color: #30293e;
 }
 .tf-btn-pill-red {
-  background-color: var(--tf-color-red, #bf3444);
   color: #fffde7;
 }
-:is(.tf-btn-white, .tf-btn-pill-white)::before {
-  background: linear-gradient(90deg, #fffde7 40.9%, #ff4949 100%);
+:is(.tf-btn-white, .tf-btn-pill-white) {
+  &::before {
+    background: linear-gradient(90deg, #fffde7 40.9%, #ff4949 100%);
+  }
+  &:active::before {
+    background: linear-gradient(90deg, #ffffff 0%, #ff4949 100%);
+    opacity: 1;
+  }
 }
+:is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red):hover::before,
 :is(.tf-btn-white, .tf-btn-pill-white):hover::before {
-  opacity: 1;
-}
-:is(.tf-btn-white, .tf-btn-pill-white):active::before {
-  background: linear-gradient(90deg, #ffffff 0%, #ff4949 100%);
   opacity: 1;
 }
 
@@ -114,6 +107,7 @@
 :is(.tf-btn:hover, a:hover, button:hover) .tf-btn-carrot {
   transform: translateX(2px);
 }
+
 @media screen and (max-width: 768px) {
   .tf-btn {
     padding: 10px 24px;

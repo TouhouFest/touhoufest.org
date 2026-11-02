@@ -1,32 +1,24 @@
-@include dark-mode {
-  .guidelines-page-wrapper {
-    background: linear-gradient(157.13deg, #30293e 28.353%, #221a28 93.86%);
-  }
-}
-
 .guidelines-hero-banner {
   position: relative;
   min-height: 600px;
   height: 600px;
   margin-bottom: 0;
   padding: 0;
-  background: url("img/guidelines/hero.jpg") no-repeat;
-  background-size: 100% 884.88px;
-  background-position: 0 -34.33px;
+  background: url("img/guidelines/hero.jpg") no-repeat 0 -34.33px / 100% 884.88px;
   display: flex;
   align-items: flex-start;
   overflow: visible;
 }
-
-.guidelines-hero-container {
+:is(.guidelines-hero-container, .guidelines-content-container) {
   width: 100%;
-  max-width: 1440px;
   margin: 0 auto;
-  padding: 286px 135px 0 135px;
+}
+.guidelines-hero-container {
+  max-width: 1440px;
+  padding: 286px 135px 0;
   position: relative;
   z-index: 3;
 }
-
 .guidelines-hero-box {
   height: 174px;
   align-items: center;
@@ -34,40 +26,36 @@
 body:has(.guidelines-page-wrapper) main {
   flex: none;
 }
-
 .guidelines-page-wrapper {
   background: linear-gradient(122.61deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
   padding: 77px 0;
 }
-
 .guidelines-content-container {
   max-width: 850px;
-  width: 100%;
-  margin: 0 auto;
   padding: 0;
 }
 
 /* Jump directly to block */
-.guidelines-jump-box {
-  margin-bottom: 48px;
+:is(.guidelines-jump-box, .guidelines-jump-list) {
   @include flex-column;
   gap: 24px;
+}
+.guidelines-jump-box {
+  margin-bottom: 48px;
 }
 .guidelines-jump-title {
   font: 700 20px / 1.1 var(--tf-font-body);
   color: var(--tf-ink);
   margin: 0;
 }
+:is(.guidelines-jump-list, .guidelines-jump-item) {
+  margin: 0;
+  padding: 0;
+}
 .guidelines-jump-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
-  @include flex-column;
-  gap: 24px;
 }
 .guidelines-jump-item {
-  margin: 0;
-  padding: 0;
   display: flex;
   align-items: center;
   min-height: 20px;
@@ -131,31 +119,25 @@ body:has(.guidelines-page-wrapper) main {
     line-height: 1.2;
     margin: 32px 0 16px;
   }
-
   :is(p, ol, ul) {
     font: 400 16px / 22.3px var(--tf-font-body);
     color: var(--tf-ink);
     margin: 0 0 10px;
   }
-  p {
-    &:has(+ .tf-gl-subblock) {
-      margin-bottom: 24px;
-    }
-    &:has(+ .tf-gl-contest-cats) {
-      margin-bottom: 20px;
-    }
+  p:has(+ .tf-gl-subblock) {
+    margin-bottom: 24px;
   }
-
+  p:has(+ .tf-gl-contest-cats) {
+    margin-bottom: 20px;
+  }
   :is(.tf-gl-subblock, .tf-gl-contest-cats) {
     margin: 0;
     > :last-child {
       margin-bottom: 0;
     }
   }
-
   :is(ol, ul) {
     padding-left: 28px;
-    margin-left: 0;
     margin-inline-start: 0;
   }
   ol {
@@ -164,7 +146,6 @@ body:has(.guidelines-page-wrapper) main {
   ul {
     list-style-type: disc;
   }
-
   li {
     margin: 0 0 5.3px;
     line-height: 22.3px;
@@ -178,7 +159,6 @@ body:has(.guidelines-page-wrapper) main {
       margin-inline-start: 0;
     }
   }
-
   > :last-child {
     margin-bottom: 0;
   }
@@ -203,7 +183,6 @@ body:has(.guidelines-page-wrapper) main {
   gap: 48px;
   margin: 92px 0 0;
 }
-
 .guidelines-callout-card {
   .guidelines-card-content-col {
     gap: 0;
@@ -231,16 +210,14 @@ body:has(.guidelines-page-wrapper) main {
 /* Responsive Breakpoints */
 @media screen and (max-width: 1024px) {
   .guidelines-hero-container {
-    padding: 286px 48px 0 48px;
+    padding: 286px 48px 0;
   }
 }
-
 @media screen and (max-width: 912px) {
   .guidelines-content-container {
     padding: 0 31px;
   }
 }
-
 @media screen and (max-width: 768px) {
   .guidelines-hero-banner {
     min-height: 472px;
@@ -250,7 +227,7 @@ body:has(.guidelines-page-wrapper) main {
     background-position: -297.45px 8px;
   }
   .guidelines-hero-container {
-    padding: 286px 31px 0 31px;
+    padding: 286px 31px 0;
   }
   .guidelines-hero-box {
     height: 138px;
@@ -262,7 +239,6 @@ body:has(.guidelines-page-wrapper) main {
     margin: 3px 0 60px;
     gap: 16px;
   }
-
   .guidelines-markdown-body {
     h2 {
       font-size: 28px;
@@ -272,11 +248,12 @@ body:has(.guidelines-page-wrapper) main {
       font-size: 20px;
       margin: 36px 0 16px;
     }
-    p {
+    :is(p, ol, ul, li) {
       line-height: 21px;
+    }
+    p {
       margin-bottom: 20px;
-      &:has(+ ol),
-      &:has(+ ul),
+      &:has(+ :is(ol, ul)),
       &:has(+ .tf-gl-subblock) {
         margin-bottom: 10px;
       }
@@ -285,7 +262,6 @@ body:has(.guidelines-page-wrapper) main {
       }
     }
     :is(ol, ul) {
-      line-height: 21px;
       margin-bottom: 10px;
     }
     ol {
@@ -295,14 +271,12 @@ body:has(.guidelines-page-wrapper) main {
       padding-left: 24px;
     }
     li {
-      line-height: 21px;
       margin-bottom: 9.2px;
       > :is(ul, ol) {
         margin-top: 2px;
       }
     }
   }
-
   .guidelines-callout-card {
     padding: 48px;
     gap: 40px;
@@ -311,19 +285,23 @@ body:has(.guidelines-page-wrapper) main {
     margin-top: 55px;
   }
 }
-
 @media screen and (min-width: 391px) and (max-width: 768px) {
   .guidelines-hero-banner {
     background-size: cover;
     background-position: center;
   }
 }
-
 @media screen and (max-width: 375px) {
   .guidelines-hero-container {
-    padding: 286px 16px 0 16px;
+    padding: 286px 16px 0;
   }
   .guidelines-content-container {
     padding: 0 16px;
+  }
+}
+
+@include dark-mode {
+  .guidelines-page-wrapper {
+    background: linear-gradient(157.13deg, #30293e 28.353%, #221a28 93.86%);
   }
 }
