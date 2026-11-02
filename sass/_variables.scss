@@ -3,6 +3,7 @@
 // ==========================================================================
 
 :root {
+  color-scheme: light;
   --tf-color-primary: #f9c650;
   --tf-color-red: #bf3444;
   --tf-color-red-hover: #a82a39;
@@ -130,6 +131,7 @@
 }
 
 @include dark-mode {
+  color-scheme: dark;
   --tf-surface: #30293e;
   --tf-surface-card: #221a28;
   --tf-surface-paper: #221a28;
