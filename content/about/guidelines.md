@@ -187,12 +187,12 @@ If your prop weapon is a toy, look-alike, or imitation firearm, then federal reg
 272.3) require that it either be translucent enough to, permit unmistakable observation of the
 device’s complete contents or must have at least one of the following:
 
-- An Orange Solid Plug in Barrel: Have a blaze orange (Fed-Std-595B 12199) or orange color
-  brighter than that specified by the federal standard color number solid plug permanently affixed
-  to the muzzle end of the barrel as an integral part of the entire device and recessed no more than
-  6 millimeters from the muzzle end of the barrel; or
-- An Orange Barrel Marking: A blaze orange (Fed-Std-595B 12199) or orange color brighter than
-  that specified by the federal standard color number, marking permanently affixed to the exterior
+- An Orange Solid Plug in Barrel: Have a blaze orange (Fed-Std-595B 12199) or orange color brighter
+  than that specified by the federal standard color number solid plug permanently affixed to the
+  muzzle end of the barrel as an integral part of the entire device and recessed no more than 6
+  millimeters from the muzzle end of the barrel; or
+- An Orange Barrel Marking: A blaze orange (Fed-Std-595B 12199) or orange color brighter than that
+  specified by the federal standard color number, marking permanently affixed to the exterior
   surface of the barrel, covering the circumference of the barrel from the muzzle end for a depth of
   at least 6 millimeters; or
 - Entire Surface Coloration: Coloration of the entire exterior surface of the device in white,
@@ -253,8 +253,8 @@ check with the venue before bringing such items.)
 ## Cosplay Contest Guidelines
 
 The Cosplay Contest at TouhouFest is split into three categories: Craftsmanship, Performance, &
-Exhibition. On this page is a general breakdown of the rules. Please see official rule document
-and applications [here](#).
+Exhibition. On this page is a general breakdown of the rules. Please see official rule document and
+applications [here](#).
 
 <div class="tf-gl-contest-cats">
 
@@ -326,10 +326,10 @@ These Rules apply to only the Performance Category.
 - All audio, including dialogue, must be pre-recorded. There will be no mics available to use during
   performances.
 - Audio must be submitted and approved by staff before the contest. You will be contacted if any
-  changes need to be made. The deadline for submitting audio is June 1st, with no further
-  revisions accepted past June 6th.
-- Performances are limited to 2.5 minutes in length. Any performance that goes over this limit
-  will not be accepted.
+  changes need to be made. The deadline for submitting audio is June 1st, with no further revisions
+  accepted past June 6th.
+- Performances are limited to 2.5 minutes in length. Any performance that goes over this limit will
+  not be accepted.
 - Audio must be submitted as it is intended to be played. We can’t accommodate special requests to
   start and stop, or play multiple audio files. Please be kind to our sound team and make it as
   simple for them as possible!
