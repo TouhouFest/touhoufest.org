@@ -211,13 +211,6 @@ body:has(.guidelines-page-wrapper) main {
 }
 
 .guidelines-callout-card {
-  box-shadow: none;
-  transition:
-    transform 300ms ease-out,
-    box-shadow 300ms ease-out,
-    border-color 300ms ease-out,
-    background-color 300ms ease-out;
-
   .guidelines-card-content-col {
     gap: 0;
   }

@@ -241,14 +241,14 @@
 <div class="ev-red-grid">
 
 <div class="ev-red-card">
-<div class="ev-red-card-inner">
-<div class="ev-card-icon-box">
+<div class="ev-red-card-inner tf-mod-callout tf-mod-callout--horiz is-red">
+<div class="ev-card-icon-box tf-mod-callout-icon">
 <img src="data:image/svg+xml,{{ load_data(path='templates/img/guidelines_icon.svg') | urlencode }}" alt="" class="ev-ph-fg-img">
 </div>
 <div class="ev-red-card-content">
-<div class="ev-red-card-copy">
-<h2 class="ev-red-card-title">{{ ev.info_cards.guidelines.title }}</h2>
-<p class="ev-red-card-body">{{ ev.info_cards.guidelines.body }}</p>
+<div class="ev-red-card-copy tf-mod-callout-copy">
+<h2 class="ev-red-card-title tf-mod-callout-title">{{ ev.info_cards.guidelines.title }}</h2>
+<p class="ev-red-card-body tf-mod-callout-desc">{{ ev.info_cards.guidelines.body }}</p>
 </div>
 <div class="ev-red-card-btns">
 <a href="{{ get_url(path=ev.info_cards.guidelines.cta_path) | safe }}" class="ev-btn-cream">
@@ -261,8 +261,8 @@
 </div>
 
 <div class="ev-red-card">
-<div class="ev-red-card-inner">
-<div class="ev-card-icon-box ev-faq-icon">
+<div class="ev-red-card-inner tf-mod-callout tf-mod-callout--horiz is-red">
+<div class="ev-card-icon-box tf-mod-callout-icon ev-faq-icon">
 <div class="ev-faq-b1"><div class="ev-faq-b1-rot"><svg width="18.5791" height="69.2656" viewBox="0 0 18.5791 69.2656" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.28906 0C10.8524 0 12.3244 1.44038 13.6172 3.9834C12.5891 5.56362 11.6561 7.35552 11.0371 9.27441C9.75012 13.2639 11.1366 9.00041 14.0645 4.92285C14.4219 5.7232 14.7638 6.61046 15.0879 7.57715C13.7784 8.86704 12.5196 10.371 11.5225 12.0566C9.39619 15.6512 11.6633 11.843 15.3916 8.51953C16.3737 11.7119 17.1715 15.662 17.7246 20.125C15.6421 21.5382 13.4329 23.3948 11.6406 25.6797C8.50726 29.6741 12.7872 25.6015 18.0615 23.2344C18.3951 26.804 18.5791 30.6393 18.5791 34.6328C18.5791 53.76 14.4198 69.2656 9.28906 69.2656C4.15855 69.2649 -0.000976562 53.7595 -0.000976562 34.6328C-0.000976562 28.5845 0.416473 22.8985 1.14746 17.9502C6.5762 20.5149 11.1731 25.9954 7.99902 22.1934C6.05894 19.8695 3.57068 18.0773 1.32422 16.8037C1.56235 15.3282 1.82851 13.9242 2.12109 12.6025C7.11073 17.0878 9.86239 26.6302 8.91699 20.5605C8.06769 15.1082 5.14582 10.2707 3.36426 7.95703C4.9723 2.98759 7.03718 0.000337337 9.28906 0Z" fill="#F2F2F2"/></svg></div></div>
 <div class="ev-faq-b2"><div class="ev-faq-b2-rot"><svg width="16.7812" height="62.5605" viewBox="0 0 16.7812 62.5605" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.8" d="M8.39062 0C10.489 0 12.4048 2.87258 13.876 7.61914C12.6912 9.26625 11.5679 11.2331 10.877 13.375C9.63328 17.2302 11.1566 12.5551 14.1885 8.67969C14.6866 10.457 15.1272 12.4604 15.4961 14.6465C13.6651 16.155 11.6762 18.1958 10.292 20.6406C8.09071 24.5287 11.2762 18.9315 15.6758 15.7705C15.7519 16.2667 15.8246 16.7714 15.8936 17.2842C13.789 18.6126 11.4384 20.4661 9.58398 22.8301C6.58524 26.6529 11.105 22.2974 16.2441 20.2598C16.5903 23.6874 16.7812 27.4013 16.7812 31.2803C16.7812 48.5558 13.0246 62.5605 8.39062 62.5605C3.75684 62.5596 1.74765e-05 48.5552 0 31.2803C0 24.0639 0.657656 17.4185 1.75879 12.126C6.52934 15.9953 9.19657 25.3204 8.31641 19.6699C7.47512 14.2697 4.38319 9.53782 2.86621 7.74707C4.34241 2.92447 6.27362 0.000414524 8.39062 0Z" fill="#EBEBEB"/></svg></div></div>
 <div class="ev-faq-b3"><div class="ev-faq-b3-rot"><svg width="18.6152" height="69.3975" viewBox="0 0 18.6152 69.3975" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.30762 0C11.6347 0.000202517 13.7617 3.18427 15.3936 8.44727C14.0783 10.2752 12.8325 12.4592 12.0654 14.8369C10.6859 19.1133 12.3752 13.9277 15.7383 9.62891C16.2909 11.6005 16.7792 13.8229 17.1885 16.248C15.1576 17.9213 12.9513 20.1848 11.416 22.8965C8.9743 27.2092 12.5083 21.0005 17.3887 17.4941C17.4731 18.0445 17.5544 18.6041 17.6309 19.1729C15.2961 20.6465 12.6882 22.7025 10.6309 25.3252C7.30423 29.566 12.3175 24.7319 18.0186 22.4717C18.4027 26.2744 18.6152 30.3947 18.6152 34.6982C18.6152 53.8615 14.448 69.397 9.30762 69.3975C4.16718 69.3975 0 53.8618 0 34.6982C2.40204e-05 25.5828 0.944331 17.2887 2.48633 11.0967C7.82191 15.3537 10.8105 25.8171 9.83008 19.5225C8.9187 13.6716 5.6251 8.52794 3.9043 6.44043C5.42759 2.38554 7.29318 0 9.30762 0Z" fill="white"/></svg></div></div>
@@ -276,9 +276,9 @@
 <div class="ev-faq-c2"><div class="ev-faq-c2-rot"><svg width="8.12286" height="7.9604" viewBox="0 0 8.12286 7.9604" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="4.06143" cy="3.9802" rx="4.06143" ry="3.9802" fill="#30293E"/></svg></div></div>
 </div>
 <div class="ev-red-card-content">
-<div class="ev-red-card-copy">
-<h2 class="ev-red-card-title">{{ ev.info_cards.faqs.title }}</h2>
-<p class="ev-red-card-body">{{ ev.info_cards.faqs.body }}</p>
+<div class="ev-red-card-copy tf-mod-callout-copy">
+<h2 class="ev-red-card-title tf-mod-callout-title">{{ ev.info_cards.faqs.title }}</h2>
+<p class="ev-red-card-body tf-mod-callout-desc">{{ ev.info_cards.faqs.body }}</p>
 </div>
 <div class="ev-red-card-btns">
 <a href="{{ get_url(path=ev.info_cards.faqs.cta_path) | safe }}" class="ev-btn-cream">
@@ -291,7 +291,7 @@
 </div>
 
 <div class="ev-red-card">
-<div class="ev-red-card-inner">
+<div class="ev-red-card-inner tf-mod-callout tf-mod-callout--horiz is-red">
 <div class="ev-hotel-frame">
 <div class="ev-hotel-back-card">
 <div class="ev-hotel-dots-wrap">
@@ -309,8 +309,8 @@
 </div>
 </div>
 <div class="ev-red-card-content">
-<div class="ev-red-card-copy">
-<h2 class="ev-red-card-title">{{ ev.info_cards.hotel.title }}</h2>
+<div class="ev-red-card-copy tf-mod-callout-copy">
+<h2 class="ev-red-card-title tf-mod-callout-title">{{ ev.info_cards.hotel.title }}</h2>
 </div>
 <div class="ev-red-card-btns">
 <a href="{{ get_url(path=ev.info_cards.hotel.cta_path) | safe }}" class="ev-btn-cream">
@@ -323,8 +323,8 @@
 </div>
 
 <div class="ev-red-card">
-<div class="ev-red-card-inner">
-<div class="ev-card-icon-box ev-app-icon">
+<div class="ev-red-card-inner tf-mod-callout tf-mod-callout--horiz is-red">
+<div class="ev-card-icon-box tf-mod-callout-icon ev-app-icon">
 <div class="ev-app-r66"><div class="ev-app-r66-rot"><svg width="58.3055" height="41.834" viewBox="0 0 58.3055 41.834" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25.4175 1.64499C26.1704 0.611374 27.372 0 28.6508 0H54.2984C57.5688 0 59.4571 3.71144 57.5316 6.355L32.888 40.189C32.1351 41.2226 30.9335 41.834 29.6547 41.834H4.00713C0.736672 41.834 -1.15161 38.1226 0.773882 35.479L25.4175 1.64499Z" fill="#FF4949"/></svg></div></div>
 <div class="ev-app-red-rect"><div class="ev-app-red-rect-rot"></div></div>
 <div class="ev-app-r67"><div class="ev-app-r67-rot"><svg width="56.9558" height="44.8164" viewBox="0 0 56.9558 44.8164" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25.3342 7.61291C25.8824 6.9244 26.6425 6.43593 27.4965 6.22321L51.9743 0.126452C55.5765 -0.770742 58.3516 3.29633 56.2028 6.32333L30.0726 43.1318C29.3224 44.1885 28.1068 44.8164 26.8109 44.8164H4.00749C0.657672 44.8164 -1.20832 40.9451 0.87838 38.3246L25.3342 7.61291Z" fill="#F9C650"/></svg></div></div>
@@ -348,9 +348,9 @@
 <div class="ev-app-g147"><div class="ev-app-g147-rot"><svg width="8.10115" height="13.0606" viewBox="0 0 8.10115 13.0606" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="ev_app_m0" maskUnits="userSpaceOnUse" x="0" y="0" width="9" height="14"><path d="M4.32129 0.479492C4.7827 -0.277508 5.92872 -0.103796 6.14551 0.755859L8.07031 8.3916C8.13623 8.65298 8.09226 8.90337 7.97852 9.11133C7.76011 11.1435 5.80501 12.741 3.75977 13.0332C1.58966 13.3432 0 10.9435 0 8.73437C4.342e-05 7.96688 0.216021 7.24958 0.59082 6.64062C0.613057 6.5799 0.640565 6.51978 0.675781 6.46191L4.32129 0.479492Z" fill="white"/></mask><g mask="url(#ev_app_m0)"><rect x="-3.99973" y="-3.90527" width="16" height="18" fill="#FFE1E1"/><path d="M4.80158 6.14435C7.20158 7.34435 9.13491 6.64435 9.80158 6.14435C13.8016 5.73954 9.80158 -6.85585 6.80158 -7.85585C3.80158 -8.85585 -4.69842 5.64435 -2.69842 6.14435C-0.698421 6.64435 1.80158 4.64435 4.80158 6.14435Z" fill="#6D5158"/></g></svg></div></div>
 </div>
 <div class="ev-red-card-content">
-<div class="ev-red-card-copy">
-<h2 class="ev-red-card-title">{{ ev.info_cards.app.title }}</h2>
-<p class="ev-red-card-body">{{ ev.info_cards.app.body }}</p>
+<div class="ev-red-card-copy tf-mod-callout-copy">
+<h2 class="ev-red-card-title tf-mod-callout-title">{{ ev.info_cards.app.title }}</h2>
+<p class="ev-red-card-body tf-mod-callout-desc">{{ ev.info_cards.app.body }}</p>
 </div>
 <div class="ev-red-card-btns">
 <a href="{{ get_url(path=ev.info_cards.app.cta_path) | safe }}" class="ev-btn-cream">
@@ -401,7 +401,7 @@
 <div class="ev-discord-logo" aria-hidden="true"></div>
 </div>
 <div class="ev-red-card-content tf-mod-callout-copy">
-<div class="ev-red-card-copy">
+<div class="ev-red-card-copy tf-mod-callout-copy">
 <h2 class="ev-discord-title tf-mod-callout-title">{{ ev.discord_cta.title }}</h2>
 <p class="ev-discord-body tf-mod-callout-desc">{{ ev.discord_cta.body }}</p>
 </div>

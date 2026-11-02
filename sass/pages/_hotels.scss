@@ -356,7 +356,6 @@ body:has(.page-hero-hotels) {
 
   .hotels-discord {
     margin: 0;
-    box-shadow: none;
   }
 }
 
@@ -367,9 +366,6 @@ body:has(.page-hero-hotels) {
 /* 2-Up Teasers Grid on Hotels Page */
 .hotels-teasers-grid {
   .tf-teaser-card {
-    justify-content: center;
-    gap: 40px;
-    box-shadow: none;
     transform: none;
     &.is-red {
       border: 1px solid #bf3444;
@@ -377,7 +373,6 @@ body:has(.page-hero-hotels) {
     }
     &.is-discord {
       border: none;
-      min-height: 469px;
       height: auto;
     }
     .tf-mod-callout-copy {

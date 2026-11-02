@@ -280,7 +280,7 @@
 <section class="cosplay-callouts-grid">
 {% for card in data.callouts %}
 <article class="cosplay-callout-card cosplay-callout-card--{{ card.key }}">
-<div class="cosplay-callout-card__icon-wrap">
+<div class="cosplay-callout-card__icon-wrap tf-mod-callout-icon">
 {% set ext = card.image | split(pat=".") | last %}
 {% if ext == "svg" %}
 {% set svg_path = "templates/" ~ card.image %}
@@ -290,9 +290,9 @@
 {% endif %}
 </div>
 <div class="cosplay-callout-card__content">
-<div class="cosplay-callout-card__copy">
-<h3 class="cosplay-callout-card__title">{{ card.title }}</h3>
-<p class="cosplay-callout-card__desc">{{ card.description }}</p>
+<div class="cosplay-callout-card__copy tf-mod-callout-copy">
+<h3 class="cosplay-callout-card__title tf-mod-callout-title">{{ card.title }}</h3>
+<p class="cosplay-callout-card__desc tf-mod-callout-desc">{{ card.description }}</p>
 </div>
 <a href="{{ card.button_url }}" class="cosplay-btn-cream">
 <span class="cosplay-btn-cream__text">{{ card.button_label }}{% if card.button_label | lower == "learn more" %}<span class="is-sr-only"> about {{ card.title }}</span>{% endif %}</span>

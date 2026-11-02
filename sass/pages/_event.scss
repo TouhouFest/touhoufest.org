@@ -57,14 +57,14 @@
 .ev-hero-box {
   gap: 40px;
 }
-:is(.ev-hero-copy, .ev-red-card-copy, .ev-app-card-top) {
+:is(.ev-hero-copy, .ev-app-card-top) {
   width: 100%;
   @include flex-column;
   gap: 8px;
   align-items: flex-start;
   justify-content: center;
 }
-:is(.ev-hero-text, .ev-red-card-body, .ev-discord-body, .ev-amp-body, .ev-app-card-desc) {
+:is(.ev-hero-text, .ev-amp-body, .ev-app-card-desc) {
   @include tf-body;
   width: 100%;
 }
@@ -671,21 +671,10 @@ $ev-polaroid-slots: (
 }
 .ev-red-card-inner {
   width: 100%;
-  background-color: var(--tf-accent, #bf3444);
-  border-radius: 5px;
-  padding: 48px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  align-items: center;
-  justify-content: center;
 }
 .ev-card-icon-box {
-  width: 100px;
-  height: 100px;
   position: relative;
   overflow: hidden;
-  flex-shrink: 0;
 }
 :is(.ev-ph-fg-img, .ev-badge-accent-img) {
   width: 100%;
@@ -1083,12 +1072,6 @@ $ev-faq-pins: (
   @include flex-column;
   gap: 24px;
   align-items: flex-start;
-}
-.ev-red-card-title {
-  color: #fffde7;
-}
-.ev-red-card-body {
-  color: #ffffff;
 }
 .ev-red-card-btns {
   width: 100%;

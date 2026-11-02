@@ -277,13 +277,21 @@
   }
 }
 
-/* 3. Module 3 — Discord & Newsletter Action Callouts (12 pages — all except cosplay, register) */
+/* 3. Module 3 — Discord & Newsletter Action Callouts */
 .tf-mod-callout {
   border-radius: 5px;
   padding: 48px;
-  box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
+  box-shadow: none;
   box-sizing: border-box;
   text-align: left;
+  transition:
+    transform 300ms ease-out,
+    box-shadow 300ms ease-out,
+    border-color 300ms ease-out,
+    background-color 300ms ease-out;
+}
+:is(.gaming-discord-cta-card, .guests-discord-card, .intro-discord-card) {
+  box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
 }
 .tf-mod-callout--horiz {
   width: min(850px, 100%);
@@ -302,8 +310,12 @@
 }
 .tf-mod-callout--vert {
   @include flex-col-center;
-  text-align: center;
-  gap: 24px;
+  justify-content: center;
+  text-align: left;
+  gap: 40px;
+  min-width: 0;
+  min-height: 469px;
+  position: relative;
 }
 .tf-mod-callout.is-discord {
   background-color: #30293e;

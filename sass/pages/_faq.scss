@@ -210,20 +210,6 @@ main:has(.tf-faq-page-body) {
   margin: 77px auto;
   align-items: flex-start;
 
-  .faq-callout-card {
-    justify-content: center;
-    gap: 40px;
-    min-width: 0;
-    min-height: 469px;
-    text-align: left;
-    box-shadow: none;
-    transition:
-      transform 300ms ease-out,
-      box-shadow 300ms ease-out,
-      border-color 300ms ease-out,
-      background-color 300ms ease-out;
-  }
-
   .faq-callout-card-guidelines {
     border: 1px solid var(--tf-accent);
   }

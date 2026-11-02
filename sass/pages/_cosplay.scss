@@ -690,17 +690,7 @@
   @include flex-col-center;
   justify-content: center;
   gap: 40px;
-  &__icon-wrap {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    flex-shrink: 0;
-    @include flex-center;
-  }
   &__icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
     &--fumo {
       object-fit: cover;
     }
@@ -715,21 +705,9 @@
     gap: 24px;
     align-items: flex-start;
   }
-  &__copy {
-    width: 100%;
-    @include flex-column;
-    gap: 8px;
-    align-items: flex-start;
-  }
-  &__title {
-    width: 100%;
-    @include tf-h2;
-    color: #fffde7;
-  }
+  &__title,
   &__desc {
     width: 100%;
-    @include tf-body;
-    color: #ffffff;
   }
 }
 

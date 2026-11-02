@@ -267,13 +267,6 @@ body:has(.page-hero-banner.is-schedule) {
   /* CTA Action Cards */
   .schedule-cta-card {
     min-height: 499px;
-    box-shadow: none;
-    @include flex-column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-    gap: 40px;
-    position: relative;
     .schedule-cta-icon-wrap {
       width: 100%;
     }
