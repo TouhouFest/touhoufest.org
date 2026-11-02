@@ -51,7 +51,7 @@
 <div class="tf-faq-answer">
 {%- set paragraphs = qa.a | split(pat="\n\n") -%}
 {%- for p in paragraphs -%}
-<p class="tf-faq-p">{% if loop.first %}A: {% endif %}{{ p | markdown(inline=true) | safe }}</p>
+<p class="tf-faq-p">{% if loop.first %}A: {% endif %}{{ p | markdown(inline=true) | replace(from='>here</a>', to='>here<span class="is-sr-only"> on the event map</span></a>') | safe }}</p>
 {%- endfor -%}
 </div>
 {%- endif -%}
@@ -255,12 +255,12 @@ class='fa-solid fa-chevron-right'></span></a></p>
 {% component cosplay() %}
 <h3>Cosplay</h3>
 <p>Cosplaying at TouhouFest? Check out our cosplay page to see what there is to do!</p>
-<a class='button' href='/features/cosplay'>Learn more</a>
+<a class='button' href='/features/cosplay'>Learn more<span class="is-sr-only"> about Cosplay</span></a>
 {% endcomponent cosplay %}
 
 {% component gaming() %}
 <h3>Gaming</h3>
-<a class='button' href='/features/gaming'>Learn more</a>
+<a class='button' href='/features/gaming'>Learn more<span class="is-sr-only"> about Gaming</span></a>
 {% endcomponent gaming %}
 
 {% component other() %}
@@ -1526,7 +1526,7 @@ description={ev.description | default(value="")}
 <p class="home-venue-card-body">{{ home_data.venue.body }}</p>
 </div>
 <a href="{{ get_url(path=home_data.venue.button_url) }}" class="tf-btn tf-btn-danger home-cta-btn">
-<span class="home-cta-label">{{ home_data.venue.button_text }}</span>
+<span class="home-cta-label">{{ home_data.venue.button_text }}<span class="is-sr-only"> about {{ home_data.venue.title }}</span></span>
 <span class="home-cta-chevron" aria-hidden="true"></span>
 </a>
 </div>

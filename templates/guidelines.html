@@ -31,7 +31,7 @@
 </ul>
 </div>
 <div class="guidelines-markdown-body">
-{{ page.content | safe }}
+{{ page.content | replace(from='>here</a>', to='>here<span class="is-sr-only"> (official cosplay contest rules and applications)</span></a>') | safe }}
 </div>
 <div class="tf-faq-callouts-container">
 {% for card in data.callouts %}

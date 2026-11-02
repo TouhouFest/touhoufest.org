@@ -295,7 +295,7 @@
 <p class="cosplay-callout-card__desc">{{ card.description }}</p>
 </div>
 <a href="{{ card.button_url }}" class="cosplay-btn-cream">
-<span class="cosplay-btn-cream__text">{{ card.button_label }}</span>
+<span class="cosplay-btn-cream__text">{{ card.button_label }}{% if card.button_label | lower == "learn more" %}<span class="is-sr-only"> about {{ card.title }}</span>{% endif %}</span>
 <span class="cosplay-icon cosplay-icon--caret-right-dark"></span>
 {% if card.external %}
 <span class="cosplay-icon cosplay-icon--external-dark"></span>
