@@ -104,17 +104,25 @@
 }
 .tf-mod-map-zoom-circle {
   position: absolute;
-  inset: 0;
-  width: 60px;
-  height: 60px;
+  left: 6.67px;
+  top: 7.41px;
+  width: 45.926px;
+  height: 45.185px;
   display: block;
 }
 .tf-mod-map-zoom-plus {
   position: absolute;
-  inset: 25%;
-  width: 50%;
-  height: 50%;
+  left: 12px;
+  top: 12px;
+  width: 35px;
+  height: 35px;
   display: block;
+}
+
+@media (max-width: 1199px) and (min-width: 769px) {
+  .tf-mod-map-stage > .tf-mod-map-zoom {
+    right: 12px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -150,6 +158,14 @@
       border-color: #f9c650;
       color: #511154;
     }
+  }
+  .tf-mod-map-zoom-circle {
+    filter: brightness(0) saturate(100%) invert(98%) sepia(12%) saturate(365%) hue-rotate(334deg)
+      brightness(103%) contrast(97%);
+  }
+  .tf-mod-map-zoom-plus {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(15%) saturate(1182%) hue-rotate(221deg)
+      brightness(95%) contrast(91%);
   }
 }
 
@@ -669,6 +685,11 @@
   width: 48px;
   height: 48px;
   flex-shrink: 0;
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
 }
 :is(.tf-artists-search-input, .tf-v-search-pill) {
   flex: 1 0 0;
@@ -714,18 +735,63 @@
   color: var(--tf-ink);
   text-align: center;
 }
-:is(.tf-artists-pager, .tf-vendors-root .tf-v-pager) {
+.tf-mod-pager {
   @include flex-center;
+  gap: 16px;
 }
-:is(.tf-artists-pager-arrow, .tf-v-pager-arrow) {
+.tf-mod-pager-arrow {
+  width: 73px;
+  height: 73px;
   padding: 0;
   border: 0;
   background: transparent;
+  @include flex-center;
+  filter: drop-shadow(3px 4px 6.5px rgba(99, 15, 40, 0.2));
   cursor: pointer;
 }
-:is(.tf-artists-pager-dots, .tf-v-pager-dots) {
+.tf-mod-pager-arrow-rot {
+  width: 73px;
+  height: 73px;
+  position: relative;
+  display: block;
+}
+.tf-mod-pager-arrow--prev .tf-mod-pager-arrow-rot {
+  transform: rotate(180deg);
+}
+.tf-mod-pager-inner {
+  position: absolute;
+  left: 13.537px;
+  top: 13.907px;
+  width: 45.926px;
+  height: 45.185px;
+  display: block;
+}
+.tf-mod-pager-ring {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 65px;
+  height: 65px;
+  display: block;
+}
+.tf-mod-pager-chev {
+  position: absolute;
+  left: 25px;
+  top: 23.7px;
+  width: 25.627px;
+  height: 27.335px;
+  transform: rotate(-3deg);
+  display: block;
+}
+.tf-mod-pager-dots {
   display: flex;
   align-items: center;
+  gap: 8px;
+}
+.tf-mod-pager-dot {
+  width: 14px;
+  height: 14px;
+  display: block;
 }
 :is(.tf-artists-ofuda-pair, .tf-v-ofuda-set) {
   display: flex;
@@ -817,5 +883,27 @@
   }
   :is(.tf-artists-feat-bio, .tf-v-fcard-bio) {
     color: #fbf7eb;
+  }
+  :is(.tf-artists-search-icon, .tf-v-search-icon-wrap) img {
+    filter: brightness(0) saturate(100%) invert(84%) sepia(46%) saturate(958%) hue-rotate(345deg)
+      brightness(101%) contrast(96%);
+  }
+  :is(.tf-artists-search-input, .tf-v-search-pill) {
+    border-color: #f9c650;
+  }
+  :is(.tf-artists-search-input span, .tf-v-search-placeholder) {
+    color: #fffde7;
+  }
+  :is(.tf-mod-pager-inner, .tf-mod-pager-ring, .tf-mod-pager-dot:not(.is-active)) {
+    filter: brightness(0) saturate(100%) invert(98%) sepia(12%) saturate(365%) hue-rotate(334deg)
+      brightness(103%) contrast(97%);
+  }
+  .tf-mod-pager-chev {
+    filter: brightness(0) saturate(100%) invert(11%) sepia(63%) saturate(3825%) hue-rotate(286deg)
+      brightness(86%) contrast(102%);
+  }
+  .tf-mod-pager-dot.is-active {
+    filter: brightness(0) saturate(100%) invert(95%) sepia(35%) saturate(674%) hue-rotate(326deg)
+      brightness(105%) contrast(104%);
   }
 }

@@ -312,16 +312,6 @@ body:has(.tf-artists-page) > main {
 .tf-artists-search-bar {
   width: 100%;
 }
-.tf-artists-search-icon {
-  position: relative;
-  img {
-    position: absolute;
-    inset: 10%;
-    width: 80%;
-    height: 80%;
-    display: block;
-  }
-}
 .tf-artists-search-input {
   border-radius: 60px;
   background: linear-gradient(
@@ -590,54 +580,6 @@ body:has(.tf-artists-page) > main {
   flex-shrink: 0;
 }
 
-/* Graphical Pager */
-.tf-artists-pager {
-  gap: 16px;
-}
-.tf-artists-pager-arrow {
-  width: 73px;
-  height: 73px;
-  @include flex-center;
-}
-.tf-artists-pager-arrow-rot {
-  width: 73px;
-  height: 73px;
-  position: relative;
-  display: block;
-}
-.tf-artists-pager-arrow--prev .tf-artists-pager-arrow-rot {
-  transform: rotate(180deg);
-}
-.tf-artists-pager-inner {
-  position: absolute;
-  inset: 14.37% 14.66% 14.4% 14.11%;
-  width: 71.23%;
-  height: 71.23%;
-  display: block;
-}
-.tf-artists-pager-ring {
-  position: absolute;
-  inset: 0;
-  width: 73px;
-  height: 73px;
-  display: block;
-}
-.tf-artists-pager-chev {
-  position: absolute;
-  inset: 28.43% 38.9% 35.14% 38.63%;
-  width: 22.47%;
-  height: 36.43%;
-  display: block;
-}
-.tf-artists-pager-dots {
-  gap: 8px;
-  img {
-    width: 14px;
-    height: 14px;
-    display: block;
-  }
-}
-
 /* Want to Sell / Ofuda Cards */
 .tf-artists-ofuda-icon-img.is-mob-icon {
   display: none;
@@ -659,9 +601,6 @@ body:has(.tf-artists-page) > main {
 @media (max-width: 1199px) and (min-width: 769px) {
   .tf-artists-hero {
     padding: 238px 48px 0;
-  }
-  .tf-artists-map-zoom {
-    right: 12px;
   }
 }
 
@@ -814,9 +753,6 @@ body:has(.tf-artists-page) > main {
   .tf-artists-ofuda-btn-icon img {
     filter: brightness(0) saturate(100%) invert(11%) sepia(63%) saturate(3825%) hue-rotate(286deg)
       brightness(86%) contrast(102%);
-  }
-  .tf-artists-search-input {
-    border-color: #f9c650;
   }
   .tf-artists-map-viewer {
     background: var(--tf-surface-card);

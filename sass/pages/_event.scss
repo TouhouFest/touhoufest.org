@@ -349,26 +349,6 @@ $ev-polaroid-slots: (
   right: 276px;
   pointer-events: none;
 }
-.ev-zoom-bg {
-  position: absolute;
-  left: 6.67px;
-  top: 7.41px;
-  right: auto;
-  bottom: auto;
-  width: 45.926px;
-  height: 45.185px;
-  display: block;
-}
-.ev-zoom-plus {
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  right: auto;
-  bottom: auto;
-  width: 35px;
-  height: 35px;
-  display: block;
-}
 
 /* 4. Content Container (Red Cards + Badge CTA + Discord Card) */
 .ev-content-sec {

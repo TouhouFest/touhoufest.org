@@ -279,14 +279,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   width: 331px;
   max-width: 100%;
 }
-.tf-v-search-icon-wrap {
-  @include flex-center;
-}
-.tf-v-search-icon {
-  width: 38px;
-  height: 38px;
-  display: block;
-}
 .tf-v-search-pill {
   border-radius: 30px;
   background: linear-gradient(90deg, #cbcbd2 0%, #fbf7eb 100%);
@@ -450,17 +442,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   height: 662px;
   background-color: #ffffff;
 }
-.tf-v-map-zoom {
-  right: 23px;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  filter: none;
-}
-.tf-v-map-zoom-icon {
-  width: 60px;
-  height: 60px;
-  display: block;
-}
 
 /* Past Vendors 18 Polaroid Grid & Pager */
 .tf-v-polaroid-bleed {
@@ -575,32 +556,6 @@ $tf-v-polaroid-angles:
   color: #bf3444;
   text-align: center;
   text-decoration: underline;
-}
-
-.tf-vendors-root .tf-v-pager {
-  gap: 17px;
-  height: 73px;
-  margin-top: 0;
-}
-.tf-v-pager-arrow {
-  width: 60px;
-  height: 60px;
-  img {
-    width: 60px;
-    height: 60px;
-    display: block;
-  }
-  &.is-prev img {
-    transform: scaleX(-1);
-  }
-}
-.tf-v-pager-dots {
-  gap: 12px;
-}
-.tf-v-pager-dot {
-  width: 12px;
-  height: 12px;
-  display: block;
 }
 
 /* Want to Sell (Ofuda) & Discord Callout */
@@ -794,13 +749,8 @@ $tf-v-polaroid-angles:
   .tf-v-search-row {
     width: 328px;
     height: 48px;
-    gap: 14px;
     margin: 0 auto;
     align-items: center;
-  }
-  :is(.tf-v-search-icon-wrap, .tf-v-search-icon) {
-    width: 38px;
-    height: 38px;
   }
   .tf-v-search-pill {
     height: 48px;
@@ -956,14 +906,6 @@ $tf-v-polaroid-angles:
     font-size: 11px;
     line-height: 13px;
   }
-  .tf-vendors-root .tf-v-pager {
-    height: 48px;
-    gap: 12px;
-  }
-  :is(.tf-v-pager-arrow, .tf-v-pager-arrow img) {
-    width: 48px;
-    height: 48px;
-  }
   .tf-v-sell-section {
     width: 328px;
     max-width: 100%;
@@ -1043,10 +985,6 @@ $tf-v-polaroid-angles:
   }
   .tf-vendors-root .tf-v-fcard .tf-v-btn-chevron {
     background-color: #511154;
-  }
-  .tf-v-search-icon,
-  :is(.tf-v-pager-arrow img, .tf-v-pager-dot) {
-    filter: brightness(0) invert(1);
   }
   .tf-v-rcard-shadow-fill {
     background-color: #f9c650;

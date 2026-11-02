@@ -76,7 +76,7 @@
 <div class="tf-artists-search-outer">
 <div class="tf-artists-search-bar">
 <div class="tf-artists-search-icon" aria-hidden="true">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/artists/icon_search.svg') | urlencode }}" alt="" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/icon_search.svg') | urlencode }}" alt="" />
 </div>
 <div class="tf-artists-search-input">
 <span>{{ data.roster_section.search_placeholder }}</span>
@@ -200,20 +200,20 @@
 </div>
 </div>
 
-<div class="tf-artists-pager" aria-label="{{ data.past_section.title }}">
+<div class="tf-mod-pager" aria-label="{{ data.past_section.title }}">
 {% for dir in ["prev", "next"] %}
 {% if dir == "next" %}
-<div class="tf-artists-pager-dots">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_active.svg') | urlencode }}" alt="" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" />
+<div class="tf-mod-pager-dots">
+<img class="tf-mod-pager-dot" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" />
+<img class="tf-mod-pager-dot is-active" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_active.svg') | urlencode }}" alt="" />
+<img class="tf-mod-pager-dot" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" />
 </div>
 {% endif %}
-<button class="tf-artists-pager-arrow tf-artists-pager-arrow--{{ dir }}" type="button" aria-label="{% if dir == 'prev' %}{{ data.past_section.prev_label }}{% else %}{{ data.past_section.next_label }}{% endif %}">
-<span class="tf-artists-pager-arrow-rot">
-<img class="tf-artists-pager-inner" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" />
-<img class="tf-artists-pager-ring" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/pager_ring.svg') | urlencode }}" alt="" />
-<img class="tf-artists-pager-chev" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/pager_chevron.svg') | urlencode }}" alt="" />
+<button class="tf-mod-pager-arrow tf-mod-pager-arrow--{{ dir }}" type="button" aria-label="{% if dir == "prev" %}{{ data.past_section.prev_label }}{% else %}{{ data.past_section.next_label }}{% endif %}">
+<span class="tf-mod-pager-arrow-rot">
+<img class="tf-mod-pager-inner" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" />
+<img class="tf-mod-pager-ring" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_ring.svg') | urlencode }}" alt="" />
+<img class="tf-mod-pager-chev" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_chevron.svg') | urlencode }}" alt="" />
 </span>
 </button>
 {% endfor %}

@@ -1597,7 +1597,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="tf-v-search-wrap">
 <div class="tf-v-search-row">
 <div class="tf-v-search-icon-wrap" aria-hidden="true">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/roster_search.svg') | urlencode }}" alt="" class="tf-v-search-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/icon_search.svg') | urlencode }}" alt="" />
 </div>
 <div class="tf-v-search-pill">
 <span class="tf-v-search-placeholder">{{ exhibitors_data.page.roster_search_placeholder }}</span>
@@ -1671,7 +1671,8 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 </div>
 {%- endfor %}
 <button type="button" class="tf-v-map-zoom tf-mod-map-zoom" aria-label="Zoom map">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/map_zoom_in.svg') | urlencode }}" alt="" class="tf-v-map-zoom-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" class="tf-mod-map-zoom-circle" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_plus.svg') | urlencode }}" alt="" class="tf-mod-map-zoom-plus" />
 </button>
 </div>
 </div>
@@ -1715,18 +1716,23 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {%- endfor %}
 </div>
 </div>
-<div class="tf-v-pager" aria-label="Gallery navigation">
-<button type="button" class="tf-v-pager-arrow is-prev" aria-label="Previous page">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/pager_arrow_right.svg') | urlencode }}" alt="" />
-</button>
-<div class="tf-v-pager-dots">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" class="tf-v-pager-dot" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_active.svg') | urlencode }}" alt="" class="tf-v-pager-dot is-active" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" class="tf-v-pager-dot" />
+<div class="tf-mod-pager" aria-label="Gallery navigation">
+{%- for dir in ["prev", "next"] %}
+{%- if dir == "next" %}
+<div class="tf-mod-pager-dots">
+<img class="tf-mod-pager-dot" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" />
+<img class="tf-mod-pager-dot is-active" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_active.svg') | urlencode }}" alt="" />
+<img class="tf-mod-pager-dot" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" />
 </div>
-<button type="button" class="tf-v-pager-arrow is-next" aria-label="Next page">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/pager_arrow_right.svg') | urlencode }}" alt="" />
+{%- endif %}
+<button type="button" class="tf-mod-pager-arrow tf-mod-pager-arrow--{{ dir }}" aria-label="{% if dir == "prev" %}Previous page{% else %}Next page{% endif %}">
+<span class="tf-mod-pager-arrow-rot">
+<img class="tf-mod-pager-inner" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" />
+<img class="tf-mod-pager-ring" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_ring.svg') | urlencode }}" alt="" />
+<img class="tf-mod-pager-chev" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_chevron.svg') | urlencode }}" alt="" />
+</span>
 </button>
+{%- endfor %}
 </div>
 </section>
 <section class="tf-v-sell-section">
