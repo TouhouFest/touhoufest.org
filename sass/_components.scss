@@ -340,7 +340,6 @@
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
-  background: url("border_top.svg") repeat-x left top / 1440px 61px;
 }
 
 /* 4. Footer */
@@ -767,25 +766,6 @@
   border-radius: var(--tf-radius-pill);
   padding: 12px 32px;
   font-weight: 700;
-}
-
-/* 6. Section Divider Waves */
-:is(
-  .divider-wave-top,
-  .page-hero-banner .divider-wave-top,
-  .guests-hero-banner .divider-wave-top,
-  .home-hero-banner .divider-wave-top,
-  .tf-wave-top,
-  .tf-section-divider .divider-wave-top
-) {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 61px;
-  background: url("/border_top.svg") repeat-x center top / 1440px 61px;
-  z-index: 2;
-  pointer-events: none;
 }
 
 /* 7. Page Hero Banner */

@@ -468,11 +468,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
     rgba(49, 16, 48, 0) 100%
   );
 }
-.tf-v-divider-top-wave {
-  height: 61px;
-  background: url("/border_top.svg") repeat-x center top / 1440px 61px;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
-}
 .tf-v-divider-content {
   width: min(850px, calc(100% - 48px));
   align-items: center;
@@ -1032,11 +1027,6 @@ $tf-v-polaroid-angles:
   }
   .tf-vendors-root .tf-v-maps-section {
     gap: 49px;
-  }
-  .tf-v-divider-top-wave {
-    height: 48px;
-    background-image: url("/img/shared/divider_gohei_top.svg");
-    background-size: 709px 48px;
   }
   .tf-v-divider-content {
     width: 328px;

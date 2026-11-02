@@ -60,26 +60,6 @@ body:has(.gaming-page-shell) {
   :is(.gaming-item-image-wrap, .gaming-badge-cta-wrap) {
     box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
   }
-  .gaming-top-streamer-tile {
-    position: relative;
-    width: 252px;
-    height: 39px;
-    flex-shrink: 0;
-    overflow: hidden;
-    display: block;
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 63.93px;
-      height: 343.95px;
-      transform-origin: 0 0;
-      transform: matrix(0, -1, 1, 0, 0, 39);
-      background: url("card-gohei.svg") no-repeat center / 100% 100%;
-      filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='c' color-interpolation-filters='sRGB'><feColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 0.992157 0 0 0 0 0.905882 0 0 0 1 0'/></filter></svg>#c");
-    }
-  }
   .page-hero-banner.gaming-hero-banner {
     min-height: 600px;
     height: 600px;
@@ -156,14 +136,6 @@ body:has(.gaming-page-shell) {
   .gaming-divider-bg {
     z-index: 1;
     background-repeat: no-repeat;
-  }
-  .tf-mod-divider-top.gaming-divider-top-streamers {
-    width: 100%;
-    background: none;
-    filter: none;
-    display: flex;
-    align-items: flex-start;
-    overflow: hidden;
   }
   .tf-mod-divider-bottom.gaming-divider-bottom-wave {
     z-index: 3;
@@ -805,15 +777,6 @@ body:has(.gaming-page-shell) {
       height: 435px;
       padding: 238px 31px 0;
     }
-    .gaming-top-streamer-tile {
-      width: 278.437px;
-      height: 36px;
-      margin-right: -68.437px;
-      &::before {
-        height: 380.03px;
-        transform: matrix(0, -1, 1, 0, 0, 36);
-      }
-    }
     .gaming-hero-bg-img {
       width: 167.29%;
       height: 100%;
@@ -864,10 +827,6 @@ body:has(.gaming-page-shell) {
     }
     .gaming-divider-vignette {
       background: linear-gradient(90deg, rgba(35, 16, 49, 0.56) 42.536%, rgba(35, 16, 49, 0) 100%);
-    }
-    .tf-mod-divider-top.gaming-divider-top-streamers {
-      left: -21px;
-      width: calc(100% + 21px);
     }
     .gaming-maps-title-desktop {
       display: none;
@@ -975,12 +934,6 @@ body:has(.gaming-page-shell) {
     :is(.gaming-badge-cta-streamer, .arcade-gamepad-icon, .gaming-prize-medal) {
       filter: brightness(0) saturate(100%) invert(83%) sepia(39%) saturate(943%) hue-rotate(345deg)
         brightness(101%) contrast(95%);
-    }
-    .tf-mod-divider-top.gaming-divider-top-streamers {
-      background: url("border_top.svg") repeat-x left top / 1440px 58px;
-    }
-    .gaming-top-streamer-tile {
-      display: none;
     }
     :is(
       .tf-mod-divider-bottom.gaming-divider-bottom-wave,

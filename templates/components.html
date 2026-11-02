@@ -247,7 +247,6 @@ class='fa-solid fa-chevron-right'></span></a></p>
 
 {% component page_header(title, subtitle="", image="", description="", extra_class="", hide_bottom_wave=false) %}
 <div class="page-hero-banner{% if extra_class %} {{ extra_class }}{% endif %}">
-<div class="divider-wave-top"></div>
 {% if not hide_bottom_wave %}
 <div class="divider-wave-bottom"></div>
 {% endif %}
@@ -1379,11 +1378,7 @@ description={ev.description | default(value="")}
 {%- set home_data = load_data(path="data/home.yml") -%}
 <section class="home-banner-module home-announcement-section">
 <img src="{{ get_url(path=home_data.featured_announcement.image) }}" alt="" class="home-section-bg-img" aria-hidden="true" />
-<div class="home-garland-banner" aria-hidden="true">
-{%- for _ in [1, 2, 3, 4, 5, 6] %}
-<span class="home-garland-banner-tile"><span class="home-garland-banner-rot"><span class="home-garland-banner-repeat"><span class="home-garland-banner-mask"></span></span></span></span>
-{%- endfor %}
-</div>
+<div class="tf-mod-divider-top home-garland-banner" aria-hidden="true"></div>
 <div class="divider-wave-bottom home-banner-divider-bottom home-announcement-divider" aria-hidden="true"></div>
 <div class="home-banner-inner">
 <div class="home-banner-card-wrap">
@@ -1498,11 +1493,7 @@ description={ev.description | default(value="")}
 <div class="home-bottom-streamer" aria-hidden="true"></div>
 <section class="home-banner-module home-venue-section">
 <img src="{{ get_url(path=home_data.venue.image) }}" alt="" class="home-section-bg-img" aria-hidden="true" />
-<div class="home-garland-banner" aria-hidden="true">
-{%- for _ in [1, 2, 3, 4, 5, 6] %}
-<span class="home-garland-banner-tile"><span class="home-garland-banner-rot"><span class="home-garland-banner-repeat"><span class="home-garland-banner-mask"></span></span></span></span>
-{%- endfor %}
-</div>
+<div class="tf-mod-divider-top home-garland-banner" aria-hidden="true"></div>
 <div class="divider-wave-bottom home-banner-divider-bottom home-venue-divider" aria-hidden="true"></div>
 <div class="home-banner-inner">
 <div class="home-banner-card-wrap">
@@ -1801,7 +1792,7 @@ description={ev.description | default(value="")}
 <div class="tf-hero-bg gaming-hero-bg">
 <img src="{{ get_url(path=gdata.hero.image) | safe }}" alt="" class="tf-hero-bg-img gaming-hero-bg-img">
 </div>
-<div class="tf-mod-divider-top divider-wave-top gaming-divider-top-streamers" aria-hidden="true"><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span></div>
+<div class="tf-mod-divider-top gaming-divider-top-streamers" aria-hidden="true"></div>
 <div class="tf-hero-container gaming-hero-container">
 <div class="tf-hero-box gaming-hero-box">
 <h1 class="tf-hero-title gaming-hero-title">{{ gdata.hero.title }}</h1>
@@ -1822,7 +1813,7 @@ description={ev.description | default(value="")}
 <section class="tf-mod-divider gaming-divider-module is-freeplay">
 <div class="tf-mod-divider-bg gaming-divider-bg"></div>
 <div class="tf-mod-divider-vignette gaming-divider-vignette"></div>
-<div class="tf-mod-divider-top divider-wave-top gaming-divider-top-streamers" aria-hidden="true"><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span></div>
+<div class="tf-mod-divider-top gaming-divider-top-streamers" aria-hidden="true"></div>
 <div class="tf-mod-divider-inner gaming-divider-content">
 <div class="gaming-divider-text-block is-centered">
 <h2 class="tf-mod-divider-title gaming-divider-heading">{{ gdata.freeplay_divider.title }}</h2>
@@ -1971,7 +1962,7 @@ description={ev.description | default(value="")}
 <section class="tf-mod-divider gaming-divider-module is-competitions">
 <div class="tf-mod-divider-bg gaming-divider-bg"></div>
 <div class="tf-mod-divider-vignette gaming-divider-vignette"></div>
-<div class="tf-mod-divider-top divider-wave-top gaming-divider-top-streamers" aria-hidden="true"><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span></div>
+<div class="tf-mod-divider-top gaming-divider-top-streamers" aria-hidden="true"></div>
 <div class="tf-mod-divider-inner gaming-divider-content">
 <div class="gaming-divider-text-block">
 <h2 class="tf-mod-divider-title gaming-divider-heading">{{ gdata.competitions_divider.title }}</h2>
@@ -2060,7 +2051,7 @@ description={ev.description | default(value="")}
 <div class="tf-mod-divider gaming-divider-module is-maps">
 <div class="tf-mod-divider-bg gaming-divider-bg"></div>
 <div class="tf-mod-divider-vignette gaming-divider-vignette"></div>
-<div class="tf-mod-divider-top divider-wave-top gaming-divider-top-streamers" aria-hidden="true"><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span><span class="gaming-top-streamer-tile"></span></div>
+<div class="tf-mod-divider-top gaming-divider-top-streamers" aria-hidden="true"></div>
 <div class="tf-mod-divider-inner gaming-divider-content">
 <div class="gaming-divider-text-block is-centered">
 <h2 class="tf-mod-divider-title gaming-divider-heading">

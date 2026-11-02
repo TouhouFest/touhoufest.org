@@ -594,11 +594,8 @@ body:has(.guests-hero-section) {
   gap: 64px;
 }
 .guests-thankyou-garland {
-  width: 1440px;
-  max-width: 100%;
-  height: 60.4538px;
-  background-color: #fffde7;
-  @include mask-stretch("/border_top.svg");
+  width: 100%;
+  height: 58px;
 }
 .guests-thankyou-block {
   width: 850px;
@@ -1524,7 +1521,7 @@ body:has(.guests-hero-section) .guests-page-content {
     background-color: #221a28;
     background-image: linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
     color: #fbf7eb;
-    :is(.guests-hero-divider-bottom, .featured-guests-section, .guests-thankyou-garland) {
+    :is(.guests-hero-divider-bottom, .featured-guests-section) {
       background-color: #221a28;
     }
     .guests-hero-title-box {

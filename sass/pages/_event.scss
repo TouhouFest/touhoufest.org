@@ -14,35 +14,6 @@
   background-image: linear-gradient(131.699deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
 }
 
-.ev-garland-border {
-  position: absolute;
-  left: 0;
-  right: 1.04%;
-  top: calc(50% + 6px);
-  transform: translateY(-50%);
-  aspect-ratio: 31.666666 / 190;
-  overflow: hidden;
-}
-.ev-garland-accent-wrap {
-  position: absolute;
-  inset: 81.57% -77.09% -14.25% -18.96%;
-  @include flex-center;
-}
-.ev-garland-accent {
-  width: 9.925px;
-  height: 111.588px;
-  transform: rotate(-45deg);
-  flex: none;
-  @include mask-stretch("img/shared/card_accent.svg");
-  background-color: #fffde7;
-}
-.ev-garland-streamer {
-  position: absolute;
-  inset: 0 1.79% 11.26% 0;
-  @include mask-stretch("img/shared/card_streamer.svg");
-  background-color: #fffde7;
-}
-
 /* 1. Intro & Hero */
 .ev-intro {
   width: 100%;
@@ -513,40 +484,6 @@ $ev-watch-bars: (
 .ev-gallery-banner {
   width: 100%;
   z-index: 3;
-}
-.ev-banner-top-deco {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1440px;
-  height: 58px;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-start;
-  z-index: 4;
-  pointer-events: none;
-}
-.ev-banner-seg {
-  width: 252px;
-  height: 39px;
-  @include flex-center;
-  position: relative;
-  flex-shrink: 0;
-}
-.ev-banner-seg-rot {
-  width: 39px;
-  height: 252px;
-  transform: rotate(-90deg);
-  flex: none;
-  position: relative;
-  overflow: hidden;
-}
-.ev-banner-seg-inner {
-  position: absolute;
-  inset: -0.7% -45.45% -13.38% 0;
-}
-.ev-banner-top-deco :is(.ev-garland-accent, .ev-garland-streamer) {
-  background-color: #fbf7eb;
 }
 .ev-gallery-vignette {
   position: absolute;
@@ -1540,24 +1477,6 @@ $ev-faq-pins: (
     width: 100%;
     margin-top: 0;
   }
-  .ev-banner-top-deco {
-    top: -20px;
-    height: 58px;
-    width: 100%;
-    max-width: 100%;
-  }
-  .ev-banner-top-deco .ev-banner-seg {
-    width: 278.437px;
-    height: 55px;
-  }
-  .ev-banner-top-deco .ev-banner-seg-rot {
-    width: 55px;
-    height: 278.437px;
-    overflow: visible;
-  }
-  .ev-banner-top-deco .ev-banner-seg-inner {
-    inset: 0;
-  }
   .ev-banner-bot-deco {
     bottom: -6px;
     left: 0;
@@ -1837,9 +1756,6 @@ $ev-faq-pins: (
     background-image: linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
     color: #fbf7eb;
 
-    :is(.ev-banner-top-deco .ev-garland-accent, .ev-banner-top-deco .ev-garland-streamer) {
-      background-color: #30293e;
-    }
     :is(.ev-hero-title, .ev-red-card-title, .ev-btn-red-text, .ev-badge-open) {
       color: #511154;
     }

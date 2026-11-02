@@ -72,7 +72,7 @@
     background: url("img/home/shide-streamer.svg") no-repeat center top / 100% 100%;
   }
 
-  :is(.home-hero-divider-bottom, .home-banner-divider-bottom) {
+  :is(.home-hero-divider-bottom, .home-banner-divider-bottom, .home-garland-banner) {
     z-index: 2;
   }
 
@@ -328,49 +328,6 @@
     @include flex-center;
     overflow: hidden;
     z-index: 3;
-  }
-
-  .home-garland-banner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1512px;
-    height: 58px;
-    display: flex;
-    align-items: flex-start;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  .home-garland-banner-tile {
-    width: 252px;
-    height: 39px;
-    flex-shrink: 0;
-    @include flex-center;
-    position: relative;
-  }
-  .home-garland-banner-rot {
-    width: 39px;
-    height: 252px;
-    overflow: hidden;
-    position: relative;
-    flex-shrink: 0;
-    transform: rotate(-90deg);
-  }
-  .home-garland-banner-repeat {
-    position: absolute;
-    inset: -0.7% -45.45% -13.38% 0;
-  }
-  .home-garland-banner-mask {
-    position: absolute;
-    left: 0;
-    right: 1.04%;
-    top: calc(50% + 6px);
-    transform: translateY(-50%);
-    aspect-ratio: 31.6667 / 190;
-    background-color: #fffde7;
-    @include mask-stretch("img/home/shide-streamer.svg");
   }
 
   .home-announcement-divider {
@@ -1025,13 +982,6 @@
     }
     .pillar-mesh-bg {
       opacity: 1;
-    }
-    .home-garland-banner {
-      background: url("border_top.svg") repeat-x left top / 1440px 61px;
-      height: 61px;
-    }
-    .home-garland-banner-tile {
-      display: none;
     }
     :is(.home-announcement-divider, .home-venue-divider) {
       background-color: var(--tf-surface, #30293e);
