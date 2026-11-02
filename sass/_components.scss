@@ -718,8 +718,7 @@
   font: 800 2.75rem/1.15 var(--tf-font-heading);
   margin: 0;
 }
-.page-hero-body,
-.hero-body-text {
+.page-hero-body {
   font: 400 0.95rem/1.6 var(--tf-font-body);
   color: #fffdf0;
 }
@@ -747,10 +746,6 @@
   }
   .cosplay-masquerade-card {
     padding: 2rem 1.25rem;
-  }
-  .cosplay-masquerade-card .buttons .tf-btn {
-    width: 100%;
-    justify-content: center;
   }
 }
 

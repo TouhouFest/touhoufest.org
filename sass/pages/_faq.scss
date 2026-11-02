@@ -9,8 +9,7 @@ main:has(.tf-faq-page-body) {
   background: transparent;
 }
 
-.page-body-container.container.tf-faq-page-body,
-.container:not(.is-max-tablet):not(.is-max-desktop):not(.is-max-widescreen).tf-faq-page-body {
+.page-body-container.container.tf-faq-page-body {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
