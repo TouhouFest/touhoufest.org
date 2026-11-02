@@ -21,7 +21,7 @@
 
 {% if page is defined and page.date %}
   <meta content="{{ page.date | date(format="%+") }}" property="article:published_time">
-  <meta content="{{ get_url(path="/about/") }}" property="article:author">
+  <meta content="{{ get_url(path="/about/event/") }}" property="article:author">
 {% endif %}
 
 {% if page is defined and page.image %}
