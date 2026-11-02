@@ -85,26 +85,41 @@
 
 </div>
 
-<div class="tf-mod-divider is-register-divider" id="{{ reg_data.applications.exhibitor.section_id }}">
+{% for sec_key in ["exhibitor", "content", "team"] %}
+{% set sec = reg_data.applications[sec_key] %}
+{% if sec_key == "exhibitor" %}
+{% set bg_img = "img/register/exhibitor_bg.png" %}
+{% set grid_cls = "app-grid-3" %}
+{% set card_cls = "is-3col" %}
+{% elif sec_key == "content" %}
+{% set bg_img = "img/register/content_bg.png" %}
+{% set grid_cls = "app-grid-2" %}
+{% set card_cls = "is-2col" %}
+{% else %}
+{% set bg_img = "img/register/team_bg.png" %}
+{% set grid_cls = "app-grid-2" %}
+{% set card_cls = "is-team" %}
+{% endif %}
+<div class="tf-mod-divider is-register-divider" id="{{ sec.section_id }}">
 <div class="tf-mod-divider-bg">
-<img src="{{ <img_url path="img/register/exhibitor_bg.png" /> }}" alt="" class="register-banner-img" loading="lazy" decoding="async">
+<img src="{{ <img_url path={bg_img} /> }}" alt="" class="register-banner-img" loading="lazy" decoding="async">
 </div>
 <div class="tf-mod-divider-vignette" aria-hidden="true"></div>
 <div class="tf-mod-divider-top" aria-hidden="true"></div>
 <div class="tf-mod-divider-inner">
-<h2 class="tf-mod-divider-title">{{ reg_data.applications.exhibitor.section_title }}</h2>
+<h2 class="tf-mod-divider-title">{{ sec.section_title }}</h2>
 </div>
 <div class="tf-mod-divider-bottom" aria-hidden="true"></div>
 </div>
 
 <div class="register-content-container">
-<div class="app-grid-3">
-{% for item in reg_data.applications.exhibitor.items %}
-<div class="app-card is-3col">
+<div class="{{ grid_cls }}">
+{% for item in sec.items %}
+<div class="app-card {{ card_cls }}">
 <div class="app-card-inner">
 <div class="app-card-top">
 <div class="app-badge-wrap">
-{% if item.status == 'Open' %}
+{% if item.status == "Open" %}
 <span class="app-badge-open">{{ item.status | upper }}</span>
 {% else %}
 <span class="app-badge-closed">{{ item.status | upper }}</span>
@@ -115,7 +130,7 @@
 <p class="app-card-desc">{{ item.description }}</p>
 {% endif %}
 </div>
-{% if item.status == 'Open' %}
+{% if item.status == "Open" %}
 <div class="app-card-bottom">
 <a href="{{ item.url }}" class="tf-btn-pill-red" target="_blank" rel="noopener noreferrer">
 <span class="tf-btn-label">{{ item.button_text }}</span>
@@ -127,51 +142,7 @@
 </div>
 {% endfor %}
 </div>
-</div>
-
-<div class="tf-mod-divider is-register-divider" id="{{ reg_data.applications.content.section_id }}">
-<div class="tf-mod-divider-bg">
-<img src="{{ <img_url path="img/register/content_bg.png" /> }}" alt="" class="register-banner-img" loading="lazy" decoding="async">
-</div>
-<div class="tf-mod-divider-vignette" aria-hidden="true"></div>
-<div class="tf-mod-divider-top" aria-hidden="true"></div>
-<div class="tf-mod-divider-inner">
-<h2 class="tf-mod-divider-title">{{ reg_data.applications.content.section_title }}</h2>
-</div>
-<div class="tf-mod-divider-bottom" aria-hidden="true"></div>
-</div>
-
-<div class="register-content-container">
-<div class="app-grid-2">
-{% for item in reg_data.applications.content.items %}
-<div class="app-card is-2col">
-<div class="app-card-inner">
-<div class="app-card-top">
-<div class="app-badge-wrap">
-{% if item.status == 'Open' %}
-<span class="app-badge-open">{{ item.status | upper }}</span>
-{% else %}
-<span class="app-badge-closed">{{ item.status | upper }}</span>
-{% endif %}
-</div>
-<h3 class="app-card-title">{{ item.title }}</h3>
-{% if item.description %}
-<p class="app-card-desc">{{ item.description }}</p>
-{% endif %}
-</div>
-{% if item.status == 'Open' %}
-<div class="app-card-bottom">
-<a href="{{ item.url }}" class="tf-btn-pill-red" target="_blank" rel="noopener noreferrer">
-<span class="tf-btn-label">{{ item.button_text }}</span>
-<span class="tf-btn-carrot" aria-hidden="true"></span>
-</a>
-</div>
-{% endif %}
-</div>
-</div>
-{% endfor %}
-</div>
-
+{% if sec_key == "content" %}
 <div class="cosplay-masquerade-card">
 <div class="cosplay-card-copy">
 <h3 class="cosplay-card-title">{{ reg_data.applications.cosplay.title }}</h3>
@@ -188,50 +159,11 @@
 {% endfor %}
 </div>
 </div>
-</div>
-
-<div class="tf-mod-divider is-register-divider" id="{{ reg_data.applications.team.section_id }}">
-<div class="tf-mod-divider-bg">
-<img src="{{ <img_url path="img/register/team_bg.png" /> }}" alt="" class="register-banner-img" loading="lazy" decoding="async">
-</div>
-<div class="tf-mod-divider-vignette" aria-hidden="true"></div>
-<div class="tf-mod-divider-top" aria-hidden="true"></div>
-<div class="tf-mod-divider-inner">
-<h2 class="tf-mod-divider-title">{{ reg_data.applications.team.section_title }}</h2>
-</div>
-<div class="tf-mod-divider-bottom" aria-hidden="true"></div>
-</div>
-
-<div class="register-content-container">
-<div class="app-grid-2">
-{% for item in reg_data.applications.team.items %}
-<div class="app-card is-team">
-<div class="app-card-inner">
-<div class="app-card-top">
-<div class="app-badge-wrap">
-{% if item.status == 'Open' %}
-<span class="app-badge-open">{{ item.status | upper }}</span>
-{% else %}
-<span class="app-badge-closed">{{ item.status | upper }}</span>
 {% endif %}
-</div>
-<h3 class="app-card-title">{{ item.title }}</h3>
-{% if item.description %}
-<p class="app-card-desc">{{ item.description }}</p>
-{% endif %}
-</div>
-{% if item.status == 'Open' %}
-<div class="app-card-bottom">
-<a href="{{ item.url }}" class="tf-btn-pill-red" target="_blank" rel="noopener noreferrer">
-<span class="tf-btn-label">{{ item.button_text }}</span>
-<span class="tf-btn-carrot" aria-hidden="true"></span>
-</a>
+{% if sec_key != "team" %}
 </div>
 {% endif %}
-</div>
-</div>
 {% endfor %}
-</div>
 
 <div class="register-bottom-ctas">
 <div class="tf-mod-callout tf-mod-callout--horiz is-red register-callout-card">
