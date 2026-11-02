@@ -95,7 +95,7 @@
   align-items: flex-start;
   gap: 8px;
 }
-:is(.register-heading, .hero-card-title, .app-card-title, .cosplay-card-title, .callout-title) {
+:is(.register-heading, .app-card-title, .cosplay-card-title, .callout-title) {
   font-family: var(--tf-font-heading);
   font-weight: 800;
   font-size: 34px;
@@ -111,20 +111,10 @@
 
 /* 2026 Weekend Badge Massive CTA */
 .register-hero-card {
-  width: 100%;
-  max-width: 850px;
-  height: 341px;
-  min-height: 341px;
-  background-color: #ffffff;
-  border: none;
-  border-radius: 5px;
   box-shadow: 3px 4px 13px 0 rgba(99, 15, 40, 0.15);
-  position: relative;
-  overflow: hidden;
   @include flex-center;
   padding: 0 48px;
   gap: 40px;
-  box-sizing: border-box;
   &::before {
     content: "";
     position: absolute;
@@ -146,22 +136,6 @@
     pointer-events: none;
     z-index: 3;
   }
-}
-:is(.card-gohei-trim-left, .card-gohei-trim-right) {
-  position: absolute;
-  top: -73px;
-  width: 44px;
-  height: 262px;
-  background: url("card-gohei.svg") no-repeat center top / 44px 262px;
-  pointer-events: none;
-  z-index: 1;
-}
-.card-gohei-trim-left {
-  left: 0;
-}
-.card-gohei-trim-right {
-  right: 0;
-  transform: scaleX(-1);
 }
 .hero-card-left {
   flex: 1 1 0%;
@@ -198,9 +172,6 @@
   position: relative;
   z-index: 2;
   box-sizing: border-box;
-}
-.hero-card-title {
-  color: var(--tf-accent, #bf3444);
 }
 .hero-card-title.is-mobile-title {
   display: none;
@@ -903,17 +874,12 @@
     background-image: linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
   }
   .register-hero-card {
-    background-color: #373852;
     box-shadow:
       0 4px 22px 0 rgba(249, 198, 80, 0.35),
       3px 4px 13px 0 rgba(99, 15, 40, 0.15);
     &::before {
       background: linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%);
     }
-  }
-  :is(.card-gohei-trim-left, .card-gohei-trim-right) {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(43%) saturate(835%) hue-rotate(345deg)
-      brightness(101%) contrast(96%);
   }
   :is(.pricing-header-row, .pricing-column .th-single) {
     background-color: #f9c650;

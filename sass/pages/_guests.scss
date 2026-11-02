@@ -252,26 +252,8 @@ body:has(.guests-hero-section) {
   box-sizing: border-box;
 }
 .hero-card-streamer {
-  position: absolute;
-  top: -73px;
-  width: 44px;
-  height: 262px;
-  overflow: hidden;
-  &-left {
-    left: 0;
-  }
   &-right {
     right: 0.44px;
-    transform: scaleX(-1);
-  }
-  .streamer-main {
-    position: absolute;
-    inset: 0 1.79% 11.26% 0;
-    width: 98.21%;
-    height: 88.74%;
-    max-width: none;
-    object-fit: fill;
-    display: block;
   }
   .streamer-accent {
     position: absolute;

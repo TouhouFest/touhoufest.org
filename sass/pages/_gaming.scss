@@ -621,17 +621,10 @@ body:has(.gaming-page-shell) {
     border-radius: 5px;
   }
   .hero-module-card.gaming-badge-cta-card {
-    width: 100%;
-    min-height: 341px;
-    height: 341px;
+    max-width: none;
     margin: 0;
     padding: 0;
-    border-radius: 5px;
-    border: none;
-    background: #ffffff;
     box-shadow: none;
-    position: relative;
-    overflow: hidden;
     @include flex-center;
   }
   .gaming-badge-cta-bg {
@@ -654,22 +647,6 @@ body:has(.gaming-page-shell) {
     background: url("data:image/svg+xml;utf8,<svg preserveAspectRatio='none' overflow='visible' width='849.088' height='342.819' viewBox='0 0 849.088 342.819' fill='none' xmlns='http://www.w3.org/2000/svg'><g clip-path='url(%23clip0)'><g filter='url(%23f0)'><ellipse cx='613.701' cy='727.647' rx='232.91' ry='149.136' fill='%23FFDE05'/></g><g filter='url(%23f1)'><ellipse cx='-415.229' cy='641.459' rx='232.91' ry='148.167' fill='%23FF4949'/></g><g filter='url(%23f2)'><ellipse cx='162.623' cy='-425.734' rx='265.34' ry='167.536' fill='%231F90BA'/></g><g filter='url(%23f3)'><ellipse cx='1535.02' cy='-257.229' rx='216.694' ry='155.915' fill='%23D505FF'/></g></g><defs><filter id='f0' x='240.791' y='438.511' width='745.819' height='578.272' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f1' x='-788.138' y='353.292' width='745.819' height='576.335' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f2' x='-242.717' y='-733.27' width='810.68' height='615.071' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f3' x='1178.33' y='-553.144' width='713.389' height='591.829' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><clipPath id='clip0'><rect width='849.088' height='342.819' fill='white'/></clipPath></defs></svg>")
       no-repeat left top / 100% 100%;
   }
-  .gaming-badge-cta-streamer {
-    position: absolute;
-    top: -73px;
-    width: 44px;
-    height: 262px;
-    background: url("card-gohei.svg") no-repeat center / 44px 262px;
-    pointer-events: none;
-    z-index: 2;
-    &.is-left {
-      left: 0;
-    }
-    &.is-right {
-      right: 0;
-      transform: scaleX(-1);
-    }
-  }
   .gaming-badge-cta-stroke {
     border: 15px solid var(--tf-accent);
     border-bottom: none;
@@ -678,25 +655,15 @@ body:has(.gaming-page-shell) {
   .hero-card-inner.gaming-badge-cta-inner {
     width: 100%;
     padding-right: 40px;
-    @include flex-center;
-    flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 0 40px;
     text-align: left;
-    position: relative;
-    z-index: 2;
   }
   .hero-card-image-wrap.gaming-badge-cta-img-col {
     flex: 1 0 280px;
-    width: auto;
-    height: auto;
     max-width: 405px;
-    margin: 0;
     padding: 0 0 0 48px;
-    background: none;
-    box-shadow: none;
-    border-radius: 0;
-    overflow: visible;
     @include flex-col-center;
     justify-content: center;
   }
@@ -931,7 +898,7 @@ body:has(.gaming-page-shell) {
   .gaming-page-shell {
     background: #221a28 linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
     color: #fbf7eb;
-    :is(.gaming-badge-cta-streamer, .arcade-gamepad-icon, .gaming-prize-medal) {
+    :is(.hero-gohei-left, .hero-gohei-right, .arcade-gamepad-icon, .gaming-prize-medal) {
       filter: brightness(0) saturate(100%) invert(83%) sepia(39%) saturate(943%) hue-rotate(345deg)
         brightness(101%) contrast(95%);
     }

@@ -687,7 +687,7 @@ $ev-polaroid-slots: (
   overflow: hidden;
   flex-shrink: 0;
 }
-:is(.ev-ph-fg-img, .ev-badge-accent-img, .ev-badge-streamer-img) {
+:is(.ev-ph-fg-img, .ev-badge-accent-img) {
   width: 100%;
   height: 100%;
   display: block;
@@ -1148,15 +1148,6 @@ $ev-faq-pins: (
 }
 
 /* Massive CTA (2026 Full Weekend Badge) */
-.ev-badge-cta {
-  width: 100%;
-  height: 341px;
-  position: relative;
-  border-radius: 5px;
-  box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
-  overflow: hidden;
-  background-color: #ffffff;
-}
 .ev-badge-cta-grad {
   position: absolute;
   left: 0;
@@ -1165,32 +1156,6 @@ $ev-faq-pins: (
   height: 362px;
   max-width: none;
   display: block;
-}
-:is(
-  .ev-badge-streamer-left,
-  .ev-badge-streamer-right,
-  .ev-badge-streamer-flip,
-  .ev-badge-streamer-box
-) {
-  width: 44px;
-  height: 262px;
-}
-:is(.ev-badge-streamer-left, .ev-badge-streamer-right) {
-  position: absolute;
-  top: -73px;
-}
-.ev-badge-streamer-left {
-  left: 0;
-}
-.ev-badge-streamer-right {
-  right: 0;
-}
-.ev-badge-streamer-flip {
-  transform: rotate(180deg) scaleY(-1);
-}
-.ev-badge-streamer-box {
-  position: relative;
-  overflow: hidden;
 }
 .ev-badge-accent-wrap {
   position: absolute;
@@ -1202,10 +1167,6 @@ $ev-faq-pins: (
   height: 111.588px;
   transform: rotate(-45deg);
   flex: none;
-}
-.ev-badge-streamer-wrap {
-  position: absolute;
-  inset: 0 1.79% 11.26% 0;
 }
 .ev-badge-cta-stroke {
   position: absolute;
@@ -1774,7 +1735,7 @@ $ev-faq-pins: (
     .ev-amp-heading {
       color: #f9c650;
     }
-    :is(.ev-polaroid-frame, .ev-badge-cta) {
+    .ev-polaroid-frame {
       background-color: #373852;
     }
     .ev-btn-red .ev-caret-img {

@@ -345,9 +345,9 @@ class='fa-solid fa-chevron-right'></span></a></p>
 </div>
 <div class="hero-card-content">
 {%- if mobile_title %}
-<h2 class="title is-2 mb-3 hero-card-title"><span class="hero-title-desktop">{{ title }}</span><span class="hero-title-mobile">{{ mobile_title }}</span></h2>
+<h2 class="mb-3 hero-card-title"><span class="hero-title-desktop">{{ title }}</span><span class="hero-title-mobile">{{ mobile_title }}</span></h2>
 {%- else %}
-<h2 class="title is-2 mb-3 hero-card-title">{{ title }}</h2>
+<h2 class="mb-3 hero-card-title">{{ title }}</h2>
 {%- endif %}
 {%- if subtitle %}
 <p class="subtitle mb-4 hero-card-subtitle">{{ subtitle }}</p>
@@ -2088,8 +2088,8 @@ description={ev.description | default(value="")}
 <div class="hero-module-card gaming-badge-cta-card">
 <div class="gaming-badge-cta-bg" aria-hidden="true">
 <div class="gaming-badge-cta-gradient"></div>
-<div class="hero-gohei-left gaming-badge-cta-streamer is-left"></div>
-<div class="hero-gohei-right gaming-badge-cta-streamer is-right"></div>
+<div class="hero-gohei-left"></div>
+<div class="hero-gohei-right"></div>
 <div class="gaming-badge-cta-stroke"></div>
 </div>
 <div class="hero-card-inner gaming-badge-cta-inner">
@@ -2288,8 +2288,8 @@ description={ev.description | default(value="")}
 {% component intro_badge_cta() %}
 {%- set intro = load_data(path="data/intro.yml") -%}
 <section class="hero-module-card intro-badge-card">
-<div class="hero-gohei-left intro-gohei-left" aria-hidden="true"></div>
-<div class="hero-gohei-right intro-gohei-right" aria-hidden="true"></div>
+<div class="hero-gohei-left" aria-hidden="true"></div>
+<div class="hero-gohei-right" aria-hidden="true"></div>
 <div class="hero-card-inner intro-badge-inner">
 <div class="hero-card-image-wrap intro-badge-art">
 <img src="{{ get_url(path=intro.badge_cta.image) }}" alt="{{ intro.badge_cta.image_alt }}" loading="lazy" />

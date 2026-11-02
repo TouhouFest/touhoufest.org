@@ -64,11 +64,6 @@ body:has(.page-hero-hotels) {
     gap: 8px;
     width: 100%;
   }
-
-  .hotels-badge-card .hero-card-title {
-    @include tf-h2;
-    color: var(--tf-accent);
-  }
 }
 
 :is(.hotels-main-group, .hotels-late-group, .hotels-early-group) {
@@ -312,16 +307,9 @@ body:has(.page-hero-hotels) {
 
   /* Weekend Badge Card on Hotels Page */
   .hero-module-card.hotels-badge-card {
-    width: 100%;
-    height: 341px;
     padding: 48px;
     margin: 0;
-    border-radius: 5px;
-    border: none;
     background: linear-gradient(180deg, rgba(255, 225, 225, 0.5) 0%, #ffffff 45%), #ffffff;
-    box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
-    position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
 
@@ -334,39 +322,20 @@ body:has(.page-hero-hotels) {
       border-right: 15px solid var(--tf-accent);
       border-radius: 5px;
       pointer-events: none;
-      z-index: 1;
-    }
-
-    :is(.hero-gohei-left, .hero-gohei-right) {
-      width: 44px;
-      height: 262px;
-      top: -73px;
-      background: url("card-gohei.svg") no-repeat left top / 44px 262px;
-      z-index: 2;
-    }
-    .hero-gohei-right {
-      transform: scaleX(-1);
+      z-index: 0;
     }
 
     .hero-card-inner {
       width: 100%;
-      @include flex-center;
-      flex-direction: row;
+      justify-content: center;
       flex-wrap: nowrap;
-      gap: 40px;
-      position: relative;
       z-index: 3;
     }
     .hero-card-image-wrap {
       flex: 0 1 368px;
       width: 368px;
       max-width: 50%;
-      height: auto;
       padding: 40px 40px 24px 40px;
-      background: transparent;
-      box-shadow: none;
-      border-radius: 0;
-      overflow: visible;
       img {
         width: 284px;
         max-width: 100%;
@@ -657,10 +626,6 @@ body:has(.page-hero-hotels) {
 
     .hero-module-card.hotels-badge-card {
       background: linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%), #373852;
-      :is(.hero-gohei-left, .hero-gohei-right) {
-        filter: brightness(0) saturate(100%) invert(84%) sepia(43%) saturate(835%)
-          hue-rotate(345deg) brightness(101%) contrast(96%);
-      }
     }
 
     .hotels-teasers-grid .tf-teaser-card.is-red {

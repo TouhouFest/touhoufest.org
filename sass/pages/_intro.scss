@@ -111,10 +111,6 @@ body:has(.tf-intro-page) {
       border-color: #f9c650;
       color: #511154;
     }
-    :is(.intro-gohei-left, .intro-gohei-right) {
-      filter: brightness(0) saturate(100%) invert(84%) sepia(43%) saturate(835%) hue-rotate(345deg)
-        brightness(101%) contrast(96%);
-    }
     .game-era-banner {
       border-bottom-color: #f9c650;
     }
@@ -331,20 +327,11 @@ body:has(.tf-intro-page) {
 }
 
 :is(.intro-gohei-left, .intro-gohei-right) {
-  position: absolute;
   top: 0;
   bottom: 0;
   width: 31.67px;
+  height: auto;
   background: url("card-gohei.svg") repeat-y center top / 31.67px 190px;
-  pointer-events: none;
-  z-index: 1;
-}
-.intro-gohei-left {
-  left: 0;
-}
-.intro-gohei-right {
-  right: 0;
-  transform: scaleX(-1);
 }
 
 /* Sections 1–7 */
@@ -627,34 +614,20 @@ body:has(.tf-intro-page) {
 }
 
 .intro-badge-card {
+  max-width: none;
+  height: auto;
   background: var(--intro-badge-bg);
   border: 15px solid #bf3444;
   border-bottom: 1px solid var(--intro-border);
   padding: 2.75rem 4rem;
   margin-bottom: 2.5rem;
-  :is(.intro-gohei-left, .intro-gohei-right) {
-    top: -73px;
-    bottom: auto;
-    width: 44px;
-    height: 262px;
-    background-size: 44px 262px;
-    background-repeat: no-repeat;
-  }
 }
 .intro-badge-inner {
-  display: flex;
-  align-items: center;
   gap: 2.75rem;
 }
 .intro-badge-art {
   @include flex-center;
   width: 240px;
-  height: auto;
-  background: none;
-  box-shadow: none;
-  border-radius: 0;
-  overflow: visible;
-  flex-shrink: 0;
 }
 
 .intro-discord-card {
@@ -800,7 +773,7 @@ body:has(.tf-intro-page) {
   .intro-badge-card {
     border-width: 10px 10px 1px;
     padding: 2rem 1.5rem;
-    :is(.intro-gohei-left, .intro-gohei-right) {
+    :is(.hero-gohei-left, .hero-gohei-right) {
       top: -48px;
       width: 30px;
       height: 179px;

@@ -685,77 +685,77 @@
 }
 
 /* 5. Hero Weekend Pass Card */
-.hero-module-card {
-  background-color: var(--tf-color-white);
-  border-radius: var(--tf-radius-card);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+:is(.hero-module-card, .ev-badge-cta, .register-hero-card) {
+  width: 100%;
+  max-width: 850px;
+  height: 341px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
   position: relative;
   overflow: hidden;
-  padding: 3rem 4rem;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
 }
-.hero-module-card .hero-gohei-left {
+:is(.hero-gohei-left, .hero-gohei-right, .card-gohei-trim-left, .card-gohei-trim-right) {
   position: absolute;
-  top: 0;
+  top: -73px;
+  width: 44px;
+  height: 262px;
+  background: url("card-gohei.svg") no-repeat center top / 44px 262px;
+  pointer-events: none;
+  z-index: 1;
+}
+:is(.hero-gohei-left, .card-gohei-trim-left) {
   left: 0;
-  width: 24px;
-  height: 100%;
-  background: url("/card-gohei.svg") repeat-y center top / 24px auto;
-  pointer-events: none;
 }
-.hero-module-card .hero-gohei-right {
-  position: absolute;
-  top: 0;
+:is(.hero-gohei-right, .card-gohei-trim-right) {
   right: 0;
-  width: 24px;
-  height: 100%;
-  background: url("/card-gohei.svg") repeat-y center top / 24px auto;
   transform: scaleX(-1);
-  pointer-events: none;
 }
-.hero-module-card .hero-card-inner {
+.hero-card-streamer {
+  position: absolute;
+  top: -73px;
+  width: 44px;
+  height: 262px;
+  overflow: hidden;
+  &-left {
+    left: 0;
+  }
+  &-right {
+    right: 0;
+    transform: scaleX(-1);
+  }
+  .streamer-main {
+    position: absolute;
+    inset: 0 1.79% 11.26% 0;
+    width: 98.21%;
+    height: 88.74%;
+    max-width: none;
+    object-fit: fill;
+    display: block;
+  }
+}
+.hero-card-inner {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 40px;
   position: relative;
-  z-index: 1;
-  flex-wrap: wrap;
+  z-index: 2;
 }
 .hero-card-image-wrap {
-  width: 240px;
-  height: 240px;
-  border-radius: var(--tf-radius-card);
   position: relative;
-  overflow: hidden;
   flex-shrink: 0;
-  background: linear-gradient(135deg, #7b9fe0 0%, #e2759e 50%, #f6b553 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex-col-center;
   justify-content: center;
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-.hero-card-image-wrap .hero-card-image {
-  display: none;
-}
-.hero-card-image-wrap .hero-card-q {
-  font: 900 5rem/1 var(--tf-font-heading);
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-.hero-card-image-wrap .hero-card-stay-tuned {
-  font: 700 1rem var(--tf-font-body);
-  letter-spacing: 0.05em;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 .hero-card-content {
   flex: 1;
-  min-width: 280px;
+  min-width: 0;
 }
 .hero-card-title {
-  color: var(--tf-color-dark);
-  font: 800 2.5rem var(--tf-font-heading);
+  @include tf-h2;
+  color: var(--tf-accent, #bf3444);
+  margin: 0;
 }
 .hero-card-subtitle {
   color: var(--tf-color-text);
@@ -821,19 +821,6 @@
   :is(.page-hero-banner .page-hero-title, .page-hero-banner .hero-title, .hero-title) {
     font-size: 1.8rem;
   }
-  .hero-module-card {
-    padding: 2rem 1.5rem;
-  }
-  .hero-module-card .hero-card-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
-  }
-  .hero-card-image-wrap {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-  }
   .cosplay-masquerade-card {
     padding: 2rem 1.25rem;
   }
@@ -867,13 +854,15 @@
 }
 
 @include dark-mode {
-  .hero-module-card {
-    background-color: #221a28;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 255, 255, 0.1);
+  :is(.hero-module-card, .ev-badge-cta, .register-hero-card) {
+    background-color: #373852;
   }
-  .hero-module-card .title {
-    color: #fbf7eb;
+  .hero-module-card {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+  :is(.hero-gohei-left, .hero-gohei-right, .card-gohei-trim-left, .card-gohei-trim-right) {
+    filter: brightness(0) saturate(100%) invert(84%) sepia(43%) saturate(835%) hue-rotate(345deg)
+      brightness(101%) contrast(96%);
   }
 }
 
