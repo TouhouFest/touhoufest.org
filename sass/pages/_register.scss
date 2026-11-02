@@ -96,17 +96,10 @@
   gap: 8px;
 }
 :is(.register-heading, .app-card-title, .cosplay-card-title) {
-  font-family: var(--tf-font-heading);
-  font-weight: 800;
-  font-size: 34px;
-  line-height: 1.1;
-  margin: 0;
+  @include tf-h2;
 }
 :is(.register-narrative, .app-card-desc, .cosplay-card-desc) {
-  font-family: var(--tf-font-body);
-  font-size: 16px;
-  line-height: 1.3;
-  margin: 0;
+  @include tf-body;
 }
 
 /* 2026 Weekend Badge Massive CTA */
@@ -179,21 +172,12 @@
 
 /* Pill Buttons */
 :is(.tf-btn-pill-red, .tf-btn-pill-cream) {
-  font-family: var(--tf-font-heading);
+  @include tf-pill;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 1.1;
   height: 48px;
   padding: 14px 39px 14px 47px;
-  gap: 10px;
   max-width: 100%;
-  border-radius: var(--tf-radius-pill, 35px);
   border: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
 }
 .tf-btn-pill-cream {
   background-color: #fffde7;
@@ -227,12 +211,8 @@
   width: 100%;
 }
 .register-subheading {
-  font-family: var(--tf-font-heading);
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1.2;
+  @include tf-h3;
   color: var(--tf-accent, #bf3444);
-  margin: 0;
 }
 .pricing-table-container {
   width: 632px;
@@ -261,10 +241,7 @@
   box-sizing: border-box;
 }
 .pricing-th {
-  font-family: var(--tf-font-body);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.3;
+  font: 700 16px/1.3 var(--tf-font-body);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -291,9 +268,7 @@
 .pricing-td {
   flex: 1 0 0;
   min-width: 0;
-  font-family: var(--tf-font-body);
-  font-size: 16px;
-  line-height: 1.3;
+  @include tf-body;
   padding: 0 16px;
   box-sizing: border-box;
   height: 100%;
@@ -366,10 +341,7 @@
   color: #ffffff;
   @include flex-center;
   text-align: center;
-  font-family: var(--tf-font-body);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.3;
+  @include tf-body;
   padding: 16px;
   box-sizing: border-box;
 }
@@ -457,10 +429,7 @@
   align-items: flex-end;
 }
 :is(.app-badge-open, .app-badge-closed) {
-  font-family: var(--tf-font-body);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.3;
+  font: 700 16px/1.3 var(--tf-font-body);
   display: inline-block;
   text-transform: uppercase;
 }

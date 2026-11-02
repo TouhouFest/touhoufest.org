@@ -5,9 +5,7 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 14px 39px 14px 47px;
-  font-family: var(--tf-font-heading);
-  font-weight: 800;
-  font-size: 1rem;
+  font: 800 1rem var(--tf-font-heading);
   border-radius: var(--tf-radius-pill, 35px);
   border: 2px solid transparent;
   cursor: pointer;
@@ -72,9 +70,7 @@
 :is(.tf-btn-pill-white, .tf-btn-pill-red) {
   border-radius: var(--tf-radius-pill, 35px);
   padding: 12px 32px;
-  font-family: var(--tf-font-heading);
-  font-size: 1rem;
-  font-weight: 700;
+  font: 700 1rem var(--tf-font-heading);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
