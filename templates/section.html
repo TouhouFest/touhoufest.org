@@ -10,9 +10,6 @@
 
 {% block content %}
 <div class="page-body-container container{% if section.extra.container_class %} {{ section.extra.container_class }}{% endif %}">
-  {% if section.extra.toc %}
-    {% include "toc.html" %}
-  {% endif %}
   {{ section.content | safe }}
 </div>
 {% endblock content %}

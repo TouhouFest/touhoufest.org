@@ -212,44 +212,23 @@ table th {
   position: relative;
   width: 100%;
 }
-.container.is-max-tablet {
-  max-width: 705px;
-}
 @media screen and (min-width: 1024px) {
   .container {
     max-width: 960px;
   }
 }
 @media screen and (min-width: 1216px) {
-  .container:not(.is-max-desktop) {
+  .container {
     max-width: 1152px;
   }
 }
 @media screen and (min-width: 1408px) {
-  .container:not(.is-max-desktop):not(.is-max-widescreen) {
+  .container {
     max-width: 1344px;
   }
 }
 
-// Bulma Navbar Chrome Module
-.navbar {
-  background-color: var(--bulma-navbar-background-color, transparent);
-  min-height: var(--bulma-navbar-height, 3.25rem);
-  position: relative;
-  z-index: var(--bulma-navbar-z, 30);
-}
-.navbar > .container {
-  align-items: stretch;
-  display: flex;
-  min-height: var(--bulma-navbar-height, 3.25rem);
-  width: 100%;
-}
-.navbar-brand {
-  align-items: stretch;
-  display: flex;
-  flex-shrink: 0;
-  min-height: var(--bulma-navbar-height, 3.25rem);
-}
+// Bulma Navbar Burger & Menu Module
 .navbar-burger {
   appearance: none;
   background: none;
@@ -272,117 +251,10 @@ table th {
 .navbar-menu.is-active {
   display: block;
 }
-.navbar-item {
-  color: var(--bulma-text, #30293e);
-  display: block;
-  line-height: 1.5;
-  padding: 0.5rem 0.75rem;
-  position: relative;
-}
-.navbar-item:hover {
-  color: var(--tf-color-red, #bf3444);
-}
 
 @media screen and (min-width: 1024px) {
-  .navbar,
-  .navbar-menu {
-    align-items: stretch;
-    display: flex;
-  }
   .navbar-burger {
     display: none;
-  }
-  .navbar-item {
-    align-items: center;
-    display: flex;
-  }
-  .navbar-menu {
-    flex-grow: 1;
-    flex-shrink: 0;
-  }
-}
-
-// Bulma Grid (Columns & Column) Module
-.columns {
-  margin-inline-start: -0.75rem;
-  margin-inline-end: -0.75rem;
-  margin-top: -0.75rem;
-}
-.columns:last-child {
-  margin-bottom: -0.75rem;
-}
-.columns:not(:last-child) {
-  margin-bottom: calc(1.5rem - 0.75rem);
-}
-.columns.is-centered {
-  justify-content: center;
-}
-.columns.is-mobile {
-  display: flex;
-}
-.columns.is-multiline {
-  flex-wrap: wrap;
-}
-.columns.is-vcentered {
-  align-items: center;
-}
-
-.column {
-  display: block;
-  flex-basis: 0;
-  flex-grow: 1;
-  flex-shrink: 1;
-  padding: 0.75rem;
-}
-.column.is-full {
-  flex: none;
-  width: 100%;
-}
-.column.is-two-thirds {
-  flex: none;
-  width: 66.6666%;
-}
-.column.is-half {
-  flex: none;
-  width: 50%;
-}
-.column.is-one-third {
-  flex: none;
-  width: 33.3333%;
-}
-.column.is-2 {
-  flex: none;
-  width: 16.66667%;
-}
-.column.is-3 {
-  flex: none;
-  width: 25%;
-}
-.column.is-4 {
-  flex: none;
-  width: 33.33333%;
-}
-.column.is-5 {
-  flex: none;
-  width: 41.66667%;
-}
-.column.is-6 {
-  flex: none;
-  width: 50%;
-}
-.column.is-12 {
-  flex: none;
-  width: 100%;
-}
-
-@media screen and (min-width: 769px) {
-  .columns:not(.is-desktop) {
-    display: flex;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .columns.is-desktop {
-    display: flex;
   }
 }
 
@@ -405,12 +277,6 @@ table th {
   font-weight: 400;
   line-height: 1.25;
 }
-.title.is-1 {
-  font-size: 3rem;
-}
-.title.is-2 {
-  font-size: 2.5rem;
-}
 .title.is-3 {
   font-size: 2rem;
 }
@@ -420,39 +286,15 @@ table th {
 .title.is-5 {
   font-size: 1.25rem;
 }
-.title.is-6 {
-  font-size: 1rem;
-}
-.subtitle.is-6 {
-  font-size: 1rem;
-}
 
 // Bulma Spacing Helpers Module
-.m-6 {
-  margin: 3rem !important;
-}
-.mt-2 {
-  margin-top: 0.5rem !important;
-}
 .mt-3 {
   margin-top: 0.75rem !important;
 }
 .mt-4 {
   margin-top: 1rem !important;
 }
-.mt-5 {
-  margin-top: 1.5rem !important;
-}
-.mt-6 {
-  margin-top: 3rem !important;
-}
 
-.mb-0 {
-  margin-bottom: 0 !important;
-}
-.mb-1 {
-  margin-bottom: 0.25rem !important;
-}
 .mb-2 {
   margin-bottom: 0.5rem !important;
 }
@@ -469,10 +311,6 @@ table th {
   margin-bottom: 3rem !important;
 }
 
-.my-4 {
-  margin-top: 1rem !important;
-  margin-bottom: 1rem !important;
-}
 .my-5 {
   margin-top: 1.5rem !important;
   margin-bottom: 1.5rem !important;
@@ -484,24 +322,6 @@ table th {
 
 .ml-1 {
   margin-left: 0.25rem !important;
-}
-.ml-2 {
-  margin-left: 0.5rem !important;
-}
-
-.mr-1 {
-  margin-right: 0.25rem !important;
-}
-.mr-2 {
-  margin-right: 0.5rem !important;
-}
-
-.pt-4 {
-  padding-top: 1rem !important;
-}
-.px-4 {
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
 }
 
 // Bulma Visibility & Accessibility Helpers
@@ -515,28 +335,6 @@ table th {
   white-space: nowrap !important;
   width: 0.01em !important;
 }
-.is-flex {
-  display: flex !important;
-}
-.is-block {
-  display: block !important;
-}
 .is-hidden {
   display: none !important;
-}
-
-@media screen and (max-width: 768px) {
-  .is-hidden-mobile {
-    display: none !important;
-  }
-}
-@media screen and (max-width: 1023px) {
-  .is-hidden-touch {
-    display: none !important;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .is-hidden-desktop {
-    display: none !important;
-  }
 }

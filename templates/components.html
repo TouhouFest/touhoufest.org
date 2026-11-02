@@ -182,31 +182,6 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 </div>
 {% endcomponent contact_form %}
 
-
-{% component discord(extra_class="", title="Join the community on Discord", subtext="Join our community on the TouhouFest Official Discord server!", url="https://discord.gg/touhoufest", button_text="Join Discord", icon="img/discord_card_icon.svg") %}
-<div class="discord-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
-<div class="discord-icon">
-{% set ext = icon | split(pat=".") | last %}
-{% if ext == "svg" %}
-{% set svg_path = "templates/" ~ icon %}
-<img src="data:image/svg+xml,{{ load_data(path=svg_path) | urlencode }}" alt="Discord" />
-{% else %}
-<img src="{{ get_url(path=icon) }}" alt="Discord" />
-{% endif %}
-</div>
-<div class="discord-content">
-<div class="discord-copy">
-<h2 class="discord-title">{{ title }}</h2>
-<p class="discord-subtext">{{ subtext }}</p>
-</div>
-<a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-white">
-<span>{{ button_text }}</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
-</a>
-</div>
-</div>
-{% endcomponent discord %}
-
 {% component newsletter(extra_class="", title="The Tengu Newsletter", subtext="Sign up with your email address to receive news and updates.", placeholder="Email here", button_text="Subscribe", icon="email.svg") %}
 <div class="tf-mod-callout tf-mod-callout--horiz is-newsletter newsletter-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
 <div class="tf-mod-callout-icon tf-newsletter-envelope newsletter-icon-wrap">
@@ -250,30 +225,6 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 </div>
 </div>
 {% endcomponent page_header %}
-
-{% component section_divider(title, subtitle="", image="", url="", button_text="Explore Section", id="") %}
-{%- set divider_id = id | default(value=title | slugify) -%}
-<div class="tf-section-divider section-divider-module my-6" id="{{ divider_id }}">
-<div class="tf-section-divider__wave-top divider-wave-top"></div>
-<div class="tf-section-divider__streamers"></div>
-<div class="tf-section-divider__wave-bottom divider-wave-bottom"></div>
-<div class="divider-overlay">
-<div class="divider-content">
-<div>
-<h2 class="divider-title"><span>{{ title }}</span></h2>
-{%- if subtitle %}
-<p class="divider-subtitle">{{ subtitle }}</p>
-{%- endif %}
-</div>
-{%- if url %}
-<div>
-<a class="tf-btn tf-btn-primary" href="{{ url }}"><span>{{ button_text }}</span></a>
-</div>
-{%- endif %}
-</div>
-</div>
-</div>
-{% endcomponent section_divider %}
 
 {% component hero_card(title, mobile_title="", subtitle="", image="img/badge_teaser.png", button_text="Buy badge", url="/register", extra_class="") %}
 <div class="hero-module-card badge-hero-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">

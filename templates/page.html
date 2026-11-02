@@ -15,16 +15,7 @@
 {% endblock header %}
 
 {% block content %}
-{% if page.extra.toc %}
-<div class="guidelines-page-wrapper">
-  <div class="guidelines-content-container">
-    {% include "toc.html" %}
-    <div class="guidelines-markdown-body">
-      {{ page.content | safe }}
-    </div>
-  </div>
-</div>
-{% elif page.extra.full_bleed %}
+{% if page.extra.full_bleed %}
 <div class="page-body-fullbleed">
   {{ page.content | safe }}
 </div>
