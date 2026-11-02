@@ -100,7 +100,7 @@ body:has(.guests-hero-section) {
   right: 0;
   height: 850.928px;
   transform: rotate(180deg);
-  background: url("/img/guests/hero_vignette.svg") center top / 100% 100% no-repeat;
+  background: url($svg-guests-hero-vignette) center top / 100% 100% no-repeat;
 }
 .guests-hero-divider-bottom {
   background-color: #fffde7;
@@ -1050,7 +1050,7 @@ body:has(.guests-hero-section) .guests-page-content {
       background-color: #fffde7;
       color: #30293e;
       .tf-icon-chevron-right {
-        background-image: url("/img/shared/chevron_dark.svg");
+        background-image: var(--tf-svg-chevron-dark);
       }
     }
   }
@@ -1066,7 +1066,7 @@ body:has(.guests-hero-section) .guests-page-content {
         color: #fffde7;
         flex-shrink: 0;
         .tf-icon-chevron-right {
-          background-image: url("/img/shared/chevron_cream.svg");
+          background-image: var(--tf-svg-chevron-cream);
         }
       }
     }
@@ -1547,12 +1547,12 @@ body:has(.guests-hero-section) .guests-page-content {
     }
     .guests-page-content {
       .guests-discord-card .tf-icon-chevron-right {
-        background-image: url("/img/shared/chevron_cream.svg");
+        background-image: var(--tf-svg-chevron-cream);
       }
       .guests-newsletter-card .guests-newsletter-btn {
         color: #511154;
         .tf-icon-chevron-right {
-          background-image: url("/img/shared/chevron_dark.svg");
+          background-image: var(--tf-svg-chevron-dark);
         }
       }
     }

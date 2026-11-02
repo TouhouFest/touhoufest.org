@@ -30,7 +30,7 @@
   {% include "footer.html" %}
 
   {# Self-hosted Bulma navbar toggle & theme helper #}
-  <script src="{{ get_url(path='js/bulma.js') }}" defer></script>
+  <script>{{ load_data(path="templates/js/bulma.js") | safe }}</script>
 </body>
 
 </html>

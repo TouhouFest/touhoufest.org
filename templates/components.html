@@ -62,7 +62,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="faq-callout-card tf-mod-callout tf-mod-callout--vert {% if loop.index == 1 %}faq-callout-card-guidelines is-red{% else %}faq-callout-card-discord is-discord{% endif %}">
 <div class="faq-callout-icon-wrap tf-mod-callout-icon">
 {%- if loop.index == 1 -%}
-<img src="{{ get_url(path='img/guidelines_icon.svg') }}" alt="" aria-hidden="true" width="100" height="100" class="faq-callout-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guidelines_icon.svg') | urlencode }}" alt="" aria-hidden="true" width="100" height="100" class="faq-callout-icon" />
 {%- else -%}
 <span class="faq-discord-icon" aria-hidden="true"></span>
 {%- endif -%}
@@ -151,7 +151,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {%- for card in cdata.callouts %}
 <div class="contact-callout-card tf-mod-callout tf-mod-callout--horiz {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
 <div class="callout-icon-col tf-mod-callout-icon">
-<img src="{% if loop.index == 1 %}{{ get_url(path='img/contact/faq_icon.svg') }}{% else %}{{ get_url(path='img/discord_card_icon.svg') }}{% endif %}" alt="" class="callout-icon-img" width="100" height="100" />
+<img src="data:image/svg+xml,{% if loop.index == 1 %}{{ load_data(path='templates/img/contact/faq_icon.svg') | urlencode }}{% else %}{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}{% endif %}" alt="" class="callout-icon-img" width="100" height="100" />
 </div>
 <div class="callout-content-col tf-mod-callout-copy">
 <div class="callout-copy-group">
@@ -175,7 +175,13 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {% component discord(extra_class="", title="Join the community on Discord", subtext="Join our community on the TouhouFest Official Discord server!", url="https://discord.gg/touhoufest", button_text="Join Discord", icon="img/discord_card_icon.svg") %}
 <div class="discord-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
 <div class="discord-icon">
+{% set ext = icon | split(pat=".") | last %}
+{% if ext == "svg" %}
+{% set svg_path = "templates/" ~ icon %}
+<img src="data:image/svg+xml,{{ load_data(path=svg_path) | urlencode }}" alt="Discord" />
+{% else %}
 <img src="{{ get_url(path=icon) }}" alt="Discord" />
+{% endif %}
 </div>
 <div class="discord-content">
 <div class="discord-copy">
@@ -193,7 +199,13 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {% component newsletter(extra_class="", title="The Tengu Newsletter", subtext="Sign up with your email address to receive news and updates.", placeholder="Email here", button_text="Subscribe", icon="email.svg") %}
 <div class="tf-mod-callout tf-mod-callout--horiz is-newsletter newsletter-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
 <div class="tf-mod-callout-icon tf-newsletter-envelope newsletter-icon-wrap">
+{% set ext = icon | split(pat=".") | last %}
+{% if ext == "svg" %}
+{% set svg_path = "templates/" ~ icon %}
+<img src="data:image/svg+xml,{{ load_data(path=svg_path) | urlencode }}" alt="Newsletter" />
+{% else %}
 <img src="{{ get_url(path=icon) }}" alt="Newsletter" />
+{% endif %}
 </div>
 <div class="newsletter-content">
 <div class="tf-mod-callout-copy newsletter-copy">
@@ -516,7 +528,7 @@ class='fa-solid fa-chevron-right'></span></a></p>
 {%- if hotel_data.discord_cta %}
 <div class="tf-mod-callout tf-mod-callout--horiz is-discord hotels-discord">
 <div class="tf-mod-callout-icon">
-<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="Discord" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="Discord" />
 </div>
 <div class="tf-mod-callout-copy">
 <div class="discord-copy">
@@ -538,7 +550,7 @@ class='fa-solid fa-chevron-right'></span></a></p>
 <div class="tf-mod-callout tf-mod-callout--vert is-{{ theme }} tf-teaser-card">
 {%- if icon == 'discord' %}
 <div class="tf-mod-callout-icon tf-teaser-avatar">
-<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="Discord" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="Discord" />
 </div>
 {%- elif icon %}
 <div class="tf-mod-callout-icon tf-teaser-avatar">
@@ -1018,8 +1030,8 @@ description={ev.description | default(value="")}
 <p class="guests-hero-subtitle">{% if text %}{{ text | safe }}{% else %}{{ guests_data.hero.subtitle }}{% endif %}</p>
 </div>
 </div>
-<img src="{{ get_url(path='img/guests/hero_title_gradient.svg') }}" alt="" class="guests-hero-title-grad is-desktop" />
-<img src="{{ get_url(path='img/guests/hero_title_gradient_mobile.svg') }}" alt="" class="guests-hero-title-grad is-mobile" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/hero_title_gradient.svg') | urlencode }}" alt="" class="guests-hero-title-grad is-desktop" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/hero_title_gradient_mobile.svg') | urlencode }}" alt="" class="guests-hero-title-grad is-mobile" />
 </div>
 </div>
 <div class="hero-featured-cards-row">
@@ -1027,15 +1039,15 @@ description={ev.description | default(value="")}
 <div class="hero-feature-card">
 <div class="hero-feature-card-core">
 <div class="hero-feature-card-bg">
-<img src="{{ get_url(path='img/guests/card_top_gradient.svg') }}" alt="" class="hero-card-top-grad" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/card_top_gradient.svg') | urlencode }}" alt="" class="hero-card-top-grad" />
 <div class="hero-card-border-stroke"></div>
 <div class="hero-card-streamer hero-card-streamer-left">
 <img src="{{ get_url(path='img/shared/card_streamer.svg') }}" alt="" class="streamer-main" />
-<img src="{{ get_url(path='img/shared/card_accent.svg') }}" alt="" class="streamer-accent" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="streamer-accent" />
 </div>
 <div class="hero-card-streamer hero-card-streamer-right">
 <img src="{{ get_url(path='img/shared/card_streamer.svg') }}" alt="" class="streamer-main" />
-<img src="{{ get_url(path='img/shared/card_accent.svg') }}" alt="" class="streamer-accent" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="streamer-accent" />
 </div>
 </div>
 <div class="hero-feature-card-photo-wrap">
@@ -1056,7 +1068,7 @@ description={ev.description | default(value="")}
 </div>
 <a href="{{ guest.url }}" target="_blank" rel="noopener noreferrer" class="guests-pill-btn is-light">
 <span>{{ guest.link_label }}</span>
-<span class="guests-pill-chevron"><img src="{{ get_url(path='img/shared/chevron_dark.svg') }}" alt="" /></span>
+<span class="guests-pill-chevron"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" /></span>
 </a>
 </div>
 </div>
@@ -1100,29 +1112,29 @@ description={ev.description | default(value="")}
 <a href="{{ s.url }}" target="_blank" rel="noopener noreferrer" class="artist-social-item">
 <span class="artist-social-icon-wrap">
 {%- if s.platform == "instagram" %}
-<img src="{{ get_url(path='img/guests/icon_instagram.svg') }}" alt="" class="artist-social-svg is-ig" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/icon_instagram.svg') | urlencode }}" alt="" class="artist-social-svg is-ig" />
 {%- elif s.platform == "tiktok" %}
-<img src="{{ get_url(path='img/guests/icon_tiktok.svg') }}" alt="" class="artist-social-svg is-tt" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/icon_tiktok.svg') | urlencode }}" alt="" class="artist-social-svg is-tt" />
 {%- elif s.platform == "twitter" %}
-<img src="{{ get_url(path='img/guests/icon_twitter.svg') }}" alt="" class="artist-social-svg is-tw" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/icon_twitter.svg') | urlencode }}" alt="" class="artist-social-svg is-tw" />
 {%- endif %}
 </span>
 <span class="artist-social-name">{{ s.label }}</span>
 {%- if s.platform != "twitter" %}
-<span class="guests-pill-chevron"><img src="{{ get_url(path='img/shared/chevron_dark.svg') }}" alt="" /></span>
+<span class="guests-pill-chevron"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" /></span>
 {%- endif %}
-<span class="artist-external-wrap"><img src="{{ get_url(path='icons/icon_external.svg') }}" alt="" class="artist-external-svg" /></span>
+<span class="artist-external-wrap"><img src="data:image/svg+xml,{{ load_data(path='templates/icons/icon_external.svg') | urlencode }}" alt="" class="artist-external-svg" /></span>
 </a>
 {%- endfor %}
 </div>
 </div>
 <div class="artist-card-ribbon">
 {%- if is_wide %}
-<img src="{{ get_url(path='img/guests/card_ribbon_lg.svg') }}" alt="" class="ribbon-desktop" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/card_ribbon_lg.svg') | urlencode }}" alt="" class="ribbon-desktop" />
 {%- else %}
-<img src="{{ get_url(path='img/guests/card_ribbon_sm.svg') }}" alt="" class="ribbon-desktop" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/card_ribbon_sm.svg') | urlencode }}" alt="" class="ribbon-desktop" />
 {%- endif %}
-<img src="{{ get_url(path='img/guests/card_ribbon_mobile.svg') }}" alt="" class="ribbon-mobile" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/card_ribbon_mobile.svg') | urlencode }}" alt="" class="ribbon-mobile" />
 </div>
 </div>
 {%- endfor %}
@@ -1233,8 +1245,8 @@ description={ev.description | default(value="")}
 </div>
 </div>
 <div class="timeline-row-curve">
-<img src="{{ get_url(path='img/guests/timeline_curve_desktop.svg') }}" alt="" class="curve-desktop" />
-<img src="{{ get_url(path='img/guests/timeline_curve_mobile.svg') }}" alt="" class="curve-mobile" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/timeline_curve_desktop.svg') | urlencode }}" alt="" class="curve-desktop" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guests/timeline_curve_mobile.svg') | urlencode }}" alt="" class="curve-mobile" />
 </div>
 <div class="timeline-bg-photos {% if row.bg_images | length == 4 %}is-four-cols{% endif %}">
 {%- for bg_src in row.bg_images %}
@@ -1280,7 +1292,7 @@ description={ev.description | default(value="")}
 {% component guests_bottom_ctas() %}
 <div class="tf-mod-callout tf-mod-callout--horiz is-discord guests-callout-card guests-discord-card">
 <div class="tf-mod-callout-icon guests-callout-icon">
-<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="Discord" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="Discord" />
 </div>
 <div class="guests-callout-content">
 <div class="tf-mod-callout-copy guests-callout-copy">
@@ -1296,7 +1308,7 @@ description={ev.description | default(value="")}
 
 <div class="tf-mod-callout tf-mod-callout--horiz is-newsletter guests-callout-card guests-newsletter-card">
 <div class="tf-mod-callout-icon guests-callout-icon">
-<img src="{{ get_url(path='email.svg') }}" alt="Newsletter" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/email.svg') | urlencode }}" alt="Newsletter" />
 </div>
 <div class="guests-callout-content">
 <div class="tf-mod-callout-copy guests-callout-copy">
@@ -1328,8 +1340,8 @@ description={ev.description | default(value="")}
 <div class="sticker-slot sticker-slot-{{ slot }}">
 <div class="sticker-rot sticker-rot-{{ slot }}">
 <article class="tf-mod-ofuda ofuda-sticker-card">
-<img src="{{ get_url(path='img/shared/ofuda_stroke.svg') }}" alt="" class="tf-mod-ofuda-stroke ofuda-stroke-bg" aria-hidden="true" />
-<img src="{{ get_url(path='img/shared/ofuda_seal.svg') }}" alt="" class="tf-mod-ofuda-seal ofuda-seal-mark" aria-hidden="true" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" class="tf-mod-ofuda-stroke ofuda-stroke-bg" aria-hidden="true" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" class="tf-mod-ofuda-seal ofuda-seal-mark" aria-hidden="true" />
 <span class="ofuda-dot-left" aria-hidden="true"></span>
 <span class="ofuda-bar-left" aria-hidden="true"></span>
 <span class="ofuda-dot-top" aria-hidden="true"></span>
@@ -1407,7 +1419,7 @@ description={ev.description | default(value="")}
 <div class="guest-teaser-card">
 <h3 class="guest-teaser-name">{{ g.name }}</h3>
 <div class="guest-avatar-frame">
-<img src="{{ get_url(path='img/home/guest-ring.svg') }}" alt="" class="guest-ring-svg" aria-hidden="true" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/home/guest-ring.svg') | urlencode }}" alt="" class="guest-ring-svg" aria-hidden="true" />
 <img src="{{ get_url(path=g.avatar) }}" alt="{{ g.role }} teaser" class="guest-teaser-img" />
 </div>
 <p class="guest-teaser-role">{{ g.role }}</p>
@@ -1433,7 +1445,7 @@ description={ev.description | default(value="")}
 {%- if loop.index is odd %}
 <div class="pillar-card-col">
 <div class="pillar-card pillar-card-gradient">
-<img src="{{ get_url(path='img/home/mesh-gradient.svg') }}" alt="" class="pillar-mesh-bg" aria-hidden="true" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/home/mesh-gradient.svg') | urlencode }}" alt="" class="pillar-mesh-bg" aria-hidden="true" />
 <div class="pillar-card-inner">
 <div class="pillar-card-copy">
 <h2 class="pillar-card-title">{{ row.title }}</h2>
@@ -1521,7 +1533,7 @@ description={ev.description | default(value="")}
 {%- set home_data = load_data(path="data/home.yml") -%}
 <section class="tf-mod-callout tf-mod-callout--horiz is-discord home-special-module home-discord-card">
 <div class="tf-mod-callout-icon home-special-icon-wrap">
-<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="Discord" class="home-special-icon-img" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="Discord" class="home-special-icon-img" />
 </div>
 <div class="tf-mod-callout-copy home-special-content">
 <div class="home-special-copy">
@@ -1542,7 +1554,7 @@ description={ev.description | default(value="")}
 {%- set home_data = load_data(path="data/home.yml") -%}
 <section class="tf-mod-callout tf-mod-callout--horiz is-newsletter home-special-module home-newsletter-card">
 <div class="tf-mod-callout-icon home-special-icon-wrap">
-<img src="{{ get_url(path='img/shared/icon_email.svg') }}" alt="Newsletter" class="home-special-icon-img" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/icon_email.svg') | urlencode }}" alt="Newsletter" class="home-special-icon-img" />
 </div>
 <div class="tf-mod-callout-copy home-special-content home-newsletter-content">
 <div class="home-special-copy">
@@ -1885,7 +1897,7 @@ description={ev.description | default(value="")}
 </div>
 <div class="arcade-photo-shadow">
 <div class="arcade-photo-red-fill"></div>
-<img src="{{ get_url(path="img/shared/card_dots.svg") | safe }}" alt="" class="arcade-photo-dots" aria-hidden="true">
+<img src="data:image/svg+xml,{{ load_data(path='static/img/shared/card_dots.svg') | urlencode }}" alt="" class="arcade-photo-dots" aria-hidden="true">
 <button type="button" class="arcade-photo-jumplink">
 <span>{{ gdata.arcade.button_label }}</span>
 <span class="gaming-ext-icon is-cream"></span>
@@ -1897,7 +1909,7 @@ description={ev.description | default(value="")}
 <div class="arcade-box-list arcade-callouts-stack">
 <div class="arcade-callout-full">
 <div class="arcade-cabinet-btn">
-<img src="{{ get_url(path="/img/gaming/icon_gamepad.svg") | safe }}" alt="" class="arcade-gamepad-icon" aria-hidden="true">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/gaming/icon_gamepad.svg') | urlencode }}" alt="" class="arcade-gamepad-icon" aria-hidden="true">
 <span>{{ gdata.arcade.top_cabinet }}</span>
 </div>
 </div>
@@ -1905,7 +1917,7 @@ description={ev.description | default(value="")}
 {%- for cab in gdata.arcade.bottom_cabinets %}
 <div class="arcade-callout-half">
 <div class="arcade-cabinet-btn">
-<img src="{{ get_url(path="/img/gaming/icon_gamepad.svg") | safe }}" alt="" class="arcade-gamepad-icon" aria-hidden="true">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/gaming/icon_gamepad.svg') | urlencode }}" alt="" class="arcade-gamepad-icon" aria-hidden="true">
 <span>{{ cab }}</span>
 </div>
 </div>
@@ -1996,7 +2008,7 @@ description={ev.description | default(value="")}
 <div class="prize-card gaming-prize-col">
 <div class="gaming-prize-head">
 <div class="prize-icon-wrap gaming-prize-medal-wrap">
-<img src="{{ get_url(path="/img/gaming/icon_medal.svg") | safe }}" alt="" class="gaming-prize-medal" aria-hidden="true">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/gaming/icon_medal.svg') | urlencode }}" alt="" class="gaming-prize-medal" aria-hidden="true">
 </div>
 <div class="prize-content gaming-prize-titles">
 <h4 class="prize-title gaming-prize-title">{{ prize.title }}</h4>
@@ -2112,7 +2124,7 @@ description={ev.description | default(value="")}
 </div>
 <div class="tf-mod-callout tf-mod-callout--horiz is-discord gaming-discord-cta-card">
 <div class="tf-mod-callout-icon gaming-discord-icon-box" aria-hidden="true">
-<img src="{{ get_url(path="/img/discord_card_icon.svg") | safe }}" alt="" class="gaming-discord-icon-img">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="" class="gaming-discord-icon-img">
 </div>
 <div class="tf-mod-callout-copy gaming-discord-content">
 <div class="tf-mod-callout-copy gaming-discord-copy">
@@ -2310,7 +2322,7 @@ description={ev.description | default(value="")}
 {%- set intro = load_data(path="data/intro.yml") -%}
 <section class="tf-mod-callout tf-mod-callout--horiz is-discord intro-discord-card">
 <div class="tf-mod-callout-icon">
-<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="{{ intro.discord_cta.icon_label }}" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="{{ intro.discord_cta.icon_label }}" />
 </div>
 <div class="tf-mod-callout-copy intro-discord-content">
 <h2 class="tf-mod-callout-title">{{ intro.discord_cta.title }}</h2>
@@ -2387,7 +2399,7 @@ description={ev.description | default(value="")}
 <div class="tf-v-search-wrap">
 <div class="tf-v-search-row">
 <div class="tf-v-search-icon-wrap" aria-hidden="true">
-<img src="{{ get_url(path='img/vendors/roster_search.svg') }}" alt="" class="tf-v-search-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/roster_search.svg') | urlencode }}" alt="" class="tf-v-search-icon" />
 </div>
 <div class="tf-v-search-pill">
 <span class="tf-v-search-placeholder">{{ exhibitors_data.page.roster_search_placeholder }}</span>
@@ -2461,7 +2473,7 @@ description={ev.description | default(value="")}
 </div>
 {%- endfor %}
 <button type="button" class="tf-v-map-zoom tf-mod-map-zoom" aria-label="Zoom map">
-<img src="{{ get_url(path='img/vendors/map_zoom_in.svg') }}" alt="" class="tf-v-map-zoom-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/map_zoom_in.svg') | urlencode }}" alt="" class="tf-v-map-zoom-icon" />
 </button>
 </div>
 </div>
@@ -2507,15 +2519,15 @@ description={ev.description | default(value="")}
 </div>
 <div class="tf-v-pager" aria-label="Gallery navigation">
 <button type="button" class="tf-v-pager-arrow is-prev" aria-label="Previous page">
-<img src="{{ get_url(path='img/vendors/pager_arrow_right.svg') }}" alt="" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/pager_arrow_right.svg') | urlencode }}" alt="" />
 </button>
 <div class="tf-v-pager-dots">
-<img src="{{ get_url(path='img/shared/pager_dot_inactive.svg') }}" alt="" class="tf-v-pager-dot" />
-<img src="{{ get_url(path='img/shared/pager_dot_active.svg') }}" alt="" class="tf-v-pager-dot is-active" />
-<img src="{{ get_url(path='img/shared/pager_dot_inactive.svg') }}" alt="" class="tf-v-pager-dot" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" class="tf-v-pager-dot" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_active.svg') | urlencode }}" alt="" class="tf-v-pager-dot is-active" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" class="tf-v-pager-dot" />
 </div>
 <button type="button" class="tf-v-pager-arrow is-next" aria-label="Next page">
-<img src="{{ get_url(path='img/vendors/pager_arrow_right.svg') }}" alt="" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/pager_arrow_right.svg') | urlencode }}" alt="" />
 </button>
 </div>
 </section>
@@ -2527,17 +2539,17 @@ description={ev.description | default(value="")}
 <div class="tf-v-ofuda-rot is-card-{{ loop.index }}">
 <div class="tf-v-ofuda-card tf-mod-ofuda">
 <div class="tf-v-ofuda-bg tf-mod-ofuda-decor" aria-hidden="true">
-<img src="{{ get_url(path='img/vendors/ofuda_corner.svg') }}" alt="" class="tf-v-ofuda-corner tf-mod-ofuda-seal" />
-<img src="{{ get_url(path='img/shared/ofuda_stroke.svg') }}" alt="" class="tf-v-ofuda-stroke tf-mod-ofuda-stroke" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/ofuda_corner.svg') | urlencode }}" alt="" class="tf-v-ofuda-corner tf-mod-ofuda-seal" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" class="tf-v-ofuda-stroke tf-mod-ofuda-stroke" />
 </div>
 <div class="tf-v-ofuda-content tf-mod-ofuda-body">
 <div class="tf-v-ofuda-icon-wrap">
 {%- if loop.index == 1 %}
-<img src="{{ get_url(path='img/vendors/ofuda_hat.svg') }}" alt="" class="tf-v-ofuda-icon is-desk-icon" />
-<img src="{{ get_url(path='img/vendors/ofuda_sakura.svg') }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/ofuda_hat.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-desk-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/ofuda_sakura.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
 {%- else %}
-<img src="{{ get_url(path='img/vendors/ofuda_sakura.svg') }}" alt="" class="tf-v-ofuda-icon is-desk-icon" />
-<img src="{{ get_url(path='img/vendors/ofuda_yinyang.svg') }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/ofuda_sakura.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-desk-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/ofuda_yinyang.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
 {%- endif %}
 </div>
 <h3 class="tf-v-ofuda-title tf-mod-ofuda-title">{{ card.title }}</h3>
@@ -2556,7 +2568,7 @@ description={ev.description | default(value="")}
 <section class="tf-v-discord-section">
 <div class="tf-v-discord-card tf-mod-callout tf-mod-callout--horiz is-discord">
 <div class="tf-v-discord-icon-wrap tf-mod-callout-icon">
-<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="" class="tf-v-discord-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="" class="tf-v-discord-icon" />
 </div>
 <div class="tf-v-discord-content tf-mod-callout-copy">
 <div class="tf-v-discord-copy">

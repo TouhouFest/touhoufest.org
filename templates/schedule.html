@@ -11,20 +11,20 @@
   <div class="schedule-hero-buttons">
   {% for btn in sched.app_buttons -%}
   {% if loop.index == 1 -%}
-  {% set btn_icon = "img/icon_web.svg" -%}
+  {% set btn_icon = "templates/img/icon_web.svg" -%}
   {% elif loop.index == 2 -%}
-  {% set btn_icon = "img/icon_playstore.svg" -%}
+  {% set btn_icon = "templates/img/icon_playstore.svg" -%}
   {% else -%}
-  {% set btn_icon = "img/icon_appstore.svg" -%}
+  {% set btn_icon = "templates/img/icon_appstore.svg" -%}
   {% endif -%}
   <a href="{{ btn.url | safe }}" target="_blank" rel="noopener noreferrer" class="schedule-app-btn">
   <span class="schedule-app-btn-inner">
   <span class="schedule-app-icon-wrap">
-  <img src="{{ get_url(path=btn_icon) }}" alt="" class="schedule-app-icon" width="50" height="50">
+  <img src="data:image/svg+xml,{{ load_data(path=btn_icon) | urlencode }}" alt="" class="schedule-app-icon" width="50" height="50">
   </span>
   <span class="schedule-app-label">{{ btn.label | safe }}</span>
   </span>
-  <img src="{{ get_url(path='icons/icon_external.svg') }}" alt="" class="schedule-app-ext" width="20" height="20">
+  <img src="data:image/svg+xml,{{ load_data(path='templates/icons/icon_external.svg') | urlencode }}" alt="" class="schedule-app-ext" width="20" height="20">
   </a>
   {% endfor -%}
   </div>
@@ -51,7 +51,7 @@
   <h2 class="hero-card-title schedule-badge-title mobile-title">{{ sched.badge_cta.mobile_title }}</h2>
   <a href="{{ get_url(path=sched.badge_cta.button_path) }}" class="hero-card-btn tf-btn tf-btn-danger tf-btn-pill-red schedule-badge-btn">
   <span>{{ sched.badge_cta.button_label }}</span>
-  <img src="{{ get_url(path='img/shared/chevron_cream.svg') }}" alt="" class="schedule-btn-carrot" width="15" height="16">
+  <img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_cream.svg') | urlencode }}" alt="" class="schedule-btn-carrot" width="15" height="16">
   </a>
   </div>
   </div>
@@ -59,7 +59,7 @@
   <div class="schedule-cta-row tf-mod-callout-grid">
   <div class="schedule-cta-card is-discord tf-mod-callout tf-mod-callout--vert">
   <div class="schedule-cta-icon-wrap tf-mod-callout-icon">
-  <img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="{{ sched.discord_cta.icon_alt }}" width="100" height="100" class="schedule-cta-icon">
+  <img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="{{ sched.discord_cta.icon_alt }}" width="100" height="100" class="schedule-cta-icon">
   </div>
   <div class="schedule-cta-body">
   <div class="schedule-cta-content tf-mod-callout-copy">
@@ -68,14 +68,14 @@
   </div>
   <a href="{{ sched.discord_cta.button_url | safe }}" target="_blank" rel="noopener noreferrer" class="tf-btn schedule-discord-btn tf-mod-callout-btn">
   <span>{{ sched.discord_cta.button_label }}</span>
-  <img src="{{ get_url(path='img/shared/chevron_dark.svg') }}" alt="" class="schedule-btn-carrot" width="15" height="16">
+  <img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" class="schedule-btn-carrot" width="15" height="16">
   </a>
   </div>
   </div>
 
   <div class="schedule-cta-card is-newsletter tf-mod-callout tf-mod-callout--vert">
   <div class="schedule-cta-icon-wrap tf-mod-callout-icon">
-  <img src="{{ get_url(path='img/shared/icon_email.svg') }}" alt="{{ sched.newsletter_cta.icon_alt }}" width="100" height="100" class="schedule-cta-icon">
+  <img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/icon_email.svg') | urlencode }}" alt="{{ sched.newsletter_cta.icon_alt }}" width="100" height="100" class="schedule-cta-icon">
   </div>
   <div class="schedule-cta-body">
   <div class="schedule-cta-content tf-mod-callout-copy">
@@ -86,7 +86,7 @@
   <input type="email" class="tf-newsletter-input newsletter-input schedule-newsletter-input" placeholder="{{ sched.newsletter_cta.input_placeholder }}" aria-label="{{ sched.newsletter_cta.input_aria_label }}" required>
   <button type="submit" class="tf-btn tf-btn-danger schedule-newsletter-btn tf-mod-callout-btn">
   <span>{{ sched.newsletter_cta.button_label }}</span>
-  <img src="{{ get_url(path='img/shared/chevron_cream.svg') }}" alt="" class="schedule-btn-carrot" width="15" height="16">
+  <img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_cream.svg') | urlencode }}" alt="" class="schedule-btn-carrot" width="15" height="16">
   </button>
   </form>
   </div>

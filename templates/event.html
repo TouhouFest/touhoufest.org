@@ -30,17 +30,17 @@
 <div class="ev-ofuda-pad">
 <div class="ev-ofuda-card tf-mod-ofuda">
 <div class="ev-ofuda-stroke-wrap tf-mod-ofuda-stroke">
-<img src="{{ get_url(path='img/shared/ofuda_stroke.svg') | safe }}" alt="" class="ev-ofuda-stroke-img">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" class="ev-ofuda-stroke-img">
 </div>
 <div class="ev-ofuda-corner">
-<img src="{{ get_url(path='img/shared/ofuda_seal.svg') | safe }}" alt="" class="ev-ofuda-tomoe tf-mod-ofuda-seal">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" class="ev-ofuda-tomoe tf-mod-ofuda-seal">
 <div class="ev-ofuda-orn-v tf-mod-ofuda-vspike">
 <span class="ev-ofuda-dot"></span>
-<img src="{{ get_url(path='img/shared/ofuda_spike_v.svg') | safe }}" alt="" class="ev-ofuda-line-v">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" class="ev-ofuda-line-v">
 </div>
 <div class="ev-ofuda-orn-h tf-mod-ofuda-hspike">
 <span class="ev-ofuda-dot"></span>
-<img src="{{ get_url(path='img/shared/ofuda_spike_h.svg') | safe }}" alt="" class="ev-ofuda-line-h">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" class="ev-ofuda-line-h">
 </div>
 </div>
 <div class="ev-ofuda-body ev-ofuda-body-when tf-mod-ofuda-body">
@@ -103,17 +103,17 @@
 <div class="ev-ofuda-pad">
 <div class="ev-ofuda-card tf-mod-ofuda">
 <div class="ev-ofuda-stroke-wrap tf-mod-ofuda-stroke">
-<img src="{{ get_url(path='img/shared/ofuda_stroke.svg') | safe }}" alt="" class="ev-ofuda-stroke-img">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" class="ev-ofuda-stroke-img">
 </div>
 <div class="ev-ofuda-corner">
-<img src="{{ get_url(path='img/shared/ofuda_seal.svg') | safe }}" alt="" class="ev-ofuda-tomoe tf-mod-ofuda-seal">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" class="ev-ofuda-tomoe tf-mod-ofuda-seal">
 <div class="ev-ofuda-orn-v tf-mod-ofuda-vspike">
 <span class="ev-ofuda-dot"></span>
-<img src="{{ get_url(path='img/shared/ofuda_spike_v.svg') | safe }}" alt="" class="ev-ofuda-line-v">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" class="ev-ofuda-line-v">
 </div>
 <div class="ev-ofuda-orn-h tf-mod-ofuda-hspike">
 <span class="ev-ofuda-dot"></span>
-<img src="{{ get_url(path='img/shared/ofuda_spike_h.svg') | safe }}" alt="" class="ev-ofuda-line-h">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" class="ev-ofuda-line-h">
 </div>
 </div>
 <div class="ev-ofuda-body ev-ofuda-body-where tf-mod-ofuda-body">
@@ -232,8 +232,8 @@
 </div>
 </div>
 <div class="ev-map-zoom tf-mod-map-zoom" aria-hidden="true">
-<img src="{{ get_url(path='img/shared/zoom_circle.svg') | safe }}" alt="" class="ev-zoom-bg tf-mod-map-zoom-circle">
-<img src="{{ get_url(path='img/shared/zoom_plus.svg') | safe }}" alt="" class="ev-zoom-plus tf-mod-map-zoom-plus">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" class="ev-zoom-bg tf-mod-map-zoom-circle">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_plus.svg') | urlencode }}" alt="" class="ev-zoom-plus tf-mod-map-zoom-plus">
 </div>
 </section>
 
@@ -243,7 +243,7 @@
 <div class="ev-red-card">
 <div class="ev-red-card-inner">
 <div class="ev-card-icon-box">
-<img src="{{ get_url(path='img/guidelines_icon.svg') | safe }}" alt="" class="ev-ph-fg-img">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guidelines_icon.svg') | urlencode }}" alt="" class="ev-ph-fg-img">
 </div>
 <div class="ev-red-card-content">
 <div class="ev-red-card-copy">
@@ -253,7 +253,7 @@
 <div class="ev-red-card-btns">
 <a href="{{ get_url(path=ev.info_cards.guidelines.cta_path) | safe }}" class="ev-btn-cream">
 <span class="ev-btn-cream-text">{{ ev.info_cards.guidelines.cta_label }}</span>
-<span class="ev-btn-caret"><img src="{{ get_url(path='img/shared/chevron_dark.svg') | safe }}" alt="" class="ev-caret-img"></span>
+<span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
 </a>
 </div>
 </div>
@@ -283,7 +283,7 @@
 <div class="ev-red-card-btns">
 <a href="{{ get_url(path=ev.info_cards.faqs.cta_path) | safe }}" class="ev-btn-cream">
 <span class="ev-btn-cream-text">{{ ev.info_cards.faqs.cta_label }}</span>
-<span class="ev-btn-caret"><img src="{{ get_url(path='img/shared/chevron_dark.svg') | safe }}" alt="" class="ev-caret-img"></span>
+<span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
 </a>
 </div>
 </div>
@@ -295,7 +295,7 @@
 <div class="ev-hotel-frame">
 <div class="ev-hotel-back-card">
 <div class="ev-hotel-dots-wrap">
-<img src="{{ get_url(path='img/event/hotel_dots.svg') | safe }}" alt="" class="ev-hotel-dots-img">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/event/hotel_dots.svg') | urlencode }}" alt="" class="ev-hotel-dots-img">
 </div>
 <div class="ev-hotel-ext-row">
 <span class="ev-hotel-ext-label">{{ ev.info_cards.hotel.ext_label }}</span>
@@ -315,7 +315,7 @@
 <div class="ev-red-card-btns">
 <a href="{{ get_url(path=ev.info_cards.hotel.cta_path) | safe }}" class="ev-btn-cream">
 <span class="ev-btn-cream-text">{{ ev.info_cards.hotel.cta_label }}</span>
-<span class="ev-btn-caret"><img src="{{ get_url(path='img/shared/chevron_dark.svg') | safe }}" alt="" class="ev-caret-img"></span>
+<span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
 </a>
 </div>
 </div>
@@ -355,7 +355,7 @@
 <div class="ev-red-card-btns">
 <a href="{{ get_url(path=ev.info_cards.app.cta_path) | safe }}" class="ev-btn-cream">
 <span class="ev-btn-cream-text">{{ ev.info_cards.app.cta_label }}</span>
-<span class="ev-btn-caret"><img src="{{ get_url(path='img/shared/chevron_dark.svg') | safe }}" alt="" class="ev-caret-img"></span>
+<span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
 </a>
 </div>
 </div>
@@ -366,13 +366,13 @@
 
 <div class="ev-badge-cta">
 <div class="ev-badge-cta-bg" aria-hidden="true">
-<img src="{{ get_url(path='img/event/cta_gradient.svg') | safe }}" alt="" class="ev-badge-cta-grad">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/event/cta_gradient.svg') | urlencode }}" alt="" class="ev-badge-cta-grad">
 <div class="hero-card-streamer hero-card-streamer-left">
-<div class="ev-badge-accent-wrap"><div class="ev-badge-accent-rot"><img src="{{ get_url(path='img/shared/card_accent.svg') | safe }}" alt="" class="ev-badge-accent-img"></div></div>
+<div class="ev-badge-accent-wrap"><div class="ev-badge-accent-rot"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="ev-badge-accent-img"></div></div>
 <img src="{{ get_url(path='img/shared/card_streamer.svg') | safe }}" alt="" class="streamer-main">
 </div>
 <div class="hero-card-streamer hero-card-streamer-right">
-<div class="ev-badge-accent-wrap"><div class="ev-badge-accent-rot"><img src="{{ get_url(path='img/shared/card_accent.svg') | safe }}" alt="" class="ev-badge-accent-img"></div></div>
+<div class="ev-badge-accent-wrap"><div class="ev-badge-accent-rot"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="ev-badge-accent-img"></div></div>
 <img src="{{ get_url(path='img/shared/card_streamer.svg') | safe }}" alt="" class="streamer-main">
 </div>
 <div class="ev-badge-cta-stroke"></div>
@@ -389,7 +389,7 @@
 <h2 class="ev-badge-title">{{ ev.badge_cta.title }}</h2>
 <a href="{{ get_url(path=ev.badge_cta.cta_path) | safe }}" class="ev-btn-red">
 <span class="ev-btn-red-text">{{ ev.badge_cta.cta_label }}</span>
-<span class="ev-btn-caret"><img src="{{ get_url(path='img/shared/chevron_cream.svg') | safe }}" alt="" class="ev-caret-img"></span>
+<span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_cream.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
 </a>
 </div>
 </div>
@@ -408,7 +408,7 @@
 <div class="ev-red-card-btns">
 <a href="{{ ev.discord_cta.cta_url | safe }}" class="ev-btn-cream tf-mod-callout-btn">
 <span class="ev-btn-cream-text">{{ ev.discord_cta.cta_label }}</span>
-<span class="ev-btn-caret"><img src="{{ get_url(path='img/shared/chevron_dark.svg') | safe }}" alt="" class="ev-caret-img"></span>
+<span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
 </a>
 </div>
 </div>
@@ -441,7 +441,7 @@
 <div class="ev-app-card">
 <div class="ev-app-card-grad">
 <div class="ev-app-card-box">
-<img src="{{ get_url(path='img/event/amp_gradient.svg') | safe }}" alt="" class="ev-app-card-svg" aria-hidden="true">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/event/amp_gradient.svg') | urlencode }}" alt="" class="ev-app-card-svg" aria-hidden="true">
 <div class="ev-app-card-content">
 <div class="ev-app-card-top">
 <span class="ev-badge-open">{{ ev.team.staff.status }}</span>
@@ -450,7 +450,7 @@
 </div>
 <a href="{{ get_url(path=ev.team.staff.cta_path) | safe }}" class="ev-btn-red">
 <span class="ev-btn-red-text">{{ ev.team.staff.cta_label }}</span>
-<span class="ev-btn-caret"><img src="{{ get_url(path='img/shared/chevron_cream.svg') | safe }}" alt="" class="ev-caret-img"></span>
+<span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_cream.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
 </a>
 </div>
 </div>
@@ -460,7 +460,7 @@
 <div class="ev-app-card">
 <div class="ev-app-card-grad ev-app-card-grad-full">
 <div class="ev-app-card-box ev-app-card-box-full">
-<img src="{{ get_url(path='img/event/amp_gradient.svg') | safe }}" alt="" class="ev-app-card-svg" aria-hidden="true">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/event/amp_gradient.svg') | urlencode }}" alt="" class="ev-app-card-svg" aria-hidden="true">
 <div class="ev-app-card-content">
 <div class="ev-app-card-top">
 <span class="ev-badge-closed">{{ ev.team.volunteer.status }}</span>

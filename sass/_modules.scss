@@ -403,8 +403,8 @@
     color: #30293e;
     .tf-mod-callout-icon {
       background-color: #30293e;
-      -webkit-mask: url("img/discord_card_icon.svg") center / 100px 100px no-repeat;
-      mask: url("img/discord_card_icon.svg") center / 100px 100px no-repeat;
+      -webkit-mask: var(--tf-svg-discord-card) center / 100px 100px no-repeat;
+      mask: var(--tf-svg-discord-card) center / 100px 100px no-repeat;
       :where(img) {
         opacity: 0;
       }

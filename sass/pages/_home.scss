@@ -146,7 +146,7 @@
     flex-shrink: 0;
     display: inline-block;
     background-color: currentColor;
-    @include mask-stretch("img/shared/chevron_cream.svg");
+    @include mask-stretch-var(var(--tf-svg-chevron-cream));
   }
 
   /* Main Content Stack */
@@ -395,7 +395,7 @@
       height: 190px;
       transform: translate(-50%, 86.5px) rotate(-90deg);
       background-color: #fbf7eb;
-      @include mask-stretch("img/shared/streamer_accent_cream.svg");
+      @include mask-stretch-var(var(--tf-svg-streamer-accent));
     }
   }
 

@@ -635,7 +635,7 @@ body:has(.tf-intro-page) {
   padding: 3rem 4rem;
   margin: 0 auto 1rem;
   .tf-mod-callout-icon {
-    @include mask-stretch("img/discord_card_icon.svg");
+    @include mask-stretch-var(var(--tf-svg-discord-card));
     width: 80px;
     height: 80px;
     background-color: #ffffff;

@@ -37,7 +37,13 @@
 {% for card in data.callouts %}
 <div class="tf-mod-callout tf-mod-callout--horiz guidelines-callout-card {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
 <div class="tf-mod-callout-icon guidelines-card-icon-col">
+{% set ext = card.image | split(pat=".") | last %}
+{% if ext == "svg" %}
+{% set svg_path = "templates/" ~ card.image %}
+<img src="data:image/svg+xml,{{ load_data(path=svg_path) | urlencode }}" alt="{{ card.title }}" class="{% if loop.index == 1 %}guidelines-faq-mascot{% else %}discord-card-icon{% endif %}" />
+{% else %}
 <img src="{{ get_url(path=card.image) }}" alt="{{ card.title }}" class="{% if loop.index == 1 %}guidelines-faq-mascot{% else %}discord-card-icon{% endif %}" />
+{% endif %}
 </div>
 <div class="tf-mod-callout-copy guidelines-card-content-col">
 <h2 class="tf-mod-callout-title guidelines-card-title">{{ card.title }}</h2>

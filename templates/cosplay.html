@@ -281,7 +281,13 @@
 {% for card in data.callouts %}
 <article class="cosplay-callout-card cosplay-callout-card--{{ card.key }}">
 <div class="cosplay-callout-card__icon-wrap">
+{% set ext = card.image | split(pat=".") | last %}
+{% if ext == "svg" %}
+{% set svg_path = "templates/" ~ card.image %}
+<img src="data:image/svg+xml,{{ load_data(path=svg_path) | urlencode }}" alt="" class="cosplay-callout-card__icon cosplay-callout-card__icon--{{ card.key }}">
+{% else %}
 <img src="{{ get_url(path=card.image) }}" alt="" class="cosplay-callout-card__icon cosplay-callout-card__icon--{{ card.key }}">
+{% endif %}
 </div>
 <div class="cosplay-callout-card__content">
 <div class="cosplay-callout-card__copy">

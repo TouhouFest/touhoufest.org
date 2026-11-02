@@ -1,5 +1,5 @@
 // Standard Bulma Navbar Burger & Dropdown Handler (Zero External Dependencies)
-document.addEventListener('DOMContentLoaded', () => {
+(() => {
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
@@ -43,4 +43,4 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('tf-theme', mode);
     });
   }
-});
+})();

@@ -418,27 +418,28 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  --tf-reg-card-grad: #fcf1e8;
   &.is-3col {
     height: 283px;
     min-height: 283px;
     padding: 48px 36px;
     background:
-      url("img/register/card_gradient_3col.svg") no-repeat center / 101% 103%,
-      linear-gradient(114.21deg, #fcf1e8 55.472%, rgba(46, 40, 60, 0) 89.517%);
+      url($svg-register-gradient-3col) no-repeat center / 101% 103%,
+      linear-gradient(114.21deg, var(--tf-reg-card-grad) 55.472%, rgba(46, 40, 60, 0) 89.517%);
   }
   &.is-2col {
     height: 296px;
     min-height: 296px;
     background:
-      url("img/register/card_gradient_2col.svg") no-repeat center / 101% 103%,
-      linear-gradient(114.21deg, #fcf1e8 55.472%, rgba(46, 40, 60, 0) 89.517%);
+      url($svg-register-gradient-2col) no-repeat center / 101% 103%,
+      linear-gradient(114.21deg, var(--tf-reg-card-grad) 55.472%, rgba(46, 40, 60, 0) 89.517%);
   }
   &.is-team {
     height: 275px;
     min-height: 275px;
     background:
-      url("img/register/card_gradient_team.svg") no-repeat center / 101% 103%,
-      linear-gradient(114.21deg, #fcf1e8 55.472%, rgba(46, 40, 60, 0) 89.517%);
+      url($svg-register-gradient-team) no-repeat center / 101% 103%,
+      linear-gradient(114.21deg, var(--tf-reg-card-grad) 55.472%, rgba(46, 40, 60, 0) 89.517%);
   }
 }
 .app-card-inner {
@@ -901,21 +902,7 @@
     color: #30293e;
   }
   .app-card {
-    &.is-3col {
-      background:
-        url("img/register/card_gradient_3col.svg") no-repeat center / 101% 103%,
-        linear-gradient(114.21deg, #30293e 55.472%, rgba(46, 40, 60, 0) 89.517%);
-    }
-    &.is-2col {
-      background:
-        url("img/register/card_gradient_2col.svg") no-repeat center / 101% 103%,
-        linear-gradient(114.21deg, #30293e 55.472%, rgba(46, 40, 60, 0) 89.517%);
-    }
-    &.is-team {
-      background:
-        url("img/register/card_gradient_team.svg") no-repeat center / 101% 103%,
-        linear-gradient(114.21deg, #30293e 55.472%, rgba(46, 40, 60, 0) 89.517%);
-    }
+    --tf-reg-card-grad: #30293e;
   }
   .app-badge-open {
     background-color: #f9c650;

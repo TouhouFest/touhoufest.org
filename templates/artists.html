@@ -38,14 +38,14 @@
 <p class="tf-artists-feat-bio">{{ artist.bio }}</p>
 <a class="tf-artists-feat-btn" href="{{ artist.url }}">
 <span class="tf-artists-feat-btn-label">{{ data.featured_section.cta_label }}</span>
-<span class="tf-artists-feat-btn-icon"><img src="{{ get_url(path='img/shared/chevron_dark.svg') }}" alt="" /></span>
+<span class="tf-artists-feat-btn-icon"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" /></span>
 </a>
 </div>
 </div>
 <div class="tf-artists-feat-frame" aria-hidden="true">
 <div class="tf-artists-feat-top-glow">
-<img class="tf-artists-feat-glow-desktop" src="{{ get_url(path='img/artists/card_top_gradient.svg') }}" alt="" />
-<img class="tf-artists-feat-glow-mobile" src="{{ get_url(path='img/artists/card_top_gradient_mobile.svg') }}" alt="" />
+<img class="tf-artists-feat-glow-desktop" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/card_top_gradient.svg') | urlencode }}" alt="" />
+<img class="tf-artists-feat-glow-mobile" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/card_top_gradient_mobile.svg') | urlencode }}" alt="" />
 </div>
 {% for side in ["left", "right"] %}
 <div class="tf-artists-feat-corner tf-artists-feat-corner--{{ side }}">
@@ -53,7 +53,7 @@
 <div class="tf-artists-feat-corner-border">
 <div class="tf-artists-feat-corner-accent-box">
 <div class="tf-artists-feat-corner-accent-rot">
-<img class="tf-artists-feat-corner-accent" src="{{ get_url(path='img/shared/card_accent.svg') }}" alt="" />
+<img class="tf-artists-feat-corner-accent" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" />
 </div>
 </div>
 <img class="tf-artists-feat-corner-base" src="{{ get_url(path='img/shared/card_streamer.svg') }}" alt="" />
@@ -76,7 +76,7 @@
 <div class="tf-artists-search-outer">
 <div class="tf-artists-search-bar">
 <div class="tf-artists-search-icon" aria-hidden="true">
-<img src="{{ get_url(path='img/artists/icon_search.svg') }}" alt="" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/artists/icon_search.svg') | urlencode }}" alt="" />
 </div>
 <div class="tf-artists-search-input">
 <span>{{ data.roster_section.search_placeholder }}</span>
@@ -151,8 +151,8 @@
 {% endfor %}
 </div>
 <button class="tf-artists-map-zoom tf-mod-map-zoom" type="button" aria-label="{{ data.maps_section.zoom_label }}">
-<img class="tf-artists-map-zoom-circle tf-mod-map-zoom-circle" src="{{ get_url(path='img/shared/zoom_circle.svg') }}" alt="" />
-<img class="tf-artists-map-zoom-plus tf-mod-map-zoom-plus" src="{{ get_url(path='img/shared/zoom_plus.svg') }}" alt="" />
+<img class="tf-artists-map-zoom-circle tf-mod-map-zoom-circle" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" />
+<img class="tf-artists-map-zoom-plus tf-mod-map-zoom-plus" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_plus.svg') | urlencode }}" alt="" />
 </button>
 </div>
 </div>
@@ -204,16 +204,16 @@
 {% for dir in ["prev", "next"] %}
 {% if dir == "next" %}
 <div class="tf-artists-pager-dots">
-<img src="{{ get_url(path='img/shared/pager_dot_inactive.svg') }}" alt="" />
-<img src="{{ get_url(path='img/shared/pager_dot_active.svg') }}" alt="" />
-<img src="{{ get_url(path='img/shared/pager_dot_inactive.svg') }}" alt="" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_active.svg') | urlencode }}" alt="" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" />
 </div>
 {% endif %}
 <button class="tf-artists-pager-arrow tf-artists-pager-arrow--{{ dir }}" type="button" aria-label="{% if dir == 'prev' %}{{ data.past_section.prev_label }}{% else %}{{ data.past_section.next_label }}{% endif %}">
 <span class="tf-artists-pager-arrow-rot">
-<img class="tf-artists-pager-inner" src="{{ get_url(path='img/shared/zoom_circle.svg') }}" alt="" />
-<img class="tf-artists-pager-ring" src="{{ get_url(path='img/artists/pager_ring.svg') }}" alt="" />
-<img class="tf-artists-pager-chev" src="{{ get_url(path='img/artists/pager_chevron.svg') }}" alt="" />
+<img class="tf-artists-pager-inner" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" />
+<img class="tf-artists-pager-ring" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/pager_ring.svg') | urlencode }}" alt="" />
+<img class="tf-artists-pager-chev" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/pager_chevron.svg') | urlencode }}" alt="" />
 </span>
 </button>
 {% endfor %}
@@ -231,16 +231,16 @@
 <div class="tf-artists-ofuda-rot tf-artists-ofuda-rot--{{ loop.index }}">
 <article class="tf-artists-ofuda-card tf-mod-ofuda">
 <div class="tf-artists-ofuda-decor tf-mod-ofuda-decor" aria-hidden="true">
-<img class="tf-artists-ofuda-stroke tf-mod-ofuda-stroke" src="{{ get_url(path='img/shared/ofuda_stroke.svg') }}" alt="" />
-<img class="tf-artists-ofuda-seal tf-mod-ofuda-seal" src="{{ get_url(path='img/shared/ofuda_seal.svg') }}" alt="" />
+<img class="tf-artists-ofuda-stroke tf-mod-ofuda-stroke" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" />
+<img class="tf-artists-ofuda-seal tf-mod-ofuda-seal" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" />
 <div class="tf-artists-ofuda-vspike tf-mod-ofuda-vspike">
-<img class="tf-artists-ofuda-vdot" src="{{ get_url(path='img/artists/ofuda_dot.svg') }}" alt="" />
-<img class="tf-artists-ofuda-vbar" src="{{ get_url(path='img/shared/ofuda_spike_v.svg') }}" alt="" />
+<img class="tf-artists-ofuda-vdot" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_dot.svg') | urlencode }}" alt="" />
+<img class="tf-artists-ofuda-vbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" />
 </div>
 <div class="tf-artists-ofuda-hspike tf-mod-ofuda-hspike">
 <div class="tf-artists-ofuda-hspike-inner">
-<img class="tf-artists-ofuda-hdot" src="{{ get_url(path='img/artists/ofuda_dot.svg') }}" alt="" />
-<img class="tf-artists-ofuda-hbar" src="{{ get_url(path='img/shared/ofuda_spike_h.svg') }}" alt="" />
+<img class="tf-artists-ofuda-hdot" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_dot.svg') | urlencode }}" alt="" />
+<img class="tf-artists-ofuda-hbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" />
 </div>
 </div>
 </div>
@@ -248,25 +248,25 @@
 {% if loop.index == 1 %}
 <div class="tf-artists-ofuda-icon tf-artists-ofuda-icon--pin" aria-hidden="true">
 <div class="tf-artists-pin-desktop">
-<img class="tf-artists-pin-shadow" src="{{ get_url(path='img/artists/ofuda_pin_shadow.svg') }}" alt="" />
-<img class="tf-artists-pin-ring" src="{{ get_url(path='img/artists/ofuda_pin_ring.svg') }}" alt="" />
-<img class="tf-artists-pin-body" src="{{ get_url(path='img/artists/ofuda_pin_body.svg') }}" alt="" />
+<img class="tf-artists-pin-shadow" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_pin_shadow.svg') | urlencode }}" alt="" />
+<img class="tf-artists-pin-ring" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_pin_ring.svg') | urlencode }}" alt="" />
+<img class="tf-artists-pin-body" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_pin_body.svg') | urlencode }}" alt="" />
 </div>
-<img class="tf-artists-pin-mobile" src="{{ get_url(path='img/artists/ofuda_yinyang_mobile.svg') }}" alt="" />
+<img class="tf-artists-pin-mobile" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_yinyang_mobile.svg') | urlencode }}" alt="" />
 </div>
 {% else %}
 <div class="tf-artists-ofuda-icon tf-artists-ofuda-icon--sakura" aria-hidden="true">
 {% for p in range(start=1, end=6) %}
-<span class="tf-artists-sakura-p tf-artists-sakura-p--{{ p }}"><img src="{{ get_url(path='img/artists/sakura_petal.svg') }}" alt="" /></span>
+<span class="tf-artists-sakura-p tf-artists-sakura-p--{{ p }}"><img src="data:image/svg+xml,{{ load_data(path='templates/img/artists/sakura_petal.svg') | urlencode }}" alt="" /></span>
 {% endfor %}
-<img class="tf-artists-sakura-center" src="{{ get_url(path='img/artists/sakura_center.svg') }}" alt="" />
+<img class="tf-artists-sakura-center" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/sakura_center.svg') | urlencode }}" alt="" />
 </div>
 {% endif %}
 <h3 class="tf-artists-ofuda-title tf-mod-ofuda-title">{{ card.title }}</h3>
 <p class="tf-artists-ofuda-desc tf-mod-ofuda-desc">{{ card.desc }}</p>
 <a class="tf-artists-ofuda-btn tf-mod-ofuda-btn" href="{% if card.url %}{{ card.url }}{% else %}{{ get_url(path=card.path) }}{% endif %}">
 <span class="tf-artists-ofuda-btn-label">{{ card.cta_label }}</span>
-<span class="tf-artists-ofuda-btn-icon"><img src="{{ get_url(path='img/shared/chevron_cream.svg') }}" alt="" /></span>
+<span class="tf-artists-ofuda-btn-icon"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_cream.svg') | urlencode }}" alt="" /></span>
 </a>
 </div>
 </article>
@@ -279,14 +279,14 @@
 
 <section class="tf-artists-discord-card tf-mod-callout tf-mod-callout--horiz is-discord">
 <div class="tf-artists-discord-icon tf-mod-callout-icon">
-<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="{{ data.discord_cta.icon_alt }}" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="{{ data.discord_cta.icon_alt }}" />
 </div>
 <div class="tf-artists-discord-body tf-mod-callout-copy">
 <h2 class="tf-artists-discord-title tf-mod-callout-title">{{ data.discord_cta.title }}</h2>
 <p class="tf-artists-discord-desc tf-mod-callout-desc">{{ data.discord_cta.desc }}</p>
 <a class="tf-artists-discord-btn tf-mod-callout-btn" href="{{ data.discord_cta.url }}">
 <span class="tf-artists-discord-btn-label">{{ data.discord_cta.cta_label }}</span>
-<span class="tf-artists-discord-btn-icon"><img src="{{ get_url(path='img/shared/chevron_dark.svg') }}" alt="" /></span>
+<span class="tf-artists-discord-btn-icon"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" /></span>
 </a>
 </div>
 </section>

@@ -468,7 +468,7 @@
   height: 24px;
   left: 6.61px;
   top: 4.95px;
-  background: url("switch-light.svg") center center / contain no-repeat;
+  background: var(--tf-svg-switch-light) center center / contain no-repeat;
   filter: drop-shadow(3px 4px 6.5px rgba(99, 15, 40, 0.15));
   transition:
     transform 100ms ease-out,
@@ -480,7 +480,7 @@
 }
 #theme-toggle:checked + .tf-theme-slider:before {
   transform: translateX(38px);
-  background: url("switch-dark.svg") center center / contain no-repeat;
+  background: var(--tf-svg-switch-dark) center center / contain no-repeat;
 }
 
 .tf-footer-bottom {
@@ -676,7 +676,7 @@
   }
   .tf-theme-slider:before {
     transform: translateX(38px);
-    background: url("switch-dark.svg") center center / contain no-repeat;
+    background: var(--tf-svg-switch-dark) center center / contain no-repeat;
   }
 }
 

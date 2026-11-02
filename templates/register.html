@@ -236,7 +236,7 @@
 <div class="register-bottom-ctas">
 <div class="register-callout-card is-red">
 <div class="callout-icon-wrap">
-<img src="{{ get_url(path='img/guidelines_icon.svg') }}" alt="{{ reg_data.event_guidelines.title }}" class="callout-icon" width="100" height="100">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/guidelines_icon.svg') | urlencode }}" alt="{{ reg_data.event_guidelines.title }}" class="callout-icon" width="100" height="100">
 </div>
 <div class="callout-body">
 <div class="callout-content">
@@ -254,7 +254,7 @@
 
 <div class="register-callout-card is-dark">
 <div class="callout-icon-wrap">
-<img src="{{ get_url(path='img/discord_card_icon.svg') }}" alt="{{ reg_data.discord.title }}" class="callout-icon" width="100" height="100">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="{{ reg_data.discord.title }}" class="callout-icon" width="100" height="100">
 </div>
 <div class="callout-body">
 <div class="callout-content">
@@ -272,7 +272,7 @@
 
 <div class="tf-mod-callout tf-mod-callout--horiz is-newsletter register-callout-card">
 <div class="tf-mod-callout-icon callout-icon-wrap">
-<img src="{{ get_url(path='img/register/icon_email.svg') }}" alt="{{ reg_data.newsletter.title }}" class="callout-icon" width="100" height="100">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/register/icon_email.svg') | urlencode }}" alt="{{ reg_data.newsletter.title }}" class="callout-icon" width="100" height="100">
 </div>
 <div class="callout-body is-newsletter-body">
 <div class="tf-mod-callout-copy callout-content">

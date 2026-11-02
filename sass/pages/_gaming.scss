@@ -223,7 +223,7 @@ body:has(.gaming-page-shell) {
       position: absolute;
       inset: 0 -50% 0 -37.5%;
       background-color: currentColor;
-      @include mask-stretch("img/shared/chevron_cream.svg");
+      @include mask-stretch-var(var(--tf-svg-chevron-cream));
     }
   }
   .gaming-location-row {
@@ -366,7 +366,7 @@ body:has(.gaming-page-shell) {
   .gaming-ext-icon {
     display: inline-block;
     background-color: var(--tf-ink);
-    @include mask-stretch("icons/icon_external.svg");
+    @include mask-stretch-var(var(--tf-svg-icon-external));
   }
   .tf-dashed-divider.gaming-dashed-ribbon {
     width: 100%;
@@ -610,7 +610,7 @@ body:has(.gaming-page-shell) {
     width: 35px;
     height: 35px;
     background-color: #fbf7eb;
-    @include mask-stretch("img/shared/zoom_plus.svg");
+    @include mask-stretch-var(var(--tf-svg-zoom-plus));
   }
   .gaming-bottom-ctas {
     padding-top: 72px;
