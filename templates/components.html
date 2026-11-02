@@ -1,3 +1,14 @@
+{% component img_url(path, quality=85) -%}
+{%- set ext = path | split(pat=".") | last | lower -%}
+{%- if ext == "png" or ext == "jpg" or ext == "jpeg" or ext == "jfif" -%}
+{%- set meta = get_image_metadata(path=path) -%}
+{%- set processed = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format="webp", quality=quality) -%}
+{{ processed.url | safe }}
+{%- else -%}
+{{ get_url(path=path) | safe }}
+{%- endif -%}
+{%- endcomponent img_url %}
+
 {% component faq() %}
 {%- set faq_data = load_data(path="data/faq.yml") -%}
 <div class="tf-faq-container">
@@ -1017,7 +1028,7 @@ description={ev.description | default(value="")}
 {%- set guests_data = load_data(path="data/guests.yml") -%}
 <section class="guests-hero-section">
 <div class="guests-hero-imagery">
-<img src="{{ get_url(path=guests_data.hero.bg_image) }}" alt="" class="guests-hero-bg-img" />
+<img src="{{ <img_url path={guests_data.hero.bg_image} /> }}" alt="" class="guests-hero-bg-img" fetchpriority="high" />
 <div class="guests-hero-vignette"></div>
 <div class="guests-hero-divider-bottom tf-mod-divider-bottom"></div>
 </div>
@@ -1051,7 +1062,7 @@ description={ev.description | default(value="")}
 </div>
 </div>
 <div class="hero-feature-card-photo-wrap">
-<img src="{{ get_url(path=guest.image) }}" alt="{{ guest.name }}" class="hero-feature-card-photo" />
+<img src="{{ <img_url path={guest.image} /> }}" alt="{{ guest.name }}" class="hero-feature-card-photo" fetchpriority="high" />
 {%- if loop.index == 2 %}
 <div class="hero-feature-card-photo-fade"></div>
 {%- endif %}
@@ -1094,9 +1105,9 @@ description={ev.description | default(value="")}
 <h3 class="artist-name-title">{{ guest.name }}</h3>
 <div class="artist-feature-frame-wrap">
 <div class="artist-feature-frame">
-<img src="{{ get_url(path='img/guests/avatar_ring_red.png') }}" alt="" class="artist-avatar-ring" />
+<img src="{{ <img_url path="img/guests/avatar_ring_red.png" /> }}" alt="" class="artist-avatar-ring" loading="lazy" decoding="async" />
 <div class="artist-avatar-circle">
-<img src="{{ get_url(path=guest.avatar) }}" alt="{{ guest.name }}" class="artist-avatar-img" />
+<img src="{{ <img_url path={guest.avatar} /> }}" alt="{{ guest.name }}" class="artist-avatar-img" loading="lazy" decoding="async" />
 </div>
 </div>
 </div>
@@ -1162,9 +1173,9 @@ description={ev.description | default(value="")}
 <div class="timeline-pill-overlay">
 <div class="timeline-pill-avatar-skew">
 <div class="timeline-pill-avatar-frame">
-<img src="{{ get_url(path='img/guests/avatar_ring_timeline.png') }}" alt="" class="tl-avatar-ring" />
+<img src="{{ <img_url path="img/guests/avatar_ring_timeline.png" /> }}" alt="" class="tl-avatar-ring" loading="lazy" decoding="async" />
 <div class="tl-avatar-img-box">
-<img src="{{ get_url(path=guest.avatar) }}" alt="{{ guest.name }}" class="tl-avatar-img" />
+<img src="{{ <img_url path={guest.avatar} /> }}" alt="{{ guest.name }}" class="tl-avatar-img" loading="lazy" decoding="async" />
 </div>
 </div>
 </div>
@@ -1196,9 +1207,9 @@ description={ev.description | default(value="")}
 <div class="timeline-pill-overlay">
 <div class="timeline-pill-avatar-skew">
 <div class="timeline-pill-avatar-frame">
-<img src="{{ get_url(path='img/guests/avatar_ring_timeline.png') }}" alt="" class="tl-avatar-ring" />
+<img src="{{ <img_url path="img/guests/avatar_ring_timeline.png" /> }}" alt="" class="tl-avatar-ring" loading="lazy" decoding="async" />
 <div class="tl-avatar-img-box">
-<img src="{{ get_url(path=guest.avatar) }}" alt="{{ guest.name }}" class="tl-avatar-img" />
+<img src="{{ <img_url path={guest.avatar} /> }}" alt="{{ guest.name }}" class="tl-avatar-img" loading="lazy" decoding="async" />
 </div>
 </div>
 </div>
@@ -1251,7 +1262,7 @@ description={ev.description | default(value="")}
 <div class="timeline-bg-photos {% if row.bg_images | length == 4 %}is-four-cols{% endif %}">
 {%- for bg_src in row.bg_images %}
 <div class="timeline-bg-col">
-<img src="{{ get_url(path=bg_src) }}" alt="" />
+<img src="{{ <img_url path={bg_src} /> }}" alt="" loading="lazy" decoding="async" />
 </div>
 {%- endfor %}
 </div>
@@ -1270,9 +1281,9 @@ description={ev.description | default(value="")}
 <div class="performer-item-card">
 <h3 class="performer-name">{{ p.name }}</h3>
 <div class="performer-feature-frame">
-<img src="{{ get_url(path='img/guests/avatar_ring_light.png') }}" alt="" class="performer-avatar-ring" />
+<img src="{{ <img_url path="img/guests/avatar_ring_light.png" /> }}" alt="" class="performer-avatar-ring" loading="lazy" decoding="async" />
 <div class="performer-avatar-circle">
-<img src="{{ get_url(path=p.image) }}" alt="{{ p.name }}" class="performer-avatar-img" />
+<img src="{{ <img_url path={p.image} /> }}" alt="{{ p.name }}" class="performer-avatar-img" loading="lazy" decoding="async" />
 </div>
 </div>
 <div class="performer-label-wrap">
@@ -1349,7 +1360,7 @@ description={ev.description | default(value="")}
 <div class="tf-mod-ofuda-body ofuda-card-content">
 <div class="ofuda-card-top">
 <div class="sticker-icon-badge">
-<img src="{{ get_url(path=card_icon) }}" alt="" class="sticker-icon-img" />
+<img src="{{ <img_url path={card_icon} /> }}" alt="" class="sticker-icon-img" loading="lazy" decoding="async" />
 </div>
 <div class="ofuda-card-copy">
 <h3 class="tf-mod-ofuda-title sticker-heading">{{ card.title }}</h3>
@@ -1389,7 +1400,7 @@ description={ev.description | default(value="")}
 {% component home_announcement() %}
 {%- set home_data = load_data(path="data/home.yml") -%}
 <section class="home-banner-module home-announcement-section">
-<img src="{{ get_url(path=home_data.featured_announcement.image) }}" alt="" class="home-section-bg-img" aria-hidden="true" />
+<img src="{{ <img_url path={home_data.featured_announcement.image} /> }}" alt="" class="home-section-bg-img" aria-hidden="true" loading="lazy" decoding="async" />
 <div class="tf-mod-divider-top home-garland-banner" aria-hidden="true"></div>
 <div class="divider-wave-bottom home-banner-divider-bottom home-announcement-divider" aria-hidden="true"></div>
 <div class="home-banner-inner">
@@ -1420,7 +1431,7 @@ description={ev.description | default(value="")}
 <h3 class="guest-teaser-name">{{ g.name }}</h3>
 <div class="guest-avatar-frame">
 <img src="data:image/svg+xml,{{ load_data(path='templates/img/home/guest-ring.svg') | urlencode }}" alt="" class="guest-ring-svg" aria-hidden="true" />
-<img src="{{ get_url(path=g.avatar) }}" alt="{{ g.role }} teaser" class="guest-teaser-img" />
+<img src="{{ <img_url path={g.avatar} /> }}" alt="{{ g.role }} teaser" class="guest-teaser-img" loading="lazy" decoding="async" />
 </div>
 <p class="guest-teaser-role">{{ g.role }}</p>
 </div>
@@ -1464,14 +1475,14 @@ description={ev.description | default(value="")}
 </div>
 <div class="pillar-photo-col">
 <div class="tf-mod-polaroid tf-mod-polaroid--md polaroid-card">
-<img src="{{ get_url(path=row.image) }}" alt="{{ row.image_alt }}" class="polaroid-img" />
+<img src="{{ <img_url path={row.image} /> }}" alt="{{ row.image_alt }}" class="polaroid-img" loading="lazy" decoding="async" />
 <span class="tf-mod-polaroid-dots polaroid-dots" aria-hidden="true"><span class="polaroid-dot"></span><span class="polaroid-dot"></span></span>
 </div>
 </div>
 {%- else %}
 <div class="pillar-photo-col">
 <div class="tf-mod-polaroid tf-mod-polaroid--md polaroid-card">
-<img src="{{ get_url(path=row.image) }}" alt="{{ row.image_alt }}" class="polaroid-img" />
+<img src="{{ <img_url path={row.image} /> }}" alt="{{ row.image_alt }}" class="polaroid-img" loading="lazy" decoding="async" />
 <span class="tf-mod-polaroid-dots polaroid-dots" aria-hidden="true"><span class="polaroid-dot"></span><span class="polaroid-dot"></span></span>
 </div>
 </div>
@@ -1504,7 +1515,7 @@ description={ev.description | default(value="")}
 <div class="home-venue-outer">
 <div class="home-bottom-streamer" aria-hidden="true"></div>
 <section class="home-banner-module home-venue-section">
-<img src="{{ get_url(path=home_data.venue.image) }}" alt="" class="home-section-bg-img" aria-hidden="true" />
+<img src="{{ <img_url path={home_data.venue.image} /> }}" alt="" class="home-section-bg-img" aria-hidden="true" loading="lazy" decoding="async" />
 <div class="tf-mod-divider-top home-garland-banner" aria-hidden="true"></div>
 <div class="divider-wave-bottom home-banner-divider-bottom home-venue-divider" aria-hidden="true"></div>
 <div class="home-banner-inner">
@@ -1802,7 +1813,7 @@ description={ev.description | default(value="")}
 {%- set gdata = load_data(path="data/gaming.yml") -%}
 <section class="tf-hero-banner page-hero-banner is-gaming gaming-hero-banner">
 <div class="tf-hero-bg gaming-hero-bg">
-<img src="{{ get_url(path=gdata.hero.image) | safe }}" alt="" class="tf-hero-bg-img gaming-hero-bg-img">
+<img src="{{ <img_url path={gdata.hero.image} /> }}" alt="" class="tf-hero-bg-img gaming-hero-bg-img" fetchpriority="high">
 </div>
 <div class="tf-mod-divider-top gaming-divider-top-streamers" aria-hidden="true"></div>
 <div class="tf-hero-container gaming-hero-container">
@@ -1855,7 +1866,7 @@ description={ev.description | default(value="")}
 <div class="gaming-item-feature">
 <div class="gaming-item-image-frame">
 <div class="gaming-item-image-wrap">
-<img src="{{ get_url(path=item.image) | safe }}" alt="{{ item.title }}" class="gaming-item-img">
+<img src="{{ <img_url path={item.image} /> }}" alt="{{ item.title }}" class="gaming-item-img" loading="lazy" decoding="async">
 </div>
 </div>
 </div>
@@ -1892,7 +1903,7 @@ description={ev.description | default(value="")}
 <div class="arcade-photo-wrap arcade-photo-frame">
 <div class="arcade-photo-main">
 <div class="arcade-photo-inner">
-<img src="{{ get_url(path=gdata.arcade.image) | safe }}" alt="{{ gdata.arcade.title }}" class="arcade-photo-img">
+<img src="{{ <img_url path={gdata.arcade.image} /> }}" alt="{{ gdata.arcade.title }}" class="arcade-photo-img" loading="lazy" decoding="async">
 </div>
 </div>
 <div class="arcade-photo-shadow">
@@ -1948,7 +1959,7 @@ description={ev.description | default(value="")}
 <div class="gaming-item-feature">
 <div class="gaming-item-image-frame">
 <div class="gaming-item-image-wrap crop-tabletop-{{ loop.index }}">
-<img src="{{ get_url(path=item.image) | safe }}" alt="{{ item.title }}" class="gaming-item-img">
+<img src="{{ <img_url path={item.image} /> }}" alt="{{ item.title }}" class="gaming-item-img" loading="lazy" decoding="async">
 </div>
 </div>
 </div>
@@ -2083,7 +2094,7 @@ description={ev.description | default(value="")}
 </div>
 <div class="tf-mod-map-stage gaming-map-card">
 <div class="tf-mod-map-panel is-active gaming-map-img-wrap">
-<img src="{{ get_url(path=gdata.maps.image) | safe }}" alt="{{ gdata.maps.alt }}" class="gaming-map-img">
+<img src="{{ <img_url path={gdata.maps.image} /> }}" alt="{{ gdata.maps.alt }}" class="gaming-map-img" loading="lazy" decoding="async">
 </div>
 <button type="button" class="tf-mod-map-zoom gaming-map-zoom" aria-label="Zoom in">
 <span class="gaming-map-zoom-circle"></span>
@@ -2108,7 +2119,7 @@ description={ev.description | default(value="")}
 <div class="hero-card-image-wrap gaming-badge-cta-img-col">
 <div class="gaming-badge-cta-img-frame">
 <div class="gaming-badge-cta-img-inner">
-<img src="{{ get_url(path=gdata.badge_cta.image) | safe }}" alt="{{ gdata.badge_cta.title }}" class="gaming-badge-cta-img">
+<img src="{{ <img_url path={gdata.badge_cta.image} /> }}" alt="{{ gdata.badge_cta.title }}" class="gaming-badge-cta-img" loading="lazy" decoding="async">
 </div>
 </div>
 </div>
@@ -2178,7 +2189,7 @@ description={ev.description | default(value="")}
 </div>
 </div>
 <figure class="intro-danmaku-figure">
-<img src="{{ get_url(path=intro.guide.figure.image) }}" alt="{{ intro.guide.figure.alt }}" loading="lazy" />
+<img src="{{ <img_url path={intro.guide.figure.image} /> }}" alt="{{ intro.guide.figure.alt }}" loading="lazy" decoding="async" />
 <figcaption class="intro-danmaku-caption">{{ intro.guide.figure.caption | safe }}</figcaption>
 </figure>
 </div>
@@ -2191,7 +2202,7 @@ description={ev.description | default(value="")}
 <div class="zun-spotlight-grid">
 <div class="zun-photo-col">
 <div class="zun-photo-wrap">
-<img src="{{ get_url(path=intro.zun.image) }}" alt="{{ intro.zun.image_alt }}" loading="lazy" />
+<img src="{{ <img_url path={intro.zun.image} /> }}" alt="{{ intro.zun.image_alt }}" loading="lazy" decoding="async" />
 </div>
 </div>
 <div class="zun-spotlight-body">
@@ -2225,7 +2236,7 @@ description={ev.description | default(value="")}
 {%- for card in intro.starter_recommendations.cards %}
 <article class="starter-rec-card{% if loop.index >= 4 %} is-wide-pair{% endif %}{% if loop.index == 5 %} is-last-odd{% endif %}">
 <div class="starter-rec-top">
-<img class="starter-rec-thumb" src="{{ get_url(path=card.image) }}" alt="{{ card.alt }}" loading="lazy" />
+<img class="starter-rec-thumb" src="{{ <img_url path={card.image} /> }}" alt="{{ card.alt }}" loading="lazy" decoding="async" />
 <div class="starter-rec-meta">
 <span class="tf-tag intro-pill-tag">{{ card.tag }}</span>
 <span class="starter-rec-era">{{ card.era }}</span>
@@ -2255,7 +2266,7 @@ description={ev.description | default(value="")}
 <article class="game-grid-card">
 {%- if game.image %}
 <div class="game-cover-wrap">
-<img src="{{ get_url(path=game.image) }}" alt="{{ game.name }}" loading="lazy" />
+<img src="{{ <img_url path={game.image} /> }}" alt="{{ game.name }}" loading="lazy" decoding="async" />
 </div>
 {%- else %}
 <div class="game-era-banner">
@@ -2304,7 +2315,7 @@ description={ev.description | default(value="")}
 <div class="hero-gohei-right" aria-hidden="true"></div>
 <div class="hero-card-inner intro-badge-inner">
 <div class="hero-card-image-wrap intro-badge-art">
-<img src="{{ get_url(path=intro.badge_cta.image) }}" alt="{{ intro.badge_cta.image_alt }}" loading="lazy" />
+<img src="{{ <img_url path={intro.badge_cta.image} /> }}" alt="{{ intro.badge_cta.image_alt }}" loading="lazy" decoding="async" />
 </div>
 <div class="hero-card-content intro-badge-content">
 <h2 class="hero-card-title intro-h2">{{ intro.badge_cta.title }}</h2>
@@ -2341,8 +2352,8 @@ description={ev.description | default(value="")}
 <div class="tf-v-main-stack">
 <section class="tf-v-hero">
 <div class="tf-v-hero-bg" aria-hidden="true">
-<img src="{{ get_url(path='img/vendors/hero_vendors.jpg') }}" alt="" class="tf-v-hero-img is-desk-hero" />
-<img src="{{ get_url(path='img/Freeze Background.png') }}" alt="" class="tf-v-hero-img is-mob-hero" />
+<img src="{{ <img_url path="img/vendors/hero_vendors.jpg" /> }}" alt="" class="tf-v-hero-img is-desk-hero" fetchpriority="high" />
+<img src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" class="tf-v-hero-img is-mob-hero" fetchpriority="high" />
 </div>
 <div class="tf-v-hero-container">
 <div class="tf-hero-box tf-v-hero-box">
@@ -2361,7 +2372,7 @@ description={ev.description | default(value="")}
 <div class="tf-v-fcard-bg" aria-hidden="true">
 <div class="tf-v-fcard-backing"></div>
 <div class="tf-v-fcard-photo-wrap">
-<img src="{{ get_url(path=vendor.image) }}" alt="{{ vendor.name }}" class="tf-v-fcard-photo" />
+<img src="{{ <img_url path={vendor.image} /> }}" alt="{{ vendor.name }}" class="tf-v-fcard-photo" loading="lazy" decoding="async" />
 </div>
 </div>
 <div class="tf-v-fcard-frame" aria-hidden="true">
@@ -2433,8 +2444,8 @@ description={ev.description | default(value="")}
 </div>
 <div class="tf-v-rcard-img-pad">
 <div class="tf-v-rcard-img-box">
-<img src="{{ get_url(path=item.image) }}" alt="{{ item.name }}" class="tf-v-rcard-img is-real" />
-<img src="{{ get_url(path='img/Freeze Background.png') }}" alt="" class="tf-v-rcard-img is-mob-placeholder" />
+<img src="{{ <img_url path={item.image} /> }}" alt="{{ item.name }}" class="tf-v-rcard-img is-real" loading="lazy" decoding="async" />
+<img src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" class="tf-v-rcard-img is-mob-placeholder" loading="lazy" decoding="async" />
 </div>
 </div>
 </div>
@@ -2447,8 +2458,8 @@ description={ev.description | default(value="")}
 <section class="tf-v-maps-section">
 <div class="tf-v-divider is-maps tf-mod-divider">
 <div class="tf-v-divider-bg tf-mod-divider-bg" aria-hidden="true">
-<img src="{{ get_url(path='img/vendors/maps_divider_bg.jpg') }}" alt="" class="tf-v-divider-img is-desk" />
-<img src="{{ get_url(path='img/Freeze Background.png') }}" alt="" class="tf-v-divider-img is-mob" />
+<img src="{{ <img_url path="img/vendors/maps_divider_bg.jpg" /> }}" alt="" class="tf-v-divider-img is-desk" loading="lazy" decoding="async" />
+<img src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" class="tf-v-divider-img is-mob" loading="lazy" decoding="async" />
 <div class="tf-v-divider-grad tf-mod-divider-vignette"></div>
 </div>
 <div class="tf-v-divider-top-wave tf-mod-divider-top" aria-hidden="true"></div>
@@ -2469,7 +2480,7 @@ description={ev.description | default(value="")}
 <div class="tf-v-map-stage tf-mod-map-stage">
 {%- for map in exhibitors_data.maps %}
 <div class="tf-v-map-panel tf-mod-map-panel tf-mod-map-panel--{{ loop.index }}">
-<img src="{{ get_url(path=map.image) }}" alt="{{ map.label }}" class="tf-v-map-img" />
+<img src="{{ <img_url path={map.image} /> }}" alt="{{ map.label }}" class="tf-v-map-img" loading="lazy" decoding="async" />
 </div>
 {%- endfor %}
 <button type="button" class="tf-v-map-zoom tf-mod-map-zoom" aria-label="Zoom map">
@@ -2481,8 +2492,8 @@ description={ev.description | default(value="")}
 <section class="tf-v-past-section">
 <div class="tf-v-divider is-thankyou tf-mod-divider">
 <div class="tf-v-divider-bg tf-mod-divider-bg" aria-hidden="true">
-<img src="{{ get_url(path='img/vendors/thankyou_divider_bg.jpg') }}" alt="" class="tf-v-divider-img is-desk" />
-<img src="{{ get_url(path='img/Freeze Background.png') }}" alt="" class="tf-v-divider-img is-mob" />
+<img src="{{ <img_url path="img/vendors/thankyou_divider_bg.jpg" /> }}" alt="" class="tf-v-divider-img is-desk" loading="lazy" decoding="async" />
+<img src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" class="tf-v-divider-img is-mob" loading="lazy" decoding="async" />
 <div class="tf-v-divider-grad tf-mod-divider-vignette"></div>
 </div>
 <div class="tf-v-divider-top-wave tf-mod-divider-top" aria-hidden="true"></div>
@@ -2498,7 +2509,7 @@ description={ev.description | default(value="")}
 <div class="tf-v-polaroid-rot">
 <div class="tf-v-polaroid-card tf-mod-polaroid tf-mod-polaroid--sm">
 <div class="tf-v-polaroid-thumb-wrap tf-mod-polaroid-photo">
-<img src="{{ get_url(path=item.image) }}" alt="{{ item.name }}" class="tf-v-polaroid-thumb" />
+<img src="{{ <img_url path={item.image} /> }}" alt="{{ item.name }}" class="tf-v-polaroid-thumb" loading="lazy" decoding="async" />
 </div>
 <div class="tf-v-polaroid-dots tf-mod-polaroid-dots" aria-hidden="true">
 <img src="{{ get_url(path='img/shared/polaroid_dots.svg') }}" alt="" />

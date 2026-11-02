@@ -3,7 +3,7 @@
 {% block header %}
 {% set reg_data = load_data(path="data/registration.yml") %}
 <section class="page-hero-banner is-register tf-hero-banner">
-<img src="{{ get_url(path='img/register/hero_bg.png') }}" alt="" class="register-banner-img">
+<img src="{{ <img_url path="img/register/hero_bg.png" /> }}" alt="" class="register-banner-img" fetchpriority="high">
 <div class="register-hero-content-container">
 <div class="register-hero-title-box tf-hero-box">
 <h1 class="register-hero-title tf-hero-title">{{ reg_data.hero.title_line1 }}<br>{{ reg_data.hero.title_line2 }}</h1>
@@ -27,7 +27,7 @@
 <div class="card-gohei-trim-right" aria-hidden="true"></div>
 <div class="hero-card-left">
 <div class="hero-card-badge-frame">
-<img src="{{ get_url(path='img/badge_teaser.png') }}" alt="{{ reg_data.hero_badge.title }}" class="hero-card-badge-img">
+<img src="{{ <img_url path="img/badge_teaser.png" /> }}" alt="{{ reg_data.hero_badge.title }}" class="hero-card-badge-img" fetchpriority="high">
 </div>
 </div>
 <div class="hero-card-right">
@@ -87,7 +87,7 @@
 
 <div class="tf-mod-divider is-register-divider" id="{{ reg_data.applications.exhibitor.section_id }}">
 <div class="tf-mod-divider-bg">
-<img src="{{ get_url(path='img/register/exhibitor_bg.png') }}" alt="" class="register-banner-img">
+<img src="{{ <img_url path="img/register/exhibitor_bg.png" /> }}" alt="" class="register-banner-img" loading="lazy" decoding="async">
 </div>
 <div class="tf-mod-divider-vignette" aria-hidden="true"></div>
 <div class="tf-mod-divider-top" aria-hidden="true"></div>
@@ -131,7 +131,7 @@
 
 <div class="tf-mod-divider is-register-divider" id="{{ reg_data.applications.content.section_id }}">
 <div class="tf-mod-divider-bg">
-<img src="{{ get_url(path='img/register/content_bg.png') }}" alt="" class="register-banner-img">
+<img src="{{ <img_url path="img/register/content_bg.png" /> }}" alt="" class="register-banner-img" loading="lazy" decoding="async">
 </div>
 <div class="tf-mod-divider-vignette" aria-hidden="true"></div>
 <div class="tf-mod-divider-top" aria-hidden="true"></div>
@@ -192,7 +192,7 @@
 
 <div class="tf-mod-divider is-register-divider" id="{{ reg_data.applications.team.section_id }}">
 <div class="tf-mod-divider-bg">
-<img src="{{ get_url(path='img/register/team_bg.png') }}" alt="" class="register-banner-img">
+<img src="{{ <img_url path="img/register/team_bg.png" /> }}" alt="" class="register-banner-img" loading="lazy" decoding="async">
 </div>
 <div class="tf-mod-divider-vignette" aria-hidden="true"></div>
 <div class="tf-mod-divider-top" aria-hidden="true"></div>

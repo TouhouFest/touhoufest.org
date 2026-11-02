@@ -42,7 +42,7 @@
 {% set svg_path = "templates/" ~ card.image %}
 <img src="data:image/svg+xml,{{ load_data(path=svg_path) | urlencode }}" alt="{{ card.title }}" class="{% if loop.index == 1 %}guidelines-faq-mascot{% else %}discord-card-icon{% endif %}" />
 {% else %}
-<img src="{{ get_url(path=card.image) }}" alt="{{ card.title }}" class="{% if loop.index == 1 %}guidelines-faq-mascot{% else %}discord-card-icon{% endif %}" />
+<img src="{{ <img_url path={card.image} /> }}" alt="{{ card.title }}" class="{% if loop.index == 1 %}guidelines-faq-mascot{% else %}discord-card-icon{% endif %}" loading="lazy" decoding="async" />
 {% endif %}
 </div>
 <div class="tf-mod-callout-copy guidelines-card-content-col">

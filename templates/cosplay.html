@@ -4,7 +4,7 @@
 <div class="cosplay-page">
 <section class="cosplay-hero">
 <div class="cosplay-hero__bg" aria-hidden="true">
-<img src="{{ get_url(path=data.hero.image) }}" alt="{{ data.hero.image_alt }}" class="cosplay-hero__bg-img">
+<img src="{{ <img_url path={data.hero.image} /> }}" alt="{{ data.hero.image_alt }}" class="cosplay-hero__bg-img" fetchpriority="high">
 </div>
 <div class="cosplay-hero__content">
 <div class="cosplay-hero__title-box tf-hero-box">
@@ -16,7 +16,7 @@
 <section class="cosplay-photoshoots" id="photoshoots">
 <div class="tf-mod-divider cosplay-divider cosplay-divider--photoshoots">
 <div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
-<img src="{{ get_url(path=data.photoshoots.divider_image) }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--photoshoots">
+<img src="{{ <img_url path={data.photoshoots.divider_image} /> }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--photoshoots" loading="lazy" decoding="async">
 <div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
 </div>
 <div class="tf-mod-divider-top cosplay-divider__top-gohei" aria-hidden="true"></div>
@@ -65,7 +65,7 @@
 </section>
 <div class="tf-mod-divider cosplay-divider cosplay-divider--workshops">
 <div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
-<img src="{{ get_url(path=data.workshops.divider_image) }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--workshops">
+<img src="{{ <img_url path={data.workshops.divider_image} /> }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--workshops" loading="lazy" decoding="async">
 <div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
 </div>
 <div class="tf-mod-divider-top cosplay-divider__top-gohei" aria-hidden="true"></div>
@@ -82,7 +82,7 @@
 <h3 class="cosplay-workshop-card__title">{{ item.title }}</h3>
 <div class="cosplay-workshop-card__image-pad">
 <div class="cosplay-workshop-card__image-frame">
-<img src="{{ get_url(path=item.image) }}" alt="{{ item.image_alt }}" class="cosplay-workshop-card__image cosplay-workshop-card__image--{{ loop.index }}">
+<img src="{{ <img_url path={item.image} /> }}" alt="{{ item.image_alt }}" class="cosplay-workshop-card__image cosplay-workshop-card__image--{{ loop.index }}" loading="lazy" decoding="async">
 </div>
 </div>
 </div>
@@ -106,7 +106,7 @@
 <section class="cosplay-masquerade" id="masquerade">
 <div class="tf-mod-divider cosplay-divider cosplay-divider--masquerade">
 <div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
-<img src="{{ get_url(path=data.masquerade.divider_image) }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--masquerade">
+<img src="{{ <img_url path={data.masquerade.divider_image} /> }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--masquerade" loading="lazy" decoding="async">
 <div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
 </div>
 <div class="tf-mod-divider-top cosplay-divider__top-gohei" aria-hidden="true"></div>
@@ -123,7 +123,7 @@
 <article class="cosplay-category-card">
 <div class="cosplay-category-card__top">
 <div class="cosplay-category-card__image-frame">
-<img src="{{ get_url(path=cat.image) }}" alt="{{ cat.image_alt }}" class="cosplay-category-card__image cosplay-category-card__image--{{ cat.key }}">
+<img src="{{ <img_url path={cat.image} /> }}" alt="{{ cat.image_alt }}" class="cosplay-category-card__image cosplay-category-card__image--{{ cat.key }}" loading="lazy" decoding="async">
 </div>
 <h4 class="cosplay-category-card__title">{{ cat.title }}</h4>
 <p class="cosplay-category-card__desc">{{ cat.description }}</p>
@@ -201,7 +201,7 @@
 </section>
 <div class="tf-mod-divider cosplay-divider cosplay-divider--guests">
 <div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
-<img src="{{ get_url(path=data.guests.divider_image) }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--guests">
+<img src="{{ <img_url path={data.guests.divider_image} /> }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--guests" loading="lazy" decoding="async">
 <div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
 </div>
 <div class="tf-mod-divider-top cosplay-divider__top-gohei" aria-hidden="true"></div>
@@ -218,9 +218,9 @@
 <h3 class="cosplay-guest-card__name">{{ guest.name }}</h3>
 <div class="cosplay-guest-card__portrait-pad">
 <div class="cosplay-guest-card__portrait-frame">
-<img src="{{ get_url(path=data.guests.circle_bg) }}" alt="" class="cosplay-guest-card__circle-bg">
+<img src="{{ <img_url path={data.guests.circle_bg} /> }}" alt="" class="cosplay-guest-card__circle-bg" loading="lazy" decoding="async">
 <div class="cosplay-guest-card__photo-wrap">
-<img src="{{ get_url(path=guest.image) }}" alt="{{ guest.name }}" class="cosplay-guest-card__photo">
+<img src="{{ <img_url path={guest.image} /> }}" alt="{{ guest.name }}" class="cosplay-guest-card__photo" loading="lazy" decoding="async">
 </div>
 </div>
 </div>
@@ -252,7 +252,7 @@
 <section class="cosplay-maps-section" id="maps">
 <div class="tf-mod-divider cosplay-divider cosplay-divider--maps">
 <div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
-<img src="{{ get_url(path=data.maps.divider_image) }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--maps">
+<img src="{{ <img_url path={data.maps.divider_image} /> }}" alt="" class="cosplay-divider__bg-img cosplay-divider__bg-img--maps" loading="lazy" decoding="async">
 <div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
 </div>
 <div class="tf-mod-divider-top cosplay-divider__top-gohei" aria-hidden="true"></div>
@@ -270,7 +270,7 @@
 </div>
 <div class="cosplay-map-card tf-mod-map-stage">
 <div class="tf-mod-map-panel is-active">
-<img src="{{ get_url(path=data.maps.card_image) }}" alt="{{ data.maps.card_alt }}" class="cosplay-map-card__img">
+<img src="{{ <img_url path={data.maps.card_image} /> }}" alt="{{ data.maps.card_alt }}" class="cosplay-map-card__img" loading="lazy" decoding="async">
 </div>
 <button type="button" class="cosplay-map-card__zoom tf-mod-map-zoom" aria-label="{{ data.maps.zoom_label }}">
 <span class="cosplay-icon cosplay-icon--plus"></span>
@@ -286,7 +286,7 @@
 {% set svg_path = "templates/" ~ card.image %}
 <img src="data:image/svg+xml,{{ load_data(path=svg_path) | urlencode }}" alt="" class="cosplay-callout-card__icon cosplay-callout-card__icon--{{ card.key }}">
 {% else %}
-<img src="{{ get_url(path=card.image) }}" alt="" class="cosplay-callout-card__icon cosplay-callout-card__icon--{{ card.key }}">
+<img src="{{ <img_url path={card.image} /> }}" alt="" class="cosplay-callout-card__icon cosplay-callout-card__icon--{{ card.key }}" loading="lazy" decoding="async">
 {% endif %}
 </div>
 <div class="cosplay-callout-card__content">

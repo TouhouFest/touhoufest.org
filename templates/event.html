@@ -8,8 +8,8 @@
 <div class="tf-hero-banner ev-hero">
 <div class="ev-hero-bg" aria-hidden="true">
 <div class="ev-hero-black"></div>
-<img src="{{ get_url(path=ev.hero.desktop_image) | safe }}" alt="" class="ev-hero-img ev-hero-img-desktop">
-<img src="{{ get_url(path=ev.hero.mobile_image) | safe }}" alt="" class="ev-hero-img ev-hero-img-mobile">
+<img src="{{ <img_url path={ev.hero.desktop_image} /> }}" alt="" class="ev-hero-img ev-hero-img-desktop" fetchpriority="high">
+<img src="{{ <img_url path={ev.hero.mobile_image} /> }}" alt="" class="ev-hero-img ev-hero-img-mobile" fetchpriority="high">
 </div>
 <div class="tf-hero-container ev-hero-container">
 <div class="tf-hero-box ev-hero-box">
@@ -169,7 +169,7 @@
 
 <section class="ev-gallery-sec">
 <div class="ev-gallery-bg" aria-hidden="true">
-<img src="{{ get_url(path=ev.gallery.bg_image) | safe }}" alt="" class="ev-gallery-bg-img">
+<img src="{{ <img_url path={ev.gallery.bg_image} /> }}" alt="" class="ev-gallery-bg-img" loading="lazy" decoding="async">
 </div>
 <div class="ev-gallery-banner tf-mod-divider">
 <div class="tf-mod-divider-top ev-banner-top-deco ev-banner-top-deco-gallery" aria-hidden="true"></div>
@@ -184,9 +184,9 @@
 <div class="ev-polaroid-rot">
 <div class="ev-polaroid-frame tf-mod-polaroid tf-mod-polaroid--md">
 <div class="ev-polaroid-photo tf-mod-polaroid-photo">
-<img src="{{ get_url(path=p.src) | safe }}" alt="{{ p.alt }}" class="ev-polaroid-img">
+<img src="{{ <img_url path={p.src} /> }}" alt="{{ p.alt }}" class="ev-polaroid-img" loading="lazy" decoding="async">
 {% if p.overlay_src is defined -%}
-<img src="{{ get_url(path=p.overlay_src) | safe }}" alt="" class="ev-polaroid-img">
+<img src="{{ <img_url path={p.overlay_src} /> }}" alt="" class="ev-polaroid-img" loading="lazy" decoding="async">
 {% endif -%}
 </div>
 <div class="ev-polaroid-dots tf-mod-polaroid-dots" aria-hidden="true">
@@ -202,7 +202,7 @@
 <section class="ev-maps-sec">
 <div class="ev-maps-banner tf-mod-divider">
 <div class="ev-maps-banner-bg tf-mod-divider-bg" aria-hidden="true">
-<img src="{{ get_url(path=ev.maps.divider_image) | safe }}" alt="" class="ev-maps-banner-img">
+<img src="{{ <img_url path={ev.maps.divider_image} /> }}" alt="" class="ev-maps-banner-img" loading="lazy" decoding="async">
 <div class="ev-maps-vignette tf-mod-divider-vignette"></div>
 </div>
 <div class="tf-mod-divider-top ev-banner-top-deco" aria-hidden="true"></div>
@@ -227,7 +227,7 @@
 </div>
 <div class="ev-map-frame tf-mod-map-stage">
 <div class="tf-mod-map-panel is-active">
-<img src="{{ get_url(path=ev.maps.map_image) | safe }}" alt="{{ ev.maps.map_alt }}" class="ev-map-img">
+<img src="{{ <img_url path={ev.maps.map_image} /> }}" alt="{{ ev.maps.map_alt }}" class="ev-map-img" loading="lazy" decoding="async">
 </div>
 </div>
 </div>
@@ -305,7 +305,7 @@
 </div>
 </div>
 <div class="ev-hotel-photo-wrap">
-<img src="{{ get_url(path=ev.info_cards.hotel.image) | safe }}" alt="{{ ev.info_cards.hotel.image_alt }}" class="ev-hotel-photo-img">
+<img src="{{ <img_url path={ev.info_cards.hotel.image} /> }}" alt="{{ ev.info_cards.hotel.image_alt }}" class="ev-hotel-photo-img" loading="lazy" decoding="async">
 </div>
 </div>
 <div class="ev-red-card-content">
@@ -381,7 +381,7 @@
 <div class="ev-badge-img-col">
 <div class="ev-badge-img-aspect">
 <div class="ev-badge-img-shadow">
-<img src="{{ get_url(path=ev.badge_cta.image) | safe }}" alt="{{ ev.badge_cta.image_alt }}" class="ev-badge-img">
+<img src="{{ <img_url path={ev.badge_cta.image} /> }}" alt="{{ ev.badge_cta.image_alt }}" class="ev-badge-img" loading="lazy" decoding="async">
 </div>
 </div>
 </div>
@@ -419,8 +419,8 @@
 <section class="ev-team-sec">
 <div class="ev-team-banner tf-mod-divider">
 <div class="ev-team-banner-bg tf-mod-divider-bg" aria-hidden="true">
-<img src="{{ get_url(path=ev.team.divider_image) | safe }}" alt="" class="ev-team-banner-img ev-team-img-desktop">
-<img src="{{ get_url(path=ev.team.mobile_divider_image) | safe }}" alt="" class="ev-team-banner-img ev-team-img-mobile">
+<img src="{{ <img_url path={ev.team.divider_image} /> }}" alt="" class="ev-team-banner-img ev-team-img-desktop" loading="lazy" decoding="async">
+<img src="{{ <img_url path={ev.team.mobile_divider_image} /> }}" alt="" class="ev-team-banner-img ev-team-img-mobile" loading="lazy" decoding="async">
 <div class="ev-team-vignette tf-mod-divider-vignette"></div>
 </div>
 <div class="tf-mod-divider-top ev-banner-top-deco" aria-hidden="true"></div>

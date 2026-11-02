@@ -5,7 +5,7 @@
 <div class="home-page-body">
   <div class="home-page-content">
     <section class="home-hero-banner">
-      <img src="{{ get_url(path=home_data.hero.background_image) }}" alt="" class="home-section-bg-img" aria-hidden="true" />
+      <img src="{{ <img_url path={home_data.hero.background_image} /> }}" alt="" class="home-section-bg-img" aria-hidden="true" fetchpriority="high" />
       <div class="home-hero-vignette" aria-hidden="true"></div>
       <div class="divider-wave-bottom home-hero-divider-bottom" aria-hidden="true"></div>
       <div class="home-hero-glass-card">

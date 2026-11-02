@@ -8,7 +8,7 @@
 <div class="tf-artists-page">
 <section class="tf-hero-banner tf-artists-hero">
 <div class="tf-artists-hero-bg" aria-hidden="true">
-<img src="{{ get_url(path=data.hero.bg_image) }}" alt="" />
+<img src="{{ <img_url path={data.hero.bg_image} /> }}" alt="" fetchpriority="high" />
 </div>
 <div class="tf-hero-container tf-artists-hero-inner">
 <div class="tf-hero-box tf-artists-hero-card">
@@ -26,7 +26,7 @@
 {% for artist in data.featured %}
 <article class="tf-artists-feat-card">
 <div class="tf-artists-feat-art">
-<img class="tf-artists-feat-img" src="{{ get_url(path=artist.image) }}" alt="{{ artist.name }}" />
+<img class="tf-artists-feat-img" src="{{ <img_url path={artist.image} /> }}" alt="{{ artist.name }}" loading="lazy" decoding="async" />
 </div>
 <div class="tf-artists-feat-content">
 <div class="tf-artists-feat-headline">
@@ -107,9 +107,9 @@
 </div>
 <div class="tf-artists-roster-avatar">
 {% if artist.bg_image %}
-<img src="{{ get_url(path=artist.bg_image) }}" alt="" aria-hidden="true" />
+<img src="{{ <img_url path={artist.bg_image} /> }}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
 {% endif %}
-<img src="{{ get_url(path=artist.image) }}" alt="{{ artist.name }}" />
+<img src="{{ <img_url path={artist.image} /> }}" alt="{{ artist.name }}" loading="lazy" decoding="async" />
 </div>
 </div>
 <p class="tf-artists-roster-table">{{ artist.table }}</p>
@@ -123,8 +123,8 @@
 <section class="tf-artists-fullbleed tf-artists-maps-sec">
 <div class="tf-artists-divider tf-artists-divider--maps tf-mod-divider">
 <div class="tf-artists-divider-bg tf-mod-divider-bg" aria-hidden="true">
-<img class="tf-artists-divider-bg-base" src="{{ get_url(path='img/Freeze Background.png') }}" alt="" />
-<img class="tf-artists-divider-bg-photo" src="{{ get_url(path='img/artists/maps_banner_bg.jpg') }}" alt="" />
+<img class="tf-artists-divider-bg-base" src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" loading="lazy" decoding="async" />
+<img class="tf-artists-divider-bg-photo" src="{{ <img_url path="img/artists/maps_banner_bg.jpg" /> }}" alt="" loading="lazy" decoding="async" />
 <div class="tf-artists-divider-bg-tint"></div>
 </div>
 <div class="tf-artists-divider-vignette tf-mod-divider-vignette" aria-hidden="true"></div>
@@ -147,7 +147,7 @@
 <div class="tf-artists-map-viewer tf-mod-map-stage">
 <div class="tf-artists-map-canvas">
 {% for tab in data.maps_section.tabs %}
-<img class="tf-artists-map-img tf-artists-map-img--{{ loop.index }} tf-mod-map-panel tf-mod-map-panel--{{ loop.index }}" src="{{ get_url(path=tab.image) }}" alt="{{ tab.alt }}" />
+<img class="tf-artists-map-img tf-artists-map-img--{{ loop.index }} tf-mod-map-panel tf-mod-map-panel--{{ loop.index }}" src="{{ <img_url path={tab.image} /> }}" alt="{{ tab.alt }}" loading="lazy" decoding="async" />
 {% endfor %}
 </div>
 <button class="tf-artists-map-zoom tf-mod-map-zoom" type="button" aria-label="{{ data.maps_section.zoom_label }}">
@@ -161,8 +161,8 @@
 <section class="tf-artists-fullbleed tf-artists-past-sec">
 <div class="tf-artists-divider tf-artists-divider--past tf-mod-divider">
 <div class="tf-artists-divider-bg tf-mod-divider-bg" aria-hidden="true">
-<img class="tf-artists-divider-bg-past-desktop" src="{{ get_url(path='img/artists/past_banner_bg.jpg') }}" alt="" />
-<img class="tf-artists-divider-bg-past-mobile" src="{{ get_url(path='img/Freeze Background.png') }}" alt="" />
+<img class="tf-artists-divider-bg-past-desktop" src="{{ <img_url path="img/artists/past_banner_bg.jpg" /> }}" alt="" loading="lazy" decoding="async" />
+<img class="tf-artists-divider-bg-past-mobile" src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" loading="lazy" decoding="async" />
 <div class="tf-artists-divider-bg-tint"></div>
 </div>
 <div class="tf-artists-divider-vignette tf-mod-divider-vignette" aria-hidden="true"></div>
@@ -180,7 +180,7 @@
 <div class="tf-artists-polaroid-rot">
 <div class="tf-artists-polaroid-card tf-mod-polaroid tf-mod-polaroid--sm">
 <div class="tf-artists-polaroid-photo tf-mod-polaroid-photo">
-<img class="tf-artists-polaroid-photo-fg" src="{{ get_url(path=item.image) }}" alt="{{ item.lines | join(sep=' ') }}" />
+<img class="tf-artists-polaroid-photo-fg" src="{{ <img_url path={item.image} /> }}" alt="{{ item.lines | join(sep=' ') }}" loading="lazy" decoding="async" />
 </div>
 <div class="tf-artists-polaroid-dots tf-mod-polaroid-dots">
 <img src="{{ get_url(path='img/shared/polaroid_dots.svg') }}" alt="" aria-hidden="true" />
