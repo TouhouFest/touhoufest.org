@@ -339,9 +339,20 @@
 }
 .tf-mod-callout--horiz.is-newsletter {
   align-items: flex-start;
-  border-left: 3px dashed #bf3444;
+  border-left: 0;
+  position: relative;
   padding: 48px;
   gap: 40px;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background-color: #bf3444;
+    -webkit-mask: url("#{$svg-ribbon-dashed-vert}") left top / 3px 28px repeat-y;
+    mask: url("#{$svg-ribbon-dashed-vert}") left top / 3px 28px repeat-y;
+    pointer-events: none;
+  }
 }
 .tf-mod-callout-icon {
   width: 100px;
@@ -451,8 +462,8 @@
       color: var(--tf-text-primary, #fbf7eb);
     }
   }
-  .tf-mod-callout--horiz.is-newsletter {
-    border-left-color: #fbf7eb;
+  .tf-mod-callout--horiz.is-newsletter::before {
+    background-color: #fbf7eb;
   }
 }
 

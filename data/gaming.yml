@@ -198,7 +198,7 @@ badge_cta:
   title: "2026 Full Weekend Badge"
   button_label: "Buy badge"
   button_url: "/register"
-  image: "/img/badge_teaser.png"
+  image: "img/badge_teaser.png"
 
 discord_cta:
   title: "Find us on"

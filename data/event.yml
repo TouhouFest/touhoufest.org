@@ -78,7 +78,7 @@ badge_cta:
   title: "2026 Full Weekend Badge"
   cta_label: "Buy badge"
   cta_path: "register"
-  image: "img/event/badge_stay_tuned.png"
+  image: "img/badge_teaser.png"
   image_alt: "2026 Full Weekend Badge"
 
 discord_cta:

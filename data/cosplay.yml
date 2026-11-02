@@ -151,7 +151,6 @@ masquerade:
 guests:
   title: "2027 Cosplay Guests"
   divider_image: "img/cosplay/divider_guests.jpg"
-  circle_bg: "img/cosplay/guest_circle_bg.png"
   items:
     - role: "Cosplay Guest Judge"
       name: "Tororo"
@@ -216,7 +215,7 @@ callouts:
   - key: "guidelines"
     title: "Event Guidelines"
     description: "Before attending, please be sure to check these guidelines"
-    image: "img/cosplay/icon_guidelines_ema.png"
+    image: "img/guidelines_icon.svg"
     button_label: "Event Guidelines"
     button_url: "/about/guidelines/"
     external: false

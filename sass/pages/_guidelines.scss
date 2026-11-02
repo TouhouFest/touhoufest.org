@@ -104,12 +104,6 @@ body:has(.guidelines-page-wrapper) main {
   height: 16px;
   margin-left: 0;
 }
-.tf-icon-hat {
-  @include tf-mask-icon("img/guidelines/icon_hat.png");
-}
-.tf-icon-medal {
-  @include tf-mask-icon("img/guidelines/icon_medal.png");
-}
 
 /* Markdown typography inside guidelines */
 .guidelines-markdown-body {

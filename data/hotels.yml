@@ -27,7 +27,7 @@ hotels:
 badge_cta:
   title: "2026 Weekend Badge"
   mobile_title: "2026 Full Weekend Badge"
-  image: "img/hotels/badge_hero.png"
+  image: "img/badge_teaser.png"
   url: "/register"
   button_text: "Buy badge"
 
