@@ -1,5 +1,7 @@
 # The URL the site will be built for
 base_url = "https://touhoufest.org"
+title = "TouhouFest"
+description = "TouhouFest is an annual Touhou Project fan convention held at the Torrance Cultural Arts Center in Torrance, California, featuring concerts, artist alley, gaming, cosplay, and special guests."
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -13,6 +15,15 @@ build_search_index = true
 site_name = "TouhouFest"
 event_start = "2027-06-19"
 event_end = "2027-06-20"
+default_og_image = "banner.png"
+venue_name = "Torrance Cultural Arts Center"
+venue_street = "3330 Civic Center Dr"
+venue_city = "Torrance"
+venue_region = "CA"
+venue_postal_code = "90503"
+venue_country = "US"
+organizer_name = "AMP Organization"
+organizer_url = "https://amp-organization.com/"
 
 [extra.socials]
 discord_invite = "https://discord.gg/touhoufest"

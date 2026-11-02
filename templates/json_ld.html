@@ -1,0 +1,92 @@
+{%- set is_home = current_path is defined and current_path == "/" -%}
+{%- set is_event = current_path is defined and current_path == "/about/event/" -%}
+{%- set is_faq = current_path is defined and current_path == "/about/faq/" -%}
+
+{%- if is_home -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ config.extra.site_name | default(value="TouhouFest") | json_encode | safe }},
+  "url": {{ get_url(path="") | json_encode | safe }},
+  "logo": {{ get_url(path="banner.png") | json_encode | safe }},
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": {{ config.extra.organizer_name | default(value="AMP Organization") | json_encode | safe }},
+    "url": {{ config.extra.organizer_url | default(value="https://amp-organization.com/") | json_encode | safe }}
+  },
+  "sameAs": [
+    {{ config.extra.socials.twitter | json_encode | safe }},
+    {{ config.extra.socials.bluesky | json_encode | safe }},
+    {{ config.extra.socials.youtube | json_encode | safe }},
+    {{ config.extra.socials.instagram | json_encode | safe }},
+    {{ config.extra.socials.discord_invite | json_encode | safe }}
+  ]
+}
+</script>
+{%- endif -%}
+
+{%- if is_home or is_event -%}
+{%- set ev_data = load_data(path="data/event.yml") -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Festival",
+  "name": {{ config.extra.site_name | default(value="TouhouFest") | json_encode | safe }},
+  "description": {{ ev_data.hero.p1 | json_encode | safe }},
+  "startDate": {{ config.extra.event_start | json_encode | safe }},
+  "endDate": {{ config.extra.event_end | json_encode | safe }},
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "url": {{ get_url(path="about/event") | json_encode | safe }},
+  "image": [
+    {{ get_url(path=ev_data.hero.desktop_image) | json_encode | safe }}
+  ],
+  "location": {
+    "@type": "Place",
+    "name": {{ config.extra.venue_name | default(value="Torrance Cultural Arts Center") | json_encode | safe }},
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": {{ config.extra.venue_street | default(value="3330 Civic Center Dr") | json_encode | safe }},
+      "addressLocality": {{ config.extra.venue_city | default(value="Torrance") | json_encode | safe }},
+      "addressRegion": {{ config.extra.venue_region | default(value="CA") | json_encode | safe }},
+      "postalCode": {{ config.extra.venue_postal_code | default(value="90503") | json_encode | safe }},
+      "addressCountry": {{ config.extra.venue_country | default(value="US") | json_encode | safe }}
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": {{ config.extra.organizer_name | default(value="AMP Organization") | json_encode | safe }},
+    "url": {{ config.extra.organizer_url | default(value="https://amp-organization.com/") | json_encode | safe }}
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": {{ get_url(path="register") | json_encode | safe }},
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+{%- endif -%}
+
+{%- if is_faq -%}
+{%- set faq_data = load_data(path="data/faq.yml") -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for item in faq_data.items -%}
+    {%- set answer_text = item.a | default(value=item.intro | default(value="")) -%}
+    {
+      "@type": "Question",
+      "name": {{ item.q | json_encode | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ answer_text | markdown(inline=true) | striptags | trim | json_encode | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}

@@ -1,10 +1,10 @@
 +++
 title = "Staff & Volunteer Opportunities"
 weight = 10
-+++
 
-{{ <page_header title="Staff & Volunteer Opportunities" subtitle="Join our dedicated team of
-organizing staff and festival weekend volunteers to help bring TouhouFest to life." /> }}
+[extra]
+subtitle = "Join our dedicated team of organizing staff and festival weekend volunteers to help bring TouhouFest to life."
++++
 
 <div class="my-5">
   <h2 class="title is-3 mb-4">Why Join Our Staff?</h2>

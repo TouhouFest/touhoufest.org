@@ -1,30 +1,52 @@
+{%- set site_name = config.extra.site_name | default(value="TouhouFest") -%}
+{%- if page is defined and page.title -%}
+  {%- set meta_title = page.title ~ " | " ~ site_name -%}
+  {%- set og_type = "article" -%}
+{%- elif section is defined and section.title and section.title != "Home" -%}
+  {%- set meta_title = section.title ~ " | " ~ site_name -%}
+  {%- set og_type = "website" -%}
+{%- else -%}
+  {%- set meta_title = config.title | default(value=site_name) -%}
+  {%- set og_type = "website" -%}
+{%- endif -%}
 
-{% if page is defined and page.title %}
-  <meta content="{{ page.title }}" property="og:title">
-{% else %}
-  <meta content="{{ config.title }}" property="og:title">
+{%- if page is defined and page.description -%}
+  {%- set meta_desc = page.description -%}
+{%- elif section is defined and section.description -%}
+  {%- set meta_desc = section.description -%}
+{%- else -%}
+  {%- set meta_desc = config.description | default(value="") -%}
+{%- endif -%}
+
+{%- if page is defined and page.extra.hero_image -%}
+  {%- set meta_img = get_url(path=page.extra.hero_image) -%}
+{%- elif page is defined and page.image -%}
+  {%- set meta_img = get_url(path=page.image) -%}
+{%- else -%}
+  {%- set meta_img = get_url(path=config.extra.default_og_image | default(value="banner.png")) -%}
+{%- endif -%}
+
+{% if meta_desc %}
+  <meta name="description" content="{{ meta_desc }}">
 {% endif %}
-
-{% if page is defined and page.title %}
-  <meta content="article" property="og:type">
-{% else %}
-  <meta content="website" property="og:type">
+  <meta property="og:site_name" content="{{ site_name }}">
+  <meta property="og:title" content="{{ meta_title }}">
+  <meta property="og:type" content="{{ og_type }}">
+{% if meta_desc %}
+  <meta property="og:description" content="{{ meta_desc }}">
 {% endif %}
-
-{% if page is defined and page.description %}
-  <meta content="{{ page.description }}" property="og:description">
+{% if current_url is defined %}
+  <meta property="og:url" content="{{ current_url | safe }}">
 {% endif %}
-
-{% if page is defined and page.url %}
-  <meta content="{{ config.base_url | default(value='') }}{{ page.url }}" property="og:url">
+  <meta property="og:image" content="{{ meta_img | safe }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@TouhouFest">
+  <meta name="twitter:title" content="{{ meta_title }}">
+{% if meta_desc %}
+  <meta name="twitter:description" content="{{ meta_desc }}">
 {% endif %}
-
+  <meta name="twitter:image" content="{{ meta_img | safe }}">
 {% if page is defined and page.date %}
   <meta content="{{ page.date | date(format="%+") }}" property="article:published_time">
   <meta content="{{ get_url(path="/about/event/") }}" property="article:author">
 {% endif %}
-
-{% if page is defined and page.image %}
-  <meta content="{{ get_url(path=page.image) }}" property="og:image">
-{% endif %}
-
