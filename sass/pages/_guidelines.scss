@@ -27,7 +27,7 @@ body:has(.guidelines-page-wrapper) main {
   flex: none;
 }
 .guidelines-page-wrapper {
-  background: linear-gradient(122.61deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  background: linear-gradient(122.61deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
   padding: 77px 0;
 }
 .guidelines-content-container {
@@ -233,7 +233,7 @@ body:has(.guidelines-page-wrapper) main {
     height: 138px;
   }
   .guidelines-page-wrapper {
-    background: linear-gradient(95.51deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+    background: linear-gradient(95.51deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
   }
   .guidelines-jump-box {
     margin: 3px 0 60px;
@@ -302,6 +302,10 @@ body:has(.guidelines-page-wrapper) main {
 
 @include dark-mode {
   .guidelines-page-wrapper {
-    background: linear-gradient(157.13deg, #30293e 28.353%, #221a28 93.86%);
+    background: linear-gradient(
+      157.13deg,
+      var(--tf-canvas-bg) 28.353%,
+      var(--tf-canvas-end) 93.86%
+    );
   }
 }

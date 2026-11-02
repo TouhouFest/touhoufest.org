@@ -8,8 +8,8 @@ $home-tx: 300ms ease-out;
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: #fbf7eb;
-  color: #30293e;
+  background-color: var(--tf-canvas-bg);
+  color: var(--tf-ink);
   font-family: "Open Sans", sans-serif;
 
   /* Universal Shared Component Typography, Layout & Transitions */
@@ -17,11 +17,13 @@ $home-tx: 300ms ease-out;
     @include tf-h2;
   }
   :is(.home-banner-card-title, .home-guests-heading, .pillar-card-title) {
-    color: #bf3444;
+    color: var(--tf-accent);
   }
   :is(.home-venue-card-body, .guest-teaser-role, .pillar-card-body) {
     @include tf-body;
-    color: #30293e;
+  }
+  :is(.home-venue-card-body, .guest-teaser-role, .pillar-card-body, .sticker-text) {
+    color: var(--tf-ink);
   }
 
   :is(.ofuda-sticker-card, .home-banner-cream-card, .pillar-card),
@@ -101,8 +103,8 @@ $home-tx: 300ms ease-out;
     gap: 10px;
     padding: 0 40px;
     border-radius: 35px;
-    background-color: #bf3444;
-    color: #fffde7;
+    background-color: var(--tf-accent);
+    color: var(--tf-text-title-dark);
     border: none;
     box-shadow: none;
     cursor: pointer;
@@ -116,14 +118,14 @@ $home-tx: 300ms ease-out;
 
     &:hover {
       box-shadow: 0 4px 22px 3px rgba(191, 52, 68, 0.5);
-      color: #fffde7;
+      color: var(--tf-text-title-dark);
       transform: none;
     }
     &.home-cta-btn-ko {
-      background-color: #fffde7;
-      color: #30293e;
+      background-color: var(--tf-btn-ko-bg);
+      color: var(--tf-ink);
       &:hover {
-        color: #30293e;
+        color: var(--tf-ink);
       }
     }
   }
@@ -165,7 +167,11 @@ $home-tx: 300ms ease-out;
   .home-page-content {
     gap: 77px;
     padding-bottom: 77px;
-    background-image: linear-gradient(132.88deg, #fbf7eb 28.35%, #ffe1e1 93.86%);
+    background-image: linear-gradient(
+      132.88deg,
+      var(--tf-canvas-bg) 28.35%,
+      var(--tf-canvas-end) 93.86%
+    );
   }
 
   /* 1. Hero Banner */
@@ -193,7 +199,7 @@ $home-tx: 300ms ease-out;
     height: 260px;
     padding: 48px;
     border-radius: 5px;
-    border: 1px solid #bf3444;
+    border: 1px solid var(--tf-accent);
     background: linear-gradient(180.49deg, rgba(93, 4, 5, 0.72) 5.57%, rgba(48, 41, 62, 0.55) 100%);
     @include flex-col-center;
     text-align: center;
@@ -312,7 +318,7 @@ $home-tx: 300ms ease-out;
     gap: 24px;
   }
   .home-banner-cream-card {
-    background-color: #fffde7;
+    background-color: var(--tf-surface-paper);
     border-radius: 5px;
     padding: 48px 72px 48px 48px;
     text-align: left;
@@ -366,7 +372,7 @@ $home-tx: 300ms ease-out;
   }
   .guest-teaser-name {
     @include tf-h3;
-    color: #bf3444;
+    color: var(--tf-accent);
   }
   .guest-avatar-frame {
     position: relative;
@@ -434,7 +440,7 @@ $home-tx: 300ms ease-out;
   }
   .pillar-card {
     position: relative;
-    border: 1px solid #bf3444;
+    border: 1px solid var(--tf-accent);
     border-radius: 5px;
     padding: 48px;
   }
@@ -528,10 +534,10 @@ $home-tx: 300ms ease-out;
   }
 
   :is(.home-twitter-outer, .home-twitter-banner) {
-    background-color: #bf3444;
+    background-color: var(--tf-accent);
   }
   .home-twitter-outer {
-    border: 1px solid #bf3444;
+    border: 1px solid var(--tf-accent);
   }
   .home-twitter-banner {
     border-radius: 5px;
@@ -540,7 +546,7 @@ $home-tx: 300ms ease-out;
     align-items: center;
   }
   .home-twitter-title {
-    color: #fffde7;
+    color: var(--tf-text-title-dark);
   }
 }
 
@@ -786,40 +792,37 @@ $home-tx: 300ms ease-out;
 
 @include dark-mode {
   .home-page-body {
-    background-color: var(--tf-surface, #30293e);
-    color: var(--tf-text-primary, #fbf7eb);
-
     .home-page-content {
-      background: var(--tf-surface, #30293e)
-        linear-gradient(132.88deg, #30293e 28.353%, #221a28 93.86%);
+      background: var(--tf-canvas-bg)
+        linear-gradient(132.88deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
     }
 
-    :is(.ofuda-sticker-card, .home-banner-cream-card) {
-      background: var(--tf-surface-paper, #221a28);
+    .ofuda-sticker-card {
+      background: var(--tf-surface-paper);
     }
     .pillar-card-cream {
-      background-color: var(--tf-surface-paper, #221a28);
+      background-color: var(--tf-surface-paper);
       border-color: transparent;
     }
     .pillar-card-gradient {
-      background-color: var(--tf-surface-card, #221a28);
-      border-color: var(--tf-accent, #f9c650);
+      background-color: var(--tf-surface-card);
       &::before {
-        background-image: linear-gradient(114.21deg, #221a28 55.47%, rgba(34, 26, 40, 0) 89.52%);
+        background-image: linear-gradient(
+          114.21deg,
+          var(--tf-surface-card) 55.47%,
+          rgba(34, 26, 40, 0) 89.52%
+        );
       }
     }
     .pillar-mesh-bg {
       opacity: 1;
     }
     :is(.home-announcement-divider, .home-venue-divider) {
-      background-color: var(--tf-surface, #30293e);
+      background-color: var(--tf-surface);
     }
     :is(.home-stickers-streamer, .home-bottom-streamer, .home-pillars-streamer) {
       width: 192.67px;
       background-image: url("img/home/star-streamer-dark.svg");
-    }
-    .home-hero-glass-card {
-      border-color: var(--tf-accent, #f9c650);
     }
     .card-bookmark-ribbon {
       background-image: url("img/shared/ribbon_vertical_dark.svg");
@@ -827,31 +830,6 @@ $home-tx: 300ms ease-out;
     .guest-ring-svg {
       filter: brightness(0) saturate(100%) invert(34%) sepia(87%) saturate(3075%) hue-rotate(272deg)
         brightness(96%) contrast(93%);
-    }
-    :is(.sticker-text, .guest-teaser-role, .pillar-card-body, .home-venue-card-body) {
-      color: var(--tf-text-primary, #fbf7eb);
-    }
-    :is(.home-banner-card-title, .home-guests-heading, .guest-teaser-name, .pillar-card-title) {
-      color: var(--tf-accent, #f9c650);
-    }
-
-    .home-cta-btn:not(.home-cta-btn-ko) {
-      background-color: var(--tf-accent, #f9c650);
-      color: #511154;
-      .home-cta-chevron {
-        background-color: #511154;
-      }
-    }
-
-    .home-discord-card .home-cta-chevron {
-      background-color: #fbf7eb;
-    }
-    :is(.home-twitter-outer, .home-twitter-banner) {
-      background-color: var(--tf-accent, #f9c650);
-      border-color: var(--tf-accent, #f9c650);
-    }
-    .home-twitter-title {
-      color: #511154;
     }
   }
 }

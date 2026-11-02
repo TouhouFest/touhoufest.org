@@ -13,7 +13,8 @@
   width: 100%;
 }
 .register-page-layout {
-  background: #fbf7eb linear-gradient(138.51deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  background: var(--tf-canvas-bg)
+    linear-gradient(138.51deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
   @include flex-col-center;
   padding: 48px 0;
 }
@@ -170,8 +171,8 @@
   border: none;
 }
 .tf-btn-pill-cream {
-  background-color: #fffde7;
-  color: #30293e;
+  background-color: var(--tf-btn-ko-bg);
+  color: var(--tf-ink);
 }
 .tf-btn-label {
   text-decoration: underline;
@@ -204,7 +205,7 @@
   @include flex-column;
 }
 :is(.pricing-header-row, .th-single) {
-  background-color: var(--tf-color-red, #bf3444);
+  background-color: var(--tf-accent);
   color: #fffde7;
   height: 51px;
 }
@@ -228,8 +229,8 @@
   min-width: 0;
 }
 :is(.th-date, .th-weekend, .th-single) {
-  border-right: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid var(--tf-surface);
+  border-bottom: 1px solid var(--tf-surface);
 }
 .pricing-body-rows {
   @include flex-column;
@@ -292,7 +293,7 @@
 }
 .pricing-stay-tuned {
   width: 100%;
-  background-color: #564b58;
+  background-color: var(--tf-text-muted);
   @include flex-center;
   text-align: center;
   @include tf-body;
@@ -363,16 +364,16 @@
   display: inline-block;
   text-transform: uppercase;
 }
-:is(.pricing-stay-tuned, .app-badge-open, .cosplay-masquerade-card, .cosplay-card-title) {
-  color: #ffffff;
+:is(.pricing-stay-tuned, .app-badge-open, .cosplay-masquerade-card, .cosplay-rules-link) {
+  color: var(--tf-on-accent-body);
 }
 .app-badge-open {
-  background-color: var(--tf-color-red, #bf3444);
+  background-color: var(--tf-accent);
   border-radius: 5px;
   padding: 6px 7px;
 }
 .app-badge-closed {
-  color: #564b58;
+  color: var(--tf-text-muted);
   padding: 6px 7px 6px 0;
 }
 .cosplay-masquerade-card {
@@ -380,24 +381,22 @@
   max-width: 850px;
   height: 234px;
   min-height: 234px;
-  background-color: var(--tf-color-red, #bf3444);
-  border: 1px solid var(--tf-color-red, #bf3444);
+  background-color: var(--tf-accent);
+  border: 1px solid var(--tf-accent);
   border-radius: 5px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 48px;
   text-align: left;
 }
 .cosplay-card-title {
+  color: #ffffff;
   font-size: 2rem;
 }
 .cosplay-card-desc {
   color: var(--tf-color-cream, #fbf7eb);
 }
-.cosplay-rules-link {
-  color: #ffffff;
-  &:hover {
-    color: #fffde7;
-  }
+.cosplay-rules-link:hover {
+  color: #fffde7;
 }
 :is(.cosplay-buttons-wrap, .callout-action) {
   display: flex;
@@ -416,7 +415,7 @@
   min-height: 234px;
   position: relative;
   &.is-red {
-    border: 1px solid var(--tf-color-red, #bf3444);
+    border: 1px solid var(--tf-accent);
   }
   &.is-newsletter {
     padding: 46px 48px;
@@ -445,7 +444,11 @@
 }
 @media (max-width: 768px) {
   .register-page-layout {
-    background-image: linear-gradient(100.62deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+    background-image: linear-gradient(
+      100.62deg,
+      var(--tf-canvas-bg) 28.353%,
+      var(--tf-canvas-end) 93.86%
+    );
   }
   .register-content-container {
     width: calc(100% - 62px);
@@ -653,13 +656,20 @@
 
 @include dark-mode {
   .is-register-divider .tf-mod-divider-bottom {
-    background-color: #30293e;
+    background-color: var(--tf-canvas-bg);
   }
   .register-page-layout {
-    background-color: #30293e;
-    background-image: linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
+    background-image: linear-gradient(
+      153.52deg,
+      var(--tf-canvas-bg) 28.353%,
+      var(--tf-canvas-end) 93.86%
+    );
     @media (max-width: 768px) {
-      background-image: linear-gradient(112.55deg, #30293e 28.353%, #221a28 93.86%);
+      background-image: linear-gradient(
+        112.55deg,
+        var(--tf-canvas-bg) 28.353%,
+        var(--tf-canvas-end) 93.86%
+      );
     }
   }
   .register-hero-card {
@@ -670,35 +680,15 @@
       background: linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%);
     }
   }
-  :is(.pricing-header-row, .th-single, .app-badge-open, .cosplay-masquerade-card) {
-    background-color: #f9c650;
-    color: #30293e;
-  }
-  :is(.th-date, .th-weekend, .th-single) {
-    border-color: #30293e;
+  :is(.pricing-header-row, .th-single, .cosplay-card-desc) {
+    color: var(--tf-on-accent-body);
   }
   .pricing-row.is-sold-out .td-price {
     background-color: rgba(203, 203, 210, 0.69);
-    border-color: #f9c650;
+    border-color: var(--tf-accent);
     color: rgba(0, 0, 0, 0.86);
   }
-  :is(.pricing-stay-tuned, .cosplay-card-desc, .cosplay-rules-link) {
-    color: #30293e;
-  }
-  .pricing-stay-tuned {
-    background-color: #cbcbd2;
-  }
   .app-card {
-    --tf-reg-card-grad: #30293e;
-  }
-  .app-badge-closed {
-    color: #cbcbd2;
-  }
-  :is(.cosplay-masquerade-card, .register-callout-card.is-red) {
-    border-color: #f9c650;
-  }
-  .tf-btn-pill-cream {
-    background-color: #511154;
-    color: #fbf7eb;
+    --tf-reg-card-grad: var(--tf-canvas-bg);
   }
 }

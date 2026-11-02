@@ -22,7 +22,7 @@ body:has(.tf-artists-page) > main {
   overflow-x: hidden;
   background: linear-gradient(126.92deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
   font-family: "Open Sans", sans-serif;
-  color: #30293e;
+  color: var(--tf-ink);
   :is(*, *::before, *::after) {
     box-sizing: border-box;
   }
@@ -218,12 +218,12 @@ body:has(.tf-artists-page) > main {
   }
 }
 .tf-artists-feat-btn {
-  background: var(--tf-surface-paper, #fffde7);
+  background: var(--tf-btn-light-bg);
   white-space: nowrap;
   flex-shrink: 0;
 }
 .tf-artists-feat-btn-label {
-  color: #30293e;
+  color: var(--tf-btn-light-ink);
   white-space: nowrap;
 }
 
@@ -670,8 +670,8 @@ body:has(.tf-artists-page) > main {
 /* Dark Mode Variants */
 @include dark-mode {
   .tf-artists-page {
-    background: #30293e linear-gradient(126.92deg, #30293e 28.353%, #221a28 93.86%);
-    color: #fbf7eb;
+    background: var(--tf-canvas-bg)
+      linear-gradient(126.92deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
   }
   .tf-artists-feat-headline {
     background: linear-gradient(
@@ -680,12 +680,6 @@ body:has(.tf-artists-page) > main {
       rgba(48, 41, 62, 0.39) 22.696%,
       #373852 77.389%
     );
-  }
-  :is(.tf-artists-feat-btn, .tf-artists-ofuda-btn) {
-    background: #f9c650;
-  }
-  :is(.tf-artists-feat-btn-label, .tf-artists-ofuda-btn-label) {
-    color: #511154;
   }
   .tf-artists-ofuda-btn-icon img {
     filter: brightness(0) saturate(100%) invert(11%) sepia(63%) saturate(3825%) hue-rotate(286deg)

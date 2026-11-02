@@ -1,6 +1,7 @@
 // Intro to Touhou Page
 body:has(.tf-intro-page) {
-  background: #fbf7eb linear-gradient(131.699deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  background: var(--tf-canvas-bg)
+    linear-gradient(131.699deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
 }
 .page-hero-banner.is-intro-hero {
   background: url("hero.webp") center/cover no-repeat;
@@ -10,28 +11,28 @@ body:has(.tf-intro-page) {
   .page-hero-title-box {
     max-width: min(632px, 100%);
     padding: 2.75rem 3rem;
-    background-color: #bf3444;
+    background-color: var(--tf-accent);
     box-shadow: none;
   }
   .page-hero-title {
     font-size: 56px;
     line-height: 1.1;
-    color: #fffde7;
+    color: var(--tf-text-title-dark);
   }
 }
 .tf-intro-page {
-  --intro-surface: #fffde7;
-  --intro-surface-alt: #ffffff;
+  --intro-surface: var(--tf-surface-paper);
+  --intro-surface-alt: var(--tf-surface);
   --intro-badge-bg: linear-gradient(180deg, #fff5f5 0%, #ffffff 45%);
   --intro-border: rgba(191, 52, 68, 0.22);
   --intro-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
   --intro-shadow-hover: 0 4px 22px 3px rgba(191, 52, 68, 0.5);
   --intro-heading: #221a28;
-  --intro-red: #bf3444;
-  --intro-text: #30293e;
+  --intro-red: var(--tf-accent);
+  --intro-text: var(--tf-ink);
   --intro-muted: #564b58;
   --intro-tag-bg: #ffe1e1;
-  --intro-tag-fg: #bf3444;
+  --intro-tag-fg: var(--tf-accent);
   --intro-chip-bg: rgba(191, 52, 68, 0.08);
   .intro-cta-btn {
     font: 600 18px/1.1 var(--tf-font-heading);
@@ -422,7 +423,7 @@ body:has(.tf-intro-page) {
   gap: 0.5rem;
   padding: 0.9rem 1.35rem;
   background: linear-gradient(135deg, #3b1d2e 0%, #24192e 100%);
-  border-bottom: 2px solid #bf3444;
+  border-bottom: 2px solid var(--tf-accent);
 }
 .game-era-chip {
   font: 700 11px/1.5 var(--tf-font-heading);
@@ -548,7 +549,11 @@ body:has(.tf-intro-page) {
 }
 @media screen and (max-width: 768px) {
   body:has(.tf-intro-page) {
-    background-image: linear-gradient(98.423deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+    background-image: linear-gradient(
+      98.423deg,
+      var(--tf-canvas-bg) 28.353%,
+      var(--tf-canvas-end) 93.86%
+    );
   }
   .page-hero-banner.is-intro-hero {
     min-height: 314px;
@@ -642,59 +647,52 @@ body:has(.tf-intro-page) {
 }
 @include dark-mode {
   &:has(.tf-intro-page) {
-    --tf-color-cream: #30293e;
-    --tf-color-yellow-light: #221a28;
-    --tf-color-subhead: #fbf7eb;
-    --tf-color-dark: #fbf7eb;
-    --bulma-body-background-color: #30293e;
-    --bulma-scheme-main: #221a28;
-    --bulma-text: #fbf7eb;
-    --bulma-text-strong: #fbf7eb;
+    --tf-color-cream: var(--tf-canvas-bg);
+    --tf-color-yellow-light: var(--tf-canvas-end);
+    --tf-color-subhead: var(--tf-ink);
+    --tf-color-dark: var(--tf-ink);
+    --bulma-body-background-color: var(--tf-canvas-bg);
+    --bulma-scheme-main: var(--tf-canvas-end);
+    --bulma-text: var(--tf-ink);
+    --bulma-text-strong: var(--tf-ink);
   }
   body:has(.tf-intro-page),
   &:is(body):has(.tf-intro-page) {
-    background: #30293e linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
-    color: #fbf7eb;
+    background: var(--tf-canvas-bg)
+      linear-gradient(153.52deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
+    color: var(--tf-ink);
     @media screen and (max-width: 768px) {
-      background-image: linear-gradient(112.55deg, #30293e 28.353%, #221a28 93.86%);
+      background-image: linear-gradient(
+        112.55deg,
+        var(--tf-canvas-bg) 28.353%,
+        var(--tf-canvas-end) 93.86%
+      );
     }
   }
   .page-hero-banner.is-intro-hero {
     .page-hero-title-box {
-      background-color: #f9c650;
-      border: 1px solid #f9c650;
-    }
-    .page-hero-title {
-      color: #511154;
+      border: 1px solid var(--tf-accent);
     }
     .divider-wave-bottom {
-      background-color: #30293e;
+      background-color: var(--tf-canvas-bg);
     }
   }
   .tf-intro-page {
-    --intro-surface: #221a28;
-    --intro-surface-alt: #30293e;
     --intro-badge-bg: linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%), #373852;
     --intro-border: rgba(249, 198, 80, 0.55);
     --intro-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
     --intro-shadow-hover: 0 4px 22px 3px rgba(249, 198, 80, 0.35);
-    --intro-heading: #f9c650;
-    --intro-red: #f9c650;
-    --intro-text: #fbf7eb;
+    --intro-heading: var(--tf-accent);
     --intro-muted: #d8c8b8;
     --intro-tag-bg: rgba(249, 198, 80, 0.18);
-    --intro-tag-fg: #f9c650;
     --intro-chip-bg: rgba(249, 198, 80, 0.08);
     :is(.intro-pill-tag.is-solid, .tf-btn-danger.intro-cta-btn) {
-      background-color: #f9c650;
-      border-color: #f9c650;
-      color: #511154;
-    }
-    .game-era-banner {
-      border-bottom-color: #f9c650;
+      background-color: var(--tf-accent);
+      border-color: var(--tf-accent);
+      color: var(--tf-text-title-dark);
     }
     .intro-badge-card {
-      border-color: #f9c650;
+      border-color: var(--tf-accent);
     }
     .intro-discord-card .tf-mod-callout-icon {
       -webkit-mask-size: 100% 100%;

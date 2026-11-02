@@ -1,8 +1,7 @@
 // Contact Page
-$contact-svg-chevron: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 15'><path d='M7.74356 11.3932C8.16194 11.8033 8.8414 11.8033 9.25979 11.3932L15.6862 5.09446C16.1046 4.68438 16.1046 4.01842 15.6862 3.60834C15.2678 3.19826 14.5884 3.19826 14.17 3.60834L8.5 9.16569L2.83 3.61162C2.41164 3.20154 1.73218 3.20154 1.31379 3.61162C0.895403 4.02169 0.895403 4.68766 1.31379 5.09773L7.74021 11.3965L7.74356 11.3932Z'/></svg>";
-
 body:has(.tf-contact-page) {
-  background: #fbf7eb linear-gradient(153.52deg, #fbf7eb 28.353%, #ffe1e1 93.86%) no-repeat;
+  background: var(--tf-canvas-bg)
+    linear-gradient(153.52deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%) no-repeat;
   color: var(--tf-ink);
 }
 .tf-contact-page {
@@ -51,7 +50,7 @@ body:has(.tf-contact-page) {
     color: var(--tf-text-title-dark);
   }
   :is(.contact-hero-copy, .contact-hero-refund a) {
-    color: #ffffff;
+    color: var(--tf-on-accent-body);
   }
   .contact-hero-copy {
     font: 400 16px / 1.3 var(--tf-font-body);
@@ -174,8 +173,8 @@ body:has(.tf-contact-page) {
       height: 8px;
       pointer-events: none;
       background-color: #30293e;
-      -webkit-mask: url($contact-svg-chevron) center / 16px 15px no-repeat;
-      mask: url($contact-svg-chevron) center / 16px 15px no-repeat;
+      -webkit-mask: var(--tf-svg-chevron-down) center / 16px 15px no-repeat;
+      mask: var(--tf-svg-chevron-down) center / 16px 15px no-repeat;
     }
     .tf-form-textarea {
       height: 172px;
@@ -276,7 +275,11 @@ body:has(.tf-contact-page) {
 
 @media screen and (max-width: 768px) {
   body:has(.tf-contact-page) {
-    background-image: linear-gradient(112.55deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+    background-image: linear-gradient(
+      112.55deg,
+      var(--tf-canvas-bg) 28.353%,
+      var(--tf-canvas-end) 93.86%
+    );
   }
   .tf-contact-page {
     .contact-hero-section {
@@ -316,17 +319,7 @@ body:has(.tf-contact-page) {
 }
 
 @include dark-mode {
-  body:has(.tf-contact-page) {
-    background-color: #30293e;
-    background-image: linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
-    @media screen and (max-width: 768px) {
-      background-image: linear-gradient(112.55deg, #30293e 28.353%, #221a28 93.86%);
-    }
-  }
   .tf-contact-page {
-    :is(.contact-hero-copy, .contact-hero-refund a) {
-      color: #30293e;
-    }
     .contact-form {
       :is(.tf-form-input, .tf-form-select, .tf-form-textarea) {
         background-color: var(--tf-surface-navy);

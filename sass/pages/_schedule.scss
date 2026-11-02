@@ -1,6 +1,8 @@
 // Schedule Page
 body:has(.page-hero-banner.is-schedule) {
-  background: #fbf7eb linear-gradient(157.13deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  background: var(--tf-canvas-bg)
+    linear-gradient(157.13deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
+  color: var(--tf-ink);
 }
 .page-hero-banner.is-schedule {
   background: var(--tf-accent, #bf3444);
@@ -249,7 +251,11 @@ body:has(.page-hero-banner.is-schedule) {
         top: 4px;
         bottom: 4px;
         width: 2px;
-        background: repeating-linear-gradient(to bottom, #bf3444 0 15px, transparent 15px 30px);
+        background: repeating-linear-gradient(
+          to bottom,
+          var(--tf-newsletter-dash) 0 15px,
+          transparent 15px 30px
+        );
         pointer-events: none;
       }
       .schedule-cta-desc {
@@ -303,7 +309,8 @@ body:has(.page-hero-banner.is-schedule) {
 }
 @media screen and (max-width: 768px) {
   body:has(.page-hero-banner.is-schedule) {
-    background: #fbf7eb linear-gradient(175.82deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+    background: var(--tf-canvas-bg)
+      linear-gradient(175.82deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
   }
   .page-hero-banner.is-schedule {
     height: 813px;
@@ -431,14 +438,6 @@ body:has(.page-hero-banner.is-schedule) {
   }
 }
 @include dark-mode {
-  &:is(body:has(.page-hero-banner.is-schedule)),
-  body:has(.page-hero-banner.is-schedule) {
-    background: #30293e linear-gradient(157.13deg, #30293e 28.353%, #221a28 93.86%);
-    color: var(--tf-ink, #fbf7eb);
-    @media screen and (max-width: 768px) {
-      background-image: linear-gradient(175.82deg, #30293e 28.353%, #221a28 93.86%);
-    }
-  }
   .page-hero-banner.is-schedule {
     .schedule-app-label {
       color: #ffffff;
@@ -454,14 +453,11 @@ body:has(.page-hero-banner.is-schedule) {
     .schedule-cta-card.is-discord {
       transition: none;
       .schedule-cta-title {
-        color: #30293e;
+        color: var(--tf-on-accent-body);
       }
       .schedule-cta-desc {
         color: #564b58;
       }
-    }
-    .schedule-cta-card.is-newsletter::before {
-      background: repeating-linear-gradient(to bottom, #fbf7eb 0 15px, transparent 15px 30px);
     }
     :is(.schedule-badge-btn, .schedule-newsletter-btn) .schedule-btn-carrot {
       filter: brightness(0) saturate(100%) invert(11%) sepia(50%) saturate(3015%) hue-rotate(282deg)

@@ -1,11 +1,11 @@
 /* Hotels Page Body & Hero */
 $hotels-tx: 300ms ease-out;
-$hotels-chevron-svg: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 18"><path d="M1.5 1.5L8.5 9L1.5 16.5" fill="none" stroke="black" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 $hotels-mob-fade: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
 
 body:has(.page-hero-hotels) {
-  background: #fbf7eb linear-gradient(144.4377deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
-  color: #30293e;
+  background: var(--tf-canvas-bg)
+    linear-gradient(144.4377deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
+  color: var(--tf-ink);
 }
 
 .page-hero-banner.page-hero-hotels {
@@ -21,7 +21,7 @@ body:has(.page-hero-hotels) {
     width: 632px;
     margin: 48px 0;
     padding: 56px 48px;
-    background-color: #bf3444;
+    background-color: var(--tf-accent);
     box-shadow: none;
     justify-content: center;
   }
@@ -29,7 +29,7 @@ body:has(.page-hero-hotels) {
   .page-hero-title {
     font-size: 56px;
     line-height: 1.1;
-    color: #fffde7;
+    color: var(--tf-text-title-dark);
   }
 }
 
@@ -69,7 +69,7 @@ body:has(.page-hero-hotels) {
     height: 16px;
     margin-left: 0;
     vertical-align: middle;
-    @include tf-mask-icon($hotels-chevron-svg);
+    @include tf-mask-icon-var(var(--tf-svg-hotels-chevron));
   }
 
   :is(.hotel-block-action .tf-btn, .hero-card-btn, .hotels-newsletter .newsletter-form .tf-btn) {
@@ -86,8 +86,8 @@ body:has(.page-hero-hotels) {
       border-color $hotels-tx,
       transform $hotels-tx,
       box-shadow $hotels-tx;
-    background-color: #bf3444;
-    color: #fffde7;
+    background-color: var(--tf-accent);
+    color: var(--tf-text-title-dark);
     &:hover {
       box-shadow: 0 4px 22px 3px rgba(191, 52, 68, 0.5);
     }
@@ -271,12 +271,12 @@ body:has(.page-hero-hotels) {
 .hotel-info-pill {
   display: inline-flex;
   align-items: center;
-  border: 1px solid #30293e;
+  border: 1px solid var(--tf-ink);
   padding: 7px 15px 7px 7px;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.3;
-  color: #30293e;
+  color: var(--tf-ink);
   background-color: transparent;
   border-radius: 35px;
   gap: 8px;
@@ -350,7 +350,11 @@ body:has(.page-hero-hotels) {
 
 @media screen and (max-width: 768px) {
   body:has(.page-hero-hotels) {
-    background-image: linear-gradient(104.1041deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+    background-image: linear-gradient(
+      104.1041deg,
+      var(--tf-canvas-bg) 28.353%,
+      var(--tf-canvas-end) 93.86%
+    );
   }
 
   .page-hero-banner.page-hero-hotels {
@@ -516,35 +520,19 @@ body:has(.page-hero-hotels) {
 @include dark-mode {
   &:is(body:has(.page-hero-hotels)),
   body:has(.page-hero-hotels) {
-    background: #30293e linear-gradient(144.4377deg, #30293e 28.353%, #221a28 93.86%);
-    color: #fbf7eb;
+    background: var(--tf-canvas-bg)
+      linear-gradient(144.4377deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
   }
 
-  .page-hero-banner.page-hero-hotels {
-    .page-hero-title-box {
-      background-color: #f9c650;
-      border: 1px solid #f9c650;
-    }
-    .page-hero-title {
-      color: #511154;
-    }
+  .page-hero-banner.page-hero-hotels .page-hero-title-box {
+    border: 1px solid var(--tf-accent);
   }
 
   .hotel-block-ribbon {
     background-image: url("img/shared/ribbon_vertical_dark.svg");
   }
-  .hotel-info-pill {
-    background-color: transparent;
-    border-color: #fbf7eb;
-    color: #fbf7eb;
-  }
 
   .hotels-page-container {
-    :is(.hotel-block-action .tf-btn, .hero-card-btn, .hotels-newsletter .newsletter-form .tf-btn) {
-      background-color: #f9c650;
-      color: #511154;
-    }
-
     .hero-module-card.hotels-badge-card {
       background: linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%), #373852;
     }
@@ -553,7 +541,7 @@ body:has(.page-hero-hotels) {
       background-color: #6279d3;
       border-color: #6279d3;
       :is(.tf-mod-callout-title, .tf-teaser-title, .tf-mod-callout-desc, .tf-teaser-subtitle) {
-        color: #fbf7eb;
+        color: var(--tf-ink);
       }
     }
   }

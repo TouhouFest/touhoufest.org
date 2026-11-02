@@ -1,6 +1,7 @@
 // FAQ Page
 body:has(.tf-faq-page-body) {
-  background: var(--tf-surface-cream) linear-gradient(135.332deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  background: var(--tf-surface-cream)
+    linear-gradient(135.332deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
 }
 main:has(.tf-faq-page-body) {
   background: transparent;
@@ -210,11 +211,11 @@ main:has(.tf-faq-page-body) {
     width: auto;
     min-height: 0;
     box-shadow: none;
-    background-color: #fffde7;
+    background-color: var(--tf-btn-ko-bg);
     transition: 300ms ease-out;
     transition-property: background-color, color, border-color, transform, box-shadow;
     &:hover {
-      background-color: #fffde7;
+      background-color: var(--tf-btn-ko-bg);
       color: var(--tf-ink);
     }
   }
@@ -282,9 +283,12 @@ main:has(.tf-faq-page-body) {
 @include dark-mode {
   &:is(body:has(.tf-faq-page-body)),
   body:has(.tf-faq-page-body) {
-    background-image: linear-gradient(135.332deg, #30293e 28.353%, #221a28 93.86%);
     @media screen and (max-width: 768px) {
-      background-image: linear-gradient(108.747deg, #30293e 28.353%, #221a28 93.86%);
+      background-image: linear-gradient(
+        108.747deg,
+        var(--tf-canvas-bg) 28.353%,
+        var(--tf-canvas-end) 93.86%
+      );
     }
   }
   .tf-faq-container .tf-accordion {
@@ -295,14 +299,11 @@ main:has(.tf-faq-page-body) {
     .faq-callout-card-guidelines {
       background-color: #6279d3;
       :is(.faq-callout-title, .faq-callout-desc) {
-        color: #fbf7eb;
+        color: var(--tf-ink);
       }
     }
     :is(.faq-callout-card-discord, .faq-discord-icon, .faq-callout-card-discord .faq-callout-desc) {
-      color: #30293e;
-    }
-    :is(.faq-callout-btn, .faq-callout-btn:hover) {
-      background-color: #511154;
+      color: var(--tf-on-accent-body);
     }
   }
 }

@@ -3,15 +3,11 @@
    ========================================================================== */
 
 $gaming-tx: 300ms ease-out;
-$gaming-dashed-ribbon-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 327 24' fill='none'><path d='M1.5 22.5H5.55M325.5 22.5H321.45M17.7 22.5H25.8M37.95 22.5H46.05M58.2 22.5H66.3M78.45 22.5H86.55M98.7 22.5H106.8M118.95 22.5H127.05M139.2 22.5H147.3M159.45 22.5H167.55M179.7 22.5H187.8M199.95 22.5H208.05M220.2 22.5H228.3M240.45 22.5H248.55M260.7 22.5H268.8M280.95 22.5H289.05M301.2 22.5H309.3' stroke='black' stroke-width='3' stroke-linecap='round'/></svg>")
-  no-repeat center / 100% 24px;
-$gaming-pin-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>')
-  no-repeat center / contain;
 $gaming-badge-grad: "data:image/svg+xml;utf8,<svg preserveAspectRatio='none' overflow='visible' width='849.088' height='342.819' viewBox='0 0 849.088 342.819' fill='none' xmlns='http://www.w3.org/2000/svg'><g clip-path='url(%23clip0)'><g filter='url(%23f0)'><ellipse cx='613.701' cy='727.647' rx='232.91' ry='149.136' fill='%23FFDE05'/></g><g filter='url(%23f1)'><ellipse cx='-415.229' cy='641.459' rx='232.91' ry='148.167' fill='%23FF4949'/></g><g filter='url(%23f2)'><ellipse cx='162.623' cy='-425.734' rx='265.34' ry='167.536' fill='%231F90BA'/></g><g filter='url(%23f3)'><ellipse cx='1535.02' cy='-257.229' rx='216.694' ry='155.915' fill='%23D505FF'/></g></g><defs><filter id='f0' x='240.791' y='438.511' width='745.819' height='578.272' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f1' x='-788.138' y='353.292' width='745.819' height='576.335' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f2' x='-242.717' y='-733.27' width='810.68' height='615.071' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f3' x='1178.33' y='-553.144' width='713.389' height='591.829' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><clipPath id='clip0'><rect width='849.088' height='342.819' fill='white'/></clipPath></defs></svg>";
 
 body:has(.gaming-page-shell) {
-  background-color: #fbf7eb;
-  color: #30293e;
+  background-color: var(--tf-canvas-bg);
+  color: var(--tf-ink);
   font-family: "Open Sans", sans-serif;
   position: relative;
   :is(> main, .page-body-fullbleed) {
@@ -27,7 +23,7 @@ body:has(.gaming-page-shell) {
   gap: 42px;
   padding-bottom: 42px;
   position: relative;
-  color: #30293e;
+  color: var(--tf-ink);
   font-family: "Open Sans", sans-serif;
 
   :is(.gaming-intro-copy, .gaming-body-copy p, .arcade-body-copy, .prize-desc.gaming-prize-desc) {
@@ -255,8 +251,8 @@ body:has(.gaming-page-shell) {
     height: 17px;
     flex-shrink: 0;
     background-color: currentColor;
-    -webkit-mask: $gaming-pin-mask;
-    mask: $gaming-pin-mask;
+    -webkit-mask: var(--tf-svg-pin) no-repeat center / contain;
+    mask: var(--tf-svg-pin) no-repeat center / contain;
   }
   .gaming-inline-link {
     color: var(--tf-accent);
@@ -387,8 +383,8 @@ body:has(.gaming-page-shell) {
     height: 24px;
     border: none;
     background-color: var(--tf-accent);
-    -webkit-mask: $gaming-dashed-ribbon-mask;
-    mask: $gaming-dashed-ribbon-mask;
+    -webkit-mask: var(--tf-svg-gaming-ribbon) no-repeat center / 100% 24px;
+    mask: var(--tf-svg-gaming-ribbon) no-repeat center / 100% 24px;
   }
 
   .gaming-arcade-row {
@@ -465,13 +461,13 @@ body:has(.gaming-page-shell) {
     width: 100%;
     min-height: 76px;
     background-color: var(--tf-surface-paper);
-    border: 1px solid #bf3444;
+    border: 1px solid var(--tf-accent);
     border-radius: 5px;
     padding: 15px;
     @include flex-col-center;
     justify-content: center;
     gap: 3px;
-    color: #30293e;
+    color: var(--tf-ink);
     box-shadow: none;
     text-align: center;
   }
@@ -541,7 +537,7 @@ body:has(.gaming-page-shell) {
     width: calc((100% - 32px) / 3);
     max-width: calc((100% - 32px) / 3);
     height: auto;
-    border: 1px solid #bf3444;
+    border: 1px solid var(--tf-accent);
     border-radius: 5px;
     overflow: hidden;
   }
@@ -576,7 +572,7 @@ body:has(.gaming-page-shell) {
     border-bottom: 1px solid var(--tf-accent);
     white-space: nowrap;
     &.is-active {
-      border-bottom: 2px solid #bf3444;
+      border-bottom: 2px solid var(--tf-accent);
     }
   }
   .gaming-bottom-ctas {
@@ -692,7 +688,11 @@ body:has(.gaming-page-shell) {
 
 @media (max-width: 768px) {
   .gaming-page-shell {
-    background-image: linear-gradient(98.31670583301677deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+    background-image: linear-gradient(
+      98.31670583301677deg,
+      var(--tf-canvas-bg) 28.353%,
+      var(--tf-canvas-end) 93.86%
+    );
     .page-hero-banner.gaming-hero-banner {
       min-height: 435px;
       height: 435px;
@@ -844,8 +844,8 @@ body:has(.gaming-page-shell) {
 
 @include dark-mode {
   .gaming-page-shell {
-    background: #221a28 linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
-    color: #fbf7eb;
+    background: var(--tf-canvas-end)
+      linear-gradient(153.52deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
     :is(.arcade-gamepad-icon, .gaming-prize-medal) {
       filter: brightness(0) saturate(100%) invert(83%) sepia(39%) saturate(943%) hue-rotate(345deg)
         brightness(101%) contrast(95%);
@@ -855,19 +855,14 @@ body:has(.gaming-page-shell) {
       .gaming-divider-bottom-wave {
       background-color: #282132;
     }
-    :is(.arcade-cabinet-btn, .wave-card.gaming-wave-card) {
-      background-color: #221a28;
-      border-color: #f9c650;
-      color: #fbf7eb;
-    }
-    .tf-mod-map-tab.gaming-map-tab.is-active {
-      border-bottom-color: #f9c650;
+    .wave-card.gaming-wave-card {
+      background-color: var(--tf-surface-card);
     }
     .gaming-badge-cta-gradient {
       background: linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%), #373852;
     }
     .tf-mod-callout.is-discord .tf-mod-callout-icon.gaming-discord-icon-box {
-      background-color: #511154;
+      background-color: var(--tf-btn-ko-bg);
     }
   }
 }

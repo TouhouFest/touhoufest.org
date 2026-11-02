@@ -9,7 +9,7 @@ body:has(.guests-hero-section) {
   width: 100%;
   max-width: 100%;
   background-color: #bf3444;
-  color: #30293e;
+  color: var(--tf-ink);
   margin: 0;
   padding: 0;
   main {
@@ -47,8 +47,8 @@ body:has(.guests-hero-section) {
     font: 500 18px / 1.1 var(--tf-font-heading);
     gap: 10px;
     text-decoration: underline;
-    background-color: #fffde7;
-    color: #30293e;
+    background-color: var(--tf-btn-light-bg);
+    color: var(--tf-btn-light-ink);
     white-space: nowrap;
   }
   .guests-callout-card .tf-icon-chevron-right {
@@ -104,7 +104,7 @@ body:has(.guests-hero-section) {
   background: url($svg-guests-hero-vignette) center top / 100% 100% no-repeat;
 }
 .guests-hero-divider-bottom {
-  background-color: #fffde7;
+  background-color: var(--tf-surface-paper);
   z-index: 2;
 }
 .guests-hero-content {
@@ -312,7 +312,7 @@ body:has(.guests-hero-section) {
 .featured-guests-section {
   width: 100%;
   @include guests-lock-h(1975px);
-  background-color: #fffde7;
+  background-color: var(--tf-surface-paper);
   padding: 88px 0 128px;
   @include flex-col-center;
   gap: 48px;
@@ -931,7 +931,7 @@ body:has(.guests-hero-section) .guests-page-content {
     }
     .guests-newsletter-btn {
       background-color: var(--tf-accent);
-      color: #fffde7;
+      color: var(--tf-text-title-dark);
       flex-shrink: 0;
       .tf-icon-chevron-right {
         background-image: var(--tf-svg-chevron-cream);
@@ -1281,41 +1281,34 @@ body:has(.guests-hero-section) .guests-page-content {
 @include dark-mode {
   &:is(body:has(.guests-hero-section)),
   body:has(.guests-hero-section) {
-    background: #221a28 linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
-    color: #fbf7eb;
-    :is(.guests-hero-divider-bottom, .featured-guests-section) {
-      background-color: #221a28;
-    }
+    background: var(--tf-canvas-end)
+      linear-gradient(153.52deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
     .guests-hero-title-box {
-      border-color: #f9c650;
+      border-color: var(--tf-accent);
     }
     :is(.guests-hero-title, .hero-feature-card-name, .guests-thankyou-title),
     :is(.performers-title, .performer-item-card .performer-name) {
-      color: #f9c650;
+      color: var(--tf-accent);
     }
     :is(.guests-hero-subtitle, .hero-feature-card-bio) {
-      color: #fbf7eb;
+      color: var(--tf-ink);
     }
     :is(.artist-social-svg, .artist-external-svg, .artist-social-item .guests-pill-chevron img) {
       filter: brightness(0) invert(1);
     }
     .hero-feature-card-photo-fade {
-      background: linear-gradient(180deg, rgba(48, 41, 62, 0) 32.043%, #30293e 47.833%);
+      background: linear-gradient(180deg, rgba(48, 41, 62, 0) 32.043%, var(--tf-canvas-bg) 47.833%);
     }
     .hero-feature-card-headline {
       background: linear-gradient(
         180deg,
         rgba(249, 198, 80, 0) 0%,
         rgba(249, 198, 80, 0.39) 22.696%,
-        #30293e 77.389%
+        var(--tf-canvas-bg) 77.389%
       );
     }
     .hero-feature-card-body {
-      background: linear-gradient(180deg, #30293e 99.99%, #511154 100%);
-    }
-    .guests-pill-btn.is-light {
-      background-color: #f9c650;
-      color: #511154;
+      background: linear-gradient(180deg, var(--tf-canvas-bg) 99.99%, var(--tf-btn-ko-bg) 100%);
     }
     :is(.guests-thankyou-section, .guests-timeline-section) {
       background-color: transparent;
@@ -1324,11 +1317,8 @@ body:has(.guests-hero-section) .guests-page-content {
       .guests-discord-card .tf-icon-chevron-right {
         background-image: var(--tf-svg-chevron-cream);
       }
-      .guests-newsletter-card .guests-newsletter-btn {
-        color: #511154;
-        .tf-icon-chevron-right {
-          background-image: var(--tf-svg-chevron-dark);
-        }
+      .guests-newsletter-card .guests-newsletter-btn .tf-icon-chevron-right {
+        background-image: var(--tf-svg-chevron-dark);
       }
     }
   }

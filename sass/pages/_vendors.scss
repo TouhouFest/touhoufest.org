@@ -3,13 +3,13 @@
 // ==========================================================================
 
 $v-tx: 300ms ease-out;
-$v-chevron-svg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 15'><path d='M1.5 1.5L7.5 7.5L1.5 13.5' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>";
 
 :is(html, body):has(.tf-vendors-page-body) {
   overflow-x: hidden;
   scrollbar-width: none;
-  color: #30293e;
-  background: #fbf7eb linear-gradient(131.5326deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  color: var(--tf-ink);
+  background: var(--tf-canvas-bg)
+    linear-gradient(131.5326deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
   &::-webkit-scrollbar {
     display: none;
     width: 0;
@@ -140,7 +140,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   z-index: 2;
 }
 :is(.tf-v-fcard-backing, .tf-v-fcard-body) {
-  background: #bf3444;
+  background: var(--tf-accent);
 }
 .tf-v-fcard-backing {
   @include absolute-fill;
@@ -264,7 +264,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   flex-shrink: 0;
   width: 9px;
   height: 15px;
-  @include mask-stretch($v-chevron-svg);
+  @include mask-stretch-var(var(--tf-svg-vendors-chevron));
 }
 .tf-v-btn-chevron {
   background-color: #30293e;
@@ -568,7 +568,11 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 
 @media screen and (max-width: 768px) {
   :is(html, body):has(.tf-vendors-page-body) {
-    background-image: linear-gradient(100.0014deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+    background-image: linear-gradient(
+      100.0014deg,
+      var(--tf-canvas-bg) 28.353%,
+      var(--tf-canvas-end) 93.86%
+    );
   }
   .tf-vendors-root :is(.tf-v-past-section, .tf-v-maps-section, .tf-v-divider),
   .tf-v-polaroid-bleed {
@@ -882,31 +886,28 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 @include dark-mode {
   &:is(html, body):has(.tf-vendors-page-body),
   body:has(.tf-vendors-page-body) {
-    background: #30293e linear-gradient(131.5326deg, #30293e 28.353%, #221a28 93.86%);
-    color: #fbf7eb;
-  }
-  :is(.tf-v-fcard-backing, .tf-v-fcard-body) {
-    background: #f9c650;
+    background: var(--tf-canvas-bg)
+      linear-gradient(131.5326deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
   }
   .tf-v-fcard-headline {
     background: linear-gradient(
       180deg,
       rgba(249, 198, 80, 0) 0%,
       rgba(249, 198, 80, 0.39) 29.3%,
-      #f9c650 100%
+      var(--tf-accent) 100%
     );
     @media screen and (max-width: 768px) {
-      background: linear-gradient(180deg, rgba(249, 198, 80, 0) 0%, #f9c650 85%);
+      background: linear-gradient(180deg, rgba(249, 198, 80, 0) 0%, var(--tf-accent) 85%);
     }
   }
   .tf-v-fcard-title {
     width: 100%;
     text-align: left;
-    color: #511154;
+    color: var(--tf-text-title-dark);
     text-shadow: none;
   }
   .tf-v-fcard-bio {
-    color: #30293e;
+    color: var(--tf-on-accent-body);
   }
   .tf-vendors-root .tf-v-fcard-streamer {
     background: url("img/shared/card_streamer_dark.svg") no-repeat center top / 100% 100%;
@@ -917,27 +918,27 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   }
   .tf-vendors-root .tf-v-fcard {
     .tf-v-btn-cream {
-      background-color: #511154;
-      color: #fbf7eb;
+      background-color: var(--tf-btn-ko-bg);
+      color: var(--tf-ink);
     }
     .tf-v-btn-chevron {
-      background-color: #fbf7eb;
+      background-color: var(--tf-ink);
     }
   }
   .tf-v-rcard-shadow-fill {
-    background-color: #f9c650;
+    background-color: var(--tf-accent);
   }
   .tf-v-map-tab:not(.is-active) {
     background: transparent;
   }
   .tf-v-polaroid-card {
-    background-color: #221a28;
+    background-color: var(--tf-surface-card);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     filter: none;
   }
   .tf-vendors-root .tf-v-discord-card,
   .tf-v-discord-card .tf-v-btn-chevron {
-    background-color: #fbf7eb;
+    background-color: var(--tf-ink);
   }
   .tf-mod-callout.is-discord {
     .tf-v-discord-icon-wrap {

@@ -9,6 +9,7 @@
   padding-bottom: 48px;
   background-color: var(--tf-surface-cream, #fbf7eb);
   background-image: linear-gradient(131.699deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  color: var(--tf-ink);
 }
 :is(.ev-intro, .ev-gallery-sec, .ev-maps-sec, .ev-content-sec, .ev-team-sec) {
   width: 100%;
@@ -89,7 +90,7 @@
   width: 100%;
 }
 .ev-hero-text {
-  color: #ffffff;
+  color: var(--tf-on-accent-body);
 }
 :is(.ev-hero-p1, .ev-ofuda-p1, .ev-hero-p2, .ev-ofuda-p2) {
   margin: 0;
@@ -406,7 +407,7 @@
   transition-property: background-color, color, border-color, transform, box-shadow;
 }
 .ev-btn-cream {
-  background-color: var(--tf-surface-paper, #fffde7);
+  background-color: var(--tf-btn-ko-bg);
 }
 .ev-btn-red {
   background-color: var(--tf-accent, #bf3444);
@@ -420,7 +421,7 @@
   color: var(--tf-ink, #30293e);
 }
 .ev-btn-red-text {
-  color: #fffde7;
+  color: var(--tf-text-title-dark);
 }
 .ev-btn-caret {
   width: 8px;
@@ -526,6 +527,7 @@
 .ev-amp-heading {
   @include tf-h3;
   width: 100%;
+  color: var(--tf-ink-gold);
 }
 .ev-app-card {
   flex: 1 0 0;
@@ -581,7 +583,7 @@
 }
 .ev-badge-closed {
   padding: 6px 7px 6px 0;
-  color: #564b58;
+  color: var(--tf-text-muted);
 }
 .ev-app-card-desc {
   color: var(--tf-ink, #30293e);
@@ -871,38 +873,33 @@
 }
 @include dark-mode {
   .ev-page {
-    background-color: #221a28;
-    background-image: linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
-    color: #fbf7eb;
-    :is(.ev-hero-title, .ev-red-card-title, .ev-btn-red-text, .ev-badge-open) {
-      color: #511154;
+    background-color: var(--tf-canvas-end);
+    background-image: linear-gradient(
+      153.52deg,
+      var(--tf-canvas-bg) 28.353%,
+      var(--tf-canvas-end) 93.86%
+    );
+    .ev-badge-open {
+      color: var(--tf-text-title-dark);
     }
-    :is(.ev-hero-text, .ev-red-card-body) {
-      color: #30293e;
-    }
-    :is(.ev-btn-cream, .ev-discord-logo) {
-      background-color: #511154;
+    .ev-discord-logo {
+      background-color: var(--tf-btn-ko-bg);
     }
     .ev-btn-cream .ev-caret-img {
       filter: brightness(0) invert(1);
     }
-    .ev-ofuda-body {
-      background-color: #221a28;
-    }
-    .ev-amp-heading {
-      color: #f9c650;
-    }
     .ev-polaroid-frame {
-      background-color: #373852;
+      background-color: var(--tf-surface-navy);
     }
     .ev-btn-red .ev-caret-img {
       filter: brightness(0);
     }
     .ev-app-card-grad {
-      background-image: linear-gradient(114.208deg, #373852 55.472%, rgba(46, 40, 60, 0) 89.517%);
-    }
-    .ev-badge-closed {
-      color: #cbcbd2;
+      background-image: linear-gradient(
+        114.208deg,
+        var(--tf-surface-navy) 55.472%,
+        rgba(46, 40, 60, 0) 89.517%
+      );
     }
   }
 }

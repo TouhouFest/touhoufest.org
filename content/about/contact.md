@@ -1,10 +1,5 @@
 +++
 title = "Contact Us"
 weight = 5
-
-[extra]
-hide_header = true
-full_bleed = true
+template = "contact.html"
 +++
-
-{{ <contact_form /> }}

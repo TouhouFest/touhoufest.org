@@ -29,9 +29,18 @@
   --tf-surface-navy: #373852;
   --tf-surface-cream: #fbf7eb;
   --tf-surface-dark: #30293e;
+  --tf-canvas-bg: #fbf7eb;
+  --tf-canvas-end: #ffe1e1;
   --tf-ink: #30293e;
+  --tf-ink-gold: #30293e;
   --tf-text-primary: #221a28;
+  --tf-text-muted: #564b58;
   --tf-text-title-dark: #fffde7;
+  --tf-on-accent-body: #ffffff;
+  --tf-btn-ko-bg: #fffde7;
+  --tf-btn-light-bg: #fffde7;
+  --tf-btn-light-ink: #30293e;
+  --tf-newsletter-dash: #bf3444;
   --tf-accordion-ink: var(--bulma-text, #30293e);
   --tf-border-subtle: rgba(0, 0, 0, 0.08);
   --tf-accent: #bf3444;
@@ -116,7 +125,8 @@
   @include flex-col-center;
   gap: 48px;
   padding-bottom: 48px;
-  background: #fbf7eb linear-gradient($deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  background: var(--tf-canvas-bg)
+    linear-gradient($deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
 }
 
 @include dark-mode {
@@ -126,9 +136,18 @@
   --tf-surface-navy: #373852;
   --tf-surface-cream: #2b2233;
   --tf-surface-dark: #1e1927;
+  --tf-canvas-bg: #30293e;
+  --tf-canvas-end: #221a28;
   --tf-ink: #fbf7eb;
+  --tf-ink-gold: #f9c650;
   --tf-text-primary: #fbf7eb;
+  --tf-text-muted: #cbcbd2;
   --tf-text-title-dark: #511154;
+  --tf-on-accent-body: #30293e;
+  --tf-btn-ko-bg: #511154;
+  --tf-btn-light-bg: #f9c650;
+  --tf-btn-light-ink: #511154;
+  --tf-newsletter-dash: #fbf7eb;
   --tf-accordion-ink: #e2dce6;
   --tf-border-subtle: rgba(255, 255, 255, 0.1);
   --tf-accent: #f9c650;
