@@ -38,14 +38,14 @@
 {% if current_url is defined %}
   <meta property="og:url" content="{{ current_url | safe }}">
 {% endif %}
-  <meta property="og:image" content="{{ <img_url path={og_img_path} /> }}">
+  <meta property="og:image" content="{{ <img_url path={og_img_path} format="webp" quality={85} /> }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@TouhouFest">
   <meta name="twitter:title" content="{{ meta_title }}">
 {% if meta_desc %}
   <meta name="twitter:description" content="{{ meta_desc }}">
 {% endif %}
-  <meta name="twitter:image" content="{{ <img_url path={og_img_path} /> }}">
+  <meta name="twitter:image" content="{{ <img_url path={og_img_path} format="webp" quality={85} /> }}">
 {% if page is defined and page.date %}
   <meta content="{{ page.date | date(format="%+") }}" property="article:published_time">
   <meta content="{{ get_url(path="/about/event/") }}" property="article:author">

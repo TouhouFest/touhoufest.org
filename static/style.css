@@ -1395,7 +1395,7 @@ picture {
 
 /* 7. Page Hero Banner */
 .page-hero-banner {
-  background: url("hero.webp") center/cover no-repeat;
+  background: url("hero.avif") center/cover no-repeat;
   position: relative;
   min-height: 240px;
   display: flex;
@@ -4077,7 +4077,7 @@ body:has(.tf-contact-page) {
   padding: 286px 0 48px;
   margin-bottom: 0;
   overflow: visible;
-  background: url("img/contact/hero_contact.webp") no-repeat center bottom/cover;
+  background: url("img/contact/hero_contact.avif") no-repeat center bottom/cover;
 }
 .tf-contact-page .contact-hero-inner {
   width: min(1170px, 100% - 96px);
@@ -4330,7 +4330,7 @@ body:has(.tf-contact-page) {
   }
   .tf-contact-page .contact-hero-section {
     min-height: 595px;
-    background-image: url("img/contact/hero_contact_mobile.webp");
+    background-image: url("img/contact/hero_contact_mobile.avif");
   }
   .tf-contact-page .contact-hero-inner {
     width: calc(100% - 62px);
@@ -6455,7 +6455,7 @@ main:has(.tf-faq-page-body) {
   min-height: 600px;
   margin-bottom: 0;
   padding: 286px max(24px, 50% - 585.5px) 48px;
-  background: #30293e url("img/faq/hero_banner.webp") no-repeat center 43.8px/cover;
+  background: #30293e url("img/faq/hero_banner.avif") no-repeat center 43.8px/cover;
 }
 .page-hero-banner.tf-faq-hero .page-hero-title-box {
   width: 632px;
@@ -6893,10 +6893,10 @@ body:has(.gaming-page-shell) :is(> main, .page-body-fullbleed) {
   background: #30293e;
 }
 .gaming-page-shell .tf-mod-divider.gaming-divider-module.is-freeplay .gaming-divider-bg {
-  background: url("img/gaming/freeplay_banner.webp") 0 45.76%/100% 369.14% no-repeat;
+  background: url("img/gaming/freeplay_banner.avif") 0 45.76%/100% 369.14% no-repeat;
 }
 .gaming-page-shell .tf-mod-divider.gaming-divider-module.is-competitions .gaming-divider-bg {
-  background: url("img/gaming/competitions_banner.webp") 0 90.21%/100% 286.47% no-repeat;
+  background: url("img/gaming/competitions_banner.avif") 0 90.21%/100% 286.47% no-repeat;
 }
 .gaming-page-shell .tf-mod-divider.gaming-divider-module.is-competitions .gaming-divider-vignette {
   background: linear-gradient(90deg, rgba(35, 16, 49, 0.64) 65.535%, rgba(35, 16, 49, 0) 100%);
@@ -6905,7 +6905,7 @@ body:has(.gaming-page-shell) :is(> main, .page-body-fullbleed) {
   background-color: #fde9e4;
 }
 .gaming-page-shell .tf-mod-divider.gaming-divider-module.is-maps .gaming-divider-bg {
-  background: url("img/gaming/maps_banner.webp") center/cover no-repeat;
+  background: url("img/gaming/maps_banner.avif") center/cover no-repeat;
 }
 .gaming-page-shell .tf-mod-divider.gaming-divider-module.is-maps .gaming-divider-bottom-wave {
   background-color: #fee3e2;
@@ -9264,7 +9264,7 @@ body:has(.guests-hero-section) .guests-page-content .guests-callout-card .tf-mod
   height: 600px;
   margin-bottom: 0;
   padding: 0;
-  background: url("img/guidelines/hero.webp") no-repeat 0 -34.33px/100% 884.88px;
+  background: url("img/guidelines/hero.avif") no-repeat 0 -34.33px/100% 884.88px;
   display: flex;
   align-items: flex-start;
   overflow: visible;
@@ -10460,7 +10460,7 @@ body:has(.page-hero-hotels) {
   justify-content: flex-start;
   padding: 238px 135px 0;
   margin-bottom: 77px;
-  background: url("img/hotels/hero_hotels.webp") center/cover no-repeat;
+  background: url("img/hotels/hero_hotels.avif") center/cover no-repeat;
 }
 .page-hero-banner.page-hero-hotels .page-hero-title-box {
   width: 632px;
@@ -10661,7 +10661,7 @@ body:has(.page-hero-hotels) {
 }
 .hotel-card-1 .hotel-block-photo {
   height: 100%;
-  --hotel-photo: url("img/hotels/courtyard.webp");
+  --hotel-photo: url("img/hotels/courtyard.avif");
 }
 
 .hotel-card-2 {
@@ -10669,7 +10669,7 @@ body:has(.page-hero-hotels) {
 }
 .hotel-card-2 .hotel-block-photo {
   height: 100%;
-  --hotel-photo: url("img/hotels/residence_inn.webp");
+  --hotel-photo: url("img/hotels/residence_inn.avif");
 }
 
 .hotel-block-inner {
@@ -10812,7 +10812,7 @@ body:has(.page-hero-hotels) {
     padding: 286px 31px 48px;
     align-items: center;
     justify-content: flex-end;
-    background-image: url("img/hotels/hero_hotels.webp"), url("img/hotels/hero_hotels.webp");
+    background-image: url("img/hotels/hero_hotels.avif"), url("img/hotels/hero_hotels.avif");
     background-position: 85.13% 29.76%, 85.13% 100%;
     background-size: 238.24% 82.03%, 238.24% 100%;
   }
@@ -10989,7 +10989,7 @@ body:has(.tf-intro-page) {
 }
 
 .page-hero-banner.is-intro-hero {
-  background: url("hero.webp") center/cover no-repeat;
+  background: url("hero.avif") center/cover no-repeat;
   min-height: 462px;
   padding: 232px 2rem 4.75rem;
   margin-bottom: 2rem;

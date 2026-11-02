@@ -24,7 +24,7 @@ body:has(.tf-contact-page) {
     padding: 286px 0 48px;
     margin-bottom: 0;
     overflow: visible;
-    background: url("img/contact/hero_contact.webp") no-repeat center bottom / cover;
+    background: url("img/contact/hero_contact.avif") no-repeat center bottom / cover;
   }
   .contact-hero-inner {
     width: min(1170px, calc(100% - 96px));
@@ -284,7 +284,7 @@ body:has(.tf-contact-page) {
   .tf-contact-page {
     .contact-hero-section {
       min-height: 595px;
-      background-image: url("img/contact/hero_contact_mobile.webp");
+      background-image: url("img/contact/hero_contact_mobile.avif");
     }
     .contact-hero-inner {
       width: calc(100% - 62px);

@@ -1,11 +1,19 @@
-{% component img_url(path, quality=85, max_width=2880) -%}
+{% component img_url(path, quality=75, max_width=2880, format="avif") -%}
 {%- set ext = path | split(pat=".") | last | lower -%}
-{%- if ext == "png" or ext == "jpg" or ext == "jpeg" or ext == "jfif" -%}
+{%- if ext == "png" or ext == "jpg" or ext == "jpeg" or ext == "jfif" or ext == "webp" -%}
 {%- set meta = get_image_metadata(path=path) -%}
 {%- if meta.width > max_width or meta.height > max_width -%}
-{%- set processed = resize_image(path=path, width=max_width, height=max_width, op="fit", format="webp", quality=quality) -%}
+{%- if format == "avif" -%}
+{%- set processed = resize_image(path=path, width=max_width, height=max_width, op="fit", format="avif", quality=quality, speed=6) -%}
 {%- else -%}
-{%- set processed = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format="webp", quality=quality) -%}
+{%- set processed = resize_image(path=path, width=max_width, height=max_width, op="fit", format=format, quality=quality) -%}
+{%- endif -%}
+{%- else -%}
+{%- if format == "avif" -%}
+{%- set processed = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format="avif", quality=quality, speed=6) -%}
+{%- else -%}
+{%- set processed = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format=format, quality=quality) -%}
+{%- endif -%}
 {%- endif -%}
 {{ processed.url | replace(from=" ", to="%20") | safe }}
 {%- else -%}
