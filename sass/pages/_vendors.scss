@@ -484,10 +484,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 .tf-v-divider-bottom-wave {
-  height: 33px;
-  background: url("/divider_bottom.svg") repeat-x center bottom / 1440px 33px;
-  -webkit-mask: none;
-  mask: none;
+  bottom: -1px;
 }
 .tf-v-maps-body {
   width: 850px;
@@ -1049,10 +1046,6 @@ $tf-v-polaroid-angles:
     font-size: 28px;
     line-height: 34px;
   }
-  .tf-v-divider-bottom-wave {
-    height: 30px;
-    background-size: 709px 30px;
-  }
   .tf-v-maps-body {
     width: 350px;
     max-width: 100%;
@@ -1215,7 +1208,7 @@ $tf-v-polaroid-angles:
   .tf-v-map-tab:not(.is-active) {
     background: transparent;
   }
-  :is(.tf-v-divider-bottom-wave, .tf-v-ofuda-card) {
+  .tf-v-ofuda-card {
     background-color: transparent;
   }
   .tf-v-polaroid-card {

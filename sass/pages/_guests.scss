@@ -103,13 +103,7 @@ body:has(.guests-hero-section) {
   background: url("/img/guests/hero_vignette.svg") center top / 100% 100% no-repeat;
 }
 .guests-hero-divider-bottom {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 46.68px;
   background-color: #fffde7;
-  @include mask-stretch("/divider_bottom.svg");
   z-index: 2;
 }
 .guests-hero-content {

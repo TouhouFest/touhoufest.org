@@ -105,21 +105,8 @@
     align-items: flex-start;
   }
   &__bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 45px;
-    z-index: 3;
-    pointer-events: none;
-  }
-  &__bottom-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 10.5px;
     background-color: var(--cp-cream);
+    z-index: 3;
   }
 }
 
@@ -892,6 +879,9 @@
   .cosplay-divider__vignette {
     background-image: none;
     background-color: rgba(46, 42, 49, 0.7);
+  }
+  .cosplay-divider__bottom {
+    bottom: -6px;
   }
   .cosplay-divider--photoshoots .cosplay-divider__title {
     max-width: 220px;

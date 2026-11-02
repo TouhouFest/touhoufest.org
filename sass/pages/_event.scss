@@ -659,17 +659,10 @@ $ev-polaroid-slots: (
 }
 .ev-banner-bot-deco {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 1440px;
-  height: 45px;
+  inset: auto 0 0 0;
+  height: 59px;
   z-index: 3;
   pointer-events: none;
-}
-.ev-banner-bot-img {
-  right: auto;
-  width: 1440px;
-  @include mask-stretch("divider_bottom.svg");
 }
 .ev-maps-body {
   gap: 77px;

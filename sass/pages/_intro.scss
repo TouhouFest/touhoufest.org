@@ -25,11 +25,6 @@ body:has(.tf-intro-page) {
     line-height: 1.1;
     color: #fffde7;
   }
-  .divider-wave-bottom {
-    background: #fbf7eb;
-    -webkit-mask: url("divider_bottom.svg") repeat-x center bottom / 1440px 59px;
-    mask: url("divider_bottom.svg") repeat-x center bottom / 1440px 59px;
-  }
 }
 
 .tf-intro-page {
@@ -745,10 +740,6 @@ body:has(.tf-intro-page) {
     }
     .page-hero-title {
       font-size: 34px;
-    }
-    .divider-wave-bottom {
-      -webkit-mask-position: right bottom;
-      mask-position: right bottom;
     }
   }
   .intro-h2 {

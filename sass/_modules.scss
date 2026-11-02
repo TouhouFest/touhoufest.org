@@ -220,7 +220,7 @@
   color: #ffffff;
   text-align: left;
 }
-.tf-mod-divider-bottom {
+:is(.tf-mod-divider-bottom, .divider-wave-bottom, .tf-wave-bottom) {
   position: absolute;
   left: 0;
   right: 0;
@@ -228,32 +228,22 @@
   height: 59px;
   pointer-events: none;
   z-index: 4;
-  background: #fbf7eb;
-  -webkit-mask: url("divider_bottom.svg") repeat-x center bottom;
-  mask: url("divider_bottom.svg") repeat-x center bottom;
-}
-.tf-mod-divider-silhouette {
-  position: absolute;
-  left: 76.74%;
-  bottom: 4.5px;
-  width: 82px;
-  height: 54px;
-  z-index: 5;
   background-color: #fbf7eb;
-  -webkit-mask: url("img/reimu_marisa_silhouette.png") center bottom / contain no-repeat;
-  mask: url("img/reimu_marisa_silhouette.png") center bottom / contain no-repeat;
+  -webkit-mask: url("divider_bottom.svg") repeat-x left bottom / 1522px 59px;
+  mask: url("divider_bottom.svg") repeat-x left bottom / 1522px 59px;
 }
 
 @media (max-width: 768px) {
   .tf-mod-divider-title {
     font-size: 27px;
   }
-  .tf-mod-divider-silhouette {
-    left: 31px;
+  :is(.tf-mod-divider-bottom, .divider-wave-bottom, .tf-wave-bottom) {
+    -webkit-mask-position: -1050px bottom;
+    mask-position: -1050px bottom;
   }
 }
 @include dark-mode {
-  :is(.tf-mod-divider-bottom, .tf-mod-divider-silhouette) {
+  :is(.tf-mod-divider-bottom, .divider-wave-bottom, .tf-wave-bottom) {
     background-color: var(--tf-surface, #30293e);
   }
 }

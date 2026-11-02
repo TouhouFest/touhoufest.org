@@ -558,8 +558,6 @@ body:has(.tf-artists-page) > main {
 }
 .tf-artists-divider-bottom-wave {
   bottom: -1px;
-  -webkit-mask: url("/divider_bottom.svg") no-repeat center bottom / 1440px 59px;
-  mask: url("/divider_bottom.svg") no-repeat center bottom / 1440px 59px;
 }
 .tf-artists-divider-inner {
   width: min(850px, 100%);
@@ -1021,10 +1019,6 @@ body:has(.tf-artists-page) > main {
     width: 55px;
     height: 278.437px;
     overflow: visible;
-  }
-  .tf-artists-divider-bottom-wave {
-    -webkit-mask-position: right bottom;
-    mask-position: right bottom;
   }
   .tf-artists-maps-body {
     width: 100%;

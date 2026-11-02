@@ -416,9 +416,7 @@
   }
   .tf-mod-divider-bottom {
     bottom: -1px;
-    background: #fbf5ea url("/divider_bottom.svg") repeat-x center bottom / 1440px 59px;
-    -webkit-mask: url("divider_bottom.svg") repeat-x center bottom / 1440px 59px;
-    mask: url("divider_bottom.svg") repeat-x center bottom / 1440px 59px;
+    background-color: #fbf5ea;
   }
 }
 #content.is-register-divider .tf-mod-divider-bottom {
@@ -763,8 +761,6 @@
     }
     .tf-mod-divider-bottom {
       bottom: -6px;
-      -webkit-mask-position: -1050px bottom;
-      mask-position: -1050px bottom;
     }
     .tf-mod-divider-inner {
       width: 100%;

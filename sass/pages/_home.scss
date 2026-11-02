@@ -18,6 +18,7 @@
 .home-page-body {
   position: relative;
   width: 100%;
+  overflow: hidden;
   background-color: #fbf7eb;
   color: #30293e;
   font-family: "Open Sans", sans-serif;
@@ -72,14 +73,6 @@
   }
 
   :is(.home-hero-divider-bottom, .home-banner-divider-bottom) {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 1440px;
-    height: 59px;
-    -webkit-mask: url("divider_bottom.svg") no-repeat right bottom / 1440px 59px;
-    mask: url("divider_bottom.svg") no-repeat right bottom / 1440px 59px;
-    pointer-events: none;
     z-index: 2;
   }
 
@@ -188,9 +181,6 @@
 
   .home-hero-vignette {
     display: none;
-  }
-  .home-hero-divider-bottom {
-    background-color: #fbf7eb;
   }
 
   .home-hero-glass-card {
@@ -1043,7 +1033,7 @@
     .home-garland-banner-tile {
       display: none;
     }
-    :is(.home-hero-divider-bottom, .home-announcement-divider, .home-venue-divider) {
+    :is(.home-announcement-divider, .home-venue-divider) {
       background-color: var(--tf-surface, #30293e);
     }
     .home-hero-glass-card {

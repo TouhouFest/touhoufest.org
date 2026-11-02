@@ -787,23 +787,6 @@
   z-index: 2;
   pointer-events: none;
 }
-:is(
-  .divider-wave-bottom,
-  .page-hero-banner .divider-wave-bottom,
-  .guests-hero-banner .divider-wave-bottom,
-  .home-hero-banner .divider-wave-bottom,
-  .tf-wave-bottom,
-  .tf-section-divider .divider-wave-bottom
-) {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 59px;
-  background: url("/divider_bottom.svg") repeat-x center bottom / 1440px 59px;
-  z-index: 2;
-  pointer-events: none;
-}
 
 /* 7. Page Hero Banner */
 .page-hero-banner {
