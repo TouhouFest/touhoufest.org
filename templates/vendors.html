@@ -9,8 +9,7 @@
 <div class="tf-v-main-stack">
 <section class="tf-v-hero">
 <div class="tf-v-hero-bg" aria-hidden="true">
-<img src="{{ <img_url path="img/vendors/hero_vendors.jpg" /> }}" alt="" class="tf-v-hero-img is-desk-hero" fetchpriority="high" />
-<img src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" class="tf-v-hero-img is-mob-hero" fetchpriority="high" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/Freeze Background.png" /> }}" /><img src="{{ <img_url path="img/vendors/hero_vendors.jpg" /> }}" alt="" class="tf-v-hero-img is-desk-hero" fetchpriority="high" /></picture>
 </div>
 <div class="tf-v-hero-container">
 <div class="tf-hero-box tf-v-hero-box">
@@ -101,8 +100,7 @@
 </div>
 <div class="tf-v-rcard-img-pad">
 <div class="tf-v-rcard-img-box">
-<img src="{{ <img_url path={item.image} max_width={480} /> }}" alt="{{ item.name }}" class="tf-v-rcard-img is-real" loading="lazy" decoding="async" />
-<img src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" class="tf-v-rcard-img is-mob-placeholder" loading="lazy" decoding="async" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/Freeze Background.png" /> }}" /><img src="{{ <img_url path={item.image} max_width={480} /> }}" alt="{{ item.name }}" class="tf-v-rcard-img is-real" loading="lazy" decoding="async" /></picture>
 </div>
 </div>
 </div>
@@ -115,8 +113,7 @@
 <section class="tf-v-maps-section">
 <div class="tf-v-divider is-maps tf-mod-divider">
 <div class="tf-v-divider-bg tf-mod-divider-bg" aria-hidden="true">
-<img src="{{ <img_url path="img/vendors/maps_divider_bg.jpg" /> }}" alt="" class="tf-v-divider-img is-desk" loading="lazy" decoding="async" />
-<img src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" class="tf-v-divider-img is-mob" loading="lazy" decoding="async" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/Freeze Background.png" /> }}" /><img src="{{ <img_url path="img/vendors/maps_divider_bg.jpg" /> }}" alt="" class="tf-v-divider-img is-desk" loading="lazy" decoding="async" /></picture>
 <div class="tf-v-divider-grad tf-mod-divider-vignette"></div>
 </div>
 <div class="tf-v-divider-top-wave tf-mod-divider-top" aria-hidden="true"></div>
@@ -150,8 +147,7 @@
 <section class="tf-v-past-section">
 <div class="tf-v-divider is-thankyou tf-mod-divider">
 <div class="tf-v-divider-bg tf-mod-divider-bg" aria-hidden="true">
-<img src="{{ <img_url path="img/vendors/thankyou_divider_bg.jpg" /> }}" alt="" class="tf-v-divider-img is-desk" loading="lazy" decoding="async" />
-<img src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" class="tf-v-divider-img is-mob" loading="lazy" decoding="async" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/Freeze Background.png" /> }}" /><img src="{{ <img_url path="img/vendors/thankyou_divider_bg.jpg" /> }}" alt="" class="tf-v-divider-img is-desk" loading="lazy" decoding="async" /></picture>
 <div class="tf-v-divider-grad tf-mod-divider-vignette"></div>
 </div>
 <div class="tf-v-divider-top-wave tf-mod-divider-top" aria-hidden="true"></div>
@@ -228,11 +224,9 @@
 <div class="tf-v-ofuda-content is-card-{{ loop.index }} tf-mod-ofuda-body">
 <div class="tf-v-ofuda-icon-wrap">
 {%- if loop.index == 1 %}
-<img src="{{ <img_url path="img/shared/ofuda_hat.svg" /> }}" alt="" class="tf-v-ofuda-icon is-desk-icon is-hat" />
-<img src="{{ <img_url path="img/shared/ofuda_sakura.svg" /> }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/shared/ofuda_sakura.svg" /> }}" /><img src="{{ <img_url path="img/shared/ofuda_hat.svg" /> }}" alt="" class="tf-v-ofuda-icon is-desk-icon is-hat" /></picture>
 {%- else %}
-<img src="{{ <img_url path="img/shared/ofuda_sakura.svg" /> }}" alt="" class="tf-v-ofuda-icon is-desk-icon" />
-<img src="{{ <img_url path="img/shared/ofuda_yinyang.svg" /> }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/shared/ofuda_yinyang.svg" /> }}" /><img src="{{ <img_url path="img/shared/ofuda_sakura.svg" /> }}" alt="" class="tf-v-ofuda-icon is-desk-icon" /></picture>
 {%- endif %}
 </div>
 <h3 class="tf-v-ofuda-title tf-mod-ofuda-title">{{ card.title }}</h3>

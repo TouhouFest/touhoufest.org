@@ -241,15 +241,12 @@ body:has(.tf-artists-page) > main {
   right: 35.9%;
   height: 384.17px;
 }
-:is(.tf-artists-feat-glow-desktop, .tf-artists-feat-glow-mobile, .tf-artists-roster-back-fill) {
+:is(.tf-artists-feat-glow-desktop, .tf-artists-roster-back-fill) {
   width: 100%;
   height: 100%;
 }
 .tf-artists-feat-glow-desktop {
   display: block;
-}
-:is(.tf-artists-feat-glow-mobile, .tf-artists-ofuda-icon-img.is-mob-icon) {
-  display: none;
 }
 :is(.tf-artists-feat-corner, .tf-artists-feat-corner-mirror, .tf-artists-feat-corner-border) {
   width: 44px;
@@ -401,7 +398,7 @@ body:has(.tf-artists-page) > main {
   gap: 32px;
   padding-bottom: 48px;
 }
-:is(.tf-artists-divider-bg-past-desktop, .tf-artists-divider-bg-past-mobile, .tf-artists-map-img) {
+:is(.tf-artists-divider-bg-past-desktop, .tf-artists-map-img) {
   max-width: none;
 }
 .tf-artists-divider-bg-past-desktop {
@@ -412,15 +409,13 @@ body:has(.tf-artists-page) > main {
   height: 369.28%;
   object-fit: fill;
 }
-:is(.tf-artists-divider-bg-past-mobile, .tf-artists-divider-bg-tint) {
+.tf-artists-divider-bg-tint {
   display: none;
   @include absolute-fill;
-}
-:is(.tf-artists-divider-bg-past-mobile, .tf-artists-map-img) {
-  object-fit: cover;
-}
-.tf-artists-divider-bg-tint {
   background: rgba(46, 42, 49, 0.7);
+}
+.tf-artists-map-img {
+  object-fit: cover;
 }
 .tf-artists-divider-top-deco {
   z-index: 3;
@@ -577,12 +572,14 @@ body:has(.tf-artists-page) > main {
   .tf-artists-feat-top-glow {
     right: 0.11%;
   }
-  :is(.tf-artists-feat-glow-desktop, .tf-artists-roster-dots, .tf-artists-divider-bg-photo),
-  :is(.tf-artists-divider-bg-past-desktop, .tf-artists-ofuda-icon-img.is-desk-icon) {
+  :is(.tf-artists-roster-dots, .tf-artists-divider-bg-photo) {
     display: none;
   }
-  :is(.tf-artists-feat-glow-mobile, .tf-artists-divider-bg-past-mobile),
-  :is(.tf-artists-divider-bg-tint, .tf-artists-ofuda-icon-img.is-mob-icon) {
+  .tf-artists-divider-bg-past-desktop {
+    @include absolute-fill;
+    object-fit: cover;
+  }
+  .tf-artists-divider-bg-tint {
     display: block;
   }
   .tf-artists-roster-card {

@@ -3,6 +3,9 @@
 // ==========================================================================
 
 /* 1. Canonical Hero Banners */
+picture {
+  display: contents;
+}
 .tf-hero-banner {
   width: 100%;
   min-height: 400px;

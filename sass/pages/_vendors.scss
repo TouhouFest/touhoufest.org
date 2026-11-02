@@ -92,8 +92,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 .tf-vendors-root .tf-v-hero-title {
   line-height: 62px;
 }
-:is(.tf-v-hero-img.is-mob-hero, .tf-v-rcard-img.is-mob-placeholder, .tf-v-divider-img.is-mob),
-:is(.tf-v-divider-title .is-mob-yr, .tf-v-ofuda-icon.is-mob-icon),
+.tf-v-divider-title .is-mob-yr,
 :is(.tf-v-fcard-top-grad, .tf-v-rcard-name-mob) {
   display: none;
 }
@@ -154,12 +153,10 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   height: 604px;
   overflow: hidden;
 }
-:is(.tf-v-fcard-photo, .tf-v-rcard-img.is-real, .tf-v-rcard-img.is-mob-placeholder) {
+:is(.tf-v-fcard-photo, .tf-v-rcard-img.is-real) {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-:is(.tf-v-fcard-photo, .tf-v-rcard-img.is-real) {
   display: block;
 }
 .tf-v-fcard-photo {
@@ -587,20 +584,23 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
     min-height: 435px;
     padding: 286px 31px 0;
   }
-  :is(.tf-v-hero-img.is-desk-hero, .tf-v-rcard:nth-child(n + 25), .tf-v-rcard-img.is-real),
-  :is(.tf-v-divider-img.is-desk, .tf-v-divider-title .is-desk-yr, .tf-v-ofuda-icon.is-desk-icon),
+  :is(.tf-v-rcard:nth-child(n + 25), .tf-v-divider-title .is-desk-yr),
   :is(.tf-v-rcard-name-real, .tf-v-rcard-dots) {
     display: none;
   }
-  :is(.tf-v-divider-img.is-mob, .tf-v-divider-title .is-mob-yr, .tf-v-rcard-img.is-mob-placeholder),
-  :is(.tf-v-ofuda-icon.is-mob-icon, .is-mob-block) {
+  :is(.tf-v-divider-title .is-mob-yr, .is-mob-block) {
     display: block;
   }
-  .tf-v-hero-img.is-mob-hero {
-    display: block;
+  .tf-v-hero-img.is-desk-hero {
     @include absolute-fill;
     object-fit: cover;
     object-position: center top;
+  }
+  .tf-v-rcard:nth-child(13) .tf-v-rcard-img.is-real {
+    object-fit: cover;
+  }
+  .tf-v-divider.is-thankyou .tf-v-divider-img.is-desk {
+    object-position: center;
   }
   :is(.tf-vendors-root, .tf-v-hero-container, .tf-v-fcard-headline),
   .tf-v-discord-card .tf-v-btn-cream {

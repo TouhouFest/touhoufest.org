@@ -8,8 +8,10 @@
 <div class="tf-hero-banner ev-hero">
 <div class="ev-hero-bg" aria-hidden="true">
 <div class="ev-hero-black"></div>
+<picture>
+<source media="(max-width: 768px)" srcset="{{ <img_url path={ev.hero.mobile_image} /> }}">
 <img src="{{ <img_url path={ev.hero.desktop_image} /> }}" alt="" class="ev-hero-img ev-hero-img-desktop" fetchpriority="high">
-<img src="{{ <img_url path={ev.hero.mobile_image} /> }}" alt="" class="ev-hero-img ev-hero-img-mobile" fetchpriority="high">
+</picture>
 </div>
 <div class="tf-hero-container ev-hero-container">
 <div class="tf-hero-box ev-hero-box">
@@ -237,8 +239,10 @@
 <section class="ev-team-sec">
 <div class="ev-team-banner tf-mod-divider">
 <div class="ev-team-banner-bg tf-mod-divider-bg" aria-hidden="true">
+<picture>
+<source media="(max-width: 768px)" srcset="{{ <img_url path={ev.team.mobile_divider_image} /> }}">
 <img src="{{ <img_url path={ev.team.divider_image} /> }}" alt="" class="ev-team-banner-img ev-team-img-desktop" loading="lazy" decoding="async">
-<img src="{{ <img_url path={ev.team.mobile_divider_image} /> }}" alt="" class="ev-team-banner-img ev-team-img-mobile" loading="lazy" decoding="async">
+</picture>
 <div class="ev-team-vignette tf-mod-divider-vignette"></div>
 </div>
 <div class="tf-mod-divider-top ev-banner-top-deco" aria-hidden="true"></div>

@@ -701,6 +701,10 @@
   :is(.tf-artists-ofuda-slot--2, .tf-v-ofuda-slot.is-card-2) {
     margin-top: 0;
   }
+  :is(.tf-artists-ofuda-icon-img, .tf-v-ofuda-icon).is-hat {
+    position: static;
+    height: 100px;
+  }
 }
 
 @include dark-mode {

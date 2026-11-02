@@ -163,9 +163,6 @@ body:has(.guests-hero-section) {
   display: block;
   pointer-events: none;
   z-index: 1;
-  &.is-mobile {
-    display: none;
-  }
 }
 .hero-featured-cards-row {
   width: 850px;
@@ -475,7 +472,7 @@ body:has(.guests-hero-section) {
   height: 24px;
   pointer-events: none;
   flex-shrink: 0;
-  :is(.ribbon-desktop, .ribbon-mobile) {
+  .ribbon-desktop {
     position: absolute;
     top: 0;
     left: 0;
@@ -483,9 +480,6 @@ body:has(.guests-hero-section) {
     height: 24px;
     object-fit: fill;
     display: block;
-  }
-  .ribbon-mobile {
-    display: none;
   }
 }
 :is(.guests-thankyou-section, .guests-timeline-section) {
@@ -725,9 +719,6 @@ body:has(.guests-hero-section) {
       inset: 0 1.79% 11.26% 0;
     }
   }
-  &.is-mobile {
-    display: none;
-  }
 }
 .timeline-gohei-text-wrap {
   position: absolute;
@@ -770,19 +761,14 @@ body:has(.guests-hero-section) {
   height: 53.369px;
   z-index: 2;
   pointer-events: none;
-  :is(.curve-desktop, .curve-mobile) {
+  .curve-desktop {
     position: absolute;
+    inset: -57.16% -2.12% -57.15% -2.12%;
+    width: 104.24%;
     height: 214.31%;
     max-width: none;
     display: block;
     object-fit: fill;
-  }
-  .curve-desktop {
-    inset: -57.16% -2.12% -57.15% -2.12%;
-    width: 104.24%;
-  }
-  .curve-mobile {
-    display: none;
   }
 }
 .timeline-bg-photos {
@@ -1015,14 +1001,6 @@ body:has(.guests-hero-section) .guests-page-content {
   .guests-hero-subtitle {
     font: 700 16px / 1.3 var(--tf-font-body);
   }
-  .guests-hero-title-grad {
-    &.is-desktop {
-      display: none;
-    }
-    &.is-mobile {
-      display: block;
-    }
-  }
   :is(.hero-featured-cards-row, .timeline-date-null-1, .timeline-date-null-2) {
     display: none;
   }
@@ -1056,14 +1034,6 @@ body:has(.guests-hero-section) .guests-page-content {
       height: 88px;
       display: flex;
       align-items: flex-end;
-    }
-  }
-  .artist-card-ribbon {
-    .ribbon-desktop {
-      display: none;
-    }
-    .ribbon-mobile {
-      display: block;
     }
   }
   .guests-thankyou-section {
@@ -1142,20 +1112,14 @@ body:has(.guests-hero-section) .guests-page-content {
     left: 0;
     margin: 0;
   }
-  .timeline-shide-wrap {
-    &.is-desktop {
-      display: none;
-    }
-    &.is-mobile {
-      left: 0;
-      top: -50px;
-      width: 175.065px;
-      height: 1050.391px;
-      transform: rotate(180deg);
-      display: block;
-      img {
-        inset: 11.26% 1.79% 0 0;
-      }
+  .timeline-shide-wrap.is-desktop {
+    left: 0;
+    top: -50px;
+    width: 175.065px;
+    height: 1050.391px;
+    transform: rotate(180deg);
+    img {
+      inset: 11.26% 1.79% 0 0;
     }
   }
   .timeline-gohei-text-wrap {
@@ -1182,12 +1146,8 @@ body:has(.guests-hero-section) .guests-page-content {
     left: 0;
     right: 0;
     .curve-desktop {
-      display: none;
-    }
-    .curve-mobile {
       inset: -57.16% -7.82% -57.15% -7.82%;
       width: 115.64%;
-      display: block;
     }
   }
   .timeline-bg-photos {

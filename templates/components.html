@@ -7,9 +7,9 @@
 {%- else -%}
 {%- set processed = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format="webp", quality=quality) -%}
 {%- endif -%}
-{{ processed.url | safe }}
+{{ processed.url | replace(from=" ", to="%20") | safe }}
 {%- else -%}
-{{ get_url(path=path, cachebust=true) | safe }}
+{{ get_url(path=path, cachebust=true) | replace(from=" ", to="%20") | safe }}
 {%- endif -%}
 {%- endcomponent img_url %}
 

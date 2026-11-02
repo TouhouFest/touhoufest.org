@@ -44,8 +44,7 @@
 </div>
 <div class="tf-artists-feat-frame" aria-hidden="true">
 <div class="tf-artists-feat-top-glow">
-<img class="tf-artists-feat-glow-desktop" src="{{ <img_url path="img/artists/card_top_gradient.svg" /> }}" alt="" />
-<img class="tf-artists-feat-glow-mobile" src="{{ <img_url path="img/artists/card_top_gradient_mobile.svg" /> }}" alt="" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/artists/card_top_gradient_mobile.svg" /> }}" /><img class="tf-artists-feat-glow-desktop" src="{{ <img_url path="img/artists/card_top_gradient.svg" /> }}" alt="" /></picture>
 </div>
 {% for side in ["left", "right"] %}
 <div class="tf-artists-feat-corner tf-artists-feat-corner--{{ side }}">
@@ -161,8 +160,7 @@
 <section class="tf-artists-fullbleed tf-artists-past-sec">
 <div class="tf-artists-divider tf-artists-divider--past tf-mod-divider">
 <div class="tf-artists-divider-bg tf-mod-divider-bg" aria-hidden="true">
-<img class="tf-artists-divider-bg-past-desktop" src="{{ <img_url path="img/artists/past_banner_bg.jpg" /> }}" alt="" loading="lazy" decoding="async" />
-<img class="tf-artists-divider-bg-past-mobile" src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" loading="lazy" decoding="async" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/Freeze Background.png" /> }}" /><img class="tf-artists-divider-bg-past-desktop" src="{{ <img_url path="img/artists/past_banner_bg.jpg" /> }}" alt="" loading="lazy" decoding="async" /></picture>
 <div class="tf-artists-divider-bg-tint"></div>
 </div>
 <div class="tf-artists-divider-vignette tf-mod-divider-vignette" aria-hidden="true"></div>
@@ -246,8 +244,7 @@
 <div class="tf-artists-ofuda-content tf-artists-ofuda-content--{{ loop.index }} tf-mod-ofuda-body">
 <div class="tf-artists-ofuda-icon" aria-hidden="true">
 {% if loop.index == 1 %}
-<img class="tf-artists-ofuda-icon-img is-desk-icon is-hat" src="{{ <img_url path="img/shared/ofuda_hat.svg" /> }}" alt="" />
-<img class="tf-artists-ofuda-icon-img is-mob-icon" src="{{ <img_url path="img/shared/ofuda_yinyang.svg" /> }}" alt="" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/shared/ofuda_yinyang.svg" /> }}" /><img class="tf-artists-ofuda-icon-img is-desk-icon is-hat" src="{{ <img_url path="img/shared/ofuda_hat.svg" /> }}" alt="" /></picture>
 {% else %}
 <img class="tf-artists-ofuda-icon-img" src="{{ <img_url path="img/shared/ofuda_sakura.svg" /> }}" alt="" />
 {% endif %}

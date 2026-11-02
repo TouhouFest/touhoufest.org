@@ -17,8 +17,7 @@
 <p class="guests-hero-subtitle">{{ guests_data.hero.subtitle }}</p>
 </div>
 </div>
-<img src="{{ <img_url path="img/guests/hero_title_gradient.svg" /> }}" alt="" class="guests-hero-title-grad is-desktop" />
-<img src="{{ <img_url path="img/guests/hero_title_gradient_mobile.svg" /> }}" alt="" class="guests-hero-title-grad is-mobile" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/guests/hero_title_gradient_mobile.svg" /> }}" /><img src="{{ <img_url path="img/guests/hero_title_gradient.svg" /> }}" alt="" class="guests-hero-title-grad is-desktop" /></picture>
 </div>
 </div>
 <div class="hero-featured-cards-row">
@@ -116,12 +115,13 @@
 </div>
 </div>
 <div class="artist-card-ribbon">
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/guests/card_ribbon_mobile.svg" /> }}" />
 {%- if is_wide %}
 <img src="{{ <img_url path="img/guests/card_ribbon_lg.svg" /> }}" alt="" class="ribbon-desktop" />
 {%- else %}
 <img src="{{ <img_url path="img/guests/card_ribbon_sm.svg" /> }}" alt="" class="ribbon-desktop" />
 {%- endif %}
-<img src="{{ <img_url path="img/guests/card_ribbon_mobile.svg" /> }}" alt="" class="ribbon-mobile" />
+</picture>
 </div>
 </div>
 {%- endfor %}
@@ -209,10 +209,7 @@
 <div class="timeline-date-null-1"></div>
 <div class="timeline-gohei-musician">
 <div class="timeline-shide-wrap is-desktop">
-<img src="{{ <img_url path="img/guests/timeline_shide_desktop.svg" /> }}" alt="" />
-</div>
-<div class="timeline-shide-wrap is-mobile">
-<img src="{{ <img_url path="img/guests/timeline_shide_mobile.svg" /> }}" alt="" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/guests/timeline_shide_mobile.svg" /> }}" /><img src="{{ <img_url path="img/guests/timeline_shide_desktop.svg" /> }}" alt="" /></picture>
 </div>
 <div class="timeline-gohei-text-wrap">
 <div class="timeline-gohei-text">
@@ -228,8 +225,7 @@
 </div>
 </div>
 <div class="timeline-row-curve">
-<img src="{{ <img_url path="img/guests/timeline_curve_desktop.svg" /> }}" alt="" class="curve-desktop" />
-<img src="{{ <img_url path="img/guests/timeline_curve_mobile.svg" /> }}" alt="" class="curve-mobile" />
+<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/guests/timeline_curve_mobile.svg" /> }}" /><img src="{{ <img_url path="img/guests/timeline_curve_desktop.svg" /> }}" alt="" class="curve-desktop" /></picture>
 </div>
 <div class="timeline-bg-photos {% if row.bg_images | length == 4 %}is-four-cols{% endif %}">
 {%- for bg_src in row.bg_images %}
