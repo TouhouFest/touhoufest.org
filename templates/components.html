@@ -21,6 +21,22 @@
 {%- endif -%}
 {%- endcomponent img_url %}
 
+{% component img_srcset(path, quality=75, format="avif") -%}
+{%- set meta = get_image_metadata(path=path) -%}
+{%- if meta.width > 960 -%}
+{%- set p960 = resize_image(path=path, width=960, height=960, op="fit", format=format, quality=quality, speed=6) -%}
+{{ p960.url | replace(from=" ", to="%20") | safe }} {{ p960.width }}w, {% endif -%}
+{%- if meta.width > 1600 -%}
+{%- set p1600 = resize_image(path=path, width=1600, height=1600, op="fit", format=format, quality=quality, speed=6) -%}
+{{ p1600.url | replace(from=" ", to="%20") | safe }} {{ p1600.width }}w, {% endif -%}
+{%- if meta.width > 2880 or meta.height > 2880 -%}
+{%- set pmax = resize_image(path=path, width=2880, height=2880, op="fit", format=format, quality=quality, speed=6) -%}
+{%- else -%}
+{%- set pmax = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format=format, quality=quality, speed=6) -%}
+{%- endif -%}
+{{ pmax.url | replace(from=" ", to="%20") | safe }} {{ pmax.width }}w
+{%- endcomponent img_srcset %}
+
 {% component newsletter(extra_class="", title="The Tengu Newsletter", subtext="Sign up with your email address to receive news and updates.", placeholder="Email here", button_text="Subscribe", icon="img/shared/icon_email.svg") %}
 <div class="tf-mod-callout tf-mod-callout--horiz is-newsletter newsletter-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
 <div class="tf-mod-callout-icon tf-newsletter-envelope newsletter-icon-wrap">

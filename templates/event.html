@@ -9,8 +9,8 @@
 <div class="ev-hero-bg" aria-hidden="true">
 <div class="ev-hero-black"></div>
 <picture>
-<source media="(max-width: 768px)" srcset="{{ <img_url path={ev.hero.mobile_image} /> }}">
-<img src="{{ <img_url path={ev.hero.desktop_image} /> }}" alt="" class="ev-hero-img ev-hero-img-desktop" fetchpriority="high">
+<source media="(max-width: 768px)" srcset="{{ <img_srcset path={ev.hero.mobile_image} /> }}" sizes="100vw">
+<img src="{{ <img_url path={ev.hero.desktop_image} /> }}" srcset="{{ <img_srcset path={ev.hero.desktop_image} /> }}" sizes="100vw" alt="" class="ev-hero-img ev-hero-img-desktop" fetchpriority="high">
 </picture>
 </div>
 <div class="tf-hero-container ev-hero-container">
@@ -74,7 +74,7 @@
 
 <section class="ev-gallery-sec">
 <div class="ev-gallery-bg" aria-hidden="true">
-<img src="{{ <img_url path={ev.gallery.bg_image} /> }}" alt="" class="ev-gallery-bg-img" loading="lazy" decoding="async">
+<img src="{{ <img_url path={ev.gallery.bg_image} /> }}" srcset="{{ <img_srcset path={ev.gallery.bg_image} /> }}" sizes="100vw" alt="" class="ev-gallery-bg-img" loading="lazy" decoding="async">
 </div>
 <div class="ev-gallery-banner tf-mod-divider">
 <div class="tf-mod-divider-top ev-banner-top-deco ev-banner-top-deco-gallery" aria-hidden="true"></div>
@@ -107,7 +107,7 @@
 <section class="ev-maps-sec">
 <div class="ev-maps-banner tf-mod-divider">
 <div class="ev-maps-banner-bg tf-mod-divider-bg" aria-hidden="true">
-<img src="{{ <img_url path={ev.maps.divider_image} /> }}" alt="" class="ev-maps-banner-img" loading="lazy" decoding="async">
+<img src="{{ <img_url path={ev.maps.divider_image} /> }}" srcset="{{ <img_srcset path={ev.maps.divider_image} /> }}" sizes="100vw" alt="" class="ev-maps-banner-img" loading="lazy" decoding="async">
 <div class="ev-maps-vignette tf-mod-divider-vignette"></div>
 </div>
 <div class="tf-mod-divider-top ev-banner-top-deco" aria-hidden="true"></div>
@@ -240,8 +240,8 @@
 <div class="ev-team-banner tf-mod-divider">
 <div class="ev-team-banner-bg tf-mod-divider-bg" aria-hidden="true">
 <picture>
-<source media="(max-width: 768px)" srcset="{{ <img_url path={ev.team.mobile_divider_image} /> }}">
-<img src="{{ <img_url path={ev.team.divider_image} /> }}" alt="" class="ev-team-banner-img ev-team-img-desktop" loading="lazy" decoding="async">
+<source media="(max-width: 768px)" srcset="{{ <img_srcset path={ev.team.mobile_divider_image} /> }}" sizes="100vw">
+<img src="{{ <img_url path={ev.team.divider_image} /> }}" srcset="{{ <img_srcset path={ev.team.divider_image} /> }}" sizes="100vw" alt="" class="ev-team-banner-img ev-team-img-desktop" loading="lazy" decoding="async">
 </picture>
 <div class="ev-team-vignette tf-mod-divider-vignette"></div>
 </div>

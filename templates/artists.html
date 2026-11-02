@@ -8,7 +8,7 @@
 <div class="tf-artists-page">
 <section class="tf-hero-banner tf-artists-hero">
 <div class="tf-artists-hero-bg" aria-hidden="true">
-<img src="{{ <img_url path={data.hero.bg_image} /> }}" alt="" fetchpriority="high" />
+<img src="{{ <img_url path={data.hero.bg_image} /> }}" srcset="{{ <img_srcset path={data.hero.bg_image} /> }}" sizes="100vw" alt="" fetchpriority="high" />
 </div>
 <div class="tf-hero-container tf-artists-hero-inner">
 <div class="tf-hero-box tf-artists-hero-card">
@@ -122,8 +122,8 @@
 <section class="tf-artists-fullbleed tf-artists-maps-sec">
 <div class="tf-artists-divider tf-artists-divider--maps tf-mod-divider">
 <div class="tf-artists-divider-bg tf-mod-divider-bg" aria-hidden="true">
-<img class="tf-artists-divider-bg-base" src="{{ <img_url path="img/Freeze Background.png" /> }}" alt="" loading="lazy" decoding="async" />
-<img class="tf-artists-divider-bg-photo" src="{{ <img_url path="img/artists/maps_banner_bg.jpg" /> }}" alt="" loading="lazy" decoding="async" />
+<img class="tf-artists-divider-bg-base" src="{{ <img_url path="img/Freeze Background.png" /> }}" srcset="{{ <img_srcset path="img/Freeze Background.png" /> }}" sizes="100vw" alt="" loading="lazy" decoding="async" />
+<img class="tf-artists-divider-bg-photo" src="{{ <img_url path="img/artists/maps_banner_bg.jpg" /> }}" srcset="{{ <img_srcset path="img/artists/maps_banner_bg.jpg" /> }}" sizes="100vw" alt="" loading="lazy" decoding="async" />
 <div class="tf-artists-divider-bg-tint"></div>
 </div>
 <div class="tf-artists-divider-vignette tf-mod-divider-vignette" aria-hidden="true"></div>
@@ -160,7 +160,7 @@
 <section class="tf-artists-fullbleed tf-artists-past-sec">
 <div class="tf-artists-divider tf-artists-divider--past tf-mod-divider">
 <div class="tf-artists-divider-bg tf-mod-divider-bg" aria-hidden="true">
-<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/Freeze Background.png" /> }}" /><img class="tf-artists-divider-bg-past-desktop" src="{{ <img_url path="img/artists/past_banner_bg.jpg" /> }}" alt="" loading="lazy" decoding="async" /></picture>
+<picture><source media="(max-width: 768px)" srcset="{{ <img_srcset path="img/Freeze Background.png" /> }}" sizes="100vw" /><img class="tf-artists-divider-bg-past-desktop" src="{{ <img_url path="img/artists/past_banner_bg.jpg" /> }}" srcset="{{ <img_srcset path="img/artists/past_banner_bg.jpg" /> }}" sizes="100vw" alt="" loading="lazy" decoding="async" /></picture>
 <div class="tf-artists-divider-bg-tint"></div>
 </div>
 <div class="tf-artists-divider-vignette tf-mod-divider-vignette" aria-hidden="true"></div>

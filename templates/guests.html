@@ -4,7 +4,7 @@
 {%- set guests_data = load_data(path="data/guests.yml") -%}
 <section class="guests-hero-section">
 <div class="guests-hero-imagery">
-<img src="{{ <img_url path={guests_data.hero.bg_image} /> }}" alt="" class="guests-hero-bg-img" fetchpriority="high" />
+<img src="{{ <img_url path={guests_data.hero.bg_image} /> }}" srcset="{{ <img_srcset path={guests_data.hero.bg_image} /> }}" sizes="100vw" alt="" class="guests-hero-bg-img" fetchpriority="high" />
 <div class="guests-hero-vignette"></div>
 <div class="guests-hero-divider-bottom tf-mod-divider-bottom"></div>
 </div>

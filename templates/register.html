@@ -3,7 +3,7 @@
 {% block header %}
 {% set reg_data = load_data(path="data/registration.yml") %}
 <section class="page-hero-banner is-register tf-hero-banner">
-<img src="{{ <img_url path="img/register/hero_bg.png" /> }}" alt="" class="register-banner-img" fetchpriority="high">
+<img src="{{ <img_url path="img/register/hero_bg.png" /> }}" srcset="{{ <img_srcset path="img/register/hero_bg.png" /> }}" sizes="100vw" alt="" class="register-banner-img" fetchpriority="high">
 <div class="register-hero-content-container">
 <div class="register-hero-title-box tf-hero-box">
 <h1 class="register-hero-title tf-hero-title">{{ reg_data.hero.title_line1 }}<br>{{ reg_data.hero.title_line2 }}</h1>
@@ -102,7 +102,7 @@
 {% endif %}
 <div class="tf-mod-divider is-register-divider" id="{{ sec.section_id }}">
 <div class="tf-mod-divider-bg">
-<img src="{{ <img_url path={bg_img} /> }}" alt="" class="register-banner-img" loading="lazy" decoding="async">
+<img src="{{ <img_url path={bg_img} /> }}" srcset="{{ <img_srcset path={bg_img} /> }}" sizes="100vw" alt="" class="register-banner-img" loading="lazy" decoding="async">
 </div>
 <div class="tf-mod-divider-vignette" aria-hidden="true"></div>
 <div class="tf-mod-divider-top" aria-hidden="true"></div>
