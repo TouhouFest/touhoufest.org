@@ -112,11 +112,11 @@ body:has(.gaming-page-shell) {
     padding: 64px 0;
     background: #30293e;
     &.is-freeplay .gaming-divider-bg {
-      background: url("img/gaming/freeplay_banner.jpg") 0 45.76% / 100% 369.14% no-repeat;
+      background: url("img/gaming/freeplay_banner.webp") 0 45.76% / 100% 369.14% no-repeat;
     }
     &.is-competitions {
       .gaming-divider-bg {
-        background: url("img/gaming/competitions_banner.jpg") 0 90.21% / 100% 286.47% no-repeat;
+        background: url("img/gaming/competitions_banner.webp") 0 90.21% / 100% 286.47% no-repeat;
       }
       .gaming-divider-vignette {
         background: linear-gradient(
@@ -131,7 +131,7 @@ body:has(.gaming-page-shell) {
     }
     &.is-maps {
       .gaming-divider-bg {
-        background: url("img/gaming/maps_banner.jpg") center / cover no-repeat;
+        background: url("img/gaming/maps_banner.webp") center / cover no-repeat;
       }
       .gaming-divider-bottom-wave {
         background-color: #fee3e2;

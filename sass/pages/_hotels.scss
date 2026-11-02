@@ -15,7 +15,7 @@ body:has(.page-hero-hotels) {
   justify-content: flex-start;
   padding: 238px 135px 0;
   margin-bottom: 77px;
-  background: url("img/hotels/hero_hotels.png") center / cover no-repeat;
+  background: url("img/hotels/hero_hotels.webp") center / cover no-repeat;
 
   .page-hero-title-box {
     width: 632px;
@@ -210,7 +210,7 @@ body:has(.page-hero-hotels) {
   background: var(--hotel-photo) center / cover no-repeat;
   border-radius: 5px;
 }
-@each $n, $h, $img in (1 620px "courtyard.png", 2 649px "residence_inn.png") {
+@each $n, $h, $img in (1 620px "courtyard.webp", 2 649px "residence_inn.webp") {
   .hotel-card-#{$n} {
     height: $h;
     .hotel-block-photo {
@@ -358,7 +358,7 @@ body:has(.page-hero-hotels) {
     padding: 286px 31px 48px;
     align-items: center;
     justify-content: flex-end;
-    background-image: url("img/hotels/hero_hotels.png"), url("img/hotels/hero_hotels.png");
+    background-image: url("img/hotels/hero_hotels.webp"), url("img/hotels/hero_hotels.webp");
     background-position:
       85.13% 29.76%,
       85.13% 100%;
