@@ -1,21 +1,16 @@
-/* ==========================================================================
-   FAQ Page
-   ========================================================================== */
-
+// FAQ Page
 body:has(.tf-faq-page-body) {
   background: var(--tf-surface-cream) linear-gradient(135.332deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
 }
 main:has(.tf-faq-page-body) {
   background: transparent;
 }
-
 .page-body-container.container.tf-faq-page-body {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
 }
-
 .page-hero-banner.tf-faq-hero {
   @include flex-column;
   align-items: flex-start;
@@ -24,7 +19,6 @@ main:has(.tf-faq-page-body) {
   margin-bottom: 0;
   padding: 286px max(24px, calc(50% - 585.5px)) 48px;
   background: #30293e url("img/faq/hero_banner.jpg") no-repeat center 43.8px / cover;
-
   .page-hero-title-box {
     width: 632px;
     max-width: 100%;
@@ -39,18 +33,17 @@ main:has(.tf-faq-page-body) {
     margin: 0;
   }
 }
-
-/* FAQ Accordion */
-.tf-faq-container,
-.tf-faq-callouts-container {
+:is(.tf-faq-container, .tf-faq-callouts-container) {
   width: min(850px, calc(100% - 62px));
 }
-
+:is(.tf-faq-container .tf-accordion-content, .tf-faq-summary-row) {
+  transition: 300ms ease-out;
+  transition-property: background-color, color;
+}
 .tf-faq-container {
   @include flex-column;
   margin: 77px auto 0;
   gap: 32px;
-
   .tf-accordion {
     border: none;
     border-radius: 0;
@@ -73,17 +66,12 @@ main:has(.tf-faq-page-body) {
     border-radius: 40px;
     background-color: var(--tf-accent);
   }
-
   .tf-accordion-content {
     padding: 32px;
     border-radius: 0 0 30px 0;
     background-color: var(--tf-surface-card);
     color: var(--tf-ink);
     font: 400 16px / 1.3 var(--tf-font-body);
-    transition:
-      background-color 300ms ease-out,
-      color 300ms ease-out;
-
     a {
       color: var(--tf-accent);
       font-weight: 400;
@@ -95,9 +83,7 @@ main:has(.tf-faq-page-body) {
       }
     }
   }
-
-  .ada-pills,
-  .ada-limited-row {
+  :is(.ada-pills, .ada-limited-row) {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -107,8 +93,11 @@ main:has(.tf-faq-page-body) {
   }
   .ada-limited-row {
     width: 100%;
+    .ada-pill {
+      gap: 8px;
+      padding: 8px 16px 8px 8px;
+    }
   }
-
   .ada-pill {
     display: inline-flex;
     align-items: center;
@@ -121,12 +110,8 @@ main:has(.tf-faq-page-body) {
     font: 400 14px / 1.3 var(--tf-font-body);
     color: var(--tf-ink);
     white-space: nowrap;
-    transition:
-      background-color 300ms ease-out,
-      color 300ms ease-out,
-      border-color 300ms ease-out,
-      transform 300ms ease-out;
-
+    transition: 300ms ease-out;
+    transition-property: background-color, color, border-color, transform;
     .tf-icon {
       flex-shrink: 0;
       width: 17px;
@@ -138,13 +123,7 @@ main:has(.tf-faq-page-body) {
       mask-size: 10.2px 13.7px;
     }
   }
-
-  .ada-limited-row .ada-pill {
-    gap: 8px;
-    padding: 8px 16px 8px 8px;
-  }
 }
-
 .tf-faq-summary-row {
   display: flex;
   align-items: center;
@@ -152,13 +131,8 @@ main:has(.tf-faq-page-body) {
   width: 100%;
   padding: 8px;
   border-radius: 5px 5px 0 0;
-  transition:
-    background-color 300ms ease-out,
-    color 300ms ease-out;
 }
-
-.tf-faq-q-prefix,
-.tf-faq-q-text {
+:is(.tf-faq-q-prefix, .tf-faq-q-text) {
   font: 700 20px / 1.1 var(--tf-font-body);
   color: var(--tf-ink);
 }
@@ -166,8 +140,7 @@ main:has(.tf-faq-page-body) {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.tf-faq-q-text,
-.ada-limited-desc {
+:is(.tf-faq-q-text, .ada-limited-desc) {
   flex: 1 1 0%;
   min-width: 0;
 }
@@ -182,19 +155,13 @@ main:has(.tf-faq-page-body) {
   height: 30px;
   color: var(--tf-accent);
 }
-.tf-faq-answer,
-.tf-ada-slot,
-.tf-ada-full-group {
+:is(.tf-faq-answer, .tf-ada-slot, .tf-ada-full-group) {
   @include flex-column;
 }
-.tf-faq-answer {
-  gap: 16px;
-}
-.tf-ada-slot {
-  gap: 24px;
-}
-.tf-ada-full-group {
-  gap: 10px;
+@each $c, $g in (tf-faq-answer: 16px, tf-ada-slot: 24px, tf-ada-full-group: 10px) {
+  .#{$c} {
+    gap: $g;
+  }
 }
 .tf-faq-p {
   margin: 0;
@@ -203,66 +170,54 @@ main:has(.tf-faq-page-body) {
     color: inherit;
   }
 }
-
-/* FAQ Bottom Callout Cards (layered on .tf-mod-callout-grid / .tf-mod-callout--vert) */
 .tf-faq-callouts-container {
   margin: 77px auto;
   align-items: flex-start;
-
   .faq-callout-card-guidelines {
     border: 1px solid var(--tf-accent);
   }
   .faq-callout-card-discord {
     border: 1px solid transparent;
   }
-  .faq-callout-icon,
-  .faq-discord-icon {
+  :is(.faq-callout-icon, .faq-discord-icon) {
     display: block;
     width: 100px;
     height: 100px;
   }
-
   .faq-discord-icon {
     background-color: currentColor;
     -webkit-mask: var(--tf-svg-discord-card) center / contain no-repeat;
     mask: var(--tf-svg-discord-card) center / contain no-repeat;
   }
-
-  .faq-callout-content {
-    @include flex-column;
-    flex: 0 0 auto;
+  :is(.faq-callout-content, .faq-callout-btn-wrap) {
+    display: flex;
     align-items: flex-start;
-    gap: 24px;
     width: 100%;
+  }
+  .faq-callout-content {
+    flex-direction: column;
+    flex: 0 0 auto;
+    gap: 24px;
   }
   .faq-callout-copy {
     flex: 0 1 auto;
     width: 100%;
   }
   .faq-callout-btn-wrap {
-    display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    width: 100%;
   }
-
   .faq-callout-btn {
     width: auto;
     min-height: 0;
     box-shadow: none;
     background-color: #fffde7;
-    transition:
-      background-color 300ms ease-out,
-      color 300ms ease-out,
-      border-color 300ms ease-out,
-      transform 300ms ease-out,
-      box-shadow 300ms ease-out;
+    transition: 300ms ease-out;
+    transition-property: background-color, color, border-color, transform, box-shadow;
     &:hover {
       background-color: #fffde7;
       color: var(--tf-ink);
     }
   }
-
   .faq-callout-chevron {
     flex-shrink: 0;
     width: 15px;
@@ -270,8 +225,6 @@ main:has(.tf-faq-page-body) {
     margin: 0 -4px 0 -3px;
   }
 }
-
-/* FAQ Responsive Breakpoints */
 @media screen and (max-width: 768px) {
   .page-hero-banner.tf-faq-hero {
     align-items: center;
@@ -280,7 +233,6 @@ main:has(.tf-faq-page-body) {
     padding: 286px 31px 48px;
     background-size: 226.1% auto;
     background-position: 88.25% 18.6px;
-
     .page-hero-title-box {
       width: 100%;
       padding: 32px 24px;
@@ -289,7 +241,6 @@ main:has(.tf-faq-page-body) {
       font-size: 34px;
     }
   }
-
   .tf-faq-q-desktop {
     display: none;
   }
@@ -299,7 +250,6 @@ main:has(.tf-faq-page-body) {
   .tf-faq-q-text {
     padding-right: 18px;
   }
-
   .tf-faq-container {
     .tf-accordion:is(:nth-child(9), :nth-child(12)) .tf-faq-q-text {
       padding-right: 0;
@@ -312,28 +262,23 @@ main:has(.tf-faq-page-body) {
       align-items: flex-start;
     }
   }
-
   .tf-faq-callouts-container .faq-callout-card-discord {
     min-height: 490px;
   }
 }
-
 @media screen and (max-width: 374px) {
   .page-hero-banner.tf-faq-hero {
     padding: 260px 16px 40px;
     background-size: cover;
     background-position: 80% bottom;
   }
-  .tf-faq-container,
-  .tf-faq-callouts-container {
+  :is(.tf-faq-container, .tf-faq-callouts-container) {
     width: calc(100% - 32px);
   }
   .faq-callout-btn {
     max-width: 100%;
   }
 }
-
-/* FAQ Dark Mode */
 @include dark-mode {
   &:is(body:has(.tf-faq-page-body)),
   body:has(.tf-faq-page-body) {
@@ -342,12 +287,10 @@ main:has(.tf-faq-page-body) {
       background-image: linear-gradient(108.747deg, #30293e 28.353%, #221a28 93.86%);
     }
   }
-
   .tf-faq-container .tf-accordion {
     background-color: transparent;
     border: none;
   }
-
   .tf-faq-callouts-container {
     .faq-callout-card-guidelines {
       background-color: #6279d3;

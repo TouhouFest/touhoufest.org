@@ -2,18 +2,19 @@
    Gaming Page Rebuild (Desktop, Tablet, Mobile & Dark Mode)
    ========================================================================== */
 
+$gaming-tx: 300ms ease-out;
 $gaming-dashed-ribbon-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 327 24' fill='none'><path d='M1.5 22.5H5.55M325.5 22.5H321.45M17.7 22.5H25.8M37.95 22.5H46.05M58.2 22.5H66.3M78.45 22.5H86.55M98.7 22.5H106.8M118.95 22.5H127.05M139.2 22.5H147.3M159.45 22.5H167.55M179.7 22.5H187.8M199.95 22.5H208.05M220.2 22.5H228.3M240.45 22.5H248.55M260.7 22.5H268.8M280.95 22.5H289.05M301.2 22.5H309.3' stroke='black' stroke-width='3' stroke-linecap='round'/></svg>")
   no-repeat center / 100% 24px;
 $gaming-pin-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>')
   no-repeat center / contain;
+$gaming-badge-grad: "data:image/svg+xml;utf8,<svg preserveAspectRatio='none' overflow='visible' width='849.088' height='342.819' viewBox='0 0 849.088 342.819' fill='none' xmlns='http://www.w3.org/2000/svg'><g clip-path='url(%23clip0)'><g filter='url(%23f0)'><ellipse cx='613.701' cy='727.647' rx='232.91' ry='149.136' fill='%23FFDE05'/></g><g filter='url(%23f1)'><ellipse cx='-415.229' cy='641.459' rx='232.91' ry='148.167' fill='%23FF4949'/></g><g filter='url(%23f2)'><ellipse cx='162.623' cy='-425.734' rx='265.34' ry='167.536' fill='%231F90BA'/></g><g filter='url(%23f3)'><ellipse cx='1535.02' cy='-257.229' rx='216.694' ry='155.915' fill='%23D505FF'/></g></g><defs><filter id='f0' x='240.791' y='438.511' width='745.819' height='578.272' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f1' x='-788.138' y='353.292' width='745.819' height='576.335' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f2' x='-242.717' y='-733.27' width='810.68' height='615.071' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f3' x='1178.33' y='-553.144' width='713.389' height='591.829' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><clipPath id='clip0'><rect width='849.088' height='342.819' fill='white'/></clipPath></defs></svg>";
 
 body:has(.gaming-page-shell) {
   background-color: #fbf7eb;
   color: #30293e;
   font-family: "Open Sans", sans-serif;
   position: relative;
-  > main,
-  .page-body-fullbleed {
+  :is(> main, .page-body-fullbleed) {
     display: block;
     width: 100%;
     margin: 0;
@@ -28,6 +29,7 @@ body:has(.gaming-page-shell) {
   position: relative;
   color: #30293e;
   font-family: "Open Sans", sans-serif;
+
   :is(.gaming-intro-copy, .gaming-body-copy p, .arcade-body-copy, .prize-desc.gaming-prize-desc) {
     @include tf-body;
     color: var(--tf-ink);
@@ -60,6 +62,7 @@ body:has(.gaming-page-shell) {
   :is(.gaming-item-image-wrap, .gaming-badge-cta-wrap) {
     box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
   }
+
   .page-hero-banner.gaming-hero-banner {
     min-height: 600px;
     height: 600px;
@@ -87,7 +90,8 @@ body:has(.gaming-page-shell) {
     margin: 0 auto;
     gap: 42px;
   }
-  :is(.gaming-intro-block, .gaming-prize-links, .arcade-callout-full) {
+  :is(.gaming-intro-block, .gaming-prize-links, .arcade-callout-full),
+  :is(.arcade-box-list.arcade-callouts-stack, .gaming-prizes-intro) {
     width: 100%;
     @include flex-column;
   }
@@ -97,12 +101,13 @@ body:has(.gaming-page-shell) {
   .gaming-prize-links {
     padding-top: 16px;
   }
-  :is(.gaming-body-copy, .gaming-divider-heading, .gaming-divider-copy) {
+  :is(.gaming-body-copy, .gaming-divider-heading, .gaming-divider-copy, .gaming-badge-cta-wrap) {
     width: 100%;
   }
   .gaming-intro-copy {
     text-align: left;
   }
+
   .tf-mod-divider.gaming-divider-module {
     padding: 64px 0;
     background: #30293e;
@@ -140,26 +145,19 @@ body:has(.gaming-page-shell) {
   .tf-mod-divider-bottom.gaming-divider-bottom-wave {
     z-index: 3;
   }
-  :is(
-    .gaming-divider-text-block,
-    .gaming-text-block,
-    .gaming-prizes-waves-block,
-    .gaming-prizes-section,
-    .gaming-waves-section
-  ) {
+
+  :is(.gaming-divider-text-block, .gaming-text-block, .gaming-prizes-waves-block),
+  :is(.gaming-prizes-section, .gaming-waves-section) {
     width: 100%;
     @include flex-column;
     gap: 24px;
   }
-  :is(
-    .gaming-divider-text-block,
-    .gaming-text-block,
-    .arcade-right-col,
-    .wave-body.gaming-wave-body,
-    .hero-card-content.gaming-badge-cta-content
-  ) {
+  :is(.arcade-right-col, .wave-body.gaming-wave-body, .hero-card-content.gaming-badge-cta-content) {
     @include flex-column;
     gap: 24px;
+    align-items: flex-start;
+  }
+  :is(.gaming-divider-text-block, .gaming-text-block) {
     align-items: flex-start;
   }
   .gaming-divider-text-block {
@@ -171,14 +169,14 @@ body:has(.gaming-page-shell) {
   :is(.gaming-maps-title-mobile, .arcade-photo-jumplink) {
     display: none;
   }
+  :is(.gaming-comp-p1, .gaming-comp-p2, .gaming-comp-p3) {
+    margin: 0;
+  }
   .gaming-comp-p1 {
-    margin: 0 0 18px;
+    margin-bottom: 18px;
   }
   .gaming-comp-p2 {
-    margin: 0 0 16px;
-  }
-  .gaming-comp-p3 {
-    margin: 0;
+    margin-bottom: 16px;
   }
   :is(.gaming-comp-link-plain, .gaming-comp-link-dot) {
     color: #ffffff;
@@ -189,6 +187,7 @@ body:has(.gaming-page-shell) {
   .gaming-comp-link-dot {
     text-decoration: underline;
   }
+
   :is(.tf-btn.gaming-pill-btn-red, .tf-btn.gaming-pill-btn-cream) {
     gap: 10px;
     padding: 14px 39px 14px 47px;
@@ -263,13 +262,21 @@ body:has(.gaming-page-shell) {
     color: var(--tf-accent);
     text-decoration: underline;
   }
-  .gaming-cards-grid {
+
+  :is(.gaming-cards-grid, .gaming-prizes-grid, .gaming-arcade-row),
+  :is(.gaming-waves-grid, .gaming-discord-actions) {
     display: flex;
     flex-wrap: wrap;
-    gap: 32px;
     width: 100%;
+  }
+  :is(.gaming-cards-grid, .gaming-prizes-grid, .gaming-arcade-row) {
     justify-content: center;
+  }
+  :is(.gaming-cards-grid, .gaming-prizes-grid, .gaming-waves-grid, .gaming-discord-actions) {
     align-items: flex-start;
+  }
+  .gaming-cards-grid {
+    gap: 32px;
   }
   .gaming-item-card {
     flex: 1 0 240px;
@@ -283,20 +290,19 @@ body:has(.gaming-page-shell) {
     gap: 8px;
     width: 100%;
   }
+  :is(.gaming-item-overline, .gaming-item-title) {
+    color: var(--tf-accent);
+    text-align: center;
+    width: 100%;
+  }
   .gaming-item-overline {
     font:
       700 20px / 1.1 "Open Sans",
       sans-serif;
-    color: var(--tf-accent);
-    text-align: center;
     margin: 0;
-    width: 100%;
   }
   .gaming-item-title {
-    color: var(--tf-accent);
-    text-align: center;
     min-height: 0;
-    width: 100%;
   }
   .gaming-item-feature {
     width: 100%;
@@ -310,10 +316,13 @@ body:has(.gaming-page-shell) {
     aspect-ratio: 288 / 272;
     position: relative;
   }
-  .gaming-item-image-wrap {
+  :is(.gaming-item-image-wrap, .arcade-photo-main),
+  :is(.gaming-badge-cta-gradient, .gaming-badge-cta-stroke) {
     position: absolute;
     top: 0;
     left: 0;
+  }
+  .gaming-item-image-wrap {
     width: 98.61%;
     height: 97.43%;
     border-radius: 5px;
@@ -321,24 +330,22 @@ body:has(.gaming-page-shell) {
     margin: 0;
     aspect-ratio: auto;
     background: transparent;
-    &.crop-tabletop-1 .gaming-item-img {
-      width: 159.08%;
-      height: 113.66%;
-      left: -56.18%;
-      top: 0;
+    @each $n, $w, $h, $l, $t in (1 159.08% 113.66% -56.18% 0, 2 210.14% 150.14% -80.7% -38.45%) {
+      &.crop-tabletop-#{$n} .gaming-item-img {
+        width: $w;
+        height: $h;
+        left: $l;
+        top: $t;
+      }
     }
-    &.crop-tabletop-2 .gaming-item-img {
-      width: 210.14%;
-      height: 150.14%;
-      left: -80.7%;
-      top: -38.45%;
-    }
+  }
+  :is(.gaming-item-img, .arcade-gamepad-icon, .gaming-prize-medal, .gaming-wave-item-text) {
+    display: block;
   }
   .gaming-item-img {
     @include absolute-fill;
     object-fit: cover;
     max-width: none;
-    display: block;
   }
   .gaming-item-links {
     padding: 16px 0;
@@ -347,12 +354,18 @@ body:has(.gaming-page-shell) {
     align-items: flex-start;
     width: 100%;
   }
-  :is(.gaming-item-link, .prize-link.gaming-prize-jumplink) {
-    margin: 0;
+  :is(.gaming-item-link, .prize-link.gaming-prize-jumplink),
+  .wave-tournament-item.gaming-wave-item {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     color: var(--tf-ink);
+  }
+  :is(.gaming-item-link, .prize-link.gaming-prize-jumplink, .arcade-photo-wrap.arcade-photo-frame),
+  :is(.tf-dashed-divider.gaming-dashed-ribbon, .arcade-box-list.arcade-callouts-stack) {
+    margin: 0;
+  }
+  :is(.gaming-item-link, .prize-link.gaming-prize-jumplink) {
     white-space: nowrap;
   }
   .prize-link.gaming-prize-jumplink {
@@ -373,23 +386,18 @@ body:has(.gaming-page-shell) {
     max-width: 100%;
     height: 24px;
     border: none;
-    margin: 0;
     background-color: var(--tf-accent);
     -webkit-mask: $gaming-dashed-ribbon-mask;
     mask: $gaming-dashed-ribbon-mask;
   }
+
   .gaming-arcade-row {
-    display: flex;
-    flex-wrap: wrap;
     gap: 48px;
     align-items: center;
-    justify-content: center;
-    width: 100%;
   }
   .arcade-photo-wrap.arcade-photo-frame {
     flex: 1 0 262px;
     max-width: none;
-    margin: 0;
     height: 268px;
     position: relative;
   }
@@ -399,20 +407,18 @@ body:has(.gaming-page-shell) {
     height: 252px;
   }
   .arcade-photo-main {
-    top: 0;
-    left: 0;
     z-index: 2;
   }
-  .arcade-photo-inner {
+  :is(.arcade-photo-inner, .arcade-photo-wrap img.arcade-photo-img, .gaming-badge-cta-img) {
     width: 100%;
     height: 100%;
+  }
+  .arcade-photo-inner {
     border-radius: 5px;
     overflow: hidden;
     position: relative;
   }
-  :is(.arcade-photo-wrap img.arcade-photo-img, .gaming-badge-cta-img) {
-    width: 100%;
-    height: 100%;
+  :is(.arcade-photo-wrap :is(img.arcade-photo-img, img.arcade-photo-dots), .gaming-badge-cta-img) {
     display: block;
   }
   .arcade-photo-wrap img.arcade-photo-img {
@@ -434,17 +440,15 @@ body:has(.gaming-page-shell) {
     bottom: 17px;
     width: 16px;
     height: 23px;
-    display: block;
+  }
+  :is(.arcade-right-col, .arcade-callout-half, .prize-card.gaming-prize-col) {
+    min-width: 0;
   }
   .arcade-right-col {
     flex: 1 0 262px;
-    min-width: 0;
   }
   .arcade-box-list.arcade-callouts-stack {
-    @include flex-column;
     gap: 8px;
-    width: 100%;
-    margin: 0;
   }
   .arcade-callout-pair {
     display: flex;
@@ -455,7 +459,6 @@ body:has(.gaming-page-shell) {
   }
   .arcade-callout-half {
     flex: 1 0 150px;
-    min-width: 0;
     @include flex-column;
   }
   .arcade-cabinet-btn {
@@ -472,33 +475,25 @@ body:has(.gaming-page-shell) {
     box-shadow: none;
     text-align: center;
   }
-  .arcade-gamepad-icon {
-    display: block;
-  }
+
   .gaming-prizes-intro {
-    @include flex-column;
     gap: 16px;
-    width: 100%;
   }
   .gaming-sub-heading {
     color: var(--tf-ink);
   }
   .gaming-prizes-grid {
-    display: flex;
-    flex-wrap: wrap;
     gap: 24px;
-    width: 100%;
-    align-items: flex-start;
-    justify-content: center;
+  }
+  :is(.prize-card.gaming-prize-col, .wave-card.gaming-wave-card) {
+    background: transparent;
+    box-shadow: none;
+    @include flex-column;
   }
   .prize-card.gaming-prize-col {
     flex: 1 0 140px;
-    min-width: 0;
     padding: 16px 0 0;
-    background: transparent;
     border-radius: 0;
-    box-shadow: none;
-    @include flex-column;
     gap: 10px;
     align-items: flex-start;
   }
@@ -519,7 +514,6 @@ body:has(.gaming-page-shell) {
   .gaming-prize-medal {
     width: 67.44%;
     height: 83.85%;
-    display: block;
   }
   .prize-content.gaming-prize-titles {
     flex: 1 0 0;
@@ -537,12 +531,9 @@ body:has(.gaming-page-shell) {
     font-weight: 700;
     color: inherit;
   }
+
   .gaming-waves-grid {
-    display: flex;
-    flex-wrap: wrap;
     gap: 48px 16px;
-    width: 100%;
-    align-items: flex-start;
     justify-content: flex-start;
   }
   .wave-card.gaming-wave-card {
@@ -553,9 +544,6 @@ body:has(.gaming-page-shell) {
     border: 1px solid #bf3444;
     border-radius: 5px;
     overflow: hidden;
-    background: transparent;
-    box-shadow: none;
-    @include flex-column;
   }
   .wave-header.gaming-wave-header {
     height: 54px;
@@ -572,17 +560,13 @@ body:has(.gaming-page-shell) {
     flex: 0 0 auto;
   }
   .wave-tournament-item.gaming-wave-item {
-    display: inline-flex;
-    align-items: center;
     justify-content: flex-start;
-    gap: 10px;
-    color: var(--tf-ink);
     text-decoration: none;
   }
   .gaming-wave-item-text {
-    display: block;
     white-space: pre;
   }
+
   .tf-mod-map.gaming-maps-module {
     gap: 74px;
   }
@@ -600,7 +584,6 @@ body:has(.gaming-page-shell) {
     gap: 48px;
   }
   .gaming-badge-cta-wrap {
-    width: 100%;
     border-radius: 5px;
   }
   .hero-module-card.gaming-badge-cta-card {
@@ -620,15 +603,11 @@ body:has(.gaming-page-shell) {
     pointer-events: none;
   }
   :is(.gaming-badge-cta-gradient, .gaming-badge-cta-stroke) {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 99.89%;
     height: 362px;
   }
   .gaming-badge-cta-gradient {
-    background: url("data:image/svg+xml;utf8,<svg preserveAspectRatio='none' overflow='visible' width='849.088' height='342.819' viewBox='0 0 849.088 342.819' fill='none' xmlns='http://www.w3.org/2000/svg'><g clip-path='url(%23clip0)'><g filter='url(%23f0)'><ellipse cx='613.701' cy='727.647' rx='232.91' ry='149.136' fill='%23FFDE05'/></g><g filter='url(%23f1)'><ellipse cx='-415.229' cy='641.459' rx='232.91' ry='148.167' fill='%23FF4949'/></g><g filter='url(%23f2)'><ellipse cx='162.623' cy='-425.734' rx='265.34' ry='167.536' fill='%231F90BA'/></g><g filter='url(%23f3)'><ellipse cx='1535.02' cy='-257.229' rx='216.694' ry='155.915' fill='%23D505FF'/></g></g><defs><filter id='f0' x='240.791' y='438.511' width='745.819' height='578.272' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f1' x='-788.138' y='353.292' width='745.819' height='576.335' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f2' x='-242.717' y='-733.27' width='810.68' height='615.071' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f3' x='1178.33' y='-553.144' width='713.389' height='591.829' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><clipPath id='clip0'><rect width='849.088' height='342.819' fill='white'/></clipPath></defs></svg>")
-      no-repeat left top / 100% 100%;
+    background: url($gaming-badge-grad) no-repeat left top / 100% 100%;
   }
   .gaming-badge-cta-stroke {
     border: 15px solid var(--tf-accent);
@@ -677,31 +656,24 @@ body:has(.gaming-page-shell) {
     width: 100%;
   }
   .gaming-discord-actions {
-    display: flex;
-    flex-wrap: wrap;
     gap: 40px;
-    align-items: flex-start;
-    width: 100%;
   }
-  :is(
-    .arcade-cabinet-btn,
-    .tf-mod-map-tab.gaming-map-tab,
-    .tf-btn.gaming-pill-btn-red,
-    .tf-btn.gaming-pill-btn-cream
-  ) {
+
+  :is(.arcade-cabinet-btn, .tf-mod-map-tab.gaming-map-tab),
+  :is(.tf-btn.gaming-pill-btn-red, .tf-btn.gaming-pill-btn-cream) {
     transition:
-      background-color 300ms ease-out,
-      color 300ms ease-out,
-      border-color 300ms ease-out,
-      transform 300ms ease-out,
-      box-shadow 300ms ease-out;
+      background-color $gaming-tx,
+      color $gaming-tx,
+      border-color $gaming-tx,
+      transform $gaming-tx,
+      box-shadow $gaming-tx;
   }
   :is(.gaming-item-card, .wave-card.gaming-wave-card) {
     transition:
-      transform 300ms ease-out,
-      box-shadow 300ms ease-out,
-      border-color 300ms ease-out,
-      background-color 300ms ease-out;
+      transform $gaming-tx,
+      box-shadow $gaming-tx,
+      border-color $gaming-tx,
+      background-color $gaming-tx;
   }
 }
 
@@ -732,7 +704,8 @@ body:has(.gaming-page-shell) {
       left: -33.65%;
       top: 0;
     }
-    :is(.gaming-hero-container, .tf-mod-divider-inner.gaming-divider-content) {
+    :is(.gaming-hero-container, .tf-mod-divider-inner.gaming-divider-content),
+    .hero-card-image-wrap.gaming-badge-cta-img-col {
       width: 100%;
       max-width: 100%;
     }
@@ -743,8 +716,10 @@ body:has(.gaming-page-shell) {
       font-size: 34px;
     }
     :is(.gaming-main-stack, .gaming-bottom-ctas) {
-      width: calc(100% - 62px);
       max-width: 100%;
+    }
+    :is(.gaming-main-stack, .gaming-bottom-ctas, .tf-mod-map-tabs.gaming-maps-tabs) {
+      width: calc(100% - 62px);
     }
     .gaming-intro-block {
       margin-bottom: 3px;
@@ -755,12 +730,14 @@ body:has(.gaming-page-shell) {
         background-size: cover;
         background-position: center;
       }
+      &:is(.is-competitions, .is-maps) .gaming-divider-bg {
+        background-position: 50% 0;
+      }
       &.is-competitions {
         margin: 2px 0 5px;
         padding: 63px 32px 59px;
         .gaming-divider-bg {
           background-size: 164.65% 100%;
-          background-position: 50% 0;
         }
       }
       &.is-maps {
@@ -770,7 +747,6 @@ body:has(.gaming-page-shell) {
         margin-top: -4px;
         .gaming-divider-bg {
           background-size: 102.56% 100%;
-          background-position: 50% 0;
         }
       }
     }
@@ -802,7 +778,6 @@ body:has(.gaming-page-shell) {
     }
     .tf-mod-map-tabs.gaming-maps-tabs {
       margin-top: -2px;
-      width: calc(100% - 62px);
     }
     .tf-mod-map-stage.gaming-map-card {
       width: calc(100% - 18px);
@@ -820,8 +795,6 @@ body:has(.gaming-page-shell) {
     }
     .hero-card-image-wrap.gaming-badge-cta-img-col {
       padding: 16px 16px 8px;
-      width: 100%;
-      max-width: 100%;
       align-items: center;
     }
     .hero-card-content.gaming-badge-cta-content {
@@ -846,11 +819,8 @@ body:has(.gaming-page-shell) {
     :is(.gaming-main-stack, .gaming-bottom-ctas, .tf-mod-map-tabs.gaming-maps-tabs) {
       width: calc(100% - 32px);
     }
-    :is(
-      .tf-btn.gaming-pill-btn-red,
-      .tf-btn.gaming-pill-btn-cream,
-      .tf-mod-map-tab.gaming-map-tab
-    ) {
+    :is(.tf-btn.gaming-pill-btn-red, .tf-btn.gaming-pill-btn-cream),
+    .tf-mod-map-tab.gaming-map-tab {
       padding: 14px 20px;
       max-width: 100%;
     }
@@ -880,11 +850,9 @@ body:has(.gaming-page-shell) {
       filter: brightness(0) saturate(100%) invert(83%) sepia(39%) saturate(943%) hue-rotate(345deg)
         brightness(101%) contrast(95%);
     }
-    :is(
-      .tf-mod-divider-bottom.gaming-divider-bottom-wave,
-      .tf-mod-divider.gaming-divider-module.is-competitions .gaming-divider-bottom-wave,
-      .tf-mod-divider.gaming-divider-module.is-maps .gaming-divider-bottom-wave
-    ) {
+    .tf-mod-divider-bottom.gaming-divider-bottom-wave,
+    .tf-mod-divider.gaming-divider-module:is(.is-competitions, .is-maps)
+      .gaming-divider-bottom-wave {
       background-color: #282132;
     }
     :is(.arcade-cabinet-btn, .wave-card.gaming-wave-card) {

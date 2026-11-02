@@ -2,17 +2,19 @@
 // Vendors Page (.tf-vendors-root / .tf-v-*)
 // ==========================================================================
 
+$v-tx: 300ms ease-out;
+$v-chevron-svg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 15'><path d='M1.5 1.5L7.5 7.5L1.5 13.5' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>";
+
 :is(html, body):has(.tf-vendors-page-body) {
   overflow-x: hidden;
   scrollbar-width: none;
   color: #30293e;
   background: #fbf7eb linear-gradient(131.5326deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
-}
-html:has(.tf-vendors-page-body)::-webkit-scrollbar,
-body:has(.tf-vendors-page-body)::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
 }
 body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vendors-page-body) {
   width: 100%;
@@ -29,11 +31,19 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 }
 
 /* Main Stack, Hero & Shared Containers */
-.tf-v-main-stack {
+:is(.tf-v-main-stack, .tf-v-body-stack, .tf-v-fcard-content) {
   @include flex-col-center;
   width: 100%;
+}
+:is(.tf-v-featured-section, .tf-v-sell-section) {
+  @include flex-col-center;
+}
+.tf-v-main-stack {
   padding: 101px 0 57px;
   gap: 77px;
+}
+.tf-vendors-root :is(.tf-v-hero-box, .tf-v-fcard, .tf-v-discord-card) {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 .tf-vendors-root .tf-v-hero {
   position: relative;
@@ -59,11 +69,13 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   max-width: none;
   display: block;
 }
+:is(.tf-v-hero-container, .tf-v-search-row, .tf-v-roster-grid, .tf-v-map-stage) {
+  max-width: 100%;
+}
 .tf-v-hero-container {
   position: relative;
   z-index: 2;
   width: 1171px;
-  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -73,7 +85,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   max-width: 100%;
   height: 174px;
   padding: 0 48.5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -81,56 +92,40 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 .tf-vendors-root .tf-v-hero-title {
   line-height: 62px;
 }
-:is(
-  .tf-v-hero-img.is-mob-hero,
-  .tf-v-rcard-img.is-mob-placeholder,
-  .tf-v-divider-img.is-mob,
-  .tf-v-divider-title .is-mob-yr,
-  .tf-v-ofuda-icon.is-mob-icon
-) {
-  display: none;
-}
+:is(.tf-v-hero-img.is-mob-hero, .tf-v-rcard-img.is-mob-placeholder, .tf-v-divider-img.is-mob),
+:is(.tf-v-divider-title .is-mob-yr, .tf-v-ofuda-icon.is-mob-icon),
 :is(.tf-v-fcard-top-grad, .tf-v-rcard-name-mob) {
   display: none;
 }
 
-.tf-v-body-stack {
-  @include flex-col-center;
-  width: 100%;
+:is(.tf-v-body-stack, .tf-v-featured-section) {
   gap: 56px;
 }
 .tf-v-h1-red {
   @include tf-h2;
-  line-height: 37px;
   color: var(--tf-accent);
   text-align: center;
-}
-:is(.tf-v-featured-section, .tf-v-roster-section, .tf-v-sell-section, .tf-v-discord-section) {
-  width: 1171px;
-  max-width: calc(100% - 32px);
 }
 :is(.tf-v-heading-block, .tf-v-featured-grid, .tf-v-search-wrap, .tf-v-discord-section) {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.tf-v-discord-section {
+:is(.tf-v-featured-section, .tf-v-roster-section, .tf-v-sell-section, .tf-v-discord-section) {
   width: 1171px;
+  max-width: calc(100% - 32px);
+}
+:is(.tf-v-discord-section, .tf-v-sell-section) {
   margin-top: 0;
 }
 
 /* Featured Vendors Section */
-.tf-v-featured-section {
-  @include flex-col-center;
-  gap: 56px;
-}
 .tf-vendors-root .tf-v-fcard {
   position: relative;
   width: 850px;
   max-width: 100%;
   height: 604px;
   border-radius: 5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   @include flex-column;
   justify-content: flex-end;
   overflow: hidden;
@@ -144,9 +139,11 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 .tf-v-fcard-frame {
   z-index: 2;
 }
+:is(.tf-v-fcard-backing, .tf-v-fcard-body) {
+  background: #bf3444;
+}
 .tf-v-fcard-backing {
   @include absolute-fill;
-  background: #bf3444;
   border-radius: 5px;
 }
 .tf-v-fcard-photo-wrap {
@@ -157,12 +154,16 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   height: 604px;
   overflow: hidden;
 }
-.tf-v-fcard-photo {
+:is(.tf-v-fcard-photo, .tf-v-rcard-img.is-real, .tf-v-rcard-img.is-mob-placeholder) {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+}
+:is(.tf-v-fcard-photo, .tf-v-rcard-img.is-real) {
   display: block;
+}
+.tf-v-fcard-photo {
+  object-position: center top;
 }
 .tf-vendors-root .tf-v-fcard-streamer {
   position: absolute;
@@ -198,8 +199,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 .tf-v-fcard-content {
   position: relative;
   z-index: 1;
-  width: 100%;
-  @include flex-col-center;
 }
 .tf-v-fcard-headline {
   height: 194px;
@@ -213,20 +212,19 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
     #bf3444 100%
   );
 }
+:is(.tf-v-fcard-title, .tf-v-divider-title) {
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
 .tf-v-fcard-title {
   @include tf-h2;
   @include flex-column;
-  line-height: 37px;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 .tf-v-fcard-body {
   height: 212px;
-  background: #bf3444;
   justify-content: space-between;
 }
 .tf-v-fcard-bio {
   @include tf-body;
-  line-height: 21px;
   width: 100%;
   text-align: left;
 }
@@ -238,10 +236,10 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   font-size: 18px;
   line-height: 20px;
   transition:
-    transform 300ms ease-out,
-    box-shadow 300ms ease-out,
-    background-color 300ms ease-out,
-    color 300ms ease-out;
+    transform $v-tx,
+    box-shadow $v-tx,
+    background-color $v-tx,
+    color $v-tx;
   &:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -266,9 +264,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   flex-shrink: 0;
   width: 9px;
   height: 15px;
-  @include mask-stretch(
-    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 15'><path d='M1.5 1.5L7.5 7.5L1.5 13.5' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>"
-  );
+  @include mask-stretch($v-chevron-svg);
 }
 .tf-v-btn-chevron {
   background-color: #30293e;
@@ -286,7 +282,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 }
 .tf-v-search-row {
   width: 331px;
-  max-width: 100%;
 }
 .tf-v-search-pill {
   border-radius: 30px;
@@ -295,25 +290,25 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 }
 .tf-v-search-placeholder {
   @include tf-body;
-  line-height: 21px;
   color: var(--tf-ink);
 }
 .tf-v-roster-grid {
   gap: 32px 24px;
   width: 1056px;
-  max-width: 100%;
+}
+:is(.tf-v-rcard, .tf-v-rcard-inner) {
+  height: 268px;
 }
 .tf-v-rcard {
-  height: 268px;
   @include flex-column;
 }
-.tf-v-rcard-inner {
+:is(.tf-v-rcard-inner, .tf-v-rcard-name) {
   width: 192px;
-  height: 268px;
+}
+.tf-v-rcard-inner {
   justify-content: flex-end;
 }
 .tf-v-rcard-name {
-  width: 192px;
   min-height: 22px;
   max-height: 44px;
   display: flex;
@@ -324,12 +319,21 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   @include absolute-fill;
   pointer-events: none;
 }
-.tf-v-rcard-shadow-fill {
-  position: absolute;
-  top: 16px;
-  left: 16px;
+:is(.tf-v-rcard-shadow-fill, .tf-v-rcard-visit, .tf-v-rcard-img-pad, .tf-v-rcard-img-box) {
   width: 176px;
+}
+:is(.tf-v-rcard-shadow-fill, .tf-v-rcard-img-pad, .tf-v-rcard-img-box) {
   height: 176px;
+}
+:is(.tf-v-rcard-shadow-fill, .tf-v-rcard-visit) {
+  position: absolute;
+  left: 16px;
+}
+.tf-v-rcard-shadow-fill {
+  top: 16px;
+}
+:is(.tf-v-rcard-dots, .tf-v-rcard-visit-icon) {
+  display: block;
 }
 .tf-v-rcard-dots {
   position: absolute;
@@ -337,13 +341,9 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   bottom: 10px;
   width: 10px;
   height: 23px;
-  display: block;
 }
 .tf-v-rcard-visit {
-  position: absolute;
-  left: 16px;
   bottom: 0;
-  width: 176px;
   height: 36px;
   @include flex-center;
   gap: 10px;
@@ -361,11 +361,8 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 .tf-v-rcard-visit-icon {
   width: 18px;
   height: 18px;
-  display: block;
 }
 :is(.tf-v-rcard-img-pad, .tf-v-rcard-img-box) {
-  width: 176px;
-  height: 176px;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -380,12 +377,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 }
 .tf-v-rcard:nth-child(21) .tf-v-rcard-img-box {
   background: #931214;
-}
-.tf-v-rcard-img.is-real {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 .tf-v-rcard:nth-child(13) .tf-v-rcard-img.is-real {
   object-fit: contain;
@@ -426,9 +417,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   text-align: center;
 }
 .tf-v-divider-title {
-  line-height: 37px;
   text-align: center;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 .tf-v-divider-bottom-wave {
   bottom: -1px;
@@ -447,7 +436,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 }
 .tf-v-map-stage {
   width: 842px;
-  max-width: 100%;
   height: 662px;
   background-color: #ffffff;
 }
@@ -471,60 +459,34 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   flex-shrink: 0;
 }
 .tf-vendors-root .tf-v-polaroid-slot {
+  width: 153.2px;
   height: 196.4px;
   @include flex-center;
   flex-shrink: 0;
 }
-.tf-v-polaroid-slot:is(
-  :nth-child(1),
-  :nth-child(4),
-  :nth-child(7),
-  :nth-child(10),
-  :nth-child(12),
-  :nth-child(15),
-  :nth-child(18)
-) {
-  width: 165.5px;
+@each $i in (1, 4, 7, 10, 12, 15, 18) {
+  .tf-v-polaroid-slot:nth-child(#{$i}) {
+    width: 165.5px;
+  }
 }
-.tf-v-polaroid-slot:is(:nth-child(3), :nth-child(6), :nth-child(14), :nth-child(17)) {
-  width: 159.4px;
-}
-.tf-v-polaroid-slot:is(
-  :nth-child(2),
-  :nth-child(5),
-  :nth-child(8),
-  :nth-child(9),
-  :nth-child(11),
-  :nth-child(13),
-  :nth-child(16)
-) {
-  width: 153.2px;
+@each $i in (3, 6, 14, 17) {
+  .tf-v-polaroid-slot:nth-child(#{$i}) {
+    width: 159.4px;
+  }
 }
 .tf-v-polaroid-slot:nth-child(10) {
   margin-left: -6.1px;
 }
-$tf-v-polaroid-angles:
-  -5deg,
-  -1deg,
-  3deg,
-  -5deg,
-  1deg,
-  -3deg,
-  5deg,
-  1deg,
-  1deg,
-  5deg,
-  1deg,
-  -5deg,
-  -1deg,
-  -3deg,
-  -5deg,
-  1deg,
-  -3deg,
-  5deg;
-@for $i from 1 through length($tf-v-polaroid-angles) {
-  .tf-v-polaroid-slot:nth-child(#{$i}) .tf-v-polaroid-rot {
-    transform: rotate(nth($tf-v-polaroid-angles, $i));
+.tf-v-polaroid-rot {
+  transform: rotate(1deg);
+}
+@each $deg,
+  $ids in (-5deg: (1, 4, 12, 15), 5deg: (7, 10, 18), -3deg: (6, 14, 17), 3deg: (3), -1deg: (2, 13))
+{
+  @each $i in $ids {
+    .tf-v-polaroid-slot:nth-child(#{$i}) .tf-v-polaroid-rot {
+      transform: rotate($deg);
+    }
   }
 }
 .tf-v-polaroid-card {
@@ -569,23 +531,14 @@ $tf-v-polaroid-angles:
 
 /* Want to Sell (Ofuda) & Discord Callout */
 .tf-v-sell-section {
-  @include flex-col-center;
   gap: 24px;
-  margin-top: 0;
 }
 .tf-v-ofuda-icon-wrap {
   @include flex-center;
 }
-.tf-v-discord-title {
-  line-height: 37px;
-}
-.tf-v-discord-desc {
-  line-height: 21px;
-}
 .tf-vendors-root .tf-v-discord-card {
   height: 234px;
   background-color: var(--tf-color-dark, #221a28);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   flex-wrap: nowrap;
 }
 .tf-v-discord-content {
@@ -594,6 +547,12 @@ $tf-v-polaroid-angles:
 .tf-v-discord-copy {
   @include flex-column;
   gap: 8px;
+}
+:is(.tf-v-h1-red, .tf-v-fcard-title, .tf-v-divider-title, .tf-v-discord-title) {
+  line-height: 37px;
+}
+:is(.tf-v-fcard-bio, .tf-v-search-placeholder, .tf-v-discord-desc) {
+  line-height: 21px;
 }
 
 /* Responsive Breakpoints */
@@ -608,10 +567,6 @@ $tf-v-polaroid-angles:
 }
 
 @media screen and (max-width: 768px) {
-  .tf-vendors-root {
-    width: 100%;
-    max-width: 100%;
-  }
   :is(html, body):has(.tf-vendors-page-body) {
     background-image: linear-gradient(100.0014deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
   }
@@ -627,22 +582,14 @@ $tf-v-polaroid-angles:
     height: 435px;
     min-height: 435px;
     padding: 286px 31px 0;
-    align-items: flex-start;
   }
-  :is(
-    .tf-v-hero-img.is-desk-hero,
-    .tf-v-rcard:nth-child(n + 25),
-    .tf-v-rcard-img.is-real,
-    .tf-v-divider-img.is-desk,
-    .tf-v-divider-title .is-desk-yr,
-    .tf-v-ofuda-icon.is-desk-icon
-  ) {
-    display: none;
-  }
+  :is(.tf-v-hero-img.is-desk-hero, .tf-v-rcard:nth-child(n + 25), .tf-v-rcard-img.is-real),
+  :is(.tf-v-divider-img.is-desk, .tf-v-divider-title .is-desk-yr, .tf-v-ofuda-icon.is-desk-icon),
   :is(.tf-v-rcard-name-real, .tf-v-rcard-dots) {
     display: none;
   }
-  :is(.tf-v-divider-img.is-mob, .tf-v-divider-title .is-mob-yr, .tf-v-ofuda-icon.is-mob-icon) {
+  :is(.tf-v-divider-img.is-mob, .tf-v-divider-title .is-mob-yr, .tf-v-rcard-img.is-mob-placeholder),
+  :is(.tf-v-ofuda-icon.is-mob-icon, .is-mob-block) {
     display: block;
   }
   .tf-v-hero-img.is-mob-hero {
@@ -651,13 +598,22 @@ $tf-v-polaroid-angles:
     object-fit: cover;
     object-position: center top;
   }
-  .tf-v-hero-container {
+  :is(.tf-vendors-root, .tf-v-hero-container, .tf-v-fcard-headline),
+  .tf-v-discord-card .tf-v-btn-cream {
     width: 100%;
+  }
+  :is(.tf-vendors-root, .tf-v-roster-section, .tf-v-maps-body) {
+    max-width: 100%;
+  }
+  .tf-v-hero-container {
     justify-content: center;
   }
-  .tf-vendors-root .tf-v-hero-box {
+  .tf-vendors-root :is(.tf-v-hero-box, .tf-v-fcard),
+  :is(.tf-v-h1-red, .tf-v-featured-section, .tf-v-divider-content, .tf-v-sell-section) {
     width: 328px;
     max-width: 100%;
+  }
+  .tf-vendors-root .tf-v-hero-box {
     height: 100px;
     border-radius: 5px;
     padding: 0 24px;
@@ -672,28 +628,18 @@ $tf-v-polaroid-angles:
     gap: 0;
   }
   .tf-v-h1-red {
-    font-size: 34px;
-    line-height: 37px;
-    width: 328px;
-    max-width: 100%;
-    text-align: center;
     margin: 0 auto;
   }
   .tf-v-featured-section {
-    width: 328px;
-    max-width: 100%;
     gap: 64px;
     margin: 0 auto 61px;
   }
   .tf-vendors-root .tf-v-fcard {
-    width: 328px;
-    max-width: 100%;
     height: 814px;
     justify-content: flex-start;
     box-shadow: none;
   }
   .tf-v-fcard-photo-wrap {
-    width: 100%;
     height: 350px;
   }
   .tf-v-fcard-content {
@@ -702,17 +648,18 @@ $tf-v-polaroid-angles:
     justify-content: flex-start;
   }
   .tf-v-fcard-headline {
-    width: 100%;
     height: 110px;
     padding: 0 31px 12px;
     background: linear-gradient(180deg, rgba(191, 52, 68, 0) 0%, #bf3444 85%);
-    display: flex;
+    flex-direction: row;
     align-items: flex-end;
     justify-content: flex-start;
   }
-  .tf-v-fcard-title {
+  :is(.tf-v-fcard-title, .tf-v-divider-title) {
     font-size: 28px;
     line-height: 34px;
+  }
+  :is(.tf-v-fcard-title, .tf-v-fcard-bio) {
     text-align: left;
     color: #fffde7;
   }
@@ -726,37 +673,32 @@ $tf-v-polaroid-angles:
   .tf-v-fcard-bio {
     font-size: 13px;
     line-height: 20px;
-    text-align: left;
-    color: #fffde7;
-    margin: 0;
   }
   .tf-vendors-root .tf-v-btn-cream {
     align-self: center;
-    height: 48px;
     padding: 0 28px;
     font-size: 15px;
     background-color: #fffce7;
   }
-  .is-mob-block {
-    display: block;
-  }
   .tf-v-roster-heading {
     margin-bottom: 63px;
   }
-  .tf-v-roster-section {
+  :is(.tf-v-roster-section, .tf-v-roster-grid) {
     width: 390px;
-    max-width: 100%;
+  }
+  .tf-v-roster-section {
     gap: 55px;
     margin-bottom: 27px;
   }
+  :is(.tf-v-search-row, .tf-v-search-pill) {
+    height: 48px;
+  }
   .tf-v-search-row {
     width: 328px;
-    height: 48px;
     margin: 0 auto;
     align-items: center;
   }
   .tf-v-search-pill {
-    height: 48px;
     padding: 0 24px;
     border-radius: 9999px;
   }
@@ -764,8 +706,6 @@ $tf-v-polaroid-angles:
     font-size: 15px;
   }
   .tf-v-roster-grid {
-    width: 390px;
-    max-width: 100%;
     display: grid;
     grid-template-columns: 116px 116px;
     gap: 35px 33px;
@@ -778,8 +718,11 @@ $tf-v-polaroid-angles:
     justify-content: flex-start;
     gap: 4px;
   }
-  .tf-v-rcard-name {
+  :is(.tf-v-rcard-name, .tf-v-rcard-shadow-fill, .tf-v-rcard-visit),
+  :is(.tf-v-rcard-img-pad, .tf-v-rcard-img-box) {
     width: 116px;
+  }
+  .tf-v-rcard-name {
     min-height: 20px;
     max-height: 20px;
     height: 20px;
@@ -791,16 +734,17 @@ $tf-v-polaroid-angles:
   .tf-v-rcard-name-mob {
     display: inline;
   }
-  .tf-v-rcard-frame {
+  :is(.tf-v-rcard-frame, .tf-v-rcard-table) {
     width: 124px;
+    margin: 0;
+  }
+  .tf-v-rcard-frame {
     height: 162px;
     position: relative;
-    margin: 0;
   }
   .tf-v-rcard-shadow-fill {
     top: 8px;
     left: 8px;
-    width: 116px;
     height: 154px;
     border-radius: 5px;
     background: linear-gradient(
@@ -813,8 +757,6 @@ $tf-v-polaroid-angles:
   }
   .tf-v-rcard-visit {
     left: 8px;
-    bottom: 0;
-    width: 116px;
     height: 46px;
     opacity: 1;
     justify-content: space-between;
@@ -824,50 +766,31 @@ $tf-v-polaroid-angles:
   .tf-v-rcard-visit-text {
     font-size: 14px;
     line-height: 18px;
-    text-decoration: underline;
   }
   .tf-v-rcard-visit-icon {
     width: 14px;
     height: 14px;
   }
   :is(.tf-v-rcard-img-pad, .tf-v-rcard-img-box) {
-    width: 116px;
     height: 116px;
-    border-radius: 5px;
-  }
-  .tf-v-rcard-img.is-mob-placeholder {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
   .tf-v-rcard-table {
-    width: 124px;
     height: 16px;
     font-size: 12px;
     line-height: 16px;
     color: #2f293d;
     text-align: center;
-    margin: 0;
   }
   .tf-vendors-root .tf-v-maps-section {
     gap: 49px;
   }
-  .tf-v-divider-content {
-    width: 328px;
-    max-width: 100%;
-  }
-  .tf-v-divider-title {
-    font-size: 28px;
-    line-height: 34px;
+  :is(.tf-v-maps-body, .tf-v-map-stage) {
+    width: 350px;
   }
   .tf-v-maps-body {
-    width: 350px;
-    max-width: 100%;
     gap: 52px;
   }
   .tf-v-map-stage {
-    width: 350px;
     height: 291px;
   }
   .tf-v-map-zoom {
@@ -910,8 +833,6 @@ $tf-v-polaroid-angles:
     line-height: 13px;
   }
   .tf-v-sell-section {
-    width: 328px;
-    max-width: 100%;
     gap: 50px;
     margin-top: 54px;
   }
@@ -937,19 +858,11 @@ $tf-v-polaroid-angles:
     font-size: 28px;
     line-height: 33px;
   }
-  .tf-v-discord-card .tf-v-btn-cream {
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 360px) {
-  :is(
-    .tf-v-featured-section,
-    .tf-v-roster-section,
-    .tf-v-sell-section,
-    .tf-v-discord-section,
-    .tf-v-h1-red
-  ) {
+  :is(.tf-v-featured-section, .tf-v-roster-section, .tf-v-sell-section),
+  :is(.tf-v-discord-section, .tf-v-h1-red) {
     width: calc(100% - 24px);
   }
   .tf-vendors-root :is(.tf-v-fcard, .tf-v-discord-card),
@@ -1002,12 +915,14 @@ $tf-v-polaroid-angles:
       opacity: 0;
     }
   }
-  .tf-vendors-root .tf-v-fcard .tf-v-btn-cream {
-    background-color: #511154;
-    color: #fbf7eb;
-  }
-  .tf-vendors-root .tf-v-fcard .tf-v-btn-chevron {
-    background-color: #fbf7eb;
+  .tf-vendors-root .tf-v-fcard {
+    .tf-v-btn-cream {
+      background-color: #511154;
+      color: #fbf7eb;
+    }
+    .tf-v-btn-chevron {
+      background-color: #fbf7eb;
+    }
   }
   .tf-v-rcard-shadow-fill {
     background-color: #f9c650;
@@ -1024,14 +939,16 @@ $tf-v-polaroid-angles:
   .tf-v-discord-card .tf-v-btn-chevron {
     background-color: #fbf7eb;
   }
-  .tf-mod-callout.is-discord .tf-v-discord-icon-wrap {
-    background-color: transparent;
-    -webkit-mask: none;
-    mask: none;
-  }
-  .tf-mod-callout.is-discord .tf-v-discord-icon {
-    opacity: 1;
-    filter: brightness(0) saturate(100%) invert(14%) sepia(19%) saturate(1148%) hue-rotate(218deg)
-      brightness(95%) contrast(92%);
+  .tf-mod-callout.is-discord {
+    .tf-v-discord-icon-wrap {
+      background-color: transparent;
+      -webkit-mask: none;
+      mask: none;
+    }
+    .tf-v-discord-icon {
+      opacity: 1;
+      filter: brightness(0) saturate(100%) invert(14%) sepia(19%) saturate(1148%) hue-rotate(218deg)
+        brightness(95%) contrast(92%);
+    }
   }
 }

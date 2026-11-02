@@ -23,27 +23,17 @@ body:has(.tf-artists-page) > main {
   background: linear-gradient(126.92deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
   font-family: "Open Sans", sans-serif;
   color: #30293e;
-  *,
-  *::before,
-  *::after {
+  :is(*, *::before, *::after) {
     box-sizing: border-box;
   }
-  p,
-  h1,
-  h2,
-  h3 {
+  :is(p, h1, h2, h3) {
     margin: 0;
   }
 }
 
 /* Shared Heading & Body Scales */
-:is(
-  .tf-artists-h2,
-  .tf-artists-feat-title,
-  .tf-artists-divider-title,
-  .tf-artists-ofuda-title,
-  .tf-artists-discord-title
-) {
+:is(.tf-artists-h2, .tf-artists-feat-title, .tf-artists-divider-title),
+:is(.tf-artists-ofuda-title, .tf-artists-discord-title) {
   font:
     800 34px / 37px "Poppins",
     sans-serif;
@@ -74,21 +64,20 @@ body:has(.tf-artists-page) > main {
   width: 16.93px;
   height: 190px;
 }
-.tf-artists-feat-corner-accent {
+:is(.tf-artists-feat-corner-accent, .tf-artists-feat-corner-base) {
   position: absolute;
-  inset: 0 0.18% 0 0;
-  width: 99.82%;
-  height: 100%;
   max-width: none;
   display: block;
 }
+.tf-artists-feat-corner-accent {
+  inset: 0 0.18% 0 0;
+  width: 99.82%;
+  height: 100%;
+}
 .tf-artists-feat-corner-base {
-  position: absolute;
   inset: 0 1.79% 11.26% 0;
   width: 98.21%;
   height: 88.74%;
-  max-width: none;
-  display: block;
 }
 
 /* Hero */
@@ -104,8 +93,7 @@ body:has(.tf-artists-page) > main {
   padding: 48px 0;
 }
 .tf-artists-hero-bg {
-  position: absolute;
-  inset: 0;
+  @include absolute-fill;
   overflow: hidden;
   pointer-events: none;
   img {
@@ -124,17 +112,15 @@ body:has(.tf-artists-page) > main {
   @include flex-col-center;
   gap: 56px;
 }
-.tf-artists-section {
+:is(.tf-artists-section, .tf-artists-section-head) {
   width: 100%;
   @include flex-col-center;
+}
+.tf-artists-section {
   gap: 24px;
 }
 :is(.tf-artists-featured-sec, .tf-artists-roster-sec) {
   gap: 56px;
-}
-.tf-artists-section-head {
-  width: 100%;
-  @include flex-col-center;
 }
 
 /* Featured Artists */
@@ -156,17 +142,13 @@ body:has(.tf-artists-page) > main {
   overflow: clip;
   filter: drop-shadow(3px 4px 6.5px rgba(99, 15, 40, 0.15));
   @include flex-column;
-  &:nth-child(1) .tf-artists-feat-img {
-    left: -12.39%;
-    top: 1.09%;
-    width: 134.81%;
-    height: 48.98%;
-  }
-  &:nth-child(2) .tf-artists-feat-img {
-    left: -0.35%;
-    top: 0;
-    width: 100.69%;
-    height: 59.02%;
+}
+@each $n, $l, $t, $w, $h in (1 -12.39% 1.09% 134.81% 48.98%, 2 -0.35% 0 100.69% 59.02%) {
+  .tf-artists-feat-card:nth-child(#{$n}) .tf-artists-feat-img {
+    left: $l;
+    top: $t;
+    width: $w;
+    height: $h;
   }
 }
 .tf-artists-feat-art {
@@ -259,38 +241,37 @@ body:has(.tf-artists-page) > main {
   right: 35.9%;
   height: 384.17px;
 }
-.tf-artists-feat-glow-desktop {
+:is(.tf-artists-feat-glow-desktop, .tf-artists-feat-glow-mobile, .tf-artists-roster-back-fill) {
   width: 100%;
   height: 100%;
+}
+.tf-artists-feat-glow-desktop {
   display: block;
 }
-.tf-artists-feat-glow-mobile {
+:is(.tf-artists-feat-glow-mobile, .tf-artists-ofuda-icon-img.is-mob-icon) {
   display: none;
-  width: 100%;
-  height: 100%;
+}
+:is(.tf-artists-feat-corner, .tf-artists-feat-corner-mirror, .tf-artists-feat-corner-border) {
+  width: 44px;
+  height: 262px;
+}
+:is(.tf-artists-feat-corner, .tf-artists-feat-corner-mirror) {
+  @include flex-center;
 }
 .tf-artists-feat-corner {
   position: absolute;
   top: -73px;
-  width: 44px;
-  height: 262px;
-  @include flex-center;
-}
-.tf-artists-feat-corner--left {
-  left: 0;
-}
-.tf-artists-feat-corner--right {
-  right: 0;
+  &--left {
+    left: 0;
+  }
+  &--right {
+    right: 0;
+  }
 }
 .tf-artists-feat-corner-mirror {
-  width: 44px;
-  height: 262px;
   transform: scaleY(-1) rotate(180deg);
-  @include flex-center;
 }
 .tf-artists-feat-corner-border {
-  width: 44px;
-  height: 262px;
   position: relative;
   overflow: clip;
   flex-shrink: 0;
@@ -302,15 +283,13 @@ body:has(.tf-artists-page) > main {
 }
 
 /* Roster Section */
-.tf-artists-roster-wrap {
+:is(.tf-artists-roster-wrap, .tf-artists-search-bar, .tf-artists-roster-grid),
+:is(.tf-artists-roster-inner, .tf-artists-roster-name, .tf-artists-roster-table) {
   width: 100%;
 }
 .tf-artists-search-outer {
   width: min(331px, 100%);
   padding-bottom: 16px;
-}
-.tf-artists-search-bar {
-  width: 100%;
 }
 .tf-artists-search-input {
   border-radius: 60px;
@@ -330,7 +309,6 @@ body:has(.tf-artists-page) > main {
   }
 }
 .tf-artists-roster-grid {
-  width: 100%;
   gap: 48px 24px;
   align-items: flex-start;
 }
@@ -339,19 +317,11 @@ body:has(.tf-artists-page) > main {
   flex-shrink: 0;
   overflow: visible;
 }
-.tf-artists-roster-inner,
-.tf-artists-roster-name {
-  width: 100%;
-}
 .tf-artists-roster-back {
   position: absolute;
   inset: 0;
   padding: 16px 0 0 16px;
   z-index: 1;
-}
-.tf-artists-roster-back-fill {
-  width: 100%;
-  height: 100%;
 }
 .tf-artists-roster-dots {
   position: absolute;
@@ -361,16 +331,18 @@ body:has(.tf-artists-page) > main {
   height: 23px;
   display: block;
 }
-.tf-artists-roster-link {
+:is(.tf-artists-roster-link, .tf-artists-polaroid-link) {
   position: absolute;
-  bottom: 15px;
-  left: calc(50% + 10px);
-  transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   text-decoration: none;
+}
+.tf-artists-roster-link {
+  bottom: 15px;
+  left: calc(50% + 10px);
+  transform: translateX(-50%);
+  gap: 20px;
   white-space: nowrap;
 }
 .tf-artists-roster-link-text {
@@ -380,11 +352,13 @@ body:has(.tf-artists-page) > main {
   color: #fffde7;
   text-decoration: underline;
 }
+:is(.tf-artists-roster-link-icon, .tf-artists-polaroid-link-icon) {
+  display: block;
+  flex-shrink: 0;
+}
 .tf-artists-roster-link-icon {
   width: 19.8px;
   height: 19.8px;
-  display: block;
-  flex-shrink: 0;
 }
 .tf-artists-roster-avatar {
   position: absolute;
@@ -412,9 +386,6 @@ body:has(.tf-artists-page) > main {
     object-fit: contain;
   }
 }
-.tf-artists-roster-table {
-  width: 100%;
-}
 
 /* Full-Bleed Sections (Maps & Past Artists) */
 .tf-artists-fullbleed {
@@ -423,12 +394,15 @@ body:has(.tf-artists-page) > main {
   overflow-x: hidden;
   @include flex-col-center;
 }
-.tf-artists-maps-sec {
+:is(.tf-artists-maps-sec, .tf-artists-maps-body) {
   gap: 77px;
 }
 .tf-artists-past-sec {
   gap: 32px;
   padding-bottom: 48px;
+}
+:is(.tf-artists-divider-bg-past-desktop, .tf-artists-divider-bg-past-mobile, .tf-artists-map-img) {
+  max-width: none;
 }
 .tf-artists-divider-bg-past-desktop {
   position: absolute;
@@ -436,19 +410,16 @@ body:has(.tf-artists-page) > main {
   top: -147.58%;
   width: 100%;
   height: 369.28%;
-  max-width: none;
   object-fit: fill;
 }
-.tf-artists-divider-bg-past-mobile {
+:is(.tf-artists-divider-bg-past-mobile, .tf-artists-divider-bg-tint) {
   display: none;
   @include absolute-fill;
+}
+:is(.tf-artists-divider-bg-past-mobile, .tf-artists-map-img) {
   object-fit: cover;
-  max-width: none;
 }
 .tf-artists-divider-bg-tint {
-  display: none;
-  position: absolute;
-  inset: 0;
   background: rgba(46, 42, 49, 0.7);
 }
 .tf-artists-divider-top-deco {
@@ -457,24 +428,18 @@ body:has(.tf-artists-page) > main {
 .tf-artists-divider-bottom-wave {
   bottom: -1px;
 }
-.tf-artists-divider-inner {
+:is(.tf-artists-divider-inner, .tf-artists-maps-body) {
   width: min(850px, 100%);
+}
+.tf-artists-divider-inner {
   gap: 0;
 }
 
 /* Maps Controls & Viewer (Page-Specific Deltas) */
-.tf-artists-maps-body {
-  width: min(850px, 100%);
-  gap: 77px;
-}
 .tf-artists-map-canvas {
   @include absolute-fill;
   border-radius: 5px;
   overflow: hidden;
-}
-.tf-artists-map-img {
-  object-fit: cover;
-  max-width: none;
 }
 .tf-artists-map-img--3 {
   object-fit: contain;
@@ -488,9 +453,11 @@ body:has(.tf-artists-page) > main {
   display: flex;
   justify-content: center;
 }
+:is(.tf-artists-polaroid-wall, .tf-artists-polaroid-slot, .tf-artists-polaroid-rot) {
+  flex-shrink: 0;
+}
 .tf-artists-polaroid-wall {
   width: 1932px;
-  flex-shrink: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -501,7 +468,6 @@ body:has(.tf-artists-page) > main {
   width: 153.188px;
   height: 186.59px;
   @include flex-center;
-  flex-shrink: 0;
 }
 @each $i in (1, 4, 7, 10, 12, 15, 18, 19, 22, 25, 28, 30, 33) {
   .tf-artists-polaroid-slot:nth-child(#{$i}) {
@@ -518,7 +484,6 @@ body:has(.tf-artists-page) > main {
 .tf-artists-polaroid-rot {
   width: 150px;
   height: 184px;
-  flex-shrink: 0;
   transform: rotate(1deg);
 }
 
@@ -551,15 +516,10 @@ body:has(.tf-artists-page) > main {
   }
 }
 .tf-artists-polaroid-link {
-  position: absolute;
   left: calc(50% + 3.5px);
   top: calc(50% + 71.21px);
   transform: translate(-50%, -50%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   gap: 10px;
-  text-decoration: none;
 }
 .tf-artists-polaroid-link-text {
   font:
@@ -576,13 +536,6 @@ body:has(.tf-artists-page) > main {
 .tf-artists-polaroid-link-icon {
   width: 15.4px;
   height: 15.4px;
-  display: block;
-  flex-shrink: 0;
-}
-
-/* Want to Sell / Ofuda Cards */
-.tf-artists-ofuda-icon-img.is-mob-icon {
-  display: none;
 }
 
 /* Discord Card (Page-Specific Deltas) */
@@ -613,15 +566,9 @@ body:has(.tf-artists-page) > main {
     min-height: 400px;
     height: auto;
     padding: 238px 31px 0;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-  .tf-artists-hero-inner {
-    padding: 48px 0;
   }
   .tf-artists-main {
     width: calc(100% - 62px);
-    gap: 56px;
   }
   .tf-artists-feat-card {
     flex: 1 1 100%;
@@ -630,21 +577,12 @@ body:has(.tf-artists-page) > main {
   .tf-artists-feat-top-glow {
     right: 0.11%;
   }
-  :is(
-    .tf-artists-feat-glow-desktop,
-    .tf-artists-roster-dots,
-    .tf-artists-divider-bg-photo,
-    .tf-artists-divider-bg-past-desktop,
-    .tf-artists-ofuda-icon-img.is-desk-icon
-  ) {
+  :is(.tf-artists-feat-glow-desktop, .tf-artists-roster-dots, .tf-artists-divider-bg-photo),
+  :is(.tf-artists-divider-bg-past-desktop, .tf-artists-ofuda-icon-img.is-desk-icon) {
     display: none;
   }
-  :is(
-    .tf-artists-feat-glow-mobile,
-    .tf-artists-divider-bg-past-mobile,
-    .tf-artists-divider-bg-tint,
-    .tf-artists-ofuda-icon-img.is-mob-icon
-  ) {
+  :is(.tf-artists-feat-glow-mobile, .tf-artists-divider-bg-past-mobile),
+  :is(.tf-artists-divider-bg-tint, .tf-artists-ofuda-icon-img.is-mob-icon) {
     display: block;
   }
   .tf-artists-roster-card {
@@ -732,8 +670,7 @@ body:has(.tf-artists-page) > main {
 /* Dark Mode Variants */
 @include dark-mode {
   .tf-artists-page {
-    background-color: #30293e;
-    background-image: linear-gradient(126.92deg, #30293e 28.353%, #221a28 93.86%);
+    background: #30293e linear-gradient(126.92deg, #30293e 28.353%, #221a28 93.86%);
     color: #fbf7eb;
   }
   .tf-artists-feat-headline {

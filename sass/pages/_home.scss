@@ -2,18 +2,7 @@
    Homepage Rebuild (.home-page-body)
    ========================================================================== */
 
-/* Root Nav Spacing */
-@media screen and (min-width: 769px) {
-  body:has(.home-page-body) .tf-nav-inner {
-    padding: 25px 0;
-  }
-}
-@media screen and (max-width: 768px) {
-  body:has(.home-page-body) .tf-nav-inner {
-    padding: 21px 0;
-    min-height: 100px;
-  }
-}
+$home-tx: 300ms ease-out;
 
 .home-page-body {
   position: relative;
@@ -27,22 +16,21 @@
   :is(.home-banner-card-title, .home-guests-heading, .pillar-card-title, .home-twitter-title) {
     @include tf-h2;
   }
+  :is(.home-banner-card-title, .home-guests-heading, .pillar-card-title) {
+    color: #bf3444;
+  }
   :is(.home-venue-card-body, .guest-teaser-role, .pillar-card-body) {
     @include tf-body;
+    color: #30293e;
   }
 
-  :is(
-    .ofuda-sticker-card,
-    .home-banner-cream-card,
-    .pillar-card,
-    .home-discord-card,
-    .home-newsletter-card
-  ) {
+  :is(.ofuda-sticker-card, .home-banner-cream-card, .pillar-card),
+  :is(.home-discord-card, .home-newsletter-card) {
     transition:
-      transform 300ms ease-out,
-      box-shadow 300ms ease-out,
-      border-color 300ms ease-out,
-      background-color 300ms ease-out;
+      transform $home-tx,
+      box-shadow $home-tx,
+      border-color $home-tx,
+      background-color $home-tx;
   }
 
   :is(.home-venue-copy, .pillar-card-copy, .home-special-copy) {
@@ -61,25 +49,17 @@
   }
   .sticker-icon-img {
     position: absolute;
-    display: block;
     max-width: none;
   }
-  .sticker-icon-left .sticker-icon-img {
-    inset: 0;
-    width: 100px;
-    height: 100px;
-  }
-  .sticker-icon-center .sticker-icon-img {
-    left: 0;
-    top: -2.95px;
-    width: 100px;
-    height: 114px;
-  }
-  .sticker-icon-right .sticker-icon-img {
-    left: -2.23px;
-    top: -3.8px;
-    width: 103px;
-    height: 106px;
+  @each $pos, $l, $t, $w,
+    $h in (left 0 0 100px 100px, center 0 -2.95px 100px 114px, right -2.23px -3.8px 103px 106px)
+  {
+    .sticker-icon-#{$pos} .sticker-icon-img {
+      left: $l;
+      top: $t;
+      width: $w;
+      height: $h;
+    }
   }
 
   :is(.home-stickers-streamer, .home-bottom-streamer, .home-pillars-streamer) {
@@ -87,9 +67,27 @@
     height: 1060px;
     background: url("img/home/shide-streamer.svg") no-repeat center top / 100% 100%;
   }
+  :is(.home-stickers-streamer, .home-bottom-streamer) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 1;
+  }
 
-  :is(.home-hero-divider-bottom, .home-banner-divider-bottom, .home-garland-banner) {
+  :is(.home-hero-divider-bottom, .home-banner-divider-bottom, .home-garland-banner),
+  :is(.home-stickers-wrapper, .home-stickers-row, .home-guests-section, .home-pillars-section),
+  :is(.pillar-row, .pillar-card-inner) {
     z-index: 2;
+  }
+  :is(.home-hero-glass-card, .home-banner-module, .home-banner-inner) {
+    z-index: 3;
+  }
+  :is(.sticker-icon-img, .polaroid-card, .polaroid-img) {
+    display: block;
+  }
+  :is(.pillar-card-cream, .polaroid-card) {
+    box-shadow: 3px 4px 13px 0 rgba(99, 15, 40, 0.15);
   }
 
   /* Universal Homepage Pill CTA */
@@ -110,11 +108,11 @@
     cursor: pointer;
     text-decoration: none;
     transition:
-      background-color 300ms ease-out,
-      color 300ms ease-out,
-      border-color 300ms ease-out,
-      transform 300ms ease-out,
-      box-shadow 300ms ease-out;
+      background-color $home-tx,
+      color $home-tx,
+      border-color $home-tx,
+      transform $home-tx,
+      box-shadow $home-tx;
 
     &:hover {
       box-shadow: 0 4px 22px 3px rgba(191, 52, 68, 0.5);
@@ -152,17 +150,26 @@
   }
 
   /* Main Content Stack */
-  .home-page-content {
-    @include flex-col-center;
+  :is(.home-page-content, .home-hero-banner, .home-stickers-wrapper, .home-guests-section) {
+    position: relative;
     width: 100%;
+    @include flex-col-center;
+  }
+  :is(.home-hero-banner, .home-hero-glass-card, .home-stickers-wrapper) {
+    justify-content: center;
+  }
+  :is(.home-hero-banner, .home-hero-glass-card, .ofuda-sticker-card),
+  :is(.home-banner-module, .pillar-card) {
+    overflow: hidden;
+  }
+  .home-page-content {
     gap: 77px;
     padding-bottom: 77px;
-    position: relative;
     background-image: linear-gradient(132.88deg, #fbf7eb 28.35%, #ffe1e1 93.86%);
   }
 
   /* 1. Hero Banner */
-  .home-section-bg-img {
+  :is(.home-section-bg-img, .pillar-mesh-bg) {
     @include absolute-fill;
     object-fit: cover;
     pointer-events: none;
@@ -170,15 +177,10 @@
   }
 
   .home-hero-banner {
-    position: relative;
     z-index: 1;
-    width: 100%;
     padding: 290px 20px 200px;
     margin-bottom: -125px;
     background: center / cover no-repeat;
-    @include flex-col-center;
-    justify-content: center;
-    overflow: hidden;
   }
 
   .home-hero-vignette {
@@ -187,7 +189,6 @@
 
   .home-hero-glass-card {
     position: relative;
-    z-index: 3;
     width: min(850px, 100%);
     height: 260px;
     padding: 48px;
@@ -195,9 +196,7 @@
     border: 1px solid #bf3444;
     background: linear-gradient(180.49deg, rgba(93, 4, 5, 0.72) 5.57%, rgba(48, 41, 62, 0.55) 100%);
     @include flex-col-center;
-    justify-content: center;
     text-align: center;
-    overflow: hidden;
   }
 
   .home-hero-title {
@@ -217,24 +216,11 @@
   }
 
   /* 2. Ofuda Stickers */
-  .home-stickers-wrapper {
-    position: relative;
-    width: 100%;
-    @include flex-col-center;
-    justify-content: center;
-    z-index: 2;
-  }
   .home-stickers-streamer {
-    position: absolute;
     top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none;
-    z-index: 1;
   }
   .home-stickers-row {
     position: relative;
-    z-index: 2;
     display: flex;
     flex-wrap: nowrap;
     align-items: flex-start;
@@ -244,20 +230,17 @@
     @include flex-center;
     flex-shrink: 0;
   }
-  .sticker-slot-left {
+  :is(.sticker-slot-left, .sticker-slot-right) {
     width: 369.37px;
     height: 493.56px;
+  }
+  :is(.sticker-slot-left, .sticker-slot-center) {
     margin-right: -70px;
   }
   .sticker-slot-center {
     width: 414.21px;
     height: 601.6px;
     padding-top: 80px;
-    margin-right: -70px;
-  }
-  .sticker-slot-right {
-    width: 369.37px;
-    height: 493.56px;
   }
   :is(.sticker-rot-left, .sticker-rot-right) {
     transform: rotate(-5.13deg);
@@ -268,7 +251,6 @@
 
   .ofuda-sticker-card {
     border: none;
-    overflow: hidden;
   }
   .ofuda-card-content {
     height: 100%;
@@ -276,28 +258,25 @@
     justify-content: center;
     gap: 32px;
   }
-  .ofuda-card-top {
+  :is(.ofuda-card-top, .ofuda-card-copy, .sticker-lines) {
     width: 100%;
     @include flex-col-center;
+  }
+  .ofuda-card-top {
     gap: 24px;
   }
   .ofuda-card-copy {
-    width: 100%;
-    @include flex-col-center;
     gap: 8px;
   }
   .sticker-heading {
     white-space: pre-line;
   }
   .sticker-lines {
-    @include flex-col-center;
     gap: 10px;
-    width: 100%;
   }
   .sticker-cta-btn {
     width: 100%;
-    padding-left: 24px;
-    padding-right: 20px;
+    padding-inline: 24px 20px;
   }
 
   /* 3 & 6. Full-Bleed Banner Modules (Featured Announcement & Venue) */
@@ -308,8 +287,6 @@
     padding: 72px 64px;
     background: center / cover no-repeat;
     @include flex-center;
-    overflow: hidden;
-    z-index: 3;
   }
 
   .home-announcement-divider {
@@ -320,7 +297,6 @@
   }
   .home-banner-inner {
     position: relative;
-    z-index: 3;
     width: min(850px, 100%);
     @include flex-column;
     align-items: flex-end;
@@ -330,21 +306,16 @@
     width: min(411px, 100%);
   }
 
+  :is(.home-banner-cream-card, .pillar-card-inner) {
+    @include flex-column;
+    align-items: flex-start;
+    gap: 24px;
+  }
   .home-banner-cream-card {
     background-color: #fffde7;
     border-radius: 5px;
     padding: 48px 72px 48px 48px;
-    @include flex-column;
-    align-items: flex-start;
-    gap: 24px;
     text-align: left;
-  }
-
-  .home-banner-card-title {
-    color: #bf3444;
-  }
-  .home-venue-card-body {
-    color: #30293e;
   }
 
   /* Right Vertical Bookmark Ribbon */
@@ -367,24 +338,14 @@
     width: 100%;
   }
   .home-bottom-streamer {
-    position: absolute;
     bottom: -990.4px;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none;
-    z-index: 1;
   }
 
   /* 4. Guests Preview */
   .home-guests-section {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    @include flex-col-center;
     gap: 66px;
   }
-  .home-guests-heading {
-    color: #bf3444;
+  :is(.home-guests-heading, .guest-teaser-name, .guest-teaser-role) {
     text-align: center;
   }
   .guest-teasers-row {
@@ -406,7 +367,6 @@
   .guest-teaser-name {
     @include tf-h3;
     color: #bf3444;
-    text-align: center;
   }
   .guest-avatar-frame {
     position: relative;
@@ -414,28 +374,25 @@
     max-width: 100%;
     height: 272px;
   }
-  .guest-ring-svg {
+  :is(.guest-ring-svg, .guest-teaser-img) {
     position: absolute;
+    max-width: none;
+    pointer-events: none;
+  }
+  .guest-ring-svg {
     top: 6px;
     left: 16px;
     width: 279px;
     height: 279px;
-    max-width: none;
-    pointer-events: none;
   }
   .guest-teaser-img {
-    position: absolute;
     top: -14px;
     left: -8px;
     width: 298px;
     height: 298px;
-    max-width: none;
     object-fit: contain;
-    pointer-events: none;
   }
   .guest-teaser-role {
-    color: #30293e;
-    text-align: center;
     padding: 8px 0;
   }
 
@@ -446,7 +403,6 @@
     margin: 0 auto;
     @include flex-column;
     gap: 16px;
-    z-index: 2;
   }
   .home-pillars-streamers {
     position: absolute;
@@ -465,7 +421,6 @@
   }
   .pillar-row {
     position: relative;
-    z-index: 2;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -482,46 +437,27 @@
     border: 1px solid #bf3444;
     border-radius: 5px;
     padding: 48px;
-    overflow: hidden;
   }
 
   .pillar-card-gradient {
     background-color: #fcf1e8;
     &::before {
       content: "";
-      position: absolute;
-      inset: 0;
+      @include absolute-fill;
       background-image: linear-gradient(114.21deg, #fcf1e8 55.47%, rgba(252, 241, 232, 0) 89.52%);
       pointer-events: none;
       z-index: 1;
     }
   }
 
-  .pillar-mesh-bg {
-    @include absolute-fill;
-    object-fit: cover;
-    pointer-events: none;
-    z-index: 0;
-  }
   .pillar-card-cream {
     background-color: var(--tf-surface-paper, #fffde7);
-    box-shadow: 3px 4px 13px 0 rgba(99, 15, 40, 0.15);
     .pillar-card-body {
       max-width: 440px;
     }
   }
   .pillar-card-inner {
     position: relative;
-    z-index: 2;
-    @include flex-column;
-    align-items: flex-start;
-    gap: 24px;
-  }
-  .pillar-card-title {
-    color: #bf3444;
-  }
-  .pillar-card-body {
-    color: #30293e;
   }
   .pillar-card-buttons {
     display: flex;
@@ -539,13 +475,11 @@
     width: 100%;
     height: 374px;
     padding: 11px 12px 54px 11px;
-    box-shadow: 3px 4px 13px 0 rgba(99, 15, 40, 0.15);
     filter: none;
-    display: block;
     transform: rotate(5deg);
     transition:
-      transform 300ms ease-out,
-      box-shadow 300ms ease-out;
+      transform $home-tx,
+      box-shadow $home-tx;
     &:hover {
       transform: rotate(5deg);
     }
@@ -557,7 +491,6 @@
     aspect-ratio: auto;
     object-fit: cover;
     border-radius: 5px;
-    display: block;
     padding: 0;
     background: none;
   }
@@ -594,12 +527,13 @@
     gap: 24px;
   }
 
-  .home-twitter-outer {
-    border: 1px solid #bf3444;
+  :is(.home-twitter-outer, .home-twitter-banner) {
     background-color: #bf3444;
   }
+  .home-twitter-outer {
+    border: 1px solid #bf3444;
+  }
   .home-twitter-banner {
-    background-color: #bf3444;
     border-radius: 5px;
     padding: 48px;
     display: flex;
@@ -610,8 +544,11 @@
   }
 }
 
-/* Desktop Venue Spacing (>= 769px) */
+/* Desktop Root Nav & Venue Spacing (>= 769px) */
 @media screen and (min-width: 769px) {
+  body:has(.home-page-body) .tf-nav-inner {
+    padding: 25px 0;
+  }
   .home-page-body {
     .home-venue-section {
       min-height: 493px;
@@ -638,38 +575,31 @@
     .pillar-row {
       flex-wrap: nowrap;
       height: 419.8px;
-      align-items: center;
     }
-    :is(.pillar-row-1, .pillar-row-3) {
+    :is(.pillar-row-1, .pillar-row-2, .pillar-row-3, .pillar-row-4) {
       .pillar-card-col {
-        flex: 0 0 541.5px;
-        width: 541.5px;
-        max-width: 541.5px;
         @include flex-column;
         justify-content: center;
       }
       .pillar-photo-col {
-        flex: 0 0 581.5px;
-        width: 581.5px;
-        max-width: 581.5px;
         height: 419.8px;
         @include flex-center;
       }
     }
-    :is(.pillar-row-2, .pillar-row-4) {
-      .pillar-photo-col {
-        flex: 0 0 580.5px;
-        width: 580.5px;
-        max-width: 580.5px;
-        height: 419.8px;
-        @include flex-center;
-      }
-      .pillar-card-col {
-        flex: 0 0 542.5px;
-        width: 542.5px;
-        max-width: 542.5px;
-        @include flex-column;
-        justify-content: center;
+    @each $rows, $cw, $pw in ((1, 3) 541.5px 581.5px, (2, 4) 542.5px 580.5px) {
+      @each $r in $rows {
+        .pillar-row-#{$r} {
+          .pillar-card-col {
+            flex: 0 0 $cw;
+            width: $cw;
+            max-width: $cw;
+          }
+          .pillar-photo-col {
+            flex: 0 0 $pw;
+            width: $pw;
+            max-width: $pw;
+          }
+        }
       }
     }
     .pillar-card {
@@ -681,8 +611,6 @@
     }
     .polaroid-card {
       width: 541px;
-      height: 374px;
-      padding: 11px 12px 54px 11px;
     }
   }
 }
@@ -705,15 +633,28 @@
 
 /* Mobile Layout (<= 768px) */
 @media screen and (max-width: 768px) {
+  body:has(.home-page-body) .tf-nav-inner {
+    padding: 21px 0;
+    min-height: 100px;
+  }
   .home-page-body {
     .home-page-content {
       background-image: linear-gradient(98.19deg, #fbf7eb 28.35%, #ffe1e1 93.86%);
     }
+    @each $n, $h in (hero-banner 763px, announcement-section 728px, venue-section 872px) {
+      .home-#{$n} {
+        min-height: $h;
+        height: $h;
+      }
+    }
+    @each $n, $h in (guests-section 1507px, discord-card 490px, newsletter-card 524px) {
+      .home-#{$n} {
+        min-height: $h;
+        height: $h;
+      }
+    }
     .home-hero-banner {
-      min-height: 763px;
-      height: 763px;
       padding: 290px 15px 200px;
-      margin-bottom: -125px;
       .home-section-bg-img {
         height: 100%;
         object-position: 42% center;
@@ -728,8 +669,10 @@
     .home-hero-title {
       font-size: 34px;
     }
-    .home-stickers-row {
+    :is(.home-stickers-row, .home-guests-section .guest-teasers-row, .pillar-row) {
       flex-direction: column;
+    }
+    .home-stickers-row {
       align-items: center;
       gap: 0;
       padding: 0;
@@ -749,46 +692,26 @@
       padding: 72px 31px 340px;
       align-items: center;
     }
-    .home-announcement-section {
-      min-height: 728px;
-      height: 728px;
-    }
-    .home-venue-section {
-      min-height: 872px;
-      height: 872px;
-    }
     :is(.home-announcement-section, .home-venue-section) .home-section-bg-img {
       height: 542px;
     }
     .home-guests-section {
-      min-height: 1507px;
-      height: 1507px;
-      gap: 66px;
       .guest-teasers-row {
-        flex-direction: column;
         align-items: center;
-        gap: 48px;
         width: 328px;
       }
       .guest-teaser-card {
-        width: 281px;
-        height: 398px;
         padding: 3px 0;
       }
       .home-cta-btn {
         width: 306px;
-        height: 48px;
       }
     }
+    :is(.home-banner-inner, .home-banner-card-wrap, .pillar-card-col, .pillar-photo-col) {
+      width: 100%;
+    }
     .home-banner-inner {
-      width: 100%;
       align-items: center;
-    }
-    .home-banner-card-wrap {
-      width: 100%;
-    }
-    .home-banner-cream-card {
-      padding: 48px 72px 48px 48px;
     }
     .home-announcement-section .home-banner-card-title {
       max-width: 160px;
@@ -798,49 +721,27 @@
       left: -1045px;
       right: auto;
     }
-    .home-pillars-section {
+    :is(.home-pillars-section, .home-special-module) {
       width: calc(100% - 62px);
-      gap: 16px;
-    }
-    .pillar-row {
-      flex-direction: column;
-      align-items: center;
-      gap: 48px;
-      width: 100%;
     }
     .pillar-row-1 {
       gap: 34px;
       margin-bottom: 14px;
     }
-    .pillar-card-col {
-      width: 100%;
+    :is(.pillar-card-col, .pillar-photo-col) {
       flex: 0 0 auto;
     }
     .pillar-photo-col {
-      width: 100%;
-      flex: 0 0 auto;
       height: 419.8px;
-      @include flex-center;
     }
     .polaroid-card {
       width: 282px;
-      height: 374px;
-      padding: 11px 12px 54px 11px;
     }
-    .home-special-module {
-      width: calc(100% - 62px);
-    }
-    .home-discord-card {
-      min-height: 490px;
-      height: 490px;
+    :is(.home-discord-card, .home-newsletter-card) {
       padding: 48px;
       gap: 40px;
     }
     .home-newsletter-card {
-      min-height: 524px;
-      height: 524px;
-      padding: 48px;
-      gap: 40px;
       background-image: linear-gradient(138.07deg, #fbf7eb 15.32%, #ffe1e1 111%);
     }
     .home-twitter-banner {
@@ -853,13 +754,8 @@
 /* Ultra-Small Mobile Scaling (320px - 365px) */
 @media screen and (max-width: 365px) {
   .home-page-body {
-    :is(
-      .home-hero-glass-card,
-      .pillar-card,
-      .home-discord-card,
-      .home-newsletter-card,
-      .home-twitter-banner
-    ) {
+    :is(.home-hero-glass-card, .pillar-card, .home-discord-card),
+    :is(.home-newsletter-card, .home-twitter-banner) {
       padding: 32px 20px;
     }
     .home-banner-module {
@@ -894,13 +790,12 @@
     color: var(--tf-text-primary, #fbf7eb);
 
     .home-page-content {
-      background-color: var(--tf-surface, #30293e);
-      background-image: linear-gradient(132.88deg, #30293e 28.353%, #221a28 93.86%);
+      background: var(--tf-surface, #30293e)
+        linear-gradient(132.88deg, #30293e 28.353%, #221a28 93.86%);
     }
 
     :is(.ofuda-sticker-card, .home-banner-cream-card) {
       background: var(--tf-surface-paper, #221a28);
-      background-image: none;
     }
     .pillar-card-cream {
       background-color: var(--tf-surface-paper, #221a28);

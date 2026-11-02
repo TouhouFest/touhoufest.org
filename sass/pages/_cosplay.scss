@@ -1,12 +1,21 @@
 /* ==========================================================================
    Cosplay Page Scoped Styles (.cosplay-page)
    ========================================================================== */
+$cp-svg-tiktok: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='black' d='M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z'/%3E%3C/svg%3E";
+$cp-svg-instagram: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='black' d='M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z'/%3E%3C/svg%3E";
+$cp-svg-twitter: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='black' d='M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z'/%3E%3C/svg%3E";
+$cp-svg-caret: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='black' d='M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z'/%3E%3C/svg%3E";
+$cp-svg-location: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='black' d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z'/%3E%3C/svg%3E";
+$cp-svg-clock: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zm0 464A208 208 0 1 0 256 48a208 208 0 1 0 0 416zm16-304v128h96c13.3 0 24 10.7 24 24s-10.7 24-24 24H248c-13.3 0-24-10.7-24-24V160c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg>';
+$cp-svg-burst: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath fill='black' d='M480 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-8 384V352h16V480c0 17.7 14.3 32 32 32s32-14.3 32-32V256.9l28.6 47.5c9.1 15.1 28.8 20 43.9 10.9s20-28.8 10.9-43.9l-58.3-97c-17.4-28.9-48.6-46.6-82.3-46.6H465.1c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L408 256.9V480c0 17.7 14.3 32 32 32s32-14.3 32-32zM190.9 18.1C188.4 12 182.6 8 176 8s-12.4 4-14.9 10.1l-29.4 74L55.6 68.9c-6.3-1.9-13.1 .2-17.2 5.3s-4.6 12.2-1.4 17.9l39.5 69.1L10.9 206.4c-5.4 3.7-8 10.3-6.5 16.7s6.7 11.2 13.1 12.2l78.7 12.2L90.6 327c-.5 6.5 3.1 12.7 9 15.5s12.9 1.8 17.8-2.6L176 286.1l58.6 53.9c4.8 4.4 11.9 5.5 17.8 2.6s9.5-9 9-15.5l-5.6-79.4 50.5-7.8 24.3-40.5-55.2-38L315 92.2c3.3-5.7 2.7-12.8-1.4-17.9s-10.9-7.2-17.2-5.3L220.3 92.1l-29.4-74z'/%3E%3C/svg%3E";
+$cp-svg-medal: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='black' d='M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0H133.9c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0H487.4C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z'/%3E%3C/svg%3E";
+$cp-svg-external: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='black' d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z'/%3E%3C/svg%3E";
+
 @mixin cp-mask($w, $h, $bg, $uri) {
   width: $w;
   height: $h;
   background-color: $bg;
-  -webkit-mask-image: url($uri);
-  mask-image: url($uri);
+  @include tf-mask-icon($uri);
 }
 
 .cosplay-page {
@@ -74,35 +83,44 @@
   position: relative;
 }
 
-/* Full-Bleed Section Dividers Local Deltas */
+/* Shared Layout Containers */
+:is(.cosplay-divider__title-group, .cosplay-categories-block),
+:is(.cosplay-detail-block, .cosplay-callout-card__content) {
+  width: 100%;
+  @include flex-column;
+  gap: 24px;
+  align-items: flex-start;
+}
+:is(.cosplay-workshop-card__header, .cosplay-guest-card__header) {
+  width: 100%;
+  @include flex-col-center;
+  gap: 8px;
+}
+:is(.cosplay-workshop-card__body, .cosplay-guest-card, .cosplay-guest-card__body) {
+  @include flex-column;
+  gap: 16px;
+  align-items: flex-start;
+}
+:is(.cosplay-workshop-card__body, .cosplay-guest-card__body) {
+  width: 100%;
+}
+
+/*Full-Bleed Section Dividers Local Deltas*/
 .cosplay-divider {
-  padding-left: 0;
-  padding-right: 0;
-  &__bg-img--photoshoots {
-    height: 349.13%;
-    top: -42.37%;
+  padding-inline: 0;
+  @each $m, $h,
+    $t in (photoshoots 349.13% -42.37%, workshops 372.39% -113.38%, masquerade 369.28% -111.31%)
+  {
+    &__bg-img--#{$m} {
+      height: $h;
+      top: $t;
+    }
   }
-  &__bg-img--workshops {
-    height: 372.39%;
-    top: -113.38%;
-  }
-  &__bg-img--masquerade {
-    height: 369.28%;
-    top: -111.31%;
-  }
-  &__bg-img--guests {
-    height: 369.28%;
-    top: -146.15%;
-  }
-  &__bg-img--maps {
-    height: 359.95%;
-    top: -135%;
-  }
-  &__title-group {
-    width: 100%;
-    @include flex-column;
-    gap: 24px;
-    align-items: flex-start;
+  @each $m, $h, $t in (guests 369.28% -146.15%, maps 359.95% -135%) {
+    &__bg-img--#{$m} {
+      height: $h;
+      top: $t;
+    }
   }
   &__bottom {
     background-color: var(--cp-cream);
@@ -131,9 +149,20 @@
 }
 
 /* Block 1: Photoshoots */
-.cosplay-photoshoots {
+:is(.cosplay-photoshoots, .cosplay-masquerade, .cosplay-maps-section) {
   width: 100%;
   @include flex-col-center;
+}
+:is(.cosplay-workshops-row, .cosplay-categories-row, .cosplay-awards-row) {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+:is(.cosplay-workshop-card, .cosplay-award-col) {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.cosplay-photoshoots {
   gap: 43px;
   padding-bottom: 5px;
 }
@@ -181,15 +210,10 @@
   .cosplay-schedule-tabs + & {
     border-top: none;
   }
-  &__time,
-  &__info-label {
+  :is(&__time, &__info-label) {
     display: flex;
     align-items: center;
     gap: 3px;
-    font:
-      700 16px / 1.3 "Open Sans",
-      sans-serif;
-    color: var(--cp-text);
   }
   &__info {
     width: 100%;
@@ -199,25 +223,16 @@
   }
 }
 
-/* Shared Typography Group: 24px Poppins 700 Headings */
-:is(
-  .cosplay-workshop-card__title,
-  .cosplay-section-h3,
-  .cosplay-category-card__title,
-  .cosplay-guest-card__name
-) {
+/* Shared Typography Groups */
+:is(.cosplay-workshop-card__title, .cosplay-section-h3),
+:is(.cosplay-category-card__title, .cosplay-guest-card__name) {
   width: 100%;
-  margin: 0;
-  font:
-    700 24px / 1.2 "Poppins",
-    sans-serif;
+  @include tf-h3;
   color: var(--cp-heading);
 }
 :is(.cosplay-workshop-card__title, .cosplay-guest-card__name) {
   text-align: center;
 }
-
-/* Shared Typography Group: 20px Poppins 700 Headings */
 :is(.cosplay-schedule-cell__title, .cosplay-award-col__title) {
   margin: 0;
   font:
@@ -225,33 +240,31 @@
     sans-serif;
   color: var(--cp-heading);
 }
-
-/* Shared Typography Group: 14px Open Sans 400 Body Copy */
-:is(
-  .cosplay-schedule-cell__characters,
-  .cosplay-category-card__desc,
-  .cosplay-detail-block__desc,
-  .cosplay-itinerary-col__desc
-) {
+:is(.cosplay-itinerary-col__title, .cosplay-guest-card__role) {
+  font:
+    700 20px / 1.1 "Open Sans",
+    sans-serif;
+  color: var(--cp-heading);
+}
+:is(.cosplay-schedule-cell__time, .cosplay-schedule-cell__info-label),
+:is(.cosplay-workshop-card__loc-heading, .cosplay-award-col__prize, .cosplay-itinerary-col__meta) {
+  font:
+    700 16px / 1.3 "Open Sans",
+    sans-serif;
+  color: var(--cp-text);
+}
+:is(.cosplay-schedule-cell__characters, .cosplay-category-card__desc),
+:is(.cosplay-detail-block__desc, .cosplay-itinerary-col__desc) {
   margin: 0;
   font:
     400 14px / 1.3 "Open Sans",
     sans-serif;
   color: var(--cp-text);
 }
-
-/* Shared Typography Group: 16px Open Sans 400 Body Copy */
-:is(
-  .cosplay-body-note,
-  .cosplay-workshop-card__desc,
-  .cosplay-award-col__desc,
-  .cosplay-guest-card__bio
-) {
+:is(.cosplay-body-note, .cosplay-workshop-card__desc),
+:is(.cosplay-award-col__desc, .cosplay-guest-card__bio) {
   width: 100%;
-  margin: 0;
-  font:
-    400 16px / 1.3 "Open Sans",
-    sans-serif;
+  @include tf-body;
   color: var(--cp-text);
 }
 
@@ -277,37 +290,17 @@
 
 /* Block 2: Workshops */
 .cosplay-workshops-row {
-  width: 100%;
-  display: flex;
   gap: 24px;
-  align-items: flex-start;
 }
 .cosplay-workshop-card {
-  flex: 1 1 0;
-  min-width: 0;
   @include flex-column;
   gap: 8px;
   align-items: flex-start;
-  &__header {
-    width: 100%;
-    @include flex-col-center;
-    gap: 8px;
-  }
   &__loc-heading {
     width: 100%;
     display: flex;
     align-items: center;
     gap: 10px;
-    font:
-      700 16px / 1.3 "Open Sans",
-      sans-serif;
-    color: var(--cp-text);
-  }
-  &__body {
-    width: 100%;
-    @include flex-column;
-    gap: 16px;
-    align-items: flex-start;
   }
 }
 :is(.cosplay-workshop-card__image-pad, .cosplay-guest-card__portrait-pad) {
@@ -316,59 +309,40 @@
   display: flex;
   justify-content: center;
 }
-.cosplay-workshop-card__image-frame {
+:is(.cosplay-workshop-card__image-frame, .cosplay-category-card__image-frame) {
   width: 100%;
-  max-width: 288px;
-  height: 272px;
   border-radius: 5px;
   box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
   position: relative;
   overflow: hidden;
+}
+.cosplay-workshop-card__image-frame {
+  max-width: 288px;
+  height: 272px;
 }
 :is(.cosplay-workshop-card__image, .cosplay-category-card__image) {
   position: absolute;
   max-width: none;
   object-fit: cover;
 }
-.cosplay-workshop-card__image {
-  &--1 {
-    width: 141.78%;
-    height: 100.12%;
-    left: -35.82%;
-    top: 0;
-  }
-  &--2 {
-    width: 100%;
-    height: 159%;
-    left: 0;
-    top: -37%;
-  }
-  &--3 {
-    width: 156.98%;
-    height: 110.22%;
-    left: -30.52%;
-    top: -2%;
+@each $n, $w, $h, $l,
+  $t in (1 141.78% 100.12% -35.82% 0, 2 100% 159% 0 -37%, 3 156.98% 110.22% -30.52% -2%)
+{
+  .cosplay-workshop-card__image--#{$n} {
+    width: $w;
+    height: $h;
+    left: $l;
+    top: $t;
   }
 }
 
 /* Block 3: Masquerade */
 .cosplay-masquerade {
-  width: 100%;
-  @include flex-col-center;
   gap: 48px;
   padding-bottom: 48px;
 }
-.cosplay-categories-block {
-  width: 100%;
-  @include flex-column;
-  gap: 24px;
-  align-items: flex-start;
-}
 .cosplay-categories-row {
-  width: 100%;
-  display: flex;
   gap: 8px;
-  align-items: flex-start;
   justify-content: center;
 }
 .cosplay-category-card {
@@ -389,30 +363,24 @@
     align-items: flex-start;
   }
   &__image-frame {
-    width: 100%;
     aspect-ratio: 214 / 196;
-    border-radius: 5px;
-    box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
-    position: relative;
-    overflow: hidden;
   }
-  &__image--craftsmanship {
-    width: 140%;
-    height: 110%;
-    left: -30%;
-    top: -5%;
-  }
-  &__image--performance {
-    width: 152%;
-    height: 108%;
-    left: -36%;
-    top: -8%;
+  @each $mod, $w, $h, $l,
+    $t
+      in (
+        craftsmanship 140% 110% -30% -5%,
+        performance 152% 108% -36% -8%,
+        exhibition 100% 100% 0 0
+      )
+  {
+    &__image--#{$mod} {
+      width: $w;
+      height: $h;
+      left: $l;
+      top: $t;
+    }
   }
   &__image--exhibition {
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
     object-position: center top;
   }
 }
@@ -443,12 +411,6 @@
 }
 
 /* Detail & Awards Blocks */
-.cosplay-detail-block {
-  width: 100%;
-  @include flex-column;
-  gap: 24px;
-  align-items: flex-start;
-}
 .cosplay-red-bar {
   width: 100%;
   height: 51px;
@@ -464,14 +426,9 @@
   color: #fffde7;
 }
 .cosplay-awards-row {
-  width: 100%;
-  display: flex;
   gap: 32px;
-  align-items: flex-start;
 }
 .cosplay-award-col {
-  flex: 1 1 0;
-  min-width: 0;
   padding-top: 0;
   @include flex-col-center;
   gap: 10px;
@@ -488,10 +445,6 @@
   &__prize {
     width: 100%;
     @include flex-column;
-    font:
-      700 16px / 1.3 "Open Sans",
-      sans-serif;
-    color: var(--cp-text);
   }
   &__desc-bold {
     font-weight: 700;
@@ -540,18 +493,10 @@
   align-items: flex-start;
   &__title {
     margin: 0;
-    font:
-      700 20px / 1.1 "Open Sans",
-      sans-serif;
-    color: var(--cp-heading);
   }
   &__meta {
     @include flex-column;
     gap: 2px;
-    font:
-      700 16px / 1.3 "Open Sans",
-      sans-serif;
-    color: var(--cp-text);
   }
   &__day {
     display: flex;
@@ -566,8 +511,7 @@
   margin: 9px 0 14px;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 50px;
-  row-gap: 48px;
+  gap: 48px 50px;
   align-items: stretch;
   justify-content: space-between;
 }
@@ -575,23 +519,11 @@
   flex: 0 0 400px;
   width: 400px;
   max-width: 400px;
-  @include flex-column;
-  gap: 16px;
-  align-items: flex-start;
   .cosplay-ribbon {
     margin-top: auto;
   }
-  &__header {
-    width: 100%;
-    @include flex-col-center;
-    gap: 8px;
-  }
   &__role {
     width: 100%;
-    font:
-      700 20px / 1.1 "Open Sans",
-      sans-serif;
-    color: var(--cp-heading);
     text-align: center;
   }
   &__portrait-frame {
@@ -624,12 +556,6 @@
     height: 100%;
     object-fit: cover;
   }
-  &__body {
-    width: 100%;
-    @include flex-column;
-    gap: 16px;
-    align-items: flex-start;
-  }
   &__links {
     width: 100%;
     padding: 8px 0;
@@ -641,8 +567,6 @@
 
 /* Block 5: Event Maps */
 .cosplay-maps-section {
-  width: 100%;
-  @include flex-col-center;
   gap: 77px;
   margin: 19px 0 46px;
 }
@@ -685,23 +609,13 @@
   @include flex-col-center;
   justify-content: center;
   gap: 40px;
-  &__icon {
-    &--fumo {
-      object-fit: cover;
-    }
-    &--guild {
-      border-radius: 100px;
-      object-fit: cover;
-    }
+  :is(&__icon--fumo, &__icon--guild) {
+    object-fit: cover;
   }
-  &__content {
-    width: 100%;
-    @include flex-column;
-    gap: 24px;
-    align-items: flex-start;
+  &__icon--guild {
+    border-radius: 100px;
   }
-  &__title,
-  &__desc {
+  :is(&__title, &__desc) {
     width: 100%;
   }
 }
@@ -718,37 +632,18 @@
   -webkit-mask-size: contain;
   mask-size: contain;
 
-  &--brand-tiktok {
-    @include cp-mask(
-      20px,
-      20px,
-      var(--tf-accent),
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='black' d='M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z'/%3E%3C/svg%3E"
-    );
-  }
-  &--brand-instagram {
-    @include cp-mask(
-      20px,
-      20px,
-      var(--tf-accent),
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='black' d='M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z'/%3E%3C/svg%3E"
-    );
+  @each $n, $u in (brand-tiktok $cp-svg-tiktok, brand-instagram $cp-svg-instagram) {
+    &--#{$n} {
+      @include cp-mask(20px, 20px, var(--tf-accent), $u);
+    }
   }
   &--brand-twitter {
-    @include cp-mask(
-      20px,
-      20px,
-      var(--tf-accent),
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='black' d='M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z'/%3E%3C/svg%3E"
-    );
+    @include cp-mask(20px, 20px, var(--tf-accent), $cp-svg-twitter);
   }
-  &--caret-right,
-  &--caret-right-light,
-  &--caret-right-dark {
+  :is(&--caret-right, &--caret-right-light, &--caret-right-dark) {
     width: 9px;
     height: 15px;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='black' d='M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='black' d='M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z'/%3E%3C/svg%3E");
+    @include tf-mask-icon($cp-svg-caret);
   }
   &--caret-right {
     background-color: var(--tf-accent);
@@ -759,12 +654,10 @@
   &--caret-right-dark {
     background-color: var(--cp-text);
   }
-  &--location,
-  &--location-dark {
+  :is(&--location, &--location-dark) {
     width: 17px;
     height: 17px;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='black' d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='black' d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z'/%3E%3C/svg%3E");
+    @include tf-mask-icon($cp-svg-location);
   }
   &--location {
     background-color: #fbf7eb;
@@ -772,44 +665,18 @@
   &--location-dark {
     background-color: var(--cp-text);
   }
-  &--clock {
-    @include cp-mask(
-      20px,
-      20px,
-      var(--cp-text),
-      'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zm0 464A208 208 0 1 0 256 48a208 208 0 1 0 0 416zm16-304v128h96c13.3 0 24 10.7 24 24s-10.7 24-24 24H248c-13.3 0-24-10.7-24-24V160c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg>'
-    );
-  }
-  &--person-burst {
-    @include cp-mask(
-      20px,
-      20px,
-      var(--cp-text),
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath fill='black' d='M480 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-8 384V352h16V480c0 17.7 14.3 32 32 32s32-14.3 32-32V256.9l28.6 47.5c9.1 15.1 28.8 20 43.9 10.9s20-28.8 10.9-43.9l-58.3-97c-17.4-28.9-48.6-46.6-82.3-46.6H465.1c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L408 256.9V480c0 17.7 14.3 32 32 32s32-14.3 32-32zM190.9 18.1C188.4 12 182.6 8 176 8s-12.4 4-14.9 10.1l-29.4 74L55.6 68.9c-6.3-1.9-13.1 .2-17.2 5.3s-4.6 12.2-1.4 17.9l39.5 69.1L10.9 206.4c-5.4 3.7-8 10.3-6.5 16.7s6.7 11.2 13.1 12.2l78.7 12.2L90.6 327c-.5 6.5 3.1 12.7 9 15.5s12.9 1.8 17.8-2.6L176 286.1l58.6 53.9c4.8 4.4 11.9 5.5 17.8 2.6s9.5-9 9-15.5l-5.6-79.4 50.5-7.8 24.3-40.5-55.2-38L315 92.2c3.3-5.7 2.7-12.8-1.4-17.9s-10.9-7.2-17.2-5.3L220.3 92.1l-29.4-74z'/%3E%3C/svg%3E"
-    );
+  @each $n, $u in (clock $cp-svg-clock, person-burst $cp-svg-burst, external-dark $cp-svg-external)
+  {
+    &--#{$n} {
+      @include cp-mask(20px, 20px, var(--cp-text), $u);
+    }
   }
   &--medal {
-    @include cp-mask(
-      30px,
-      30px,
-      var(--tf-accent),
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='black' d='M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0H133.9c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0H487.4C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z'/%3E%3C/svg%3E"
-    );
-  }
-  &--external-dark {
-    @include cp-mask(
-      20px,
-      20px,
-      var(--cp-text),
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='black' d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z'/%3E%3C/svg%3E"
-    );
+    @include cp-mask(30px, 30px, var(--tf-accent), $cp-svg-medal);
   }
 }
 
-:is(
-  .cosplay-btn-cream .cosplay-icon--caret-right-dark,
-  .cosplay-btn-cream .cosplay-icon--external-dark
-) {
+.cosplay-btn-cream :is(.cosplay-icon--caret-right-dark, .cosplay-icon--external-dark) {
   background-color: #30293e;
 }
 
@@ -832,47 +699,40 @@
       height: 159.98%;
       top: -42.84%;
     }
-    &__content {
-      width: 100%;
-      padding: 48px 0;
-    }
+  }
+  :is(.cosplay-main-stack, .cosplay-maps-tabs, .cosplay-map-card) {
+    width: calc(100% - 62px);
   }
   .cosplay-main-stack {
-    width: calc(100% - 62px);
     gap: 48px;
   }
   .cosplay-divider__vignette {
-    background-image: none;
-    background-color: rgba(46, 42, 49, 0.7);
+    background: rgba(46, 42, 49, 0.7);
   }
   .cosplay-divider__bottom {
     bottom: -6px;
   }
-  .cosplay-divider--photoshoots .cosplay-divider__title {
-    max-width: 220px;
+  @each $mod, $mw in (photoshoots 220px, guests 240px, maps 260px) {
+    .cosplay-divider--#{$mod} .cosplay-divider__title {
+      max-width: $mw;
+    }
   }
-  .cosplay-divider--guests .cosplay-divider__title {
-    max-width: 240px;
-  }
-  .cosplay-divider--maps .cosplay-divider__title {
-    max-width: 260px;
+  :is(.cosplay-workshops-row, .cosplay-categories-row),
+  :is(.cosplay-awards-row, .cosplay-itinerary-row),
+  :is(.cosplay-guests-grid, .cosplay-maps-tabs, .cosplay-callouts-grid) {
+    flex-direction: column;
   }
   .cosplay-workshops-row {
-    flex-direction: column;
     gap: 12px;
   }
-  .cosplay-workshop-card {
+  :is(.cosplay-workshop-card, .cosplay-award-col) {
     width: 100%;
     flex: none;
   }
-  .cosplay-detail-block {
-    gap: 24px;
-    &__h3 {
-      max-width: 250px;
-    }
+  .cosplay-detail-block__h3 {
+    max-width: 250px;
   }
   .cosplay-categories-row {
-    flex-direction: column;
     gap: 20px;
   }
   .cosplay-category-card {
@@ -887,19 +747,10 @@
       aspect-ratio: auto;
     }
   }
-  .cosplay-awards-row {
-    flex-direction: column;
+  :is(.cosplay-awards-row, .cosplay-itinerary-row) {
     gap: 16px;
   }
-  .cosplay-award-col {
-    width: 100%;
-    flex: none;
-  }
-  .cosplay-itinerary-row {
-    flex-direction: column;
-    gap: 16px;
-  }
-  .cosplay-itinerary-col {
+  :is(.cosplay-itinerary-col, .cosplay-guest-card, .cosplay-callout-card) {
     width: 100%;
     min-width: 0;
     flex: none;
@@ -907,27 +758,19 @@
   .cosplay-ribbon--mobile-only {
     display: flex;
   }
-  .cosplay-guests-grid {
-    flex-direction: column;
+  :is(.cosplay-guests-grid, .cosplay-callouts-grid) {
     gap: 24px;
+  }
+  .cosplay-guests-grid {
     align-items: center;
   }
   .cosplay-guest-card {
-    width: 100%;
     max-width: 301px;
-    min-width: 0;
-    flex: none;
-    &__links {
-      padding: 8px 0;
-      gap: 12px;
-    }
   }
   .cosplay-maps-section {
     gap: 32px;
   }
   .cosplay-maps-tabs {
-    width: calc(100% - 62px);
-    flex-direction: column;
     align-items: flex-start;
     gap: 10px;
     order: 3;
@@ -937,26 +780,16 @@
     padding: 8px;
   }
   .cosplay-map-card {
-    width: calc(100% - 62px);
     aspect-ratio: 328 / 291;
     background-color: #ffffff;
     order: 2;
-    &__zoom {
-      right: 19px;
-      bottom: 21px;
-    }
   }
   .cosplay-callouts-grid {
     width: min(328px, calc(100% - 62px));
-    margin: 54px auto 45px auto;
-    flex-direction: column;
-    gap: 24px;
+    margin: 54px auto 45px;
   }
   .cosplay-callout-card {
-    width: 100%;
     max-width: 328px;
-    min-width: 0;
-    flex: none;
     padding: 48px 24px;
     gap: 38px;
     box-sizing: border-box;
@@ -968,12 +801,8 @@
       align-self: center;
     }
   }
-  :is(
-    .cosplay-workshop-card__title,
-    .cosplay-section-h3,
-    .cosplay-category-card__title,
-    .cosplay-guest-card__name
-  ) {
+  :is(.cosplay-workshop-card__title, .cosplay-section-h3),
+  :is(.cosplay-category-card__title, .cosplay-guest-card__name) {
     font-size: 22px;
   }
   :is(.cosplay-schedule-cell__title, .cosplay-award-col__title) {

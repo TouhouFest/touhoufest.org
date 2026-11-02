@@ -1,35 +1,36 @@
-/* ==========================================================================
-   Contact Page Module (Hero, Form, Callouts, Responsive & Dark Mode)
-   ========================================================================== */
+// Contact Page
+$contact-svg-chevron: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 15'><path d='M7.74356 11.3932C8.16194 11.8033 8.8414 11.8033 9.25979 11.3932L15.6862 5.09446C16.1046 4.68438 16.1046 4.01842 15.6862 3.60834C15.2678 3.19826 14.5884 3.19826 14.17 3.60834L8.5 9.16569L2.83 3.61162C2.41164 3.20154 1.73218 3.20154 1.31379 3.61162C0.895403 4.02169 0.895403 4.68766 1.31379 5.09773L7.74021 11.3965L7.74356 11.3932Z'/></svg>";
 
 body:has(.tf-contact-page) {
   background: #fbf7eb linear-gradient(153.52deg, #fbf7eb 28.353%, #ffe1e1 93.86%) no-repeat;
   color: var(--tf-ink);
 }
-
 .tf-contact-page {
   width: 100%;
   max-width: 100%;
   @include flex-col-center;
-
-  .contact-hero-section {
+  :is(.contact-hero-section, .contact-hero-inner) {
     position: relative;
+    display: flex;
+    align-items: flex-end;
+  }
+  :is(.contact-hero-section, .contact-hero-copy-wrap, .contact-form, .contact-callout-card) {
     width: 100%;
+  }
+  :is(.contact-hero-copy-wrap, .contact-form, .contact-bottom-cards) {
+    @include flex-column;
+  }
+  .contact-hero-section {
     min-height: 651px;
     padding: 286px 0 48px;
     margin-bottom: 0;
     overflow: visible;
-    display: flex;
-    align-items: flex-end;
     background: url("img/contact/hero_contact.png") no-repeat center bottom / cover;
   }
   .contact-hero-inner {
     width: min(1170px, calc(100% - 96px));
     margin: 0 auto;
-    position: relative;
     z-index: 3;
-    display: flex;
-    align-items: flex-end;
   }
   .contact-hero-box {
     width: min(632px, 100%);
@@ -40,92 +41,89 @@ body:has(.tf-contact-page) {
     box-shadow: none;
   }
   .contact-hero-copy-wrap {
-    @include flex-column;
     gap: 8px;
-    width: 100%;
+  }
+  :is(.contact-hero-title, .contact-hero-refund) {
+    margin: 0;
   }
   .contact-hero-title {
     font: 800 56px / 1.1 var(--tf-font-heading);
     color: var(--tf-text-title-dark);
-    margin: 0;
+  }
+  :is(.contact-hero-copy, .contact-hero-refund a) {
+    color: #ffffff;
   }
   .contact-hero-copy {
     font: 400 16px / 1.3 var(--tf-font-body);
-    color: #ffffff;
+  }
+  :is(.contact-hero-lead, .contact-hero-refund) {
+    line-height: 1.3;
   }
   .contact-hero-lead {
     margin: 0 0 10px;
-    line-height: 1.3;
   }
-  .contact-hero-refund {
-    margin: 0;
-    line-height: 1.3;
-    a {
-      color: #ffffff;
-      font-weight: 400;
-      text-decoration: underline;
-      text-underline-position: from-font;
-      transition:
-        background-color 300ms ease-out,
-        color 300ms ease-out,
-        border-color 300ms ease-out,
-        transform 300ms ease-out;
-      &:hover {
-        color: #fffde7;
-      }
+  .contact-hero-refund a {
+    font-weight: 400;
+    text-decoration: underline;
+    text-underline-position: from-font;
+    transition: 300ms ease-out;
+    transition-property: background-color, color, border-color, transform;
+    &:hover {
+      color: #fffde7;
     }
   }
-
   .contact-form-container {
     width: min(632px, calc(100% - 62px));
     margin: 77px auto 0;
     padding: 0;
   }
   .contact-form {
-    @include flex-column;
     align-items: flex-start;
     gap: 24px;
-    width: 100%;
-    .tf-form-field {
+    :is(.tf-form-field, .tf-select-label-row, .tf-select-wrapper) {
       width: 100%;
+    }
+    :is(.tf-form-field, .tf-form-label, .tf-required-star, .tf-required-tag) {
       margin: 0;
+    }
+    :is(.tf-field-label-row, .tf-select-label-row) {
+      display: flex;
+    }
+    :is(.tf-field-label-row, .tf-field-label-main) {
+      align-items: flex-end;
+    }
+    :is(.tf-form-label, .tf-required-tag) {
+      color: var(--tf-ink);
+    }
+    .tf-form-field {
       @include flex-column;
       align-items: flex-start;
       gap: 8px;
     }
     .tf-field-label-row {
-      display: flex;
-      align-items: flex-end;
       gap: 8px;
       flex-wrap: wrap;
       margin-bottom: 0;
     }
     .tf-field-label-main {
       display: inline-flex;
-      align-items: flex-end;
     }
     .tf-form-label {
       font: 700 20px / 1.1 var(--tf-font-body);
-      color: var(--tf-ink);
-      margin: 0;
     }
     :is(.tf-required-star, .tf-required-tag) {
       font: 400 16px / 1.3 var(--tf-font-body);
-      margin: 0;
     }
     .tf-required-star {
       color: var(--tf-accent);
     }
     .tf-required-tag {
-      color: var(--tf-ink);
       white-space: nowrap;
     }
     .tf-select-label-row {
-      display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 10px;
-      width: 100%;
       .tf-form-label {
         flex: 1 1 0;
         min-width: 0;
@@ -143,27 +141,23 @@ body:has(.tf-contact-page) {
       font: 400 16px / 1.3 var(--tf-font-body);
       color: var(--tf-ink);
       box-shadow: none;
-      box-sizing: border-box;
-      transition:
-        background-color 300ms ease-out,
-        color 300ms ease-out,
-        border-color 300ms ease-out,
-        box-shadow 300ms ease-out;
+      transition: 300ms ease-out;
+      transition-property: background-color, color, border-color, box-shadow;
       &:focus {
         outline: none;
         box-shadow: 0 0 0 3px rgba(191, 52, 68, 0.18);
       }
     }
-    .tf-form-input {
+    :is(.tf-form-input, .tf-form-select) {
       height: 47px;
+    }
+    .tf-form-input {
       padding: 0 16px;
     }
     .tf-select-wrapper {
       position: relative;
-      width: 100%;
     }
     .tf-form-select {
-      height: 47px;
       padding: 0 44px 0 21px;
       appearance: none;
       -webkit-appearance: none;
@@ -180,10 +174,8 @@ body:has(.tf-contact-page) {
       height: 8px;
       pointer-events: none;
       background-color: #30293e;
-      -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 15'><path d='M7.74356 11.3932C8.16194 11.8033 8.8414 11.8033 9.25979 11.3932L15.6862 5.09446C16.1046 4.68438 16.1046 4.01842 15.6862 3.60834C15.2678 3.19826 14.5884 3.19826 14.17 3.60834L8.5 9.16569L2.83 3.61162C2.41164 3.20154 1.73218 3.20154 1.31379 3.61162C0.895403 4.02169 0.895403 4.68766 1.31379 5.09773L7.74021 11.3965L7.74356 11.3932Z'/></svg>")
-        center / 16px 15px no-repeat;
-      mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 15'><path d='M7.74356 11.3932C8.16194 11.8033 8.8414 11.8033 9.25979 11.3932L15.6862 5.09446C16.1046 4.68438 16.1046 4.01842 15.6862 3.60834C15.2678 3.19826 14.5884 3.19826 14.17 3.60834L8.5 9.16569L2.83 3.61162C2.41164 3.20154 1.73218 3.20154 1.31379 3.61162C0.895403 4.02169 0.895403 4.68766 1.31379 5.09773L7.74021 11.3965L7.74356 11.3932Z'/></svg>")
-        center / 16px 15px no-repeat;
+      -webkit-mask: url($contact-svg-chevron) center / 16px 15px no-repeat;
+      mask: url($contact-svg-chevron) center / 16px 15px no-repeat;
     }
     .tf-form-textarea {
       height: 172px;
@@ -207,12 +199,12 @@ body:has(.tf-contact-page) {
     font: 600 18px / 1.1 var(--tf-font-heading);
     cursor: pointer;
     text-decoration: none;
-    transition:
-      background-color 300ms ease-out,
-      color 300ms ease-out,
-      border-color 300ms ease-out,
-      transform 300ms ease-out,
-      box-shadow 300ms ease-out;
+    transition: 300ms ease-out;
+    transition-property: background-color, color, border-color, transform, box-shadow;
+    &:is(:hover, :active) {
+      transform: none;
+      box-shadow: none;
+    }
     .tf-btn-label {
       text-decoration: underline;
       text-underline-position: from-font;
@@ -220,7 +212,6 @@ body:has(.tf-contact-page) {
       white-space: nowrap;
     }
   }
-
   .tf-btn-contact-submit {
     background-color: var(--tf-accent);
     color: var(--tf-text-title-dark);
@@ -233,20 +224,14 @@ body:has(.tf-contact-page) {
     }
     &:is(:hover, :active) {
       color: #fffde7;
-      transform: none;
-      box-shadow: none;
     }
   }
-
   .contact-bottom-cards {
     width: min(850px, calc(100% - 62px));
     margin: 77px auto;
-    @include flex-column;
     gap: 48px;
   }
-
   .contact-callout-card {
-    width: 100%;
     border: none;
     &:hover {
       transform: none;
@@ -263,31 +248,25 @@ body:has(.tf-contact-page) {
       }
       &:is(:hover, :active) {
         color: #221a28;
-        transform: none;
-        box-shadow: none;
       }
     }
     .callout-content-col {
       gap: 24px;
     }
-    .callout-copy-group {
-      @include flex-column;
+    :is(.callout-copy-group, .callout-actions) {
+      display: flex;
       align-items: flex-start;
-      gap: 8px;
       width: 100%;
     }
+    .callout-copy-group {
+      flex-direction: column;
+      gap: 8px;
+    }
     .callout-actions {
-      display: flex;
       flex-wrap: wrap;
-      align-items: flex-start;
-      width: 100%;
     }
   }
 }
-
-/* ==========================================================================
-   Grouped Responsive Breakpoints
-   ========================================================================== */
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
   .tf-contact-page .contact-hero-inner {
@@ -336,10 +315,6 @@ body:has(.tf-contact-page) {
   }
 }
 
-/* ==========================================================================
-   Dark Mode Overrides
-   ========================================================================== */
-
 @include dark-mode {
   body:has(.tf-contact-page) {
     background-color: #30293e;
@@ -358,9 +333,6 @@ body:has(.tf-contact-page) {
       }
       .tf-form-select:invalid {
         color: rgba(251, 247, 235, 0.5);
-      }
-      .tf-select-chevron {
-        background-color: #30293e;
       }
     }
     .tf-btn-contact-submit:hover {

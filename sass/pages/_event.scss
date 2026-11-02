@@ -1,7 +1,4 @@
-/* ==========================================================================
-   Event Info Page (.ev-*) — Scoped 1:1 Figma Implementation
-   ========================================================================== */
-
+// Event Info Page (.ev-*)
 .ev-page {
   width: 100%;
   max-width: 100%;
@@ -13,20 +10,21 @@
   background-color: var(--tf-surface-cream, #fbf7eb);
   background-image: linear-gradient(131.699deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
 }
-
-/* 1. Intro & Hero */
-.ev-intro {
+:is(.ev-intro, .ev-gallery-sec, .ev-maps-sec, .ev-content-sec, .ev-team-sec) {
   width: 100%;
   @include flex-col-center;
-  gap: 0;
 }
-.ev-hero {
-  height: auto;
+:is(.ev-hero, .ev-ofuda-set, .ev-gallery-sec, .ev-maps-sec, .ev-team-banner) {
   max-width: 1440px;
-  padding: 238px 135px 0;
-  margin-bottom: -45px;
-  isolation: isolate;
-  gap: 10px;
+}
+:is(.ev-content-sec, .ev-team-sec) {
+  max-width: 850px;
+}
+:is(.ev-ofuda-slot-2-adj, .ev-red-card, .ev-red-card-content, .ev-app-card-content),
+:is(.ev-badge-img-col, .ev-badge-content-col, .ev-discord-wrap),
+:is(.ev-amp-copy, .ev-app-card, .ev-app-card-grad) {
+  @include flex-column;
+  align-items: flex-start;
 }
 :is(.ev-hero-bg, .ev-gallery-bg, .ev-maps-banner-bg, .ev-badge-cta-bg, .ev-team-banner-bg) {
   position: absolute;
@@ -35,19 +33,41 @@
   pointer-events: none;
   overflow: hidden;
 }
+:is(.ev-hero-img, .ev-gallery-bg-img, .ev-polaroid-img),
+:is(.ev-map-img, .ev-badge-img, .ev-hotel-photo-img) {
+  @include absolute-fill;
+  object-fit: cover;
+  display: block;
+}
+:is(.ev-polaroid-img, .ev-map-img, .ev-badge-img, .ev-hotel-photo-img) {
+  border-radius: 5px;
+}
+:is(.ev-ofuda-icon-img, .ev-maps-banner-img, .ev-caret-img),
+:is(.ev-badge-cta-grad, .ev-team-img-desktop, .ev-app-card-svg) {
+  position: absolute;
+  max-width: none;
+  display: block;
+}
+:is(.ev-hero-img-mobile, .ev-mobile-title, .ev-hotel-ext-row, .ev-team-img-mobile) {
+  display: none;
+}
+.ev-intro {
+  gap: 0;
+}
+.ev-hero {
+  height: auto;
+  padding: 238px 135px 0;
+  margin-bottom: -45px;
+  isolation: isolate;
+  gap: 10px;
+}
 .ev-hero-black {
   position: absolute;
   inset: 0;
   background-color: #000000;
 }
 .ev-hero-img {
-  @include absolute-fill;
-  object-fit: cover;
   object-position: 50% 77.3%;
-  display: block;
-}
-:is(.ev-hero-img-mobile, .ev-mobile-title, .ev-hotel-ext-row, .ev-team-img-mobile) {
-  display: none;
 }
 .ev-hero-container {
   align-items: flex-start;
@@ -71,23 +91,16 @@
 .ev-hero-text {
   color: #ffffff;
 }
-.ev-hero-p1,
-.ev-ofuda-p1 {
-  margin: 0 0 10px;
-  line-height: 1.3;
-  white-space: pre-wrap;
-}
-.ev-hero-p2,
-.ev-ofuda-p2 {
+:is(.ev-hero-p1, .ev-ofuda-p1, .ev-hero-p2, .ev-ofuda-p2) {
   margin: 0;
   line-height: 1.3;
   white-space: pre-wrap;
 }
-
-/* Ofuda Cards */
+:is(.ev-hero-p1, .ev-ofuda-p1) {
+  margin-bottom: 10px;
+}
 .ev-ofuda-set {
   width: 100%;
-  max-width: 1440px;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -95,38 +108,32 @@
   position: relative;
   z-index: 3;
 }
-.ev-ofuda-slot-1 {
-  width: 369.37px;
-  max-width: 100%;
-  height: 493.564px;
-  margin-right: -70px;
+:is(.ev-ofuda-slot-1, .ev-ofuda-slot-2, .ev-polaroid-slot) {
   @include flex-center;
   position: relative;
   flex-shrink: 0;
 }
-.ev-ofuda-rot-1 {
-  transform: rotate(-5.13deg);
-  flex: none;
+:is(.ev-ofuda-slot-1, .ev-ofuda-slot-2) {
+  max-width: 100%;
+}
+@each $i, $w, $h, $rot in (1 369.37px 493.564px -5.13deg, 2 414.214px 521.598px 11.34deg) {
+  .ev-ofuda-slot-#{$i} {
+    width: $w;
+    height: $h;
+  }
+  .ev-ofuda-rot-#{$i} {
+    transform: rotate($rot);
+    flex: none;
+  }
+}
+.ev-ofuda-slot-1 {
+  margin-right: -70px;
 }
 .ev-ofuda-slot-2-adj {
   padding-top: 80px;
-  @include flex-column;
-  align-items: flex-start;
   position: relative;
   flex-shrink: 0;
   max-width: 100%;
-}
-.ev-ofuda-slot-2 {
-  width: 414.214px;
-  max-width: 100%;
-  height: 521.598px;
-  @include flex-center;
-  position: relative;
-  flex-shrink: 0;
-}
-.ev-ofuda-rot-2 {
-  transform: rotate(11.34deg);
-  flex: none;
 }
 .ev-ofuda-pad {
   width: 329px;
@@ -161,46 +168,27 @@
   position: relative;
   flex-shrink: 0;
 }
-.ev-ofuda-icon-img {
-  position: absolute;
-  display: block;
-  max-width: none;
-}
-.ev-watch-icon .ev-ofuda-icon-img {
-  left: -2.23px;
-  top: -3.8px;
-  width: 103px;
-  height: 106px;
-}
-.ev-loc-icon .ev-ofuda-icon-img {
-  left: 0;
-  top: -2.95px;
-  width: 100px;
-  height: 114px;
+@each $c, $l, $t, $w, $h in (watch -2.23px -3.8px 103px 106px, loc 0 -2.95px 100px 114px) {
+  .ev-#{$c}-icon .ev-ofuda-icon-img {
+    left: $l;
+    top: $t;
+    width: $w;
+    height: $h;
+  }
 }
 :is(.ev-banner-title, .ev-red-card-title, .ev-badge-title, .ev-discord-title, .ev-app-card-title) {
   @include tf-h2;
   width: 100%;
 }
-:is(.ev-ofuda-title, .ev-ofuda-text) {
+:is(.ev-ofuda-title, .ev-ofuda-text, .ev-maps-banner, .ev-red-card-inner, .ev-discord-wrap) {
   width: 100%;
 }
-
-/* 2. Photo Gallery Section */
 .ev-gallery-sec {
-  width: 100%;
-  max-width: 1440px;
   min-height: 1062.535px;
   height: auto;
   padding-bottom: 88px;
   position: relative;
   isolation: isolate;
-  @include flex-col-center;
-}
-.ev-gallery-bg-img {
-  @include absolute-fill;
-  object-fit: cover;
-  display: block;
 }
 :is(.ev-gallery-banner, .ev-maps-banner, .ev-team-banner) {
   padding: 64px 0;
@@ -218,7 +206,7 @@
   z-index: 1;
   pointer-events: none;
   background-image: linear-gradient(
-    to bottom,
+    180deg,
     rgba(35, 16, 49, 0.56) 48.932%,
     rgba(35, 16, 49, 0) 108.71%
   );
@@ -228,7 +216,6 @@
   max-width: 850px;
   gap: 0;
 }
-
 .ev-polaroid-grid {
   width: 100%;
   max-width: 1280px;
@@ -240,86 +227,51 @@
   position: relative;
   z-index: 2;
 }
-.ev-polaroid-slot {
-  @include flex-center;
-  position: relative;
-  flex-shrink: 0;
-}
-
-$ev-polaroid-slots: (
-  (1, 252.91px, 290.029px, -5deg),
-  (2, 234.861px, 274.976px, 1deg),
-  (3, 234.861px, 274.976px, -1deg),
-  (4, 244.034px, 282.675px, -3deg),
-  (5, 244.034px, 282.675px, 3deg),
-  (6, 234.861px, 274.976px, -1deg),
-  (7, 252.91px, 290.029px, 5deg),
-  (8, 257.233px, 293.574px, -6deg)
-);
-@each $idx, $w, $h, $rot in $ev-polaroid-slots {
-  .ev-polaroid-slot:nth-child(#{$idx}) {
+@each $i, $w, $h,
+  $r
+    in (
+      1 252.91px 290.029px -5deg,
+      2 234.861px 274.976px 1deg,
+      3 234.861px 274.976px -1deg,
+      4 244.034px 282.675px -3deg,
+      5 244.034px 282.675px 3deg,
+      6 234.861px 274.976px -1deg,
+      7 252.91px 290.029px 5deg,
+      8 257.233px 293.574px -6deg
+    )
+{
+  .ev-polaroid-slot:nth-child(#{$i}) {
     width: $w;
     height: $h;
     .ev-polaroid-rot {
-      transform: rotate($rot);
+      transform: rotate($r);
     }
   }
 }
 .ev-polaroid-rot {
   flex: none;
 }
-.ev-polaroid-frame {
-  width: 230.167px;
-  height: 271px;
-}
 .ev-polaroid-photo {
-  flex: 1 0 0;
-  height: 100%;
   min-width: 1px;
   min-height: 1px;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-}
-:is(.ev-polaroid-img, .ev-map-img, .ev-badge-img, .ev-hotel-photo-img) {
-  @include absolute-fill;
-  object-fit: cover;
-  border-radius: 5px;
-  display: block;
-}
-:is(.ev-polaroid-dots, .ev-polaroid-dots-img) {
-  width: 8px;
-  height: 19px;
 }
 .ev-polaroid-dots {
   position: relative;
-  flex-shrink: 0;
-}
-.ev-polaroid-dots-img {
-  display: block;
 }
 
-/* 3. Event Maps Section */
 .ev-maps-sec {
-  width: 100%;
-  max-width: 1440px;
-  @include flex-col-center;
   gap: 77px;
   position: relative;
 }
-.ev-maps-banner {
-  width: 100%;
-}
-.ev-maps-banner-img {
-  position: absolute;
+:is(.ev-maps-banner-img, .ev-team-img-desktop) {
   left: 0;
-  top: -152.49%;
   bottom: auto;
   width: 100%;
-  height: 359.95%;
-  max-width: none;
-  display: block;
   object-fit: initial;
+}
+.ev-maps-banner-img {
+  top: -152.49%;
+  height: 359.95%;
 }
 .ev-banner-bot-deco {
   position: absolute;
@@ -349,22 +301,22 @@ $ev-polaroid-slots: (
   right: 276px;
   pointer-events: none;
 }
-
-/* 4. Content Container (Red Cards + Badge CTA + Discord Card) */
 .ev-content-sec {
-  width: 100%;
-  max-width: 850px;
   padding-top: 72px;
-  @include flex-col-center;
   gap: 48px;
 }
-.ev-red-grid {
+:is(.ev-red-grid, .ev-red-card-btns, .ev-app-grid) {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 48px;
   align-items: flex-start;
+}
+.ev-red-grid {
+  gap: 48px;
   justify-content: center;
+}
+:is(.ev-red-card-btns, .ev-app-grid) {
+  gap: 40px;
 }
 .ev-red-card {
   flex: 1 0 0;
@@ -373,16 +325,11 @@ $ev-polaroid-slots: (
   outline: 1px solid var(--tf-accent, #bf3444);
   outline-offset: -1px;
   border-radius: 5px;
-  @include flex-column;
-  align-items: flex-start;
-}
-.ev-red-card-inner {
-  width: 100%;
 }
 .ev-card-icon-box {
   position: relative;
 }
-:is(.ev-ph-fg-img, .ev-badge-accent-img) {
+:is(.ev-ph-fg-img, .ev-badge-accent-img, .ev-discord-logo) {
   width: 100%;
   height: 100%;
   display: block;
@@ -392,8 +339,6 @@ $ev-polaroid-slots: (
   height: 100px;
   max-width: none;
 }
-
-/* Hotel Frame */
 .ev-hotel-frame {
   flex: 1 0 0;
   width: 170px;
@@ -404,12 +349,17 @@ $ev-polaroid-slots: (
   max-height: 170px;
   position: relative;
 }
-.ev-hotel-back-card {
+:is(.ev-hotel-back-card, .ev-hotel-photo-wrap, .ev-badge-img-shadow) {
   position: absolute;
-  inset: 16px 0 0 16px;
-  background-color: #fffde7;
   border-radius: 5px;
   box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
+}
+:is(.ev-hotel-photo-wrap, .ev-badge-img-shadow) {
+  overflow: hidden;
+}
+.ev-hotel-back-card {
+  inset: 16px 0 0 16px;
+  background-color: #fffde7;
   padding: 16px 0 17px 16px;
   @include flex-column;
   align-items: flex-end;
@@ -422,7 +372,7 @@ $ev-polaroid-slots: (
 .ev-hotel-dots-wrap {
   flex-shrink: 0;
 }
-.ev-hotel-dots-img {
+:is(.ev-hotel-dots-img, .ev-hotel-ext-icon) {
   display: block;
 }
 .ev-hotel-ext-label {
@@ -433,29 +383,14 @@ $ev-polaroid-slots: (
 .ev-hotel-ext-icon {
   width: 20px;
   height: 20px;
-  display: block;
 }
 .ev-hotel-photo-wrap {
-  position: absolute;
   inset: 0 16px 16px 0;
-  border-radius: 5px;
-  box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
-  overflow: hidden;
 }
-
 :is(.ev-red-card-content, .ev-app-card-content) {
   flex: 1 0 0;
   min-width: 190px;
-  @include flex-column;
   gap: 24px;
-  align-items: flex-start;
-}
-.ev-red-card-btns {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  align-items: flex-start;
 }
 :is(.ev-btn-cream, .ev-btn-red) {
   border-radius: 35px;
@@ -467,12 +402,8 @@ $ev-polaroid-slots: (
   text-decoration: none;
   flex-shrink: 0;
   cursor: pointer;
-  transition:
-    background-color 300ms ease-out,
-    color 300ms ease-out,
-    border-color 300ms ease-out,
-    transform 300ms ease-out,
-    box-shadow 300ms ease-out;
+  transition: 300ms ease-out;
+  transition-property: background-color, color, border-color, transform, box-shadow;
 }
 .ev-btn-cream {
   background-color: var(--tf-surface-paper, #fffde7);
@@ -499,23 +430,16 @@ $ev-polaroid-slots: (
   display: inline-block;
 }
 .ev-caret-img {
-  position: absolute;
   inset: 0 -50% 0 -37.5%;
   width: 15px;
   height: 16px;
-  max-width: none;
-  display: block;
 }
-
-/* Massive CTA (2026 Full Weekend Badge) */
-.ev-badge-cta-grad {
+:is(.ev-badge-cta-grad, .ev-badge-cta-stroke) {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 362px;
-  max-width: none;
-  display: block;
 }
 .ev-badge-accent-wrap {
   position: absolute;
@@ -529,14 +453,8 @@ $ev-polaroid-slots: (
   flex: none;
 }
 .ev-badge-cta-stroke {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 362px;
-  border-top: 15px solid var(--tf-accent, #bf3444);
-  border-left: 15px solid var(--tf-accent, #bf3444);
-  border-right: 15px solid var(--tf-accent, #bf3444);
+  border: 15px solid var(--tf-accent, #bf3444);
+  border-bottom: 0;
 }
 .ev-badge-cta-inner {
   position: absolute;
@@ -555,8 +473,6 @@ $ev-polaroid-slots: (
   width: 318px;
   min-width: 1px;
   padding: 40px 40px 24px;
-  @include flex-column;
-  align-items: flex-start;
 }
 .ev-badge-img-aspect {
   width: 100%;
@@ -564,35 +480,19 @@ $ev-polaroid-slots: (
   position: relative;
 }
 .ev-badge-img-shadow {
-  position: absolute;
   inset: 0 1.39% 2.57% 0;
-  border-radius: 5px;
-  box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
-  overflow: hidden;
 }
 .ev-badge-content-col {
   flex: 1 0 0;
   min-width: 289px;
-  @include flex-column;
   gap: 24px;
-  align-items: flex-start;
 }
 .ev-discord-logo {
-  width: 100%;
-  height: 100%;
   background-color: #ffffff;
   @include mask-stretch-var(var(--tf-svg-discord-card));
-  display: block;
 }
-.ev-badge-title {
+:is(.ev-badge-title, .ev-app-card-title) {
   color: var(--tf-accent, #bf3444);
-}
-
-/* Discord Special Module */
-.ev-discord-wrap {
-  width: 100%;
-  @include flex-column;
-  align-items: flex-start;
 }
 .ev-discord-card {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -607,34 +507,19 @@ $ev-polaroid-slots: (
     }
   }
 }
-
-/* 5. TouhouFest Team Section */
 .ev-team-sec {
-  width: 100%;
-  max-width: 850px;
-  @include flex-col-center;
   gap: 42px;
 }
 .ev-team-banner {
   width: 100vw;
-  max-width: 1440px;
 }
 .ev-team-img-desktop {
-  position: absolute;
-  left: 0;
   top: -118.23%;
-  bottom: auto;
-  width: 100%;
   height: 369.23%;
-  max-width: none;
-  display: block;
-  object-fit: initial;
 }
 .ev-amp-copy {
   width: 100%;
-  @include flex-column;
   gap: 16px;
-  align-items: flex-start;
   justify-content: center;
   color: var(--tf-ink, #30293e);
 }
@@ -642,32 +527,17 @@ $ev-polaroid-slots: (
   @include tf-h3;
   width: 100%;
 }
-.ev-app-grid {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  align-items: flex-start;
-}
 .ev-app-card {
   flex: 1 0 0;
   min-width: 262px;
   max-width: 100%;
   height: 280px;
-  @include flex-column;
-  align-items: flex-start;
 }
 .ev-app-card-grad {
   width: 100%;
-  background-image: linear-gradient(
-    114.208deg,
-    rgb(252, 241, 232) 55.472%,
-    rgba(46, 40, 60, 0) 89.517%
-  );
-  @include flex-column;
-  align-items: flex-start;
+  background-image: linear-gradient(114.208deg, #fcf1e8 55.472%, rgba(46, 40, 60, 0) 89.517%);
 }
-.ev-app-card-grad-full {
+:is(.ev-app-card-grad-full, .ev-app-card-box-full) {
   flex: 1 0 0;
   height: 100%;
 }
@@ -686,19 +556,14 @@ $ev-polaroid-slots: (
   justify-content: center;
 }
 .ev-app-card-box-full {
-  flex: 1 0 0;
-  height: 100%;
   align-items: flex-start;
 }
 .ev-app-card-svg {
-  position: absolute;
   inset: -0.5px calc(-0.6% - 0.51px) calc(-2.55% - 0.53px) calc(0.2% - 0.5px);
   width: 100.4%;
   height: 102.55%;
-  max-width: none;
   z-index: 1;
   pointer-events: none;
-  display: block;
 }
 .ev-app-card-content {
   position: relative;
@@ -718,31 +583,21 @@ $ev-polaroid-slots: (
   padding: 6px 7px 6px 0;
   color: #564b58;
 }
-.ev-app-card-title {
-  color: var(--tf-accent, #bf3444);
-}
 .ev-app-card-desc {
   color: var(--tf-ink, #30293e);
 }
 
-/* ==========================================================================
-   Responsive Breakpoints (Tablet <= 1023px & Mobile <= 768px)
-   ========================================================================== */
-
 @media (max-width: 1023px) {
   .ev-hero {
-    padding-left: 31px;
-    padding-right: 31px;
+    padding-inline: 31px;
   }
   .ev-map-zoom {
     right: 48px;
   }
   :is(.ev-content-sec, .ev-team-sec) {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-inline: 24px;
   }
 }
-
 @media (max-width: 768px) {
   .ev-page {
     background-image: linear-gradient(98.423deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
@@ -757,11 +612,13 @@ $ev-polaroid-slots: (
   .ev-hero-container {
     padding: 48px 0;
   }
-  .ev-hero-img-desktop {
+  :is(.ev-hero-img-desktop, .ev-desktop-title, .ev-team-img-desktop) {
     display: none;
   }
-  .ev-hero-img-mobile {
+  :is(.ev-hero-img-mobile, .ev-mobile-title, .ev-team-img-mobile) {
     display: block;
+  }
+  .ev-hero-img-mobile {
     object-position: bottom;
   }
   .ev-intro {
@@ -772,8 +629,7 @@ $ev-polaroid-slots: (
     align-items: center;
   }
   .ev-ofuda-slot-1 {
-    margin-right: 0;
-    margin-bottom: -64px;
+    margin: 0 0 -64px;
   }
   .ev-ofuda-slot-2-adj {
     padding-top: 0;
@@ -782,21 +638,20 @@ $ev-polaroid-slots: (
   .ev-gallery-sec {
     height: 2765.9px;
     min-height: 2765.9px;
-    padding-bottom: 88px;
     overflow: hidden;
   }
-  .ev-gallery-banner {
+  :is(.ev-gallery-banner, .ev-maps-banner, .ev-team-banner) {
     height: 260px;
     min-height: 260px;
     max-height: 260px;
+  }
+  .ev-gallery-banner {
     padding: 74.5px 32px 0;
     justify-content: flex-start;
   }
   .ev-polaroid-grid {
-    @include flex-col-center;
-    gap: 22px;
-    width: 100%;
-    margin-top: 0;
+    flex-direction: column;
+    align-items: center;
   }
   .ev-banner-bot-deco {
     bottom: -6px;
@@ -816,26 +671,16 @@ $ev-polaroid-slots: (
     max-width: calc(100vw - 64px);
     margin: 0;
   }
-  .ev-desktop-title {
-    display: none;
-  }
-  .ev-mobile-title {
-    display: block;
-  }
   .ev-maps-sec {
     height: 798px;
     min-height: 798px;
     gap: 42px;
   }
   :is(.ev-maps-banner, .ev-team-banner) {
-    height: 260px;
-    min-height: 260px;
-    max-height: 260px;
     padding: 0 32px;
   }
   .ev-maps-banner-img {
     inset: 0;
-    top: 0;
     height: 100%;
     object-fit: cover;
   }
@@ -866,106 +711,70 @@ $ev-polaroid-slots: (
     bottom: 142px;
     right: 35px;
   }
-  .ev-content-sec {
-    width: 100%;
+  :is(.ev-content-sec, .ev-team-sec) {
     max-width: 100%;
+    padding-inline: 0;
+  }
+  .ev-content-sec {
     height: 2950px;
     min-height: 2950px;
-    padding-top: 72px;
-    padding-left: 0;
-    padding-right: 0;
   }
   .ev-red-grid {
     flex-direction: column;
     align-items: center;
-    gap: 48px;
-    width: 100%;
   }
-  .ev-red-card {
+  :is(.ev-red-card, .ev-badge-cta, .ev-discord-wrap, .ev-discord-card, .ev-app-card) {
     width: 328px;
     max-width: 100%;
+  }
+  :is(.ev-red-card, .ev-red-card-content) {
     min-width: 0;
+  }
+  :is(.ev-red-card-inner, .ev-red-card-content, .ev-red-card-copy) {
+    align-items: center;
+    text-align: center;
   }
   .ev-red-card-inner {
     padding: 48px 24px;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
     gap: 40px;
-    width: 100%;
   }
-  .ev-red-card-content {
-    align-items: center;
+  :is(.ev-red-card-title, .ev-red-card-body, .ev-badge-title) {
     text-align: center;
-    width: 100%;
-    min-width: 0;
-    gap: 24px;
-  }
-  .ev-red-card-copy {
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    gap: 8px;
   }
   .ev-red-card-title {
-    text-align: center;
     max-width: 240px;
-  }
-  .ev-red-card-body {
-    text-align: center;
   }
   .ev-red-card-btns {
     justify-content: center;
-    width: 100%;
   }
   .ev-hotel-frame {
     flex: none;
-    width: 170px;
-    height: 170px;
   }
   .ev-badge-cta {
-    width: 328px;
-    max-width: 100%;
     height: 527px;
   }
   :is(.ev-badge-cta-grad, .ev-badge-cta-stroke) {
     height: 547.768px;
-  }
-  .ev-badge-cta-inner {
-    padding: 48px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
   }
   .ev-badge-img-col {
     flex: 1 0 0;
     width: 232px;
     max-width: 100%;
     padding: 16px 16px 8px;
-    align-items: flex-start;
   }
   .ev-badge-content-col {
-    flex: 1 0 0;
-    min-width: 289px;
     padding: 0 41px;
     align-items: center;
     text-align: center;
   }
   .ev-badge-title {
     max-width: 200px;
-    text-align: center;
   }
   .ev-discord-wrap {
-    width: 328px;
-    max-width: 100%;
     align-items: center;
   }
   .ev-discord-card {
-    width: 328px;
-    max-width: 100%;
     padding: 48px;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -983,72 +792,57 @@ $ev-polaroid-slots: (
     }
   }
   .ev-team-sec {
-    width: 100%;
-    max-width: 100%;
     height: 1304px;
     min-height: 1304px;
-    padding: 0;
     gap: 33px;
   }
   .ev-team-banner .ev-banner-title {
     white-space: nowrap;
   }
-  .ev-amp-copy {
-    max-width: 328px;
+  :is(.ev-amp-copy, .ev-app-grid) {
     width: 328px;
+    max-width: 328px;
   }
   .ev-amp-body {
     line-height: 1.375;
   }
   .ev-app-grid {
-    max-width: 328px;
-    width: 328px;
-    @include flex-column;
+    flex-direction: column;
     gap: 50px;
   }
   .ev-app-card {
-    width: 328px;
-    max-width: 100%;
     flex: none;
   }
-  .ev-app-card:nth-child(1),
-  .ev-app-card:nth-child(1) .ev-app-card-grad,
-  .ev-app-card:nth-child(1) .ev-app-card-box {
-    width: 100%;
-    height: 276px;
-  }
-  .ev-app-card:nth-child(2),
-  .ev-app-card:nth-child(2) .ev-app-card-grad,
-  .ev-app-card:nth-child(2) .ev-app-card-box {
-    width: 100%;
-    height: 281px;
+  @each $i, $h in (1: 276px, 2: 281px) {
+    .ev-app-card:nth-child(#{$i}) {
+      &,
+      .ev-app-card-grad,
+      .ev-app-card-box {
+        width: 100%;
+        height: $h;
+      }
+    }
   }
   :is(.ev-app-card-box, .ev-app-card-box-full) {
     padding: 32px;
     align-items: flex-start;
     flex: none;
   }
-  .ev-team-img-desktop {
-    display: none;
-  }
   .ev-team-img-mobile {
-    display: block;
     @include absolute-fill;
     object-fit: cover;
   }
   .ev-team-vignette {
     background-image: linear-gradient(
-      to right,
+      90deg,
       rgba(35, 16, 49, 0.56) 42.536%,
       rgba(35, 16, 49, 0) 100%
     );
   }
 }
-
 @media (max-width: 389px) {
   .ev-hero {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-inline: 16px;
   }
   :is(.ev-hero-container, .ev-hero-box, .ev-content-sec, .ev-team-sec) {
     max-width: calc(100vw - 32px);
@@ -1075,17 +869,11 @@ $ev-polaroid-slots: (
     padding: 0 20px;
   }
 }
-
-/* ==========================================================================
-   Canonical Figma Dark Mode (OS Preference + Explicit Dark Mode Tokens)
-   ========================================================================== */
-
 @include dark-mode {
   .ev-page {
     background-color: #221a28;
     background-image: linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
     color: #fbf7eb;
-
     :is(.ev-hero-title, .ev-red-card-title, .ev-btn-red-text, .ev-badge-open) {
       color: #511154;
     }

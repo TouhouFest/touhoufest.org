@@ -1,30 +1,29 @@
-/* ==========================================================================
-   Registration Page Styles (Stage 3B Compacted)
-   ========================================================================== */
-
-/* Main Canvas & Content Container */
-.register-page-layout {
+// Registration Page
+:is(.register-page-layout, .is-register-divider) {
   width: 100%;
   max-width: 100%;
-  background-color: #fbf7eb;
-  background-image: linear-gradient(138.51deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
-  box-sizing: border-box;
-  @include flex-col-center;
+}
+:is(.register-page-layout, .register-content-container, .register-bottom-ctas) {
   gap: 48px;
+}
+:is(.register-content-container, .register-hero-content-container) {
+  margin: 0 auto;
+}
+:is(.register-hero-content-container, .app-card-inner, .register-callout-card) {
+  width: 100%;
+}
+.register-page-layout {
+  background: #fbf7eb linear-gradient(138.51deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
+  @include flex-col-center;
   padding: 48px 0;
 }
 .register-content-container {
   width: calc(100% - 64px);
   max-width: 850px;
-  margin: 0 auto;
   padding: 0;
-  box-sizing: border-box;
   @include flex-column;
   align-items: stretch;
-  gap: 48px;
 }
-
-/* Register Hero Banner */
 .page-hero-banner.is-register {
   position: relative;
   width: 100%;
@@ -35,59 +34,54 @@
   overflow: hidden;
   margin: 0;
   padding: 238px 135px 0;
-  box-sizing: border-box;
-}
-.page-hero-banner.is-register .register-banner-img {
-  @include absolute-fill;
-  object-fit: cover;
-  object-position: center;
-  pointer-events: none;
-  z-index: 1;
+  .register-banner-img {
+    @include absolute-fill;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    z-index: 1;
+  }
 }
 .register-hero-content-container {
-  width: 100%;
   max-width: 1171px;
-  margin: 0 auto;
   padding: 48px 0;
   @include flex-column;
   align-items: flex-start;
   justify-content: center;
   position: relative;
   z-index: 3;
-  box-sizing: border-box;
 }
-
-/* Section Head, Typography & Transitions */
-.register-section-head {
+:is(.register-section-head, .register-pricing-wrap, .register-bottom-ctas) {
   @include flex-column;
-  gap: 24px;
   margin: 0;
   width: 100%;
 }
-.register-heading {
+.register-section-head {
+  gap: 24px;
+}
+:is(.register-heading, .register-subheading, .app-card-title) {
   color: var(--tf-accent, #bf3444);
 }
-.register-narrative {
+:is(.register-narrative, .td-date, .td-price, .app-card-desc) {
   color: var(--tf-ink, #30293e);
 }
-.register-link {
-  color: var(--tf-accent, #bf3444);
+:is(.register-link, .cosplay-rules-link) {
   font-weight: 400;
   text-decoration: underline;
   transition:
     color 300ms ease-out,
     background-color 100ms ease-out,
     opacity 300ms ease-out;
+}
+.register-link {
+  color: var(--tf-accent, #bf3444);
   &:hover {
     color: #9c2b37;
   }
 }
 :is(.register-hero-card, .app-card, .cosplay-masquerade-card) {
-  transition:
-    transform 300ms ease-out,
-    box-shadow 300ms ease-out,
-    border-color 300ms ease-out,
-    background-color 300ms ease-out;
+  transition: 300ms ease-out;
+  transition-property: transform, box-shadow, border-color, background-color;
 }
 :is(.app-card-top, .cosplay-card-copy) {
   width: 100%;
@@ -95,50 +89,55 @@
   align-items: flex-start;
   gap: 8px;
 }
+:is(.hero-card-right, .app-card-inner, .cosplay-masquerade-card, .callout-body) {
+  @include flex-column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+}
+:is(.hero-card-left, .hero-card-right, .app-card-inner) {
+  position: relative;
+  z-index: 2;
+}
 :is(.register-heading, .app-card-title, .cosplay-card-title) {
   @include tf-h2;
 }
 :is(.register-narrative, .app-card-desc, .cosplay-card-desc) {
   @include tf-body;
 }
-
-/* 2026 Weekend Badge Massive CTA */
 .register-hero-card {
   box-shadow: 3px 4px 13px 0 rgba(99, 15, 40, 0.15);
   @include flex-center;
   padding: 0 48px;
   gap: 40px;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 362px;
-    background: linear-gradient(180deg, #fff5f5 0%, #ffffff 45%);
-    pointer-events: none;
-    z-index: 0;
-  }
+  &::before,
   &::after {
     content: "";
     position: absolute;
+    pointer-events: none;
+  }
+  &::before {
+    inset: 0 0 auto;
+    height: 362px;
+    background: linear-gradient(180deg, #fff5f5 0%, #ffffff 45%);
+    z-index: 0;
+  }
+  &::after {
     inset: 0;
     border: 15px solid var(--tf-accent, #bf3444);
     border-bottom: none;
     border-radius: 5px 5px 0 0;
-    pointer-events: none;
     z-index: 3;
   }
 }
-.hero-card-left {
+:is(.hero-card-left, .hero-card-right) {
   flex: 1 1 0%;
+}
+.hero-card-left {
   min-width: 0;
   padding: 16px 0 0 3px;
   @include flex-col-center;
   justify-content: center;
-  position: relative;
-  z-index: 2;
-  box-sizing: border-box;
 }
 .hero-card-badge-frame {
   width: auto;
@@ -156,21 +155,12 @@
   display: block;
 }
 .hero-card-right {
-  flex: 1 1 0%;
   min-width: 240px;
-  @include flex-column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 24px;
-  position: relative;
-  z-index: 2;
-  box-sizing: border-box;
 }
 .hero-card-title.is-mobile-title {
   display: none;
 }
 
-/* Pill Buttons */
 :is(.tf-btn-pill-red, .tf-btn-pill-cream) {
   @include tf-pill;
   font-weight: 600;
@@ -190,56 +180,54 @@
   white-space: nowrap;
 }
 
-/* Pricing Schedule */
 .register-pricing-wrap {
-  @include flex-column;
   align-items: flex-start;
   gap: 16px;
-  margin: 0;
-  width: 100%;
 }
 .register-subheading {
   @include tf-h3;
-  color: var(--tf-accent, #bf3444);
 }
 .pricing-table-container {
   width: 632px;
   max-width: 100%;
   margin: 0;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
   border-radius: 5px;
   overflow: hidden;
-  box-sizing: border-box;
 }
 .pricing-left-table {
   width: 411px;
   max-width: 100%;
   padding-bottom: 8px;
   @include flex-column;
-  box-sizing: border-box;
 }
-.pricing-header-row {
-  display: flex;
+:is(.pricing-header-row, .th-single) {
   background-color: var(--tf-color-red, #bf3444);
   color: #fffde7;
   height: 51px;
-  box-sizing: border-box;
 }
-.pricing-th {
-  font: 700 16px/1.3 var(--tf-font-body);
+.pricing-header-row {
+  display: flex;
+}
+:is(.pricing-th, .pricing-td) {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   text-align: left;
-  box-sizing: border-box;
 }
-:is(.th-date, .th-weekend) {
+.pricing-th {
+  font: 700 16px / 1.3 var(--tf-font-body);
+}
+:is(.th-date, .th-weekend, .th-single, .pricing-td) {
+  padding: 0 16px;
+}
+:is(.th-date, .th-weekend, .pricing-td) {
   flex: 1 0 0;
   min-width: 0;
-  padding: 0 16px;
+}
+:is(.th-date, .th-weekend, .th-single) {
   border-right: 1px solid #ffffff;
   border-bottom: 1px solid #ffffff;
 }
@@ -250,123 +238,91 @@
   display: flex;
   height: 53px;
   background-color: transparent;
-  box-sizing: border-box;
   align-items: stretch;
+  &.is-sold-out .td-price {
+    background-color: #cbcbd2;
+    color: #000000;
+  }
 }
 .pricing-td {
-  flex: 1 0 0;
-  min-width: 0;
   @include tf-body;
-  padding: 0 16px;
-  box-sizing: border-box;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: left;
-  border-top: 1px solid var(--tf-accent, #bf3444);
-  border-bottom: 1px solid var(--tf-accent, #bf3444);
-  border-right: 1px solid var(--tf-accent, #bf3444);
+  border: 1px solid var(--tf-accent, #bf3444);
+  border-left: 0;
 }
-.td-date {
+:is(.td-date, .tier-name) {
   font-weight: 700;
-  color: var(--tf-ink, #30293e);
 }
-.td-date-text {
-  margin: 0;
+:is(.td-date-text, .tier-name, .tier-note) {
   line-height: 1.3;
+}
+:is(.tier-note, .td-price) {
+  font-weight: 400;
+}
+:is(.td-date-text, .app-badge-wrap, .app-card-bottom, .cosplay-masquerade-card) {
+  margin: 0;
 }
 .tier-name {
-  font-weight: 700;
   font-size: 16px;
-  line-height: 1.3;
 }
 .tier-note {
-  font-weight: 400;
   font-size: 14px;
-  line-height: 1.3;
 }
-.td-price {
-  font-weight: 400;
-  color: var(--tf-ink, #30293e);
+:is(.pricing-single-day-columns, .pricing-column) {
+  height: 369px;
 }
-.pricing-row.is-sold-out .td-price {
-  background-color: #cbcbd2;
-  color: #000000;
+:is(.pricing-column, .pricing-stay-tuned-cell, .pricing-stay-tuned) {
+  flex: 1 0 0;
 }
 .pricing-single-day-columns {
   display: flex;
   flex: 1 0 180px;
-  flex-direction: row;
-  height: 369px;
 }
 .pricing-column {
-  flex: 1 0 0;
   min-width: 0;
-  height: 369px;
   @include flex-column;
 }
-.pricing-column .th-single {
-  height: 51px;
-  background-color: var(--tf-color-red, #bf3444);
-  color: #fffde7;
-  border-bottom: 1px solid #ffffff;
-  border-right: 1px solid #ffffff;
-  padding: 0 16px;
+.th-single {
   flex-shrink: 0;
 }
 .pricing-stay-tuned-cell {
-  flex: 1 0 0;
   min-height: 0;
   padding: 8px;
   display: flex;
-  box-sizing: border-box;
 }
 .pricing-stay-tuned {
-  flex: 1 0 0;
   width: 100%;
   background-color: #564b58;
-  color: #ffffff;
   @include flex-center;
   text-align: center;
   @include tf-body;
   padding: 16px;
-  box-sizing: border-box;
 }
-
-/* Section Divider Banners (Page-Local Deltas onto .tf-mod-divider) */
 .is-register-divider {
-  width: 100%;
-  max-width: 100%;
   height: 260px;
   padding: 64px 0;
-  box-sizing: border-box;
   .tf-mod-divider-bottom {
     bottom: -1px;
     background-color: #fbf5ea;
   }
 }
-#content.is-register-divider .tf-mod-divider-bottom {
-  background-color: #fdefe8;
+@each $id, $bg in (content: #fdefe8, team: #fee5e3) {
+  ##{$id}.is-register-divider .tf-mod-divider-bottom {
+    background-color: $bg;
+  }
 }
-#team.is-register-divider .tf-mod-divider-bottom {
-  background-color: #fee5e3;
-}
-
-/* Application Grids & Cards */
-.app-grid-3 {
+:is(.app-grid-3, .app-grid-2) {
   display: grid;
+  margin: 0;
+  width: 100%;
+}
+.app-grid-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 32px;
-  margin: 0;
-  width: 100%;
 }
 .app-grid-2 {
-  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px;
-  margin: 0;
-  width: 100%;
 }
 .app-card {
   border: 1px solid var(--tf-accent, #bf3444);
@@ -375,55 +331,43 @@
   @include flex-column;
   align-items: flex-start;
   justify-content: center;
-  box-sizing: border-box;
   position: relative;
   overflow: hidden;
   --tf-reg-card-grad: #fcf1e8;
+  @each $mod, $h,
+    $svg
+      in (
+        (3col, 283px, $svg-register-gradient-3col),
+        (2col, 296px, $svg-register-gradient-2col),
+        (team, 275px, $svg-register-gradient-team)
+      )
+  {
+    &.is-#{$mod} {
+      height: $h;
+      min-height: $h;
+      background:
+        url($svg) no-repeat center / 101% 103%,
+        linear-gradient(114.21deg, var(--tf-reg-card-grad) 55.472%, rgba(46, 40, 60, 0) 89.517%);
+    }
+  }
   &.is-3col {
-    height: 283px;
-    min-height: 283px;
     padding: 48px 36px;
-    background:
-      url($svg-register-gradient-3col) no-repeat center / 101% 103%,
-      linear-gradient(114.21deg, var(--tf-reg-card-grad) 55.472%, rgba(46, 40, 60, 0) 89.517%);
   }
-  &.is-2col {
-    height: 296px;
-    min-height: 296px;
-    background:
-      url($svg-register-gradient-2col) no-repeat center / 101% 103%,
-      linear-gradient(114.21deg, var(--tf-reg-card-grad) 55.472%, rgba(46, 40, 60, 0) 89.517%);
-  }
-  &.is-team {
-    height: 275px;
-    min-height: 275px;
-    background:
-      url($svg-register-gradient-team) no-repeat center / 101% 103%,
-      linear-gradient(114.21deg, var(--tf-reg-card-grad) 55.472%, rgba(46, 40, 60, 0) 89.517%);
-  }
-}
-.app-card-inner {
-  width: 100%;
-  @include flex-column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 24px;
-  position: relative;
-  z-index: 2;
 }
 .app-badge-wrap {
-  margin: 0;
   display: flex;
   align-items: flex-end;
 }
 :is(.app-badge-open, .app-badge-closed) {
-  font: 700 16px/1.3 var(--tf-font-body);
+  font: 700 16px / 1.3 var(--tf-font-body);
   display: inline-block;
   text-transform: uppercase;
 }
+:is(.pricing-stay-tuned, .app-badge-open, .cosplay-masquerade-card, .cosplay-card-title) {
+  color: #ffffff;
+}
 .app-badge-open {
   background-color: var(--tf-color-red, #bf3444);
-  color: #ffffff;
   border-radius: 5px;
   padding: 6px 7px;
 }
@@ -431,17 +375,6 @@
   color: #564b58;
   padding: 6px 7px 6px 0;
 }
-.app-card-title {
-  color: var(--tf-accent, #bf3444);
-}
-.app-card-desc {
-  color: var(--tf-ink, #30293e);
-}
-.app-card-bottom {
-  margin: 0;
-}
-
-/* Cosplay Masquerade Card */
 .cosplay-masquerade-card {
   width: 100%;
   max-width: 850px;
@@ -452,53 +385,34 @@
   border-radius: 5px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 48px;
-  box-sizing: border-box;
   text-align: left;
-  color: #ffffff;
-  margin: 0;
-  @include flex-column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 24px;
 }
 .cosplay-card-title {
   font-size: 2rem;
-  color: #ffffff;
 }
 .cosplay-card-desc {
   color: var(--tf-color-cream, #fbf7eb);
 }
 .cosplay-rules-link {
   color: #ffffff;
-  font-weight: 400;
-  text-decoration: underline;
-  transition:
-    color 300ms ease-out,
-    background-color 100ms ease-out,
-    opacity 300ms ease-out;
   &:hover {
     color: #fffde7;
   }
 }
-.cosplay-buttons-wrap {
+:is(.cosplay-buttons-wrap, .callout-action) {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 32px 40px;
   flex-wrap: wrap;
+  align-items: flex-start;
   width: 100%;
 }
-
-/* Bottom Callouts & Newsletter */
+.cosplay-buttons-wrap {
+  justify-content: flex-start;
+  gap: 32px 40px;
+}
 .register-bottom-ctas {
-  @include flex-column;
-  gap: 48px;
   padding-top: 72px;
-  margin: 0;
-  width: 100%;
 }
 .register-callout-card {
-  width: 100%;
   min-height: 234px;
   position: relative;
   &.is-red {
@@ -511,38 +425,24 @@
 .callout-body {
   flex: 1 0 190px;
   min-width: 0;
-  @include flex-column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 24px;
 }
 .callout-body.is-newsletter-body {
   flex: 1 0 220px;
 }
-.callout-action {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
 .newsletter-submit-btn {
   flex-shrink: 0;
 }
-
-/* Responsive Breakpoints */
 @media (max-width: 1150px) {
   .page-hero-banner.is-register {
     padding: 238px 32px 0;
   }
 }
-
 @media (max-width: 960px) {
   .app-grid-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px;
   }
 }
-
 @media (max-width: 768px) {
   .register-page-layout {
     background-image: linear-gradient(100.62deg, #fbf7eb 28.353%, #ffe1e1 93.86%);
@@ -555,46 +455,43 @@
     height: 472px;
     min-height: 472px;
     padding: 286px 31px 0;
-    justify-content: flex-start;
     .register-banner-img {
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
       object-position: -352px center;
     }
   }
-  .register-hero-content-container {
-    width: 100%;
-    max-width: 328px;
-    padding: 0;
+  :is(.register-hero-content-container, .hero-card-left, .pricing-single-day-columns) {
     margin: 0;
-    align-items: flex-start;
+  }
+  :is(.register-hero-content-container, .hero-card-left, .hero-card-right) {
+    padding: 0;
+  }
+  :is(.register-hero-content-container, .register-hero-card, .cosplay-masquerade-card) {
     justify-content: flex-start;
+  }
+  :is(.register-hero-card, .cosplay-masquerade-card) {
+    width: 328px;
+    max-width: 328px;
+  }
+  .register-hero-content-container {
+    max-width: 328px;
   }
   .register-hero-card {
     flex-direction: column;
-    width: 328px;
-    max-width: 328px;
     height: 527px;
     min-height: 527px;
     padding: 60px 0 45.5px;
     margin: 0 auto;
     gap: 0;
     box-shadow: 0 4px 22px 3px rgba(191, 52, 68, 0.5);
-    justify-content: flex-start;
-    align-items: center;
     &::before {
       display: none;
     }
   }
-  .hero-card-left {
+  :is(.hero-card-left, .hero-card-right, .pricing-single-day-columns, .callout-body) {
     flex: 0 0 auto;
+  }
+  :is(.hero-card-left, .pricing-left-table, .pricing-single-day-columns, .callout-body) {
     width: 100%;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
   }
   .hero-card-badge-img {
     width: 197px;
@@ -602,44 +499,33 @@
     aspect-ratio: auto;
   }
   .hero-card-right {
-    flex: 0 0 auto;
     width: 207px;
     max-width: 207px;
     min-width: 0;
-    padding: 0;
     margin: 54px auto 0;
     a.tf-btn-pill-red {
       width: 203px;
       height: 48px;
       padding: 14px 39px 14px 47px;
-      box-sizing: border-box;
     }
   }
-  .hero-card-title.is-desktop-title {
-    display: none;
-  }
-  .hero-card-title.is-mobile-title {
-    display: block;
-    width: 207px;
-    max-width: 207px;
-    font-size: 34px;
-    line-height: 1.1;
-    margin: 0;
-    text-align: left;
+  .hero-card-title {
+    &.is-desktop-title {
+      display: none;
+    }
+    &.is-mobile-title {
+      display: block;
+      width: 207px;
+      max-width: 207px;
+      font-size: 34px;
+      line-height: 1.1;
+      margin: 0;
+      text-align: left;
+    }
   }
   .pricing-table-container {
     flex-direction: column;
     width: 100%;
-    max-width: 100%;
-  }
-  .pricing-left-table {
-    width: 100%;
-  }
-  .pricing-single-day-columns {
-    flex: 0 0 auto;
-    width: 100%;
-    height: 369px;
-    margin: 0;
   }
   .is-register-divider {
     padding: 64px 32px;
@@ -668,32 +554,23 @@
     max-width: none;
     object-fit: fill;
   }
-  .app-grid-3 {
+  :is(.app-grid-3, .app-grid-2) {
     grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
   }
-  .app-grid-2 {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
+  .app-grid-3 {
+    gap: 32px;
   }
   .app-card.is-3col {
     padding: 48px;
   }
   .cosplay-masquerade-card {
-    width: 328px;
-    max-width: 328px;
     height: 494px;
     min-height: 494px;
     padding: 48px;
-    box-sizing: border-box;
-    justify-content: flex-start;
-    gap: 24px;
   }
   .cosplay-buttons-wrap {
     flex-direction: column;
-    align-items: flex-start;
     gap: 32px;
-    width: 100%;
   }
   .register-callout-card {
     flex-direction: column;
@@ -701,14 +578,12 @@
     justify-content: center;
     padding: 48px;
     gap: 40px;
-    &.is-red {
-      min-height: 432px;
-    }
-    &.is-dark {
-      min-height: 490px;
+    @each $mod, $mh in (red: 432px, dark: 490px, newsletter: 524px) {
+      &.is-#{$mod} {
+        min-height: $mh;
+      }
     }
     &.is-newsletter {
-      min-height: 524px;
       padding: 48px;
       .callout-subtext {
         max-width: 220px;
@@ -716,8 +591,6 @@
     }
   }
   .callout-body {
-    flex: 0 0 auto;
-    width: 100%;
     align-items: flex-start;
   }
 }
@@ -740,24 +613,21 @@
     max-width: 100%;
     padding: 0;
   }
-  .hero-card-title.is-mobile-title {
+  :is(.hero-card-title.is-mobile-title, .is-register-divider .tf-mod-divider-title) {
     font-size: 28px;
   }
   :is(.tf-btn-pill-red, .tf-btn-pill-cream) {
     padding: 12px 24px 12px 28px;
     font-size: 16px;
   }
-  :is(.th-date, .th-weekend, .pricing-td, .pricing-column .th-single) {
+  :is(.th-date, .th-weekend, .th-single, .pricing-td) {
     padding: 0 10px;
     font-size: 14px;
   }
   .is-register-divider {
     padding: 64px 16px;
-    .tf-mod-divider-title {
-      font-size: 28px;
-    }
   }
-  :is(.app-card, .app-card.is-3col, .app-card.is-2col, .app-card.is-team) {
+  :is(.app-card, .app-card:is(.is-3col, .is-2col, .is-team)) {
     height: auto;
     min-height: 250px;
     padding: 32px 24px;
@@ -771,12 +641,7 @@
   .cosplay-buttons-wrap {
     gap: 16px;
   }
-  :is(
-    .register-callout-card,
-    .register-callout-card.is-red,
-    .register-callout-card.is-dark,
-    .register-callout-card.is-newsletter
-  ) {
+  :is(.register-callout-card, .register-callout-card:is(.is-red, .is-dark, .is-newsletter)) {
     min-height: 0;
     padding: 32px 20px;
     gap: 24px;
@@ -786,7 +651,6 @@
   }
 }
 
-/* Dark Mode Support */
 @include dark-mode {
   .is-register-divider .tf-mod-divider-bottom {
     background-color: #30293e;
@@ -794,6 +658,9 @@
   .register-page-layout {
     background-color: #30293e;
     background-image: linear-gradient(153.52deg, #30293e 28.353%, #221a28 93.86%);
+    @media (max-width: 768px) {
+      background-image: linear-gradient(112.55deg, #30293e 28.353%, #221a28 93.86%);
+    }
   }
   .register-hero-card {
     box-shadow:
@@ -803,53 +670,35 @@
       background: linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%);
     }
   }
-  :is(.pricing-header-row, .pricing-column .th-single) {
+  :is(.pricing-header-row, .th-single, .app-badge-open, .cosplay-masquerade-card) {
     background-color: #f9c650;
     color: #30293e;
   }
-  :is(.th-date, .th-weekend, .pricing-column .th-single) {
+  :is(.th-date, .th-weekend, .th-single) {
     border-color: #30293e;
   }
-  .pricing-row {
-    background-color: transparent;
-    &.is-sold-out .td-price {
-      background-color: rgba(203, 203, 210, 0.69);
-      border-color: #f9c650;
-      color: rgba(0, 0, 0, 0.86);
-    }
+  .pricing-row.is-sold-out .td-price {
+    background-color: rgba(203, 203, 210, 0.69);
+    border-color: #f9c650;
+    color: rgba(0, 0, 0, 0.86);
+  }
+  :is(.pricing-stay-tuned, .cosplay-card-desc, .cosplay-rules-link) {
+    color: #30293e;
   }
   .pricing-stay-tuned {
     background-color: #cbcbd2;
-    color: #30293e;
   }
   .app-card {
     --tf-reg-card-grad: #30293e;
   }
-  .app-badge-open {
-    background-color: #f9c650;
-    color: #30293e;
-  }
   .app-badge-closed {
     color: #cbcbd2;
   }
-  .cosplay-masquerade-card {
-    background-color: #f9c650;
+  :is(.cosplay-masquerade-card, .register-callout-card.is-red) {
     border-color: #f9c650;
-    color: #30293e;
-  }
-  .register-callout-card.is-red {
-    border-color: #f9c650;
-  }
-  :is(.cosplay-card-desc, .cosplay-rules-link) {
-    color: #30293e;
   }
   .tf-btn-pill-cream {
     background-color: #511154;
     color: #fbf7eb;
-  }
-  @media (max-width: 768px) {
-    .register-page-layout {
-      background-image: linear-gradient(112.55deg, #30293e 28.353%, #221a28 93.86%);
-    }
   }
 }
