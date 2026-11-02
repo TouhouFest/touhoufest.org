@@ -77,7 +77,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="faq-callout-card tf-mod-callout tf-mod-callout--vert {% if loop.index == 1 %}faq-callout-card-guidelines is-red{% else %}faq-callout-card-discord is-discord{% endif %}">
 <div class="faq-callout-icon-wrap tf-mod-callout-icon">
 {%- if loop.index == 1 -%}
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/guidelines_icon.svg') | urlencode }}" alt="" aria-hidden="true" width="100" height="100" class="faq-callout-icon" />
+<img src="{{ <img_url path="img/guidelines_icon.svg" /> }}" alt="" aria-hidden="true" width="100" height="100" class="faq-callout-icon" />
 {%- else -%}
 <span class="faq-discord-icon" aria-hidden="true"></span>
 {%- endif -%}
@@ -166,7 +166,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {%- for card in cdata.callouts %}
 <div class="contact-callout-card tf-mod-callout tf-mod-callout--horiz {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
 <div class="callout-icon-col tf-mod-callout-icon">
-<img src="data:image/svg+xml,{% if loop.index == 1 %}{{ load_data(path='templates/img/shared/faq_icon.svg') | urlencode }}{% else %}{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}{% endif %}" alt="" class="callout-icon-img" width="100" height="100" />
+<img src="{% if loop.index == 1 %}{{ <img_url path="img/shared/faq_icon.svg" /> }}{% else %}{{ <img_url path="img/discord_card_icon.svg" /> }}{% endif %}" alt="" class="callout-icon-img" width="100" height="100" />
 </div>
 <div class="callout-content-col tf-mod-callout-copy">
 <div class="callout-copy-group">
@@ -189,13 +189,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {% component newsletter(extra_class="", title="The Tengu Newsletter", subtext="Sign up with your email address to receive news and updates.", placeholder="Email here", button_text="Subscribe", icon="img/shared/icon_email.svg") %}
 <div class="tf-mod-callout tf-mod-callout--horiz is-newsletter newsletter-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
 <div class="tf-mod-callout-icon tf-newsletter-envelope newsletter-icon-wrap">
-{% set ext = icon | split(pat=".") | last %}
-{% if ext == "svg" %}
-{% set svg_path = "templates/" ~ icon %}
-<img src="data:image/svg+xml,{{ load_data(path=svg_path) | urlencode }}" alt="Newsletter" />
-{% else %}
 <img src="{{ <img_url path={icon} /> }}" alt="Newsletter" loading="lazy" decoding="async" />
-{% endif %}
 </div>
 <div class="newsletter-content">
 <div class="tf-mod-callout-copy newsletter-copy">
@@ -343,7 +337,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {%- if hotel_data.discord_cta %}
 <div class="tf-mod-callout tf-mod-callout--horiz is-discord hotels-discord">
 <div class="tf-mod-callout-icon">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="Discord" />
+<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="Discord" />
 </div>
 <div class="tf-mod-callout-copy">
 <div class="discord-copy">
@@ -365,10 +359,8 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="tf-mod-callout tf-mod-callout--vert is-{{ theme }} tf-teaser-card">
 {%- if icon %}
 <div class="tf-mod-callout-icon tf-teaser-avatar">
-{%- if icon == 'discord' %}
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="Discord" />
-{%- elif icon is ending_with(pat=".svg") %}
-<img src="data:image/svg+xml,{{ load_data(path='templates/' ~ icon) | urlencode }}" alt="{{ title }}" loading="lazy" decoding="async" />
+{%- if icon == "discord" %}
+<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="Discord" loading="lazy" decoding="async" />
 {%- else %}
 <img src="{{ <img_url path={icon} /> }}" alt="{{ title }}" loading="lazy" decoding="async" />
 {%- endif %}
@@ -455,11 +447,11 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="hero-card-border-stroke"></div>
 <div class="hero-card-streamer hero-card-streamer-left">
 <img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}" alt="" class="streamer-main" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="streamer-accent" />
+<img src="{{ <img_url path="img/shared/card_accent.svg" /> }}" alt="" class="streamer-accent" />
 </div>
 <div class="hero-card-streamer hero-card-streamer-right">
 <img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}" alt="" class="streamer-main" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="streamer-accent" />
+<img src="{{ <img_url path="img/shared/card_accent.svg" /> }}" alt="" class="streamer-accent" />
 </div>
 </div>
 <div class="hero-feature-card-photo-wrap">
@@ -480,7 +472,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 </div>
 <a href="{{ guest.url }}" target="_blank" rel="noopener noreferrer" class="guests-pill-btn is-light">
 <span>{{ guest.link_label }}</span>
-<span class="guests-pill-chevron"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" /></span>
+<span class="guests-pill-chevron"><img src="{{ <img_url path="img/shared/chevron_dark.svg" /> }}" alt="" /></span>
 </a>
 </div>
 </div>
@@ -533,9 +525,9 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 </span>
 <span class="artist-social-name">{{ s.label }}</span>
 {%- if s.platform != "twitter" %}
-<span class="guests-pill-chevron"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" /></span>
+<span class="guests-pill-chevron"><img src="{{ <img_url path="img/shared/chevron_dark.svg" /> }}" alt="" /></span>
 {%- endif %}
-<span class="artist-external-wrap"><img src="data:image/svg+xml,{{ load_data(path='templates/icons/icon_external.svg') | urlencode }}" alt="" class="artist-external-svg" /></span>
+<span class="artist-external-wrap"><img src="{{ <img_url path="icons/icon_external.svg" /> }}" alt="" class="artist-external-svg" /></span>
 </a>
 {%- endfor %}
 </div>
@@ -704,7 +696,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {% component guests_bottom_ctas() %}
 <div class="tf-mod-callout tf-mod-callout--horiz is-discord guests-callout-card guests-discord-card">
 <div class="tf-mod-callout-icon guests-callout-icon">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="Discord" />
+<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="Discord" />
 </div>
 <div class="guests-callout-content">
 <div class="tf-mod-callout-copy guests-callout-copy">
@@ -720,7 +712,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 
 <div class="tf-mod-callout tf-mod-callout--horiz is-newsletter guests-callout-card guests-newsletter-card">
 <div class="tf-mod-callout-icon guests-callout-icon">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/icon_email.svg') | urlencode }}" alt="Newsletter" />
+<img src="{{ <img_url path="img/shared/icon_email.svg" /> }}" alt="Newsletter" />
 </div>
 <div class="guests-callout-content">
 <div class="tf-mod-callout-copy guests-callout-copy">
@@ -748,27 +740,27 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="home-stickers-streamer" aria-hidden="true"></div>
 <div class="home-stickers-row">
 {%- for card in home_data.stickers %}
-{%- if loop.index == 1 %}{% set slot = "left" %}{% set card_icon = "templates/img/shared/ofuda_sakura.svg" %}{% elif loop.index == 2 %}{% set slot = "center" %}{% set card_icon = "templates/img/shared/ofuda_location.svg" %}{% else %}{% set slot = "right" %}{% set card_icon = "templates/img/shared/ofuda_watch.svg" %}{% endif %}
+{%- if loop.index == 1 %}{% set slot = "left" %}{% set card_icon = "img/shared/ofuda_sakura.svg" %}{% elif loop.index == 2 %}{% set slot = "center" %}{% set card_icon = "img/shared/ofuda_location.svg" %}{% else %}{% set slot = "right" %}{% set card_icon = "img/shared/ofuda_watch.svg" %}{% endif %}
 <div class="sticker-slot sticker-slot-{{ slot }}">
 <div class="sticker-rot sticker-rot-{{ slot }}">
 <article class="tf-mod-ofuda ofuda-sticker-card">
 <div class="tf-mod-ofuda-decor" aria-hidden="true">
-<img class="tf-mod-ofuda-stroke" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" />
-<img class="tf-mod-ofuda-seal" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" />
-<img class="tf-mod-ofuda-corner-dark" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_corner_dark.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-stroke" src="{{ <img_url path="img/shared/ofuda_stroke.svg" /> }}" alt="" />
+<img class="tf-mod-ofuda-seal" src="{{ <img_url path="img/shared/ofuda_seal.svg" /> }}" alt="" />
+<img class="tf-mod-ofuda-corner-dark" src="{{ <img_url path="img/shared/ofuda_corner_dark.svg" /> }}" alt="" />
 <div class="tf-mod-ofuda-vspike">
 <span class="tf-mod-ofuda-dot"></span>
-<img class="tf-mod-ofuda-vbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-vbar" src="{{ <img_url path="img/shared/ofuda_spike_v.svg" /> }}" alt="" />
 </div>
 <div class="tf-mod-ofuda-hspike">
 <span class="tf-mod-ofuda-dot"></span>
-<img class="tf-mod-ofuda-hbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-hbar" src="{{ <img_url path="img/shared/ofuda_spike_h.svg" /> }}" alt="" />
 </div>
 </div>
 <div class="tf-mod-ofuda-body ofuda-card-content">
 <div class="ofuda-card-top">
 <div class="sticker-icon-badge sticker-icon-{{ slot }}">
-<img src="data:image/svg+xml,{{ load_data(path=card_icon) | urlencode }}" alt="" class="sticker-icon-img" loading="lazy" decoding="async" />
+<img src="{{ <img_url path={card_icon} /> }}" alt="" class="sticker-icon-img" loading="lazy" decoding="async" />
 </div>
 <div class="ofuda-card-copy">
 <h3 class="tf-mod-ofuda-title sticker-heading">{{ card.title }}</h3>
@@ -952,7 +944,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {%- set home_data = load_data(path="data/home.yml") -%}
 <section class="tf-mod-callout tf-mod-callout--horiz is-discord home-special-module home-discord-card">
 <div class="tf-mod-callout-icon home-special-icon-wrap">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="Discord" class="home-special-icon-img" />
+<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="Discord" class="home-special-icon-img" />
 </div>
 <div class="tf-mod-callout-copy home-special-content">
 <div class="home-special-copy">
@@ -973,7 +965,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {%- set home_data = load_data(path="data/home.yml") -%}
 <section class="tf-mod-callout tf-mod-callout--horiz is-newsletter home-special-module home-newsletter-card">
 <div class="tf-mod-callout-icon home-special-icon-wrap">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/icon_email.svg') | urlencode }}" alt="Newsletter" class="home-special-icon-img" />
+<img src="{{ <img_url path="img/shared/icon_email.svg" /> }}" alt="Newsletter" class="home-special-icon-img" />
 </div>
 <div class="tf-mod-callout-copy home-special-content home-newsletter-content">
 <div class="home-special-copy">
@@ -1290,8 +1282,8 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <img src="{{ <img_url path={gdata.maps.image} /> }}" alt="{{ gdata.maps.alt }}" class="gaming-map-img" loading="lazy" decoding="async">
 </div>
 <button type="button" class="tf-mod-map-zoom gaming-map-zoom" aria-label="Zoom in">
-<img class="tf-mod-map-zoom-circle" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" loading="lazy" />
-<img class="tf-mod-map-zoom-plus" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_plus.svg') | urlencode }}" alt="" loading="lazy" />
+<img class="tf-mod-map-zoom-circle" src="{{ <img_url path="img/shared/zoom_circle.svg" /> }}" alt="" loading="lazy" />
+<img class="tf-mod-map-zoom-plus" src="{{ <img_url path="img/shared/zoom_plus.svg" /> }}" alt="" loading="lazy" />
 </button>
 </div>
 </section>
@@ -1328,7 +1320,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 </div>
 <div class="tf-mod-callout tf-mod-callout--horiz is-discord gaming-discord-cta-card">
 <div class="tf-mod-callout-icon gaming-discord-icon-box" aria-hidden="true">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="" class="gaming-discord-icon-img">
+<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="" class="gaming-discord-icon-img">
 </div>
 <div class="tf-mod-callout-copy gaming-discord-content">
 <div class="tf-mod-callout-copy gaming-discord-copy">
@@ -1526,7 +1518,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {%- set intro = load_data(path="data/intro.yml") -%}
 <section class="tf-mod-callout tf-mod-callout--horiz is-discord intro-discord-card">
 <div class="tf-mod-callout-icon">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="{{ intro.discord_cta.icon_label }}" />
+<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="{{ intro.discord_cta.icon_label }}" />
 </div>
 <div class="tf-mod-callout-copy intro-discord-content">
 <h2 class="tf-mod-callout-title">{{ intro.discord_cta.title }}</h2>
@@ -1603,7 +1595,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="tf-v-search-wrap">
 <div class="tf-v-search-row">
 <div class="tf-v-search-icon-wrap" aria-hidden="true">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/icon_search.svg') | urlencode }}" alt="" />
+<img src="{{ <img_url path="img/shared/icon_search.svg" /> }}" alt="" />
 </div>
 <div class="tf-v-search-pill">
 <span class="tf-v-search-placeholder">{{ exhibitors_data.page.roster_search_placeholder }}</span>
@@ -1677,8 +1669,8 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 </div>
 {%- endfor %}
 <button type="button" class="tf-v-map-zoom tf-mod-map-zoom" aria-label="Zoom map">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" class="tf-mod-map-zoom-circle" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_plus.svg') | urlencode }}" alt="" class="tf-mod-map-zoom-plus" />
+<img src="{{ <img_url path="img/shared/zoom_circle.svg" /> }}" alt="" class="tf-mod-map-zoom-circle" />
+<img src="{{ <img_url path="img/shared/zoom_plus.svg" /> }}" alt="" class="tf-mod-map-zoom-plus" />
 </button>
 </div>
 </div>
@@ -1726,16 +1718,16 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {%- for dir in ["prev", "next"] %}
 {%- if dir == "next" %}
 <div class="tf-mod-pager-dots">
-<img class="tf-mod-pager-dot" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" />
-<img class="tf-mod-pager-dot is-active" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_active.svg') | urlencode }}" alt="" />
-<img class="tf-mod-pager-dot" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_dot_inactive.svg') | urlencode }}" alt="" />
+<img class="tf-mod-pager-dot" src="{{ <img_url path="img/shared/pager_dot_inactive.svg" /> }}" alt="" />
+<img class="tf-mod-pager-dot is-active" src="{{ <img_url path="img/shared/pager_dot_active.svg" /> }}" alt="" />
+<img class="tf-mod-pager-dot" src="{{ <img_url path="img/shared/pager_dot_inactive.svg" /> }}" alt="" />
 </div>
 {%- endif %}
 <button type="button" class="tf-mod-pager-arrow tf-mod-pager-arrow--{{ dir }}" aria-label="{% if dir == "prev" %}Previous page{% else %}Next page{% endif %}">
 <span class="tf-mod-pager-arrow-rot">
-<img class="tf-mod-pager-inner" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" />
-<img class="tf-mod-pager-ring" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_ring.svg') | urlencode }}" alt="" />
-<img class="tf-mod-pager-chev" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/pager_chevron.svg') | urlencode }}" alt="" />
+<img class="tf-mod-pager-inner" src="{{ <img_url path="img/shared/zoom_circle.svg" /> }}" alt="" />
+<img class="tf-mod-pager-ring" src="{{ <img_url path="img/shared/pager_ring.svg" /> }}" alt="" />
+<img class="tf-mod-pager-chev" src="{{ <img_url path="img/shared/pager_chevron.svg" /> }}" alt="" />
 </span>
 </button>
 {%- endfor %}
@@ -1749,26 +1741,26 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="tf-v-ofuda-rot is-card-{{ loop.index }}">
 <div class="tf-v-ofuda-card tf-mod-ofuda">
 <div class="tf-mod-ofuda-decor" aria-hidden="true">
-<img class="tf-mod-ofuda-stroke" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" />
-<img class="tf-mod-ofuda-seal" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" />
-<img class="tf-mod-ofuda-corner-dark" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_corner_dark.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-stroke" src="{{ <img_url path="img/shared/ofuda_stroke.svg" /> }}" alt="" />
+<img class="tf-mod-ofuda-seal" src="{{ <img_url path="img/shared/ofuda_seal.svg" /> }}" alt="" />
+<img class="tf-mod-ofuda-corner-dark" src="{{ <img_url path="img/shared/ofuda_corner_dark.svg" /> }}" alt="" />
 <div class="tf-mod-ofuda-vspike">
 <span class="tf-mod-ofuda-dot"></span>
-<img class="tf-mod-ofuda-vbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-vbar" src="{{ <img_url path="img/shared/ofuda_spike_v.svg" /> }}" alt="" />
 </div>
 <div class="tf-mod-ofuda-hspike">
 <span class="tf-mod-ofuda-dot"></span>
-<img class="tf-mod-ofuda-hbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-hbar" src="{{ <img_url path="img/shared/ofuda_spike_h.svg" /> }}" alt="" />
 </div>
 </div>
 <div class="tf-v-ofuda-content is-card-{{ loop.index }} tf-mod-ofuda-body">
 <div class="tf-v-ofuda-icon-wrap">
 {%- if loop.index == 1 %}
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_hat.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-desk-icon is-hat" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_sakura.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
+<img src="{{ <img_url path="img/shared/ofuda_hat.svg" /> }}" alt="" class="tf-v-ofuda-icon is-desk-icon is-hat" />
+<img src="{{ <img_url path="img/shared/ofuda_sakura.svg" /> }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
 {%- else %}
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_sakura.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-desk-icon" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_yinyang.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
+<img src="{{ <img_url path="img/shared/ofuda_sakura.svg" /> }}" alt="" class="tf-v-ofuda-icon is-desk-icon" />
+<img src="{{ <img_url path="img/shared/ofuda_yinyang.svg" /> }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
 {%- endif %}
 </div>
 <h3 class="tf-v-ofuda-title tf-mod-ofuda-title">{{ card.title }}</h3>
@@ -1787,7 +1779,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <section class="tf-v-discord-section">
 <div class="tf-v-discord-card tf-mod-callout tf-mod-callout--horiz is-discord">
 <div class="tf-v-discord-icon-wrap tf-mod-callout-icon">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}" alt="" class="tf-v-discord-icon" />
+<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="" class="tf-v-discord-icon" />
 </div>
 <div class="tf-v-discord-content tf-mod-callout-copy">
 <div class="tf-v-discord-copy">
