@@ -61,7 +61,6 @@ info_cards:
     body: "Have questions? See our FAQs page for more info."
     cta_label: "FAQs"
     cta_path: "about/faq"
-    symbol: "?"
   hotel:
     title: "Hotel Info"
     image: "img/event/hotel_room.jpg"

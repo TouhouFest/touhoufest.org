@@ -639,159 +639,8 @@ body:has(.tf-artists-page) > main {
 }
 
 /* Want to Sell / Ofuda Cards */
-.tf-artists-ofuda-pair {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-.tf-artists-ofuda-slot {
-  @include flex-center;
-  flex-shrink: 0;
-  position: relative;
-}
-.tf-artists-ofuda-slot--1 {
-  width: 369.37px;
-  height: 493.564px;
-  margin-right: -70px;
-  z-index: 2;
-  .tf-artists-ofuda-rot--1 {
-    width: 364.863px;
-    height: 443.562px;
-    @include flex-center;
-  }
-}
-.tf-artists-ofuda-slot--2 {
-  width: 414.214px;
-  height: 521.598px;
-  margin-top: 80px;
-  z-index: 1;
-  .tf-artists-ofuda-rot--2 {
-    width: 404.889px;
-    height: 474.477px;
-    @include flex-center;
-  }
-}
-:is(.tf-artists-ofuda-vdot, .tf-artists-ofuda-hdot) {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 11px;
-  height: 11px;
-  display: block;
-}
-.tf-artists-ofuda-vbar {
-  position: absolute;
-  left: 0;
-  top: 16px;
-  width: 11px;
-  height: 304px;
-  display: block;
-}
-.tf-artists-ofuda-hspike-inner {
-  width: 11px;
-  height: 235px;
-  transform: rotate(-90deg);
-  position: relative;
-}
-.tf-artists-ofuda-hbar {
-  position: absolute;
-  left: 0;
-  top: 15px;
-  width: 11px;
-  height: 220px;
-  display: block;
-}
-.tf-artists-ofuda-content {
-  gap: 32px;
-}
-.tf-artists-ofuda-content--1 {
-  margin-top: 63px;
-}
-.tf-artists-ofuda-content--2 {
-  margin-top: 73.5px;
-}
-.tf-artists-ofuda-icon {
-  position: relative;
-  flex-shrink: 0;
-}
-.tf-artists-pin-desktop {
-  @include absolute-fill;
-}
-.tf-artists-pin-shadow {
-  position: absolute;
-  left: 20.54%;
-  top: 52.84%;
-  width: 72.18%;
-  height: 41.98%;
-  display: block;
-}
-.tf-artists-pin-ring {
-  position: absolute;
-  left: 15.11%;
-  top: 56.19%;
-  width: 61.99%;
-  height: 36.12%;
-  display: block;
-}
-.tf-artists-pin-body {
-  position: absolute;
-  left: 21.37%;
-  top: 7.45%;
-  width: 49.47%;
-  height: 67.14%;
-  display: block;
-}
-.tf-artists-pin-mobile {
+.tf-artists-ofuda-icon-img.is-mob-icon {
   display: none;
-  width: 100px;
-  height: 100px;
-}
-.tf-artists-sakura-p {
-  position: absolute;
-  @include flex-center;
-  img {
-    width: 30.892px;
-    height: 39.211px;
-    max-width: none;
-    display: block;
-  }
-}
-.tf-artists-sakura-p--1 {
-  inset: 10% 34.43% 50.79% 34.68%;
-}
-.tf-artists-sakura-p--2 {
-  inset: 25.05% 11.79% 34.43% 44.14%;
-  transform: rotate(72deg);
-}
-.tf-artists-sakura-p--3 {
-  inset: 47.41% 19.67% 8.11% 39.42%;
-  transform: rotate(144deg);
-}
-.tf-artists-sakura-p--4 {
-  inset: 47.62% 39.27% 7.9% 19.83%;
-  transform: rotate(-144deg);
-}
-.tf-artists-sakura-p--5 {
-  inset: 25.27% 43.98% 34.21% 11.95%;
-  transform: rotate(-72deg);
-}
-.tf-artists-sakura-center {
-  position: absolute;
-  inset: 28.05% 27.64% 25.49% 27.94%;
-  width: 44.42%;
-  height: 46.46%;
-  display: block;
-}
-.tf-artists-ofuda-title {
-  margin-top: -8px;
-}
-.tf-artists-ofuda-desc {
-  margin-top: -24px;
-  text-align: center;
-}
-.tf-artists-ofuda-btn {
-  width: 100%;
-  white-space: nowrap;
 }
 
 /* Discord Card (Page-Specific Deltas) */
@@ -847,7 +696,7 @@ body:has(.tf-artists-page) > main {
     .tf-artists-roster-dots,
     .tf-artists-divider-bg-photo,
     .tf-artists-divider-bg-past-desktop,
-    .tf-artists-pin-desktop
+    .tf-artists-ofuda-icon-img.is-desk-icon
   ) {
     display: none;
   }
@@ -855,7 +704,7 @@ body:has(.tf-artists-page) > main {
     .tf-artists-feat-glow-mobile,
     .tf-artists-divider-bg-past-mobile,
     .tf-artists-divider-bg-tint,
-    .tf-artists-pin-mobile
+    .tf-artists-ofuda-icon-img.is-mob-icon
   ) {
     display: block;
   }
@@ -909,17 +758,6 @@ body:has(.tf-artists-page) > main {
   .tf-artists-map-viewer {
     width: min(372px, calc(100vw - 18px));
     aspect-ratio: 372 / 292.02;
-  }
-  .tf-artists-ofuda-pair {
-    flex-direction: column;
-    align-items: center;
-  }
-  .tf-artists-ofuda-slot--1 {
-    margin-right: 0;
-    margin-bottom: -66px;
-  }
-  .tf-artists-ofuda-slot--2 {
-    margin-top: 0;
   }
   .tf-artists-discord-card {
     padding: 48px;

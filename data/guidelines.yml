@@ -17,7 +17,7 @@ callouts:
     description: "Have questions? See our FAQs page for more info."
     button_text: "Button"
     button_url: "about/faq"
-    image: "img/guidelines/faq_icon.svg"
+    image: "img/shared/faq_icon.svg"
   - title: "Join the community on Discord"
     description: "Join our community on the TouhouFest Official Discord server!"
     button_text: "Join Discord"

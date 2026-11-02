@@ -25,145 +25,48 @@
 </div>
 
 <div class="ev-ofuda-set">
-<div class="ev-ofuda-slot-1">
-<div class="ev-ofuda-rot-1">
+{% for idx in [1, 2] %}
+{% if idx == 2 %}<div class="ev-ofuda-slot-2-adj">{% endif %}
+<div class="ev-ofuda-slot-{{ idx }}">
+<div class="ev-ofuda-rot-{{ idx }}">
 <div class="ev-ofuda-pad">
 <div class="ev-ofuda-card tf-mod-ofuda">
-<div class="ev-ofuda-stroke-wrap tf-mod-ofuda-stroke">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" class="ev-ofuda-stroke-img">
+<div class="tf-mod-ofuda-decor" aria-hidden="true">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" class="tf-mod-ofuda-stroke">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" class="tf-mod-ofuda-seal">
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_corner_dark.svg') | urlencode }}" alt="" class="tf-mod-ofuda-corner-dark">
+<div class="tf-mod-ofuda-vspike">
+<span class="tf-mod-ofuda-dot"></span>
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" class="tf-mod-ofuda-vbar">
 </div>
-<div class="ev-ofuda-corner">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" class="ev-ofuda-tomoe tf-mod-ofuda-seal">
-<div class="ev-ofuda-orn-v tf-mod-ofuda-vspike">
-<span class="ev-ofuda-dot"></span>
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" class="ev-ofuda-line-v">
-</div>
-<div class="ev-ofuda-orn-h tf-mod-ofuda-hspike">
-<span class="ev-ofuda-dot"></span>
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" class="ev-ofuda-line-h">
+<div class="tf-mod-ofuda-hspike">
+<span class="tf-mod-ofuda-dot"></span>
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" class="tf-mod-ofuda-hbar">
 </div>
 </div>
-<div class="ev-ofuda-body ev-ofuda-body-when tf-mod-ofuda-body">
+<div class="ev-ofuda-body {% if idx == 1 %}ev-ofuda-body-when{% else %}ev-ofuda-body-where{% endif %} tf-mod-ofuda-body">
 <div class="ev-ofuda-head">
-<div class="ev-ofuda-icon">
-<div class="ev-watch-top-wrap">
-<svg width="15.7483" height="15.75" viewBox="0 0 15.7483 15.75" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.13943 5.09491C6.81813 4.74 7.65115 4.98317 8.03562 5.63564L8.07141 5.69995L8.31074 6.14981C8.4731 6.4496 8.64114 6.7493 8.81512 7.04898L9.08074 7.49856L9.11708 7.56259C9.47378 8.23065 9.24736 9.06849 8.59089 9.46297C7.93446 9.85736 7.08863 9.66393 6.66618 9.03548L6.62648 8.97313L6.33906 8.48636C6.15074 8.16197 5.96892 7.83766 5.7933 7.51338L5.5344 7.02689L5.50196 6.96063C5.18544 6.27264 5.4608 5.44986 6.13943 5.09491Z" fill="#6279D3"/>
-<path d="M5.0649 9.83332C6.02688 11.3364 8.02526 11.7716 9.52548 10.8125C11.0286 9.8505 11.4637 7.85212 10.5046 6.3519C9.54266 4.84882 7.54427 4.41363 6.04405 5.37274C4.54383 6.33185 4.10579 8.3331 5.0649 9.83332Z" fill="#BEE6F0"/>
-<mask id="ev_watch_m0" fill="white">
-<path d="M1.23963 12.1205C3.58585 15.7865 8.45982 16.8479 12.1188 14.5086C15.7848 12.1624 16.8461 7.28847 14.5069 3.62949C12.1607 -0.0364673 7.28671 -1.09788 3.62773 1.24135C-0.0312441 3.58058 -1.0996 8.46156 1.23963 12.1205Z"/>
-</mask>
-<path d="M1.23963 12.1205C3.58585 15.7865 8.45982 16.8479 12.1188 14.5086C15.7848 12.1624 16.8461 7.28847 14.5069 3.62949C12.1607 -0.0364673 7.28671 -1.09788 3.62773 1.24135C-0.0312441 3.58058 -1.0996 8.46156 1.23963 12.1205Z" stroke-width="6" stroke="#6279D3" mask="url(#ev_watch_m0)"/>
-</svg>
+<div class="ev-ofuda-icon {% if idx == 1 %}ev-watch-icon{% else %}ev-loc-icon{% endif %}">
+<img src="data:image/svg+xml,{% if idx == 1 %}{{ load_data(path='templates/img/shared/ofuda_watch.svg') | urlencode }}{% else %}{{ load_data(path='templates/img/shared/ofuda_location.svg') | urlencode }}{% endif %}" alt="" class="ev-ofuda-icon-img">
 </div>
-<div class="ev-watch-main-wrap">
-<div class="ev-watch-main-rot">
-<svg width="80.9052" height="84.314" viewBox="0 0 80.9052 84.314" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M25.8314 9.66746C26.9603 9.66746 27.9792 10.29 28.3681 11.2201C28.6175 11.813 28.5879 12.4578 28.2835 13.0322C27.9791 13.6065 27.4422 14.0438 26.7615 14.2624C26.4571 14.3588 26.1443 14.4107 25.8314 14.4107C24.7026 14.4107 23.6837 13.7881 23.2948 12.858C23.0453 12.2651 23.0749 11.6203 23.3793 11.046C23.6837 10.4716 24.2207 10.0343 24.9013 9.81569C25.2015 9.71935 25.5186 9.66746 25.8314 9.66746ZM25.8314 6.65849C25.1296 6.65849 24.4151 6.76596 23.7176 6.98829C20.5383 8.01105 18.9064 11.1015 20.0732 13.8919C20.9864 16.0671 23.3328 17.4159 25.8357 17.4159C26.5375 17.4159 27.252 17.3085 27.9495 17.0861C31.1288 16.0634 32.7608 12.9729 31.5939 10.1825C30.6807 8.00734 28.3343 6.65849 25.8314 6.65849Z" fill="#6279D3"/>
-<path d="M23.923 64.607C35.7986 75.4838 53.3647 74.6036 63.1581 62.641C72.9514 50.6784 71.2635 32.1635 59.3879 21.2868C47.5123 10.41 29.9462 11.2902 20.1528 23.2528C10.3595 35.2153 12.0474 53.7303 23.923 64.607Z" fill="#BEE6F0"/>
-<path d="M48.7509 22.1012C54.1497 24.3653 58.4879 28.657 60.9651 34.196C63.4445 39.7322 63.7648 45.8481 61.8677 51.4161C59.9706 56.9841 56.0896 61.3386 50.9298 63.6759C45.7727 66.0156 39.9587 66.0569 34.5598 63.7928C29.161 61.5288 24.8228 57.2371 22.3457 51.6981C19.8663 46.1619 19.5459 40.0459 21.443 34.478C23.3401 28.91 27.2211 24.5555 32.3809 22.2182C37.538 19.8784 43.352 19.8372 48.7509 22.1012ZM50.8897 15.823C36.3662 9.73631 20.4579 16.9494 15.3582 31.9279C10.2585 46.9064 17.9026 63.9841 32.426 70.0708C46.9494 76.1575 62.8577 68.9444 67.9574 53.9659C73.0571 38.9874 65.4131 21.9097 50.8897 15.823Z" fill="#511154"/>
-<path d="M46.34 20.5212C51.7389 22.7852 56.077 27.0769 58.5542 32.6159C61.0336 38.1521 61.3539 44.268 59.4568 49.836C57.5598 55.404 53.6787 59.7586 48.5189 62.0958C43.3618 64.4356 37.5479 64.4768 32.149 62.2128C26.7501 59.9487 22.412 55.657 19.9348 50.118C17.4554 44.5818 17.1351 38.4659 19.0322 32.8979C20.9292 27.3299 24.8103 22.9754 29.9701 20.6381C35.1272 18.2984 40.9411 18.2571 46.34 20.5212ZM48.4788 14.243C33.9554 8.15625 18.047 15.3693 12.9473 30.3478C7.84764 45.3263 15.4917 62.404 30.0151 68.4907C44.5385 74.5775 60.4469 67.3644 65.5466 52.3859C70.6463 37.4074 63.0022 20.3297 48.4788 14.243Z" fill="#6279D3"/>
-<path d="M43.4149 28.9057C43.0799 29.9336 42.7179 30.9446 42.3482 31.9524L41.7728 33.4561L41.1742 34.9465C40.7625 35.9347 40.3507 36.9229 39.9081 37.8945C39.4772 38.8728 39.027 39.8412 38.5692 40.8064L38.6057 39.237C39.7703 41.7578 40.8663 44.3089 41.8575 46.9039C42.3605 48.2009 42.8272 49.5114 43.283 50.8263C43.7246 52.1495 44.1553 53.4772 44.5391 54.8264L42.7698 55.6086C42.0287 54.4197 41.338 53.2053 40.6583 51.9902C39.9893 50.767 39.3385 49.5389 38.7163 48.2941C37.4651 45.8123 36.315 43.287 35.2333 40.7275L34.8828 39.896L35.2698 39.1582C35.766 38.2128 36.2736 37.2704 36.7968 36.3419C37.3123 35.4064 37.8545 34.4841 38.3968 33.5617L39.2295 32.19L40.0888 30.8277C40.6732 29.9249 41.2654 29.0291 41.8882 28.1461L43.4114 28.9097L43.4149 28.9057Z" fill="#511154"/>
-<path d="M44.6693 24.4957C43.0195 26.0388 40.6441 27.7882 38.6436 28.6112L42.3888 29.05L44.9855 31.7831C44.4425 29.6903 44.4199 26.7397 44.6656 24.4959L44.6693 24.4957Z" fill="#511154"/>
-<path d="M45.7841 60.0344L40.0125 54.4716L43.498 54.8565L45.5585 52.0207L45.7841 60.0344Z" fill="#511154"/>
-</svg>
-</div>
-</div>
-<div class="ev-watch-c1"><div class="ev-watch-c1-rot"><div class="ev-watch-ring"></div></div></div>
-<div class="ev-watch-c2"><div class="ev-watch-c2-rot"><div class="ev-watch-ring"></div></div></div>
-<div class="ev-watch-c3"><div class="ev-watch-c3-rot"><div class="ev-watch-ring"></div></div></div>
-<div class="ev-watch-c4"><div class="ev-watch-c4-rot"><div class="ev-watch-ring"></div></div></div>
-<div class="ev-watch-c5"><div class="ev-watch-c5-rot"><div class="ev-watch-ring"></div></div></div>
-<div class="ev-watch-c6"><div class="ev-watch-c6-rot"><div class="ev-watch-ring"></div></div></div>
-<div class="ev-watch-c7"><div class="ev-watch-c7-rot"><div class="ev-watch-ring"></div></div></div>
-<div class="ev-watch-d1"><div class="ev-watch-d1-rot"><div class="ev-watch-bar"></div></div></div>
-<div class="ev-watch-d2"><div class="ev-watch-d2-rot"><div class="ev-watch-bar"></div></div></div>
-<div class="ev-watch-d3"><div class="ev-watch-d3-rot"><div class="ev-watch-bar"></div></div></div>
-<div class="ev-watch-d4"><div class="ev-watch-d4-rot"><div class="ev-watch-bar"></div></div></div>
-<div class="ev-watch-d5"><div class="ev-watch-d5-rot"><div class="ev-watch-bar"></div></div></div>
-<div class="ev-watch-d6"><div class="ev-watch-d6-rot"><div class="ev-watch-bar"></div></div></div>
-<div class="ev-watch-d7"><div class="ev-watch-d7-rot"><div class="ev-watch-bar"></div></div></div>
-<div class="ev-watch-d8"><div class="ev-watch-d8-rot"><div class="ev-watch-bar"></div></div></div>
-</div>
-<h2 class="ev-ofuda-title tf-mod-ofuda-title">{{ ev.when.title }}</h2>
+<h2 class="ev-ofuda-title tf-mod-ofuda-title">{% if idx == 1 %}{{ ev.when.title }}{% else %}{{ ev.where.title }}{% endif %}</h2>
 </div>
 <div class="ev-ofuda-text tf-mod-ofuda-desc">
+{% if idx == 1 %}
 <p class="ev-ofuda-p1">{{ <event_date format="range" /> }}</p>
 <p class="ev-ofuda-p2">{{ <event_date format="year" /> }}</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="ev-ofuda-slot-2-adj">
-<div class="ev-ofuda-slot-2">
-<div class="ev-ofuda-rot-2">
-<div class="ev-ofuda-pad">
-<div class="ev-ofuda-card tf-mod-ofuda">
-<div class="ev-ofuda-stroke-wrap tf-mod-ofuda-stroke">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" class="ev-ofuda-stroke-img">
-</div>
-<div class="ev-ofuda-corner">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" class="ev-ofuda-tomoe tf-mod-ofuda-seal">
-<div class="ev-ofuda-orn-v tf-mod-ofuda-vspike">
-<span class="ev-ofuda-dot"></span>
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" class="ev-ofuda-line-v">
-</div>
-<div class="ev-ofuda-orn-h tf-mod-ofuda-hspike">
-<span class="ev-ofuda-dot"></span>
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" class="ev-ofuda-line-h">
-</div>
-</div>
-<div class="ev-ofuda-body ev-ofuda-body-where tf-mod-ofuda-body">
-<div class="ev-ofuda-head">
-<div class="ev-ofuda-icon ev-loc-icon">
-<div class="ev-loc-ellipse">
-<svg width="45.0246" height="12.3354" viewBox="0 0 45.0246 12.3354" fill="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="22.5123" cy="6.16772" rx="22.5123" ry="6.16772" fill="#511154"/>
-</svg>
-</div>
-<div class="ev-loc-pin-wrap">
-<div class="ev-loc-pin-rot">
-<div class="ev-loc-pin-box">
-<div class="ev-loc-pin-fg">
-<svg width="79.2246" height="105.106" viewBox="0 0 79.2246 105.106" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="ev_loc_m0" maskUnits="userSpaceOnUse" x="0" y="0" width="80" height="106">
-<path d="M39.6123 0C61.3529 3.86364e-05 79.2243 16.8477 79.2246 37.9326C79.2246 43.3885 77.1361 50.2734 74.1797 57.2676C71.1846 64.3533 67.1449 71.901 62.9248 78.8027C58.7064 85.7017 54.2591 92.0347 50.418 96.6787C48.505 98.9916 46.6838 100.957 45.0713 102.373C44.2678 103.079 43.4466 103.71 42.6357 104.181C41.8897 104.614 40.8248 105.106 39.6123 105.106C38.3816 105.106 37.3171 104.573 36.6211 104.151C35.8425 103.68 35.0485 103.049 34.2686 102.348C32.7014 100.937 30.9084 98.979 29.0107 96.6699C25.2 92.0329 20.74 85.7059 16.4912 78.8086C12.2415 71.9097 8.15604 64.3623 5.12109 57.2773C2.12649 50.2865 1.57606e-05 43.3965 0 37.9326C0.000256859 16.855 17.8712 4.07891e-06 39.6123 0ZM39.6123 6.18555C21.0107 6.18555 6.18581 20.5411 6.18555 37.9326C6.18556 42.0859 7.88114 48.0155 10.8057 54.8428C13.69 61.5761 17.6202 68.8485 21.7578 75.5654C25.8962 82.2836 30.1957 88.3706 33.7891 92.7432C35.5931 94.9383 37.1645 96.6337 38.4062 97.751C38.9294 98.2216 39.3477 98.5427 39.6582 98.75C39.9861 98.5443 40.4311 98.2168 40.9893 97.7266C42.2542 96.6156 43.84 94.9275 45.6523 92.7363C49.2622 88.3718 53.5421 82.2919 57.6484 75.5762C61.7532 68.863 65.6373 61.5926 68.4834 54.8594C71.3682 48.0346 73.039 42.0976 73.0391 37.9326C73.0388 20.5345 58.2143 6.18559 39.6123 6.18555ZM39.5986 12.1797C54.7777 12.1797 67.083 24.485 67.083 39.6641C67.0821 54.8436 45.0712 90.2224 39.5986 90.2227C34.1259 90.2218 12.1161 54.8434 12.1152 39.6641C12.1152 24.4851 24.4197 12.1798 39.5986 12.1797ZM38.666 25.9443C31.2437 25.9445 25.2267 31.9614 25.2266 39.3838C25.2268 46.806 31.2438 52.8241 38.666 52.8242C46.0884 52.8242 52.1062 46.8061 52.1064 39.3838C52.1063 31.9614 46.0884 25.9444 38.666 25.9443Z" fill="#6279D3"/>
-</mask>
-<g mask="url(#ev_loc_m0)">
-<rect x="-13.3311" y="-24.5108" width="125.589" height="144.454" fill="#6279D3"/>
-<path d="M33.2027 111.537C38.7815 130.882 53.4458 126.496 65.929 123.341C79.478 111.304 55.1653 94.9852 45.2027 83.4055C35.2401 71.8259 42.6836 58.9034 37.4137 50.5368C18.2027 20.0366 -20.6501 47.3886 -22.8657 56.7295C-25.0812 66.0704 -10.5386 83.1262 5.20269 89.0365C20.944 94.9468 26.7141 89.0365 33.2027 111.537Z" fill="#A0D362"/>
-</g>
-</svg>
-</div>
-<div class="ev-loc-pin-bg">
-<svg width="82.3516" height="116.921" viewBox="0 0 82.3516 116.921" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="ev_loc_m1" maskUnits="userSpaceOnUse" x="0" y="0" width="83" height="117">
-<path d="M41.1758 0C63.9165 0 82.3514 18.4341 82.3516 41.1748C82.3516 63.9156 49.3746 116.921 41.1758 116.921C32.9768 116.92 0 63.9155 0 41.1748C0.000163797 18.4342 18.4351 7.26284e-05 41.1758 0Z" fill="#511154"/>
-</mask>
-<g mask="url(#ev_loc_m1)">
-<path d="M30.3229 125.237C35.9017 144.582 50.5661 140.196 63.0492 137.042C76.5982 125.005 52.2855 108.686 42.3229 97.106C32.3603 85.5263 39.8038 72.6039 34.534 64.2373C15.3229 33.7371 -23.5299 61.0891 -25.7454 70.43C-27.961 79.7709 -13.4184 96.8267 2.32293 102.737C18.0642 108.647 23.8343 102.737 30.3229 125.237Z" fill="#356157"/>
-</g>
-</svg>
-</div>
-</div>
-</div>
-</div>
-</div>
-<h2 class="ev-ofuda-title tf-mod-ofuda-title">{{ ev.where.title }}</h2>
-</div>
-<div class="ev-ofuda-text tf-mod-ofuda-desc">
+{% else %}
 <p class="ev-ofuda-p1">{{ ev.where.venue }}</p>
 <p class="ev-ofuda-p2">{{ ev.where.address_line_1 }}<br>{{ ev.where.address_line_2 }}</p>
+{% endif %}
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div>
+{% if idx == 2 %}</div>{% endif %}
+{% endfor %}
 </div>
 </section>
 
@@ -239,142 +142,57 @@
 
 <section class="ev-content-sec">
 <div class="ev-red-grid">
-
+{% for card_key in ["guidelines", "faqs", "hotel", "app"] %}
+{% set card = ev.info_cards[card_key] %}
 <div class="ev-red-card">
 <div class="ev-red-card-inner tf-mod-callout tf-mod-callout--horiz is-red">
-<div class="ev-card-icon-box tf-mod-callout-icon">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/guidelines_icon.svg') | urlencode }}" alt="" class="ev-ph-fg-img">
-</div>
-<div class="ev-red-card-content">
-<div class="ev-red-card-copy tf-mod-callout-copy">
-<h2 class="ev-red-card-title tf-mod-callout-title">{{ ev.info_cards.guidelines.title }}</h2>
-<p class="ev-red-card-body tf-mod-callout-desc">{{ ev.info_cards.guidelines.body }}</p>
-</div>
-<div class="ev-red-card-btns">
-<a href="{{ get_url(path=ev.info_cards.guidelines.cta_path) | safe }}" class="ev-btn-cream">
-<span class="ev-btn-cream-text">{{ ev.info_cards.guidelines.cta_label }}</span>
-<span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
-</a>
-</div>
-</div>
-</div>
-</div>
-
-<div class="ev-red-card">
-<div class="ev-red-card-inner tf-mod-callout tf-mod-callout--horiz is-red">
-<div class="ev-card-icon-box tf-mod-callout-icon ev-faq-icon">
-<div class="ev-faq-b1"><div class="ev-faq-b1-rot"><svg width="18.5791" height="69.2656" viewBox="0 0 18.5791 69.2656" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.28906 0C10.8524 0 12.3244 1.44038 13.6172 3.9834C12.5891 5.56362 11.6561 7.35552 11.0371 9.27441C9.75012 13.2639 11.1366 9.00041 14.0645 4.92285C14.4219 5.7232 14.7638 6.61046 15.0879 7.57715C13.7784 8.86704 12.5196 10.371 11.5225 12.0566C9.39619 15.6512 11.6633 11.843 15.3916 8.51953C16.3737 11.7119 17.1715 15.662 17.7246 20.125C15.6421 21.5382 13.4329 23.3948 11.6406 25.6797C8.50726 29.6741 12.7872 25.6015 18.0615 23.2344C18.3951 26.804 18.5791 30.6393 18.5791 34.6328C18.5791 53.76 14.4198 69.2656 9.28906 69.2656C4.15855 69.2649 -0.000976562 53.7595 -0.000976562 34.6328C-0.000976562 28.5845 0.416473 22.8985 1.14746 17.9502C6.5762 20.5149 11.1731 25.9954 7.99902 22.1934C6.05894 19.8695 3.57068 18.0773 1.32422 16.8037C1.56235 15.3282 1.82851 13.9242 2.12109 12.6025C7.11073 17.0878 9.86239 26.6302 8.91699 20.5605C8.06769 15.1082 5.14582 10.2707 3.36426 7.95703C4.9723 2.98759 7.03718 0.000337337 9.28906 0Z" fill="#F2F2F2"/></svg></div></div>
-<div class="ev-faq-b2"><div class="ev-faq-b2-rot"><svg width="16.7812" height="62.5605" viewBox="0 0 16.7812 62.5605" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.8" d="M8.39062 0C10.489 0 12.4048 2.87258 13.876 7.61914C12.6912 9.26625 11.5679 11.2331 10.877 13.375C9.63328 17.2302 11.1566 12.5551 14.1885 8.67969C14.6866 10.457 15.1272 12.4604 15.4961 14.6465C13.6651 16.155 11.6762 18.1958 10.292 20.6406C8.09071 24.5287 11.2762 18.9315 15.6758 15.7705C15.7519 16.2667 15.8246 16.7714 15.8936 17.2842C13.789 18.6126 11.4384 20.4661 9.58398 22.8301C6.58524 26.6529 11.105 22.2974 16.2441 20.2598C16.5903 23.6874 16.7812 27.4013 16.7812 31.2803C16.7812 48.5558 13.0246 62.5605 8.39062 62.5605C3.75684 62.5596 1.74765e-05 48.5552 0 31.2803C0 24.0639 0.657656 17.4185 1.75879 12.126C6.52934 15.9953 9.19657 25.3204 8.31641 19.6699C7.47512 14.2697 4.38319 9.53782 2.86621 7.74707C4.34241 2.92447 6.27362 0.000414524 8.39062 0Z" fill="#EBEBEB"/></svg></div></div>
-<div class="ev-faq-b3"><div class="ev-faq-b3-rot"><svg width="18.6152" height="69.3975" viewBox="0 0 18.6152 69.3975" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.30762 0C11.6347 0.000202517 13.7617 3.18427 15.3936 8.44727C14.0783 10.2752 12.8325 12.4592 12.0654 14.8369C10.6859 19.1133 12.3752 13.9277 15.7383 9.62891C16.2909 11.6005 16.7792 13.8229 17.1885 16.248C15.1576 17.9213 12.9513 20.1848 11.416 22.8965C8.9743 27.2092 12.5083 21.0005 17.3887 17.4941C17.4731 18.0445 17.5544 18.6041 17.6309 19.1729C15.2961 20.6465 12.6882 22.7025 10.6309 25.3252C7.30423 29.566 12.3175 24.7319 18.0186 22.4717C18.4027 26.2744 18.6152 30.3947 18.6152 34.6982C18.6152 53.8615 14.448 69.397 9.30762 69.3975C4.16718 69.3975 0 53.8618 0 34.6982C2.40204e-05 25.5828 0.944331 17.2887 2.48633 11.0967C7.82191 15.3537 10.8105 25.8171 9.83008 19.5225C8.9187 13.6716 5.6251 8.52794 3.9043 6.44043C5.42759 2.38554 7.29318 0 9.30762 0Z" fill="white"/></svg></div></div>
-<div class="ev-faq-q-main"><div class="ev-faq-q-rot"><p>{{ ev.info_cards.faqs.symbol }}</p></div></div>
-<div class="ev-faq-q-shadow"><div class="ev-faq-q-rot"><p>{{ ev.info_cards.faqs.symbol }}</p></div></div>
-<div class="ev-faq-p1"><div class="ev-faq-p1-rot"><div class="ev-faq-p-svg"><svg width="14.7871" height="13.8573" viewBox="0 0 14.7871 13.8573" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.12884 0.668733C8.995 -0.927938 11.9066 0.54321 12.6534 2.8829C12.9027 3.66392 13.2248 4.44336 13.6408 5.16384C15.0688 7.63734 14.8476 8.75888 14.6213 9.18624C14.5333 9.35232 14.3868 9.47809 14.2587 9.61566L12.4025 11.6103C11.9581 12.0878 11.3701 12.4075 10.7277 12.5209L3.42738 13.8092C1.0646 14.2261 -0.773591 11.8534 0.327313 9.72161C1.48221 7.48526 2.86337 5.05449 4.04007 3.67157C4.88277 2.68117 6.00258 1.63235 7.12884 0.668733Z" fill="#FF4949"/></svg></div></div></div>
-<div class="ev-faq-p2"><div class="ev-faq-p2-rot"><div class="ev-faq-p-svg"><svg width="14.7871" height="13.8573" viewBox="0 0 14.7871 13.8573" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.12884 0.668733C8.995 -0.927938 11.9066 0.54321 12.6534 2.8829C12.9027 3.66392 13.2248 4.44336 13.6408 5.16384C15.0688 7.63734 14.8476 8.75888 14.6213 9.18624C14.5333 9.35232 14.3868 9.47809 14.2587 9.61566L12.4025 11.6103C11.9581 12.0878 11.3701 12.4075 10.7277 12.5209L3.42738 13.8092C1.0646 14.2261 -0.773591 11.8534 0.327313 9.72161C1.48221 7.48526 2.86337 5.05449 4.04007 3.67157C4.88277 2.68117 6.00258 1.63235 7.12884 0.668733Z" fill="#FF4949"/></svg></div></div></div>
-<div class="ev-faq-p3"><div class="ev-faq-p3-rot"><div class="ev-faq-p-svg"><svg width="14.7871" height="13.8573" viewBox="0 0 14.7871 13.8573" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.12884 0.668733C8.995 -0.927938 11.9066 0.54321 12.6534 2.8829C12.9027 3.66392 13.2248 4.44336 13.6408 5.16384C15.0688 7.63734 14.8476 8.75888 14.6213 9.18624C14.5333 9.35232 14.3868 9.47809 14.2587 9.61566L12.4025 11.6103C11.9581 12.0878 11.3701 12.4075 10.7277 12.5209L3.42738 13.8092C1.0646 14.2261 -0.773591 11.8534 0.327313 9.72161C1.48221 7.48526 2.86337 5.05449 4.04007 3.67157C4.88277 2.68117 6.00258 1.63235 7.12884 0.668733Z" fill="#FF4949"/></svg></div></div></div>
-<div class="ev-faq-p4"><div class="ev-faq-p4-rot"><div class="ev-faq-p-svg"><svg width="14.7871" height="13.8573" viewBox="0 0 14.7871 13.8573" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.12884 0.668733C8.995 -0.927938 11.9066 0.54321 12.6534 2.8829C12.9027 3.66392 13.2248 4.44336 13.6408 5.16384C15.0688 7.63734 14.8476 8.75888 14.6213 9.18624C14.5333 9.35232 14.3868 9.47809 14.2587 9.61566L12.4025 11.6103C11.9581 12.0878 11.3701 12.4075 10.7277 12.5209L3.42738 13.8092C1.0646 14.2261 -0.773591 11.8534 0.327313 9.72161C1.48221 7.48526 2.86337 5.05449 4.04007 3.67157C4.88277 2.68117 6.00258 1.63235 7.12884 0.668733Z" fill="#FF4949"/></svg></div></div></div>
-<div class="ev-faq-c1"><div class="ev-faq-c-rot"><svg width="13.6524" height="13.3794" viewBox="0 0 13.6524 13.3794" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="6.82621" cy="6.68969" rx="6.82621" ry="6.68969" fill="#F9C650"/></svg></div></div>
-<div class="ev-faq-c2"><div class="ev-faq-c2-rot"><svg width="8.12286" height="7.9604" viewBox="0 0 8.12286 7.9604" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="4.06143" cy="3.9802" rx="4.06143" ry="3.9802" fill="#30293E"/></svg></div></div>
-</div>
-<div class="ev-red-card-content">
-<div class="ev-red-card-copy tf-mod-callout-copy">
-<h2 class="ev-red-card-title tf-mod-callout-title">{{ ev.info_cards.faqs.title }}</h2>
-<p class="ev-red-card-body tf-mod-callout-desc">{{ ev.info_cards.faqs.body }}</p>
-</div>
-<div class="ev-red-card-btns">
-<a href="{{ get_url(path=ev.info_cards.faqs.cta_path) | safe }}" class="ev-btn-cream">
-<span class="ev-btn-cream-text">{{ ev.info_cards.faqs.cta_label }}</span>
-<span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
-</a>
-</div>
-</div>
-</div>
-</div>
-
-<div class="ev-red-card">
-<div class="ev-red-card-inner tf-mod-callout tf-mod-callout--horiz is-red">
+{% if loop.index == 3 %}
 <div class="ev-hotel-frame">
 <div class="ev-hotel-back-card">
 <div class="ev-hotel-dots-wrap">
 <img src="data:image/svg+xml,{{ load_data(path='templates/img/event/hotel_dots.svg') | urlencode }}" alt="" class="ev-hotel-dots-img">
 </div>
 <div class="ev-hotel-ext-row">
-<span class="ev-hotel-ext-label">{{ ev.info_cards.hotel.ext_label }}</span>
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="ev-hotel-ext-icon">
-<path d="M12 2C11.4469 2 11 2.44687 11 3C11 3.55313 11.4469 4 12 4H14.5844L8.29062 10.2937C7.9 10.6844 7.9 11.3188 8.29062 11.7094C8.68125 12.1 9.31563 12.1 9.70625 11.7094L16 5.41563V8C16 8.55312 16.4469 9 17 9C17.5531 9 18 8.55312 18 8V3C18 2.44687 17.5531 2 17 2H12ZM4.5 5C3.11875 5 2 6.11875 2 7.5V15.5C2 16.8813 3.11875 18 4.5 18H12.5C13.8813 18 15 16.8813 15 15.5V13C15 12.4469 14.5531 12 14 12C13.4469 12 13 12.4469 13 13V15.5C13 15.775 12.775 16 12.5 16H4.5C4.225 16 4 15.775 4 15.5V7.5C4 7.225 4.225 7 4.5 7H7C7.55312 7 8 6.55312 8 6C8 5.44688 7.55312 5 7 5H4.5Z" fill="#FFFDE7"/>
-</svg>
+<span class="ev-hotel-ext-label">{{ card.ext_label }}</span>
+<img src="{{ <img_url path="img/shared/icon_external_cream.svg" /> }}" alt="" class="ev-hotel-ext-icon">
 </div>
 </div>
 <div class="ev-hotel-photo-wrap">
-<img src="{{ <img_url path={ev.info_cards.hotel.image} /> }}" alt="{{ ev.info_cards.hotel.image_alt }}" class="ev-hotel-photo-img" loading="lazy" decoding="async">
+<img src="{{ <img_url path={card.image} /> }}" alt="{{ card.image_alt }}" class="ev-hotel-photo-img" loading="lazy" decoding="async">
 </div>
 </div>
+{% else %}
+{% if loop.index == 1 %}{% set card_svg = "templates/img/guidelines_icon.svg" %}{% elif loop.index == 2 %}{% set card_svg = "templates/img/shared/faq_icon.svg" %}{% else %}{% set card_svg = "templates/img/shared/icon_download_app.svg" %}{% endif %}
+<div class="ev-card-icon-box tf-mod-callout-icon">
+<img src="data:image/svg+xml,{{ load_data(path=card_svg) | urlencode }}" alt="" class="ev-ph-fg-img{% if loop.index == 4 %} ev-app-icon-img{% endif %}">
+</div>
+{% endif %}
 <div class="ev-red-card-content">
 <div class="ev-red-card-copy tf-mod-callout-copy">
-<h2 class="ev-red-card-title tf-mod-callout-title">{{ ev.info_cards.hotel.title }}</h2>
+<h2 class="ev-red-card-title tf-mod-callout-title">{{ card.title }}</h2>
+{% if card.body is defined %}<p class="ev-red-card-body tf-mod-callout-desc">{{ card.body }}</p>{% endif %}
 </div>
 <div class="ev-red-card-btns">
-<a href="{{ get_url(path=ev.info_cards.hotel.cta_path) | safe }}" class="ev-btn-cream">
-<span class="ev-btn-cream-text">{{ ev.info_cards.hotel.cta_label }}</span>
+<a href="{{ get_url(path=card.cta_path) | safe }}" class="ev-btn-cream">
+<span class="ev-btn-cream-text">{{ card.cta_label }}</span>
 <span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
 </a>
 </div>
 </div>
 </div>
 </div>
-
-<div class="ev-red-card">
-<div class="ev-red-card-inner tf-mod-callout tf-mod-callout--horiz is-red">
-<div class="ev-card-icon-box tf-mod-callout-icon ev-app-icon">
-<div class="ev-app-r66"><div class="ev-app-r66-rot"><svg width="58.3055" height="41.834" viewBox="0 0 58.3055 41.834" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25.4175 1.64499C26.1704 0.611374 27.372 0 28.6508 0H54.2984C57.5688 0 59.4571 3.71144 57.5316 6.355L32.888 40.189C32.1351 41.2226 30.9335 41.834 29.6547 41.834H4.00713C0.736672 41.834 -1.15161 38.1226 0.773882 35.479L25.4175 1.64499Z" fill="#FF4949"/></svg></div></div>
-<div class="ev-app-red-rect"><div class="ev-app-red-rect-rot"></div></div>
-<div class="ev-app-r67"><div class="ev-app-r67-rot"><svg width="56.9558" height="44.8164" viewBox="0 0 56.9558 44.8164" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25.3342 7.61291C25.8824 6.9244 26.6425 6.43593 27.4965 6.22321L51.9743 0.126452C55.5765 -0.770742 58.3516 3.29633 56.2028 6.32333L30.0726 43.1318C29.3224 44.1885 28.1068 44.8164 26.8109 44.8164H4.00749C0.657672 44.8164 -1.20832 40.9451 0.87838 38.3246L25.3342 7.61291Z" fill="#F9C650"/></svg></div></div>
-<div class="ev-app-gold-rect"><div class="ev-app-gold-rect-rot"></div></div>
-<div class="ev-app-g152"><div class="ev-app-g152-rot"><svg width="36.5247" height="20.3826" viewBox="0 0 36.5247 20.3826" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.0522 6.9653L24.746 8.42112L19.4137 13.6023L11.7198 12.1465L17.0522 6.9653Z" fill="#F68C58" stroke="#FF4949" stroke-width="1"/>
-<path d="M23.9244 8.33238L31.6182 9.7882L26.2858 14.9694L18.592 13.5135L23.9244 8.33238Z" fill="#F68C58" stroke="#FF4949" stroke-width="1"/>
-<path d="M10.1061 5.6354L17.8 7.09122L12.4676 12.2724L4.77375 10.8166L10.1061 5.6354Z" fill="#F68C58" stroke="#FF4949" stroke-width="1"/>
-<path d="M21.9586 2.12491L29.6524 3.58074L24.3201 8.76191L16.6262 7.30609L21.9586 2.12491Z" fill="#F68C58" stroke="#FF4949" stroke-width="1"/>
-<path d="M12.2784 11.5832L19.9723 13.0391L14.6399 18.2202L6.94607 16.7644L12.2784 11.5832Z" fill="#F68C58" stroke="#FF4949" stroke-width="1"/>
-<path d="M28.8308 3.49199L36.5246 4.94781L31.1922 10.129L23.4984 8.67316L28.8308 3.49199Z" fill="#F68C58" stroke="#FF4949" stroke-width="1"/>
-<path d="M19.1506 12.9503L26.8445 14.4061L21.5121 19.5873L13.8182 18.1315L19.1506 12.9503Z" fill="#F68C58" stroke="#FF4949" stroke-width="1"/>
-<path d="M15.0125 0.795016L22.7064 2.25084L17.374 7.43201L9.68015 5.97619L15.0125 0.795016Z" fill="#F68C58" stroke="#FF4949" stroke-width="1"/>
-<path d="M5.33238 10.2533L13.0262 11.7092L7.69385 16.8903L0 15.4345L5.33238 10.2533Z" fill="#F68C58" stroke="#FF4949" stroke-width="1"/>
-</svg></div></div>
-<div class="ev-app-rat"><div class="ev-app-rat-rot"></div></div>
-<div class="ev-app-screen-wrap"><div class="ev-app-screen-rot"></div></div>
-<div class="ev-app-star1"><div class="ev-app-star1-rot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.05619 0.855266C4.2428 0.49566 4.7572 0.49566 4.94381 0.855266L5.747 2.40311C5.81951 2.54285 5.95361 2.64028 6.10892 2.66606L7.8292 2.95163C8.22887 3.01798 8.38783 3.50721 8.10349 3.7958L6.87961 5.03799C6.76911 5.15014 6.71789 5.30778 6.74136 5.46346L7.00137 7.18779C7.06177 7.5884 6.64561 7.89076 6.28327 7.70951L4.72368 6.92939C4.58288 6.85896 4.41712 6.85896 4.27632 6.92939L2.71673 7.70951C2.35439 7.89076 1.93823 7.5884 1.99863 7.18779L2.25864 5.46346C2.28211 5.30778 2.23089 5.15014 2.12039 5.03799L0.896508 3.7958C0.612166 3.50721 0.771127 3.01798 1.1708 2.95163L2.89108 2.66606C3.04639 2.64028 3.18049 2.54285 3.253 2.40311L4.05619 0.855266Z" fill="#BEE6F0"/></svg></div></div>
-<div class="ev-app-star2"><div class="ev-app-star2-rot"><svg width="17.2305" height="17.2305" viewBox="0 0 17.2305 17.2305" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.72762 1.71053C8.10083 0.991323 9.12964 0.991321 9.50285 1.71053L10.9928 4.58176C11.1378 4.86124 11.406 5.0561 11.7166 5.10767L14.9077 5.63739C15.707 5.77009 16.025 6.74854 15.4563 7.32573L13.186 9.62998C12.965 9.85427 12.8626 10.1696 12.9095 10.4809L13.3918 13.6795C13.5126 14.4807 12.6803 15.0855 11.9556 14.723L9.0626 13.2759C8.78099 13.135 8.44948 13.135 8.16787 13.2759L5.27485 14.723C4.55018 15.0855 3.71785 14.4808 3.83866 13.6795L4.32096 10.4809C4.36791 10.1696 4.26547 9.85427 4.04448 9.62998L1.77419 7.32574C1.2055 6.74855 1.52342 5.77009 2.32276 5.63739L5.51386 5.10767C5.82449 5.0561 6.09269 4.86125 6.23772 4.58176L7.72762 1.71053Z" fill="#BEE6F0"/></svg></div></div>
-<div class="ev-app-e25"><div class="ev-app-e25-rot"><svg width="16.5848" height="9.45279" viewBox="0 0 16.5848 9.45279" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="8.29242" cy="4.7264" rx="7.79242" ry="4.2264" stroke="#6D5158" stroke-linecap="round" stroke-dasharray="2 2"/></svg></div></div>
-<div class="ev-app-g147"><div class="ev-app-g147-rot"><svg width="8.10115" height="13.0606" viewBox="0 0 8.10115 13.0606" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="ev_app_m0" maskUnits="userSpaceOnUse" x="0" y="0" width="9" height="14"><path d="M4.32129 0.479492C4.7827 -0.277508 5.92872 -0.103796 6.14551 0.755859L8.07031 8.3916C8.13623 8.65298 8.09226 8.90337 7.97852 9.11133C7.76011 11.1435 5.80501 12.741 3.75977 13.0332C1.58966 13.3432 0 10.9435 0 8.73437C4.342e-05 7.96688 0.216021 7.24958 0.59082 6.64062C0.613057 6.5799 0.640565 6.51978 0.675781 6.46191L4.32129 0.479492Z" fill="white"/></mask><g mask="url(#ev_app_m0)"><rect x="-3.99973" y="-3.90527" width="16" height="18" fill="#FFE1E1"/><path d="M4.80158 6.14435C7.20158 7.34435 9.13491 6.64435 9.80158 6.14435C13.8016 5.73954 9.80158 -6.85585 6.80158 -7.85585C3.80158 -8.85585 -4.69842 5.64435 -2.69842 6.14435C-0.698421 6.64435 1.80158 4.64435 4.80158 6.14435Z" fill="#6D5158"/></g></svg></div></div>
-</div>
-<div class="ev-red-card-content">
-<div class="ev-red-card-copy tf-mod-callout-copy">
-<h2 class="ev-red-card-title tf-mod-callout-title">{{ ev.info_cards.app.title }}</h2>
-<p class="ev-red-card-body tf-mod-callout-desc">{{ ev.info_cards.app.body }}</p>
-</div>
-<div class="ev-red-card-btns">
-<a href="{{ get_url(path=ev.info_cards.app.cta_path) | safe }}" class="ev-btn-cream">
-<span class="ev-btn-cream-text">{{ ev.info_cards.app.cta_label }}</span>
-<span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_dark.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
-</a>
-</div>
-</div>
-</div>
-</div>
-
+{% endfor %}
 </div>
 
 <div class="ev-badge-cta">
 <div class="ev-badge-cta-bg" aria-hidden="true">
 <img src="data:image/svg+xml,{{ load_data(path='templates/img/event/cta_gradient.svg') | urlencode }}" alt="" class="ev-badge-cta-grad">
-<div class="hero-card-streamer hero-card-streamer-left">
+{% for side in ["left", "right"] %}
+<div class="hero-card-streamer hero-card-streamer-{{ side }}">
 <div class="ev-badge-accent-wrap"><div class="ev-badge-accent-rot"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="ev-badge-accent-img"></div></div>
 <img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}" alt="" class="streamer-main">
 </div>
-<div class="hero-card-streamer hero-card-streamer-right">
-<div class="ev-badge-accent-wrap"><div class="ev-badge-accent-rot"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/card_accent.svg') | urlencode }}" alt="" class="ev-badge-accent-img"></div></div>
-<img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}" alt="" class="streamer-main">
-</div>
+{% endfor %}
 <div class="ev-badge-cta-stroke"></div>
 </div>
 <div class="ev-badge-cta-inner">
@@ -438,39 +256,29 @@
 </div>
 
 <div class="ev-app-grid">
+{% for role_key in ["staff", "volunteer"] %}
+{% set role = ev.team[role_key] %}
 <div class="ev-app-card">
-<div class="ev-app-card-grad">
-<div class="ev-app-card-box">
+<div class="ev-app-card-grad{% if loop.last %} ev-app-card-grad-full{% endif %}">
+<div class="ev-app-card-box{% if loop.last %} ev-app-card-box-full{% endif %}">
 <img src="data:image/svg+xml,{{ load_data(path='templates/img/event/amp_gradient.svg') | urlencode }}" alt="" class="ev-app-card-svg" aria-hidden="true">
 <div class="ev-app-card-content">
 <div class="ev-app-card-top">
-<span class="ev-badge-open">{{ ev.team.staff.status }}</span>
-<h2 class="ev-app-card-title">{{ ev.team.staff.title }}</h2>
-<p class="ev-app-card-desc">{{ ev.team.staff.body }}</p>
+<span class="{% if loop.first %}ev-badge-open{% else %}ev-badge-closed{% endif %}">{{ role.status }}</span>
+<h2 class="ev-app-card-title">{{ role.title }}</h2>
+<p class="ev-app-card-desc">{{ role.body }}</p>
 </div>
-<a href="{{ get_url(path=ev.team.staff.cta_path) | safe }}" class="ev-btn-red">
-<span class="ev-btn-red-text">{{ ev.team.staff.cta_label }}</span>
+{% if role.cta_path is defined %}
+<a href="{{ get_url(path=role.cta_path) | safe }}" class="ev-btn-red">
+<span class="ev-btn-red-text">{{ role.cta_label }}</span>
 <span class="ev-btn-caret"><img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/chevron_cream.svg') | urlencode }}" alt="" class="ev-caret-img"></span>
 </a>
+{% endif %}
 </div>
 </div>
 </div>
 </div>
-
-<div class="ev-app-card">
-<div class="ev-app-card-grad ev-app-card-grad-full">
-<div class="ev-app-card-box ev-app-card-box-full">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/event/amp_gradient.svg') | urlencode }}" alt="" class="ev-app-card-svg" aria-hidden="true">
-<div class="ev-app-card-content">
-<div class="ev-app-card-top">
-<span class="ev-badge-closed">{{ ev.team.volunteer.status }}</span>
-<h2 class="ev-app-card-title">{{ ev.team.volunteer.title }}</h2>
-<p class="ev-app-card-desc">{{ ev.team.volunteer.body }}</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+{% endfor %}
 </div>
 </section>
 

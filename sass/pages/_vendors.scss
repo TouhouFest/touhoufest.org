@@ -254,6 +254,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 }
 :is(.tf-v-btn-chevron, .tf-v-btn-chevron-cream) {
   display: inline-block;
+  flex-shrink: 0;
   width: 9px;
   height: 15px;
   @include mask-stretch(
@@ -264,7 +265,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   background-color: #30293e;
 }
 .tf-v-btn-chevron-cream {
-  background-color: #fffde7;
+  background-color: currentColor;
 }
 
 /* Full Vendor Roster Section */
@@ -608,78 +609,14 @@ $tf-v-polaroid-angles:
   gap: 24px;
   margin-top: 0;
 }
-.tf-v-ofuda-set {
-  position: relative;
-  width: 720px;
-  max-width: 100%;
-  height: 602px;
-  display: flex;
-  justify-content: center;
-}
-.tf-v-ofuda-slot.is-card-1 {
-  position: absolute;
-  left: 23px;
-  top: 24px;
-  z-index: 1;
-}
-.tf-v-ofuda-slot.is-card-2 {
-  position: absolute;
-  right: 28px;
-  top: 80px;
-  z-index: 2;
-}
-.tf-v-ofuda-card {
-  width: 330px;
-  height: 420px;
-  background: transparent;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  align-items: center;
-  justify-content: center;
-  padding: 40px 35px;
-}
-.tf-v-ofuda-bg {
-  background: #fffde7;
-  border-radius: 5px;
-  overflow: hidden;
-}
-.tf-v-ofuda-corner {
-  top: 19px;
-  left: 19px;
-  width: 68px;
-  height: 99px;
-}
-.tf-v-ofuda-stroke {
-  top: 23px;
-  left: 24px;
-  width: 281px;
-  height: 374px;
-}
-.tf-v-ofuda-content {
-  width: 100%;
-  margin-left: 0;
-  gap: 14px;
-}
 .tf-v-ofuda-icon-wrap {
   @include flex-center;
 }
-.tf-v-ofuda-icon {
-  width: 92px;
-  height: 92px;
-  object-fit: contain;
-}
-:is(.tf-v-ofuda-title, .tf-v-discord-title) {
+.tf-v-discord-title {
   line-height: 37px;
 }
-:is(.tf-v-ofuda-desc, .tf-v-discord-desc) {
+.tf-v-discord-desc {
   line-height: 21px;
-}
-.tf-v-ofuda-desc {
-  max-width: 235px;
-}
-.tf-vendors-root .tf-v-btn-red {
-  padding: 0 36px;
-  color: #fffde7;
-  margin-top: 8px;
 }
 .tf-vendors-root .tf-v-discord-card {
   height: 234px;
@@ -1033,16 +970,6 @@ $tf-v-polaroid-angles:
     gap: 50px;
     margin-top: 54px;
   }
-  .tf-v-ofuda-set {
-    position: static;
-    width: 100%;
-    height: auto;
-    @include flex-col-center;
-    gap: 24px;
-  }
-  .tf-v-ofuda-slot:is(.is-card-1, .is-card-2) {
-    position: static;
-  }
   .tf-v-discord-section {
     width: calc(100% - 65px);
     max-width: 600px;
@@ -1127,23 +1054,10 @@ $tf-v-polaroid-angles:
   .tf-v-map-tab:not(.is-active) {
     background: transparent;
   }
-  .tf-v-ofuda-card {
-    background-color: transparent;
-  }
   .tf-v-polaroid-card {
     background-color: #221a28;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     filter: none;
-  }
-  .tf-v-ofuda-title {
-    color: #bf3444;
-  }
-  .tf-v-ofuda-desc {
-    color: #30293e;
-  }
-  .tf-vendors-root .tf-v-btn-red {
-    background-color: #bf3444;
-    color: #fffde7;
   }
   .tf-vendors-root .tf-v-discord-card,
   .tf-v-discord-card .tf-v-btn-chevron {

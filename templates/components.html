@@ -162,7 +162,7 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 {%- for card in cdata.callouts %}
 <div class="contact-callout-card tf-mod-callout tf-mod-callout--horiz {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
 <div class="callout-icon-col tf-mod-callout-icon">
-<img src="data:image/svg+xml,{% if loop.index == 1 %}{{ load_data(path='templates/img/contact/faq_icon.svg') | urlencode }}{% else %}{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}{% endif %}" alt="" class="callout-icon-img" width="100" height="100" />
+<img src="data:image/svg+xml,{% if loop.index == 1 %}{{ load_data(path='templates/img/shared/faq_icon.svg') | urlencode }}{% else %}{{ load_data(path='templates/img/discord_card_icon.svg') | urlencode }}{% endif %}" alt="" class="callout-icon-img" width="100" height="100" />
 </div>
 <div class="callout-content-col tf-mod-callout-copy">
 <div class="callout-copy-group">
@@ -742,20 +742,27 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="home-stickers-streamer" aria-hidden="true"></div>
 <div class="home-stickers-row">
 {%- for card in home_data.stickers %}
-{%- if loop.index == 1 %}{% set slot = "left" %}{% set card_icon = "img/home/icon-sakura.png" %}{% elif loop.index == 2 %}{% set slot = "center" %}{% set card_icon = "img/home/icon-location.png" %}{% else %}{% set slot = "right" %}{% set card_icon = "img/home/icon-watch.png" %}{% endif %}
+{%- if loop.index == 1 %}{% set slot = "left" %}{% set card_icon = "templates/img/shared/ofuda_sakura.svg" %}{% elif loop.index == 2 %}{% set slot = "center" %}{% set card_icon = "templates/img/shared/ofuda_location.svg" %}{% else %}{% set slot = "right" %}{% set card_icon = "templates/img/shared/ofuda_watch.svg" %}{% endif %}
 <div class="sticker-slot sticker-slot-{{ slot }}">
 <div class="sticker-rot sticker-rot-{{ slot }}">
 <article class="tf-mod-ofuda ofuda-sticker-card">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" class="tf-mod-ofuda-stroke ofuda-stroke-bg" aria-hidden="true" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" class="tf-mod-ofuda-seal ofuda-seal-mark" aria-hidden="true" />
-<span class="ofuda-dot-left" aria-hidden="true"></span>
-<span class="ofuda-bar-left" aria-hidden="true"></span>
-<span class="ofuda-dot-top" aria-hidden="true"></span>
-<span class="ofuda-bar-top" aria-hidden="true"></span>
+<div class="tf-mod-ofuda-decor" aria-hidden="true">
+<img class="tf-mod-ofuda-stroke" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-seal" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-corner-dark" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_corner_dark.svg') | urlencode }}" alt="" />
+<div class="tf-mod-ofuda-vspike">
+<span class="tf-mod-ofuda-dot"></span>
+<img class="tf-mod-ofuda-vbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" />
+</div>
+<div class="tf-mod-ofuda-hspike">
+<span class="tf-mod-ofuda-dot"></span>
+<img class="tf-mod-ofuda-hbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" />
+</div>
+</div>
 <div class="tf-mod-ofuda-body ofuda-card-content">
 <div class="ofuda-card-top">
-<div class="sticker-icon-badge">
-<img src="{{ <img_url path={card_icon} /> }}" alt="" class="sticker-icon-img" loading="lazy" decoding="async" />
+<div class="sticker-icon-badge sticker-icon-{{ slot }}">
+<img src="data:image/svg+xml,{{ load_data(path=card_icon) | urlencode }}" alt="" class="sticker-icon-img" loading="lazy" decoding="async" />
 </div>
 <div class="ofuda-card-copy">
 <h3 class="tf-mod-ofuda-title sticker-heading">{{ card.title }}</h3>
@@ -1729,18 +1736,27 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="tf-v-ofuda-slot is-card-{{ loop.index }}">
 <div class="tf-v-ofuda-rot is-card-{{ loop.index }}">
 <div class="tf-v-ofuda-card tf-mod-ofuda">
-<div class="tf-v-ofuda-bg tf-mod-ofuda-decor" aria-hidden="true">
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/ofuda_corner.svg') | urlencode }}" alt="" class="tf-v-ofuda-corner tf-mod-ofuda-seal" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" class="tf-v-ofuda-stroke tf-mod-ofuda-stroke" />
+<div class="tf-mod-ofuda-decor" aria-hidden="true">
+<img class="tf-mod-ofuda-stroke" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-seal" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-corner-dark" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_corner_dark.svg') | urlencode }}" alt="" />
+<div class="tf-mod-ofuda-vspike">
+<span class="tf-mod-ofuda-dot"></span>
+<img class="tf-mod-ofuda-vbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" />
 </div>
-<div class="tf-v-ofuda-content tf-mod-ofuda-body">
+<div class="tf-mod-ofuda-hspike">
+<span class="tf-mod-ofuda-dot"></span>
+<img class="tf-mod-ofuda-hbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" />
+</div>
+</div>
+<div class="tf-v-ofuda-content is-card-{{ loop.index }} tf-mod-ofuda-body">
 <div class="tf-v-ofuda-icon-wrap">
 {%- if loop.index == 1 %}
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/ofuda_hat.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-desk-icon" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/ofuda_sakura.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_hat.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-desk-icon is-hat" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_sakura.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
 {%- else %}
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/ofuda_sakura.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-desk-icon" />
-<img src="data:image/svg+xml,{{ load_data(path='templates/img/vendors/ofuda_yinyang.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_sakura.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-desk-icon" />
+<img src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_yinyang.svg') | urlencode }}" alt="" class="tf-v-ofuda-icon is-mob-icon" />
 {%- endif %}
 </div>
 <h3 class="tf-v-ofuda-title tf-mod-ofuda-title">{{ card.title }}</h3>

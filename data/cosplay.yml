@@ -223,7 +223,7 @@ callouts:
   - key: "app"
     title: "Download App"
     description: "Make sure you download our app before attending for the best TouhouFest experience!"
-    image: "img/cosplay/icon_download_app.svg"
+    image: "img/shared/icon_download_app.svg"
     button_label: "Download App"
     button_url: "#app"
     external: false

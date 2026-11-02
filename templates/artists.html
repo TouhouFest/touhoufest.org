@@ -230,38 +230,28 @@
 <div class="tf-artists-ofuda-slot tf-artists-ofuda-slot--{{ loop.index }}">
 <div class="tf-artists-ofuda-rot tf-artists-ofuda-rot--{{ loop.index }}">
 <article class="tf-artists-ofuda-card tf-mod-ofuda">
-<div class="tf-artists-ofuda-decor tf-mod-ofuda-decor" aria-hidden="true">
-<img class="tf-artists-ofuda-stroke tf-mod-ofuda-stroke" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" />
-<img class="tf-artists-ofuda-seal tf-mod-ofuda-seal" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" />
-<div class="tf-artists-ofuda-vspike tf-mod-ofuda-vspike">
-<img class="tf-artists-ofuda-vdot" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_dot.svg') | urlencode }}" alt="" />
-<img class="tf-artists-ofuda-vbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" />
+<div class="tf-mod-ofuda-decor" aria-hidden="true">
+<img class="tf-mod-ofuda-stroke" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_stroke.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-seal" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_seal.svg') | urlencode }}" alt="" />
+<img class="tf-mod-ofuda-corner-dark" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_corner_dark.svg') | urlencode }}" alt="" />
+<div class="tf-mod-ofuda-vspike">
+<span class="tf-mod-ofuda-dot"></span>
+<img class="tf-mod-ofuda-vbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_v.svg') | urlencode }}" alt="" />
 </div>
-<div class="tf-artists-ofuda-hspike tf-mod-ofuda-hspike">
-<div class="tf-artists-ofuda-hspike-inner">
-<img class="tf-artists-ofuda-hdot" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_dot.svg') | urlencode }}" alt="" />
-<img class="tf-artists-ofuda-hbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" />
-</div>
+<div class="tf-mod-ofuda-hspike">
+<span class="tf-mod-ofuda-dot"></span>
+<img class="tf-mod-ofuda-hbar" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_spike_h.svg') | urlencode }}" alt="" />
 </div>
 </div>
 <div class="tf-artists-ofuda-content tf-artists-ofuda-content--{{ loop.index }} tf-mod-ofuda-body">
+<div class="tf-artists-ofuda-icon" aria-hidden="true">
 {% if loop.index == 1 %}
-<div class="tf-artists-ofuda-icon tf-artists-ofuda-icon--pin" aria-hidden="true">
-<div class="tf-artists-pin-desktop">
-<img class="tf-artists-pin-shadow" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_pin_shadow.svg') | urlencode }}" alt="" />
-<img class="tf-artists-pin-ring" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_pin_ring.svg') | urlencode }}" alt="" />
-<img class="tf-artists-pin-body" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_pin_body.svg') | urlencode }}" alt="" />
-</div>
-<img class="tf-artists-pin-mobile" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/ofuda_yinyang_mobile.svg') | urlencode }}" alt="" />
-</div>
+<img class="tf-artists-ofuda-icon-img is-desk-icon is-hat" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_hat.svg') | urlencode }}" alt="" />
+<img class="tf-artists-ofuda-icon-img is-mob-icon" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_yinyang.svg') | urlencode }}" alt="" />
 {% else %}
-<div class="tf-artists-ofuda-icon tf-artists-ofuda-icon--sakura" aria-hidden="true">
-{% for p in range(start=1, end=6) %}
-<span class="tf-artists-sakura-p tf-artists-sakura-p--{{ p }}"><img src="data:image/svg+xml,{{ load_data(path='templates/img/artists/sakura_petal.svg') | urlencode }}" alt="" /></span>
-{% endfor %}
-<img class="tf-artists-sakura-center" src="data:image/svg+xml,{{ load_data(path='templates/img/artists/sakura_center.svg') | urlencode }}" alt="" />
-</div>
+<img class="tf-artists-ofuda-icon-img" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/ofuda_sakura.svg') | urlencode }}" alt="" />
 {% endif %}
+</div>
 <h3 class="tf-artists-ofuda-title tf-mod-ofuda-title">{{ card.title }}</h3>
 <p class="tf-artists-ofuda-desc tf-mod-ofuda-desc">{{ card.desc }}</p>
 <a class="tf-artists-ofuda-btn tf-mod-ofuda-btn" href="{% if card.url %}{{ card.url }}{% else %}{{ get_url(path=card.path) }}{% endif %}">

@@ -57,13 +57,29 @@
     height: 100px;
     margin: 0;
     flex-shrink: 0;
-    @include flex-center;
+    position: relative;
   }
   .sticker-icon-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    position: absolute;
     display: block;
+    max-width: none;
+  }
+  .sticker-icon-left .sticker-icon-img {
+    inset: 0;
+    width: 100px;
+    height: 100px;
+  }
+  .sticker-icon-center .sticker-icon-img {
+    left: 0;
+    top: -2.95px;
+    width: 100px;
+    height: 114px;
+  }
+  .sticker-icon-right .sticker-icon-img {
+    left: -2.23px;
+    top: -3.8px;
+    width: 103px;
+    height: 106px;
   }
 
   :is(.home-stickers-streamer, .home-bottom-streamer, .home-pillars-streamer) {
@@ -74,20 +90,6 @@
 
   :is(.home-hero-divider-bottom, .home-banner-divider-bottom, .home-garland-banner) {
     z-index: 2;
-  }
-
-  :is(.ofuda-dot-left, .ofuda-dot-top, .ofuda-bar-left, .ofuda-bar-top) {
-    position: absolute;
-    background-color: #bf3444;
-    pointer-events: none;
-  }
-  :is(.ofuda-dot-left, .ofuda-dot-top) {
-    width: 14.3px;
-    height: 14.3px;
-    border-radius: 50%;
-  }
-  :is(.ofuda-bar-left, .ofuda-bar-top) {
-    border-radius: 2px;
   }
 
   /* Universal Homepage Pill CTA */
@@ -267,26 +269,6 @@
   .ofuda-sticker-card {
     border: none;
     overflow: hidden;
-  }
-  .ofuda-dot-left {
-    left: 27.15px;
-    top: 84.65px;
-  }
-  .ofuda-bar-left {
-    left: 31.9px;
-    top: 112px;
-    width: 4.8px;
-    height: 179px;
-  }
-  .ofuda-dot-top {
-    left: 83.04px;
-    top: 21.44px;
-  }
-  .ofuda-bar-top {
-    left: 118.3px;
-    right: 23.2px;
-    top: 26.2px;
-    height: 4.8px;
   }
   .ofuda-card-content {
     height: 100%;
@@ -987,19 +969,6 @@
     }
     .home-hero-glass-card {
       border-color: var(--tf-accent, #f9c650);
-    }
-    :is(.ofuda-stroke-bg, .ofuda-seal-mark) {
-      filter: brightness(0) saturate(100%) invert(84%) sepia(46%) saturate(958%) hue-rotate(345deg)
-        brightness(101%) contrast(96%);
-    }
-    :is(.ofuda-dot-left, .ofuda-dot-top) {
-      background-color: #fff5b4;
-    }
-    .ofuda-bar-left {
-      background: linear-gradient(180deg, #fff5b4 0%, #f9c650 100%);
-    }
-    .ofuda-bar-top {
-      background: linear-gradient(90deg, #fff5b4 0%, #f9c650 100%);
     }
     .card-bookmark-body {
       background: linear-gradient(180deg, #f9c650 0%, #f68c58 100%);
