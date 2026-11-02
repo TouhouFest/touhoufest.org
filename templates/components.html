@@ -1286,8 +1286,8 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <img src="{{ <img_url path={gdata.maps.image} /> }}" alt="{{ gdata.maps.alt }}" class="gaming-map-img" loading="lazy" decoding="async">
 </div>
 <button type="button" class="tf-mod-map-zoom gaming-map-zoom" aria-label="Zoom in">
-<span class="gaming-map-zoom-circle"></span>
-<span class="gaming-map-zoom-plus"></span>
+<img class="tf-mod-map-zoom-circle" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" loading="lazy" />
+<img class="tf-mod-map-zoom-plus" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_plus.svg') | urlencode }}" alt="" loading="lazy" />
 </button>
 </div>
 </section>

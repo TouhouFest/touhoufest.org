@@ -166,18 +166,27 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 }
 .tf-vendors-root .tf-v-fcard-streamer {
   position: absolute;
-  top: 10px;
+  top: -73px;
   width: 44px;
-  height: 232px;
-  background: url("/card-gohei.svg") center top / 44px 202px no-repeat;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+  height: 262px;
+  overflow: hidden;
+  background: url("img/shared/card_streamer.svg") no-repeat left top / 98.21% 88.74%;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 34.8px;
+    top: 256.5px;
+    width: 16.93px;
+    height: 190px;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    background: var(--tf-svg-streamer-accent) no-repeat center / 100% 100%;
+  }
   &.is-left {
-    left: 4px;
-    transform: scaleX(-1);
+    left: 0;
   }
   &.is-right {
-    right: 4px;
-    transform: none;
+    right: 0;
+    transform: scaleX(-1);
   }
 }
 .tf-v-fcard-stroke {
@@ -393,7 +402,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 }
 .tf-vendors-root .tf-v-past-section {
   gap: 0;
-  padding-bottom: 48px;
+  padding-bottom: 3px;
 }
 .tf-v-divider {
   width: 100%;
@@ -687,12 +696,6 @@ $tf-v-polaroid-angles:
     width: 100%;
     height: 350px;
   }
-  .tf-vendors-root .tf-v-fcard-streamer {
-    top: 5px;
-    width: 32px;
-    height: 160px;
-    background-size: 32px 160px;
-  }
   .tf-v-fcard-content {
     margin-top: 250px;
     height: 564px;
@@ -969,22 +972,42 @@ $tf-v-polaroid-angles:
     background: #30293e linear-gradient(131.5326deg, #30293e 28.353%, #221a28 93.86%);
     color: #fbf7eb;
   }
-  .tf-v-fcard-backing {
-    background: #373852;
+  :is(.tf-v-fcard-backing, .tf-v-fcard-body) {
+    background: #f9c650;
   }
   .tf-v-fcard-headline {
-    background: linear-gradient(180deg, rgba(55, 56, 82, 0) 15%, #373852 92%);
+    background: linear-gradient(
+      180deg,
+      rgba(249, 198, 80, 0) 0%,
+      rgba(249, 198, 80, 0.39) 29.3%,
+      #f9c650 100%
+    );
+    @media screen and (max-width: 768px) {
+      background: linear-gradient(180deg, rgba(249, 198, 80, 0) 0%, #f9c650 85%);
+    }
+  }
+  .tf-v-fcard-title {
+    width: 100%;
+    text-align: left;
+    color: #511154;
+    text-shadow: none;
+  }
+  .tf-v-fcard-bio {
+    color: #30293e;
   }
   .tf-vendors-root .tf-v-fcard-streamer {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(43%) saturate(835%) hue-rotate(345deg)
-      brightness(101%) contrast(96%) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+    background: url("img/shared/card_streamer_dark.svg") no-repeat center top / 100% 100%;
+    filter: none;
+    &::after {
+      opacity: 0;
+    }
   }
   .tf-vendors-root .tf-v-fcard .tf-v-btn-cream {
-    background-color: #f9c650;
-    color: #511154;
+    background-color: #511154;
+    color: #fbf7eb;
   }
   .tf-vendors-root .tf-v-fcard .tf-v-btn-chevron {
-    background-color: #511154;
+    background-color: #fbf7eb;
   }
   .tf-v-rcard-shadow-fill {
     background-color: #f9c650;

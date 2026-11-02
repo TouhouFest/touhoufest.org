@@ -273,7 +273,8 @@
 <img src="{{ <img_url path={data.maps.card_image} /> }}" alt="{{ data.maps.card_alt }}" class="cosplay-map-card__img" loading="lazy" decoding="async">
 </div>
 <button type="button" class="cosplay-map-card__zoom tf-mod-map-zoom" aria-label="{{ data.maps.zoom_label }}">
-<span class="cosplay-icon cosplay-icon--plus"></span>
+<img class="tf-mod-map-zoom-circle" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_circle.svg') | urlencode }}" alt="" loading="lazy" />
+<img class="tf-mod-map-zoom-plus" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/zoom_plus.svg') | urlencode }}" alt="" loading="lazy" />
 </button>
 </div>
 </section>

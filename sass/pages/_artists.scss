@@ -757,6 +757,13 @@ body:has(.tf-artists-page) > main {
   .tf-artists-map-viewer {
     background: var(--tf-surface-card);
   }
+  .tf-artists-feat-corner-border {
+    background: url("img/shared/card_streamer_dark.svg") no-repeat center top / 100% 100%;
+    filter: none;
+    :where(.tf-artists-feat-corner-accent-box, .tf-artists-feat-corner-base) {
+      opacity: 0;
+    }
+  }
   .tf-artists-discord-btn-icon img {
     filter: brightness(0) invert(0.96);
   }

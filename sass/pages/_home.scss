@@ -351,62 +351,14 @@
   .card-bookmark-ribbon {
     position: absolute;
     top: -16.5px;
-    right: -20px;
-    width: 79px;
-    height: 321px;
-    @include flex-column;
-    filter: drop-shadow(3px 4px 6.5px rgba(99, 15, 40, 0.15));
+    right: -60px;
+    width: 159px;
+    height: 361px;
+    background: url("img/shared/ribbon_vertical_light.svg") no-repeat center / 100% 100%;
     pointer-events: none;
-  }
-
-  .card-bookmark-body {
-    position: relative;
-    width: 79px;
-    height: 295px;
-    background-color: #bf3444;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    display: block;
-
-    &::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 14.5px;
-      width: 16.93px;
-      height: 190px;
-      transform: translate(-50%, 86.5px) rotate(-90deg);
-      background-color: #fbf7eb;
-      @include mask-stretch-var(var(--tf-svg-streamer-accent));
+    > * {
+      display: none;
     }
-  }
-
-  .card-bookmark-accent {
-    display: none;
-  }
-  .card-bookmark-tail {
-    position: relative;
-    width: 79px;
-    height: 26px;
-    overflow: hidden;
-    @include flex-center;
-  }
-  .card-bookmark-tail-rot {
-    width: 26px;
-    height: 79px;
-    position: relative;
-    transform: rotate(-90deg);
-    flex-shrink: 0;
-  }
-  .card-bookmark-tail-mask {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 38px;
-    height: 228px;
-    transform: translateY(-50%);
-    background-color: #fffde7;
-    @include mask-stretch("img/home/shide-streamer.svg");
   }
 
   /* Venue Outer & Bottom Streamer */
@@ -917,7 +869,7 @@
       padding: 32px 76px 32px 24px;
     }
     .card-bookmark-ribbon {
-      right: -10px;
+      right: -50px;
     }
     :is(.sticker-slot-left, .sticker-slot-center, .sticker-slot-right) {
       width: 100%;
@@ -974,11 +926,8 @@
     .home-hero-glass-card {
       border-color: var(--tf-accent, #f9c650);
     }
-    .card-bookmark-body {
-      background: linear-gradient(180deg, #f9c650 0%, #f68c58 100%);
-    }
-    .card-bookmark-tail-mask {
-      background-color: #fffde7;
+    .card-bookmark-ribbon {
+      background-image: url("img/shared/ribbon_vertical_dark.svg");
     }
     .guest-ring-svg {
       filter: brightness(0) saturate(100%) invert(34%) sepia(87%) saturate(3075%) hue-rotate(272deg)

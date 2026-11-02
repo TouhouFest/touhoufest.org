@@ -775,10 +775,6 @@
   .hero-module-card {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   }
-  :is(.hero-gohei-left, .hero-gohei-right, .card-gohei-trim-left, .card-gohei-trim-right) {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(43%) saturate(835%) hue-rotate(345deg)
-      brightness(101%) contrast(96%);
-  }
 }
 
 /* 10. Newsletter Subscription Form */
@@ -993,6 +989,26 @@
 }
 
 @include dark-mode {
+  :is(
+    .hero-gohei-left,
+    .hero-gohei-right,
+    .card-gohei-trim-left:not(.intro-gohei-left),
+    .card-gohei-trim-right:not(.intro-gohei-right)
+  ) {
+    background-image: url("img/shared/card_streamer_dark.svg");
+    filter: none;
+  }
+  :is(.intro-gohei-left, .intro-gohei-right) {
+    filter: brightness(0) saturate(100%) invert(84%) sepia(43%) saturate(835%) hue-rotate(345deg)
+      brightness(101%) contrast(96%);
+  }
+  .hero-card-streamer {
+    background: url("img/shared/card_streamer_dark.svg") no-repeat center top / 100% 100%;
+    filter: none;
+    :where(.streamer-main, .streamer-accent, .ev-badge-accent-wrap) {
+      opacity: 0;
+    }
+  }
   .tf-accordion {
     background-color: #2b2233;
     border-color: #4a3c57;

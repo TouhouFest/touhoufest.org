@@ -157,7 +157,7 @@ body:has(.page-hero-hotels) {
   height: 361px;
   pointer-events: none;
   z-index: 3;
-  background: url("img/hotels/hotel_ribbon.png") no-repeat center / 100% 100%;
+  background: url("img/shared/ribbon_vertical_light.svg") no-repeat center / 100% 100%;
 }
 .hotel-block-body {
   @include flex-column;
@@ -588,7 +588,7 @@ body:has(.page-hero-hotels) {
   }
 
   .hotel-block-ribbon {
-    background-image: url("img/hotels/hotel_ribbon_dark.png");
+    background-image: url("img/shared/ribbon_vertical_dark.svg");
   }
   .hotel-info-pill {
     background-color: transparent;

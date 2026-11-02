@@ -889,13 +889,13 @@
 }
 
 @include dark-mode {
-  :is(.tf-artists-feat-title, .tf-v-fcard-title) {
+  .tf-artists-feat-title {
     color: #f9c650;
   }
-  :is(.tf-artists-feat-body, .tf-v-fcard-body, .tf-artists-search-input, .tf-v-search-pill) {
+  :is(.tf-artists-feat-body, .tf-artists-search-input, .tf-v-search-pill) {
     background: var(--tf-surface-navy, #373852);
   }
-  :is(.tf-artists-feat-bio, .tf-v-fcard-bio) {
+  .tf-artists-feat-bio {
     color: #fbf7eb;
   }
   :is(.tf-artists-search-icon, .tf-v-search-icon-wrap) img {
