@@ -180,14 +180,7 @@
   background: linear-gradient(90deg, rgba(46, 16, 49, 0.56) 42.536%, rgba(49, 16, 48, 0) 100%);
   z-index: 2;
 }
-:is(
-  .tf-mod-divider-top,
-  .divider-wave-top,
-  .tf-wave-top,
-  .home-garland-banner,
-  .ev-banner-top-deco,
-  .tf-artists-divider-top-deco
-) {
+:is(.tf-mod-divider-top, .home-garland-banner, .ev-banner-top-deco, .tf-artists-divider-top-deco) {
   position: absolute;
   top: 0;
   left: 0;
@@ -199,8 +192,6 @@
 :is(
   .tf-nav-wave,
   .tf-mod-divider-top,
-  .divider-wave-top,
-  .tf-wave-top,
   .home-garland-banner,
   .ev-banner-top-deco,
   .tf-artists-divider-top-deco,
@@ -237,7 +228,7 @@
   color: #ffffff;
   text-align: left;
 }
-:is(.tf-mod-divider-bottom, .divider-wave-bottom, .tf-wave-bottom) {
+:is(.tf-mod-divider-bottom, .divider-wave-bottom) {
   position: absolute;
   left: 0;
   right: 0;
@@ -254,7 +245,7 @@
   .tf-mod-divider-title {
     font-size: 27px;
   }
-  :is(.tf-mod-divider-bottom, .divider-wave-bottom, .tf-wave-bottom) {
+  :is(.tf-mod-divider-bottom, .divider-wave-bottom) {
     -webkit-mask-position: -1050px bottom;
     mask-position: -1050px bottom;
   }
@@ -263,8 +254,6 @@
   :is(
     .tf-nav-wave,
     .tf-mod-divider-top,
-    .divider-wave-top,
-    .tf-wave-top,
     .home-garland-banner,
     .ev-banner-top-deco,
     .tf-artists-divider-top-deco,
@@ -272,7 +261,7 @@
   ) {
     background: url("border_top.svg") repeat-x left top / 252px 39px;
   }
-  :is(.tf-mod-divider-bottom, .divider-wave-bottom, .tf-wave-bottom) {
+  :is(.tf-mod-divider-bottom, .divider-wave-bottom) {
     background-color: var(--tf-surface, #30293e);
   }
 }

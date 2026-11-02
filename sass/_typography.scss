@@ -1,6 +1,5 @@
 // Typography Scale & Document Root Layout
-h1,
-.title.is-1 {
+h1 {
   font-family: var(--tf-font-heading);
   font-size: var(--tf-font-size-h1);
   font-weight: 800;
@@ -8,13 +7,11 @@ h1,
   color: var(--tf-color-red);
 }
 @media screen and (max-width: 768px) {
-  h1,
-  .title.is-1 {
+  h1 {
     font-size: var(--tf-font-size-h1-mobile);
   }
 }
-h2,
-.title.is-2 {
+h2 {
   font-family: var(--tf-font-heading);
   font-size: var(--tf-font-size-h2);
   font-weight: 800;
@@ -28,9 +25,6 @@ h3,
   font-size: var(--tf-font-size-h3);
   font-weight: 700;
   color: var(--tf-color-subhead);
-}
-.tf-text-title-dark {
-  color: var(--tf-text-title-dark);
 }
 
 html,

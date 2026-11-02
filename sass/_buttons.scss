@@ -33,22 +33,20 @@
 }
 
 .tf-btn-primary,
-.tf-btn-color,
-.tf-btn-danger,
-.tf-btn-red {
+.tf-btn-danger {
   background-color: var(--tf-color-red, #bf3444);
   color: var(--tf-color-white, #ffffff);
 }
-:is(.tf-btn-primary, .tf-btn-color, .tf-btn-danger, .tf-btn-red, .tf-btn-pill-red)::before {
+:is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red)::before {
   background: linear-gradient(90deg, #bf3444 25%, #ff4949 80%);
 }
-:is(.tf-btn-primary, .tf-btn-color, .tf-btn-danger, .tf-btn-red, .tf-btn-pill-red):hover::before {
+:is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red):hover::before {
   opacity: 1;
 }
-:is(.tf-btn-primary, .tf-btn-color, .tf-btn-danger, .tf-btn-red, .tf-btn-pill-red):active {
+:is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red):active {
   background-color: #ff4949;
 }
-:is(.tf-btn-primary, .tf-btn-color, .tf-btn-danger, .tf-btn-red, .tf-btn-pill-red):active::before {
+:is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red):active::before {
   background: #ff4949;
   opacity: 1;
 }
