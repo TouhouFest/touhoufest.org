@@ -967,6 +967,10 @@
     :is(.home-announcement-divider, .home-venue-divider) {
       background-color: var(--tf-surface, #30293e);
     }
+    :is(.home-stickers-streamer, .home-bottom-streamer, .home-pillars-streamer) {
+      width: 192.67px;
+      background-image: url("img/home/star-streamer-dark.svg");
+    }
     .home-hero-glass-card {
       border-color: var(--tf-accent, #f9c650);
     }
