@@ -82,7 +82,7 @@
 <h3 class="cosplay-workshop-card__title">{{ item.title }}</h3>
 <div class="cosplay-workshop-card__image-pad">
 <div class="cosplay-workshop-card__image-frame">
-<img src="{{ <img_url path={item.image} /> }}" alt="{{ item.image_alt }}" class="cosplay-workshop-card__image cosplay-workshop-card__image--{{ loop.index }}" loading="lazy" decoding="async">
+<img src="{{ <img_url path={item.image} max_width={960} /> }}" alt="{{ item.image_alt }}" class="cosplay-workshop-card__image cosplay-workshop-card__image--{{ loop.index }}" loading="lazy" decoding="async">
 </div>
 </div>
 </div>
@@ -123,7 +123,7 @@
 <article class="cosplay-category-card">
 <div class="cosplay-category-card__top">
 <div class="cosplay-category-card__image-frame">
-<img src="{{ <img_url path={cat.image} /> }}" alt="{{ cat.image_alt }}" class="cosplay-category-card__image cosplay-category-card__image--{{ cat.key }}" loading="lazy" decoding="async">
+<img src="{{ <img_url path={cat.image} max_width={960} /> }}" alt="{{ cat.image_alt }}" class="cosplay-category-card__image cosplay-category-card__image--{{ cat.key }}" loading="lazy" decoding="async">
 </div>
 <h4 class="cosplay-category-card__title">{{ cat.title }}</h4>
 <p class="cosplay-category-card__desc">{{ cat.description }}</p>
@@ -220,7 +220,7 @@
 <div class="cosplay-guest-card__portrait-frame">
 <img src="{{ <img_url path="img/guests/avatar_ring_red.svg" /> }}" alt="" class="cosplay-guest-card__circle-bg" loading="lazy" decoding="async">
 <div class="cosplay-guest-card__photo-wrap">
-<img src="{{ <img_url path={guest.image} /> }}" alt="{{ guest.name }}" class="cosplay-guest-card__photo" loading="lazy" decoding="async">
+<img src="{{ <img_url path={guest.image} max_width={480} /> }}" alt="{{ guest.name }}" class="cosplay-guest-card__photo" loading="lazy" decoding="async">
 </div>
 </div>
 </div>

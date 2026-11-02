@@ -36,7 +36,7 @@
 {% set sched = load_data(path="data/schedule.yml") %}
 <div class="schedule-layout">
 <div class="schedule-phones-section">
-  <img src="{{ <img_url path={sched.phones_preview.image} /> }}" alt="{{ sched.phones_preview.alt }}" width="850" height="486" class="schedule-phones-composite" fetchpriority="high">
+  <img src="{{ <img_url path={sched.phones_preview.image} max_width={1700} /> }}" alt="{{ sched.phones_preview.alt }}" width="850" height="486" class="schedule-phones-composite" fetchpriority="high">
 </div>
 <div class="schedule-container">
   <div class="tf-fcard hero-module-card schedule-badge-card">
@@ -44,7 +44,7 @@
   <div class="hero-gohei-left card-gohei-trim-left" aria-hidden="true"></div>
   <div class="hero-gohei-right card-gohei-trim-right" aria-hidden="true"></div>
   <div class="hero-card-image-wrap schedule-badge-art">
-  <img src="{{ <img_url path={sched.badge_cta.image} /> }}" alt="{{ sched.badge_cta.alt }}" width="306" height="287" class="schedule-badge-img" loading="lazy" decoding="async">
+  <img src="{{ <img_url path={sched.badge_cta.image} max_width={960} /> }}" alt="{{ sched.badge_cta.alt }}" width="306" height="287" class="schedule-badge-img" loading="lazy" decoding="async">
   </div>
   <div class="hero-card-content schedule-badge-info">
   <h2 class="hero-card-title schedule-badge-title desktop-title">{{ sched.badge_cta.desktop_title }}</h2>

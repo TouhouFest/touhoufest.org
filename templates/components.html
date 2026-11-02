@@ -1,8 +1,12 @@
-{% component img_url(path, quality=85) -%}
+{% component img_url(path, quality=85, max_width=2880) -%}
 {%- set ext = path | split(pat=".") | last | lower -%}
 {%- if ext == "png" or ext == "jpg" or ext == "jpeg" or ext == "jfif" -%}
 {%- set meta = get_image_metadata(path=path) -%}
+{%- if meta.width > max_width or meta.height > max_width -%}
+{%- set processed = resize_image(path=path, width=max_width, height=max_width, op="fit", format="webp", quality=quality) -%}
+{%- else -%}
 {%- set processed = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format="webp", quality=quality) -%}
+{%- endif -%}
 {{ processed.url | safe }}
 {%- else -%}
 {{ get_url(path=path, cachebust=true) | safe }}
@@ -233,9 +237,9 @@ document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el
 <div class="hero-card-inner">
 <div class="hero-card-image-wrap">
 {%- if image %}
-<img src="{{ <img_url path={image} /> }}" alt="{{ title }}" loading="lazy" decoding="async" />
+<img src="{{ <img_url path={image} max_width={960} /> }}" alt="{{ title }}" loading="lazy" decoding="async" />
 {%- else %}
-<img src="{{ <img_url path="img/badge_teaser.png" /> }}" alt="{{ title }}" loading="lazy" decoding="async" />
+<img src="{{ <img_url path="img/badge_teaser.png" max_width={960} /> }}" alt="{{ title }}" loading="lazy" decoding="async" />
 {%- endif %}
 </div>
 <div class="hero-card-content">

@@ -87,9 +87,9 @@
 <div class="ev-polaroid-rot">
 <div class="ev-polaroid-frame tf-mod-polaroid tf-mod-polaroid--md">
 <div class="ev-polaroid-photo tf-mod-polaroid-photo">
-<img src="{{ <img_url path={p.src} /> }}" alt="{{ p.alt }}" class="ev-polaroid-img" loading="lazy" decoding="async">
+<img src="{{ <img_url path={p.src} max_width={960} /> }}" alt="{{ p.alt }}" class="ev-polaroid-img" loading="lazy" decoding="async">
 {% if p.overlay_src is defined -%}
-<img src="{{ <img_url path={p.overlay_src} /> }}" alt="" class="ev-polaroid-img" loading="lazy" decoding="async">
+<img src="{{ <img_url path={p.overlay_src} max_width={960} /> }}" alt="" class="ev-polaroid-img" loading="lazy" decoding="async">
 {% endif -%}
 </div>
 <div class="ev-polaroid-dots tf-mod-polaroid-dots" aria-hidden="true">
@@ -158,7 +158,7 @@
 </div>
 </div>
 <div class="ev-hotel-photo-wrap">
-<img src="{{ <img_url path={card.image} /> }}" alt="{{ card.image_alt }}" class="ev-hotel-photo-img" loading="lazy" decoding="async">
+<img src="{{ <img_url path={card.image} max_width={640} /> }}" alt="{{ card.image_alt }}" class="ev-hotel-photo-img" loading="lazy" decoding="async">
 </div>
 </div>
 {% else %}
@@ -199,7 +199,7 @@
 <div class="ev-badge-img-col">
 <div class="ev-badge-img-aspect">
 <div class="ev-badge-img-shadow">
-<img src="{{ <img_url path={ev.badge_cta.image} /> }}" alt="{{ ev.badge_cta.image_alt }}" class="ev-badge-img" loading="lazy" decoding="async">
+<img src="{{ <img_url path={ev.badge_cta.image} max_width={960} /> }}" alt="{{ ev.badge_cta.image_alt }}" class="ev-badge-img" loading="lazy" decoding="async">
 </div>
 </div>
 </div>

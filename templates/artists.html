@@ -26,7 +26,7 @@
 {% for artist in data.featured %}
 <article class="tf-artists-feat-card">
 <div class="tf-artists-feat-art">
-<img class="tf-artists-feat-img" src="{{ <img_url path={artist.image} /> }}" alt="{{ artist.name }}" loading="lazy" decoding="async" />
+<img class="tf-artists-feat-img" src="{{ <img_url path={artist.image} max_width={960} /> }}" alt="{{ artist.name }}" loading="lazy" decoding="async" />
 </div>
 <div class="tf-artists-feat-content">
 <div class="tf-artists-feat-headline">
@@ -107,9 +107,9 @@
 </div>
 <div class="tf-artists-roster-avatar">
 {% if artist.bg_image %}
-<img src="{{ <img_url path={artist.bg_image} /> }}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+<img src="{{ <img_url path={artist.bg_image} max_width={480} /> }}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
 {% endif %}
-<img src="{{ <img_url path={artist.image} /> }}" alt="{{ artist.name }}" loading="lazy" decoding="async" />
+<img src="{{ <img_url path={artist.image} max_width={480} /> }}" alt="{{ artist.name }}" loading="lazy" decoding="async" />
 </div>
 </div>
 <p class="tf-artists-roster-table">{{ artist.table }}</p>
@@ -180,7 +180,7 @@
 <div class="tf-artists-polaroid-rot">
 <div class="tf-artists-polaroid-card tf-mod-polaroid tf-mod-polaroid--sm">
 <div class="tf-artists-polaroid-photo tf-mod-polaroid-photo">
-<img class="tf-artists-polaroid-photo-fg" src="{{ <img_url path={item.image} /> }}" alt="{{ item.lines | join(sep=' ') }}" loading="lazy" decoding="async" />
+<img class="tf-artists-polaroid-photo-fg" src="{{ <img_url path={item.image} max_width={640} /> }}" alt="{{ item.lines | join(sep=" ") }}" loading="lazy" decoding="async" />
 </div>
 <div class="tf-artists-polaroid-dots tf-mod-polaroid-dots">
 <img src="{{ <img_url path="img/shared/polaroid_dots.svg" /> }}" alt="" aria-hidden="true" />
