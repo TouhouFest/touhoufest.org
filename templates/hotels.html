@@ -1,106 +1,112 @@
 {% extends "base.html" %}
-
 {% block header %}
-{{ <page_header title={page.title} subtitle="" image={page.extra.hero_image} hide_bottom_wave={true} extra_class="tf-hero-banner page-hero-hotels" /> }}
+  {{ <page_header title={page.title} subtitle="" image={page.extra.hero_image} hide_bottom_wave={true} extra_class="tf-hero-banner page-hero-hotels" /> }}
 {% endblock header %}
-
 {% block content %}
-{%- set hotel_data = load_data(path="data/hotels.yml") -%}
-<div class="hotels-page-container">
-<div class="hotels-main-group has-spacing-card">
-{%- if hotel_data.intro_blocks %}
-{%- for block in hotel_data.intro_blocks %}
-<div class="hotels-intro-block has-spacing-card">
-<h2 class="tf-heading tf-heading--2 hotels-heading">{{ block.heading }}</h2>
-{%- if block.lead %}
-<p class="tf-narrative tf-narrative--lead hotels-lead">{{ block.lead | safe }}</p>
-{%- endif %}
-{%- if block.sublead %}
-<p class="tf-narrative hotels-sublead">{{ block.sublead | safe }}</p>
-{%- endif %}
-</div>
-{%- endfor %}
-{%- endif %}
-{%- for hotel in hotel_data.hotels %}
-<div class="hotel-block-card is-radius-md hotel-card-{{ loop.index }}">
-<div class="hotel-block-photo is-radius-md">
-<div class="hotel-block-inner">
-<div class="hotel-block-ribbon" aria-hidden="true"></div>
-<div class="hotel-block-body">
-<div class="hotel-block-copy">
-<h3 class="hotel-block-title">{{ hotel.name | replace(from="/", to="/&#8203;") | safe }}</h3>
-<p class="hotel-block-desc">{{ hotel.description }}</p>
-<div class="hotel-block-details">
-{%- if hotel.address %}
-<div class="hotel-info-pill is-radius-pill has-spacing-sm is-address">
-<span class="tf-icon tf-icon-pin"></span>
-<span>{{ hotel.address }}</span>
-</div>
-{%- endif %}
-{%- if hotel.phone %}
-<a href="tel:{{ hotel.phone | replace(from=" ", to="") | replace(from="(", to="") | replace(from=")", to="") | replace(from="-", to="") }}" class="hotel-info-pill is-radius-pill has-spacing-sm is-phone">
-<span class="tf-icon tf-icon-phone"></span>
-<span>{{ hotel.phone }}</span>
-</a>
-{%- endif %}
-</div>
-</div>
-<div class="hotel-block-action">
-<a href="{{ hotel.booking_url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-btn-danger">
-<span>{{ hotel.button_text | default(value="Book now") }}</span>
-<span class="tf-icon tf-icon-chevron-right"></span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-{%- endfor %}
-</div>
-{%- if hotel_data.badge_cta or hotel_data.teasers %}
-<div class="hotels-late-group has-spacing-card">
-{%- if hotel_data.badge_cta %}
-{{ <hero_card title={hotel_data.badge_cta.title} mobile_title={hotel_data.badge_cta.mobile_title | default(value="")} image={hotel_data.badge_cta.image} url={hotel_data.badge_cta.url} button_text={hotel_data.badge_cta.button_text} extra_class="hotels-badge-card" /> }}
-{%- endif %}
-{%- if hotel_data.teasers %}
-<div class="hotels-teasers-grid tf-mod-callout-grid has-spacing-card">
-{%- for teaser in hotel_data.teasers %}
-{%- if loop.index == 1 %}
-{%- set teaser_theme = "red" -%}
-{%- set teaser_icon = "img/shared/icon_download_app.svg" -%}
-{%- else %}
-{%- set teaser_theme = "discord" -%}
-{%- set teaser_icon = "discord" -%}
-{%- endif %}
-{{ <teaser_card title={teaser.title} subtitle={teaser.subtitle} button_text={teaser.button_text} url={teaser.url} theme={teaser_theme} icon={teaser_icon} /> }}
-{%- endfor %}
-</div>
-{%- endif %}
-</div>
-{%- endif %}
-{%- if hotel_data.newsletter_cta or hotel_data.discord_cta %}
-<div class="hotels-early-group has-spacing-card">
-{%- if hotel_data.newsletter_cta %}
-{{ <newsletter extra_class="hotels-newsletter" title={hotel_data.newsletter_cta.title} subtext={hotel_data.newsletter_cta.subtext} placeholder={hotel_data.newsletter_cta.placeholder} button_text={hotel_data.newsletter_cta.button_text} /> }}
-{%- endif %}
-{%- if hotel_data.discord_cta %}
-<div class="tf-mod-callout tf-mod-callout--horiz is-discord hotels-discord">
-<div class="tf-mod-callout-icon">
-<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="Discord" />
-</div>
-<div class="tf-mod-callout-copy">
-<div class="discord-copy">
-<h2 class="tf-mod-callout-title">{{ hotel_data.discord_cta.title }}</h2>
-<p class="tf-mod-callout-desc">{{ hotel_data.discord_cta.subtext }}</p>
-</div>
-<a href="{{ hotel_data.discord_cta.url }}" target="_blank" rel="noopener noreferrer" class="tf-mod-callout-btn">
-<span>{{ hotel_data.discord_cta.button_text }}</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
-</a>
-</div>
-</div>
-{%- endif %}
-</div>
-{%- endif %}
-</div>
+  {%- set hotel_data = load_data(path="data/hotels.yml") -%}
+  <div class="hotels-page-container">
+    <div class="hotels-main-group has-spacing-card">
+      {%- if hotel_data.intro_blocks %}
+        {%- for block in hotel_data.intro_blocks %}
+          <div class="hotels-intro-block has-spacing-card">
+            <h2 class="tf-heading tf-heading--2 hotels-heading">{{ block.heading }}</h2>
+            {%- if block.lead %}
+              <p class="tf-narrative tf-narrative--lead hotels-lead">{{ block.lead | safe }}</p>
+            {%- endif %}
+            {%- if block.sublead %}
+              <p class="tf-narrative hotels-sublead">{{ block.sublead | safe }}</p>
+            {%- endif %}
+          </div>
+        {%- endfor %}
+      {%- endif %}
+      {%- for hotel in hotel_data.hotels %}
+        <div class="hotel-block-card is-radius-md hotel-card-{{ loop.index }}">
+          <div class="hotel-block-photo is-radius-md">
+            <div class="hotel-block-inner">
+              <div class="hotel-block-ribbon" aria-hidden="true"></div>
+              <div class="hotel-block-body">
+                <div class="hotel-block-copy">
+                  <h3 class="hotel-block-title">{{ hotel.name | replace(from="/", to="/&#8203;") | safe }}</h3>
+                  <p class="hotel-block-desc">{{ hotel.description }}</p>
+                  <div class="hotel-block-details">
+                    {%- if hotel.address %}
+                      <div class="hotel-info-pill is-radius-pill has-spacing-sm is-address">
+                        <span class="tf-icon tf-icon-pin"></span>
+                        <span>{{ hotel.address }}</span>
+                      </div>
+                    {%- endif %}
+                    {%- if hotel.phone %}
+                      <a href="tel:{{ hotel.phone | replace(from=' ', to='') | replace(from="(", to="") | replace(from=")", to="") | replace(from="-", to="") }}"
+                         class="hotel-info-pill is-radius-pill has-spacing-sm is-phone">
+                        <span class="tf-icon tf-icon-phone"></span>
+                        <span>{{ hotel.phone }}</span>
+                      </a>
+                    {%- endif %}
+                  </div>
+                </div>
+                <div class="hotel-block-action">
+                  <a href="{{ hotel.booking_url }}"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     class="tf-btn tf-btn-danger">
+                    <span>{{ hotel.button_text | default(value="Book now") }}</span>
+                    <span class="tf-icon tf-icon-chevron-right"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {%- endfor %}
+    </div>
+    {%- if hotel_data.badge_cta or hotel_data.teasers %}
+      <div class="hotels-late-group has-spacing-card">
+        {%- if hotel_data.badge_cta %}
+          {{ <hero_card title={hotel_data.badge_cta.title} mobile_title={hotel_data.badge_cta.mobile_title | default(value="") } image={hotel_data.badge_cta.image} url={hotel_data.badge_cta.url} button_text={hotel_data.badge_cta.button_text} extra_class="hotels-badge-card" /> }}
+        {%- endif %}
+        {%- if hotel_data.teasers %}
+          <div class="hotels-teasers-grid tf-mod-callout-grid has-spacing-card">
+            {%- for teaser in hotel_data.teasers %}
+              {%- if loop.index == 1 %}
+                {%- set teaser_theme = "red" -%}
+                {%- set teaser_icon = "img/shared/icon_download_app.svg" -%}
+              {%- else %}
+                {%- set teaser_theme = "discord" -%}
+                {%- set teaser_icon = "discord" -%}
+              {%- endif %}
+              {{ <teaser_card title={teaser.title} subtitle={teaser.subtitle} button_text={teaser.button_text} url={teaser.url} theme={teaser_theme} icon={teaser_icon} /> }}
+            {%- endfor %}
+          </div>
+        {%- endif %}
+      </div>
+    {%- endif %}
+    {%- if hotel_data.newsletter_cta or hotel_data.discord_cta %}
+      <div class="hotels-early-group has-spacing-card">
+        {%- if hotel_data.newsletter_cta %}
+          {{ <newsletter extra_class="hotels-newsletter" title={hotel_data.newsletter_cta.title} subtext={hotel_data.newsletter_cta.subtext} placeholder={hotel_data.newsletter_cta.placeholder} button_text={hotel_data.newsletter_cta.button_text} /> }}
+        {%- endif %}
+        {%- if hotel_data.discord_cta %}
+          <div class="tf-mod-callout tf-mod-callout--horiz is-discord hotels-discord">
+            <div class="tf-mod-callout-icon">
+              <img src="{{ <img_url path="img/discord_card_icon.svg" /> }}"
+                   alt="Discord" />
+            </div>
+            <div class="tf-mod-callout-copy">
+              <div class="discord-copy">
+                <h2 class="tf-mod-callout-title">{{ hotel_data.discord_cta.title }}</h2>
+                <p class="tf-mod-callout-desc">{{ hotel_data.discord_cta.subtext }}</p>
+              </div>
+              <a href="{{ hotel_data.discord_cta.url }}"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="tf-mod-callout-btn">
+                <span>{{ hotel_data.discord_cta.button_text }}</span>
+                <span class="tf-icon tf-icon-chevron-right ml-1"></span>
+              </a>
+            </div>
+          </div>
+        {%- endif %}
+      </div>
+    {%- endif %}
+  </div>
 {% endblock content %}

@@ -69,10 +69,7 @@
 :is(.register-link, .cosplay-rules-link) {
   font-weight: 400;
   text-decoration: underline;
-  transition:
-    color 300ms ease-out,
-    background-color 100ms ease-out,
-    opacity 300ms ease-out;
+  transition: color 300ms ease-out, background-color 100ms ease-out, opacity 300ms ease-out;
 }
 .register-link {
   color: var(--tf-accent, #bf3444);
@@ -335,14 +332,12 @@
   position: relative;
   overflow: hidden;
   --tf-reg-card-grad: #fcf1e8;
-  @each $mod, $h,
-    $svg
-      in (
-        (3col, 283px, $svg-register-gradient-3col),
-        (2col, 296px, $svg-register-gradient-2col),
-        (team, 275px, $svg-register-gradient-team)
-      )
-  {
+  @each $mod, $h, $svg in
+    (
+      (3col, 283px, $svg-register-gradient-3col),
+      (2col, 296px, $svg-register-gradient-2col),
+      (team, 275px, $svg-register-gradient-team)
+    ) {
     &.is-#{$mod} {
       height: $h;
       min-height: $h;
@@ -673,9 +668,7 @@
     }
   }
   .register-hero-card {
-    box-shadow:
-      0 4px 22px 0 rgba(249, 198, 80, 0.35),
-      3px 4px 13px 0 rgba(99, 15, 40, 0.15);
+    box-shadow: 0 4px 22px 0 rgba(249, 198, 80, 0.35), 3px 4px 13px 0 rgba(99, 15, 40, 0.15);
     &::before {
       background: linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%);
     }

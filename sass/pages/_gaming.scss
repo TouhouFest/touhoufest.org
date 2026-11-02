@@ -40,19 +40,13 @@ body:has(.gaming-page-shell) {
     @include tf-h3;
   }
   :is(.prize-title.gaming-prize-title, .wave-header.gaming-wave-header) {
-    font:
-      700 20px / 1.2 "Poppins",
-      sans-serif;
+    font: 700 20px / 1.2 "Poppins", sans-serif;
   }
   :is(.arcade-cabinet-btn, .prize-subtitle.gaming-prize-subtitle) {
-    font:
-      700 16px / 1.3 "Open Sans",
-      sans-serif;
+    font: 700 16px / 1.3 "Open Sans", sans-serif;
   }
   :is(.gaming-item-link, .prize-link.gaming-prize-jumplink, .gaming-wave-item-text) {
-    font:
-      500 18px / 1.1 "Poppins",
-      sans-serif;
+    font: 500 18px / 1.1 "Poppins", sans-serif;
     text-decoration: underline;
   }
   :is(.gaming-item-image-wrap, .gaming-badge-cta-wrap) {
@@ -189,9 +183,7 @@ body:has(.gaming-page-shell) {
     padding: 14px 39px 14px 47px;
     border-radius: 35px;
     border: none;
-    font:
-      500 18px / 1.1 "Poppins",
-      sans-serif;
+    font: 500 18px / 1.1 "Poppins", sans-serif;
     box-shadow: none;
     transform: none;
     > span:first-child {
@@ -238,9 +230,7 @@ body:has(.gaming-page-shell) {
     padding: 7px 15px 7px 7px;
     border: 1px solid var(--tf-ink);
     border-radius: 40px;
-    font:
-      400 14px / 1.3 "Open Sans",
-      sans-serif;
+    font: 400 14px / 1.3 "Open Sans", sans-serif;
     color: var(--tf-ink);
     margin: 0;
     background: transparent;
@@ -292,9 +282,7 @@ body:has(.gaming-page-shell) {
     width: 100%;
   }
   .gaming-item-overline {
-    font:
-      700 20px / 1.1 "Open Sans",
-      sans-serif;
+    font: 700 20px / 1.1 "Open Sans", sans-serif;
     margin: 0;
   }
   .gaming-item-title {
@@ -859,7 +847,9 @@ body:has(.gaming-page-shell) {
       background-color: var(--tf-surface-card);
     }
     .gaming-badge-cta-gradient {
-      background: linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%), #373852;
+      background:
+        linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%),
+        #373852;
     }
     .tf-mod-callout.is-discord .tf-mod-callout-icon.gaming-discord-icon-box {
       background-color: var(--tf-btn-ko-bg);

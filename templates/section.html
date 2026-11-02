@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block header %}
   {% if not section.extra.hide_header %}
     {%- set hero_img = section.extra.hero_image | default(value=section.extra.image | default(value="")) -%}
@@ -7,9 +6,8 @@
     {{ <page_header title={section.title} image={hero_img} extra_class={hero_class} /> }}
   {% endif %}
 {% endblock header %}
-
 {% block content %}
-<div class="page-body-container container{% if section.extra.container_class %} {{ section.extra.container_class }}{% endif %}">
-  {{ section.content | safe }}
-</div>
+  <div class="page-body-container container{% if section.extra.container_class %} {{ section.extra.container_class }}{% endif %}">
+    {{ section.content | safe }}
+  </div>
 {% endblock content %}

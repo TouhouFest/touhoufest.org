@@ -9,7 +9,6 @@
   {%- set meta_title = config.title | default(value=site_name) -%}
   {%- set og_type = "website" -%}
 {%- endif -%}
-
 {%- if page is defined and page.description -%}
   {%- set meta_desc = page.description -%}
 {%- elif section is defined and section.description -%}
@@ -17,7 +16,6 @@
 {%- else -%}
   {%- set meta_desc = config.description | default(value="") -%}
 {%- endif -%}
-
 {%- if page is defined and page.extra.hero_image -%}
   {%- set og_img_path = page.extra.hero_image -%}
 {%- elif page is defined and page.image -%}
@@ -25,28 +23,31 @@
 {%- else -%}
   {%- set og_img_path = config.extra.default_og_image | default(value="banner.png") -%}
 {%- endif -%}
-
 {% if meta_desc %}
   <meta name="description" content="{{ meta_desc }}">
 {% endif %}
-  <meta property="og:site_name" content="{{ site_name }}">
-  <meta property="og:title" content="{{ meta_title }}">
-  <meta property="og:type" content="{{ og_type }}">
+<meta property="og:site_name" content="{{ site_name }}">
+<meta property="og:title" content="{{ meta_title }}">
+<meta property="og:type" content="{{ og_type }}">
 {% if meta_desc %}
   <meta property="og:description" content="{{ meta_desc }}">
 {% endif %}
 {% if current_url is defined %}
   <meta property="og:url" content="{{ current_url | safe }}">
 {% endif %}
-  <meta property="og:image" content="{{ <img_url path={og_img_path} format="webp" quality={85} /> }}">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@TouhouFest">
-  <meta name="twitter:title" content="{{ meta_title }}">
+<meta property="og:image"
+      content="{{ <img_url path={og_img_path} format="webp" quality={85} /> }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@TouhouFest">
+<meta name="twitter:title" content="{{ meta_title }}">
 {% if meta_desc %}
   <meta name="twitter:description" content="{{ meta_desc }}">
 {% endif %}
-  <meta name="twitter:image" content="{{ <img_url path={og_img_path} format="webp" quality={85} /> }}">
+<meta name="twitter:image"
+      content="{{ <img_url path={og_img_path} format="webp" quality={85} /> }}">
 {% if page is defined and page.date %}
-  <meta content="{{ page.date | date(format="%+") }}" property="article:published_time">
-  <meta content="{{ get_url(path="/about/event/") }}" property="article:author">
+  <meta content="{{ page.date | date(format='%+') }}"
+        property="article:published_time">
+  <meta content="{{ get_url(path='/about/event/') }}"
+        property="article:author">
 {% endif %}

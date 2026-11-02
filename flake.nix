@@ -42,9 +42,9 @@
           packages = with pkgs; [
             zola
             dprint
+            djlint
             just
             lychee
-            prettier
             imagemagick
             (python3.withPackages (ps: with ps; [
               pillow

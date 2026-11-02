@@ -228,19 +228,17 @@
   position: relative;
   z-index: 2;
 }
-@each $i, $w, $h,
-  $r
-    in (
-      1 252.91px 290.029px -5deg,
-      2 234.861px 274.976px 1deg,
-      3 234.861px 274.976px -1deg,
-      4 244.034px 282.675px -3deg,
-      5 244.034px 282.675px 3deg,
-      6 234.861px 274.976px -1deg,
-      7 252.91px 290.029px 5deg,
-      8 257.233px 293.574px -6deg
-    )
-{
+@each $i, $w, $h, $r in
+  (
+    1 252.91px 290.029px -5deg,
+    2 234.861px 274.976px 1deg,
+    3 234.861px 274.976px -1deg,
+    4 244.034px 282.675px -3deg,
+    5 244.034px 282.675px 3deg,
+    6 234.861px 274.976px -1deg,
+    7 252.91px 290.029px 5deg,
+    8 257.233px 293.574px -6deg
+  ) {
   .ev-polaroid-slot:nth-child(#{$i}) {
     width: $w;
     height: $h;

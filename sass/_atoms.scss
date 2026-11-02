@@ -14,9 +14,7 @@
   padding: 1.5rem;
   box-shadow: var(--tf-shadow-card);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  transition:
-    transform 200ms ease-out,
-    box-shadow 200ms ease-out;
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
   height: 100%;
   @include flex-column;
 }

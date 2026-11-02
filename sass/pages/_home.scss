@@ -53,9 +53,8 @@ $home-tx: 300ms ease-out;
     position: absolute;
     max-width: none;
   }
-  @each $pos, $l, $t, $w,
-    $h in (left 0 0 100px 100px, center 0 -2.95px 100px 114px, right -2.23px -3.8px 103px 106px)
-  {
+  @each $pos, $l, $t, $w, $h in
+    (left 0 0 100px 100px, center 0 -2.95px 100px 114px, right -2.23px -3.8px 103px 106px) {
     .sticker-icon-#{$pos} .sticker-icon-img {
       left: $l;
       top: $t;
@@ -131,9 +130,7 @@ $home-tx: 300ms ease-out;
   }
 
   .home-cta-label {
-    font:
-      600 18px / 1.1 "Poppins",
-      sans-serif;
+    font: 600 18px / 1.1 "Poppins", sans-serif;
     text-decoration: underline;
     text-underline-position: from-font;
     text-underline-offset: auto;
@@ -206,17 +203,13 @@ $home-tx: 300ms ease-out;
   }
 
   .home-hero-title {
-    font:
-      800 56px / 1.1 "Poppins",
-      sans-serif;
+    font: 800 56px / 1.1 "Poppins", sans-serif;
     letter-spacing: 0;
     color: #fffde7;
     margin: 0;
   }
   .home-hero-date {
-    font:
-      700 20px / 1.1 "Open Sans",
-      sans-serif;
+    font: 700 20px / 1.1 "Open Sans", sans-serif;
     color: #fbf7eb;
     margin: 8px 0 24px;
   }
@@ -483,9 +476,7 @@ $home-tx: 300ms ease-out;
     padding: 11px 12px 54px 11px;
     filter: none;
     transform: rotate(5deg);
-    transition:
-      transform $home-tx,
-      box-shadow $home-tx;
+    transition: transform $home-tx, box-shadow $home-tx;
     &:hover {
       transform: rotate(5deg);
     }

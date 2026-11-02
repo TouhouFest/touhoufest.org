@@ -2,13 +2,15 @@
 default:
     @just --list
 
-# Format Markdown, YAML, and JSON files
+# Format Markdown, YAML, JSON, SCSS, and Tera templates
 fmt:
     dprint fmt
+    djlint --reformat templates/
 
 # Run static analysis and formatting checks
 check:
     dprint check
+    djlint --check templates/
     zola check --skip-external-links
 
 # Check all links (internal and external)

@@ -4,75 +4,135 @@
 <header class="tf-header">
   <div class="tf-nav-surface">
     <nav class="tf-nav-inner" role="navigation" aria-label="main navigation">
-      <a class="tf-logo-lockup" href="{{ get_url(path='') }}" aria-label="{{ config.extra.site_name | default(value='TouhouFest') }}">
+      <a class="tf-logo-lockup"
+         href="{{ get_url(path='') }}"
+         aria-label="{{ config.extra.site_name | default(value='TouhouFest') }}">
         <span class="tf-logo-banner-wrap">
-          <img src="{{ <img_url path="banner.svg" /> }}" alt="{{ config.extra.site_name | default(value='TouhouFest') }}">
+          <img src="{{ <img_url path="banner.svg" /> }}"
+               alt="{{ config.extra.site_name | default(value='TouhouFest') }}">
         </span>
         <span class="tf-logo-dates">{{ <event_date /> }}</span>
       </a>
-
-      <button type="button" class="navbar-burger tf-mobile-burger" aria-label="menu" aria-expanded="false" data-target="tf-navbar-menu">
-        <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="0" y="0" width="28" height="4" rx="2" fill="currentColor"/>
-          <rect x="0" y="10" width="28" height="4" rx="2" fill="currentColor"/>
-          <rect x="0" y="20" width="28" height="4" rx="2" fill="currentColor"/>
+      <button type="button"
+              class="navbar-burger tf-mobile-burger"
+              aria-label="menu"
+              aria-expanded="false"
+              data-target="tf-navbar-menu">
+        <svg width="28"
+             height="24"
+             viewBox="0 0 28 24"
+             fill="none"
+             xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true">
+          <rect x="0" y="0" width="28" height="4" rx="2" fill="currentColor" />
+          <rect x="0" y="10" width="28" height="4" rx="2" fill="currentColor" />
+          <rect x="0" y="20" width="28" height="4" rx="2" fill="currentColor" />
         </svg>
       </button>
-
       <div class="tf-nav-right">
         <div class="tf-nav-socials">
-          <a href="{{ config.extra.socials.discord_invite | default(value='https://discord.gg/touhoufest') }}" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+          <a href="{{ config.extra.socials.discord_invite | default(value='https://discord.gg/touhoufest') }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Discord">
             <span class="tf-icon tf-icon-discord"></span>
           </a>
-          <a href="{{ config.extra.socials.bluesky | default(value='https://bsky.app/profile/touhoufest.org') }}" target="_blank" rel="noopener noreferrer" aria-label="Bluesky" class="is-soft-social">
+          <a href="{{ config.extra.socials.bluesky | default(value='https://bsky.app/profile/touhoufest.org') }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Bluesky"
+             class="is-soft-social">
             <span class="tf-icon tf-icon-bluesky"></span>
           </a>
-          <a href="{{ config.extra.socials.instagram | default(value='https://www.instagram.com/touhoufest') }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="{{ config.extra.socials.instagram | default(value='https://www.instagram.com/touhoufest') }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Instagram">
             <span class="tf-icon tf-icon-instagram"></span>
           </a>
-          <a href="{{ config.extra.socials.youtube | default(value='https://www.youtube.com/@touhoufestofficial') }}" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <a href="{{ config.extra.socials.youtube | default(value='https://www.youtube.com/@touhoufestofficial') }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="YouTube">
             <span class="tf-icon tf-icon-youtube"></span>
           </a>
-          <a href="https://www.facebook.com/touhoufest" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="is-soft-social">
+          <a href="https://www.facebook.com/touhoufest"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Facebook"
+             class="is-soft-social">
             <span class="tf-icon tf-icon-facebook"></span>
           </a>
-          <a href="{{ config.extra.socials.twitter | default(value='https://twitter.com/TouhouFest') }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="is-soft-social">
+          <a href="{{ config.extra.socials.twitter | default(value='https://twitter.com/TouhouFest') }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Twitter"
+             class="is-soft-social">
             <span class="tf-icon tf-icon-twitter-bird"></span>
           </a>
         </div>
-
         <div class="tf-nav-menu-row">
           <a class="tf-nav-link" href="{{ get_url(path='register') }}">
-            <span>Registration &amp;<br>Applications</span>
+            <span>Registration &amp;
+              <br>
+            Applications</span>
           </a>
-          <a class="tf-nav-link has-chevron" href="{{ get_url(path='about/event') }}">
+          <a class="tf-nav-link has-chevron"
+             href="{{ get_url(path='about/event') }}">
             <span>About</span>
-            <svg class="tf-nav-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg class="tf-nav-chevron"
+                 width="12"
+                 height="8"
+                 viewBox="0 0 12 8"
+                 fill="none"
+                 xmlns="http://www.w3.org/2000/svg"
+                 aria-hidden="true">
+              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-          <a class="tf-nav-link has-chevron" href="{{ get_url(path='features/guests') }}">
-            <span>Guests &amp;<br>Features</span>
-            <svg class="tf-nav-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          <a class="tf-nav-link has-chevron"
+             href="{{ get_url(path='features/guests') }}">
+            <span>Guests &amp;
+              <br>
+            Features</span>
+            <svg class="tf-nav-chevron"
+                 width="12"
+                 height="8"
+                 viewBox="0 0 12 8"
+                 fill="none"
+                 xmlns="http://www.w3.org/2000/svg"
+                 aria-hidden="true">
+              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
           <a class="tf-nav-link has-chevron" href="{{ get_url(path='artists') }}">
-            <span>Artists &amp;<br>Vendors</span>
-            <svg class="tf-nav-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <span>Artists &amp;
+              <br>
+            Vendors</span>
+            <svg class="tf-nav-chevron"
+                 width="12"
+                 height="8"
+                 viewBox="0 0 12 8"
+                 fill="none"
+                 xmlns="http://www.w3.org/2000/svg"
+                 aria-hidden="true">
+              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-          <a class="tf-nav-link" href="https://amp-organization.com/online-store/touhoufest-collection" target="_blank" rel="noopener noreferrer">
+          <a class="tf-nav-link"
+             href="https://amp-organization.com/online-store/touhoufest-collection"
+             target="_blank"
+             rel="noopener noreferrer">
             <span>TouhouFest Merch</span>
           </a>
           <a class="tf-nav-link" href="{{ get_url(path='intro') }}">
-            <span>Intro to<br>Touhou Project</span>
+            <span>Intro to
+              <br>
+            Touhou Project</span>
           </a>
         </div>
       </div>
     </nav>
-
     <div id="tf-navbar-menu" class="navbar-menu tf-mobile-drawer">
       <a class="tf-mobile-link" href="{{ get_url(path='register') }}">Registration &amp; Applications</a>
       <a class="tf-mobile-link" href="{{ get_url(path='about/event') }}">About</a>
@@ -80,7 +140,10 @@
       <a class="tf-mobile-link" href="{{ get_url(path='schedule') }}">Schedule</a>
       <a class="tf-mobile-link" href="{{ get_url(path='features/guests') }}">Guests &amp; Features</a>
       <a class="tf-mobile-link" href="{{ get_url(path='artists') }}">Artists &amp; Vendors</a>
-      <a class="tf-mobile-link" href="https://amp-organization.com/online-store/touhoufest-collection" target="_blank" rel="noopener noreferrer">TouhouFest Merch</a>
+      <a class="tf-mobile-link"
+         href="https://amp-organization.com/online-store/touhoufest-collection"
+         target="_blank"
+         rel="noopener noreferrer">TouhouFest Merch</a>
       <a class="tf-mobile-link" href="{{ get_url(path='intro') }}">Intro to Touhou Project</a>
     </div>
   </div>

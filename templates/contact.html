@@ -1,88 +1,107 @@
 {% extends "base.html" %}
-
-{% block header %}{% endblock header %}
-
+{% block header %}
+{% endblock header %}
 {% block content %}
-{%- set cdata = load_data(path="data/contact.yml") -%}
-<div class="page-body-fullbleed">
-<div class="tf-contact-page">
-<section class="page-hero-banner contact-hero-section">
-<div class="contact-hero-inner">
-<div class="hero-title-box page-hero-title-box contact-hero-box">
-<div class="contact-hero-copy-wrap">
-<h1 class="page-hero-title contact-hero-title">{{ cdata.hero.title }}</h1>
-<div class="page-hero-body contact-hero-copy">
-<p class="contact-hero-lead">{{ cdata.hero.lead }}</p>
-<p class="contact-hero-refund">{{ cdata.hero.refund_prefix }} <a href="{{ cdata.hero.refund_url }}">{{ cdata.hero.refund_link_text }}</a>{{ cdata.hero.refund_suffix }}</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<div class="contact-form-container">
-<form class="contact-form" action="#" method="post" onsubmit="return false;">
-{%- for field in cdata.fields %}
-<div class="tf-form-field">
-<div class="tf-field-label-row">
-<div class="tf-field-label-main">
-<label class="tf-form-label" for="{{ field.id }}">{{ field.label }}</label>
-{%- if field.required %}<span class="tf-required-star">*</span>{% endif -%}
-</div>
-{%- if field.required %}<span class="tf-required-tag">{{ cdata.required_tag }}</span>{% endif %}
-</div>
-<input type="{{ field.type }}" id="{{ field.id }}" name="{{ field.name }}" class="tf-form-input"{% if field.required %} required{% endif %} />
-</div>
-{%- endfor %}
-<div class="tf-form-field">
-<div class="tf-select-label-row">
-<label class="tf-form-label" for="{{ cdata.reason_field.id }}">{{ cdata.reason_field.label }}</label>
-<span class="tf-required-tag">{{ cdata.required_tag }}</span>
-</div>
-<div class="tf-select-wrapper">
-<select id="{{ cdata.reason_field.id }}" name="{{ cdata.reason_field.name }}" class="tf-form-select" required>
-{%- for opt in cdata.reasons %}
-<option value="{{ opt.value }}"{% if opt.disabled %} disabled selected{% endif %}>{{ opt.label }}</option>
-{%- endfor %}
-</select>
-<span class="tf-select-chevron" aria-hidden="true"></span>
-</div>
-</div>
-<div class="tf-form-field">
-<div class="tf-field-label-row">
-<div class="tf-field-label-main">
-<label class="tf-form-label" for="{{ cdata.message_field.id }}">{{ cdata.message_field.label }}</label>
-</div>
-</div>
-<textarea id="{{ cdata.message_field.id }}" name="{{ cdata.message_field.name }}" class="tf-form-textarea" rows="6"></textarea>
-</div>
-<input type="checkbox" name="privacy" id="contact-privacy" checked hidden />
-<button type="submit" class="tf-btn tf-btn-danger tf-btn-contact-submit">
-<span class="tf-btn-label">{{ cdata.submit_text }}</span>
-<span class="tf-btn-carrot" aria-hidden="true"></span>
-</button>
-</form>
-</div>
-<div class="contact-bottom-cards">
-{%- for card in cdata.callouts %}
-<div class="contact-callout-card tf-mod-callout tf-mod-callout--horiz {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
-<div class="callout-icon-col tf-mod-callout-icon">
-<img src="{% if loop.index == 1 %}{{ <img_url path="img/shared/faq_icon.svg" /> }}{% else %}{{ <img_url path="img/discord_card_icon.svg" /> }}{% endif %}" alt="" class="callout-icon-img" width="100" height="100" />
-</div>
-<div class="callout-content-col tf-mod-callout-copy">
-<div class="callout-copy-group">
-<h2 class="callout-card-title tf-mod-callout-title">{{ card.title }}</h2>
-<p class="callout-card-desc tf-mod-callout-desc">{{ card.description }}</p>
-</div>
-<div class="callout-actions">
-<a class="tf-btn tf-btn-white tf-btn-pill-white tf-mod-callout-btn" href="{% if card.external %}{{ card.url }}{% else %}{{ get_url(path=card.url) }}{% endif %}"{% if card.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
-<span class="tf-btn-label">{{ card.button_text }}</span>
-<span class="tf-btn-carrot" aria-hidden="true"></span>
-</a>
-</div>
-</div>
-</div>
-{%- endfor %}
-</div>
-</div>
-</div>
+  {%- set cdata = load_data(path="data/contact.yml") -%}
+  <div class="page-body-fullbleed">
+    <div class="tf-contact-page">
+      <section class="page-hero-banner contact-hero-section">
+        <div class="contact-hero-inner">
+          <div class="hero-title-box page-hero-title-box contact-hero-box">
+            <div class="contact-hero-copy-wrap">
+              <h1 class="page-hero-title contact-hero-title">{{ cdata.hero.title }}</h1>
+              <div class="page-hero-body contact-hero-copy">
+                <p class="contact-hero-lead">{{ cdata.hero.lead }}</p>
+                <p class="contact-hero-refund">{{ cdata.hero.refund_prefix }} <a href="{{ cdata.hero.refund_url }}">{{ cdata.hero.refund_link_text }}</a>{{ cdata.hero.refund_suffix }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="contact-form-container">
+        <form class="contact-form"
+              action="#"
+              method="post"
+              onsubmit="return false;">
+          {%- for field in cdata.fields %}
+            <div class="tf-form-field">
+              <div class="tf-field-label-row">
+                <div class="tf-field-label-main">
+                  <label class="tf-form-label" for="{{ field.id }}">{{ field.label }}</label>
+                  {%- if field.required %}<span class="tf-required-star">*</span>{% endif -%}
+                </div>
+                {%- if field.required %}<span class="tf-required-tag">{{ cdata.required_tag }}</span>{% endif %}
+              </div>
+              <input type="{{ field.type }}"
+                     id="{{ field.id }}"
+                     name="{{ field.name }}"
+                     class="tf-form-input"
+                     {% if field.required %} required{% endif %} />
+            </div>
+          {%- endfor %}
+          <div class="tf-form-field">
+            <div class="tf-select-label-row">
+              <label class="tf-form-label" for="{{ cdata.reason_field.id }}">{{ cdata.reason_field.label }}</label>
+              <span class="tf-required-tag">{{ cdata.required_tag }}</span>
+            </div>
+            <div class="tf-select-wrapper">
+              <select id="{{ cdata.reason_field.id }}"
+                      name="{{ cdata.reason_field.name }}"
+                      class="tf-form-select"
+                      required>
+                {%- for opt in cdata.reasons %}
+                  <option value="{{ opt.value }}"
+                          {% if opt.disabled %} disabled selected{% endif %}>{{ opt.label }}</option>
+                {%- endfor %}
+              </select>
+              <span class="tf-select-chevron" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="tf-form-field">
+            <div class="tf-field-label-row">
+              <div class="tf-field-label-main">
+                <label class="tf-form-label" for="{{ cdata.message_field.id }}">{{ cdata.message_field.label }}</label>
+              </div>
+            </div>
+            <textarea id="{{ cdata.message_field.id }}"
+                      name="{{ cdata.message_field.name }}"
+                      class="tf-form-textarea"
+                      rows="6"></textarea>
+          </div>
+          <input type="checkbox" name="privacy" id="contact-privacy" checked hidden />
+          <button type="submit" class="tf-btn tf-btn-danger tf-btn-contact-submit">
+            <span class="tf-btn-label">{{ cdata.submit_text }}</span>
+            <span class="tf-btn-carrot" aria-hidden="true"></span>
+          </button>
+        </form>
+      </div>
+      <div class="contact-bottom-cards">
+        {%- for card in cdata.callouts %}
+          <div class="contact-callout-card tf-mod-callout tf-mod-callout--horiz {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
+            <div class="callout-icon-col tf-mod-callout-icon">
+              <img src="{% if loop.index == 1 %}{{ <img_url path="img/shared/faq_icon.svg" /> }}{% else %}{{ <img_url path="img/discord_card_icon.svg" /> }}{% endif %}"
+                   alt=""
+                   class="callout-icon-img"
+                   width="100"
+                   height="100" />
+            </div>
+            <div class="callout-content-col tf-mod-callout-copy">
+              <div class="callout-copy-group">
+                <h2 class="callout-card-title tf-mod-callout-title">{{ card.title }}</h2>
+                <p class="callout-card-desc tf-mod-callout-desc">{{ card.description }}</p>
+              </div>
+              <div class="callout-actions">
+                <a class="tf-btn tf-btn-white tf-btn-pill-white tf-mod-callout-btn"
+                   href="{% if card.external %}{{ card.url }}{% else %}{{ get_url(path=card.url) }}{% endif %}"
+                   {% if card.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+                  <span class="tf-btn-label">{{ card.button_text }}</span>
+                  <span class="tf-btn-carrot" aria-hidden="true"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
 {% endblock content %}

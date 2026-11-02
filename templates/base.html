@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#fbf7eb" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#221a28" media="(prefers-color-scheme: dark)">
-  <title>{% if page is defined and page.title %}{{ page.title }} | {% elif section is defined and section.title %}{{ section.title }} | {% endif %}{{ config.extra.site_name | default(value='TouhouFest') }}</title>
-  {% if current_url is defined %}
-  <link rel="canonical" href="{{ current_url | safe }}">
-  {% endif %}
-
-  {# Preload self-hosted primary fonts for instant render #}
-  <link rel="preload" href="{{ get_url(path='fonts/poppins-latin-700-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ get_url(path='fonts/open-sans-latin-400-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
-
-  {# Self-hosted theme initializer & Bulma navbar toggle #}
-  <script>{{ load_data(path="templates/js/bulma.js") | safe }}</script>
-
-  {# Single Unified Stylesheet: Vendored Bulma 1.0 + Figma Tokens + Components #}
-  <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
-
-  {% include "og_tags.html" %}
-  {% include "json_ld.html" %}
-  {% include "favicon.html" %}
-</head>
-
-<body>
-  {% include "nav.html" %}
-
-  <main>
-    {% block header %}
-    {% endblock header %}
-    {% block content %}
-    {% endblock content %}
-  </main>
-
-  {% include "footer.html" %}
-</body>
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color"
+          content="#fbf7eb"
+          media="(prefers-color-scheme: light)">
+    <meta name="theme-color"
+          content="#221a28"
+          media="(prefers-color-scheme: dark)">
+    <title>{% if page is defined and page.title %}{{ page.title }} | {% elif section is defined and section.title %}{{ section.title }} | {% endif %}{{ config.extra.site_name | default(value='TouhouFest') }}</title>
+    {% if current_url is defined %}
+      <link rel="canonical" href="{{ current_url | safe }}">
+    {% endif %}
+    {# Preload self-hosted primary fonts for instant render #}
+    <link rel="preload"
+          href="{{ get_url(path='fonts/poppins-latin-700-normal.woff2') }}"
+          as="font"
+          type="font/woff2"
+          crossorigin>
+    <link rel="preload"
+          href="{{ get_url(path='fonts/open-sans-latin-400-normal.woff2') }}"
+          as="font"
+          type="font/woff2"
+          crossorigin>
+    {# Self-hosted theme initializer & Bulma navbar toggle #}
+    <script>{{ load_data(path="templates/js/bulma.js") | safe }}</script>
+    {# Single Unified Stylesheet: Vendored Bulma 1.0 + Figma Tokens + Components #}
+    <link rel="stylesheet"
+          href="{{ get_url(path='style.css', cachebust=true) }}">
+    {% include "og_tags.html" %}
+    {% include "json_ld.html" %}
+    {% include "favicon.html" %}
+  </head>
+  <body>
+    {% include "nav.html" %}
+    <main>
+      {% block header %}
+      {% endblock header %}
+      {% block content %}
+      {% endblock content %}
+    </main>
+    {% include "footer.html" %}
+  </body>
 </html>

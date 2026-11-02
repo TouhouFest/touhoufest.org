@@ -1,253 +1,333 @@
 {% extends "base.html" %}
-
 {% block content %}
-{%- set home_data = load_data(path="data/home.yml") -%}
-{%- set start_ts = config.extra.event_start | date(format="%s") | int -%}
-{%- set end_ts = config.extra.event_end | date(format="%s") | int -%}
-{%- set num_days = (((end_ts - start_ts) / 86400) | round) + 1 -%}
-<div class="home-page-body">
-<div class="home-page-content">
-<section class="home-hero-banner">
-<img src="{{ <img_url path={home_data.hero.background_image} /> }}" srcset="{{ <img_srcset path={home_data.hero.background_image} /> }}" sizes="100vw" alt="" class="home-section-bg-img" aria-hidden="true" fetchpriority="high" />
-<div class="home-hero-vignette" aria-hidden="true"></div>
-<div class="divider-wave-bottom home-hero-divider-bottom" aria-hidden="true"></div>
-<div class="home-hero-glass-card">
-<h1 class="home-hero-title">{{ home_data.hero.title }}</h1>
-<p class="home-hero-date">{{ <event_date /> }}</p>
-<a class="tf-btn tf-btn-danger home-cta-btn" href="{{ get_url(path=home_data.hero.button_url) }}">
-<span class="home-cta-label">{{ home_data.hero.button_text }}</span>
-<span class="home-cta-chevron" aria-hidden="true"></span>
-</a>
-</div>
-</section>
-<div class="home-stickers-wrapper">
-<div class="home-stickers-streamer" aria-hidden="true"></div>
-<div class="home-stickers-row">
-{%- for card in home_data.stickers %}
-{%- if loop.index == 1 %}{% set slot = "left" %}{% set card_icon = "img/shared/ofuda_sakura.svg" %}{% elif loop.index == 2 %}{% set slot = "center" %}{% set card_icon = "img/shared/ofuda_location.svg" %}{% else %}{% set slot = "right" %}{% set card_icon = "img/shared/ofuda_watch.svg" %}{% endif %}
-<div class="sticker-slot sticker-slot-{{ slot }}">
-<div class="sticker-rot sticker-rot-{{ slot }}">
-<article class="tf-mod-ofuda ofuda-sticker-card">
-<div class="tf-mod-ofuda-decor" aria-hidden="true">
-<img class="tf-mod-ofuda-stroke" src="{{ <img_url path="img/shared/ofuda_stroke.svg" /> }}" alt="" />
-<img class="tf-mod-ofuda-seal" src="{{ <img_url path="img/shared/ofuda_seal.svg" /> }}" alt="" />
-<img class="tf-mod-ofuda-corner-dark" src="{{ <img_url path="img/shared/ofuda_corner_dark.svg" /> }}" alt="" />
-<div class="tf-mod-ofuda-vspike">
-<span class="tf-mod-ofuda-dot"></span>
-<img class="tf-mod-ofuda-vbar" src="{{ <img_url path="img/shared/ofuda_spike_v.svg" /> }}" alt="" />
-</div>
-<div class="tf-mod-ofuda-hspike">
-<span class="tf-mod-ofuda-dot"></span>
-<img class="tf-mod-ofuda-hbar" src="{{ <img_url path="img/shared/ofuda_spike_h.svg" /> }}" alt="" />
-</div>
-</div>
-<div class="tf-mod-ofuda-body ofuda-card-content">
-<div class="ofuda-card-top">
-<div class="sticker-icon-badge sticker-icon-{{ slot }}">
-<img src="{{ <img_url path={card_icon} /> }}" alt="" class="sticker-icon-img" loading="lazy" decoding="async" />
-</div>
-<div class="ofuda-card-copy">
-<h3 class="tf-mod-ofuda-title sticker-heading">{{ card.title }}</h3>
-{%- if loop.index == 3 %}
-<div class="sticker-lines">
-{%- for day_idx in range(end=num_days) %}
-{%- set day_ts = start_ts + (day_idx * 86400) + 43200 -%}
-<p class="tf-mod-ofuda-desc sticker-text">{{ <event_date format="day" ts={day_ts} /> }}</p>
-{%- endfor %}
-</div>
-{%- elif card.lines %}
-<div class="sticker-lines">
-{%- for line in card.lines %}
-<p class="tf-mod-ofuda-desc sticker-text">{{ line }}</p>
-{%- endfor %}
-</div>
-{%- else %}
-<p class="tf-mod-ofuda-desc sticker-text">{{ card.body }}</p>
-{%- endif %}
-</div>
-</div>
-{%- if card.button_text %}
-<a href="{{ get_url(path=card.button_url) }}" class="tf-btn tf-btn-danger tf-mod-ofuda-btn home-cta-btn sticker-cta-btn">
-<span class="home-cta-label">{{ card.button_text }}</span>
-<span class="home-cta-chevron" aria-hidden="true"></span>
-</a>
-{%- endif %}
-</div>
-</article>
-</div>
-</div>
-{%- endfor %}
-</div>
-</div>
-<section class="home-banner-module home-announcement-section">
-<img src="{{ <img_url path={home_data.featured_announcement.image} /> }}" srcset="{{ <img_srcset path={home_data.featured_announcement.image} /> }}" sizes="100vw" alt="" class="home-section-bg-img" aria-hidden="true" loading="lazy" decoding="async" />
-<div class="tf-mod-divider-top home-garland-banner" aria-hidden="true"></div>
-<div class="divider-wave-bottom home-banner-divider-bottom home-announcement-divider" aria-hidden="true"></div>
-<div class="home-banner-inner">
-<div class="home-banner-card-wrap">
-<div class="home-banner-cream-card">
-<h2 class="home-banner-card-title">{{ home_data.featured_announcement.title }}</h2>
-<a href="{{ get_url(path=home_data.featured_announcement.button_url) }}" class="tf-btn tf-btn-danger home-cta-btn">
-<span class="home-cta-label">{{ home_data.featured_announcement.button_text }}</span>
-<span class="home-cta-chevron" aria-hidden="true"></span>
-</a>
-</div>
-<div class="card-bookmark-ribbon" aria-hidden="true">
-<span class="card-bookmark-body"><span class="card-bookmark-accent"></span></span>
-<span class="card-bookmark-tail"><span class="card-bookmark-tail-rot"><span class="card-bookmark-tail-mask"></span></span></span>
-</div>
-</div>
-</div>
-</section>
-<section class="home-guests-section">
-<h2 class="home-guests-heading">{{ home_data.guests.title }}</h2>
-<div class="guest-teasers-row">
-{%- for g in home_data.guests.items %}
-<div class="guest-teaser-card">
-<h3 class="guest-teaser-name">{{ g.name }}</h3>
-<div class="guest-avatar-frame">
-<img src="{{ <img_url path="img/home/guest-ring.svg" /> }}" alt="" class="guest-ring-svg" aria-hidden="true" />
-<img src="{{ <img_url path={g.avatar} max_width={480} /> }}" alt="{{ g.role }} teaser" class="guest-teaser-img" loading="lazy" decoding="async" />
-</div>
-<p class="guest-teaser-role">{{ g.role }}</p>
-</div>
-{%- endfor %}
-</div>
-<a href="{{ get_url(path=home_data.guests.button_url) }}" class="tf-btn tf-btn-danger home-cta-btn">
-<span class="home-cta-label">{{ home_data.guests.button_text }}</span>
-<span class="home-cta-chevron" aria-hidden="true"></span>
-</a>
-</section>
-<section class="home-pillars-section">
-<div class="home-pillars-streamers" aria-hidden="true">
-<div class="home-pillars-streamer home-pillars-streamer-top"></div>
-<div class="home-pillars-streamer home-pillars-streamer-bottom"></div>
-</div>
-{%- for row in home_data.pillars %}
-<div class="pillar-row pillar-row-{{ loop.index }}">
-{%- if loop.index is odd %}
-<div class="pillar-card-col">
-<div class="pillar-card pillar-card-gradient">
-<img src="{{ <img_url path="img/home/mesh-gradient.svg" /> }}" alt="" class="pillar-mesh-bg" aria-hidden="true" />
-<div class="pillar-card-inner">
-<div class="pillar-card-copy">
-<h2 class="pillar-card-title">{{ row.title }}</h2>
-<p class="pillar-card-body">{{ row.body }}</p>
-</div>
-<div class="pillar-card-buttons">
-{%- for btn in row.buttons %}
-<a href="{{ get_url(path=btn.url) }}" class="tf-btn tf-btn-danger home-cta-btn">
-<span class="home-cta-label">{{ btn.text }}</span>
-<span class="home-cta-chevron" aria-hidden="true"></span>
-</a>
-{%- endfor %}
-</div>
-</div>
-</div>
-</div>
-<div class="pillar-photo-col">
-<div class="tf-mod-polaroid tf-mod-polaroid--md polaroid-card">
-<img src="{{ <img_url path={row.image} max_width={960} /> }}" alt="{{ row.image_alt }}" class="polaroid-img" loading="lazy" decoding="async" />
-<span class="tf-mod-polaroid-dots polaroid-dots" aria-hidden="true"><span class="polaroid-dot"></span><span class="polaroid-dot"></span></span>
-</div>
-</div>
-{%- else %}
-<div class="pillar-photo-col">
-<div class="tf-mod-polaroid tf-mod-polaroid--md polaroid-card">
-<img src="{{ <img_url path={row.image} max_width={960} /> }}" alt="{{ row.image_alt }}" class="polaroid-img" loading="lazy" decoding="async" />
-<span class="tf-mod-polaroid-dots polaroid-dots" aria-hidden="true"><span class="polaroid-dot"></span><span class="polaroid-dot"></span></span>
-</div>
-</div>
-<div class="pillar-card-col">
-<div class="pillar-card pillar-card-cream">
-<div class="pillar-card-inner">
-<div class="pillar-card-copy">
-<h2 class="pillar-card-title">{{ row.title }}</h2>
-<p class="pillar-card-body">{{ row.body }}</p>
-</div>
-<div class="pillar-card-buttons">
-{%- for btn in row.buttons %}
-<a href="{{ get_url(path=btn.url) }}" class="tf-btn tf-btn-danger home-cta-btn">
-<span class="home-cta-label">{{ btn.text }}</span>
-<span class="home-cta-chevron" aria-hidden="true"></span>
-</a>
-{%- endfor %}
-</div>
-</div>
-</div>
-</div>
-{%- endif %}
-</div>
-{%- endfor %}
-</section>
-<div class="home-venue-outer">
-<div class="home-bottom-streamer" aria-hidden="true"></div>
-<section class="home-banner-module home-venue-section">
-<img src="{{ <img_url path={home_data.venue.image} /> }}" srcset="{{ <img_srcset path={home_data.venue.image} /> }}" sizes="100vw" alt="" class="home-section-bg-img" aria-hidden="true" loading="lazy" decoding="async" />
-<div class="tf-mod-divider-top home-garland-banner" aria-hidden="true"></div>
-<div class="divider-wave-bottom home-banner-divider-bottom home-venue-divider" aria-hidden="true"></div>
-<div class="home-banner-inner">
-<div class="home-banner-card-wrap">
-<div class="home-banner-cream-card">
-<div class="home-venue-copy">
-<h2 class="home-banner-card-title">{{ home_data.venue.title }}</h2>
-<p class="home-venue-card-body">{{ home_data.venue.body }}</p>
-</div>
-<a href="{{ get_url(path=home_data.venue.button_url) }}" class="tf-btn tf-btn-danger home-cta-btn">
-<span class="home-cta-label">{{ home_data.venue.button_text }}<span class="is-sr-only"> about {{ home_data.venue.title }}</span></span>
-<span class="home-cta-chevron" aria-hidden="true"></span>
-</a>
-</div>
-<div class="card-bookmark-ribbon" aria-hidden="true">
-<span class="card-bookmark-body"><span class="card-bookmark-accent"></span></span>
-<span class="card-bookmark-tail"><span class="card-bookmark-tail-rot"><span class="card-bookmark-tail-mask"></span></span></span>
-</div>
-</div>
-</div>
-</section>
-</div>
-<section class="tf-mod-callout tf-mod-callout--horiz is-discord home-special-module home-discord-card">
-<div class="tf-mod-callout-icon home-special-icon-wrap">
-<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="Discord" class="home-special-icon-img" />
-</div>
-<div class="tf-mod-callout-copy home-special-content">
-<div class="home-special-copy">
-<h2 class="tf-mod-callout-title home-discord-title">{{ home_data.discord.title }}</h2>
-<p class="tf-mod-callout-desc home-discord-body">{{ home_data.discord.body }}</p>
-</div>
-<div class="home-special-actions">
-<a href="{{ home_data.discord.button_url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-mod-callout-btn home-cta-btn home-cta-btn-ko">
-<span class="home-cta-label">{{ home_data.discord.button_text }}</span>
-<span class="home-cta-chevron" aria-hidden="true"></span>
-</a>
-</div>
-</div>
-</section>
-<section class="tf-mod-callout tf-mod-callout--horiz is-newsletter home-special-module home-newsletter-card">
-<div class="tf-mod-callout-icon home-special-icon-wrap">
-<img src="{{ <img_url path="img/shared/icon_email.svg" /> }}" alt="Newsletter" class="home-special-icon-img" />
-</div>
-<div class="tf-mod-callout-copy home-special-content home-newsletter-content">
-<div class="home-special-copy">
-<h2 class="tf-mod-callout-title home-newsletter-title">{{ home_data.newsletter.title }}</h2>
-<p class="tf-mod-callout-desc home-newsletter-body">{{ home_data.newsletter.body }}</p>
-</div>
-<form class="tf-newsletter-form home-newsletter-form" action="#" method="post">
-<input type="email" class="tf-newsletter-input home-newsletter-input" placeholder="{{ home_data.newsletter.placeholder }}" aria-label="{{ home_data.newsletter.placeholder }}" required />
-<button type="submit" class="tf-btn tf-btn-danger tf-mod-callout-btn home-cta-btn home-newsletter-submit">
-<span class="home-cta-label">{{ home_data.newsletter.button_text }}</span>
-<span class="home-cta-chevron" aria-hidden="true"></span>
-</button>
-</form>
-</div>
-</section>
-<section class="home-special-module home-twitter-outer">
-<div class="home-twitter-banner">
-<div class="home-special-content">
-<h2 class="home-twitter-title">{{ home_data.twitter.title }}</h2>
-</div>
-</div>
-</section>
-</div>
-</div>
+  {%- set home_data = load_data(path="data/home.yml") -%}
+  {%- set start_ts = config.extra.event_start | date(format="%s") | int -%}
+  {%- set end_ts = config.extra.event_end | date(format="%s") | int -%}
+  {%- set num_days = (((end_ts - start_ts) / 86400) | round) + 1 -%}
+  <div class="home-page-body">
+    <div class="home-page-content">
+      <section class="home-hero-banner">
+        <img src="{{ <img_url path={home_data.hero.background_image} /> }}"
+             srcset="{{ <img_srcset path={home_data.hero.background_image} /> }}"
+             sizes="100vw"
+             alt=""
+             class="home-section-bg-img"
+             aria-hidden="true"
+             fetchpriority="high" />
+        <div class="home-hero-vignette" aria-hidden="true"></div>
+        <div class="divider-wave-bottom home-hero-divider-bottom"
+             aria-hidden="true"></div>
+        <div class="home-hero-glass-card">
+          <h1 class="home-hero-title">{{ home_data.hero.title }}</h1>
+          <p class="home-hero-date">{{ <event_date /> }}</p>
+          <a class="tf-btn tf-btn-danger home-cta-btn"
+             href="{{ get_url(path=home_data.hero.button_url) }}">
+            <span class="home-cta-label">{{ home_data.hero.button_text }}</span>
+            <span class="home-cta-chevron" aria-hidden="true"></span>
+          </a>
+        </div>
+      </section>
+      <div class="home-stickers-wrapper">
+        <div class="home-stickers-streamer" aria-hidden="true"></div>
+        <div class="home-stickers-row">
+          {%- for card in home_data.stickers %}
+            {%- if loop.index == 1 %}{% set slot = "left" %}{% set card_icon = "img/shared/ofuda_sakura.svg" %}
+            {% elif loop.index == 2 %}
+              {% set slot = "center" %}{% set card_icon = "img/shared/ofuda_location.svg" %}
+            {% else %}
+              {% set slot = "right" %}{% set card_icon = "img/shared/ofuda_watch.svg" %}
+            {% endif %}
+            <div class="sticker-slot sticker-slot-{{ slot }}">
+              <div class="sticker-rot sticker-rot-{{ slot }}">
+                <article class="tf-mod-ofuda ofuda-sticker-card">
+                  <div class="tf-mod-ofuda-decor" aria-hidden="true">
+                    <img class="tf-mod-ofuda-stroke"
+                         src="{{ <img_url path="img/shared/ofuda_stroke.svg" /> }}"
+                         alt="" />
+                    <img class="tf-mod-ofuda-seal"
+                         src="{{ <img_url path="img/shared/ofuda_seal.svg" /> }}"
+                         alt="" />
+                    <img class="tf-mod-ofuda-corner-dark"
+                         src="{{ <img_url path="img/shared/ofuda_corner_dark.svg" /> }}"
+                         alt="" />
+                    <div class="tf-mod-ofuda-vspike">
+                      <span class="tf-mod-ofuda-dot"></span>
+                      <img class="tf-mod-ofuda-vbar"
+                           src="{{ <img_url path="img/shared/ofuda_spike_v.svg" /> }}"
+                           alt="" />
+                    </div>
+                    <div class="tf-mod-ofuda-hspike">
+                      <span class="tf-mod-ofuda-dot"></span>
+                      <img class="tf-mod-ofuda-hbar"
+                           src="{{ <img_url path="img/shared/ofuda_spike_h.svg" /> }}"
+                           alt="" />
+                    </div>
+                  </div>
+                  <div class="tf-mod-ofuda-body ofuda-card-content">
+                    <div class="ofuda-card-top">
+                      <div class="sticker-icon-badge sticker-icon-{{ slot }}">
+                        <img src="{{ <img_url path={card_icon} /> }}"
+                             alt=""
+                             class="sticker-icon-img"
+                             loading="lazy"
+                             decoding="async" />
+                      </div>
+                      <div class="ofuda-card-copy">
+                        <h3 class="tf-mod-ofuda-title sticker-heading">{{ card.title }}</h3>
+                        {%- if loop.index == 3 %}
+                          <div class="sticker-lines">
+                            {%- for day_idx in range(end=num_days) %}
+                              {%- set day_ts = start_ts + (day_idx * 86400) + 43200 -%}
+                              <p class="tf-mod-ofuda-desc sticker-text">{{ <event_date format="day" ts={day_ts} /> }}</p>
+                            {%- endfor %}
+                          </div>
+                        {%- elif card.lines %}
+                          <div class="sticker-lines">
+                            {%- for line in card.lines %}
+                              <p class="tf-mod-ofuda-desc sticker-text">{{ line }}</p>
+                            {%- endfor %}
+                          </div>
+                        {%- else %}
+                          <p class="tf-mod-ofuda-desc sticker-text">{{ card.body }}</p>
+                        {%- endif %}
+                      </div>
+                    </div>
+                    {%- if card.button_text %}
+                      <a href="{{ get_url(path=card.button_url) }}"
+                         class="tf-btn tf-btn-danger tf-mod-ofuda-btn home-cta-btn sticker-cta-btn">
+                        <span class="home-cta-label">{{ card.button_text }}</span>
+                        <span class="home-cta-chevron" aria-hidden="true"></span>
+                      </a>
+                    {%- endif %}
+                  </div>
+                </article>
+              </div>
+            </div>
+          {%- endfor %}
+        </div>
+      </div>
+      <section class="home-banner-module home-announcement-section">
+        <img src="{{ <img_url path={home_data.featured_announcement.image} /> }}"
+             srcset="{{ <img_srcset path={home_data.featured_announcement.image} /> }}"
+             sizes="100vw"
+             alt=""
+             class="home-section-bg-img"
+             aria-hidden="true"
+             loading="lazy"
+             decoding="async" />
+        <div class="tf-mod-divider-top home-garland-banner" aria-hidden="true"></div>
+        <div class="divider-wave-bottom home-banner-divider-bottom home-announcement-divider"
+             aria-hidden="true"></div>
+        <div class="home-banner-inner">
+          <div class="home-banner-card-wrap">
+            <div class="home-banner-cream-card">
+              <h2 class="home-banner-card-title">{{ home_data.featured_announcement.title }}</h2>
+              <a href="{{ get_url(path=home_data.featured_announcement.button_url) }}"
+                 class="tf-btn tf-btn-danger home-cta-btn">
+                <span class="home-cta-label">{{ home_data.featured_announcement.button_text }}</span>
+                <span class="home-cta-chevron" aria-hidden="true"></span>
+              </a>
+            </div>
+            <div class="card-bookmark-ribbon" aria-hidden="true">
+              <span class="card-bookmark-body"><span class="card-bookmark-accent"></span></span>
+              <span class="card-bookmark-tail"><span class="card-bookmark-tail-rot"><span class="card-bookmark-tail-mask"></span></span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="home-guests-section">
+        <h2 class="home-guests-heading">{{ home_data.guests.title }}</h2>
+        <div class="guest-teasers-row">
+          {%- for g in home_data.guests.items %}
+            <div class="guest-teaser-card">
+              <h3 class="guest-teaser-name">{{ g.name }}</h3>
+              <div class="guest-avatar-frame">
+                <img src="{{ <img_url path="img/home/guest-ring.svg" /> }}"
+                     alt=""
+                     class="guest-ring-svg"
+                     aria-hidden="true" />
+                <img src="{{ <img_url path={g.avatar} max_width={480} /> }}"
+                     alt="{{ g.role }} teaser"
+                     class="guest-teaser-img"
+                     loading="lazy"
+                     decoding="async" />
+              </div>
+              <p class="guest-teaser-role">{{ g.role }}</p>
+            </div>
+          {%- endfor %}
+        </div>
+        <a href="{{ get_url(path=home_data.guests.button_url) }}"
+           class="tf-btn tf-btn-danger home-cta-btn">
+          <span class="home-cta-label">{{ home_data.guests.button_text }}</span>
+          <span class="home-cta-chevron" aria-hidden="true"></span>
+        </a>
+      </section>
+      <section class="home-pillars-section">
+        <div class="home-pillars-streamers" aria-hidden="true">
+          <div class="home-pillars-streamer home-pillars-streamer-top"></div>
+          <div class="home-pillars-streamer home-pillars-streamer-bottom"></div>
+        </div>
+        {%- for row in home_data.pillars %}
+          <div class="pillar-row pillar-row-{{ loop.index }}">
+            {%- if loop.index is odd %}
+              <div class="pillar-card-col">
+                <div class="pillar-card pillar-card-gradient">
+                  <img src="{{ <img_url path="img/home/mesh-gradient.svg" /> }}"
+                       alt=""
+                       class="pillar-mesh-bg"
+                       aria-hidden="true" />
+                  <div class="pillar-card-inner">
+                    <div class="pillar-card-copy">
+                      <h2 class="pillar-card-title">{{ row.title }}</h2>
+                      <p class="pillar-card-body">{{ row.body }}</p>
+                    </div>
+                    <div class="pillar-card-buttons">
+                      {%- for btn in row.buttons %}
+                        <a href="{{ get_url(path=btn.url) }}"
+                           class="tf-btn tf-btn-danger home-cta-btn">
+                          <span class="home-cta-label">{{ btn.text }}</span>
+                          <span class="home-cta-chevron" aria-hidden="true"></span>
+                        </a>
+                      {%- endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pillar-photo-col">
+                <div class="tf-mod-polaroid tf-mod-polaroid--md polaroid-card">
+                  <img src="{{ <img_url path={row.image} max_width={960} /> }}"
+                       alt="{{ row.image_alt }}"
+                       class="polaroid-img"
+                       loading="lazy"
+                       decoding="async" />
+                  <span class="tf-mod-polaroid-dots polaroid-dots" aria-hidden="true"><span class="polaroid-dot"></span><span class="polaroid-dot"></span></span>
+                </div>
+              </div>
+            {%- else %}
+              <div class="pillar-photo-col">
+                <div class="tf-mod-polaroid tf-mod-polaroid--md polaroid-card">
+                  <img src="{{ <img_url path={row.image} max_width={960} /> }}"
+                       alt="{{ row.image_alt }}"
+                       class="polaroid-img"
+                       loading="lazy"
+                       decoding="async" />
+                  <span class="tf-mod-polaroid-dots polaroid-dots" aria-hidden="true"><span class="polaroid-dot"></span><span class="polaroid-dot"></span></span>
+                </div>
+              </div>
+              <div class="pillar-card-col">
+                <div class="pillar-card pillar-card-cream">
+                  <div class="pillar-card-inner">
+                    <div class="pillar-card-copy">
+                      <h2 class="pillar-card-title">{{ row.title }}</h2>
+                      <p class="pillar-card-body">{{ row.body }}</p>
+                    </div>
+                    <div class="pillar-card-buttons">
+                      {%- for btn in row.buttons %}
+                        <a href="{{ get_url(path=btn.url) }}"
+                           class="tf-btn tf-btn-danger home-cta-btn">
+                          <span class="home-cta-label">{{ btn.text }}</span>
+                          <span class="home-cta-chevron" aria-hidden="true"></span>
+                        </a>
+                      {%- endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- endif %}
+          </div>
+        {%- endfor %}
+      </section>
+      <div class="home-venue-outer">
+        <div class="home-bottom-streamer" aria-hidden="true"></div>
+        <section class="home-banner-module home-venue-section">
+          <img src="{{ <img_url path={home_data.venue.image} /> }}"
+               srcset="{{ <img_srcset path={home_data.venue.image} /> }}"
+               sizes="100vw"
+               alt=""
+               class="home-section-bg-img"
+               aria-hidden="true"
+               loading="lazy"
+               decoding="async" />
+          <div class="tf-mod-divider-top home-garland-banner" aria-hidden="true"></div>
+          <div class="divider-wave-bottom home-banner-divider-bottom home-venue-divider"
+               aria-hidden="true"></div>
+          <div class="home-banner-inner">
+            <div class="home-banner-card-wrap">
+              <div class="home-banner-cream-card">
+                <div class="home-venue-copy">
+                  <h2 class="home-banner-card-title">{{ home_data.venue.title }}</h2>
+                  <p class="home-venue-card-body">{{ home_data.venue.body }}</p>
+                </div>
+                <a href="{{ get_url(path=home_data.venue.button_url) }}"
+                   class="tf-btn tf-btn-danger home-cta-btn">
+                  <span class="home-cta-label">{{ home_data.venue.button_text }}<span class="is-sr-only"> about {{ home_data.venue.title }}</span></span>
+                  <span class="home-cta-chevron" aria-hidden="true"></span>
+                </a>
+              </div>
+              <div class="card-bookmark-ribbon" aria-hidden="true">
+                <span class="card-bookmark-body"><span class="card-bookmark-accent"></span></span>
+                <span class="card-bookmark-tail"><span class="card-bookmark-tail-rot"><span class="card-bookmark-tail-mask"></span></span></span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="tf-mod-callout tf-mod-callout--horiz is-discord home-special-module home-discord-card">
+        <div class="tf-mod-callout-icon home-special-icon-wrap">
+          <img src="{{ <img_url path="img/discord_card_icon.svg" /> }}"
+               alt="Discord"
+               class="home-special-icon-img" />
+        </div>
+        <div class="tf-mod-callout-copy home-special-content">
+          <div class="home-special-copy">
+            <h2 class="tf-mod-callout-title home-discord-title">{{ home_data.discord.title }}</h2>
+            <p class="tf-mod-callout-desc home-discord-body">{{ home_data.discord.body }}</p>
+          </div>
+          <div class="home-special-actions">
+            <a href="{{ home_data.discord.button_url }}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="tf-btn tf-mod-callout-btn home-cta-btn home-cta-btn-ko">
+              <span class="home-cta-label">{{ home_data.discord.button_text }}</span>
+              <span class="home-cta-chevron" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="tf-mod-callout tf-mod-callout--horiz is-newsletter home-special-module home-newsletter-card">
+        <div class="tf-mod-callout-icon home-special-icon-wrap">
+          <img src="{{ <img_url path="img/shared/icon_email.svg" /> }}"
+               alt="Newsletter"
+               class="home-special-icon-img" />
+        </div>
+        <div class="tf-mod-callout-copy home-special-content home-newsletter-content">
+          <div class="home-special-copy">
+            <h2 class="tf-mod-callout-title home-newsletter-title">{{ home_data.newsletter.title }}</h2>
+            <p class="tf-mod-callout-desc home-newsletter-body">{{ home_data.newsletter.body }}</p>
+          </div>
+          <form class="tf-newsletter-form home-newsletter-form"
+                action="#"
+                method="post">
+            <input type="email"
+                   class="tf-newsletter-input home-newsletter-input"
+                   placeholder="{{ home_data.newsletter.placeholder }}"
+                   aria-label="{{ home_data.newsletter.placeholder }}"
+                   required />
+            <button type="submit"
+                    class="tf-btn tf-btn-danger tf-mod-callout-btn home-cta-btn home-newsletter-submit">
+              <span class="home-cta-label">{{ home_data.newsletter.button_text }}</span>
+              <span class="home-cta-chevron" aria-hidden="true"></span>
+            </button>
+          </form>
+        </div>
+      </section>
+      <section class="home-special-module home-twitter-outer">
+        <div class="home-twitter-banner">
+          <div class="home-special-content">
+            <h2 class="home-twitter-title">{{ home_data.twitter.title }}</h2>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 {% endblock content %}

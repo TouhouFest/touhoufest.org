@@ -1,266 +1,377 @@
 {% extends "base.html" %}
-
-{% block header %}{% endblock header %}
-
+{% block header %}
+{% endblock header %}
 {% block content %}
-{%- set exhibitors_data = load_data(path="data/exhibitors.yml") -%}
-<div class="page-body-container container tf-vendors-page-body">
-<div class="tf-vendors-root">
-<div class="tf-v-main-stack">
-<section class="tf-v-hero">
-<div class="tf-v-hero-bg" aria-hidden="true">
-<picture><source media="(max-width: 768px)" srcset="{{ <img_srcset path="img/Freeze Background.png" /> }}" sizes="100vw" /><img src="{{ <img_url path="img/vendors/hero_vendors.jpg" /> }}" srcset="{{ <img_srcset path="img/vendors/hero_vendors.jpg" /> }}" sizes="100vw" alt="" class="tf-v-hero-img is-desk-hero" fetchpriority="high" /></picture>
-</div>
-<div class="tf-v-hero-container">
-<div class="tf-hero-box tf-v-hero-box">
-<h1 class="tf-hero-title tf-v-hero-title">{{ exhibitors_data.page.hero_title }}</h1>
-</div>
-</div>
-</section>
-<div class="tf-v-body-stack">
-<section class="tf-v-featured-section">
-<div class="tf-v-heading-block">
-<h2 class="tf-v-h1-red"><span class="is-mob-block">2026 Featured</span> Vendors</h2>
-</div>
-<div class="tf-v-featured-grid">
-{%- for vendor in exhibitors_data.featured %}
-<article class="tf-v-fcard">
-<div class="tf-v-fcard-bg" aria-hidden="true">
-<div class="tf-v-fcard-backing"></div>
-<div class="tf-v-fcard-photo-wrap">
-<img src="{{ <img_url path={vendor.image} max_width={960} /> }}" alt="{{ vendor.name }}" class="tf-v-fcard-photo" loading="lazy" decoding="async" />
-</div>
-</div>
-<div class="tf-v-fcard-frame" aria-hidden="true">
-<div class="tf-v-fcard-top-grad"></div>
-<div class="tf-v-fcard-streamer is-left"></div>
-<div class="tf-v-fcard-streamer is-right"></div>
-<div class="tf-v-fcard-stroke"></div>
-</div>
-<div class="tf-v-fcard-content">
-<div class="tf-v-fcard-headline">
-<h3 class="tf-v-fcard-title">
-{%- if vendor.name_lines %}
-{%- for line in vendor.name_lines %}
-<span>{{ line }}</span>
-{%- endfor %}
-{%- else %}
-<span>{{ vendor.name }}</span>
-{%- endif %}
-</h3>
-</div>
-<div class="tf-v-fcard-body">
-<p class="tf-v-fcard-bio">{{ vendor.bio }}</p>
-<a href="{{ vendor.url }}" class="tf-v-btn-cream tf-btn tf-btn-white">
-<span class="tf-v-btn-label">{{ exhibitors_data.page.featured_cta }}</span>
-<span class="tf-v-btn-chevron" aria-hidden="true"></span>
-</a>
-</div>
-</div>
-</article>
-{%- endfor %}
-</div>
-</section>
-<h2 class="tf-v-h1-red tf-v-roster-heading"><span class="is-mob-block">2026 Full Vendor</span> List</h2>
-<section class="tf-v-roster-section">
-<div class="tf-v-search-wrap">
-<div class="tf-v-search-row">
-<div class="tf-v-search-icon-wrap" aria-hidden="true">
-<img src="{{ <img_url path="img/shared/icon_search.svg" /> }}" alt="" />
-</div>
-<div class="tf-v-search-pill">
-<span class="tf-v-search-placeholder">{{ exhibitors_data.page.roster_search_placeholder }}</span>
-</div>
-</div>
-</div>
-<div class="tf-v-roster-grid">
-{%- for item in exhibitors_data.roster %}
-<div class="tf-v-rcard">
-<div class="tf-v-rcard-inner">
-<div class="tf-v-rcard-name">
-<span class="tf-v-rcard-name-real">
-{%- if item.name_lines %}
-{%- for line in item.name_lines %}
-{{ line }}{% if not loop.last %}<br />{% endif %}
-{%- endfor %}
-{%- else %}
-{{ item.name }}
-{%- endif %}
-</span>
-<span class="tf-v-rcard-name-mob">{{ exhibitors_data.page.roster_mobile_placeholder_name }}</span>
-</div>
-<div class="tf-v-rcard-frame">
-<div class="tf-v-rcard-shadow">
-<div class="tf-v-rcard-shadow-fill"></div>
-<img src="{{ <img_url path="img/shared/card_dots.svg" /> }}" alt="" class="tf-v-rcard-dots" aria-hidden="true" />
-<a href="{{ item.url }}" class="tf-v-rcard-visit">
-<span class="tf-v-rcard-visit-text">{{ exhibitors_data.page.roster_visit_label }}</span>
-<img src="{{ <img_url path="img/shared/icon_external_cream.svg" /> }}" alt="" class="tf-v-rcard-visit-icon" />
-</a>
-</div>
-<div class="tf-v-rcard-img-pad">
-<div class="tf-v-rcard-img-box">
-<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/Freeze Background.png" /> }}" /><img src="{{ <img_url path={item.image} max_width={480} /> }}" alt="{{ item.name }}" class="tf-v-rcard-img is-real" loading="lazy" decoding="async" /></picture>
-</div>
-</div>
-</div>
-<div class="tf-v-rcard-table">{{ item.table }}</div>
-</div>
-</div>
-{%- endfor %}
-</div>
-</section>
-<section class="tf-v-maps-section">
-<div class="tf-v-divider is-maps tf-mod-divider">
-<div class="tf-v-divider-bg tf-mod-divider-bg" aria-hidden="true">
-<picture><source media="(max-width: 768px)" srcset="{{ <img_srcset path="img/Freeze Background.png" /> }}" sizes="100vw" /><img src="{{ <img_url path="img/vendors/maps_divider_bg.jpg" /> }}" srcset="{{ <img_srcset path="img/vendors/maps_divider_bg.jpg" /> }}" sizes="100vw" alt="" class="tf-v-divider-img is-desk" loading="lazy" decoding="async" /></picture>
-<div class="tf-v-divider-grad tf-mod-divider-vignette"></div>
-</div>
-<div class="tf-v-divider-top-wave tf-mod-divider-top" aria-hidden="true"></div>
-<div class="tf-v-divider-content tf-mod-divider-inner">
-<h2 class="tf-v-divider-title tf-mod-divider-title"><span class="is-desk-yr">{{ exhibitors_data.page.maps_heading_year_desktop }}</span><span class="is-mob-yr">{{ exhibitors_data.page.maps_heading_year_mobile }}</span> {{ exhibitors_data.page.maps_heading_suffix }}</h2>
-</div>
-<div class="tf-v-divider-bottom-wave tf-mod-divider-bottom" aria-hidden="true"></div>
-</div>
-<div class="tf-v-maps-body tf-mod-map">
-{%- for map in exhibitors_data.maps %}
-<input type="radio" name="tf-v-map-tab" id="tf-map-tab-{{ loop.index }}" class="tf-v-map-radio tf-mod-map-radio"{% if loop.last %} checked{% endif %} />
-{%- endfor %}
-<div class="tf-v-map-tabs tf-mod-map-tabs">
-{%- for map in exhibitors_data.maps %}
-<label for="tf-map-tab-{{ loop.index }}" class="tf-v-map-tab tf-mod-map-tab tf-mod-map-tab--{{ loop.index }}">{{ map.label }}</label>
-{%- endfor %}
-</div>
-<div class="tf-v-map-stage tf-mod-map-stage">
-{%- for map in exhibitors_data.maps %}
-<div class="tf-v-map-panel tf-mod-map-panel tf-mod-map-panel--{{ loop.index }}">
-<img src="{{ <img_url path={map.image} /> }}" alt="{{ map.label }}" class="tf-v-map-img" loading="lazy" decoding="async" />
-</div>
-{%- endfor %}
-<button type="button" class="tf-v-map-zoom tf-mod-map-zoom" aria-label="Zoom map">
-<img src="{{ <img_url path="img/shared/zoom_circle.svg" /> }}" alt="" class="tf-mod-map-zoom-circle" />
-<img src="{{ <img_url path="img/shared/zoom_plus.svg" /> }}" alt="" class="tf-mod-map-zoom-plus" />
-</button>
-</div>
-</div>
-</section>
-<section class="tf-v-past-section">
-<div class="tf-v-divider is-thankyou tf-mod-divider">
-<div class="tf-v-divider-bg tf-mod-divider-bg" aria-hidden="true">
-<picture><source media="(max-width: 768px)" srcset="{{ <img_srcset path="img/Freeze Background.png" /> }}" sizes="100vw" /><img src="{{ <img_url path="img/vendors/thankyou_divider_bg.jpg" /> }}" srcset="{{ <img_srcset path="img/vendors/thankyou_divider_bg.jpg" /> }}" sizes="100vw" alt="" class="tf-v-divider-img is-desk" loading="lazy" decoding="async" /></picture>
-<div class="tf-v-divider-grad tf-mod-divider-vignette"></div>
-</div>
-<div class="tf-v-divider-top-wave tf-mod-divider-top" aria-hidden="true"></div>
-<div class="tf-v-divider-content tf-mod-divider-inner">
-<h2 class="tf-v-divider-title tf-mod-divider-title">{{ exhibitors_data.page.past_vendors_heading }}</h2>
-</div>
-<div class="tf-v-divider-bottom-wave tf-mod-divider-bottom" aria-hidden="true"></div>
-</div>
-<div class="tf-v-polaroid-bleed">
-<div class="tf-v-polaroid-grid">
-{%- for item in exhibitors_data.past_vendors %}
-<div class="tf-v-polaroid-slot">
-<div class="tf-v-polaroid-rot">
-<div class="tf-v-polaroid-card tf-mod-polaroid tf-mod-polaroid--sm">
-<div class="tf-v-polaroid-thumb-wrap tf-mod-polaroid-photo">
-<img src="{{ <img_url path={item.image} max_width={640} /> }}" alt="{{ item.name }}" class="tf-v-polaroid-thumb" loading="lazy" decoding="async" />
-</div>
-<div class="tf-v-polaroid-dots tf-mod-polaroid-dots" aria-hidden="true">
-<img src="{{ <img_url path="img/shared/polaroid_dots.svg" /> }}" alt="" />
-</div>
-<a href="{{ item.url }}" class="tf-v-polaroid-link">
-<span class="tf-v-polaroid-text">
-{%- for line in item.lines %}
-{{ line }}{% if not loop.last %}<br />{% endif %}
-{%- endfor %}
-</span>
-<img src="{{ <img_url path="img/shared/icon_external_red.svg" /> }}" alt="" class="tf-v-polaroid-ext" />
-</a>
-</div>
-</div>
-</div>
-{%- endfor %}
-</div>
-</div>
-<div class="tf-mod-pager" aria-label="Gallery navigation">
-{%- for dir in ["prev", "next"] %}
-{%- if dir == "next" %}
-<div class="tf-mod-pager-dots">
-<img class="tf-mod-pager-dot" src="{{ <img_url path="img/shared/pager_dot_inactive.svg" /> }}" alt="" />
-<img class="tf-mod-pager-dot is-active" src="{{ <img_url path="img/shared/pager_dot_active.svg" /> }}" alt="" />
-<img class="tf-mod-pager-dot" src="{{ <img_url path="img/shared/pager_dot_inactive.svg" /> }}" alt="" />
-</div>
-{%- endif %}
-<button type="button" class="tf-mod-pager-arrow tf-mod-pager-arrow--{{ dir }}" aria-label="{% if dir == "prev" %}Previous page{% else %}Next page{% endif %}">
-<span class="tf-mod-pager-arrow-rot">
-<img class="tf-mod-pager-inner" src="{{ <img_url path="img/shared/zoom_circle.svg" /> }}" alt="" />
-<img class="tf-mod-pager-ring" src="{{ <img_url path="img/shared/pager_ring.svg" /> }}" alt="" />
-<img class="tf-mod-pager-chev" src="{{ <img_url path="img/shared/pager_chevron.svg" /> }}" alt="" />
-</span>
-</button>
-{%- endfor %}
-</div>
-</section>
-<section class="tf-v-sell-section">
-<h2 class="tf-v-h1-red tf-v-sell-heading"><span class="is-mob-block">Want to sell at the</span> event?</h2>
-<div class="tf-v-ofuda-set">
-{%- for card in exhibitors_data.sell_cards %}
-<div class="tf-v-ofuda-slot is-card-{{ loop.index }}">
-<div class="tf-v-ofuda-rot is-card-{{ loop.index }}">
-<div class="tf-v-ofuda-card tf-mod-ofuda">
-<div class="tf-mod-ofuda-decor" aria-hidden="true">
-<img class="tf-mod-ofuda-stroke" src="{{ <img_url path="img/shared/ofuda_stroke.svg" /> }}" alt="" />
-<img class="tf-mod-ofuda-seal" src="{{ <img_url path="img/shared/ofuda_seal.svg" /> }}" alt="" />
-<img class="tf-mod-ofuda-corner-dark" src="{{ <img_url path="img/shared/ofuda_corner_dark.svg" /> }}" alt="" />
-<div class="tf-mod-ofuda-vspike">
-<span class="tf-mod-ofuda-dot"></span>
-<img class="tf-mod-ofuda-vbar" src="{{ <img_url path="img/shared/ofuda_spike_v.svg" /> }}" alt="" />
-</div>
-<div class="tf-mod-ofuda-hspike">
-<span class="tf-mod-ofuda-dot"></span>
-<img class="tf-mod-ofuda-hbar" src="{{ <img_url path="img/shared/ofuda_spike_h.svg" /> }}" alt="" />
-</div>
-</div>
-<div class="tf-v-ofuda-content is-card-{{ loop.index }} tf-mod-ofuda-body">
-<div class="tf-v-ofuda-icon-wrap">
-{%- if loop.index == 1 %}
-<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/shared/ofuda_sakura.svg" /> }}" /><img src="{{ <img_url path="img/shared/ofuda_hat.svg" /> }}" alt="" class="tf-v-ofuda-icon is-desk-icon is-hat" /></picture>
-{%- else %}
-<picture><source media="(max-width: 768px)" srcset="{{ <img_url path="img/shared/ofuda_yinyang.svg" /> }}" /><img src="{{ <img_url path="img/shared/ofuda_sakura.svg" /> }}" alt="" class="tf-v-ofuda-icon is-desk-icon" /></picture>
-{%- endif %}
-</div>
-<h3 class="tf-v-ofuda-title tf-mod-ofuda-title">{{ card.title }}</h3>
-<p class="tf-v-ofuda-desc tf-mod-ofuda-desc">{{ card.description }}</p>
-<a href="{{ get_url(path=card.url) }}" class="tf-v-btn-red tf-mod-ofuda-btn">
-<span class="tf-v-btn-label">{{ card.button_label }}</span>
-<span class="tf-v-btn-chevron-cream" aria-hidden="true"></span>
-</a>
-</div>
-</div>
-</div>
-</div>
-{%- endfor %}
-</div>
-</section>
-<section class="tf-v-discord-section">
-<div class="tf-v-discord-card tf-mod-callout tf-mod-callout--horiz is-discord">
-<div class="tf-v-discord-icon-wrap tf-mod-callout-icon">
-<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="" class="tf-v-discord-icon" />
-</div>
-<div class="tf-v-discord-content tf-mod-callout-copy">
-<div class="tf-v-discord-copy">
-<h2 class="tf-v-discord-title tf-mod-callout-title">{{ exhibitors_data.discord_cta.title }}</h2>
-<p class="tf-v-discord-desc tf-mod-callout-desc">{{ exhibitors_data.discord_cta.description }}</p>
-</div>
-<a href="{{ exhibitors_data.discord_cta.url }}" class="tf-v-btn-cream tf-mod-callout-btn">
-<span class="tf-v-btn-label">{{ exhibitors_data.discord_cta.button_label }}</span>
-<span class="tf-v-btn-chevron" aria-hidden="true"></span>
-</a>
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
-</div>
+  {%- set exhibitors_data = load_data(path="data/exhibitors.yml") -%}
+  <div class="page-body-container container tf-vendors-page-body">
+    <div class="tf-vendors-root">
+      <div class="tf-v-main-stack">
+        <section class="tf-v-hero">
+          <div class="tf-v-hero-bg" aria-hidden="true">
+            <picture>
+              <source media="(max-width: 768px)"
+                      srcset="{{ <img_srcset path="img/Freeze Background.png" /> }}"
+                      sizes="100vw" />
+              <img src="{{ <img_url path="img/vendors/hero_vendors.jpg" /> }}"
+                   srcset="{{ <img_srcset path="img/vendors/hero_vendors.jpg" /> }}"
+                   sizes="100vw"
+                   alt=""
+                   class="tf-v-hero-img is-desk-hero"
+                   fetchpriority="high" />
+            </picture>
+          </div>
+          <div class="tf-v-hero-container">
+            <div class="tf-hero-box tf-v-hero-box">
+              <h1 class="tf-hero-title tf-v-hero-title">{{ exhibitors_data.page.hero_title }}</h1>
+            </div>
+          </div>
+        </section>
+        <div class="tf-v-body-stack">
+          <section class="tf-v-featured-section">
+            <div class="tf-v-heading-block">
+              <h2 class="tf-v-h1-red"><span class="is-mob-block">2026 Featured</span> Vendors</h2>
+            </div>
+            <div class="tf-v-featured-grid">
+              {%- for vendor in exhibitors_data.featured %}
+                <article class="tf-v-fcard">
+                  <div class="tf-v-fcard-bg" aria-hidden="true">
+                    <div class="tf-v-fcard-backing"></div>
+                    <div class="tf-v-fcard-photo-wrap">
+                      <img src="{{ <img_url path={vendor.image} max_width={960} /> }}"
+                           alt="{{ vendor.name }}"
+                           class="tf-v-fcard-photo"
+                           loading="lazy"
+                           decoding="async" />
+                    </div>
+                  </div>
+                  <div class="tf-v-fcard-frame" aria-hidden="true">
+                    <div class="tf-v-fcard-top-grad"></div>
+                    <div class="tf-v-fcard-streamer is-left"></div>
+                    <div class="tf-v-fcard-streamer is-right"></div>
+                    <div class="tf-v-fcard-stroke"></div>
+                  </div>
+                  <div class="tf-v-fcard-content">
+                    <div class="tf-v-fcard-headline">
+                      <h3 class="tf-v-fcard-title">
+                        {%- if vendor.name_lines %}
+                          {%- for line in vendor.name_lines %}
+                            <span>{{ line }}</span>
+                          {%- endfor %}
+                        {%- else %}
+                          <span>{{ vendor.name }}</span>
+                        {%- endif %}
+                      </h3>
+                    </div>
+                    <div class="tf-v-fcard-body">
+                      <p class="tf-v-fcard-bio">{{ vendor.bio }}</p>
+                      <a href="{{ vendor.url }}" class="tf-v-btn-cream tf-btn tf-btn-white">
+                        <span class="tf-v-btn-label">{{ exhibitors_data.page.featured_cta }}</span>
+                        <span class="tf-v-btn-chevron" aria-hidden="true"></span>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              {%- endfor %}
+            </div>
+          </section>
+          <h2 class="tf-v-h1-red tf-v-roster-heading"><span class="is-mob-block">2026 Full Vendor</span> List</h2>
+          <section class="tf-v-roster-section">
+            <div class="tf-v-search-wrap">
+              <div class="tf-v-search-row">
+                <div class="tf-v-search-icon-wrap" aria-hidden="true">
+                  <img src="{{ <img_url path="img/shared/icon_search.svg" /> }}" alt="" />
+                </div>
+                <div class="tf-v-search-pill">
+                  <span class="tf-v-search-placeholder">{{ exhibitors_data.page.roster_search_placeholder }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="tf-v-roster-grid">
+              {%- for item in exhibitors_data.roster %}
+                <div class="tf-v-rcard">
+                  <div class="tf-v-rcard-inner">
+                    <div class="tf-v-rcard-name">
+                      <span class="tf-v-rcard-name-real">
+                        {%- if item.name_lines %}
+                          {%- for line in item.name_lines %}
+                            {{ line }}{% if not loop.last %}<br />{% endif %}
+                          {%- endfor %}
+                        {%- else %}
+                          {{ item.name }}
+                        {%- endif %}
+                      </span>
+                      <span class="tf-v-rcard-name-mob">{{ exhibitors_data.page.roster_mobile_placeholder_name }}</span>
+                    </div>
+                    <div class="tf-v-rcard-frame">
+                      <div class="tf-v-rcard-shadow">
+                        <div class="tf-v-rcard-shadow-fill"></div>
+                        <img src="{{ <img_url path="img/shared/card_dots.svg" /> }}"
+                             alt=""
+                             class="tf-v-rcard-dots"
+                             aria-hidden="true" />
+                        <a href="{{ item.url }}" class="tf-v-rcard-visit">
+                          <span class="tf-v-rcard-visit-text">{{ exhibitors_data.page.roster_visit_label }}</span>
+                          <img src="{{ <img_url path="img/shared/icon_external_cream.svg" /> }}"
+                               alt=""
+                               class="tf-v-rcard-visit-icon" />
+                        </a>
+                      </div>
+                      <div class="tf-v-rcard-img-pad">
+                        <div class="tf-v-rcard-img-box">
+                          <picture>
+                            <source media="(max-width: 768px)"
+                                    srcset="{{ <img_url path="img/Freeze Background.png" /> }}" />
+                            <img src="{{ <img_url path={item.image} max_width={480} /> }}"
+                                 alt="{{ item.name }}"
+                                 class="tf-v-rcard-img is-real"
+                                 loading="lazy"
+                                 decoding="async" />
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tf-v-rcard-table">{{ item.table }}</div>
+                  </div>
+                </div>
+              {%- endfor %}
+            </div>
+          </section>
+          <section class="tf-v-maps-section">
+            <div class="tf-v-divider is-maps tf-mod-divider">
+              <div class="tf-v-divider-bg tf-mod-divider-bg" aria-hidden="true">
+                <picture>
+                  <source media="(max-width: 768px)"
+                          srcset="{{ <img_srcset path="img/Freeze Background.png" /> }}"
+                          sizes="100vw" />
+                  <img src="{{ <img_url path="img/vendors/maps_divider_bg.jpg" /> }}"
+                       srcset="{{ <img_srcset path="img/vendors/maps_divider_bg.jpg" /> }}"
+                       sizes="100vw"
+                       alt=""
+                       class="tf-v-divider-img is-desk"
+                       loading="lazy"
+                       decoding="async" />
+                </picture>
+                <div class="tf-v-divider-grad tf-mod-divider-vignette"></div>
+              </div>
+              <div class="tf-v-divider-top-wave tf-mod-divider-top" aria-hidden="true"></div>
+              <div class="tf-v-divider-content tf-mod-divider-inner">
+                <h2 class="tf-v-divider-title tf-mod-divider-title"><span class="is-desk-yr">{{ exhibitors_data.page.maps_heading_year_desktop }}</span><span class="is-mob-yr">{{ exhibitors_data.page.maps_heading_year_mobile }}</span> {{ exhibitors_data.page.maps_heading_suffix }}</h2>
+              </div>
+              <div class="tf-v-divider-bottom-wave tf-mod-divider-bottom"
+                   aria-hidden="true"></div>
+            </div>
+            <div class="tf-v-maps-body tf-mod-map">
+              {%- for map in exhibitors_data.maps %}
+                <input type="radio"
+                       name="tf-v-map-tab"
+                       id="tf-map-tab-{{ loop.index }}"
+                       class="tf-v-map-radio tf-mod-map-radio"
+                       {% if loop.last %} checked{% endif %} />
+              {%- endfor %}
+              <div class="tf-v-map-tabs tf-mod-map-tabs">
+                {%- for map in exhibitors_data.maps %}
+                  <label for="tf-map-tab-{{ loop.index }}"
+                         class="tf-v-map-tab tf-mod-map-tab tf-mod-map-tab--{{ loop.index }}">{{ map.label }}</label>
+                {%- endfor %}
+              </div>
+              <div class="tf-v-map-stage tf-mod-map-stage">
+                {%- for map in exhibitors_data.maps %}
+                  <div class="tf-v-map-panel tf-mod-map-panel tf-mod-map-panel--{{ loop.index }}">
+                    <img src="{{ <img_url path={map.image} /> }}"
+                         alt="{{ map.label }}"
+                         class="tf-v-map-img"
+                         loading="lazy"
+                         decoding="async" />
+                  </div>
+                {%- endfor %}
+                <button type="button"
+                        class="tf-v-map-zoom tf-mod-map-zoom"
+                        aria-label="Zoom map">
+                  <img src="{{ <img_url path="img/shared/zoom_circle.svg" /> }}"
+                       alt=""
+                       class="tf-mod-map-zoom-circle" />
+                  <img src="{{ <img_url path="img/shared/zoom_plus.svg" /> }}"
+                       alt=""
+                       class="tf-mod-map-zoom-plus" />
+                </button>
+              </div>
+            </div>
+          </section>
+          <section class="tf-v-past-section">
+            <div class="tf-v-divider is-thankyou tf-mod-divider">
+              <div class="tf-v-divider-bg tf-mod-divider-bg" aria-hidden="true">
+                <picture>
+                  <source media="(max-width: 768px)"
+                          srcset="{{ <img_srcset path="img/Freeze Background.png" /> }}"
+                          sizes="100vw" />
+                  <img src="{{ <img_url path="img/vendors/thankyou_divider_bg.jpg" /> }}"
+                       srcset="{{ <img_srcset path="img/vendors/thankyou_divider_bg.jpg" /> }}"
+                       sizes="100vw"
+                       alt=""
+                       class="tf-v-divider-img is-desk"
+                       loading="lazy"
+                       decoding="async" />
+                </picture>
+                <div class="tf-v-divider-grad tf-mod-divider-vignette"></div>
+              </div>
+              <div class="tf-v-divider-top-wave tf-mod-divider-top" aria-hidden="true"></div>
+              <div class="tf-v-divider-content tf-mod-divider-inner">
+                <h2 class="tf-v-divider-title tf-mod-divider-title">{{ exhibitors_data.page.past_vendors_heading }}</h2>
+              </div>
+              <div class="tf-v-divider-bottom-wave tf-mod-divider-bottom"
+                   aria-hidden="true"></div>
+            </div>
+            <div class="tf-v-polaroid-bleed">
+              <div class="tf-v-polaroid-grid">
+                {%- for item in exhibitors_data.past_vendors %}
+                  <div class="tf-v-polaroid-slot">
+                    <div class="tf-v-polaroid-rot">
+                      <div class="tf-v-polaroid-card tf-mod-polaroid tf-mod-polaroid--sm">
+                        <div class="tf-v-polaroid-thumb-wrap tf-mod-polaroid-photo">
+                          <img src="{{ <img_url path={item.image} max_width={640} /> }}"
+                               alt="{{ item.name }}"
+                               class="tf-v-polaroid-thumb"
+                               loading="lazy"
+                               decoding="async" />
+                        </div>
+                        <div class="tf-v-polaroid-dots tf-mod-polaroid-dots" aria-hidden="true">
+                          <img src="{{ <img_url path="img/shared/polaroid_dots.svg" /> }}" alt="" />
+                        </div>
+                        <a href="{{ item.url }}" class="tf-v-polaroid-link">
+                          <span class="tf-v-polaroid-text">
+                            {%- for line in item.lines %}
+                              {{ line }}{% if not loop.last %}<br />{% endif %}
+                            {%- endfor %}
+                          </span>
+                          <img src="{{ <img_url path="img/shared/icon_external_red.svg" /> }}"
+                               alt=""
+                               class="tf-v-polaroid-ext" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                {%- endfor %}
+              </div>
+            </div>
+            <div class="tf-mod-pager" aria-label="Gallery navigation">
+              {%- for dir in ["prev", "next"] %}
+                {%- if dir == "next" %}
+                  <div class="tf-mod-pager-dots">
+                    <img class="tf-mod-pager-dot"
+                         src="{{ <img_url path="img/shared/pager_dot_inactive.svg" /> }}"
+                         alt="" />
+                    <img class="tf-mod-pager-dot is-active"
+                         src="{{ <img_url path="img/shared/pager_dot_active.svg" /> }}"
+                         alt="" />
+                    <img class="tf-mod-pager-dot"
+                         src="{{ <img_url path="img/shared/pager_dot_inactive.svg" /> }}"
+                         alt="" />
+                  </div>
+                {%- endif %}
+                <button type="button"
+                        class="tf-mod-pager-arrow tf-mod-pager-arrow--{{ dir }}"
+                        aria-label="{% if dir == "prev" %}Previous page{% else %}Next page{% endif %}">
+                  <span class="tf-mod-pager-arrow-rot">
+                    <img class="tf-mod-pager-inner"
+                         src="{{ <img_url path="img/shared/zoom_circle.svg" /> }}"
+                         alt="" />
+                    <img class="tf-mod-pager-ring"
+                         src="{{ <img_url path="img/shared/pager_ring.svg" /> }}"
+                         alt="" />
+                    <img class="tf-mod-pager-chev"
+                         src="{{ <img_url path="img/shared/pager_chevron.svg" /> }}"
+                         alt="" />
+                  </span>
+                </button>
+              {%- endfor %}
+            </div>
+          </section>
+          <section class="tf-v-sell-section">
+            <h2 class="tf-v-h1-red tf-v-sell-heading"><span class="is-mob-block">Want to sell at the</span> event?</h2>
+            <div class="tf-v-ofuda-set">
+              {%- for card in exhibitors_data.sell_cards %}
+                <div class="tf-v-ofuda-slot is-card-{{ loop.index }}">
+                  <div class="tf-v-ofuda-rot is-card-{{ loop.index }}">
+                    <div class="tf-v-ofuda-card tf-mod-ofuda">
+                      <div class="tf-mod-ofuda-decor" aria-hidden="true">
+                        <img class="tf-mod-ofuda-stroke"
+                             src="{{ <img_url path="img/shared/ofuda_stroke.svg" /> }}"
+                             alt="" />
+                        <img class="tf-mod-ofuda-seal"
+                             src="{{ <img_url path="img/shared/ofuda_seal.svg" /> }}"
+                             alt="" />
+                        <img class="tf-mod-ofuda-corner-dark"
+                             src="{{ <img_url path="img/shared/ofuda_corner_dark.svg" /> }}"
+                             alt="" />
+                        <div class="tf-mod-ofuda-vspike">
+                          <span class="tf-mod-ofuda-dot"></span>
+                          <img class="tf-mod-ofuda-vbar"
+                               src="{{ <img_url path="img/shared/ofuda_spike_v.svg" /> }}"
+                               alt="" />
+                        </div>
+                        <div class="tf-mod-ofuda-hspike">
+                          <span class="tf-mod-ofuda-dot"></span>
+                          <img class="tf-mod-ofuda-hbar"
+                               src="{{ <img_url path="img/shared/ofuda_spike_h.svg" /> }}"
+                               alt="" />
+                        </div>
+                      </div>
+                      <div class="tf-v-ofuda-content is-card-{{ loop.index }} tf-mod-ofuda-body">
+                        <div class="tf-v-ofuda-icon-wrap">
+                          {%- if loop.index == 1 %}
+                            <picture>
+                              <source media="(max-width: 768px)"
+                                      srcset="{{ <img_url path="img/shared/ofuda_sakura.svg" /> }}" />
+                              <img src="{{ <img_url path="img/shared/ofuda_hat.svg" /> }}"
+                                   alt=""
+                                   class="tf-v-ofuda-icon is-desk-icon is-hat" />
+                            </picture>
+                          {%- else %}
+                            <picture>
+                              <source media="(max-width: 768px)"
+                                      srcset="{{ <img_url path="img/shared/ofuda_yinyang.svg" /> }}" />
+                              <img src="{{ <img_url path="img/shared/ofuda_sakura.svg" /> }}"
+                                   alt=""
+                                   class="tf-v-ofuda-icon is-desk-icon" />
+                            </picture>
+                          {%- endif %}
+                        </div>
+                        <h3 class="tf-v-ofuda-title tf-mod-ofuda-title">{{ card.title }}</h3>
+                        <p class="tf-v-ofuda-desc tf-mod-ofuda-desc">{{ card.description }}</p>
+                        <a href="{{ get_url(path=card.url) }}"
+                           class="tf-v-btn-red tf-mod-ofuda-btn">
+                          <span class="tf-v-btn-label">{{ card.button_label }}</span>
+                          <span class="tf-v-btn-chevron-cream" aria-hidden="true"></span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {%- endfor %}
+            </div>
+          </section>
+          <section class="tf-v-discord-section">
+            <div class="tf-v-discord-card tf-mod-callout tf-mod-callout--horiz is-discord">
+              <div class="tf-v-discord-icon-wrap tf-mod-callout-icon">
+                <img src="{{ <img_url path="img/discord_card_icon.svg" /> }}"
+                     alt=""
+                     class="tf-v-discord-icon" />
+              </div>
+              <div class="tf-v-discord-content tf-mod-callout-copy">
+                <div class="tf-v-discord-copy">
+                  <h2 class="tf-v-discord-title tf-mod-callout-title">{{ exhibitors_data.discord_cta.title }}</h2>
+                  <p class="tf-v-discord-desc tf-mod-callout-desc">{{ exhibitors_data.discord_cta.description }}</p>
+                </div>
+                <a href="{{ exhibitors_data.discord_cta.url }}"
+                   class="tf-v-btn-cream tf-mod-callout-btn">
+                  <span class="tf-v-btn-label">{{ exhibitors_data.discord_cta.button_label }}</span>
+                  <span class="tf-v-btn-chevron" aria-hidden="true"></span>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock content %}

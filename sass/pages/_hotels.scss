@@ -107,7 +107,9 @@ body:has(.page-hero-hotels) {
   .hero-module-card.hotels-badge-card {
     padding: 48px;
     margin: 0;
-    background: linear-gradient(180deg, rgba(255, 225, 225, 0.5) 0%, #ffffff 45%), #ffffff;
+    background:
+      linear-gradient(180deg, rgba(255, 225, 225, 0.5) 0%, #ffffff 45%),
+      #ffffff;
     display: flex;
     align-items: center;
 
@@ -363,12 +365,8 @@ body:has(.page-hero-hotels) {
     align-items: center;
     justify-content: flex-end;
     background-image: url("img/hotels/hero_hotels.avif"), url("img/hotels/hero_hotels.avif");
-    background-position:
-      85.13% 29.76%,
-      85.13% 100%;
-    background-size:
-      238.24% 82.03%,
-      238.24% 100%;
+    background-position: 85.13% 29.76%, 85.13% 100%;
+    background-size: 238.24% 82.03%, 238.24% 100%;
     .page-hero-title-box {
       width: 100%;
       height: auto;
@@ -400,27 +398,18 @@ body:has(.page-hero-hotels) {
   .hotel-block-photo {
     padding: 200px 31px 32px;
     justify-content: center;
-    background-image: var(--hotel-photo), $hotels-mob-fade, var(--hotel-photo);
-    background-size:
-      105.46% 33.89%,
-      100% 100%,
-      cover;
-    background-position:
-      -4px -20px,
-      center,
-      center;
+    background-image:
+      var(--hotel-photo),
+      $hotels-mob-fade,
+      var(--hotel-photo);
+    background-size: 105.46% 33.89%, 100% 100%, cover;
+    background-position: -4px -20px, center, center;
   }
 
   .hotel-card-2 .hotel-block-photo {
     background-image: $hotels-mob-fade, var(--hotel-photo), var(--hotel-photo);
-    background-size:
-      100% 100%,
-      109.93% 44.24%,
-      cover;
-    background-position:
-      center,
-      -17px -11px,
-      center;
+    background-size: 100% 100%, 109.93% 44.24%, cover;
+    background-position: center, -17px -11px, center;
   }
 
   .hotel-block-ribbon {
@@ -534,7 +523,9 @@ body:has(.page-hero-hotels) {
 
   .hotels-page-container {
     .hero-module-card.hotels-badge-card {
-      background: linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%), #373852;
+      background:
+        linear-gradient(180deg, rgba(48, 41, 62, 0.5) 0%, #373852 45%),
+        #373852;
     }
 
     .hotels-teasers-grid .tf-teaser-card.is-red {

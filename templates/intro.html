@@ -1,171 +1,197 @@
 {% extends "base.html" %}
-
 {% block header %}
-{{ <page_header title={section.title} image="" extra_class="is-intro-hero" /> }}
+  {{ <page_header title={section.title} image="" extra_class="is-intro-hero" /> }}
 {% endblock header %}
-
 {% block content %}
-{%- set intro = load_data(path="data/intro.yml") -%}
-<div class="page-body-container container tf-intro-page">
-<nav class="intro-quick-nav" aria-label="{{ intro.nav.aria_label }}">
-<a class="intro-nav-home" href="{{ get_url(path="@/_index.md") }}">
-<span>{{ intro.nav.home_label }}</span>
-<span class="tf-icon tf-icon-chevron-right"></span>
-</a>
-<div class="intro-nav-links">
-{%- for link in intro.nav.links %}
-<a class="intro-nav-pill" href="{{ link.href }}">{{ link.label }}</a>
-{%- endfor %}
-</div>
-</nav>
-<section id="{{ intro.guide.id }}" class="intro-guide-card">
-<div class="card-gohei-trim-left intro-gohei-left" aria-hidden="true"></div>
-<div class="intro-guide-grid">
-<div class="intro-guide-copy">
-<span class="tf-tag intro-pill-tag is-solid">{{ intro.guide.tag }}</span>
-<h2 class="intro-h2 is-red">{{ intro.guide.title }}</h2>
-<p class="intro-body-lead">{{ intro.guide.lead | safe }}</p>
-<p class="intro-body-text">{{ intro.guide.body | safe }}</p>
-<div class="intro-stat-strip">
-{%- for stat in intro.guide.stats %}
-<div class="intro-stat-chip">
-<span class="intro-stat-value">{{ stat.value }}</span>
-<span class="intro-stat-label">{{ stat.label }}</span>
-</div>
-{%- endfor %}
-</div>
-</div>
-<figure class="intro-danmaku-figure">
-<img src="{{ <img_url path={intro.guide.figure.image} max_width={960} /> }}" alt="{{ intro.guide.figure.alt }}" loading="lazy" decoding="async" />
-<figcaption class="intro-danmaku-caption">{{ intro.guide.figure.caption | safe }}</figcaption>
-</figure>
-</div>
-</section>
-<section id="{{ intro.zun.id }}" class="zun-spotlight-card">
-<div class="zun-spotlight-grid">
-<div class="zun-photo-col">
-<div class="zun-photo-wrap">
-<img src="{{ <img_url path={intro.zun.image} max_width={960} /> }}" alt="{{ intro.zun.image_alt }}" loading="lazy" decoding="async" />
-</div>
-</div>
-<div class="zun-spotlight-body">
-<span class="tf-tag intro-pill-tag is-solid">{{ intro.zun.tag }}</span>
-<h2 class="intro-h2 is-red">{{ intro.zun.title }}</h2>
-<p class="zun-role-subtitle">{{ intro.zun.subtitle }}</p>
-{%- for para in intro.zun.paragraphs %}
-<p class="intro-body-text">{{ para | safe }}</p>
-{%- endfor %}
-<div class="intro-cta-row">
-{%- for btn in intro.zun.buttons %}
-<a href="{{ btn.url }}" target="_blank" rel="noopener noreferrer" class="tf-btn {% if loop.index == 1 %}tf-btn-danger intro-cta-btn{% else %}intro-cta-btn intro-cta-outline{% endif %}">
-<span>{{ btn.label }}</span>
-<span class="tf-icon {% if loop.index == 1 %}tf-icon-chevron-right{% else %}tf-icon-external-link{% endif %}"></span>
-</a>
-{%- endfor %}
-</div>
-</div>
-</div>
-</section>
-<section id="{{ intro.starter_recommendations.id }}" class="intro-section-block">
-<div class="intro-section-head is-centered">
-<h2 class="intro-h2">{{ intro.starter_recommendations.title }}</h2>
-<p class="intro-section-sub">{{ intro.starter_recommendations.subtitle }}</p>
-</div>
-<div class="starter-rec-grid">
-{%- for card in intro.starter_recommendations.cards %}
-<article class="starter-rec-card{% if loop.index >= 4 %} is-wide-pair{% endif %}{% if loop.index == 5 %} is-last-odd{% endif %}">
-<div class="starter-rec-top">
-<img class="starter-rec-thumb" src="{{ <img_url path={card.image} max_width={480} /> }}" alt="{{ card.alt }}" loading="lazy" decoding="async" />
-<div class="starter-rec-meta">
-<span class="tf-tag intro-pill-tag">{{ card.tag }}</span>
-<span class="starter-rec-era">{{ card.era }}</span>
-</div>
-</div>
-<h3 class="starter-rec-title">{{ card.title }}</h3>
-<p class="starter-rec-desc">{{ card.desc }}</p>
-</article>
-{%- endfor %}
-</div>
-</section>
-{%- for game_sec in load_data(path="data/games.yml") %}
-<section id="{{ game_sec.name | slugify }}" class="intro-section-block">
-<div class="intro-section-head">
-<div class="intro-section-title-row">
-<h2 class="intro-h2 is-red">{{ game_sec.name }}</h2>
-<span class="intro-count-pill">{{ game_sec.games | length }} {{ intro.catalog.unit_label }}</span>
-</div>
-<div class="intro-section-desc">{{ game_sec.desc | markdown | safe }}</div>
-</div>
-<div class="games-catalog-grid">
-{%- for game in game_sec.games %}
-<article class="game-grid-card">
-{%- if game.image %}
-<div class="game-cover-wrap">
-<img src="{{ <img_url path={game.image} max_width={480} /> }}" alt="{{ game.name }}" loading="lazy" decoding="async" />
-</div>
-{%- else %}
-<div class="game-era-banner">
-<span class="game-era-chip">{{ intro.catalog.pc98_chip }}</span>
-<span class="game-era-num">#0{{ loop.index }}</span>
-</div>
-{%- endif %}
-<div class="game-card-content">
-<h3 class="game-card-title">{{ game.name }}</h3>
-<div class="game-card-desc">{{ game.desc | markdown | safe }}</div>
-</div>
-</article>
-{%- endfor %}
-</div>
-</section>
-{%- endfor %}
-<section id="{{ intro.featured_guests.id }}" class="intro-guests-card">
-<div class="card-gohei-trim-left intro-gohei-left" aria-hidden="true"></div>
-<div class="card-gohei-trim-right intro-gohei-right" aria-hidden="true"></div>
-<div class="intro-guests-inner">
-<div class="intro-guests-copy">
-<span class="tf-tag intro-pill-tag is-solid">{{ intro.featured_guests.tag }}</span>
-<h2 class="intro-h2 is-red">{{ intro.featured_guests.title }}</h2>
-<p class="intro-body-text">{{ intro.featured_guests.body }}</p>
-</div>
-<div class="intro-guests-actions">
-{%- for btn in intro.featured_guests.buttons %}
-<a href="{{ get_url(path=btn.path) }}" class="tf-btn {% if loop.index == 1 %}tf-btn-danger intro-cta-btn{% else %}intro-cta-btn intro-cta-outline{% endif %}">
-<span>{{ btn.label }}</span>
-<span class="tf-icon tf-icon-chevron-right"></span>
-</a>
-{%- endfor %}
-</div>
-</div>
-</section>
-<section class="hero-module-card intro-badge-card">
-<div class="hero-gohei-left" aria-hidden="true"></div>
-<div class="hero-gohei-right" aria-hidden="true"></div>
-<div class="hero-card-inner intro-badge-inner">
-<div class="hero-card-image-wrap intro-badge-art">
-<img src="{{ <img_url path={intro.badge_cta.image} max_width={960} /> }}" alt="{{ intro.badge_cta.image_alt }}" loading="lazy" decoding="async" />
-</div>
-<div class="hero-card-content intro-badge-content">
-<h2 class="hero-card-title intro-h2">{{ intro.badge_cta.title }}</h2>
-<p class="hero-card-subtitle intro-body-text">{{ intro.badge_cta.body }}</p>
-<a class="tf-btn tf-btn-danger hero-card-btn intro-cta-btn" href="{{ intro.badge_cta.button_url }}" target="_blank" rel="noopener noreferrer">
-<span>{{ intro.badge_cta.button_label }}</span>
-<span class="tf-icon tf-icon-chevron-right"></span>
-</a>
-</div>
-</div>
-</section>
-<section class="tf-mod-callout tf-mod-callout--horiz is-discord intro-discord-card">
-<div class="tf-mod-callout-icon">
-<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="{{ intro.discord_cta.icon_label }}" />
-</div>
-<div class="tf-mod-callout-copy intro-discord-content">
-<h2 class="tf-mod-callout-title">{{ intro.discord_cta.title }}</h2>
-<p class="tf-mod-callout-desc">{{ intro.discord_cta.subtitle }}</p>
-<a href="{{ intro.discord_cta.button_url }}" target="_blank" rel="noopener noreferrer" class="tf-btn tf-mod-callout-btn">
-<span>{{ intro.discord_cta.button_label }}</span>
-<span class="tf-icon tf-icon-chevron-right"></span>
-</a>
-</div>
-</section>
-</div>
+  {%- set intro = load_data(path="data/intro.yml") -%}
+  <div class="page-body-container container tf-intro-page">
+    <nav class="intro-quick-nav" aria-label="{{ intro.nav.aria_label }}">
+      <a class="intro-nav-home" href="{{ get_url(path='@/_index.md') }}">
+        <span>{{ intro.nav.home_label }}</span>
+        <span class="tf-icon tf-icon-chevron-right"></span>
+      </a>
+      <div class="intro-nav-links">
+        {%- for link in intro.nav.links %}
+          <a class="intro-nav-pill" href="{{ link.href }}">{{ link.label }}</a>
+        {%- endfor %}
+      </div>
+    </nav>
+    <section id="{{ intro.guide.id }}" class="intro-guide-card">
+      <div class="card-gohei-trim-left intro-gohei-left" aria-hidden="true"></div>
+      <div class="intro-guide-grid">
+        <div class="intro-guide-copy">
+          <span class="tf-tag intro-pill-tag is-solid">{{ intro.guide.tag }}</span>
+          <h2 class="intro-h2 is-red">{{ intro.guide.title }}</h2>
+          <p class="intro-body-lead">{{ intro.guide.lead | safe }}</p>
+          <p class="intro-body-text">{{ intro.guide.body | safe }}</p>
+          <div class="intro-stat-strip">
+            {%- for stat in intro.guide.stats %}
+              <div class="intro-stat-chip">
+                <span class="intro-stat-value">{{ stat.value }}</span>
+                <span class="intro-stat-label">{{ stat.label }}</span>
+              </div>
+            {%- endfor %}
+          </div>
+        </div>
+        <figure class="intro-danmaku-figure">
+          <img src="{{ <img_url path={intro.guide.figure.image} max_width={960} /> }}"
+               alt="{{ intro.guide.figure.alt }}"
+               loading="lazy"
+               decoding="async" />
+          <figcaption class="intro-danmaku-caption">{{ intro.guide.figure.caption | safe }}</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section id="{{ intro.zun.id }}" class="zun-spotlight-card">
+      <div class="zun-spotlight-grid">
+        <div class="zun-photo-col">
+          <div class="zun-photo-wrap">
+            <img src="{{ <img_url path={intro.zun.image} max_width={960} /> }}"
+                 alt="{{ intro.zun.image_alt }}"
+                 loading="lazy"
+                 decoding="async" />
+          </div>
+        </div>
+        <div class="zun-spotlight-body">
+          <span class="tf-tag intro-pill-tag is-solid">{{ intro.zun.tag }}</span>
+          <h2 class="intro-h2 is-red">{{ intro.zun.title }}</h2>
+          <p class="zun-role-subtitle">{{ intro.zun.subtitle }}</p>
+          {%- for para in intro.zun.paragraphs %}
+            <p class="intro-body-text">{{ para | safe }}</p>
+          {%- endfor %}
+          <div class="intro-cta-row">
+            {%- for btn in intro.zun.buttons %}
+              <a href="{{ btn.url }}"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="tf-btn {% if loop.index == 1 %}tf-btn-danger intro-cta-btn{% else %}intro-cta-btn intro-cta-outline{% endif %}">
+                <span>{{ btn.label }}</span>
+                <span class="tf-icon {% if loop.index == 1 %}tf-icon-chevron-right{% else %}tf-icon-external-link{% endif %}"></span>
+              </a>
+            {%- endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="{{ intro.starter_recommendations.id }}"
+             class="intro-section-block">
+      <div class="intro-section-head is-centered">
+        <h2 class="intro-h2">{{ intro.starter_recommendations.title }}</h2>
+        <p class="intro-section-sub">{{ intro.starter_recommendations.subtitle }}</p>
+      </div>
+      <div class="starter-rec-grid">
+        {%- for card in intro.starter_recommendations.cards %}
+          <article class="starter-rec-card{% if loop.index >= 4 %} is-wide-pair{% endif %}{% if loop.index == 5 %} is-last-odd{% endif %}">
+            <div class="starter-rec-top">
+              <img class="starter-rec-thumb"
+                   src="{{ <img_url path={card.image} max_width={480} /> }}"
+                   alt="{{ card.alt }}"
+                   loading="lazy"
+                   decoding="async" />
+              <div class="starter-rec-meta">
+                <span class="tf-tag intro-pill-tag">{{ card.tag }}</span>
+                <span class="starter-rec-era">{{ card.era }}</span>
+              </div>
+            </div>
+            <h3 class="starter-rec-title">{{ card.title }}</h3>
+            <p class="starter-rec-desc">{{ card.desc }}</p>
+          </article>
+        {%- endfor %}
+      </div>
+    </section>
+    {%- for game_sec in load_data(path="data/games.yml") %}
+      <section id="{{ game_sec.name | slugify }}" class="intro-section-block">
+        <div class="intro-section-head">
+          <div class="intro-section-title-row">
+            <h2 class="intro-h2 is-red">{{ game_sec.name }}</h2>
+            <span class="intro-count-pill">{{ game_sec.games | length }} {{ intro.catalog.unit_label }}</span>
+          </div>
+          <div class="intro-section-desc">{{ game_sec.desc | markdown | safe }}</div>
+        </div>
+        <div class="games-catalog-grid">
+          {%- for game in game_sec.games %}
+            <article class="game-grid-card">
+              {%- if game.image %}
+                <div class="game-cover-wrap">
+                  <img src="{{ <img_url path={game.image} max_width={480} /> }}"
+                       alt="{{ game.name }}"
+                       loading="lazy"
+                       decoding="async" />
+                </div>
+              {%- else %}
+                <div class="game-era-banner">
+                  <span class="game-era-chip">{{ intro.catalog.pc98_chip }}</span>
+                  <span class="game-era-num">#0{{ loop.index }}</span>
+                </div>
+              {%- endif %}
+              <div class="game-card-content">
+                <h3 class="game-card-title">{{ game.name }}</h3>
+                <div class="game-card-desc">{{ game.desc | markdown | safe }}</div>
+              </div>
+            </article>
+          {%- endfor %}
+        </div>
+      </section>
+    {%- endfor %}
+    <section id="{{ intro.featured_guests.id }}" class="intro-guests-card">
+      <div class="card-gohei-trim-left intro-gohei-left" aria-hidden="true"></div>
+      <div class="card-gohei-trim-right intro-gohei-right" aria-hidden="true"></div>
+      <div class="intro-guests-inner">
+        <div class="intro-guests-copy">
+          <span class="tf-tag intro-pill-tag is-solid">{{ intro.featured_guests.tag }}</span>
+          <h2 class="intro-h2 is-red">{{ intro.featured_guests.title }}</h2>
+          <p class="intro-body-text">{{ intro.featured_guests.body }}</p>
+        </div>
+        <div class="intro-guests-actions">
+          {%- for btn in intro.featured_guests.buttons %}
+            <a href="{{ get_url(path=btn.path) }}"
+               class="tf-btn {% if loop.index == 1 %}tf-btn-danger intro-cta-btn{% else %}intro-cta-btn intro-cta-outline{% endif %}">
+              <span>{{ btn.label }}</span>
+              <span class="tf-icon tf-icon-chevron-right"></span>
+            </a>
+          {%- endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="hero-module-card intro-badge-card">
+      <div class="hero-gohei-left" aria-hidden="true"></div>
+      <div class="hero-gohei-right" aria-hidden="true"></div>
+      <div class="hero-card-inner intro-badge-inner">
+        <div class="hero-card-image-wrap intro-badge-art">
+          <img src="{{ <img_url path={intro.badge_cta.image} max_width={960} /> }}"
+               alt="{{ intro.badge_cta.image_alt }}"
+               loading="lazy"
+               decoding="async" />
+        </div>
+        <div class="hero-card-content intro-badge-content">
+          <h2 class="hero-card-title intro-h2">{{ intro.badge_cta.title }}</h2>
+          <p class="hero-card-subtitle intro-body-text">{{ intro.badge_cta.body }}</p>
+          <a class="tf-btn tf-btn-danger hero-card-btn intro-cta-btn"
+             href="{{ intro.badge_cta.button_url }}"
+             target="_blank"
+             rel="noopener noreferrer">
+            <span>{{ intro.badge_cta.button_label }}</span>
+            <span class="tf-icon tf-icon-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="tf-mod-callout tf-mod-callout--horiz is-discord intro-discord-card">
+      <div class="tf-mod-callout-icon">
+        <img src="{{ <img_url path="img/discord_card_icon.svg" /> }}"
+             alt="{{ intro.discord_cta.icon_label }}" />
+      </div>
+      <div class="tf-mod-callout-copy intro-discord-content">
+        <h2 class="tf-mod-callout-title">{{ intro.discord_cta.title }}</h2>
+        <p class="tf-mod-callout-desc">{{ intro.discord_cta.subtitle }}</p>
+        <a href="{{ intro.discord_cta.button_url }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="tf-btn tf-mod-callout-btn">
+          <span>{{ intro.discord_cta.button_label }}</span>
+          <span class="tf-icon tf-icon-chevron-right"></span>
+        </a>
+      </div>
+    </section>
+  </div>
 {% endblock content %}

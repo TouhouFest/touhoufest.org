@@ -1,0 +1,6 @@
+{
+  "profile": "tera",
+  "indent": 2,
+  "custom_blocks": "component",
+  "quiet": true
+}

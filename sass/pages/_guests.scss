@@ -796,9 +796,8 @@ body:has(.guests-hero-section) {
     display: block;
   }
 }
-@each $r, $c, $l, $t, $w,
-  $h in (1 2 -13.92% -32.4% 127.84% 131%, 2 2 -91.59% 0 195.17% 100%, 2 4 -28.81% 0 195.17% 100%)
-{
+@each $r, $c, $l, $t, $w, $h in
+  (1 2 -13.92% -32.4% 127.84% 131%, 2 2 -91.59% 0 195.17% 100%, 2 4 -28.81% 0 195.17% 100%) {
   .timeline-year-row:nth-child(#{$r}) .timeline-bg-col:nth-child(#{$c}) img {
     inset: auto;
     left: $l;
@@ -1041,14 +1040,12 @@ body:has(.guests-hero-section) .guests-page-content {
   }
   .timeline-year-row {
     width: 100%;
-    @each $sel, $rh, $bh,
-      $gt
-        in (
-          (":nth-child(1)", 1029.37px, 989.46px, 302px),
-          (":is(:nth-child(2), :nth-child(5))", 1269.37px, 1220.16px, 436px),
-          (":is(:nth-child(3), :nth-child(4))", 1509.37px, 1450.85px, 569px)
-        )
-    {
+    @each $sel, $rh, $bh, $gt in
+      (
+        (":nth-child(1)", 1029.37px, 989.46px, 302px),
+        (":is(:nth-child(2), :nth-child(5))", 1269.37px, 1220.16px, 436px),
+        (":is(:nth-child(3), :nth-child(4))", 1509.37px, 1450.85px, 569px)
+      ) {
       &#{$sel} {
         @include guests-lock-h($rh);
         .timeline-bg-photos {

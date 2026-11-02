@@ -1,170 +1,185 @@
 {% component img_url(path, quality=75, max_width=2880, format="avif") -%}
-{%- set ext = path | split(pat=".") | last | lower -%}
-{%- if ext == "png" or ext == "jpg" or ext == "jpeg" or ext == "jfif" or ext == "webp" -%}
-{%- set meta = get_image_metadata(path=path) -%}
-{%- if meta.width > max_width or meta.height > max_width -%}
-{%- if format == "avif" -%}
-{%- set processed = resize_image(path=path, width=max_width, height=max_width, op="fit", format="avif", quality=quality, speed=6) -%}
-{%- else -%}
-{%- set processed = resize_image(path=path, width=max_width, height=max_width, op="fit", format=format, quality=quality) -%}
-{%- endif -%}
-{%- else -%}
-{%- if format == "avif" -%}
-{%- set processed = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format="avif", quality=quality, speed=6) -%}
-{%- else -%}
-{%- set processed = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format=format, quality=quality) -%}
-{%- endif -%}
-{%- endif -%}
-{{ processed.url | replace(from=" ", to="%20") | safe }}
-{%- else -%}
-{{ get_url(path=path, cachebust=true) | replace(from=" ", to="%20") | safe }}
-{%- endif -%}
+  {%- set ext = path | split(pat=".") | last | lower -%}
+  {%- if ext == "png" or ext == "jpg" or ext == "jpeg" or ext == "jfif" or ext == "webp" -%}
+    {%- set meta = get_image_metadata(path=path) -%}
+    {%- if meta.width > max_width or meta.height > max_width -%}
+      {%- if format == "avif" -%}
+        {%- set processed = resize_image(path=path, width=max_width, height=max_width, op="fit", format="avif", quality=quality, speed=6) -%}
+      {%- else -%}
+        {%- set processed = resize_image(path=path, width=max_width, height=max_width, op="fit", format=format, quality=quality) -%}
+      {%- endif -%}
+    {%- else -%}
+      {%- if format == "avif" -%}
+        {%- set processed = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format="avif", quality=quality, speed=6) -%}
+      {%- else -%}
+        {%- set processed = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format=format, quality=quality) -%}
+      {%- endif -%}
+    {%- endif -%}
+    {{ processed.url | replace(from=" ", to="%20") | safe }}
+  {%- else -%}
+    {{ get_url(path=path, cachebust=true) | replace(from=" ", to="%20") | safe }}
+  {%- endif -%}
 {%- endcomponent img_url %}
-
 {% component img_srcset(path, quality=75, format="avif") -%}
-{%- set meta = get_image_metadata(path=path) -%}
-{%- if meta.width > 960 -%}
-{%- set p960 = resize_image(path=path, width=960, height=960, op="fit", format=format, quality=quality, speed=6) -%}
-{{ p960.url | replace(from=" ", to="%20") | safe }} {{ p960.width }}w, {% endif -%}
-{%- if meta.width > 1600 -%}
-{%- set p1600 = resize_image(path=path, width=1600, height=1600, op="fit", format=format, quality=quality, speed=6) -%}
-{{ p1600.url | replace(from=" ", to="%20") | safe }} {{ p1600.width }}w, {% endif -%}
-{%- if meta.width > 2880 or meta.height > 2880 -%}
-{%- set pmax = resize_image(path=path, width=2880, height=2880, op="fit", format=format, quality=quality, speed=6) -%}
-{%- else -%}
-{%- set pmax = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format=format, quality=quality, speed=6) -%}
-{%- endif -%}
-{{ pmax.url | replace(from=" ", to="%20") | safe }} {{ pmax.width }}w
+  {%- set meta = get_image_metadata(path=path) -%}
+  {%- if meta.width > 960 -%}
+    {%- set p960 = resize_image(path=path, width=960, height=960, op="fit", format=format, quality=quality, speed=6) -%}
+    {{ p960.url | replace(from=" ", to="%20") | safe }} {{ p960.width }}w, {% endif -%}
+  {%- if meta.width > 1600 -%}
+    {%- set p1600 = resize_image(path=path, width=1600, height=1600, op="fit", format=format, quality=quality, speed=6) -%}
+    {{ p1600.url | replace(from=" ", to="%20") | safe }} {{ p1600.width }}w, {% endif -%}
+  {%- if meta.width > 2880 or meta.height > 2880 -%}
+    {%- set pmax = resize_image(path=path, width=2880, height=2880, op="fit", format=format, quality=quality, speed=6) -%}
+  {%- else -%}
+    {%- set pmax = resize_image(path=path, width=meta.width, height=meta.height, op="scale", format=format, quality=quality, speed=6) -%}
+  {%- endif -%}
+  {{ pmax.url | replace(from=" ", to="%20") | safe }} {{ pmax.width }}w
 {%- endcomponent img_srcset %}
-
 {% component newsletter(extra_class="", title="The Tengu Newsletter", subtext="Sign up with your email address to receive news and updates.", placeholder="Email here", button_text="Subscribe", icon="img/shared/icon_email.svg") %}
-<div class="tf-mod-callout tf-mod-callout--horiz is-newsletter newsletter-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
-<div class="tf-mod-callout-icon tf-newsletter-envelope newsletter-icon-wrap">
-<img src="{{ <img_url path={icon} /> }}" alt="Newsletter" loading="lazy" decoding="async" />
-</div>
-<div class="newsletter-content">
-<div class="tf-mod-callout-copy newsletter-copy">
-<h2 class="tf-mod-callout-title newsletter-title">{{ title }}</h2>
-<p class="tf-mod-callout-desc newsletter-subtext">{{ subtext }}</p>
-</div>
-<form class="tf-newsletter-form newsletter-form" action="#" method="post" onsubmit="return false;">
-<input type="email" class="tf-newsletter-input newsletter-input" placeholder="{{ placeholder }}" required />
-<button type="submit" class="tf-btn tf-btn-danger tf-newsletter-btn">
-<span>{{ button_text }}</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
-</button>
-</form>
-</div>
-</div>
+  <div class="tf-mod-callout tf-mod-callout--horiz is-newsletter newsletter-callout-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
+    <div class="tf-mod-callout-icon tf-newsletter-envelope newsletter-icon-wrap">
+      <img src="{{ <img_url path={icon} /> }}"
+           alt="Newsletter"
+           loading="lazy"
+           decoding="async" />
+    </div>
+    <div class="newsletter-content">
+      <div class="tf-mod-callout-copy newsletter-copy">
+        <h2 class="tf-mod-callout-title newsletter-title">{{ title }}</h2>
+        <p class="tf-mod-callout-desc newsletter-subtext">{{ subtext }}</p>
+      </div>
+      <form class="tf-newsletter-form newsletter-form"
+            action="#"
+            method="post"
+            onsubmit="return false;">
+        <input type="email"
+               class="tf-newsletter-input newsletter-input"
+               placeholder="{{ placeholder }}"
+               required />
+        <button type="submit" class="tf-btn tf-btn-danger tf-newsletter-btn">
+          <span>{{ button_text }}</span>
+          <span class="tf-icon tf-icon-chevron-right ml-1"></span>
+        </button>
+      </form>
+    </div>
+  </div>
 {% endcomponent newsletter %}
-
 {% component page_header(title, subtitle="", image="", description="", extra_class="", hide_bottom_wave=false) %}
-<div class="page-hero-banner{% if extra_class %} {{ extra_class }}{% endif %}">
-{% if not hide_bottom_wave %}
-<div class="divider-wave-bottom"></div>
-{% endif %}
-<div class="tf-hero-box page-hero-title-box hero-title-box">
-<h1 class="tf-hero-title page-hero-title hero-title">{{ title }}</h1>
-{%- if subtitle %}
-<p class="page-hero-subtitle hero-subtitle mt-3">{{ subtitle | safe }}</p>
-{%- endif %}
-{%- if description %}
-<div class="page-hero-body hero-body-text mt-4">{{ description | safe }}</div>
-{%- endif %}
-</div>
-</div>
+  <div class="page-hero-banner{% if extra_class %} {{ extra_class }}{% endif %}">
+    {% if not hide_bottom_wave %}
+      <div class="divider-wave-bottom"></div>
+    {% endif %}
+    <div class="tf-hero-box page-hero-title-box hero-title-box">
+      <h1 class="tf-hero-title page-hero-title hero-title">{{ title }}</h1>
+      {%- if subtitle %}
+        <p class="page-hero-subtitle hero-subtitle mt-3">{{ subtitle | safe }}</p>
+      {%- endif %}
+      {%- if description %}
+        <div class="page-hero-body hero-body-text mt-4">{{ description | safe }}</div>
+      {%- endif %}
+    </div>
+  </div>
 {% endcomponent page_header %}
-
 {% component hero_card(title, mobile_title="", subtitle="", image="img/badge_teaser.png", button_text="Buy badge", url="/register", extra_class="") %}
-<div class="hero-module-card badge-hero-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
-<div class="hero-gohei-left"></div>
-<div class="hero-gohei-right"></div>
-<div class="hero-card-inner">
-<div class="hero-card-image-wrap">
-{%- if image %}
-<img src="{{ <img_url path={image} max_width={960} /> }}" alt="{{ title }}" loading="lazy" decoding="async" />
-{%- else %}
-<img src="{{ <img_url path="img/badge_teaser.png" max_width={960} /> }}" alt="{{ title }}" loading="lazy" decoding="async" />
-{%- endif %}
-</div>
-<div class="hero-card-content">
-{%- if mobile_title %}
-<h2 class="mb-3 hero-card-title"><span class="hero-title-desktop">{{ title }}</span><span class="hero-title-mobile">{{ mobile_title }}</span></h2>
-{%- else %}
-<h2 class="mb-3 hero-card-title">{{ title }}</h2>
-{%- endif %}
-{%- if subtitle %}
-<p class="subtitle mb-4 hero-card-subtitle">{{ subtitle }}</p>
-{%- endif %}
-{%- if url %}
-<a class="tf-btn tf-btn-danger hero-card-btn" href="{{ get_url(path=url) }}">
-<span>{{ button_text }}</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
-</a>
-{%- endif %}
-</div>
-</div>
-</div>
+  <div class="hero-module-card badge-hero-card{% if extra_class %} {{ extra_class }}{% else %} my-6{% endif %}">
+    <div class="hero-gohei-left"></div>
+    <div class="hero-gohei-right"></div>
+    <div class="hero-card-inner">
+      <div class="hero-card-image-wrap">
+        {%- if image %}
+          <img src="{{ <img_url path={image} max_width={960} /> }}"
+               alt="{{ title }}"
+               loading="lazy"
+               decoding="async" />
+        {%- else %}
+          <img src="{{ <img_url path="img/badge_teaser.png" max_width={960} /> }}"
+               alt="{{ title }}"
+               loading="lazy"
+               decoding="async" />
+        {%- endif %}
+      </div>
+      <div class="hero-card-content">
+        {%- if mobile_title %}
+          <h2 class="mb-3 hero-card-title"><span class="hero-title-desktop">{{ title }}</span><span class="hero-title-mobile">{{ mobile_title }}</span></h2>
+        {%- else %}
+          <h2 class="mb-3 hero-card-title">{{ title }}</h2>
+        {%- endif %}
+        {%- if subtitle %}
+          <p class="subtitle mb-4 hero-card-subtitle">{{ subtitle }}</p>
+        {%- endif %}
+        {%- if url %}
+          <a class="tf-btn tf-btn-danger hero-card-btn"
+             href="{{ get_url(path=url) }}">
+            <span>{{ button_text }}</span>
+            <span class="tf-icon tf-icon-chevron-right ml-1"></span>
+          </a>
+        {%- endif %}
+      </div>
+    </div>
+  </div>
 {% endcomponent hero_card %}
-
 {% component teaser_card(title, subtitle="", button_text="Button", url="#", theme="red", icon="") %}
-<div class="tf-mod-callout tf-mod-callout--vert is-{{ theme }} tf-teaser-card">
-{%- if icon %}
-<div class="tf-mod-callout-icon tf-teaser-avatar">
-{%- if icon == "discord" %}
-<img src="{{ <img_url path="img/discord_card_icon.svg" /> }}" alt="Discord" loading="lazy" decoding="async" />
-{%- else %}
-<img src="{{ <img_url path={icon} /> }}" alt="{{ title }}" loading="lazy" decoding="async" />
-{%- endif %}
-</div>
-{%- endif %}
-<div class="tf-teaser-body">
-<div class="tf-mod-callout-copy tf-teaser-copy">
-<h3 class="tf-mod-callout-title tf-teaser-title">{{ title }}</h3>
-{%- if subtitle %}
-<p class="tf-mod-callout-desc tf-teaser-subtitle">{{ subtitle }}</p>
-{%- endif %}
-</div>
-<div class="tf-teaser-action">
-<a href="{{ url }}" class="tf-mod-callout-btn tf-teaser-btn">
-<span>{{ button_text }}</span>
-<span class="tf-icon tf-icon-chevron-right ml-1"></span>
-</a>
-</div>
-</div>
-</div>
+  <div class="tf-mod-callout tf-mod-callout--vert is-{{ theme }} tf-teaser-card">
+    {%- if icon %}
+      <div class="tf-mod-callout-icon tf-teaser-avatar">
+        {%- if icon == "discord" %}
+          <img src="{{ <img_url path="img/discord_card_icon.svg" /> }}"
+               alt="Discord"
+               loading="lazy"
+               decoding="async" />
+        {%- else %}
+          <img src="{{ <img_url path={icon} /> }}"
+               alt="{{ title }}"
+               loading="lazy"
+               decoding="async" />
+        {%- endif %}
+      </div>
+    {%- endif %}
+    <div class="tf-teaser-body">
+      <div class="tf-mod-callout-copy tf-teaser-copy">
+        <h3 class="tf-mod-callout-title tf-teaser-title">{{ title }}</h3>
+        {%- if subtitle %}
+          <p class="tf-mod-callout-desc tf-teaser-subtitle">{{ subtitle }}</p>
+        {%- endif %}
+      </div>
+      <div class="tf-teaser-action">
+        <a href="{{ url }}" class="tf-mod-callout-btn tf-teaser-btn">
+          <span>{{ button_text }}</span>
+          <span class="tf-icon tf-icon-chevron-right ml-1"></span>
+        </a>
+      </div>
+    </div>
+  </div>
 {% endcomponent teaser_card %}
-
 {% component day_ord(d) %}
-{%- set n = d | date(format="%-d") | int -%}
-{%- if n in [11, 12, 13] -%}
-{{ n }}th
-{%- elif n % 10 == 1 -%}
-{{ n }}st
-{%- elif n % 10 == 2 -%}
-{{ n }}nd
-{%- elif n % 10 == 3 -%}
-{{ n }}rd
-{%- else -%}
-{{ n }}th
-{%- endif -%}
+  {%- set n = d | date(format="%-d") | int -%}
+  {%- if n in [11, 12, 13] -%}
+    {{ n }}th
+  {%- elif n % 10 == 1 -%}
+    {{ n }}st
+  {%- elif n % 10 == 2 -%}
+    {{ n }}nd
+  {%- elif n % 10 == 3 -%}
+    {{ n }}rd
+  {%- else -%}
+    {{ n }}th
+  {%- endif -%}
 {% endcomponent day_ord %}
-
 {% component event_date(format="full", ts=0) %}
-{%- set cfg = load_data(path="config.toml") -%}
-{%- set s = cfg.extra.event_start -%}
-{%- set e = cfg.extra.event_end -%}
-{%- if format == "year" -%}
-{{ e | date(format="%Y") }}
-{%- elif format == "day" -%}
-{{ ts | date(format="%A %B ") }}{{ <day_ord d={ts} /> }}
-{%- elif format == "range" -%}
-{{ s | date(format="%B ") }}{{ <day_ord d={s} /> }}-
-{%- if (s | date(format="%B")) != (e | date(format="%B")) -%}
-{{ e | date(format="%B ") }}
-{%- endif -%}
-{{ <day_ord d={e} /> }}
-{%- else -%}
-{{ <event_date format="range" /> }} {{ e | date(format="%Y") }}
-{%- endif -%}
+  {%- set cfg = load_data(path="config.toml") -%}
+  {%- set s = cfg.extra.event_start -%}
+  {%- set e = cfg.extra.event_end -%}
+  {%- if format == "year" -%}
+    {{ e | date(format="%Y") }}
+  {%- elif format == "day" -%}
+    {{ ts | date(format="%A %B ") }}{{ <day_ord d={ts} /> }}
+  {%- elif format == "range" -%}
+    {{ s | date(format="%B ") }}{{ <day_ord d={s} /> }}-
+    {%- if (s | date(format="%B")) != (e | date(format="%B")) -%}
+      {{ e | date(format="%B ") }}
+    {%- endif -%}
+    {{ <day_ord d={e} /> }}
+  {%- else -%}
+    {{ <event_date format="range" /> }} {{ e | date(format="%Y") }}
+  {%- endif -%}
 {% endcomponent event_date %}

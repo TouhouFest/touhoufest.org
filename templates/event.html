@@ -1,290 +1,398 @@
 {% extends "base.html" %}
-
 {% block content %}
-{% set ev = load_data(path="data/event.yml") -%}
-<div class="ev-page">
-
-<section class="ev-intro">
-<div class="tf-hero-banner ev-hero">
-<div class="ev-hero-bg" aria-hidden="true">
-<div class="ev-hero-black"></div>
-<picture>
-<source media="(max-width: 768px)" srcset="{{ <img_srcset path={ev.hero.mobile_image} /> }}" sizes="100vw">
-<img src="{{ <img_url path={ev.hero.desktop_image} /> }}" srcset="{{ <img_srcset path={ev.hero.desktop_image} /> }}" sizes="100vw" alt="" class="ev-hero-img ev-hero-img-desktop" fetchpriority="high">
-</picture>
-</div>
-<div class="tf-hero-container ev-hero-container">
-<div class="tf-hero-box ev-hero-box">
-<div class="ev-hero-copy">
-<h1 class="tf-hero-title ev-hero-title">{{ ev.hero.title }}</h1>
-<div class="ev-hero-text">
-<p class="ev-hero-p1">{{ ev.hero.p1 }}</p>
-<p class="ev-hero-p2">{{ ev.hero.p2 }}</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="ev-ofuda-set">
-{% for idx in [1, 2] %}
-{% if idx == 2 %}<div class="ev-ofuda-slot-2-adj">{% endif %}
-<div class="ev-ofuda-slot-{{ idx }}">
-<div class="ev-ofuda-rot-{{ idx }}">
-<div class="ev-ofuda-pad">
-<div class="ev-ofuda-card tf-mod-ofuda">
-<div class="tf-mod-ofuda-decor" aria-hidden="true">
-<img src="{{ <img_url path="img/shared/ofuda_stroke.svg" /> }}" alt="" class="tf-mod-ofuda-stroke">
-<img src="{{ <img_url path="img/shared/ofuda_seal.svg" /> }}" alt="" class="tf-mod-ofuda-seal">
-<img src="{{ <img_url path="img/shared/ofuda_corner_dark.svg" /> }}" alt="" class="tf-mod-ofuda-corner-dark">
-<div class="tf-mod-ofuda-vspike">
-<span class="tf-mod-ofuda-dot"></span>
-<img src="{{ <img_url path="img/shared/ofuda_spike_v.svg" /> }}" alt="" class="tf-mod-ofuda-vbar">
-</div>
-<div class="tf-mod-ofuda-hspike">
-<span class="tf-mod-ofuda-dot"></span>
-<img src="{{ <img_url path="img/shared/ofuda_spike_h.svg" /> }}" alt="" class="tf-mod-ofuda-hbar">
-</div>
-</div>
-<div class="ev-ofuda-body {% if idx == 1 %}ev-ofuda-body-when{% else %}ev-ofuda-body-where{% endif %} tf-mod-ofuda-body">
-<div class="ev-ofuda-head">
-<div class="ev-ofuda-icon {% if idx == 1 %}ev-watch-icon{% else %}ev-loc-icon{% endif %}">
-<img src="{% if idx == 1 %}{{ <img_url path="img/shared/ofuda_watch.svg" /> }}{% else %}{{ <img_url path="img/shared/ofuda_location.svg" /> }}{% endif %}" alt="" class="ev-ofuda-icon-img">
-</div>
-<h2 class="ev-ofuda-title tf-mod-ofuda-title">{% if idx == 1 %}{{ ev.when.title }}{% else %}{{ ev.where.title }}{% endif %}</h2>
-</div>
-<div class="ev-ofuda-text tf-mod-ofuda-desc">
-{% if idx == 1 %}
-<p class="ev-ofuda-p1">{{ <event_date format="range" /> }}</p>
-<p class="ev-ofuda-p2">{{ <event_date format="year" /> }}</p>
-{% else %}
-<p class="ev-ofuda-p1">{{ ev.where.venue }}</p>
-<p class="ev-ofuda-p2">{{ ev.where.address_line_1 }}<br>{{ ev.where.address_line_2 }}</p>
-{% endif %}
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-{% if idx == 2 %}</div>{% endif %}
-{% endfor %}
-</div>
-</section>
-
-<section class="ev-gallery-sec">
-<div class="ev-gallery-bg" aria-hidden="true">
-<img src="{{ <img_url path={ev.gallery.bg_image} /> }}" srcset="{{ <img_srcset path={ev.gallery.bg_image} /> }}" sizes="100vw" alt="" class="ev-gallery-bg-img" loading="lazy" decoding="async">
-</div>
-<div class="ev-gallery-banner tf-mod-divider">
-<div class="tf-mod-divider-top ev-banner-top-deco ev-banner-top-deco-gallery" aria-hidden="true"></div>
-<div class="ev-gallery-vignette" aria-hidden="true"></div>
-<div class="ev-banner-content tf-mod-divider-inner">
-<h2 class="ev-banner-title tf-mod-divider-title">{{ ev.gallery.title }}</h2>
-</div>
-</div>
-<div class="ev-polaroid-grid">
-{% for p in ev.gallery.photos -%}
-<div class="ev-polaroid-slot">
-<div class="ev-polaroid-rot">
-<div class="ev-polaroid-frame tf-mod-polaroid tf-mod-polaroid--md">
-<div class="ev-polaroid-photo tf-mod-polaroid-photo">
-<img src="{{ <img_url path={p.src} max_width={960} /> }}" alt="{{ p.alt }}" class="ev-polaroid-img" loading="lazy" decoding="async">
-{% if p.overlay_src is defined -%}
-<img src="{{ <img_url path={p.overlay_src} max_width={960} /> }}" alt="" class="ev-polaroid-img" loading="lazy" decoding="async">
-{% endif -%}
-</div>
-<div class="ev-polaroid-dots tf-mod-polaroid-dots" aria-hidden="true">
-<img src="{{ <img_url path="img/shared/polaroid_dots.svg" /> }}" alt="" class="ev-polaroid-dots-img">
-</div>
-</div>
-</div>
-</div>
-{% endfor -%}
-</div>
-</section>
-
-<section class="ev-maps-sec">
-<div class="ev-maps-banner tf-mod-divider">
-<div class="ev-maps-banner-bg tf-mod-divider-bg" aria-hidden="true">
-<img src="{{ <img_url path={ev.maps.divider_image} /> }}" srcset="{{ <img_srcset path={ev.maps.divider_image} /> }}" sizes="100vw" alt="" class="ev-maps-banner-img" loading="lazy" decoding="async">
-<div class="ev-maps-vignette tf-mod-divider-vignette"></div>
-</div>
-<div class="tf-mod-divider-top ev-banner-top-deco" aria-hidden="true"></div>
-<div class="ev-banner-bot-deco" aria-hidden="true">
-<div class="ev-banner-bot-img tf-mod-divider-bottom"></div>
-</div>
-<div class="ev-banner-content tf-mod-divider-inner">
-<h2 class="ev-banner-title ev-desktop-title tf-mod-divider-title">{{ ev.maps.desktop_title }}</h2>
-<h2 class="ev-banner-title ev-mobile-title tf-mod-divider-title">{{ ev.maps.mobile_title }}</h2>
-</div>
-</div>
-
-<div class="ev-maps-body tf-mod-map">
-<div class="ev-map-tabs tf-mod-map-tabs" role="tablist" aria-label="{{ ev.maps.tabs_aria }}">
-{% for tab in ev.maps.tabs -%}
-{% if tab.active -%}
-<button type="button" class="ev-map-tab ev-map-tab-active tf-mod-map-tab is-active" role="tab" aria-selected="true">{{ tab.label }}</button>
-{% else -%}
-<button type="button" class="ev-map-tab ev-map-tab-inactive tf-mod-map-tab" role="tab" aria-selected="false">{{ tab.label }}</button>
-{% endif -%}
-{% endfor -%}
-</div>
-<div class="ev-map-frame tf-mod-map-stage">
-<div class="tf-mod-map-panel is-active">
-<img src="{{ <img_url path={ev.maps.map_image} /> }}" alt="{{ ev.maps.map_alt }}" class="ev-map-img" loading="lazy" decoding="async">
-</div>
-</div>
-</div>
-<div class="ev-map-zoom tf-mod-map-zoom" aria-hidden="true">
-<img src="{{ <img_url path="img/shared/zoom_circle.svg" /> }}" alt="" class="tf-mod-map-zoom-circle">
-<img src="{{ <img_url path="img/shared/zoom_plus.svg" /> }}" alt="" class="tf-mod-map-zoom-plus">
-</div>
-</section>
-
-<section class="ev-content-sec">
-<div class="ev-red-grid">
-{% for card_key in ["guidelines", "faqs", "hotel", "app"] %}
-{% set card = ev.info_cards[card_key] %}
-<div class="ev-red-card">
-<div class="ev-red-card-inner tf-mod-callout tf-mod-callout--horiz is-red">
-{% if loop.index == 3 %}
-<div class="ev-hotel-frame">
-<div class="ev-hotel-back-card">
-<div class="ev-hotel-dots-wrap">
-<img src="{{ <img_url path="img/event/hotel_dots.svg" /> }}" alt="" class="ev-hotel-dots-img">
-</div>
-<div class="ev-hotel-ext-row">
-<span class="ev-hotel-ext-label">{{ card.ext_label }}</span>
-<img src="{{ <img_url path="img/shared/icon_external_cream.svg" /> }}" alt="" class="ev-hotel-ext-icon">
-</div>
-</div>
-<div class="ev-hotel-photo-wrap">
-<img src="{{ <img_url path={card.image} max_width={640} /> }}" alt="{{ card.image_alt }}" class="ev-hotel-photo-img" loading="lazy" decoding="async">
-</div>
-</div>
-{% else %}
-{% if loop.index == 1 %}{% set card_svg = "img/guidelines_icon.svg" %}{% elif loop.index == 2 %}{% set card_svg = "img/shared/faq_icon.svg" %}{% else %}{% set card_svg = "img/shared/icon_download_app.svg" %}{% endif %}
-<div class="ev-card-icon-box tf-mod-callout-icon">
-<img src="{{ <img_url path={card_svg} /> }}" alt="" class="ev-ph-fg-img{% if loop.index == 4 %} ev-app-icon-img{% endif %}">
-</div>
-{% endif %}
-<div class="ev-red-card-content">
-<div class="ev-red-card-copy tf-mod-callout-copy">
-<h2 class="ev-red-card-title tf-mod-callout-title">{{ card.title }}</h2>
-{% if card.body is defined %}<p class="ev-red-card-body tf-mod-callout-desc">{{ card.body }}</p>{% endif %}
-</div>
-<div class="ev-red-card-btns">
-<a href="{{ get_url(path=card.cta_path) | safe }}" class="ev-btn-cream">
-<span class="ev-btn-cream-text">{{ card.cta_label }}</span>
-<span class="ev-btn-caret"><img src="{{ <img_url path="img/shared/chevron_dark.svg" /> }}" alt="" class="ev-caret-img"></span>
-</a>
-</div>
-</div>
-</div>
-</div>
-{% endfor %}
-</div>
-
-<div class="ev-badge-cta">
-<div class="ev-badge-cta-bg" aria-hidden="true">
-<img src="{{ <img_url path="img/event/cta_gradient.svg" /> }}" alt="" class="ev-badge-cta-grad">
-{% for side in ["left", "right"] %}
-<div class="hero-card-streamer hero-card-streamer-{{ side }}">
-<div class="ev-badge-accent-wrap"><div class="ev-badge-accent-rot"><img src="{{ <img_url path="img/shared/card_accent.svg" /> }}" alt="" class="ev-badge-accent-img"></div></div>
-<img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}" alt="" class="streamer-main">
-</div>
-{% endfor %}
-<div class="ev-badge-cta-stroke"></div>
-</div>
-<div class="ev-badge-cta-inner">
-<div class="ev-badge-img-col">
-<div class="ev-badge-img-aspect">
-<div class="ev-badge-img-shadow">
-<img src="{{ <img_url path={ev.badge_cta.image} max_width={960} /> }}" alt="{{ ev.badge_cta.image_alt }}" class="ev-badge-img" loading="lazy" decoding="async">
-</div>
-</div>
-</div>
-<div class="ev-badge-content-col">
-<h2 class="ev-badge-title">{{ ev.badge_cta.title }}</h2>
-<a href="{{ get_url(path=ev.badge_cta.cta_path) | safe }}" class="ev-btn-red">
-<span class="ev-btn-red-text">{{ ev.badge_cta.cta_label }}</span>
-<span class="ev-btn-caret"><img src="{{ <img_url path="img/shared/chevron_cream.svg" /> }}" alt="" class="ev-caret-img"></span>
-</a>
-</div>
-</div>
-</div>
-
-<div class="ev-discord-wrap">
-<div class="ev-discord-card tf-mod-callout tf-mod-callout--horiz is-discord">
-<div class="ev-card-icon-box tf-mod-callout-icon">
-<div class="ev-discord-logo" aria-hidden="true"></div>
-</div>
-<div class="ev-red-card-content tf-mod-callout-copy">
-<div class="ev-red-card-copy tf-mod-callout-copy">
-<h2 class="ev-discord-title tf-mod-callout-title">{{ ev.discord_cta.title }}</h2>
-<p class="ev-discord-body tf-mod-callout-desc">{{ ev.discord_cta.body }}</p>
-</div>
-<div class="ev-red-card-btns">
-<a href="{{ ev.discord_cta.cta_url | safe }}" class="ev-btn-cream tf-mod-callout-btn">
-<span class="ev-btn-cream-text">{{ ev.discord_cta.cta_label }}</span>
-<span class="ev-btn-caret"><img src="{{ <img_url path="img/shared/chevron_dark.svg" /> }}" alt="" class="ev-caret-img"></span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="ev-team-sec">
-<div class="ev-team-banner tf-mod-divider">
-<div class="ev-team-banner-bg tf-mod-divider-bg" aria-hidden="true">
-<picture>
-<source media="(max-width: 768px)" srcset="{{ <img_srcset path={ev.team.mobile_divider_image} /> }}" sizes="100vw">
-<img src="{{ <img_url path={ev.team.divider_image} /> }}" srcset="{{ <img_srcset path={ev.team.divider_image} /> }}" sizes="100vw" alt="" class="ev-team-banner-img ev-team-img-desktop" loading="lazy" decoding="async">
-</picture>
-<div class="ev-team-vignette tf-mod-divider-vignette"></div>
-</div>
-<div class="tf-mod-divider-top ev-banner-top-deco" aria-hidden="true"></div>
-<div class="ev-banner-bot-deco" aria-hidden="true">
-<div class="ev-banner-bot-img tf-mod-divider-bottom"></div>
-</div>
-<div class="ev-banner-content tf-mod-divider-inner">
-<h2 class="ev-banner-title tf-mod-divider-title">{{ ev.team.title }}</h2>
-</div>
-</div>
-
-<div class="ev-amp-copy">
-<h3 class="ev-amp-heading">{{ ev.team.heading }}</h3>
-<p class="ev-amp-body">{{ ev.team.body }}</p>
-</div>
-
-<div class="ev-app-grid">
-{% for role_key in ["staff", "volunteer"] %}
-{% set role = ev.team[role_key] %}
-<div class="ev-app-card">
-<div class="ev-app-card-grad{% if loop.last %} ev-app-card-grad-full{% endif %}">
-<div class="ev-app-card-box{% if loop.last %} ev-app-card-box-full{% endif %}">
-<img src="{{ <img_url path="img/event/amp_gradient.svg" /> }}" alt="" class="ev-app-card-svg" aria-hidden="true">
-<div class="ev-app-card-content">
-<div class="ev-app-card-top">
-<span class="{% if loop.first %}ev-badge-open{% else %}ev-badge-closed{% endif %}">{{ role.status }}</span>
-<h2 class="ev-app-card-title">{{ role.title }}</h2>
-<p class="ev-app-card-desc">{{ role.body }}</p>
-</div>
-{% if role.cta_path is defined %}
-<a href="{{ get_url(path=role.cta_path) | safe }}" class="ev-btn-red">
-<span class="ev-btn-red-text">{{ role.cta_label }}</span>
-<span class="ev-btn-caret"><img src="{{ <img_url path="img/shared/chevron_cream.svg" /> }}" alt="" class="ev-caret-img"></span>
-</a>
-{% endif %}
-</div>
-</div>
-</div>
-</div>
-{% endfor %}
-</div>
-</section>
-
-</div>
+  {% set ev = load_data(path="data/event.yml") -%}
+  <div class="ev-page">
+    <section class="ev-intro">
+      <div class="tf-hero-banner ev-hero">
+        <div class="ev-hero-bg" aria-hidden="true">
+          <div class="ev-hero-black"></div>
+          <picture>
+            <source media="(max-width: 768px)"
+                    srcset="{{ <img_srcset path={ev.hero.mobile_image} /> }}"
+                    sizes="100vw">
+            <img src="{{ <img_url path={ev.hero.desktop_image} /> }}"
+                 srcset="{{ <img_srcset path={ev.hero.desktop_image} /> }}"
+                 sizes="100vw"
+                 alt=""
+                 class="ev-hero-img ev-hero-img-desktop"
+                 fetchpriority="high">
+          </picture>
+        </div>
+        <div class="tf-hero-container ev-hero-container">
+          <div class="tf-hero-box ev-hero-box">
+            <div class="ev-hero-copy">
+              <h1 class="tf-hero-title ev-hero-title">{{ ev.hero.title }}</h1>
+              <div class="ev-hero-text">
+                <p class="ev-hero-p1">{{ ev.hero.p1 }}</p>
+                <p class="ev-hero-p2">{{ ev.hero.p2 }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ev-ofuda-set">
+        {% for idx in [1, 2] %}
+          {% if idx == 2 %}<div class="ev-ofuda-slot-2-adj">{% endif %}
+          <div class="ev-ofuda-slot-{{ idx }}">
+            <div class="ev-ofuda-rot-{{ idx }}">
+              <div class="ev-ofuda-pad">
+                <div class="ev-ofuda-card tf-mod-ofuda">
+                  <div class="tf-mod-ofuda-decor" aria-hidden="true">
+                    <img src="{{ <img_url path="img/shared/ofuda_stroke.svg" /> }}"
+                         alt=""
+                         class="tf-mod-ofuda-stroke">
+                    <img src="{{ <img_url path="img/shared/ofuda_seal.svg" /> }}"
+                         alt=""
+                         class="tf-mod-ofuda-seal">
+                    <img src="{{ <img_url path="img/shared/ofuda_corner_dark.svg" /> }}"
+                         alt=""
+                         class="tf-mod-ofuda-corner-dark">
+                    <div class="tf-mod-ofuda-vspike">
+                      <span class="tf-mod-ofuda-dot"></span>
+                      <img src="{{ <img_url path="img/shared/ofuda_spike_v.svg" /> }}"
+                           alt=""
+                           class="tf-mod-ofuda-vbar">
+                    </div>
+                    <div class="tf-mod-ofuda-hspike">
+                      <span class="tf-mod-ofuda-dot"></span>
+                      <img src="{{ <img_url path="img/shared/ofuda_spike_h.svg" /> }}"
+                           alt=""
+                           class="tf-mod-ofuda-hbar">
+                    </div>
+                  </div>
+                  <div class="ev-ofuda-body {% if idx == 1 %}ev-ofuda-body-when{% else %}ev-ofuda-body-where{% endif %} tf-mod-ofuda-body">
+                    <div class="ev-ofuda-head">
+                      <div class="ev-ofuda-icon {% if idx == 1 %}ev-watch-icon{% else %}ev-loc-icon{% endif %}">
+                        <img src="{% if idx == 1 %}{{ <img_url path="img/shared/ofuda_watch.svg" /> }}{% else %}{{ <img_url path="img/shared/ofuda_location.svg" /> }}{% endif %}"
+                             alt=""
+                             class="ev-ofuda-icon-img">
+                      </div>
+                      <h2 class="ev-ofuda-title tf-mod-ofuda-title">{% if idx == 1 %}{{ ev.when.title }}{% else %}{{ ev.where.title }}{% endif %}</h2>
+                    </div>
+                    <div class="ev-ofuda-text tf-mod-ofuda-desc">
+                      {% if idx == 1 %}
+                        <p class="ev-ofuda-p1">{{ <event_date format="range" /> }}</p>
+                        <p class="ev-ofuda-p2">{{ <event_date format="year" /> }}</p>
+                      {% else %}
+                        <p class="ev-ofuda-p1">{{ ev.where.venue }}</p>
+                        <p class="ev-ofuda-p2">
+                          {{ ev.where.address_line_1 }}
+                          <br>
+                          {{- ev.where.address_line_2 }}
+                        </p>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% if idx == 2 %}</div>{% endif %}
+        {% endfor %}
+      </div>
+    </section>
+    <section class="ev-gallery-sec">
+      <div class="ev-gallery-bg" aria-hidden="true">
+        <img src="{{ <img_url path={ev.gallery.bg_image} /> }}"
+             srcset="{{ <img_srcset path={ev.gallery.bg_image} /> }}"
+             sizes="100vw"
+             alt=""
+             class="ev-gallery-bg-img"
+             loading="lazy"
+             decoding="async">
+      </div>
+      <div class="ev-gallery-banner tf-mod-divider">
+        <div class="tf-mod-divider-top ev-banner-top-deco ev-banner-top-deco-gallery"
+             aria-hidden="true"></div>
+        <div class="ev-gallery-vignette" aria-hidden="true"></div>
+        <div class="ev-banner-content tf-mod-divider-inner">
+          <h2 class="ev-banner-title tf-mod-divider-title">{{ ev.gallery.title }}</h2>
+        </div>
+      </div>
+      <div class="ev-polaroid-grid">
+        {% for p in ev.gallery.photos -%}
+          <div class="ev-polaroid-slot">
+            <div class="ev-polaroid-rot">
+              <div class="ev-polaroid-frame tf-mod-polaroid tf-mod-polaroid--md">
+                <div class="ev-polaroid-photo tf-mod-polaroid-photo">
+                  <img src="{{ <img_url path={p.src} max_width={960} /> }}"
+                       alt="{{ p.alt }}"
+                       class="ev-polaroid-img"
+                       loading="lazy"
+                       decoding="async">
+                  {% if p.overlay_src is defined -%}
+                    <img src="{{ <img_url path={p.overlay_src} max_width={960} /> }}"
+                         alt=""
+                         class="ev-polaroid-img"
+                         loading="lazy"
+                         decoding="async">
+                  {% endif -%}
+                </div>
+                <div class="ev-polaroid-dots tf-mod-polaroid-dots" aria-hidden="true">
+                  <img src="{{ <img_url path="img/shared/polaroid_dots.svg" /> }}"
+                       alt=""
+                       class="ev-polaroid-dots-img">
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor -%}
+      </div>
+    </section>
+    <section class="ev-maps-sec">
+      <div class="ev-maps-banner tf-mod-divider">
+        <div class="ev-maps-banner-bg tf-mod-divider-bg" aria-hidden="true">
+          <img src="{{ <img_url path={ev.maps.divider_image} /> }}"
+               srcset="{{ <img_srcset path={ev.maps.divider_image} /> }}"
+               sizes="100vw"
+               alt=""
+               class="ev-maps-banner-img"
+               loading="lazy"
+               decoding="async">
+          <div class="ev-maps-vignette tf-mod-divider-vignette"></div>
+        </div>
+        <div class="tf-mod-divider-top ev-banner-top-deco" aria-hidden="true"></div>
+        <div class="ev-banner-bot-deco" aria-hidden="true">
+          <div class="ev-banner-bot-img tf-mod-divider-bottom"></div>
+        </div>
+        <div class="ev-banner-content tf-mod-divider-inner">
+          <h2 class="ev-banner-title ev-desktop-title tf-mod-divider-title">{{ ev.maps.desktop_title }}</h2>
+          <h2 class="ev-banner-title ev-mobile-title tf-mod-divider-title">{{ ev.maps.mobile_title }}</h2>
+        </div>
+      </div>
+      <div class="ev-maps-body tf-mod-map">
+        <div class="ev-map-tabs tf-mod-map-tabs"
+             role="tablist"
+             aria-label="{{ ev.maps.tabs_aria }}">
+          {% for tab in ev.maps.tabs -%}
+            {% if tab.active -%}
+              <button type="button"
+                      class="ev-map-tab ev-map-tab-active tf-mod-map-tab is-active"
+                      role="tab"
+                      aria-selected="true">{{ tab.label }}</button>
+            {% else -%}
+              <button type="button"
+                      class="ev-map-tab ev-map-tab-inactive tf-mod-map-tab"
+                      role="tab"
+                      aria-selected="false">{{ tab.label }}</button>
+            {% endif -%}
+          {% endfor -%}
+        </div>
+        <div class="ev-map-frame tf-mod-map-stage">
+          <div class="tf-mod-map-panel is-active">
+            <img src="{{ <img_url path={ev.maps.map_image} /> }}"
+                 alt="{{ ev.maps.map_alt }}"
+                 class="ev-map-img"
+                 loading="lazy"
+                 decoding="async">
+          </div>
+        </div>
+      </div>
+      <div class="ev-map-zoom tf-mod-map-zoom" aria-hidden="true">
+        <img src="{{ <img_url path="img/shared/zoom_circle.svg" /> }}"
+             alt=""
+             class="tf-mod-map-zoom-circle">
+        <img src="{{ <img_url path="img/shared/zoom_plus.svg" /> }}"
+             alt=""
+             class="tf-mod-map-zoom-plus">
+      </div>
+    </section>
+    <section class="ev-content-sec">
+      <div class="ev-red-grid">
+        {% for card_key in ["guidelines", "faqs", "hotel", "app"] %}
+          {% set card = ev.info_cards[card_key] %}
+          <div class="ev-red-card">
+            <div class="ev-red-card-inner tf-mod-callout tf-mod-callout--horiz is-red">
+              {% if loop.index == 3 %}
+                <div class="ev-hotel-frame">
+                  <div class="ev-hotel-back-card">
+                    <div class="ev-hotel-dots-wrap">
+                      <img src="{{ <img_url path="img/event/hotel_dots.svg" /> }}"
+                           alt=""
+                           class="ev-hotel-dots-img">
+                    </div>
+                    <div class="ev-hotel-ext-row">
+                      <span class="ev-hotel-ext-label">{{ card.ext_label }}</span>
+                      <img src="{{ <img_url path="img/shared/icon_external_cream.svg" /> }}"
+                           alt=""
+                           class="ev-hotel-ext-icon">
+                    </div>
+                  </div>
+                  <div class="ev-hotel-photo-wrap">
+                    <img src="{{ <img_url path={card.image} max_width={640} /> }}"
+                         alt="{{ card.image_alt }}"
+                         class="ev-hotel-photo-img"
+                         loading="lazy"
+                         decoding="async">
+                  </div>
+                </div>
+              {% else %}
+                {% if loop.index == 1 %}
+                  {% set card_svg = "img/guidelines_icon.svg" %}
+                {% elif loop.index == 2 %}
+                  {% set card_svg = "img/shared/faq_icon.svg" %}
+                {% else %}
+                  {% set card_svg = "img/shared/icon_download_app.svg" %}
+                {% endif %}
+                <div class="ev-card-icon-box tf-mod-callout-icon">
+                  <img src="{{ <img_url path={card_svg} /> }}"
+                       alt=""
+                       class="ev-ph-fg-img{% if loop.index == 4 %} ev-app-icon-img{% endif %}">
+                </div>
+              {% endif %}
+              <div class="ev-red-card-content">
+                <div class="ev-red-card-copy tf-mod-callout-copy">
+                  <h2 class="ev-red-card-title tf-mod-callout-title">{{ card.title }}</h2>
+                  {% if card.body is defined %}<p class="ev-red-card-body tf-mod-callout-desc">{{ card.body }}</p>{% endif %}
+                </div>
+                <div class="ev-red-card-btns">
+                  <a href="{{ get_url(path=card.cta_path) | safe }}" class="ev-btn-cream">
+                    <span class="ev-btn-cream-text">{{ card.cta_label }}</span>
+                    <span class="ev-btn-caret">
+                      <img src="{{ <img_url path="img/shared/chevron_dark.svg" /> }}"
+                           alt=""
+                           class="ev-caret-img">
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="ev-badge-cta">
+        <div class="ev-badge-cta-bg" aria-hidden="true">
+          <img src="{{ <img_url path="img/event/cta_gradient.svg" /> }}"
+               alt=""
+               class="ev-badge-cta-grad">
+          {% for side in ["left", "right"] %}
+            <div class="hero-card-streamer hero-card-streamer-{{ side }}">
+              <div class="ev-badge-accent-wrap">
+                <div class="ev-badge-accent-rot">
+                  <img src="{{ <img_url path="img/shared/card_accent.svg" /> }}"
+                       alt=""
+                       class="ev-badge-accent-img">
+                </div>
+              </div>
+              <img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}"
+                   alt=""
+                   class="streamer-main">
+            </div>
+          {% endfor %}
+          <div class="ev-badge-cta-stroke"></div>
+        </div>
+        <div class="ev-badge-cta-inner">
+          <div class="ev-badge-img-col">
+            <div class="ev-badge-img-aspect">
+              <div class="ev-badge-img-shadow">
+                <img src="{{ <img_url path={ev.badge_cta.image} max_width={960} /> }}"
+                     alt="{{ ev.badge_cta.image_alt }}"
+                     class="ev-badge-img"
+                     loading="lazy"
+                     decoding="async">
+              </div>
+            </div>
+          </div>
+          <div class="ev-badge-content-col">
+            <h2 class="ev-badge-title">{{ ev.badge_cta.title }}</h2>
+            <a href="{{ get_url(path=ev.badge_cta.cta_path) | safe }}"
+               class="ev-btn-red">
+              <span class="ev-btn-red-text">{{ ev.badge_cta.cta_label }}</span>
+              <span class="ev-btn-caret">
+                <img src="{{ <img_url path="img/shared/chevron_cream.svg" /> }}"
+                     alt=""
+                     class="ev-caret-img">
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="ev-discord-wrap">
+        <div class="ev-discord-card tf-mod-callout tf-mod-callout--horiz is-discord">
+          <div class="ev-card-icon-box tf-mod-callout-icon">
+            <div class="ev-discord-logo" aria-hidden="true"></div>
+          </div>
+          <div class="ev-red-card-content tf-mod-callout-copy">
+            <div class="ev-red-card-copy tf-mod-callout-copy">
+              <h2 class="ev-discord-title tf-mod-callout-title">{{ ev.discord_cta.title }}</h2>
+              <p class="ev-discord-body tf-mod-callout-desc">{{ ev.discord_cta.body }}</p>
+            </div>
+            <div class="ev-red-card-btns">
+              <a href="{{ ev.discord_cta.cta_url | safe }}"
+                 class="ev-btn-cream tf-mod-callout-btn">
+                <span class="ev-btn-cream-text">{{ ev.discord_cta.cta_label }}</span>
+                <span class="ev-btn-caret">
+                  <img src="{{ <img_url path="img/shared/chevron_dark.svg" /> }}"
+                       alt=""
+                       class="ev-caret-img">
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="ev-team-sec">
+      <div class="ev-team-banner tf-mod-divider">
+        <div class="ev-team-banner-bg tf-mod-divider-bg" aria-hidden="true">
+          <picture>
+            <source media="(max-width: 768px)"
+                    srcset="{{ <img_srcset path={ev.team.mobile_divider_image} /> }}"
+                    sizes="100vw">
+            <img src="{{ <img_url path={ev.team.divider_image} /> }}"
+                 srcset="{{ <img_srcset path={ev.team.divider_image} /> }}"
+                 sizes="100vw"
+                 alt=""
+                 class="ev-team-banner-img ev-team-img-desktop"
+                 loading="lazy"
+                 decoding="async">
+          </picture>
+          <div class="ev-team-vignette tf-mod-divider-vignette"></div>
+        </div>
+        <div class="tf-mod-divider-top ev-banner-top-deco" aria-hidden="true"></div>
+        <div class="ev-banner-bot-deco" aria-hidden="true">
+          <div class="ev-banner-bot-img tf-mod-divider-bottom"></div>
+        </div>
+        <div class="ev-banner-content tf-mod-divider-inner">
+          <h2 class="ev-banner-title tf-mod-divider-title">{{ ev.team.title }}</h2>
+        </div>
+      </div>
+      <div class="ev-amp-copy">
+        <h3 class="ev-amp-heading">{{ ev.team.heading }}</h3>
+        <p class="ev-amp-body">{{ ev.team.body }}</p>
+      </div>
+      <div class="ev-app-grid">
+        {% for role_key in ["staff", "volunteer"] %}
+          {% set role = ev.team[role_key] %}
+          <div class="ev-app-card">
+            <div class="ev-app-card-grad{% if loop.last %} ev-app-card-grad-full{% endif %}">
+              <div class="ev-app-card-box{% if loop.last %} ev-app-card-box-full{% endif %}">
+                <img src="{{ <img_url path="img/event/amp_gradient.svg" /> }}"
+                     alt=""
+                     class="ev-app-card-svg"
+                     aria-hidden="true">
+                <div class="ev-app-card-content">
+                  <div class="ev-app-card-top">
+                    <span class="{% if loop.first %}ev-badge-open{% else %}ev-badge-closed{% endif %}">{{ role.status }}</span>
+                    <h2 class="ev-app-card-title">{{ role.title }}</h2>
+                    <p class="ev-app-card-desc">{{ role.body }}</p>
+                  </div>
+                  {% if role.cta_path is defined %}
+                    <a href="{{ get_url(path=role.cta_path) | safe }}" class="ev-btn-red">
+                      <span class="ev-btn-red-text">{{ role.cta_label }}</span>
+                      <span class="ev-btn-caret">
+                        <img src="{{ <img_url path="img/shared/chevron_cream.svg" /> }}"
+                             alt=""
+                             class="ev-caret-img">
+                      </span>
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
 {% endblock content %}

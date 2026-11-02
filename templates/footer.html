@@ -7,11 +7,19 @@
       <div class="tf-footer-search">
         <label class="tf-footer-search-label" for="tf-site-search">Search the site</label>
         <div class="tf-footer-search-row">
-          <img class="tf-footer-search-icon" src="data:image/svg+xml,{{ load_data(path='templates/img/shared/icon_footer_search.svg') | urlencode }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <input id="tf-site-search" class="footer-search-input" type="search" placeholder="Search" aria-label="Search">
+          <img class="tf-footer-search-icon"
+               src="data:image/svg+xml,{{ load_data(path='templates/img/shared/icon_footer_search.svg') | urlencode }}"
+               alt=""
+               aria-hidden="true"
+               loading="lazy"
+               decoding="async">
+          <input id="tf-site-search"
+                 class="footer-search-input"
+                 type="search"
+                 placeholder="Search"
+                 aria-label="Search">
         </div>
       </div>
-
       <div class="tf-footer-mode">
         <span class="tf-mode-label is-light-label">Light Mode</span>
         <label class="tf-theme-switch" title="Toggle theme">
@@ -21,40 +29,63 @@
         <span class="tf-mode-label is-dark-label">Dark Mode</span>
       </div>
     </div>
-
     <div class="tf-footer-bottom">
       <div class="tf-footer-socials">
         <p class="tf-footer-heading">Stay Connected</p>
         <p class="tf-footer-text">Follow us @TouhouFest</p>
         <div class="tf-footer-social-row">
-          <a href="{{ config.extra.socials.discord_invite | default(value='https://discord.gg/touhoufest') }}" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+          <a href="{{ config.extra.socials.discord_invite | default(value='https://discord.gg/touhoufest') }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Discord">
             <span class="tf-icon tf-icon-discord"></span>
           </a>
-          <a href="{{ config.extra.socials.bluesky | default(value='https://bsky.app/profile/touhoufest.org') }}" target="_blank" rel="noopener noreferrer" aria-label="Bluesky" class="is-soft-social">
+          <a href="{{ config.extra.socials.bluesky | default(value='https://bsky.app/profile/touhoufest.org') }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Bluesky"
+             class="is-soft-social">
             <span class="tf-icon tf-icon-bluesky"></span>
           </a>
-          <a href="{{ config.extra.socials.instagram | default(value='https://www.instagram.com/touhoufest') }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="{{ config.extra.socials.instagram | default(value='https://www.instagram.com/touhoufest') }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Instagram">
             <span class="tf-icon tf-icon-instagram"></span>
           </a>
-          <a href="{{ config.extra.socials.youtube | default(value='https://www.youtube.com/@touhoufestofficial') }}" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <a href="{{ config.extra.socials.youtube | default(value='https://www.youtube.com/@touhoufestofficial') }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="YouTube">
             <span class="tf-icon tf-icon-youtube"></span>
           </a>
-          <a href="https://www.facebook.com/touhoufest" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="is-soft-social">
+          <a href="https://www.facebook.com/touhoufest"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Facebook"
+             class="is-soft-social">
             <span class="tf-icon tf-icon-facebook"></span>
           </a>
-          <a href="{{ config.extra.socials.twitter | default(value='https://twitter.com/TouhouFest') }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="is-soft-social">
+          <a href="{{ config.extra.socials.twitter | default(value='https://twitter.com/TouhouFest') }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Twitter"
+             class="is-soft-social">
             <span class="tf-icon tf-icon-twitter-bird"></span>
           </a>
         </div>
         <p class="tf-footer-text">
-          <a href="{{ get_url(path='about/contact') }}" class="tf-footer-underline">Email Us @TouhouFest.org</a>
+          <a href="{{ get_url(path='about/contact') }}"
+             class="tf-footer-underline">Email Us @TouhouFest.org</a>
         </p>
         <div class="tf-footer-legal">
-          <p>TouhouFest™ is a production of the <a href="https://amp-organization.com/" target="_blank" rel="noopener noreferrer" class="tf-footer-underline">AMP Organization</a>.</p>
+          <p>TouhouFest™ is a production of the <a href="https://amp-organization.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="tf-footer-underline">AMP Organization</a>.</p>
           <p>© AMP Organization, 2026</p>
         </div>
       </div>
-
       <div class="tf-footer-links">
         <div class="tf-footer-col is-col-register">
           <p class="tf-footer-heading">Register</p>
@@ -68,7 +99,6 @@
           <a href="{{ get_url(path='register/staff') }}">Staff Applications</a>
           <a href="{{ get_url(path='register/staff') }}">Volunteer Applications</a>
         </div>
-
         <div class="tf-footer-col is-col-about">
           <p class="tf-footer-heading">About</p>
           <a href="{{ get_url(path='schedule') }}">Schedule</a>
@@ -78,7 +108,6 @@
           <a href="{{ get_url(path='about/faq') }}">FAQs</a>
           <a href="{{ get_url(path='about/guidelines') }}">Policies</a>
         </div>
-
         <div class="tf-footer-col is-col-learn">
           <p class="tf-footer-heading">Learn more about</p>
           <a href="{{ get_url(path='features/guests') }}">Guests &amp; Features</a>

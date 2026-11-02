@@ -232,11 +232,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   font-weight: 500;
   font-size: 18px;
   line-height: 20px;
-  transition:
-    transform $v-tx,
-    box-shadow $v-tx,
-    background-color $v-tx,
-    color $v-tx;
+  transition: transform $v-tx, box-shadow $v-tx, background-color $v-tx, color $v-tx;
   &:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -349,9 +345,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   pointer-events: auto;
 }
 .tf-v-rcard-visit-text {
-  font:
-    500 18px / 20px "Poppins",
-    sans-serif;
+  font: 500 18px / 20px "Poppins", sans-serif;
   color: #fffde7;
   text-decoration: underline;
 }
@@ -477,9 +471,8 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
 .tf-v-polaroid-rot {
   transform: rotate(1deg);
 }
-@each $deg,
-  $ids in (-5deg: (1, 4, 12, 15), 5deg: (7, 10, 18), -3deg: (6, 14, 17), 3deg: (3), -1deg: (2, 13))
-{
+@each $deg, $ids in
+  (-5deg: (1, 4, 12, 15), 5deg: (7, 10, 18), -3deg: (6, 14, 17), 3deg: (3), -1deg: (2, 13)) {
   @each $i in $ids {
     .tf-v-polaroid-slot:nth-child(#{$i}) .tf-v-polaroid-rot {
       transform: rotate($deg);
@@ -518,9 +511,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   width: 100%;
 }
 .tf-v-polaroid-text {
-  font:
-    500 13px / 15px "Poppins",
-    sans-serif;
+  font: 500 13px / 15px "Poppins", sans-serif;
   color: #bf3444;
   text-align: center;
   text-decoration: underline;
@@ -584,7 +575,7 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
     min-height: 435px;
     padding: 286px 31px 0;
   }
-  :is(.tf-v-rcard:nth-child(n + 25), .tf-v-divider-title .is-desk-yr),
+  :is(.tf-v-rcard:nth-child(n+25), .tf-v-divider-title .is-desk-yr),
   :is(.tf-v-rcard-name-real, .tf-v-rcard-dots) {
     display: none;
   }

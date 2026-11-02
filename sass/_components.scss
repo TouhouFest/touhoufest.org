@@ -73,9 +73,7 @@ picture {
   padding: 1.5rem;
   text-align: center;
   gap: 12px;
-  transition:
-    transform 200ms ease-out,
-    box-shadow 200ms ease-out;
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
@@ -163,10 +161,7 @@ picture {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition:
-      color 100ms ease-out,
-      background-color 100ms ease-out,
-      opacity 100ms ease-out;
+    transition: color 100ms ease-out, background-color 100ms ease-out, opacity 100ms ease-out;
     &.is-soft-social {
       opacity: 0.9;
     }
@@ -198,10 +193,7 @@ picture {
   align-items: center;
   gap: 8px;
   padding-bottom: 17px;
-  transition:
-    color 300ms ease-out,
-    background-color 100ms ease-out,
-    opacity 300ms ease-out;
+  transition: color 300ms ease-out, background-color 100ms ease-out, opacity 300ms ease-out;
   &:hover {
     color: var(--tf-color-red);
   }
@@ -350,9 +342,7 @@ picture {
   background-color: #fbf7eb;
   border: none;
   border-radius: 80px;
-  transition:
-    background-color 300ms ease-out,
-    border-color 300ms ease-out;
+  transition: background-color 300ms ease-out, border-color 300ms ease-out;
   &:before {
     position: absolute;
     content: "";
@@ -362,9 +352,7 @@ picture {
     top: 4.95px;
     background: var(--tf-svg-switch-light) center center / contain no-repeat;
     filter: drop-shadow(3px 4px 6.5px rgba(99, 15, 40, 0.15));
-    transition:
-      transform 100ms ease-out,
-      background-image 100ms ease-out;
+    transition: transform 100ms ease-out, background-image 100ms ease-out;
   }
 }
 #theme-toggle:checked + .tf-theme-slider {
@@ -599,10 +587,7 @@ picture {
   @include tf-body;
   color: var(--tf-ink, #30293e);
   outline: none;
-  transition:
-    background-color 300ms ease-out,
-    color 300ms ease-out,
-    border-color 300ms ease-out;
+  transition: background-color 300ms ease-out, color 300ms ease-out, border-color 300ms ease-out;
   &::placeholder {
     color: var(--tf-ink, #30293e);
     opacity: 0.5;
@@ -622,10 +607,7 @@ picture {
   justify-content: center;
   gap: 0.5rem;
   flex-shrink: 0;
-  transition:
-    background-color 300ms ease-out,
-    transform 300ms ease-out,
-    box-shadow 300ms ease-out;
+  transition: background-color 300ms ease-out, transform 300ms ease-out, box-shadow 300ms ease-out;
   &:hover {
     background-color: #9c2b37;
     box-shadow: 0 4px 16px rgba(191, 52, 68, 0.35);
@@ -659,10 +641,7 @@ picture {
   color: var(--bulma-text-strong, #30293e);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   outline: none;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   &:focus {
     outline: none;
     border-color: var(--tf-color-red, #bf3444);
@@ -698,9 +677,7 @@ picture {
   margin-bottom: 1rem;
   overflow: clip;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  transition:
-    border-color 200ms ease-out,
-    box-shadow 200ms ease-out;
+  transition: border-color 200ms ease-out, box-shadow 200ms ease-out;
   &[open] {
     border-color: var(--tf-color-red, #bf3444);
     box-shadow: 0 4px 12px rgba(191, 52, 68, 0.1);
@@ -726,9 +703,7 @@ picture {
     position: absolute;
     background-color: currentColor;
     border-radius: 2px;
-    transition:
-      transform 200ms ease-out,
-      opacity 200ms ease-out;
+    transition: transform 200ms ease-out, opacity 200ms ease-out;
   }
   &::before {
     width: 26px;
