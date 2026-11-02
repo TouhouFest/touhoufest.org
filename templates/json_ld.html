@@ -40,7 +40,7 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "url": {{ get_url(path="about/event") | json_encode | safe }},
   "image": [
-    {{ get_url(path=ev_data.hero.desktop_image) | json_encode | safe }}
+    "{{ <img_url path={ev_data.hero.desktop_image} format="webp" quality={85} /> }}"
   ],
   "location": {
     "@type": "Place",

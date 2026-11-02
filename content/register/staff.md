@@ -9,9 +9,9 @@ subtitle = "Join our dedicated team of organizing staff and festival weekend vol
 <div class="my-5">
   <h2 class="title is-3 mb-4">Why Join Our Staff?</h2>
   <p class="mb-4">Staff are the backbone of any active fan convention. They’re the hardworking volunteers that make all of the magic happen. TouhouFest is not possible without the dedicated and passionate service of the staff.</p>
-  <p class="mb-5">On this page, all currently open positions will be listed alongside role descriptions, qualifications, and preferences. Don't see any positions that you're interested in? You can get notified about current and new staff openings by joining our <a href="//forms.gle/5EZmCaH6ahQ8ViQR6">Staff Interest List</a>.</p>
+  <p class="mb-5">On this page, all currently open positions will be listed alongside role descriptions, qualifications, and preferences. Don't see any positions that you're interested in? You can get notified about current and new staff openings by joining our <a href="https://forms.gle/5EZmCaH6ahQ8ViQR6">Staff Interest List</a>.</p>
 
-<a class="tf-btn tf-btn-primary" href="//docs.google.com/forms/d/e/1FAIpQLScbV6NUt0eKrkXwlx_TCypdyorT0TJBurbE_9mhq13xIWRCvg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer"><span>Apply
+<a class="tf-btn tf-btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScbV6NUt0eKrkXwlx_TCypdyorT0TJBurbE_9mhq13xIWRCvg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer"><span>Apply
 for Staff</span> <span class="tf-icon tf-icon-external-link"></span></a>
 
 </div>
@@ -35,7 +35,7 @@ for Staff</span> <span class="tf-icon tf-icon-external-link"></span></a>
         <li>Ability and willingness to work collaboratively inside a staff training team.</li>
         <li>Initial time commitment: up to 20 hours per month during initial development (approx. 3 months), and 5–10 hours per month thereafter.</li>
       </ul>
-      <a class="tf-btn tf-btn-outline" href="//docs.google.com/forms/d/e/1FAIpQLScbV6NUt0eKrkXwlx_TCypdyorT0TJBurbE_9mhq13xIWRCvg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer"><span>Apply for Staff Development Specialist</span> <span class="tf-icon tf-icon-external-link"></span></a>
+      <a class="tf-btn tf-btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLScbV6NUt0eKrkXwlx_TCypdyorT0TJBurbE_9mhq13xIWRCvg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer"><span>Apply for Staff Development Specialist</span> <span class="tf-icon tf-icon-external-link"></span></a>
     </div>
   </div>
 
@@ -52,7 +52,7 @@ for Staff</span> <span class="tf-icon tf-icon-external-link"></span></a>
         <li>Professional attitude, strong sense of responsibility, and excellent communication skills.</li>
         <li>Ability to work independently and maintain strict confidentiality regarding sensitive situations.</li>
       </ul>
-      <a class="tf-btn tf-btn-outline" href="//docs.google.com/forms/d/e/1FAIpQLScbV6NUt0eKrkXwlx_TCypdyorT0TJBurbE_9mhq13xIWRCvg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer"><span>Apply for Staff Resources Coordinator</span> <span class="tf-icon tf-icon-external-link"></span></a>
+      <a class="tf-btn tf-btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLScbV6NUt0eKrkXwlx_TCypdyorT0TJBurbE_9mhq13xIWRCvg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer"><span>Apply for Staff Resources Coordinator</span> <span class="tf-icon tf-icon-external-link"></span></a>
     </div>
   </div>
 </div>
