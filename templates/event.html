@@ -365,15 +365,15 @@
         {% for role_key in ["staff", "volunteer"] %}
           {% set role = ev.team[role_key] %}
           <div class="ev-app-card">
-            <div class="ev-app-card-grad{% if loop.last %} ev-app-card-grad-full{% endif %}">
-              <div class="ev-app-card-box{% if loop.last %} ev-app-card-box-full{% endif %}">
+            <div class="ev-app-card-grad{% if role.status == "CLOSED" %} ev-app-card-grad-full{% endif %}">
+              <div class="ev-app-card-box{% if role.status == "CLOSED" %} ev-app-card-box-full{% endif %}">
                 <img src="{{ <img_url path="img/event/amp_gradient.svg" /> }}"
                      alt=""
                      class="ev-app-card-svg"
                      aria-hidden="true">
                 <div class="ev-app-card-content">
                   <div class="ev-app-card-top">
-                    <span class="{% if loop.first %}ev-badge-open{% else %}ev-badge-closed{% endif %}">{{ role.status }}</span>
+                    <span class="{% if role.status == "OPEN" %}ev-badge-open{% else %}ev-badge-closed{% endif %}">{{ role.status }}</span>
                     <h2 class="ev-app-card-title">{{ role.title }}</h2>
                     <p class="ev-app-card-desc">{{ role.body }}</p>
                   </div>

@@ -184,6 +184,25 @@ body:has(.guidelines-page-wrapper) main {
   }
 }
 
+.tf-staff-accordion-list {
+  width: 100%;
+  margin: 40px 0 0;
+  .tf-staff-job-body {
+    > :first-child {
+      margin-top: 0;
+    }
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.tf-staff-apply-cta {
+  display: flex;
+  justify-content: flex-start;
+  margin: 40px 0 0;
+}
+
 /* Guidelines Bottom Callouts (FAQs & Discord) */
 .guidelines-callouts-container {
   @include flex-column;

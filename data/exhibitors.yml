@@ -249,11 +249,11 @@ sell_cards:
   - title: "Learn more"
     description: "Learn more about the rules before applying."
     button_label: "Read Guidelines"
-    url: "about/guidelines"
+    url: "exhibitors-info"
   - title: "Apply:"
     description: "Ready to apply?"
     button_label: "Apply here"
-    url: "register"
+    url: "https://registration.touhoufest.org/preregistration/dealer_registration"
 
 discord_cta:
   title: "Join the community on Discord"

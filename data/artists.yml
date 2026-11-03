@@ -364,11 +364,11 @@ apply_section:
     - title: "Learn more"
       desc: "Learn more about the rules before applying."
       cta_label: "Read Guidelines"
-      path: "register/artists"
+      path: "exhibitors-info"
     - title: "Apply:"
       desc: "Ready to apply?"
       cta_label: "Apply here"
-      url: "https://forms.gle/R5kdaWNHCGBzVHya8"
+      url: "https://registration.touhoufest.org/preregistration/dealer_registration"
 
 discord_cta:
   icon_alt: "Discord"

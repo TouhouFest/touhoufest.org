@@ -47,8 +47,8 @@ are also allowed, however we leave it up to the seller to make their best judgem
 way in which the material is displayed and labeled.
 
 If you have any additional questions or concerns about our Vendor booths, please contact us through
-our email [touhoufest@gmail.com](mailto:touhoufest@gmail.com) or leave your question in the QnA
-channel on our official [Discord](https://discord.gg/touhoufest).
+our email [exhibitors@touhoufest.org](mailto:exhibitors@touhoufest.org) or leave your question in
+the QnA channel on our official [Discord](https://discord.gg/touhoufest).
 
 For all exhibitor types, extra exhibitor badges are $50 each.
 

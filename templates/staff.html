@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block header %}
+  <section class="page-hero-banner guidelines-hero-banner">
+    <div class="guidelines-hero-container">
+      <div class="tf-hero-box guidelines-hero-box">
+        <h1 class="tf-hero-title guidelines-hero-title">{{ section.title }}</h1>
+      </div>
+    </div>
+  </section>
+{% endblock header %}
+{% block content %}
+  {%- set data = load_data(path="data/guidelines.yml") -%}
+  <div class="guidelines-page-wrapper">
+    <div class="guidelines-content-container">
+      <div class="guidelines-markdown-body">{{ section.content | safe }}</div>
+      <div class="tf-staff-accordion-list">
+        {%- for job in section.pages -%}
+          <details class="tf-accordion"{% if loop.first %} open{% endif %}>
+            <summary class="tf-faq-summary">
+              <div class="tf-faq-summary-row tf-accordion-header">
+                <span class="tf-faq-q-text">{{ job.title }}</span>
+                <span class="tf-faq-toggle-icon tf-accordion-toggle--plus"
+                      aria-hidden="true"></span>
+              </div>
+              <div class="tf-faq-divider"></div>
+            </summary>
+            <div class="tf-accordion-content guidelines-markdown-body tf-staff-job-body">{{ job.content | safe }}</div>
+          </details>
+        {%- endfor -%}
+      </div>
+      {%- if section.extra.apply_url -%}
+        <div class="tf-staff-apply-cta">
+          <a href="{{ section.extra.apply_url }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="tf-btn tf-btn-danger">
+            <span>{{ section.extra.apply_label | default(value="Apply here!") }}</span>
+            <span class="tf-icon tf-icon-chevron-right ml-1"></span>
+          </a>
+        </div>
+      {%- endif -%}
+      <div class="guidelines-callouts-container">
+        {% for card in data.callouts %}
+          <div class="tf-mod-callout tf-mod-callout--horiz guidelines-callout-card {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
+            <div class="tf-mod-callout-icon guidelines-card-icon-col">
+              <img src="{{ <img_url path={card.image} /> }}"
+                   alt="{{ card.title }}"
+                   class="{% if loop.index == 1 %}guidelines-faq-mascot{% else %}discord-card-icon{% endif %}"
+                   loading="lazy"
+                   decoding="async" />
+            </div>
+            <div class="tf-mod-callout-copy guidelines-card-content-col">
+              <h2 class="tf-mod-callout-title guidelines-card-title">{{ card.title }}</h2>
+              <p class="tf-mod-callout-desc guidelines-card-desc">{{ card.description }}</p>
+              <div>
+                {% if loop.index == 2 %}
+                  <a href="{{ card.button_url }}"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     class="tf-btn tf-btn-pill-white tf-mod-callout-btn">
+                    <span>{{ card.button_text }}</span>
+                    <span class="tf-icon tf-icon-chevron-right ml-1"></span>
+                  </a>
+                {% else %}
+                  <a href="{{ get_url(path=card.button_url) }}"
+                     class="tf-btn tf-btn-pill-white tf-mod-callout-btn">
+                    <span>{{ card.button_text }}</span>
+                    <span class="tf-icon tf-icon-chevron-right ml-1"></span>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}

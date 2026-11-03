@@ -98,8 +98,10 @@ team:
     title: "Staff"
     body: "Join the team here."
     cta_label: "Apply"
-    cta_path: "register"
+    cta_path: "register/staff"
   volunteer:
-    status: "CLOSED"
+    status: "OPEN"
     title: "Volunteer"
     body: "Help out during the event."
+    cta_label: "Apply"
+    cta_path: "volunteering"

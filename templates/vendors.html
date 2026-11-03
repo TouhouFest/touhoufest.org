@@ -338,8 +338,15 @@
                         </div>
                         <h3 class="tf-v-ofuda-title tf-mod-ofuda-title">{{ card.title }}</h3>
                         <p class="tf-v-ofuda-desc tf-mod-ofuda-desc">{{ card.description }}</p>
-                        <a href="{{ get_url(path=card.url) }}"
-                           class="tf-v-btn-red tf-mod-ofuda-btn">
+                        {%- set is_ext_card = (card.url | split(pat="://") | length) > 1 -%}
+                        {%- if is_ext_card -%}
+                          {%- set card_href = card.url -%}
+                        {%- else -%}
+                          {%- set card_href = get_url(path=card.url) -%}
+                        {%- endif -%}
+                        <a href="{{ card_href }}"
+                           class="tf-v-btn-red tf-mod-ofuda-btn"
+                           {% if is_ext_card %}target="_blank" rel="noopener noreferrer"{% endif %}>
                           <span class="tf-v-btn-label">{{ card.button_label }}</span>
                           <span class="tf-v-btn-chevron-cream" aria-hidden="true"></span>
                         </a>

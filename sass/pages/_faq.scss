@@ -37,11 +37,11 @@ main:has(.tf-faq-page-body) {
 :is(.tf-faq-container, .tf-faq-callouts-container) {
   width: min(850px, calc(100% - 62px));
 }
-:is(.tf-faq-container .tf-accordion-content, .tf-faq-summary-row) {
+:is(:is(.tf-faq-container, .tf-staff-accordion-list) .tf-accordion-content, .tf-faq-summary-row) {
   transition: 300ms ease-out;
   transition-property: background-color, color;
 }
-.tf-faq-container {
+:is(.tf-faq-container, .tf-staff-accordion-list) {
   @include flex-column;
   margin: 77px auto 0;
   gap: 32px;
@@ -281,7 +281,7 @@ main:has(.tf-faq-page-body) {
   .tf-faq-q-text {
     padding-right: 18px;
   }
-  .tf-faq-container {
+  :is(.tf-faq-container, .tf-staff-accordion-list) {
     .tf-accordion:is(:nth-child(9), :nth-child(12)) .tf-faq-q-text {
       padding-right: 0;
     }
@@ -321,7 +321,7 @@ main:has(.tf-faq-page-body) {
       );
     }
   }
-  .tf-faq-container .tf-accordion {
+  :is(.tf-faq-container, .tf-staff-accordion-list) .tf-accordion {
     background-color: transparent;
     border: none;
   }
