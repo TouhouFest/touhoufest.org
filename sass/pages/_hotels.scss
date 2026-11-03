@@ -212,13 +212,11 @@ body:has(.page-hero-hotels) {
   background: var(--hotel-photo) center / cover no-repeat;
   border-radius: 5px;
 }
-@each $n, $h, $img in (1 620px "courtyard.avif", 2 649px "residence_inn.avif") {
-  .hotel-card-#{$n} {
-    height: $h;
-    .hotel-block-photo {
-      height: 100%;
-      --hotel-photo: url("img/hotels/#{$img}");
-    }
+.hotel-card-1 {
+  height: 620px;
+  .hotel-block-photo {
+    height: 100%;
+    --hotel-photo: url("img/hotels/avita_suites.avif");
   }
 }
 

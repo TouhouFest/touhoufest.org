@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block header %}
-  {{ <page_header title={page.title} subtitle="" image={page.extra.hero_image} hide_bottom_wave={true} extra_class="tf-hero-banner page-hero-hotels" /> }}
+  {%- set event_year = config.extra.event_end | date(format="%Y") -%}
+  {%- set hero_title = event_year ~ " " ~ page.title -%}
+  {{ <page_header title={hero_title} subtitle="" image={page.extra.hero_image} hide_bottom_wave={true} extra_class="tf-hero-banner page-hero-hotels" /> }}
 {% endblock header %}
 {% block content %}
   {%- set hotel_data = load_data(path="data/hotels.yml") -%}
@@ -62,7 +64,10 @@
     {%- if hotel_data.badge_cta or hotel_data.teasers %}
       <div class="hotels-late-group has-spacing-card">
         {%- if hotel_data.badge_cta %}
-          {{ <hero_card title={hotel_data.badge_cta.title} mobile_title={hotel_data.badge_cta.mobile_title | default(value="") } image={hotel_data.badge_cta.image} url={hotel_data.badge_cta.url} button_text={hotel_data.badge_cta.button_text} extra_class="hotels-badge-card" /> }}
+          {%- set event_year = config.extra.event_end | date(format="%Y") -%}
+          {%- set badge_title = event_year ~ " " ~ hotel_data.badge_cta.title -%}
+          {%- set badge_mobile_title = event_year ~ " " ~ (hotel_data.badge_cta.mobile_title | default(value=hotel_data.badge_cta.title)) -%}
+          {{ <hero_card title={badge_title} mobile_title={badge_mobile_title} image={hotel_data.badge_cta.image} url={hotel_data.badge_cta.url} button_text={hotel_data.badge_cta.button_text} extra_class="hotels-badge-card" /> }}
         {%- endif %}
         {%- if hotel_data.teasers %}
           <div class="hotels-teasers-grid tf-mod-callout-grid has-spacing-card">

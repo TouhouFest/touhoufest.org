@@ -1,5 +1,5 @@
 +++
-title = "2026 Official Hotel Blocks"
+title = "Official Hotel Blocks"
 weight = 0
 template = "hotels.html"
 
