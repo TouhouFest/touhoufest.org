@@ -171,6 +171,8 @@
   {%- set e = cfg.extra.event_end -%}
   {%- if format == "year" -%}
     {{ e | date(format="%Y") }}
+  {%- elif format == "next_year" -%}
+    {{ (e | date(format="%Y") | int) + 1 }}
   {%- elif format == "day" -%}
     {{ ts | date(format="%A %B ") }}{{ <day_ord d={ts} /> }}
   {%- elif format == "range" -%}
@@ -183,3 +185,18 @@
     {{ <event_date format="range" /> }} {{ e | date(format="%Y") }}
   {%- endif -%}
 {% endcomponent event_date %}
+{% component deadline_date(key, format="full") %}
+  {%- set cfg = load_data(path="config.toml") -%}
+  {%- set d = cfg.extra.deadlines[key] -%}
+  {%- if format == "short" -%}
+    {{ d | date(format="%B ") }}{{ <day_ord d={d} /> }}
+  {%- elif format == "no_comma" -%}
+    {{ d | date(format="%B ") }}{{ <day_ord d={d} /> }} {{ d | date(format="%Y") }}
+  {%- elif format == "day_no_comma" -%}
+    {{ d | date(format="%A, %B ") }}{{ <day_ord d={d} /> }} {{ d | date(format="%Y") }}
+  {%- elif format == "day" -%}
+    {{ d | date(format="%A, %B ") }}{{ <day_ord d={d} /> }}, {{ d | date(format="%Y") }}
+  {%- else -%}
+    {{ d | date(format="%B ") }}{{ <day_ord d={d} /> }}, {{ d | date(format="%Y") }}
+  {%- endif -%}
+{% endcomponent deadline_date %}

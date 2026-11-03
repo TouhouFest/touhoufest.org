@@ -1,6 +1,7 @@
 hero:
-  title: "2027 Guests"
-  subtitle: "Welcome our 2027 Guests!"
+  title: "Guests"
+  subtitle_prefix: "Welcome our"
+  subtitle_suffix: "Guests!"
   bg_image: "/img/guests/hero_bg.png"
   cards:
     - name: "beatMario"
@@ -18,7 +19,7 @@ hero:
       image: "/img/guests/hero_yaboimatoi_thumb.png"
 
 featured_section:
-  title: "2027 Guests"
+  title: "Guests"
 
 featured:
   - role: "Tokyo Active NEETs"
@@ -250,7 +251,7 @@ timeline:
         url: "https://gensokyoradio.net/"
 
 performers_section:
-  title: "2027 DJs & Performers"
+  title: "DJs & Performers"
 
 performers:
   - name: "Name here"

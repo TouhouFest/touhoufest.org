@@ -28,6 +28,14 @@ venue_country = "US"
 organizer_name = "AMP Organization"
 organizer_url = "https://amp-organization.com/"
 
+[extra.deadlines]
+exhibitor_applications = "2027-03-26"
+badge_refund = "2027-05-31"
+cosplay_audio = "2027-06-01"
+cosplay_audio_revision = "2027-06-06"
+tournament_signup = "2027-06-12"
+preregistration_close = "2027-06-18"
+
 [extra.socials]
 discord_invite = "https://discord.gg/touhoufest"
 twitter = "https://twitter.com/TouhouFest"

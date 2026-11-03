@@ -37,14 +37,14 @@
         <div class="hero-card-left">
           <div class="hero-card-badge-frame">
             <img src="{{ <img_url path="img/badge_teaser.png" max_width={960} /> }}"
-                 alt="{{ reg_data.hero_badge.title }}"
+                 alt="{{ <event_date format="year" /> }} {{ reg_data.hero_badge.title }}"
                  class="hero-card-badge-img"
                  fetchpriority="high">
           </div>
         </div>
         <div class="hero-card-right">
-          <h2 class="hero-card-title is-desktop-title">{{ reg_data.hero_badge.title }}</h2>
-          <h2 class="hero-card-title is-mobile-title">{{ reg_data.hero_badge.mobile_title }}</h2>
+          <h2 class="hero-card-title is-desktop-title">{{ <event_date format="year" /> }} {{ reg_data.hero_badge.title }}</h2>
+          <h2 class="hero-card-title is-mobile-title">{{ <event_date format="year" /> }} {{ reg_data.hero_badge.mobile_title }}</h2>
           <a href="{{ reg_data.hero_badge.url }}"
              class="tf-btn-pill-red"
              target="_blank"
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="register-pricing-wrap">
-        <h3 class="register-subheading">{{ reg_data.pricing_schedule.title }}</h3>
+        <h3 class="register-subheading">{{ <event_date format="year" /> }} {{ reg_data.pricing_schedule.title }}</h3>
         <div class="pricing-table-container">
           <div class="pricing-left-table">
             <div class="pricing-header-row">

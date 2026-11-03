@@ -159,17 +159,15 @@
       <div class="hero-card-inner intro-badge-inner">
         <div class="hero-card-image-wrap intro-badge-art">
           <img src="{{ <img_url path={intro.badge_cta.image} max_width={960} /> }}"
-               alt="{{ intro.badge_cta.image_alt }}"
+               alt="{{ <event_date format="year" /> }} {{ intro.badge_cta.image_alt }}"
                loading="lazy"
                decoding="async" />
         </div>
         <div class="hero-card-content intro-badge-content">
-          <h2 class="hero-card-title intro-h2">{{ intro.badge_cta.title }}</h2>
+          <h2 class="hero-card-title intro-h2">{{ <event_date format="year" /> }} {{ intro.badge_cta.title }}</h2>
           <p class="hero-card-subtitle intro-body-text">{{ intro.badge_cta.body }}</p>
           <a class="tf-btn tf-btn-danger hero-card-btn intro-cta-btn"
-             href="{{ intro.badge_cta.button_url }}"
-             target="_blank"
-             rel="noopener noreferrer">
+             href="{{ intro.badge_cta.button_url }}">
             <span>{{ intro.badge_cta.button_label }}</span>
             <span class="tf-icon tf-icon-chevron-right"></span>
           </a>

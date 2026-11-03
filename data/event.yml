@@ -36,8 +36,8 @@ gallery:
       alt: "Torrance Cultural Arts Center garden path"
 
 maps:
-  desktop_title: "2026 TouhouFest Event Maps"
-  mobile_title: "2025 TouhouFest Event Maps"
+  desktop_title: "TouhouFest Event Maps"
+  mobile_title: "TouhouFest Event Maps"
   divider_image: "img/event/divider_maps.jpg"
   map_image: "img/event/event_map.png"
   map_alt: "TouhouFest Event Map"
@@ -75,11 +75,11 @@ info_cards:
     cta_path: "schedule"
 
 badge_cta:
-  title: "2026 Full Weekend Badge"
+  title: "Full Weekend Badge"
   cta_label: "Buy badge"
   cta_path: "register"
   image: "img/badge_teaser.png"
-  image_alt: "2026 Full Weekend Badge"
+  image_alt: "Full Weekend Badge"
 
 discord_cta:
   title: "Find us on"

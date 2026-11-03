@@ -21,7 +21,7 @@
     <div class="tf-artists-main">
       <section class="tf-artists-section tf-artists-featured-sec">
         <div class="tf-artists-section-head">
-          <h2 class="tf-artists-h2">{{ data.featured_section.title }}</h2>
+          <h2 class="tf-artists-h2">{{ <event_date format="year" /> }} {{ data.featured_section.title }}</h2>
         </div>
         <div class="tf-artists-feat-grid">
           {% for artist in data.featured %}
@@ -85,7 +85,7 @@
       </section>
       <section class="tf-artists-section tf-artists-roster-sec">
         <div class="tf-artists-section-head">
-          <h2 class="tf-artists-h2">{{ data.roster_section.title }}</h2>
+          <h2 class="tf-artists-h2">{{ <event_date format="year" /> }} {{ data.roster_section.title }}</h2>
         </div>
         <div class="tf-artists-roster-wrap">
           <div class="tf-artists-search-outer">
@@ -172,7 +172,7 @@
           <div class="tf-artists-divider-bottom-wave tf-mod-divider-bottom"
                aria-hidden="true"></div>
           <div class="tf-artists-divider-inner tf-mod-divider-inner">
-            <h2 class="tf-artists-divider-title tf-mod-divider-title">{{ data.maps_section.title }}</h2>
+            <h2 class="tf-artists-divider-title tf-mod-divider-title">{{ <event_date format="year" /> }} {{ data.maps_section.title }}</h2>
           </div>
         </div>
         <div class="tf-map-switcher tf-artists-maps-body tf-mod-map">
@@ -185,7 +185,7 @@
           {% endfor %}
           <div class="tf-artists-map-tabs tf-mod-map-tabs"
                role="tablist"
-               aria-label="{{ data.maps_section.title }}">
+               aria-label="{{ <event_date format="year" /> }} {{ data.maps_section.title }}">
             {% for tab in data.maps_section.tabs %}
               <label class="tf-artists-map-tab tf-artists-map-tab--{{ loop.index }} tf-mod-map-tab tf-mod-map-tab--{{ loop.index }}"
                      for="tf-map-tab-{{ loop.index }}">{{ tab.title }}</label>
@@ -196,7 +196,7 @@
               {% for tab in data.maps_section.tabs %}
                 <img class="tf-artists-map-img tf-artists-map-img--{{ loop.index }} tf-mod-map-panel tf-mod-map-panel--{{ loop.index }}"
                      src="{{ <img_url path={tab.image} /> }}"
-                     alt="{{ tab.alt }}"
+                     alt="{{ <event_date format="year" /> }} {{ tab.alt }}"
                      loading="lazy"
                      decoding="async" />
               {% endfor %}

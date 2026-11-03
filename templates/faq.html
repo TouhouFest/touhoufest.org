@@ -4,6 +4,13 @@
 {% endblock header %}
 {% block content %}
   {%- set faq_data = load_data(path="data/faq.yml") -%}
+  {%- set sfx = "th,st,nd,rd,th,th,th,th,th,th,th,th,th,th,th,th,th,th,th,th,th,st,nd,rd,th,th,th,th,th,th,th,st" | split(pat=",") -%}
+  {%- set event_year = config.extra.event_end | date(format="%Y") -%}
+  {%- set pc = config.extra.deadlines.preregistration_close -%}
+  {%- set pc_day = (pc | date(format="%A, %B %-d")) ~ sfx[pc | date(format="%-d") | int] ~ (pc | date(format=" %Y")) -%}
+  {%- set pc_short = (pc | date(format="%B %-d")) ~ sfx[pc | date(format="%-d") | int] ~ (pc | date(format=" %Y")) -%}
+  {%- set br = config.extra.deadlines.badge_refund -%}
+  {%- set br_short = (br | date(format="%B %-d")) ~ sfx[br | date(format="%-d") | int] ~ (br | date(format=" %Y")) -%}
   <div class="tf-faq-page-body">
     <div class="tf-faq-container">
       {%- for qa in faq_data.items -%}
@@ -76,7 +83,12 @@
                     </summary>
                     <div class="tf-accordion-content">
                       <div class="tf-faq-answer">
-                        {%- set paragraphs = qa.a | split(pat="\n\n") -%}
+                        {%- set rendered_a = qa.a
+                          | replace(from="{event_year}", to=event_year)
+                          | replace(from="{preregistration_close_day}", to=pc_day)
+                          | replace(from="{preregistration_close}", to=pc_short)
+                          | replace(from="{badge_refund}", to=br_short) -%}
+                        {%- set paragraphs = rendered_a | split(pat="\n\n") -%}
                         {%- for p in paragraphs -%}
                           <p class="tf-faq-p">{% if loop.first %}A: {% endif %}{{ p | markdown(inline=true) | safe }}</p>
                         {%- endfor -%}

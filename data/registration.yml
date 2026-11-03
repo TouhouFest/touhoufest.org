@@ -15,14 +15,14 @@ event_badge:
   verify_suffix: "."
 
 hero_badge:
-  title: "2027 Weekend Badge"
-  mobile_title: "2027 Full Weekend Badge"
+  title: "Weekend Badge"
+  mobile_title: "Full Weekend Badge"
   button_text: "Buy badge"
   url: "https://registration.touhoufest.org/preregistration"
   stay_tuned_text: "Stay tuned!"
 
 pricing_schedule:
-  title: "2027 Badge pricing schedule"
+  title: "Badge pricing schedule"
   headers:
     date: "Date"
     full_weekend: "Full Weekend"

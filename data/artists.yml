@@ -3,7 +3,7 @@ hero:
   bg_image: "img/artists/hero_bg.jpg"
 
 featured_section:
-  title: "2026 Featured Artists"
+  title: "Featured Artists"
   cta_label: "Visit artist’s site"
 
 featured:
@@ -17,7 +17,7 @@ featured:
     url: "#"
 
 roster_section:
-  title: "2026 Full Artist Alley List"
+  title: "Full Artist Alley List"
   search_placeholder: "Search for an Artist"
   cta_label: "Visit Site"
 
@@ -190,19 +190,19 @@ roster:
     url: "#"
 
 maps_section:
-  title: "2025 TouhouFest Event Maps"
+  title: "TouhouFest Event Maps"
   zoom_label: "Zoom map"
   tabs:
     - title: "Event Map"
-      alt: "2025 TouhouFest Event Map"
+      alt: "TouhouFest Event Map"
       image: "img/event/event_map.png"
       checked: false
     - title: "Artist Alley Map"
-      alt: "2025 TouhouFest Artist Alley Map"
+      alt: "TouhouFest Artist Alley Map"
       image: "img/event/event_map.png"
       checked: true
     - title: "Vendors Map"
-      alt: "2025 TouhouFest Vendors Map"
+      alt: "TouhouFest Vendors Map"
       image: "img/TF_2025_Festival_Plaza Vendors Final.png"
       checked: false
 

@@ -29,7 +29,7 @@
         <div class="tf-v-body-stack">
           <section class="tf-v-featured-section">
             <div class="tf-v-heading-block">
-              <h2 class="tf-v-h1-red"><span class="is-mob-block">2026 Featured</span> Vendors</h2>
+              <h2 class="tf-v-h1-red"><span class="is-mob-block">{{ <event_date format="year" /> }} Featured</span> Vendors</h2>
             </div>
             <div class="tf-v-featured-grid">
               {%- for vendor in exhibitors_data.featured %}
@@ -74,7 +74,7 @@
               {%- endfor %}
             </div>
           </section>
-          <h2 class="tf-v-h1-red tf-v-roster-heading"><span class="is-mob-block">2026 Full Vendor</span> List</h2>
+          <h2 class="tf-v-h1-red tf-v-roster-heading"><span class="is-mob-block">{{ <event_date format="year" /> }} Full Vendor</span> List</h2>
           <section class="tf-v-roster-section">
             <div class="tf-v-search-wrap">
               <div class="tf-v-search-row">
@@ -155,7 +155,7 @@
               </div>
               <div class="tf-v-divider-top-wave tf-mod-divider-top" aria-hidden="true"></div>
               <div class="tf-v-divider-content tf-mod-divider-inner">
-                <h2 class="tf-v-divider-title tf-mod-divider-title"><span class="is-desk-yr">{{ exhibitors_data.page.maps_heading_year_desktop }}</span><span class="is-mob-yr">{{ exhibitors_data.page.maps_heading_year_mobile }}</span> {{ exhibitors_data.page.maps_heading_suffix }}</h2>
+                <h2 class="tf-v-divider-title tf-mod-divider-title"><span class="is-desk-yr">{{ <event_date format="year" /> }}</span><span class="is-mob-yr">{{ <event_date format="year" /> }}</span> {{ exhibitors_data.page.maps_heading_suffix }}</h2>
               </div>
               <div class="tf-v-divider-bottom-wave tf-mod-divider-bottom"
                    aria-hidden="true"></div>

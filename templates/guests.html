@@ -17,8 +17,8 @@
         <div class="guests-hero-title-box">
           <div class="guests-hero-title-core">
             <div class="guests-hero-title-copy">
-              <h1 class="guests-hero-title">{{ guests_data.hero.title }}</h1>
-              <p class="guests-hero-subtitle">{{ guests_data.hero.subtitle }}</p>
+              <h1 class="guests-hero-title">{{ <event_date format="year" /> }} {{ guests_data.hero.title }}</h1>
+              <p class="guests-hero-subtitle">{{ guests_data.hero.subtitle_prefix }} {{ <event_date format="year" /> }} {{ guests_data.hero.subtitle_suffix }}</p>
             </div>
           </div>
           <picture>
@@ -97,7 +97,7 @@
   {%- set guests_data = load_data(path="data/guests.yml") -%}
   <div class="guests-page-content">
     <section class="featured-guests-section">
-      <h2 class="featured-guests-heading">{{ guests_data.featured_section.title }}</h2>
+      <h2 class="featured-guests-heading">{{ <event_date format="year" /> }} {{ guests_data.featured_section.title }}</h2>
       <div class="featured-guests-grid">
         {%- for guest in guests_data.featured %}
           {%- set is_wide = loop.index >= 4 -%}
@@ -343,7 +343,7 @@
     </section>
     <section class="performers-section">
       <div class="performers-container">
-        <h2 class="performers-title">{{ guests_data.performers_section.title }}</h2>
+        <h2 class="performers-title">{{ <event_date format="year" /> }} {{ guests_data.performers_section.title }}</h2>
         <div class="performers-grid-wrap">
           {%- for p in guests_data.performers %}
             <div class="performer-item-card">

@@ -77,7 +77,7 @@ tabletop:
 competitions_divider:
   title: "Competitions"
   p1: "Tournaments are being arranged for the below games. Tournament rules for each game are attached below which lead to start.gg."
-  p2: "\u00a0Sign-ups for gaming tournaments at TouhouFest will close/already has closed on June 12th, 2025."
+  p2: "\u00a0Sign-ups for gaming tournaments at TouhouFest will close/already has closed on"
   p3_prefix: "Those interested may visit\u00a0"
   p3_link_text: "TouhouFest's start.gg page for more information"
   p3_link_dot: "."
@@ -95,13 +95,15 @@ prizes:
     - title: "First Place"
       subtitle: "(per bracket)"
       prize_bold: "Prize:"
-      prize_text: "Free TouhouFest 2025 Badge"
+      prize_prefix: "Free TouhouFest"
+      prize_suffix: "Badge"
       link_label: "See more info"
       link_url: "https://www.start.gg/tournament/touhoufest-2025/details"
     - title: "First Place"
       subtitle: "(per bracket)"
       prize_bold: "Prize:"
-      prize_text: "Free TouhouFest 2025 Badge"
+      prize_prefix: "Free TouhouFest"
+      prize_suffix: "Badge"
       link_label: "See more info"
       link_url: "https://www.start.gg/tournament/touhoufest-2025/details"
 
@@ -182,8 +184,8 @@ waves:
           url: "https://www.start.gg/tournament/touhoufest-2025/event/touhou-fractured-transience"
 
 maps:
-  title_desktop: "2026 TouhouFest Event Maps"
-  title_mobile: "2025 TouhouFest Event Maps"
+  title_desktop: "TouhouFest Event Maps"
+  title_mobile: "TouhouFest Event Maps"
   image: "/img/gaming/event_map.png"
   alt: "TouhouFest Event Map"
   tabs:
@@ -195,7 +197,7 @@ maps:
       active: true
 
 badge_cta:
-  title: "2026 Full Weekend Badge"
+  title: "Full Weekend Badge"
   button_label: "Buy badge"
   button_url: "/register"
   image: "img/badge_teaser.png"

@@ -33,7 +33,7 @@ photoshoots:
   note: "Those with any further questions related to cosplay events at TouhouFest are encouraged to visit either the Cosplay Ambassadors booth or the Touhou Cosplay Guild booth, both of which are located at the Toyota Meeting Hall."
 
 workshops:
-  title: "2027 Workshops"
+  title: "Workshops"
   divider_image: "img/cosplay/divider_workshops.jpg"
   intro: "Body copy goes here. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus..Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi."
   location_heading: "Location:"
@@ -91,14 +91,16 @@ masquerade:
       link_label: "See more info"
       awards:
         - title_line1: "Item Title goes here"
-          prize: "Free TouhouFest 2026 Badge + Medal"
+          prize_prefix: "Free TouhouFest"
+          prize_suffix: "Badge + Medal"
           desc_prefix: "This prize is awarded to the participant of the "
           desc_bold: "Craftsmanship Contest"
           desc_suffix: " whose work and effort crafting their costume left the strongest impression of the judges."
           url: "#awards"
         - title_line1: "Runner-up "
           title_line2: "Best Craftsmanship"
-          prize: "Free TouhouFest 2026 Badge + Medal"
+          prize_prefix: "Free TouhouFest"
+          prize_suffix: "Badge + Medal"
           desc_prefix: "This prize is awarded to the participant of the "
           desc_bold: "Craftsmanship Contest"
           desc_suffix: " whose work and effort crafting their costume greatly impressed the judges."
@@ -115,14 +117,16 @@ masquerade:
       link_label: "See more info"
       awards:
         - title_line1: "Best Performance"
-          prize: "Free TouhouFest 2026 Badge + Medal"
+          prize_prefix: "Free TouhouFest"
+          prize_suffix: "Badge + Medal"
           desc_prefix: "This prize is awarded to the participant of the "
           desc_bold: "Craftsmanship Contest"
           desc_suffix: " whose work and effort crafting their costume left the strongest impression of the judges."
           url: "#awards"
         - title_line1: "Runner-up "
           title_line2: "Best Performance"
-          prize: "Free TouhouFest 2026 Badge + Medal"
+          prize_prefix: "Free TouhouFest"
+          prize_suffix: "Badge + Medal"
           desc_prefix: "This prize is awarded to the participant of the "
           desc_bold: "Craftsmanship Contest"
           desc_suffix: " whose work and effort crafting their costume greatly impressed the judges."
@@ -149,7 +153,7 @@ masquerade:
   note: "Those with any further questions related to cosplay events at TouhouFest are encouraged to visit either the Cosplay Ambassadors booth or the Touhou Cosplay Guild booth, both of which are located at the Toyota Meeting Hall."
 
 guests:
-  title: "2027 Cosplay Guests"
+  title: "Cosplay Guests"
   divider_image: "img/cosplay/divider_guests.jpg"
   items:
     - role: "Cosplay Guest Judge"
@@ -198,7 +202,7 @@ guests:
           url: "https://twitter.com"
 
 maps:
-  title: "2025 TouhouFest Event Maps"
+  title: "TouhouFest Event Maps"
   divider_image: "img/cosplay/divider_maps.jpg"
   card_image: "img/cosplay/event_map_card.png"
   card_alt: "TouhouFest Event Map"

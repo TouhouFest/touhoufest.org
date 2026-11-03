@@ -202,7 +202,7 @@
               <h2 class="tf-mod-divider-title gaming-divider-heading">{{ gdata.competitions_divider.title }}</h2>
               <div class="tf-mod-divider-subtitle gaming-divider-copy">
                 <p class="gaming-comp-p1">{{ gdata.competitions_divider.p1 }}</p>
-                <p class="gaming-comp-p2">{{ gdata.competitions_divider.p2 }}</p>
+                <p class="gaming-comp-p2">{{ gdata.competitions_divider.p2 }} {{ <deadline_date key="tournament_signup" /> }}.</p>
                 <p class="gaming-comp-p3">{{ gdata.competitions_divider.p3_prefix }}<a href="{{ gdata.competitions_divider.p3_url | safe }}"
    target="_blank"
    rel="noopener noreferrer"
@@ -252,7 +252,7 @@
                   <p class="prize-desc gaming-prize-desc">
                     <strong>{{ prize.prize_bold }}</strong>
                     <br>
-                    <strong>{{ prize.prize_text }}</strong>
+                    <strong>{{ prize.prize_prefix }} {{ <event_date format="next_year" /> }} {{ prize.prize_suffix }}</strong>
                   </p>
                   <div class="gaming-prize-links">
                     <a href="{{ prize.link_url | safe }}"
@@ -312,8 +312,8 @@
           <div class="tf-mod-divider-inner gaming-divider-content">
             <div class="gaming-divider-text-block is-centered">
               <h2 class="tf-mod-divider-title gaming-divider-heading">
-                <span class="gaming-maps-title-desktop">{{ gdata.maps.title_desktop }}</span>
-                <span class="gaming-maps-title-mobile">{{ gdata.maps.title_mobile }}</span>
+                <span class="gaming-maps-title-desktop">{{ <event_date format="year" /> }} {{ gdata.maps.title_desktop }}</span>
+                <span class="gaming-maps-title-mobile">{{ <event_date format="year" /> }} {{ gdata.maps.title_mobile }}</span>
               </h2>
             </div>
           </div>
@@ -366,7 +366,7 @@
                 <div class="gaming-badge-cta-img-frame">
                   <div class="gaming-badge-cta-img-inner">
                     <img src="{{ <img_url path={gdata.badge_cta.image} max_width={960} /> }}"
-                         alt="{{ gdata.badge_cta.title }}"
+                         alt="{{ <event_date format="year" /> }} {{ gdata.badge_cta.title }}"
                          class="gaming-badge-cta-img"
                          loading="lazy"
                          decoding="async">
@@ -374,7 +374,7 @@
                 </div>
               </div>
               <div class="hero-card-content gaming-badge-cta-content">
-                <h2 class="hero-card-title gaming-badge-cta-title">{{ gdata.badge_cta.title }}</h2>
+                <h2 class="hero-card-title gaming-badge-cta-title">{{ <event_date format="year" /> }} {{ gdata.badge_cta.title }}</h2>
                 <a href="{{ gdata.badge_cta.button_url | safe }}"
                    class="hero-card-btn tf-btn tf-btn-danger gaming-pill-btn-red">
                   <span>{{ gdata.badge_cta.button_label }}</span>

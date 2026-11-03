@@ -14,9 +14,9 @@ phones_preview:
   alt: "TouhouFest Schedule App Screens"
 badge_cta:
   image: "img/badge_teaser.png"
-  alt: "2026 Weekend Badge"
-  desktop_title: "2026 Weekend Badge"
-  mobile_title: "2026 Full Weekend Badge"
+  alt: "Weekend Badge"
+  desktop_title: "Weekend Badge"
+  mobile_title: "Full Weekend Badge"
   button_label: "Buy badge"
   button_path: "register"
 discord_cta:
@@ -32,7 +32,7 @@ newsletter_cta:
   input_placeholder: "Email here"
   input_aria_label: "Email address"
   button_label: "Subscribe"
-sr_heading: "TouhouFest 2026 Official Schedule"
+sr_heading: "Official Schedule"
 days:
   - id: "day-1"
     day: "Day 1"

@@ -326,8 +326,9 @@ These Rules apply to only the Performance Category.
 - All audio, including dialogue, must be pre-recorded. There will be no mics available to use during
   performances.
 - Audio must be submitted and approved by staff before the contest. You will be contacted if any
-  changes need to be made. The deadline for submitting audio is June 1st, with no further revisions
-  accepted past June 6th.
+  changes need to be made. The deadline for submitting audio is {{ <deadline_date
+  key="cosplay_audio" format="short" /> }}, with no further revisions accepted past {{
+  <deadline_date key="cosplay_audio_revision" format="short" /> }}.
 - Performances are limited to 2.5 minutes in length. Any performance that goes over this limit will
   not be accepted.
 - Audio must be submitted as it is intended to be played. We can’t accommodate special requests to

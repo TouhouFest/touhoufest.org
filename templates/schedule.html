@@ -59,7 +59,7 @@
         <div class="hero-gohei-right card-gohei-trim-right" aria-hidden="true"></div>
         <div class="hero-card-image-wrap schedule-badge-art">
           <img src="{{ <img_url path={sched.badge_cta.image} max_width={960} /> }}"
-               alt="{{ sched.badge_cta.alt }}"
+               alt="{{ <event_date format="year" /> }} {{ sched.badge_cta.alt }}"
                width="306"
                height="287"
                class="schedule-badge-img"
@@ -67,8 +67,8 @@
                decoding="async">
         </div>
         <div class="hero-card-content schedule-badge-info">
-          <h2 class="hero-card-title schedule-badge-title desktop-title">{{ sched.badge_cta.desktop_title }}</h2>
-          <h2 class="hero-card-title schedule-badge-title mobile-title">{{ sched.badge_cta.mobile_title }}</h2>
+          <h2 class="hero-card-title schedule-badge-title desktop-title">{{ <event_date format="year" /> }} {{ sched.badge_cta.desktop_title }}</h2>
+          <h2 class="hero-card-title schedule-badge-title mobile-title">{{ <event_date format="year" /> }} {{ sched.badge_cta.mobile_title }}</h2>
           <a href="{{ get_url(path=sched.badge_cta.button_path) }}"
              class="hero-card-btn tf-btn tf-btn-danger tf-btn-pill-red schedule-badge-btn">
             <span>{{ sched.badge_cta.button_label }}</span>
@@ -145,7 +145,7 @@
     </div>
     <section class="schedule-sr-accessible tf-timeline is-sr-only"
              aria-label="Convention Schedule Listings">
-      <h2>{{ sched.sr_heading }} (Status: {{ sched.status }})</h2>
+      <h2>TouhouFest {{ <event_date format="year" /> }} {{ sched.sr_heading }} (Status: {{ sched.status }})</h2>
       {% for day in sched.days %}
         <div class="schedule-sr-day tf-timeline-item" id="{{ day.id }}">
           <h3 class="tf-timeline-time">{{ day.title }} ({{ day.date }}) &mdash; {{ day.hours }}</h3>

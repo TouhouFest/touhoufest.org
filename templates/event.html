@@ -156,8 +156,8 @@
           <div class="ev-banner-bot-img tf-mod-divider-bottom"></div>
         </div>
         <div class="ev-banner-content tf-mod-divider-inner">
-          <h2 class="ev-banner-title ev-desktop-title tf-mod-divider-title">{{ ev.maps.desktop_title }}</h2>
-          <h2 class="ev-banner-title ev-mobile-title tf-mod-divider-title">{{ ev.maps.mobile_title }}</h2>
+          <h2 class="ev-banner-title ev-desktop-title tf-mod-divider-title">{{ <event_date format="year" /> }} {{ ev.maps.desktop_title }}</h2>
+          <h2 class="ev-banner-title ev-mobile-title tf-mod-divider-title">{{ <event_date format="year" /> }} {{ ev.maps.mobile_title }}</h2>
         </div>
       </div>
       <div class="ev-maps-body tf-mod-map">
@@ -286,7 +286,7 @@
             <div class="ev-badge-img-aspect">
               <div class="ev-badge-img-shadow">
                 <img src="{{ <img_url path={ev.badge_cta.image} max_width={960} /> }}"
-                     alt="{{ ev.badge_cta.image_alt }}"
+                     alt="{{ <event_date format="year" /> }} {{ ev.badge_cta.image_alt }}"
                      class="ev-badge-img"
                      loading="lazy"
                      decoding="async">
@@ -294,7 +294,7 @@
             </div>
           </div>
           <div class="ev-badge-content-col">
-            <h2 class="ev-badge-title">{{ ev.badge_cta.title }}</h2>
+            <h2 class="ev-badge-title">{{ <event_date format="year" /> }} {{ ev.badge_cta.title }}</h2>
             <a href="{{ get_url(path=ev.badge_cta.cta_path) | safe }}"
                class="ev-btn-red">
               <span class="ev-btn-red-text">{{ ev.badge_cta.cta_label }}</span>

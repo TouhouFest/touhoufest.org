@@ -90,7 +90,7 @@
         <div class="tf-mod-divider-top cosplay-divider__top-gohei"
              aria-hidden="true"></div>
         <div class="tf-mod-divider-inner cosplay-divider__content">
-          <h2 class="tf-mod-divider-title cosplay-divider__title">{{ data.workshops.title }}</h2>
+          <h2 class="tf-mod-divider-title cosplay-divider__title">{{ <event_date format="year" /> }} {{ data.workshops.title }}</h2>
         </div>
         <div class="tf-mod-divider-bottom cosplay-divider__bottom"
              aria-hidden="true"></div>
@@ -194,7 +194,13 @@
                   </div>
                   <div class="cosplay-award-col__prize">
                     <span>{{ detail.prize_label }}</span>
-                    <span>{{ award.prize }}</span>
+                    <span>
+                      {%- if award.prize_prefix -%}
+                        {{ award.prize_prefix }} {{ <event_date format="next_year" /> }} {{ award.prize_suffix }}
+                      {%- else -%}
+                        {{ award.prize }}
+                      {%- endif -%}
+                    </span>
                   </div>
                   <p class="cosplay-award-col__desc">{{ award.desc_prefix }}{% if award.desc_bold %}<strong class="cosplay-award-col__desc-bold">{{ award.desc_bold }}</strong>{% endif %}{% if award.desc_suffix %}{{ award.desc_suffix }}{% endif %}</p>
                   <div class="cosplay-award-col__link-wrap">
@@ -250,7 +256,7 @@
         <div class="tf-mod-divider-top cosplay-divider__top-gohei"
              aria-hidden="true"></div>
         <div class="tf-mod-divider-inner cosplay-divider__content">
-          <h2 class="tf-mod-divider-title cosplay-divider__title">{{ data.guests.title }}</h2>
+          <h2 class="tf-mod-divider-title cosplay-divider__title">{{ <event_date format="year" /> }} {{ data.guests.title }}</h2>
         </div>
         <div class="tf-mod-divider-bottom cosplay-divider__bottom"
              aria-hidden="true"></div>
@@ -317,7 +323,7 @@
         <div class="tf-mod-divider-top cosplay-divider__top-gohei"
              aria-hidden="true"></div>
         <div class="tf-mod-divider-inner cosplay-divider__content">
-          <h2 class="tf-mod-divider-title cosplay-divider__title">{{ data.maps.title }}</h2>
+          <h2 class="tf-mod-divider-title cosplay-divider__title">{{ <event_date format="year" /> }} {{ data.maps.title }}</h2>
         </div>
         <div class="tf-mod-divider-bottom cosplay-divider__bottom"
              aria-hidden="true"></div>

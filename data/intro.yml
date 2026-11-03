@@ -106,11 +106,11 @@ featured_guests:
 
 badge_cta:
   image: "img/badge_teaser.png"
-  image_alt: "2026 Full Weekend Badge Teaser"
-  title: "2026 Full Weekend Badge"
+  image_alt: "Full Weekend Badge Teaser"
+  title: "Full Weekend Badge"
   body: "Join fans from around the world in Torrance, CA for three days of Touhou music, Artist Alley circles, panels, cosplay, and bullet-hell competitions."
   button_label: "Buy badge"
-  button_url: "https://touhoufest.ticketspice.com/touhoufest-2026"
+  button_url: "/register"
 
 discord_cta:
   icon_label: "Discord"

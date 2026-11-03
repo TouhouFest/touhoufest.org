@@ -9,10 +9,10 @@ toc = true
 
 ## Exhibitors Info
 
-Applications will remain open from now until **March 26th, 2027**. Once the application period has
-been submitted, you will be contacted soon after to notify you of your application status.
-Exhibitors are chosen through a juried process. Please note that reviewing our applications takes
-time, so we ask for your patience during this time period.
+Applications will remain open from now until **{{ <deadline_date key="exhibitor_applications" />
+}}**. Once the application period has been submitted, you will be contacted soon after to notify you
+of your application status. Exhibitors are chosen through a juried process. Please note that
+reviewing our applications takes time, so we ask for your patience during this time period.
 
 Please keep in mind that we are a Touhou Project themed fan event, and we will be prioritizing
 sellers with Touhou Project fan merchandise within their product offerings. If you currently do not

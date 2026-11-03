@@ -65,14 +65,14 @@ registration_faq:
     - title: "Purchasing Badges, Refunds, Upgrades"
       items:
         - q: What is TouhouFest’s preregistration pricing policy?
-          a: "The preregistration price for a full-weekend badge starts at $50, but increases over time as we approach the event. In the final month before TouhouFest, badges will be $95, so the earlier you purchase your badge, the cheaper it is! Paying attention to social media can help you snag promo codes for discounts! **Preregistration closes Thursday, June 18th 2027 (the day before the event)**."
+          a: "The preregistration price for a full-weekend badge starts at $50, but increases over time as we approach the event. In the final month before TouhouFest, badges will be $95, so the earlier you purchase your badge, the cheaper it is! Paying attention to social media can help you snag promo codes for discounts! **Preregistration closes {preregistration_close_day} (the day before the event)**."
         - q: Can I buy a one day badge?
-          a: "Currently, no. We’re currently running into technical issues with showing them on our registration portal. Once that has been fixed, they’ll be available via our preregistration portal until it closes on June 18th 2027."
+          a: "Currently, no. We’re currently running into technical issues with showing them on our registration portal. Once that has been fixed, they’ll be available via our preregistration portal until it closes on {preregistration_close}."
         - q: Does TouhouFest offer badge refunds?
           a: |
-            TouhouFest 2027 offers refunds on badge purchases within an eligible window of time.
+            TouhouFest {event_year} offers refunds on badge purchases within an eligible window of time.
 
-            Refunds must be submitted within 30 days of the original purchase date and or no later than May 31st 2027 11:59PM (Pacific Time), whichever occurs first. Refunds are not available beyond this window. Applicable payment processing fees will be deducted from the refunded amount.
+            Refunds must be submitted within 30 days of the original purchase date and or no later than {badge_refund} 11:59PM (Pacific Time), whichever occurs first. Refunds are not available beyond this window. Applicable payment processing fees will be deducted from the refunded amount.
 
             Attendees who are unable to attend beyond their eligible refund window may instead transfer or resell their badge to another individual. Details on this process is available in the Badge Transfers section.
         - q: I am unable to find my confirmation email. Can it be resent?
@@ -84,9 +84,9 @@ registration_faq:
             **Warning:** Once your badge has been transferred, you will lose all access to the badge and it cannot be transferred back to you or refunded.
         - q: How do I confirm the validity of a badge being transferred to me?
           a: |
-            TouhouFest 2027 offers refunds on badge purchases within an eligible window of time.
+            TouhouFest {event_year} offers refunds on badge purchases within an eligible window of time.
 
-            Refunds must be submitted within 30 days of the original purchase date and or no later than May 31st 2027 11:59PM (Pacific Time), whichever occurs first. Refunds are not available beyond this window. Applicable payment processing fees will be deducted from the refunded amount.
+            Refunds must be submitted within 30 days of the original purchase date and or no later than {badge_refund} 11:59PM (Pacific Time), whichever occurs first. Refunds are not available beyond this window. Applicable payment processing fees will be deducted from the refunded amount.
 
             Attendees who are unable to attend beyond their eligible refund window may instead transfer or resell their badge to another individual. Details on this process is available in the Badge Transfers section.
         - q: Can I change my information after registration?
