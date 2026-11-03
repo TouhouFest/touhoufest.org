@@ -4,9 +4,9 @@ on:
     branches:
       - main
   workflow_dispatch:
-  # Rebuild at 12 Midnight every day
+  # Rebuild every 6 hours
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 */6 * * *"
 
 name: Build site
 jobs:
