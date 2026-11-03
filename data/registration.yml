@@ -139,7 +139,7 @@ applications:
 event_guidelines:
   title: "Event Guidelines"
   subtitle: "Before attending, please be sure to check these guidelines."
-  button_text: "Button"
+  button_text: "Event Guidelines"
   url: "/about/guidelines"
 
 discord:

@@ -1,7 +1,7 @@
 status: "published"
 hero:
   title: "Download our app for the latest schedule info"
-  subtitle: "The Touhoufest App is avaliable on:"
+  subtitle: "The TouhouFest App is available on:"
 app_buttons:
   - url: "https://schedule.touhoufest.org"
     label: "View on web"

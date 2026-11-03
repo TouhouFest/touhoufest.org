@@ -96,7 +96,7 @@ TouhouFest and subject to inspection upon entry.
 
 If you see an item that does not belong to you, we encourage you to return the item to our Staff Ops
 room. We will do our best to catalogue said item(s) and endeavor to return said item(s) to the
-rightful owner(s). Anything with significant personal value (eg: a wallet) will requirement
+rightful owner(s). Anything with significant personal value (eg: a wallet) will require
 identification upon retrieval. In addition, anyone that has lost an item at TouhouFest may check in
 with Staff Ops during event hours.
 
@@ -128,7 +128,7 @@ having fun and creativity!
 - Costumes or props that offer extra mobility (i.e. skates, skateboards, in line skates, scooter, or
   bikes) can be used for display purposes only. They cannot be ridden around.
 - Vintage, historical, any non current uniform and any military or police-style costumes may be
-  address at the convention’s discretion.
+  addressed at the convention’s discretion.
 
 Attendees should understand and agree that, for their safety and the safety of everyone at
 TouhouFest, we have the absolute and immediate discretion and right to inspect your costumes, prop
@@ -142,7 +142,7 @@ discretion and without prior notice.
 
 Prop weapons must be submitted to “Weapons Check” for Peace Bonding. TouhouFest has the sole
 discretion to approve prop weapons. Please visit us at one of our Weapons Check booths during the
-Event. Locations are to be determined and announced on our website at touhoufest.com. Other
+Event. Locations are to be determined and announced on our website at touhoufest.org. Other
 TouhouFest Weapons Check booth locations shall be designated in the programs and on signs.
 
 We may revoke your Peace Bond at any time in our sole discretion. Behavior which will warrant
@@ -311,8 +311,8 @@ These rules apply to only the Craftsmanship Category.
 
 - At least half (50%) of your costume must be self-made. Pieces not made by the entrant must be
   disclosed and will not be considered for judging.
-- Entrees must provide printed reference material of the character they’re cosplaying at the time of
-  judging.
+- Entrants must provide printed reference material of the character they’re cosplaying at the time
+  of judging.
 - Printed work in progress photos of the costume are also strongly encouraged, but not required.
 - You must attend Pre-Judging before the show to be considered for an award. This is where the
   judges will meet with you for a few minutes to see your work up close and hear how you made your

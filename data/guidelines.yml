@@ -15,7 +15,7 @@ jumplinks:
 callouts:
   - title: "FAQs"
     description: "Have questions? See our FAQs page for more info."
-    button_text: "Button"
+    button_text: "FAQs"
     button_url: "about/faq"
     image: "img/shared/faq_icon.svg"
   - title: "Join the community on Discord"

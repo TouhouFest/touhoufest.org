@@ -3,7 +3,7 @@ hero:
   image: "/img/gaming/hero_gaming.jpg"
 
 intro:
-  text: "Gaming events for\u00a0official\u00a0Touhou games will take place in the\u00a0George Nakano Theatre, (Gaming Hall) located to the right of the Entry Plaza. Arcades are located at the\u00a0Ken Miller Rec Center\u00a0(\u00a0Arcade Cabinets) next to the Torino Festival Plaza. Tabletop Gaming is located in the\u00a0Drawing & Painting Studio\u00a0(\u00a0Tabletop Gaming & Mystery Parafait) at the tail end of the Pine Wind Garden."
+  text: "Gaming events for\u00a0official\u00a0Touhou games will take place in the\u00a0George Nakano Theatre, (Gaming Hall) located to the right of the Entry Plaza. Arcades are located at the\u00a0Ken Miller Rec Center\u00a0(\u00a0Arcade Cabinets) next to the Torino Festival Plaza. Tabletop Gaming is located in the\u00a0Drawing & Painting Studio\u00a0(\u00a0Tabletop Gaming & Mystery Parfait) at the tail end of the Pine Wind Garden."
 
 freeplay_divider:
   title: "Free Play"
@@ -49,7 +49,7 @@ arcade:
 tabletop:
   title: "Tabletop"
   location: "George Nakano Theatre"
-  description_prefix: "TouhouFest is pleased to offer a dedicated section for tabletop gaming this year! Inside the\u00a0Drawing & Painting Studio\u00a0(\u00a0Tabletop & Mystery Parafait) two tables are available for free-play, and two tables are reserved for games specifically for "
+  description_prefix: "TouhouFest is pleased to offer a dedicated section for tabletop gaming this year! Inside the\u00a0Drawing & Painting Studio\u00a0(\u00a0Tabletop & Mystery Parfait) two tables are available for free-play, and two tables are reserved for games specifically for "
   game_quote: "\""
   game_name: "Danmaku!!"
   game_url: "https://danmaku.party/"
@@ -77,7 +77,7 @@ tabletop:
 competitions_divider:
   title: "Competitions"
   p1: "Tournaments are being arranged for the below games. Tournament rules for each game are attached below which lead to start.gg."
-  p2: "\u00a0Sign-ups for gaming tournaments at TouhouFest will close/already has closed on"
+  p2: "Sign-ups for gaming tournaments at TouhouFest close on"
   p3_prefix: "Those interested may visit\u00a0"
   p3_link_text: "TouhouFest's start.gg page for more information"
   p3_link_dot: "."
@@ -87,10 +87,10 @@ competitions_divider:
 
 prizes:
   title: "Prizes"
-  description_prefix: "Touhou mainline games, fighting games, spinoffs, and select fangames will be playable at various times throughout the con, as marked by events labelled as \"Free Play\". Assistance is graciously provided by\u00a0"
-  partner_name: "Youkaiverse"
-  partner_url: "https://twitter.com/Youkaiverse"
-  description_suffix: "; we thank them for their assistance this year."
+  description_prefix: "Top finishers in each tournament bracket win prizes! Full rules and prize details are listed on "
+  partner_name: "start.gg"
+  partner_url: "https://www.start.gg/tournament/touhoufest-2025/details"
+  description_suffix: "."
   items:
     - title: "First Place"
       subtitle: "(per bracket)"
@@ -109,10 +109,10 @@ prizes:
 
 waves:
   title: "Wave Info"
-  description_prefix: "Touhou mainline games, fighting games, spinoffs, and select fangames will be playable at various times throughout the con, as marked by events labelled as \"Free Play\". Assistance is graciously provided by\u00a0"
-  partner_name: "Youkaiverse"
-  partner_url: "https://twitter.com/Youkaiverse"
-  description_suffix: "; we thank them for their assistance this year."
+  description_prefix: "Tournaments run in waves across the weekend so you can enter multiple brackets. View the schedule and register on "
+  partner_name: "start.gg"
+  partner_url: "https://www.start.gg/tournament/touhoufest-2025/details"
+  description_suffix: "."
   items:
     - header: "Wave A"
       tournaments:

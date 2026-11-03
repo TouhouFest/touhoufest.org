@@ -28,14 +28,14 @@ _**We do not permit sale of the following items at our events:**_
   consumption)
 
 This list is not exhaustive and is subject to change at any time. If you are found selling these
-items you will get one warning to remove them failure to do so will result in removal from the
+items you will get one warning to remove them; failure to do so will result in removal from the
 convention without refund.
 
 ### Proxy Selling
 
-We allow proxy selling on behalf of an artist, so long as permission from the artist been granted
-and contracts have been written out. Please be sure to clarify in the form that you are a proxy
-seller and state the name(s) of the artist in which you are selling on behalf of.
+We allow proxy selling on behalf of an artist, so long as permission from the artist has been
+granted and contracts have been written out. Please be sure to clarify in the form that you are a
+proxy seller and state the name(s) of the artist in which you are selling on behalf of.
 
 ### Selling R-18/NSFW Material
 
@@ -77,7 +77,7 @@ needed.
 **Double Booth:**
 
 - Two (2) 10 X 10 Canopies
-- Two (2) 6' Table
+- Two (2) 6' Tables
 - Four (4) chairs
 - Six (6) Exhibitor Badges
 - Cost: **$750**
@@ -91,7 +91,7 @@ additional tables or chairs than what we are providing for you.
 
 - One (1) 3' Table Space
 - One (1) Chair
-- One (1) Exhibitor Badges
+- One (1) Exhibitor Badge
 - Cost: **$130**
 - Recommended for new sellers or sellers looking to split a space
 

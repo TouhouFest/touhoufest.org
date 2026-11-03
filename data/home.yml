@@ -44,7 +44,7 @@ pillars:
   - title: "Applications are open"
     body: "Staff, Vendor, Artists, and everything else - if you want to apply for something, find it here!"
     buttons:
-      - text: "Applciation Page"
+      - text: "Application Page"
         url: "register"
     image: "img/home/polaroid-1.png"
     image_alt: "Performers on stage"
