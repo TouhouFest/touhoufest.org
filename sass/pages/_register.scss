@@ -524,6 +524,28 @@
   .pricing-table-container {
     flex-direction: column;
     width: 100%;
+    &:has(.pricing-single-day-columns .pricing-body-rows) {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      .pricing-left-table {
+        width: 54%;
+        flex: 0 0 54%;
+      }
+      .pricing-single-day-columns {
+        width: 46%;
+        flex: 0 0 46%;
+      }
+      :is(.th-date, .th-weekend, .th-single, .pricing-td) {
+        padding: 0 8px;
+        font-size: 13px;
+      }
+      .tier-name {
+        font-size: 13px;
+      }
+      .tier-note {
+        font-size: 11px;
+      }
+    }
   }
   .is-register-divider {
     padding: 64px 32px;

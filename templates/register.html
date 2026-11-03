@@ -78,19 +78,43 @@
           <div class="pricing-single-day-columns">
             <div class="pricing-column col-saturday">
               <div class="pricing-th th-single">{{ reg_data.pricing_schedule.headers.saturday_pass }}</div>
-              <div class="pricing-stay-tuned-cell">
-                <div class="pricing-stay-tuned">
-                  <span>{{ reg_data.pricing_schedule.single_day.saturday.status }}</span>
+              {% if reg_data.pricing_schedule.single_day.saturday.status %}
+                <div class="pricing-stay-tuned-cell">
+                  <div class="pricing-stay-tuned">
+                    <span>{{ reg_data.pricing_schedule.single_day.saturday.status }}</span>
+                  </div>
                 </div>
-              </div>
+              {% else %}
+                <div class="pricing-body-rows">
+                  {% for tier in reg_data.pricing_schedule.tiers %}
+                    <div class="pricing-row {% if tier.status == 'sold_out' %}is-sold-out{% endif %}">
+                      <div class="pricing-td td-price">
+                        <span>{{ tier.saturday }}</span>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
             <div class="pricing-column col-sunday">
               <div class="pricing-th th-single">{{ reg_data.pricing_schedule.headers.sunday_pass }}</div>
-              <div class="pricing-stay-tuned-cell">
-                <div class="pricing-stay-tuned">
-                  <span>{{ reg_data.pricing_schedule.single_day.sunday.status }}</span>
+              {% if reg_data.pricing_schedule.single_day.sunday.status %}
+                <div class="pricing-stay-tuned-cell">
+                  <div class="pricing-stay-tuned">
+                    <span>{{ reg_data.pricing_schedule.single_day.sunday.status }}</span>
+                  </div>
                 </div>
-              </div>
+              {% else %}
+                <div class="pricing-body-rows">
+                  {% for tier in reg_data.pricing_schedule.tiers %}
+                    <div class="pricing-row {% if tier.status == 'sold_out' %}is-sold-out{% endif %}">
+                      <div class="pricing-td td-price">
+                        <span>{{ tier.sunday }}</span>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
           </div>
         </div>
