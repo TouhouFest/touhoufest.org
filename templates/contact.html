@@ -19,10 +19,14 @@
         </div>
       </section>
       <div class="contact-form-container">
-        <form class="contact-form"
-              action="#"
-              method="post"
-              onsubmit="return false;">
+        <div id="contact-submitted"
+             class="contact-status-banner is-success"
+             role="status">{{ cdata.submitted_banner }}</div>
+        <div id="contact-error"
+             class="contact-status-banner is-error"
+             role="alert">{{ cdata.error_banner }}</div>
+        <form class="contact-form" action="{{ cdata.form_action }}" method="post">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" hidden />
           {%- for field in cdata.fields %}
             <div class="tf-form-field">
               <div class="tf-field-label-row">

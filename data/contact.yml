@@ -6,6 +6,10 @@ hero:
   refund_url: "/about/faq/#registration-faq"
   refund_suffix: "."
 
+form_action: "https://registration.touhoufest.org/contact"
+submitted_banner: "Thank you! Your message has been sent to the TouhouFest Team."
+error_banner: "Sorry, there was an error sending your message. Please try again or email us directly at touhoufest@gmail.com."
+
 required_tag: "(Required)"
 
 fields:

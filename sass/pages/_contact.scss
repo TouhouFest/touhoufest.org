@@ -76,6 +76,18 @@ body:has(.tf-contact-page) {
     margin: 77px auto 0;
     padding: 0;
   }
+  .contact-status-banner {
+    display: none;
+    margin: 0 0 24px;
+    padding: 16px 20px;
+    border-radius: 5px;
+    font: 600 16px / 1.4 var(--tf-font-body);
+    color: var(--tf-text-title-dark);
+    background-color: var(--tf-accent);
+    &:target {
+      display: block;
+    }
+  }
   .contact-form {
     align-items: flex-start;
     gap: 24px;
