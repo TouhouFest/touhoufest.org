@@ -268,20 +268,7 @@
               <div class="cosplay-guest-card__role">{{ guest.role }}</div>
               <h3 class="cosplay-guest-card__name">{{ guest.name }}</h3>
               <div class="cosplay-guest-card__portrait-pad">
-                <div class="cosplay-guest-card__portrait-frame">
-                  <img src="{{ <img_url path="img/guests/avatar_ring_red.svg" /> }}"
-                       alt=""
-                       class="cosplay-guest-card__circle-bg"
-                       loading="lazy"
-                       decoding="async">
-                  <div class="cosplay-guest-card__photo-wrap">
-                    <img src="{{ <img_url path={guest.image} max_width={480} /> }}"
-                         alt="{{ guest.name }}"
-                         class="cosplay-guest-card__photo"
-                         loading="lazy"
-                         decoding="async">
-                  </div>
-                </div>
+                {{ <guest_avatar image={guest.image} alt={guest.name} /> }}
               </div>
             </div>
             <div class="cosplay-guest-card__body">

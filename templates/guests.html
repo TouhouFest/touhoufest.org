@@ -106,20 +106,7 @@
               <div class="artist-role-label">{{ guest.role }}</div>
               <h3 class="artist-name-title">{{ guest.name }}</h3>
               <div class="artist-feature-frame-wrap">
-                <div class="artist-feature-frame">
-                  <img src="{{ <img_url path="img/guests/avatar_ring_red.svg" /> }}"
-                       alt=""
-                       class="artist-avatar-ring"
-                       loading="lazy"
-                       decoding="async" />
-                  <div class="artist-avatar-circle">
-                    <img src="{{ <img_url path={guest.avatar} max_width={480} /> }}"
-                         alt="{{ guest.name }}"
-                         class="artist-avatar-img"
-                         loading="lazy"
-                         decoding="async" />
-                  </div>
-                </div>
+                {{ <guest_avatar image={guest.avatar} alt={guest.name} /> }}
               </div>
             </div>
             <div class="artist-content-block">
@@ -201,11 +188,7 @@
                     <div class="timeline-pill-overlay">
                       <div class="timeline-pill-avatar-skew">
                         <div class="timeline-pill-avatar-frame">
-                          <img src="{{ <img_url path="img/guests/avatar_ring_timeline.svg" /> }}"
-                               alt=""
-                               class="tl-avatar-ring"
-                               loading="lazy"
-                               decoding="async" />
+                          <div class="tl-avatar-ring" aria-hidden="true"></div>
                           <div class="tl-avatar-img-box">
                             <img src="{{ <img_url path={guest.avatar} max_width={240} /> }}"
                                  alt="{{ guest.name }}"
@@ -252,11 +235,7 @@
                     <div class="timeline-pill-overlay">
                       <div class="timeline-pill-avatar-skew">
                         <div class="timeline-pill-avatar-frame">
-                          <img src="{{ <img_url path="img/guests/avatar_ring_timeline.svg" /> }}"
-                               alt=""
-                               class="tl-avatar-ring"
-                               loading="lazy"
-                               decoding="async" />
+                          <div class="tl-avatar-ring" aria-hidden="true"></div>
                           <div class="tl-avatar-img-box">
                             <img src="{{ <img_url path={guest.avatar} max_width={240} /> }}"
                                  alt="{{ guest.name }}"
@@ -348,20 +327,7 @@
           {%- for p in guests_data.performers %}
             <div class="performer-item-card">
               <h3 class="performer-name">{{ p.name }}</h3>
-              <div class="performer-feature-frame">
-                <img src="{{ <img_url path="img/guests/avatar_ring_light.svg" /> }}"
-                     alt=""
-                     class="performer-avatar-ring"
-                     loading="lazy"
-                     decoding="async" />
-                <div class="performer-avatar-circle">
-                  <img src="{{ <img_url path={p.image} max_width={480} /> }}"
-                       alt="{{ p.name }}"
-                       class="performer-avatar-img"
-                       loading="lazy"
-                       decoding="async" />
-                </div>
-              </div>
+              {{ <guest_avatar image={p.image} alt={p.name} ring="light" /> }}
               <div class="performer-label-wrap">
                 {%- if p.more_text %}
                   <p class="performer-desc">{{ p.label }}<span class="performer-see-more">{{ p.more_text }}</span></p>

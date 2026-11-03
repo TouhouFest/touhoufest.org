@@ -369,37 +369,22 @@ body:has(.guests-hero-section) {
   justify-content: center;
   flex-shrink: 0;
 }
-:is(.artist-feature-frame, .performer-feature-frame) {
-  position: relative;
-  width: 288px;
-  height: 272px;
-  flex-shrink: 0;
-}
-:is(.artist-avatar-ring, .performer-avatar-ring, .tl-avatar-ring) {
+.tl-avatar-ring {
   position: absolute;
   inset: 5.15% 0.09% -2.21% 8.25%;
-  max-width: none;
-  display: block;
+  background-color: #fffde7;
+  @include mask-stretch-var(var(--tf-svg-avatar-ring-timeline));
   pointer-events: none;
 }
-:is(.artist-avatar-ring, .performer-avatar-ring) {
-  width: 264px;
-  height: 264px;
-}
-:is(.artist-avatar-circle, .performer-avatar-circle, .tl-avatar-img-box) {
+.tl-avatar-img-box {
   position: absolute;
   inset: -0.74% 5.47% 2.94% 2.17%;
 }
-:is(.artist-avatar-img, .performer-avatar-img, .tl-avatar-img) {
+.tl-avatar-img {
   position: absolute;
   max-width: none;
   object-fit: fill;
   display: block;
-}
-:is(.artist-avatar-img, .performer-avatar-img) {
-  inset: -4.51% -7.14% -7.52% -4.89%;
-  width: 298px;
-  height: 298px;
 }
 .artist-content-block {
   width: 100%;
@@ -1172,25 +1157,6 @@ body:has(.guests-hero-section) .guests-page-content {
   .performers-grid-wrap {
     @include flex-col-center;
   }
-  .performer-avatar-ring {
-    left: 23.75px;
-    top: 14px;
-    z-index: 1;
-  }
-  .performer-avatar-circle {
-    left: 6.25px;
-    top: -2px;
-    width: 266px;
-    height: 266px;
-    filter: drop-shadow(3px 4px 13px rgba(99, 15, 40, 0.15));
-  }
-  .performer-avatar-img {
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-  }
   body:has(.guests-hero-section) .guests-page-content {
     :is(.guests-discord-card, .guests-newsletter-card) {
       width: 328px;
@@ -1215,8 +1181,7 @@ body:has(.guests-hero-section) .guests-page-content {
     :is(.guests-callout-content, .guests-newsletter-input) {
     min-width: 0;
   }
-  :is(.artist-feature-frame-wrap, .artist-feature-frame),
-  :is(.performer-item-card, .performer-feature-frame) {
+  :is(.artist-feature-frame-wrap, .performer-item-card) {
     max-width: 100%;
   }
   .timeline-pill-overlay {

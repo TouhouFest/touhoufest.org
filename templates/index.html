@@ -141,17 +141,7 @@
           {%- for g in home_data.guests.items %}
             <div class="guest-teaser-card">
               <h3 class="guest-teaser-name">{{ g.name }}</h3>
-              <div class="guest-avatar-frame">
-                <img src="{{ <img_url path="img/home/guest-ring.svg" /> }}"
-                     alt=""
-                     class="guest-ring-svg"
-                     aria-hidden="true" />
-                <img src="{{ <img_url path={g.avatar} max_width={480} /> }}"
-                     alt="{{ g.role }} teaser"
-                     class="guest-teaser-img"
-                     loading="lazy"
-                     decoding="async" />
-              </div>
+              {{ <guest_avatar image={g.avatar} alt={g.role ~ " teaser"} /> }}
               <p class="guest-teaser-role">{{ g.role }}</p>
             </div>
           {%- endfor %}

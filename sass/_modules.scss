@@ -696,6 +696,49 @@
   }
 }
 
+.tf-guest-avatar {
+  position: relative;
+  width: 288px;
+  height: 272px;
+  flex-shrink: 0;
+}
+
+.tf-guest-avatar-ring {
+  position: absolute;
+  inset: 5.15% 0.09% -2.21% 8.25%;
+  width: 264px;
+  height: 264px;
+  background-color: #ff4949;
+  @include mask-stretch-var(var(--tf-svg-avatar-ring));
+  pointer-events: none;
+
+  &.is-light {
+    background-color: #fffde7;
+  }
+}
+
+.tf-guest-avatar-circle {
+  position: absolute;
+  inset: -0.74% 5.47% 2.94% 2.17%;
+}
+
+.tf-guest-avatar-img {
+  position: absolute;
+  inset: -4.51% -7.14% -7.52% -4.89%;
+  width: 298px;
+  height: 298px;
+  max-width: none;
+  object-fit: fill;
+  display: block;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 360px) {
+  .tf-guest-avatar {
+    max-width: 100%;
+  }
+}
+
 @include dark-mode {
   :is(.tf-mod-map-stage, .tf-artists-feat-body, .tf-artists-search-input, .tf-v-search-pill) {
     background: var(--tf-surface-navy, #373852);

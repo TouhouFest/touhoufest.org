@@ -200,3 +200,16 @@
     {{ d | date(format="%B ") }}{{ <day_ord d={d} /> }}, {{ d | date(format="%Y") }}
   {%- endif -%}
 {% endcomponent deadline_date %}
+{% component guest_avatar(image, alt="", ring="red") %}
+  <div class="tf-guest-avatar">
+    <div class="tf-guest-avatar-ring{% if ring == "light" %} is-light{% endif %}"
+         aria-hidden="true"></div>
+    <div class="tf-guest-avatar-circle">
+      <img src="{{ <img_url path={image} max_width={480} /> }}"
+           alt="{{ alt }}"
+           class="tf-guest-avatar-img"
+           loading="lazy"
+           decoding="async" />
+    </div>
+  </div>
+{% endcomponent guest_avatar %}

@@ -367,30 +367,6 @@ $home-tx: 300ms ease-out;
     @include tf-h3;
     color: var(--tf-accent);
   }
-  .guest-avatar-frame {
-    position: relative;
-    width: 288px;
-    max-width: 100%;
-    height: 272px;
-  }
-  :is(.guest-ring-svg, .guest-teaser-img) {
-    position: absolute;
-    max-width: none;
-    pointer-events: none;
-  }
-  .guest-ring-svg {
-    top: 6px;
-    left: 16px;
-    width: 279px;
-    height: 279px;
-  }
-  .guest-teaser-img {
-    top: -14px;
-    left: -8px;
-    width: 298px;
-    height: 298px;
-    object-fit: contain;
-  }
   .guest-teaser-role {
     padding: 8px 0;
   }
@@ -818,9 +794,8 @@ $home-tx: 300ms ease-out;
     .card-bookmark-ribbon {
       background-image: url("img/shared/ribbon_vertical_dark.svg");
     }
-    .guest-ring-svg {
-      filter: brightness(0) saturate(100%) invert(34%) sepia(87%) saturate(3075%) hue-rotate(272deg)
-        brightness(96%) contrast(93%);
+    .tf-guest-avatar-ring {
+      background-color: #bc35ba;
     }
   }
 }
