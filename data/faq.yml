@@ -58,6 +58,69 @@ items:
     a: No, but we strongly encourage cosplaying from the Touhou Project series! However, if you plan on participating in the cosplay contest, then you are required to be in Touhou Cosplay.
   - q: Are there any guidelines related to COVID?
     a: Currently the TouhouFest Team has decided that we will be following the guidelines set by the State of California.
+registration_faq:
+  id: registration-faq
+  title: Registration FAQ
+  sections:
+    - title: "Purchasing Badges, Refunds, Upgrades"
+      items:
+        - q: What is TouhouFest’s preregistration pricing policy?
+          a: "The preregistration price for a full-weekend badge starts at $50, but increases over time as we approach the event. In the final month before TouhouFest, badges will be $95, so the earlier you purchase your badge, the cheaper it is! Paying attention to social media can help you snag promo codes for discounts! **Preregistration closes Thursday, June 18th 2027 (the day before the event)**."
+        - q: Can I buy a one day badge?
+          a: "Currently, no. We’re currently running into technical issues with showing them on our registration portal. Once that has been fixed, they’ll be available via our preregistration portal until it closes on June 18th 2027."
+        - q: Does TouhouFest offer badge refunds?
+          a: |
+            TouhouFest 2027 offers refunds on badge purchases within an eligible window of time.
+
+            Refunds must be submitted within 30 days of the original purchase date and or no later than May 31st 2027 11:59PM (Pacific Time), whichever occurs first. Refunds are not available beyond this window. Applicable payment processing fees will be deducted from the refunded amount.
+
+            Attendees who are unable to attend beyond their eligible refund window may instead transfer or resell their badge to another individual. Details on this process is available in the Badge Transfers section.
+        - q: I am unable to find my confirmation email. Can it be resent?
+          a: "Please visit our [registration confirmation page](https://registration.touhoufest.org/preregistration/check_if_preregistered) and enter the email you registered with to check if you are preregistered. If you do not receive a confirmation email, please contact us at [registration@touhoufest.org](mailto:registration@touhoufest.org)."
+        - q: How do I sell or transfer my badge?
+          a: |
+            To transfer your registration to another person: Open your confirmation email and send them the personalized link referenced in the last paragraph. Please note: You may resell your registration for no more than the exact price you paid for it.
+
+            **Warning:** Once your badge has been transferred, you will lose all access to the badge and it cannot be transferred back to you or refunded.
+        - q: How do I confirm the validity of a badge being transferred to me?
+          a: |
+            TouhouFest 2027 offers refunds on badge purchases within an eligible window of time.
+
+            Refunds must be submitted within 30 days of the original purchase date and or no later than May 31st 2027 11:59PM (Pacific Time), whichever occurs first. Refunds are not available beyond this window. Applicable payment processing fees will be deducted from the refunded amount.
+
+            Attendees who are unable to attend beyond their eligible refund window may instead transfer or resell their badge to another individual. Details on this process is available in the Badge Transfers section.
+        - q: Can I change my information after registration?
+          a: "If you look at your registration confirmation email, you will find a personalized link that will allow you to edit your details."
+        - q: I applied for vendor/artist alley space. Should I purchase a back-up badge just in case my application is not approved?
+          a: "There’s no need! If your application is not approved you are still guaranteed to be able to purchase a badge at the same standard attendee price as when you applied."
+    - title: "Badge Pickup"
+      items:
+        - q: What do I need to bring to pick up my badge?
+          a: "Anyone picking up a badge needs a government issued photo ID that matches both the name of the badge being picked up and your date of birth. Please ensure that you enter your legal name as shown on your ID in the Name on ID field when you preregister for your badge. If you used another name, email [registration@touhoufest.org](mailto:registration@touhoufest.org) or use the personalized link in your confirmation email to transfer your badge to your corrected name."
+        - q: What if I do not have a photo ID? Can I still pick up my badge?
+          a: "We understand that people under 18 often do not have a government issued photo ID. For these cases, please notify us ahead of time at [registration@touhoufest.org](mailto:registration@touhoufest.org) to make arrangements – this makes it much easier for us to accommodate you. If you do not make arrangements with us beforehand and do not have a photo ID then we will do our best but cannot guarantee that you will be able to pick up your badge."
+        - q: Can I pick up a badge for another individual?
+          a: "**No.** Each individual badge recipient must be present with their required identification documents to pick up their badge. You cannot pick up a badge for someone who isn’t you."
+    - title: "Other Badge Questions"
+      items:
+        - q: Will the legal name that I used when purchasing my registration be printed on my badge?
+          a: "**No.** The legal name you provide is a requirement for us during the check-in/badge pickup process. No one outside our staff will see your legal name."
+        - q: I lost my badge. What do I do?
+          a: "Unfortunately, you will need to buy a new badge at the current price. If you find your initial badge later, bring both to Registration **during the event** and we will note that you need a refund for your second badge. Although we make every effort to process your refund at the event, it may take up to two weeks after the event to get to. If you have not received your refund by that time then please email [registration@touhoufest.org](mailto:registration@touhoufest.org) with your details."
+        - q: When can I pick up/purchase a badge at the festival? What are the hours for Registration?
+          a: |
+            You can pick up your badge from the registration desks during those times. Times are subject to change and you should consult our schedule when it is available for more info.
+
+            We encourage attendees to purchase their badge online prior to coming to Registration. Online badge sales stays open throughout the festival (until we have reached capacity.)
+        - q: I require special accessibility assistance / have a medical reason that prevents me from waiting in line for my badge. Will this be accommodated?
+          a: "**Yes!** Just let a staff member or security member know, and they will escort you to the front of the line."
+        - q: I bought more than one badge in my name. Will multiple badges be a problem?
+          a: |
+            **Yes.** TouhouFest has a one badge per person policy so you will only be able to pick up one badge for yourself. If you are buying a badge for another individual we ask that you put that individual’s information into the registration form. This will allow for a faster pickup process in the preregistration line, as otherwise we will have to reassign your extra badges before they can be handed out. You may also use the personalized link in your ‘TouhouFest payment received’ email to change the name on the badge by transferring the badge and just changing the name.
+
+            If you are buying the badge as a surprise, we still ask that you use the individual’s information when purchasing the badge, but make sure to use your own email address so they don’t get the confirmation email.
+        - q: Will my badges be mailed to me prior to the event?
+          a: "**No.** Badges are only available at Registration and the TouhouFest Registration Booth during the event."
 callouts:
   - title: Event Guidelines
     desc: Before attending, please be sure to check these guidelines

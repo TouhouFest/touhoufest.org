@@ -53,6 +53,42 @@
           </div>
         </details>
       {%- endfor -%}
+      {%- if faq_data.registration_faq -%}
+        <div id="{{ faq_data.registration_faq.id }}" class="tf-faq-reg-section">
+          <h2 class="tf-faq-section-title">
+            <a href="#{{ faq_data.registration_faq.id }}"
+               class="tf-faq-section-anchor">{{ faq_data.registration_faq.title }}</a>
+          </h2>
+          {%- for sec in faq_data.registration_faq.sections -%}
+            <div class="tf-faq-reg-subsection">
+              <h3 class="tf-faq-subsection-title">{{ sec.title }}</h3>
+              <div class="tf-faq-reg-list">
+                {%- for qa in sec.items -%}
+                  <details class="tf-accordion" open>
+                    <summary class="tf-faq-summary">
+                      <div class="tf-faq-summary-row tf-accordion-header">
+                        <span class="tf-faq-q-prefix">Q:</span>
+                        <span class="tf-faq-q-text">{{ qa.q }}</span>
+                        <span class="tf-faq-toggle-icon tf-accordion-toggle--plus"
+                              aria-hidden="true"></span>
+                      </div>
+                      <div class="tf-faq-divider"></div>
+                    </summary>
+                    <div class="tf-accordion-content">
+                      <div class="tf-faq-answer">
+                        {%- set paragraphs = qa.a | split(pat="\n\n") -%}
+                        {%- for p in paragraphs -%}
+                          <p class="tf-faq-p">{% if loop.first %}A: {% endif %}{{ p | markdown(inline=true) | safe }}</p>
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  </details>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
     </div>
     <script>
 if (window.innerWidth <= 768) {
