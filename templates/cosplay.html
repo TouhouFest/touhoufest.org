@@ -263,58 +263,60 @@
         </div>
         <p class="cosplay-body-note">{{ data.masquerade.note }}</p>
       </section>
-      <div class="tf-mod-divider cosplay-divider cosplay-divider--guests">
-        <div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
-          <img src="{{ <img_url path={data.guests.divider_image} /> }}"
-               srcset="{{ <img_srcset path={data.guests.divider_image} /> }}"
-               sizes="100vw"
-               alt=""
-               class="cosplay-divider__bg-img cosplay-divider__bg-img--guests"
-               loading="lazy"
-               decoding="async">
-          <div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
+      {% if data.guests.items and data.guests.status != "coming_soon" %}
+        <div class="tf-mod-divider cosplay-divider cosplay-divider--guests">
+          <div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
+            <img src="{{ <img_url path={data.guests.divider_image} /> }}"
+                 srcset="{{ <img_srcset path={data.guests.divider_image} /> }}"
+                 sizes="100vw"
+                 alt=""
+                 class="cosplay-divider__bg-img cosplay-divider__bg-img--guests"
+                 loading="lazy"
+                 decoding="async">
+            <div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
+          </div>
+          <div class="tf-mod-divider-top cosplay-divider__top-gohei"
+               aria-hidden="true"></div>
+          <div class="tf-mod-divider-inner cosplay-divider__content">
+            <h2 class="tf-mod-divider-title cosplay-divider__title">{{ <event_date format="year" /> }} {{ data.guests.title }}</h2>
+          </div>
+          <div class="tf-mod-divider-bottom cosplay-divider__bottom"
+               aria-hidden="true"></div>
         </div>
-        <div class="tf-mod-divider-top cosplay-divider__top-gohei"
-             aria-hidden="true"></div>
-        <div class="tf-mod-divider-inner cosplay-divider__content">
-          <h2 class="tf-mod-divider-title cosplay-divider__title">{{ <event_date format="year" /> }} {{ data.guests.title }}</h2>
+        <div class="cosplay-guests-grid">
+          {% for guest in data.guests.items %}
+            <article class="cosplay-guest-card">
+              <div class="cosplay-guest-card__header">
+                <div class="cosplay-guest-card__role">{{ guest.role }}</div>
+                <h3 class="cosplay-guest-card__name">{{ guest.name }}</h3>
+                <div class="cosplay-guest-card__portrait-pad">
+                  {{ <guest_avatar image={guest.image} alt={guest.name} /> }}
+                </div>
+              </div>
+              <div class="cosplay-guest-card__body">
+                <p class="cosplay-guest-card__bio">{{ guest.bio }}</p>
+                <div class="cosplay-guest-card__links">
+                  {% for link in guest.links %}
+                    <a href="{{ link.url }}" class="cosplay-guest-link">
+                      <span class="cosplay-icon cosplay-icon--brand-{{ link.label | lower }}"></span>
+                      <span class="cosplay-guest-link__text">{{ link.label }}</span>
+                      {% if link.label != "Twitter" %}
+                        <span class="cosplay-icon cosplay-icon--caret-right-dark"></span>
+                      {% endif %}
+                      <span class="cosplay-icon cosplay-icon--external-dark"></span>
+                    </a>
+                  {% endfor %}
+                </div>
+              </div>
+              {% if loop.index <= 2 %}
+                <div class="cosplay-ribbon" aria-hidden="true"></div>
+              {% elif loop.index == 3 %}
+                <div class="cosplay-ribbon cosplay-ribbon--mobile-only" aria-hidden="true"></div>
+              {% endif %}
+            </article>
+          {% endfor %}
         </div>
-        <div class="tf-mod-divider-bottom cosplay-divider__bottom"
-             aria-hidden="true"></div>
-      </div>
-      <div class="cosplay-guests-grid">
-        {% for guest in data.guests.items %}
-          <article class="cosplay-guest-card">
-            <div class="cosplay-guest-card__header">
-              <div class="cosplay-guest-card__role">{{ guest.role }}</div>
-              <h3 class="cosplay-guest-card__name">{{ guest.name }}</h3>
-              <div class="cosplay-guest-card__portrait-pad">
-                {{ <guest_avatar image={guest.image} alt={guest.name} /> }}
-              </div>
-            </div>
-            <div class="cosplay-guest-card__body">
-              <p class="cosplay-guest-card__bio">{{ guest.bio }}</p>
-              <div class="cosplay-guest-card__links">
-                {% for link in guest.links %}
-                  <a href="{{ link.url }}" class="cosplay-guest-link">
-                    <span class="cosplay-icon cosplay-icon--brand-{{ link.label | lower }}"></span>
-                    <span class="cosplay-guest-link__text">{{ link.label }}</span>
-                    {% if link.label != "Twitter" %}
-                      <span class="cosplay-icon cosplay-icon--caret-right-dark"></span>
-                    {% endif %}
-                    <span class="cosplay-icon cosplay-icon--external-dark"></span>
-                  </a>
-                {% endfor %}
-              </div>
-            </div>
-            {% if loop.index <= 2 %}
-              <div class="cosplay-ribbon" aria-hidden="true"></div>
-            {% elif loop.index == 3 %}
-              <div class="cosplay-ribbon cosplay-ribbon--mobile-only" aria-hidden="true"></div>
-            {% endif %}
-          </article>
-        {% endfor %}
-      </div>
+      {% endif %}
     </div>
     <section class="cosplay-maps-section" id="maps">
       <div class="tf-mod-divider cosplay-divider cosplay-divider--maps">
@@ -336,22 +338,31 @@
         <div class="tf-mod-divider-bottom cosplay-divider__bottom"
              aria-hidden="true"></div>
       </div>
+      {% for tab in data.maps.tabs %}
+        <input type="radio"
+               name="tf-cosplay-map-tab"
+               id="tf-map-tab-{{ loop.index }}"
+               class="tf-mod-map-radio"
+               {% if tab.active %} checked{% endif %}>
+      {% endfor %}
       <div class="cosplay-maps-tabs tf-mod-map-tabs">
         {% for tab in data.maps.tabs %}
-          <button type="button"
-                  class="cosplay-map-tab tf-mod-map-tab{% if tab.active %} cosplay-map-tab--active is-active{% endif %}">
+          <label for="tf-map-tab-{{ loop.index }}"
+                 class="cosplay-map-tab tf-mod-map-tab tf-mod-map-tab--{{ loop.index }}">
             <span>{{ tab.label }}</span>
-          </button>
+          </label>
         {% endfor %}
       </div>
       <div class="cosplay-map-card tf-mod-map-stage">
-        <div class="tf-mod-map-panel is-active">
-          <img src="{{ <img_url path={data.maps.card_image} /> }}"
-               alt="{{ data.maps.card_alt }}"
-               class="cosplay-map-card__img"
-               loading="lazy"
-               decoding="async">
-        </div>
+        {% for tab in data.maps.tabs %}
+          <div class="tf-mod-map-panel tf-mod-map-panel--{{ loop.index }}">
+            <img src="{{ <img_url path={tab.image} /> }}"
+                 alt="{{ tab.alt }}"
+                 class="cosplay-map-card__img"
+                 loading="lazy"
+                 decoding="async">
+          </div>
+        {% endfor %}
         <button type="button"
                 class="cosplay-map-card__zoom tf-mod-map-zoom"
                 aria-label="{{ data.maps.zoom_label }}">

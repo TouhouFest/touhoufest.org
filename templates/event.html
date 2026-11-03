@@ -161,31 +161,31 @@
         </div>
       </div>
       <div class="ev-maps-body tf-mod-map">
+        {% for tab in ev.maps.tabs -%}
+          <input type="radio"
+                 name="tf-event-map-tab"
+                 id="tf-map-tab-{{ loop.index }}"
+                 class="tf-mod-map-radio"
+                 {% if tab.active %} checked{% endif %}>
+        {% endfor -%}
         <div class="ev-map-tabs tf-mod-map-tabs"
              role="tablist"
              aria-label="{{ ev.maps.tabs_aria }}">
           {% for tab in ev.maps.tabs -%}
-            {% if tab.active -%}
-              <button type="button"
-                      class="ev-map-tab ev-map-tab-active tf-mod-map-tab is-active"
-                      role="tab"
-                      aria-selected="true">{{ tab.label }}</button>
-            {% else -%}
-              <button type="button"
-                      class="ev-map-tab ev-map-tab-inactive tf-mod-map-tab"
-                      role="tab"
-                      aria-selected="false">{{ tab.label }}</button>
-            {% endif -%}
+            <label for="tf-map-tab-{{ loop.index }}"
+                   class="ev-map-tab tf-mod-map-tab tf-mod-map-tab--{{ loop.index }}">{{ tab.label }}</label>
           {% endfor -%}
         </div>
         <div class="ev-map-frame tf-mod-map-stage">
-          <div class="tf-mod-map-panel is-active">
-            <img src="{{ <img_url path={ev.maps.map_image} /> }}"
-                 alt="{{ ev.maps.map_alt }}"
-                 class="ev-map-img"
-                 loading="lazy"
-                 decoding="async">
-          </div>
+          {% for tab in ev.maps.tabs -%}
+            <div class="tf-mod-map-panel tf-mod-map-panel--{{ loop.index }}">
+              <img src="{{ <img_url path={tab.image} /> }}"
+                   alt="{{ tab.alt }}"
+                   class="ev-map-img"
+                   loading="lazy"
+                   decoding="async">
+            </div>
+          {% endfor -%}
         </div>
       </div>
       <div class="ev-map-zoom tf-mod-map-zoom" aria-hidden="true">

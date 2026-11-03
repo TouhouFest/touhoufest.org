@@ -129,6 +129,7 @@ masquerade:
   note: "Those with any further questions related to cosplay events at TouhouFest are encouraged to visit either the Cosplay Ambassadors booth or the Touhou Cosplay Guild booth, both of which are located at the Toyota Meeting Hall."
 
 guests:
+  status: "coming_soon"
   title: "Cosplay Guests"
   divider_image: "img/cosplay/divider_guests.jpg"
   items:
@@ -177,10 +178,16 @@ maps:
   zoom_label: "Zoom map"
   tabs:
     - label: "Event Map"
+      image: "img/cosplay/event_map_card.png"
+      alt: "TouhouFest Event Map"
       active: true
     - label: "Artist Alley Map"
+      image: "img/Toyota_Hall_2025_TF_AA_final copy.png"
+      alt: "TouhouFest Artist Alley Map"
       active: false
     - label: "Vendors Map"
+      image: "img/TF_2025_Festival_Plaza Vendors Final.png"
+      alt: "TouhouFest Vendors Map"
       active: false
 
 callouts:

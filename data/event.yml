@@ -44,10 +44,16 @@ maps:
   tabs_aria: "Event maps"
   tabs:
     - label: "Event Map"
+      image: "img/event/event_map.png"
+      alt: "TouhouFest Event Map"
       active: true
     - label: "Artist Alley Map"
+      image: "img/Toyota_Hall_2025_TF_AA_final copy.png"
+      alt: "TouhouFest Artist Alley Map"
       active: false
     - label: "Vendors Map"
+      image: "img/TF_2025_Festival_Plaza Vendors Final.png"
+      alt: "TouhouFest Vendors Map"
       active: false
 
 info_cards:
