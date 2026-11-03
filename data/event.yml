@@ -65,7 +65,7 @@ info_cards:
     title: "Hotel Info"
     image: "img/event/hotel_room.jpg"
     image_alt: "Hotel Room"
-    ext_label: "Button"
+    ext_label: "Book Room"
     cta_label: "See hotel blocks"
     cta_path: "about/hotels"
   app:
