@@ -5,9 +5,9 @@ hero:
 app_buttons:
   - url: "https://schedule.touhoufest.org"
     label: "View on web"
-  - url: "https://play.google.com/store/apps"
+  - url: "https://play.google.com/store/apps/details?id=com.touhoufest.touhoufestwebapp"
     label: "View in<br>Play Store"
-  - url: "https://apple.com/app-store"
+  - url: "https://apps.apple.com/us/app/touhoufest/id6746074989"
     label: "View in<br>App Store"
 phones_preview:
   image: "img/schedule_app_phones.png"
