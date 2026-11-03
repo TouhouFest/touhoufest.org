@@ -3,7 +3,7 @@ hero:
   lead: "For questions and inquiries, please fill out the form and the TouhouFest Team will get back to you soon!"
   refund_prefix: "If you are looking for a badge refund, please check"
   refund_link_text: "this link"
-  refund_url: "https://amp-organization.com"
+  refund_url: "/about/faq/#registration-faq"
   refund_suffix: "."
 
 required_tag: "(Required)"
@@ -75,15 +75,15 @@ reasons:
 message_field:
   id: "contact-message"
   name: "message"
-  label: "Lorem Ipsum"
+  label: "Message"
 
 submit_text: "Submit"
 
 callouts:
   - id: "faq"
     title: "FAQs"
-    description: "Before attending, please be sure to check these guidelines"
-    button_text: "Button"
+    description: "Have questions? See our FAQs page for more info."
+    button_text: "FAQs"
     url: "@/about/faq.md"
     external: false
   - id: "discord"
