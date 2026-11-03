@@ -1,23 +1,69 @@
 {% extends "base.html" %}
 {% block header %}
-  {% if not page.extra.hide_header %}
-    {%- set header_title = page.extra.header_title | default(value=page.extra.hero_title | default(value=page.title)) -%}
-    {%- set hero_img = page.extra.hero_image | default(value=page.extra.image | default(value="")) -%}
-    {%- set hero_class = page.extra.hero_class | default(value="") -%}
-    {%- set hero_hide_wave = page.extra.hero_no_wave_bottom | default(value=false) -%}
-    {% if page.extra.hero_body %}
-      {{ <page_header title={header_title} subtitle={page.extra.subtitle | default(value="") } image={hero_img} hide_bottom_wave={hero_hide_wave} extra_class={hero_class} description={page.extra.hero_body} /> }}
-    {% else %}
-      {{ <page_header title={header_title} subtitle={page.extra.subtitle | default(value="") } image={hero_img} hide_bottom_wave={hero_hide_wave} extra_class={hero_class} /> }}
-    {% endif %}
-  {% endif %}
+  {%- set header_title = page.extra.header_title | default(value=page.extra.hero_title | default(value=page.title)) -%}
+  <section class="page-hero-banner guidelines-hero-banner">
+    <div class="guidelines-hero-container">
+      <div class="tf-hero-box guidelines-hero-box">
+        <h1 class="tf-hero-title guidelines-hero-title">{{ header_title }}</h1>
+      </div>
+    </div>
+  </section>
 {% endblock header %}
 {% block content %}
-  {% if page.extra.full_bleed %}
-    <div class="page-body-fullbleed">{{ page.content | safe }}</div>
-  {% else %}
-    <div class="{% if page.extra.container_class %}{{ page.extra.container_class }}{% else %}page-body-container container{% endif %}">
-      {{ page.content | safe }}
+  {%- set data = load_data(path="data/guidelines.yml") -%}
+  <div class="guidelines-page-wrapper">
+    <div class="guidelines-content-container">
+      {% if page.extra.toc and page.toc %}
+        <div class="guidelines-jump-box">
+          <h2 class="guidelines-jump-title">{{ data.jumplinks.label }}</h2>
+          <ul class="guidelines-jump-list">
+            {% for item in page.toc %}
+              <li class="guidelines-jump-item">
+                <a href="#{{ item.id }}" class="guidelines-jump-link">
+                  <span class="guidelines-jump-icon tf-icon tf-icon-info"></span>
+                  <span class="guidelines-jump-text">{{ item.title }}</span>
+                  <span class="tf-icon tf-icon-chevron-right guidelines-jump-arrow"></span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      <div class="guidelines-markdown-body">{{ page.content | safe }}</div>
+      <div class="guidelines-callouts-container">
+        {% for card in data.callouts %}
+          <div class="tf-mod-callout tf-mod-callout--horiz guidelines-callout-card {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
+            <div class="tf-mod-callout-icon guidelines-card-icon-col">
+              <img src="{{ <img_url path={card.image} /> }}"
+                   alt="{{ card.title }}"
+                   class="{% if loop.index == 1 %}guidelines-faq-mascot{% else %}discord-card-icon{% endif %}"
+                   loading="lazy"
+                   decoding="async" />
+            </div>
+            <div class="tf-mod-callout-copy guidelines-card-content-col">
+              <h2 class="tf-mod-callout-title guidelines-card-title">{{ card.title }}</h2>
+              <p class="tf-mod-callout-desc guidelines-card-desc">{{ card.description }}</p>
+              <div>
+                {% if loop.index == 2 %}
+                  <a href="{{ card.button_url }}"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     class="tf-btn tf-btn-pill-white tf-mod-callout-btn">
+                    <span>{{ card.button_text }}</span>
+                    <span class="tf-icon tf-icon-chevron-right ml-1"></span>
+                  </a>
+                {% else %}
+                  <a href="{{ get_url(path=card.button_url) }}"
+                     class="tf-btn tf-btn-pill-white tf-mod-callout-btn">
+                    <span>{{ card.button_text }}</span>
+                    <span class="tf-icon tf-icon-chevron-right ml-1"></span>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
-  {% endif %}
+  </div>
 {% endblock content %}

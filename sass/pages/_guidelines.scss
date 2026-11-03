@@ -64,7 +64,7 @@ body:has(.guidelines-page-wrapper) main {
 .guidelines-jump-link {
   display: inline-flex;
   align-items: center;
-  height: 20px;
+  min-height: 20px;
   gap: 10px;
   text-decoration: none;
   color: var(--tf-accent);
@@ -174,6 +174,13 @@ body:has(.guidelines-page-wrapper) main {
     &:hover {
       opacity: 0.85;
     }
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 16px 0 24px;
   }
 }
 
