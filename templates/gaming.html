@@ -252,7 +252,11 @@
                   <p class="prize-desc gaming-prize-desc">
                     <strong>{{ prize.prize_bold }}</strong>
                     <br>
-                    <strong>{{ prize.prize_prefix }} {{ <event_date format="next_year" /> }} {{ prize.prize_suffix }}</strong>
+                    {% if prize.prize_text is defined %}
+                      <strong>{{ prize.prize_text }}</strong>
+                    {% else %}
+                      <strong>{{ prize.prize_prefix }} {{ <event_date format="next_year" /> }} {{ prize.prize_suffix }}</strong>
+                    {% endif %}
                   </p>
                   <div class="gaming-prize-links">
                     <a href="{{ prize.link_url | safe }}"
@@ -320,24 +324,31 @@
           <div class="tf-mod-divider-bottom gaming-divider-bottom-wave"
                aria-hidden="true"></div>
         </div>
+        {%- for tab in gdata.maps.tabs %}
+          <input type="radio"
+                 name="tf-gaming-map-tab"
+                 id="tf-map-tab-{{ loop.index }}"
+                 class="tf-mod-map-radio"
+                 {% if tab.active %} checked{% endif %}>
+        {%- endfor %}
         <div class="tf-mod-map-tabs gaming-maps-tabs" role="tablist">
           {%- for tab in gdata.maps.tabs %}
-            <button type="button"
-                    role="tab"
-                    aria-selected="{% if tab.active %}true{% else %}false{% endif %}"
-                    class="tf-mod-map-tab gaming-map-tab{% if tab.active %} is-active{% endif %}">
+            <label for="tf-map-tab-{{ loop.index }}"
+                   class="tf-mod-map-tab tf-mod-map-tab--{{ loop.index }} gaming-map-tab">
               <span>{{ tab.label }}</span>
-            </button>
+            </label>
           {%- endfor %}
         </div>
         <div class="tf-mod-map-stage gaming-map-card">
-          <div class="tf-mod-map-panel is-active gaming-map-img-wrap">
-            <img src="{{ <img_url path={gdata.maps.image} /> }}"
-                 alt="{{ gdata.maps.alt }}"
-                 class="gaming-map-img"
-                 loading="lazy"
-                 decoding="async">
-          </div>
+          {%- for tab in gdata.maps.tabs %}
+            <div class="tf-mod-map-panel tf-mod-map-panel--{{ loop.index }} gaming-map-img-wrap">
+              <img src="{{ <img_url path={tab.image} /> }}"
+                   alt="{{ tab.alt }}"
+                   class="gaming-map-img"
+                   loading="lazy"
+                   decoding="async">
+            </div>
+          {%- endfor %}
           <button type="button"
                   class="tf-mod-map-zoom gaming-map-zoom"
                   aria-label="Zoom in">
