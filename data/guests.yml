@@ -21,6 +21,7 @@ hero:
 featured_section:
   title: "Guests"
 
+featured_status: "coming_soon"
 featured:
   - role: "Tokyo Active NEETs"
     name: "Akai Ryu-sei"
@@ -225,6 +226,7 @@ timeline:
 performers_section:
   title: "DJs & Performers"
 
+performers_status: "coming_soon"
 performers:
   - name: "Kamizuki"
     image: "/img/guests/perf_1.png"

@@ -146,20 +146,22 @@
     <section class="schedule-sr-accessible tf-timeline is-sr-only"
              aria-label="Convention Schedule Listings">
       <h2>TouhouFest {{ <event_date format="year" /> }} {{ sched.sr_heading }} (Status: {{ sched.status }})</h2>
-      {% for day in sched.days %}
-        <div class="schedule-sr-day tf-timeline-item" id="{{ day.id }}">
-          <h3 class="tf-timeline-time">{{ day.title }} ({{ day.date }}) &mdash; {{ day.hours }}</h3>
-          <p>{{ day.summary }}</p>
-          <ul class="tf-pill-cluster">
-            {% for ev in day.events %}
-              <li class="tf-timeline-card">
-                <strong class="tf-pill tf-pill--gold">{{ ev.time }}</strong>: {{ ev.title }} | <span class="tf-pill tf-pill--outline">Room: {{ ev.room | default(value="TBA") }}</span> | <span class="tf-pill tf-pill--red">Category: {{ ev.category | default(value="General") }}</span> | Host: {{ ev.host | default(value="Staff") }}
-                <p>{{ ev.description | default(value="") }}</p>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endfor %}
+      {% if sched.status != "coming_soon" %}
+        {% for day in sched.days %}
+          <div class="schedule-sr-day tf-timeline-item" id="{{ day.id }}">
+            <h3 class="tf-timeline-time">{{ day.title }} ({{ day.date }}) &mdash; {{ day.hours }}</h3>
+            <p>{{ day.summary }}</p>
+            <ul class="tf-pill-cluster">
+              {% for ev in day.events %}
+                <li class="tf-timeline-card">
+                  <strong class="tf-pill tf-pill--gold">{{ ev.time }}</strong>: {{ ev.title }} | <span class="tf-pill tf-pill--outline">Room: {{ ev.room | default(value="TBA") }}</span> | <span class="tf-pill tf-pill--red">Category: {{ ev.category | default(value="General") }}</span> | Host: {{ ev.host | default(value="Staff") }}
+                  <p>{{ ev.description | default(value="") }}</p>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      {% endif %}
     </section>
   </div>
 {% endblock content %}

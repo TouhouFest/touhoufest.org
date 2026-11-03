@@ -30,146 +30,150 @@
           </picture>
         </div>
       </div>
-      <div class="hero-featured-cards-row">
-        {%- for guest in guests_data.hero.cards %}
-          <div class="hero-feature-card">
-            <div class="hero-feature-card-core">
-              <div class="hero-feature-card-bg">
-                <img src="{{ <img_url path="img/guests/card_top_gradient.svg" /> }}"
-                     alt=""
-                     class="hero-card-top-grad" />
-                <div class="hero-card-border-stroke"></div>
-                <div class="hero-card-streamer hero-card-streamer-left">
-                  <img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}"
+      {% if guests_data.hero.cards and guests_data.featured_status != "coming_soon" %}
+        <div class="hero-featured-cards-row">
+          {%- for guest in guests_data.hero.cards %}
+            <div class="hero-feature-card">
+              <div class="hero-feature-card-core">
+                <div class="hero-feature-card-bg">
+                  <img src="{{ <img_url path="img/guests/card_top_gradient.svg" /> }}"
                        alt=""
-                       class="streamer-main" />
-                  <img src="{{ <img_url path="img/shared/card_accent.svg" /> }}"
-                       alt=""
-                       class="streamer-accent" />
-                </div>
-                <div class="hero-card-streamer hero-card-streamer-right">
-                  <img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}"
-                       alt=""
-                       class="streamer-main" />
-                  <img src="{{ <img_url path="img/shared/card_accent.svg" /> }}"
-                       alt=""
-                       class="streamer-accent" />
-                </div>
-              </div>
-              <div class="hero-feature-card-photo-wrap">
-                <img src="{{ <img_url path={guest.image} max_width={960} /> }}"
-                     alt="{{ guest.name }}"
-                     class="hero-feature-card-photo"
-                     fetchpriority="high" />
-                {%- if loop.index == 2 %}
-                  <div class="hero-feature-card-photo-fade"></div>
-                {%- endif %}
-              </div>
-              <div class="hero-feature-card-content">
-                <div class="hero-feature-card-headline">
-                  <h3 class="hero-feature-card-name">{{ guest.name }}</h3>
-                </div>
-                <div class="hero-feature-card-body">
-                  <div class="hero-feature-card-bio">
-                    {%- for p_text in guest.bio_paragraphs %}
-                      <p>{{ p_text }}</p>
-                    {%- endfor %}
+                       class="hero-card-top-grad" />
+                  <div class="hero-card-border-stroke"></div>
+                  <div class="hero-card-streamer hero-card-streamer-left">
+                    <img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}"
+                         alt=""
+                         class="streamer-main" />
+                    <img src="{{ <img_url path="img/shared/card_accent.svg" /> }}"
+                         alt=""
+                         class="streamer-accent" />
                   </div>
-                  <a href="{{ guest.url }}"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     class="guests-pill-btn is-light">
-                    <span>{{ guest.link_label }}</span>
-                    <span class="guests-pill-chevron">
-                      <img src="{{ <img_url path="img/shared/chevron_dark.svg" /> }}" alt="" />
-                    </span>
-                  </a>
+                  <div class="hero-card-streamer hero-card-streamer-right">
+                    <img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}"
+                         alt=""
+                         class="streamer-main" />
+                    <img src="{{ <img_url path="img/shared/card_accent.svg" /> }}"
+                         alt=""
+                         class="streamer-accent" />
+                  </div>
+                </div>
+                <div class="hero-feature-card-photo-wrap">
+                  <img src="{{ <img_url path={guest.image} max_width={960} /> }}"
+                       alt="{{ guest.name }}"
+                       class="hero-feature-card-photo"
+                       fetchpriority="high" />
+                  {%- if loop.index == 2 %}
+                    <div class="hero-feature-card-photo-fade"></div>
+                  {%- endif %}
+                </div>
+                <div class="hero-feature-card-content">
+                  <div class="hero-feature-card-headline">
+                    <h3 class="hero-feature-card-name">{{ guest.name }}</h3>
+                  </div>
+                  <div class="hero-feature-card-body">
+                    <div class="hero-feature-card-bio">
+                      {%- for p_text in guest.bio_paragraphs %}
+                        <p>{{ p_text }}</p>
+                      {%- endfor %}
+                    </div>
+                    <a href="{{ guest.url }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="guests-pill-btn is-light">
+                      <span>{{ guest.link_label }}</span>
+                      <span class="guests-pill-chevron">
+                        <img src="{{ <img_url path="img/shared/chevron_dark.svg" /> }}" alt="" />
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        {%- endfor %}
-      </div>
+          {%- endfor %}
+        </div>
+      {% endif %}
     </div>
   </section>
 {% endblock header %}
 {% block content %}
   {%- set guests_data = load_data(path="data/guests.yml") -%}
   <div class="guests-page-content">
-    <section class="featured-guests-section">
-      <h2 class="featured-guests-heading">{{ <event_date format="year" /> }} {{ guests_data.featured_section.title }}</h2>
-      <div class="featured-guests-grid">
-        {%- for guest in guests_data.featured %}
-          {%- set is_wide = true -%}
-          <div class="featured-artist-card">
-            <div class="artist-header-block">
-              <div class="artist-role-label">{{ guest.role }}</div>
-              <h3 class="artist-name-title">{{ guest.name }}</h3>
-              <div class="artist-feature-frame-wrap">
-                {{ <guest_avatar image={guest.avatar} alt={guest.name} /> }}
+    {% if guests_data.featured and guests_data.featured_status != "coming_soon" %}
+      <section class="featured-guests-section">
+        <h2 class="featured-guests-heading">{{ <event_date format="year" /> }} {{ guests_data.featured_section.title }}</h2>
+        <div class="featured-guests-grid">
+          {%- for guest in guests_data.featured %}
+            {%- set is_wide = true -%}
+            <div class="featured-artist-card">
+              <div class="artist-header-block">
+                <div class="artist-role-label">{{ guest.role }}</div>
+                <h3 class="artist-name-title">{{ guest.name }}</h3>
+                <div class="artist-feature-frame-wrap">
+                  {{ <guest_avatar image={guest.avatar} alt={guest.name} /> }}
+                </div>
               </div>
-            </div>
-            <div class="artist-content-block">
-              <div class="artist-bio-text">
-                {%- for p_text in guest.bio_paragraphs %}
-                  <p>{{ p_text }}</p>
-                {%- endfor %}
-              </div>
-              <div class="artist-socials-list">
-                {%- for s in guest.socials %}
-                  <a href="{{ s.url }}"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     class="artist-social-item">
-                    <span class="artist-social-icon-wrap">
-                      {%- if s.platform == "instagram" %}
-                        <img src="{{ <img_url path="img/guests/icon_instagram.svg" /> }}"
-                             alt=""
-                             class="artist-social-svg is-ig" />
-                      {%- elif s.platform == "tiktok" %}
-                        <img src="{{ <img_url path="img/guests/icon_tiktok.svg" /> }}"
-                             alt=""
-                             class="artist-social-svg is-tt" />
-                      {%- elif s.platform == "twitter" %}
-                        <img src="{{ <img_url path="img/guests/icon_twitter.svg" /> }}"
-                             alt=""
-                             class="artist-social-svg is-tw" />
-                      {%- endif %}
-                    </span>
-                    <span class="artist-social-name">{{ s.label }}</span>
-                    {%- if s.platform != "twitter" %}
-                      <span class="guests-pill-chevron">
-                        <img src="{{ <img_url path="img/shared/chevron_dark.svg" /> }}" alt="" />
+              <div class="artist-content-block">
+                <div class="artist-bio-text">
+                  {%- for p_text in guest.bio_paragraphs %}
+                    <p>{{ p_text }}</p>
+                  {%- endfor %}
+                </div>
+                <div class="artist-socials-list">
+                  {%- for s in guest.socials %}
+                    <a href="{{ s.url }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="artist-social-item">
+                      <span class="artist-social-icon-wrap">
+                        {%- if s.platform == "instagram" %}
+                          <img src="{{ <img_url path="img/guests/icon_instagram.svg" /> }}"
+                               alt=""
+                               class="artist-social-svg is-ig" />
+                        {%- elif s.platform == "tiktok" %}
+                          <img src="{{ <img_url path="img/guests/icon_tiktok.svg" /> }}"
+                               alt=""
+                               class="artist-social-svg is-tt" />
+                        {%- elif s.platform == "twitter" %}
+                          <img src="{{ <img_url path="img/guests/icon_twitter.svg" /> }}"
+                               alt=""
+                               class="artist-social-svg is-tw" />
+                        {%- endif %}
                       </span>
-                    {%- endif %}
-                    <span class="artist-external-wrap">
-                      <img src="{{ <img_url path="icons/icon_external.svg" /> }}"
-                           alt=""
-                           class="artist-external-svg" />
-                    </span>
-                  </a>
-                {%- endfor %}
+                      <span class="artist-social-name">{{ s.label }}</span>
+                      {%- if s.platform != "twitter" %}
+                        <span class="guests-pill-chevron">
+                          <img src="{{ <img_url path="img/shared/chevron_dark.svg" /> }}" alt="" />
+                        </span>
+                      {%- endif %}
+                      <span class="artist-external-wrap">
+                        <img src="{{ <img_url path="icons/icon_external.svg" /> }}"
+                             alt=""
+                             class="artist-external-svg" />
+                      </span>
+                    </a>
+                  {%- endfor %}
+                </div>
+              </div>
+              <div class="artist-card-ribbon">
+                <picture>
+                  <source media="(max-width: 768px)"
+                          srcset="{{ <img_url path="img/guests/card_ribbon_mobile.svg" /> }}" />
+                  {%- if is_wide %}
+                    <img src="{{ <img_url path="img/guests/card_ribbon_lg.svg" /> }}"
+                         alt=""
+                         class="ribbon-desktop" />
+                  {%- else %}
+                    <img src="{{ <img_url path="img/guests/card_ribbon_sm.svg" /> }}"
+                         alt=""
+                         class="ribbon-desktop" />
+                  {%- endif %}
+                </picture>
               </div>
             </div>
-            <div class="artist-card-ribbon">
-              <picture>
-                <source media="(max-width: 768px)"
-                        srcset="{{ <img_url path="img/guests/card_ribbon_mobile.svg" /> }}" />
-                {%- if is_wide %}
-                  <img src="{{ <img_url path="img/guests/card_ribbon_lg.svg" /> }}"
-                       alt=""
-                       class="ribbon-desktop" />
-                {%- else %}
-                  <img src="{{ <img_url path="img/guests/card_ribbon_sm.svg" /> }}"
-                       alt=""
-                       class="ribbon-desktop" />
-                {%- endif %}
-              </picture>
-            </div>
-          </div>
-        {%- endfor %}
-      </div>
-    </section>
+          {%- endfor %}
+        </div>
+      </section>
+    {% endif %}
     <section class="guests-thankyou-section">
       <div class="guests-thankyou-garland"></div>
       <div class="guests-thankyou-block">
@@ -320,26 +324,28 @@
         </div>
       {%- endfor %}
     </section>
-    <section class="performers-section">
-      <div class="performers-container">
-        <h2 class="performers-title">{{ <event_date format="year" /> }} {{ guests_data.performers_section.title }}</h2>
-        <div class="performers-grid-wrap">
-          {%- for p in guests_data.performers %}
-            <div class="performer-item-card">
-              <h3 class="performer-name">{{ p.name }}</h3>
-              {{ <guest_avatar image={p.image} alt={p.name} ring="light" /> }}
-              <div class="performer-label-wrap">
-                {%- if p.more_text %}
-                  <p class="performer-desc">{{ p.label }}<span class="performer-see-more">{{ p.more_text }}</span></p>
-                {%- else %}
-                  <p class="performer-desc">{{ p.label }}</p>
-                {%- endif %}
+    {% if guests_data.performers and guests_data.performers_status != "coming_soon" %}
+      <section class="performers-section">
+        <div class="performers-container">
+          <h2 class="performers-title">{{ <event_date format="year" /> }} {{ guests_data.performers_section.title }}</h2>
+          <div class="performers-grid-wrap">
+            {%- for p in guests_data.performers %}
+              <div class="performer-item-card">
+                <h3 class="performer-name">{{ p.name }}</h3>
+                {{ <guest_avatar image={p.image} alt={p.name} ring="light" /> }}
+                <div class="performer-label-wrap">
+                  {%- if p.more_text %}
+                    <p class="performer-desc">{{ p.label }}<span class="performer-see-more">{{ p.more_text }}</span></p>
+                  {%- else %}
+                    <p class="performer-desc">{{ p.label }}</p>
+                  {%- endif %}
+                </div>
               </div>
-            </div>
-          {%- endfor %}
+            {%- endfor %}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    {% endif %}
     <div class="tf-mod-callout tf-mod-callout--horiz is-discord guests-callout-card guests-discord-card">
       <div class="tf-mod-callout-icon guests-callout-icon">
         <img src="{{ <img_url path="img/discord_card_icon.svg" /> }}"

@@ -171,6 +171,8 @@
   {%- set e = cfg.extra.event_end -%}
   {%- if format == "year" -%}
     {{ e | date(format="%Y") }}
+  {%- elif format == "prev_year" -%}
+    {{ (e | date(format="%Y") | int) - 1 }}
   {%- elif format == "next_year" -%}
     {{ (e | date(format="%Y") | int) + 1 }}
   {%- elif format == "day" -%}

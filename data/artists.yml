@@ -21,6 +21,7 @@ roster_section:
   search_placeholder: "Search for an Artist"
   cta_label: "Visit Site"
 
+roster_status: "coming_soon"
 roster:
   - name: "Artist Collaboration Experience (ACE)"
     lines:
@@ -199,7 +200,7 @@ maps_section:
       checked: false
     - title: "Artist Alley Map"
       alt: "TouhouFest Artist Alley Map"
-      image: "img/event/event_map.png"
+      image: "img/Toyota_Hall_2025_TF_AA_final copy.png"
       checked: true
     - title: "Vendors Map"
       alt: "TouhouFest Vendors Map"
@@ -207,7 +208,8 @@ maps_section:
       checked: false
 
 past_section:
-  title: "Thank you 2025 Artists!"
+  title_prefix: "Thank you"
+  title_suffix: "Artists!"
   prev_label: "Previous page"
   next_label: "Next page"
 
@@ -292,37 +294,35 @@ past_artists:
     image: "img/siliconcat.png"
     url: "https://linktr.ee/siliconcat"
   - lines:
-      - "Artist "
-      - "Collaboration "
-      - "Experience"
-    image: "img/Tentative_Logo ACE.png"
-    url: "https://www.artcollabexp.com/"
+      - "GRAVEVINES"
+    image: "img/flanicon.png"
+    url: "https://linktr.ee/gravevines"
   - lines:
-      - "Tama Tama "
-      - "Shop"
-    image: "img/Tama thumbnail.png"
-    url: "https://tamamagatama.carrd.co"
+      - "Archanciel's "
+      - "Magic Shop"
+    image: "img/leminigensokyo.png"
+    url: "https://x.com/lemon_mel0n"
   - lines:
-      - "MARLOWEMEMO"
-    image: "img/MARLOWEMEMO PFP.png"
-    url: "https://www.instagram.com/marlowememo/"
+      - "2Ru Project"
+    image: "img/raccoon.png"
+    url: "https://www.instagram.com/2ru.project/"
   - lines:
-      - "Rusty Hermit"
-    image: "img/Rusty Hermit.jpg"
-    url: "#"
+      - "BRW"
+    image: "img/BRW.jpg"
+    url: "https://linktr.ee/BRW.2000"
   - lines:
-      - "Asazei "
-      - "Illustration"
-    image: "img/ASAZEi_icon.png"
-    url: "https://x.com/ASAZEi_art"
+      - "Cynicalfries and "
+      - "Blaidmiracle"
+    image: "img/IMG_0823.png"
+    url: "https://x.com/blaidmiracle"
   - lines:
-      - "Kureihii"
-    image: "img/kurehii.png"
-    url: "https://www.instagram.com/kureihii/"
+      - "xiaobbinc"
+    image: "img/xiaobbinc.jpg"
+    url: "https://x.com/xiaobbinc"
   - lines:
-      - "HaiYun"
-    image: "img/haiyun logo square.png"
-    url: "https://haiyun.moe/artistalley"
+      - "Neo Sanctum"
+    image: "img/Neo Sanctum thing-01.png"
+    url: "https://linktr.ee/neosanctum"
   - lines:
       - "Colorfulkitten "
       - "Art"

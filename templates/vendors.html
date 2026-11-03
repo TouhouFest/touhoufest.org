@@ -27,115 +27,119 @@
           </div>
         </section>
         <div class="tf-v-body-stack">
-          <section class="tf-v-featured-section">
-            <div class="tf-v-heading-block">
-              <h2 class="tf-v-h1-red"><span class="is-mob-block">{{ <event_date format="year" /> }} Featured</span> Vendors</h2>
-            </div>
-            <div class="tf-v-featured-grid">
-              {%- for vendor in exhibitors_data.featured %}
-                <article class="tf-v-fcard">
-                  <div class="tf-v-fcard-bg" aria-hidden="true">
-                    <div class="tf-v-fcard-backing"></div>
-                    <div class="tf-v-fcard-photo-wrap">
-                      <img src="{{ <img_url path={vendor.image} max_width={960} /> }}"
-                           alt="{{ vendor.name }}"
-                           class="tf-v-fcard-photo"
-                           loading="lazy"
-                           decoding="async" />
-                    </div>
-                  </div>
-                  <div class="tf-v-fcard-frame" aria-hidden="true">
-                    <div class="tf-v-fcard-top-grad"></div>
-                    <div class="tf-v-fcard-streamer is-left"></div>
-                    <div class="tf-v-fcard-streamer is-right"></div>
-                    <div class="tf-v-fcard-stroke"></div>
-                  </div>
-                  <div class="tf-v-fcard-content">
-                    <div class="tf-v-fcard-headline">
-                      <h3 class="tf-v-fcard-title">
-                        {%- if vendor.name_lines %}
-                          {%- for line in vendor.name_lines %}
-                            <span>{{ line }}</span>
-                          {%- endfor %}
-                        {%- else %}
-                          <span>{{ vendor.name }}</span>
-                        {%- endif %}
-                      </h3>
-                    </div>
-                    <div class="tf-v-fcard-body">
-                      <p class="tf-v-fcard-bio">{{ vendor.bio }}</p>
-                      <a href="{{ vendor.url }}" class="tf-v-btn-cream tf-btn tf-btn-white">
-                        <span class="tf-v-btn-label">{{ exhibitors_data.page.featured_cta }}</span>
-                        <span class="tf-v-btn-chevron" aria-hidden="true"></span>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-              {%- endfor %}
-            </div>
-          </section>
-          <h2 class="tf-v-h1-red tf-v-roster-heading"><span class="is-mob-block">{{ <event_date format="year" /> }} Full Vendor</span> List</h2>
-          <section class="tf-v-roster-section">
-            <div class="tf-v-search-wrap">
-              <div class="tf-v-search-row">
-                <div class="tf-v-search-icon-wrap" aria-hidden="true">
-                  <img src="{{ <img_url path="img/shared/icon_search.svg" /> }}" alt="" />
-                </div>
-                <div class="tf-v-search-pill">
-                  <span class="tf-v-search-placeholder">{{ exhibitors_data.page.roster_search_placeholder }}</span>
-                </div>
+          {% if exhibitors_data.featured and exhibitors_data.featured_status != "coming_soon" %}
+            <section class="tf-v-featured-section">
+              <div class="tf-v-heading-block">
+                <h2 class="tf-v-h1-red"><span class="is-mob-block">{{ <event_date format="year" /> }} Featured</span> Vendors</h2>
               </div>
-            </div>
-            <div class="tf-v-roster-grid">
-              {%- for item in exhibitors_data.roster %}
-                <div class="tf-v-rcard">
-                  <div class="tf-v-rcard-inner">
-                    <div class="tf-v-rcard-name">
-                      <span class="tf-v-rcard-name-real">
-                        {%- if item.name_lines %}
-                          {%- for line in item.name_lines %}
-                            {{ line }}{% if not loop.last %}<br />{% endif %}
-                          {%- endfor %}
-                        {%- else %}
-                          {{ item.name }}
-                        {%- endif %}
-                      </span>
-                      <span class="tf-v-rcard-name-mob">{{ exhibitors_data.page.roster_mobile_placeholder_name }}</span>
+              <div class="tf-v-featured-grid">
+                {%- for vendor in exhibitors_data.featured %}
+                  <article class="tf-v-fcard">
+                    <div class="tf-v-fcard-bg" aria-hidden="true">
+                      <div class="tf-v-fcard-backing"></div>
+                      <div class="tf-v-fcard-photo-wrap">
+                        <img src="{{ <img_url path={vendor.image} max_width={960} /> }}"
+                             alt="{{ vendor.name }}"
+                             class="tf-v-fcard-photo"
+                             loading="lazy"
+                             decoding="async" />
+                      </div>
                     </div>
-                    <div class="tf-v-rcard-frame">
-                      <div class="tf-v-rcard-shadow">
-                        <div class="tf-v-rcard-shadow-fill"></div>
-                        <img src="{{ <img_url path="img/shared/card_dots.svg" /> }}"
-                             alt=""
-                             class="tf-v-rcard-dots"
-                             aria-hidden="true" />
-                        <a href="{{ item.url }}" class="tf-v-rcard-visit">
-                          <span class="tf-v-rcard-visit-text">{{ exhibitors_data.page.roster_visit_label }}</span>
-                          <img src="{{ <img_url path="img/shared/icon_external_cream.svg" /> }}"
-                               alt=""
-                               class="tf-v-rcard-visit-icon" />
+                    <div class="tf-v-fcard-frame" aria-hidden="true">
+                      <div class="tf-v-fcard-top-grad"></div>
+                      <div class="tf-v-fcard-streamer is-left"></div>
+                      <div class="tf-v-fcard-streamer is-right"></div>
+                      <div class="tf-v-fcard-stroke"></div>
+                    </div>
+                    <div class="tf-v-fcard-content">
+                      <div class="tf-v-fcard-headline">
+                        <h3 class="tf-v-fcard-title">
+                          {%- if vendor.name_lines %}
+                            {%- for line in vendor.name_lines %}
+                              <span>{{ line }}</span>
+                            {%- endfor %}
+                          {%- else %}
+                            <span>{{ vendor.name }}</span>
+                          {%- endif %}
+                        </h3>
+                      </div>
+                      <div class="tf-v-fcard-body">
+                        <p class="tf-v-fcard-bio">{{ vendor.bio }}</p>
+                        <a href="{{ vendor.url }}" class="tf-v-btn-cream tf-btn tf-btn-white">
+                          <span class="tf-v-btn-label">{{ exhibitors_data.page.featured_cta }}</span>
+                          <span class="tf-v-btn-chevron" aria-hidden="true"></span>
                         </a>
                       </div>
-                      <div class="tf-v-rcard-img-pad">
-                        <div class="tf-v-rcard-img-box">
-                          <picture>
-                            <source media="(max-width: 768px)"
-                                    srcset="{{ <img_url path="img/Freeze Background.png" /> }}" />
-                            <img src="{{ <img_url path={item.image} max_width={480} /> }}"
-                                 alt="{{ item.name }}"
-                                 class="tf-v-rcard-img is-real"
-                                 loading="lazy"
-                                 decoding="async" />
-                          </picture>
-                        </div>
-                      </div>
                     </div>
-                    <div class="tf-v-rcard-table">{{ item.table }}</div>
+                  </article>
+                {%- endfor %}
+              </div>
+            </section>
+          {% endif %}
+          {% if exhibitors_data.roster and exhibitors_data.roster_status != "coming_soon" %}
+            <h2 class="tf-v-h1-red tf-v-roster-heading"><span class="is-mob-block">{{ <event_date format="year" /> }} Full Vendor</span> List</h2>
+            <section class="tf-v-roster-section">
+              <div class="tf-v-search-wrap">
+                <div class="tf-v-search-row">
+                  <div class="tf-v-search-icon-wrap" aria-hidden="true">
+                    <img src="{{ <img_url path="img/shared/icon_search.svg" /> }}" alt="" />
+                  </div>
+                  <div class="tf-v-search-pill">
+                    <span class="tf-v-search-placeholder">{{ exhibitors_data.page.roster_search_placeholder }}</span>
                   </div>
                 </div>
-              {%- endfor %}
-            </div>
-          </section>
+              </div>
+              <div class="tf-v-roster-grid">
+                {%- for item in exhibitors_data.roster %}
+                  <div class="tf-v-rcard">
+                    <div class="tf-v-rcard-inner">
+                      <div class="tf-v-rcard-name">
+                        <span class="tf-v-rcard-name-real">
+                          {%- if item.name_lines %}
+                            {%- for line in item.name_lines %}
+                              {{ line }}{% if not loop.last %}<br />{% endif %}
+                            {%- endfor %}
+                          {%- else %}
+                            {{ item.name }}
+                          {%- endif %}
+                        </span>
+                        <span class="tf-v-rcard-name-mob">{{ exhibitors_data.page.roster_mobile_placeholder_name }}</span>
+                      </div>
+                      <div class="tf-v-rcard-frame">
+                        <div class="tf-v-rcard-shadow">
+                          <div class="tf-v-rcard-shadow-fill"></div>
+                          <img src="{{ <img_url path="img/shared/card_dots.svg" /> }}"
+                               alt=""
+                               class="tf-v-rcard-dots"
+                               aria-hidden="true" />
+                          <a href="{{ item.url }}" class="tf-v-rcard-visit">
+                            <span class="tf-v-rcard-visit-text">{{ exhibitors_data.page.roster_visit_label }}</span>
+                            <img src="{{ <img_url path="img/shared/icon_external_cream.svg" /> }}"
+                                 alt=""
+                                 class="tf-v-rcard-visit-icon" />
+                          </a>
+                        </div>
+                        <div class="tf-v-rcard-img-pad">
+                          <div class="tf-v-rcard-img-box">
+                            <picture>
+                              <source media="(max-width: 768px)"
+                                      srcset="{{ <img_url path="img/Freeze Background.png" /> }}" />
+                              <img src="{{ <img_url path={item.image} max_width={480} /> }}"
+                                   alt="{{ item.name }}"
+                                   class="tf-v-rcard-img is-real"
+                                   loading="lazy"
+                                   decoding="async" />
+                            </picture>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tf-v-rcard-table">{{ item.table }}</div>
+                    </div>
+                  </div>
+                {%- endfor %}
+              </div>
+            </section>
+          {% endif %}
           <section class="tf-v-maps-section">
             <div class="tf-v-divider is-maps tf-mod-divider">
               <div class="tf-v-divider-bg tf-mod-divider-bg" aria-hidden="true">
@@ -216,7 +220,7 @@
               </div>
               <div class="tf-v-divider-top-wave tf-mod-divider-top" aria-hidden="true"></div>
               <div class="tf-v-divider-content tf-mod-divider-inner">
-                <h2 class="tf-v-divider-title tf-mod-divider-title">{{ exhibitors_data.page.past_vendors_heading }}</h2>
+                <h2 class="tf-v-divider-title tf-mod-divider-title">{{ exhibitors_data.page.past_vendors_prefix }} {{ <event_date format="prev_year" /> }} {{ exhibitors_data.page.past_vendors_suffix }}</h2>
               </div>
               <div class="tf-v-divider-bottom-wave tf-mod-divider-bottom"
                    aria-hidden="true"></div>

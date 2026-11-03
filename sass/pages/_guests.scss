@@ -87,6 +87,12 @@ body:has(.guests-hero-section) {
   padding: 270px 0 72px;
   @include flex-col-center;
   overflow: hidden;
+  &:not(:has(.hero-featured-cards-row)) {
+    height: auto;
+    min-height: 440px;
+    max-height: none;
+    padding: 180px 0 110px;
+  }
 }
 .guests-hero-bg-img {
   @include absolute-fill;
