@@ -136,6 +136,109 @@ applications:
         url: "volunteering"
         button_text: "Apply"
 
+extra_badge_price: "$50"
+
+exhibitor_tiers:
+  vendor_booth_regular:
+    id: "vendor_booth_regular"
+    category: "vendors"
+    name: "Vendor Booth"
+    uber_label: "Vendor Booth (Regular)"
+    price: "$350"
+    price_usd: 350
+    badges: 3
+    badges_text: "Three (3) Exhibitor Badges"
+    perks:
+      - "One (1) 10 X 10 Canopy"
+      - "One (1) 6' Table"
+      - "Two (2) chairs"
+      - "Three (3) Exhibitor Badges"
+  vendor_booth_premium:
+    id: "vendor_booth_premium"
+    category: "vendors"
+    name: "Premium Booth"
+    uber_label: "Vendor Booth (Premium)"
+    price: "$400"
+    price_usd: 400
+    badges: 3
+    badges_text: "Three (3) Exhibitor Badges"
+    perks:
+      - "One (1) 10 X 10 Canopy"
+      - "Two (2) 6' Tables (corner set up)"
+      - "Two (2) chairs"
+      - "Three (3) Exhibitor Badges"
+  vendor_booth_double:
+    id: "vendor_booth_double"
+    category: "vendors"
+    name: "Double Booth"
+    uber_label: "Vendor Booth (Double)"
+    price: "$750"
+    price_usd: 750
+    badges: 6
+    badges_text: "Six (6) Exhibitor Badges"
+    perks:
+      - "Two (2) 10 X 10 Canopies"
+      - "Two (2) 6' Tables"
+      - "Four (4) chairs"
+      - "Six (6) Exhibitor Badges"
+  vendor_artist_alley_half:
+    id: "vendor_artist_alley_half"
+    category: "artist_alley"
+    name: "Half-table"
+    uber_label: "Artist Alley Half Table"
+    price: "$130"
+    price_usd: 130
+    badges: 1
+    badges_text: "One (1) Exhibitor Badge"
+    perks:
+      - "One (1) 3' Table Space"
+      - "One (1) Chair"
+      - "One (1) Exhibitor Badge"
+    note: "Recommended for new sellers or sellers looking to split a space"
+  vendor_artist_alley_full:
+    id: "vendor_artist_alley_full"
+    category: "artist_alley"
+    name: "Full Table"
+    uber_label: "Artist Alley Full Table"
+    price: "$260"
+    price_usd: 260
+    badges: 2
+    badges_text: "Two (2) Exhibitor Badges"
+    perks:
+      - "One (1) 6' Table Space"
+      - "Two (2) Chairs"
+      - "Two (2) Exhibitor Badges"
+    note: "Recommended for sellers with more product offerings"
+  vendor_fan_game_regular:
+    id: "vendor_fan_game_regular"
+    category: "fangames"
+    name: "Fangame Full Table"
+    heading: "Full Table"
+    uber_label: "Fan Game Table (Regular)"
+    price: "$200"
+    price_usd: 200
+    badges: 2
+    badges_text: "Two (2) Exhibitor Badges"
+    perks:
+      - "One (1) 6' Table"
+      - "Two (2) Chairs"
+      - "Two (2) Exhibitor Badges"
+  vendor_fan_game_premium:
+    id: "vendor_fan_game_premium"
+    category: "fangames"
+    name: "Fangame Premium Table"
+    heading: "Premium Table (corner/bigger space)"
+    uber_label: "Fan Game Table (Premium)"
+    price: "$300"
+    price_usd: 300
+    badges: 3
+    badges_text: "Three (3) Exhibitor Badges"
+    perks:
+      - "One (1) 6' Table"
+      - "Three (3) Chairs"
+      - "Three (3) Exhibitor Badges"
+      - "Allowance for a wall set up"
+
 event_guidelines:
   title: "Event Guidelines"
   subtitle: "Before attending, please be sure to check these guidelines."

@@ -6,7 +6,6 @@ featured_section:
   title: "Featured Artists"
   cta_label: "Visit artist’s site"
 
-featured: []
 # - name: "Anazel Art"
 #   image: "img/artists/anazel_art.png"
 #   bio: ""
@@ -22,190 +21,9 @@ roster_section:
   cta_label: "Visit Site"
 
 roster_status: "coming_soon"
-roster:
-  - name: "Artist Collaboration Experience (ACE)"
-    lines:
-      - "Artist Collaboration "
-      - "Experience (ACE)"
-    table: "Booth V03"
-    image: "img/Tentative_Logo ACE.png"
-    url: "https://www.artcollabexp.com/"
-  - name: "Tama Tama Shop"
-    table: "Booth E1"
-    image: "img/Tama thumbnail.png"
-    url: "https://tamamagatama.carrd.co"
-  - name: "MARLOWEMEMO"
-    table: "Booth C2"
-    image: "img/MARLOWEMEMO PFP.png"
-    url: "https://www.instagram.com/marlowememo/"
-  - name: "Rusty Hermit"
-    table: "Booth C1"
-    image: "img/Rusty Hermit.jpg"
-    url: "#"
-  - name: "Asazei Illustration"
-    table: "Booth B5"
-    image: "img/ASAZEi_icon.png"
-    url: "https://x.com/ASAZEi_art"
-  - name: "Kureihii"
-    table: "Booth D2"
-    image: "img/kurehii.png"
-    url: "https://www.instagram.com/kureihii/"
-  - name: "HaiYun"
-    table: "Booth D5"
-    image: "img/haiyun logo square.png"
-    url: "https://haiyun.moe/artistalley"
-  - name: "CodyYuki"
-    table: "Booth H2"
-    image: "img/codydiamond.png"
-    url: "https://x.com/CodyYuki_"
-  - name: "nono"
-    table: "Booth G4"
-    image: "img/nono.jpg"
-    url: "https://x.com/notnoe_"
-  - name: "GuruGuruMaru"
-    table: "Booth A2"
-    image: "img/gurugurumaru.png"
-    url: "https://gurugurumaru.carrd.co/"
-  - name: "Art with Fred"
-    table: "Booth V12"
-    image: "img/artwithfred.png"
-    url: "https://www.tiktok.com/@artwfred"
-  - name: "Grillboss Co."
-    table: "Booth C6"
-    image: "img/grillboss.jpg"
-    url: "https://egguv.carrd.co/"
-  - name: "Birnam Hall"
-    table: "Booth D6"
-    image: "img/Birnam Thumbnail.jpg"
-    url: "https://www.instagram.com/birnamhall/"
-  - name: "Agi - Uniphants + Velpi"
-    table: "Booth A1"
-    image: "img/Uniphant + Velpi.png"
-    url: "https://x.com/purpleuniphants"
-  - name: "Meiki"
-    table: "Booth C4"
-    image: "img/meiki.jpg"
-    url: "https://sirmasterknight.carrd.co/"
-  - name: "Pumplin Group"
-    table: "Booth C3"
-    image: "img/pumpking.jpg"
-    url: "https://x.com/Sunnysiddedup"
-  - name: "Siliconcat"
-    table: "Booth V01"
-    image: "img/siliconcat.png"
-    url: "https://linktr.ee/siliconcat"
-  - name: "GRAVEVINES"
-    table: "Booth F5"
-    image: "img/flanicon.png"
-    url: "#"
-  - name: "Archanciel's Magic Shop"
-    table: "Booth G5"
-    image: "img/leminigensokyo.png"
-    url: "https://www.facebook.com/LeMiniGensokyo/"
-  - name: "2Ru Project"
-    table: "Booth E4"
-    image: "img/raccoon.png"
-    url: "#"
-  - name: "BRW"
-    table: "Booth H9"
-    image: "img/BRW.jpg"
-    url: "https://braylenwestfall.portfoliobox.net/"
-  - name: "Cynicalfries and Blaidmiracle"
-    lines:
-      - "Cynicalfries and "
-      - "Blaidmiracle"
-    table: "Booth F5"
-    image: "img/artists/cynicalfries.png"
-    url: "https://www.pixiv.net/en/users/97844354/artworks"
-  - name: "xiaobbinc"
-    table: "Booth A3"
-    image: "img/xiaobbinc.jpg"
-    url: "https://xiaobbincart.carrd.co/"
-  - name: "Lemon-Creme"
-    table: "Booth FB02"
-    image: "img/Touhoufest_Icon_lemoncreme.png"
-    url: "https://www.etsy.com/shop/LemonCremeStudios"
-  - name: "Neo Sanctum"
-    table: "Booth B2"
-    image: "img/Neo Sanctum thing-01.png"
-    url: "https://x.com/NSanctum"
-  - name: "Galaxian Recordings"
-    table: "Booth MC3"
-    image: "img/artists/galaxian.png"
-    bg_image: "img/lyricalive-logo-crop.png"
-    url: "https://galaxianrecordings.bandcamp.com/"
-  - name: "Lyrica Live"
-    table: "Booth A1"
-    image: "img/lyricalive-logo-crop.png"
-    url: "https://lyricalive.carrd.co/"
-  - name: "Twin Phoenix Interactive"
-    table: "Booth FG1"
-    image: "img/TwinPhoenixInteractive.png"
-    url: "https://twinphoenixinteractive.com/"
-  - name: "Artist Collaboration Experience (ACE)"
-    lines:
-      - "Artist Collaboration "
-      - "Experience (ACE)"
-    table: "Booth V03"
-    image: "img/Tentative_Logo ACE.png"
-    url: "https://www.artcollabexp.com/"
-  - name: "Tama Tama Shop"
-    table: "Booth E1"
-    image: "img/Tama thumbnail.png"
-    url: "https://tamamagatama.carrd.co"
-  - name: "MARLOWEMEMO"
-    table: "Booth C2"
-    image: "img/MARLOWEMEMO PFP.png"
-    url: "https://www.instagram.com/marlowememo/"
-  - name: "Rusty Hermit"
-    table: "Booth C1"
-    image: "img/Rusty Hermit.jpg"
-    url: "#"
-  - name: "Asazei Illustration"
-    table: "Booth B5"
-    image: "img/ASAZEi_icon.png"
-    url: "https://x.com/ASAZEi_art"
-  - name: "Kureihii"
-    table: "Booth D2"
-    image: "img/kurehii.png"
-    url: "https://www.instagram.com/kureihii/"
-  - name: "HaiYun"
-    table: "Booth D5"
-    image: "img/haiyun logo square.png"
-    url: "https://haiyun.moe/artistalley"
-  - name: "CodyYuki"
-    table: "Booth H2"
-    image: "img/codydiamond.png"
-    url: "https://x.com/CodyYuki_"
-  - name: "nono"
-    table: "Booth G4"
-    image: "img/nono.jpg"
-    url: "https://x.com/notnoe_"
-  - name: "GuruGuruMaru"
-    table: "Booth A2"
-    image: "img/gurugurumaru.png"
-    url: "https://gurugurumaru.carrd.co/"
-  - name: "Art with Fred"
-    table: "Booth V12"
-    image: "img/artwithfred.png"
-    url: "https://www.tiktok.com/@artwfred"
 
 maps_section:
   title: "TouhouFest Event Maps"
-  zoom_label: "Zoom map"
-  tabs:
-    - title: "Event Map"
-      alt: "TouhouFest Event Map"
-      image: "img/event/event_map.png"
-      checked: false
-    - title: "Artist Alley Map"
-      alt: "TouhouFest Artist Alley Map"
-      image: "img/Toyota_Hall_2025_TF_AA_final copy.png"
-      checked: true
-    - title: "Vendors Map"
-      alt: "TouhouFest Vendors Map"
-      image: "img/TF_2025_Festival_Plaza Vendors Final.png"
-      checked: false
 
 past_section:
   title_prefix: "Thank you"
@@ -213,150 +31,306 @@ past_section:
   prev_label: "Previous page"
   next_label: "Next page"
 
-past_artists:
-  - lines:
+artists:
+  - name: "Artist Collaboration Experience (ACE)"
+    year: 2026
+    past_listing: true
+    booth: "Booth V03"
+    lines:
       - "Artist "
       - "Collaboration "
       - "Experience"
     image: "img/Tentative_Logo ACE.png"
     url: "https://www.artcollabexp.com/"
-  - lines:
+  - name: "Tama Tama Shop"
+    year: 2026
+    past_listing: true
+    booth: "Booth E1"
+    lines:
       - "Tama Tama "
       - "Shop"
     image: "img/Tama thumbnail.png"
     url: "https://tamamagatama.carrd.co"
-  - lines:
+  - name: "MARLOWEMEMO"
+    year: 2026
+    past_listing: true
+    booth: "Booth C2"
+    lines:
       - "MARLOWEMEMO"
     image: "img/MARLOWEMEMO PFP.png"
     url: "https://www.instagram.com/marlowememo/"
-  - lines:
+  - name: "Rusty Hermit"
+    year: 2026
+    past_listing: true
+    booth: "Booth C1"
+    lines:
       - "Rusty Hermit"
     image: "img/Rusty Hermit.jpg"
     url: "#"
-  - lines:
+  - name: "Asazei Illustration"
+    year: 2026
+    past_listing: true
+    booth: "Booth B5"
+    lines:
       - "Asazei "
       - "Illustration"
     image: "img/ASAZEi_icon.png"
     url: "https://x.com/ASAZEi_art"
-  - lines:
+  - name: "Kureihii"
+    year: 2026
+    past_listing: true
+    booth: "Booth D2"
+    lines:
       - "Kureihii"
     image: "img/kurehii.png"
     url: "https://www.instagram.com/kureihii/"
-  - lines:
+  - name: "HaiYun"
+    year: 2026
+    past_listing: true
+    booth: "Booth D5"
+    lines:
       - "HaiYun"
     image: "img/haiyun logo square.png"
     url: "https://haiyun.moe/artistalley"
-  - lines:
+  - name: "Colorfulkitten Art"
+    year: 2026
+    past_listing: true
+    lines:
       - "Colorfulkitten "
       - "Art"
     image: "img/ckitten Mokou.jpg"
     url: "https://x.com/ckitten_cosplay"
-  - lines:
+  - name: "CodyYuki"
+    year: 2026
+    past_listing: true
+    booth: "Booth H2"
+    lines:
       - "CodyYuki"
     image: "img/codydiamond.png"
     url: "https://x.com/CodyYuki_"
-  - lines:
+  - name: "nono"
+    year: 2026
+    past_listing: true
+    booth: "Booth G4"
+    lines:
       - "nono"
     image: "img/nono.jpg"
     url: "https://x.com/notnoe_"
-  - lines:
+  - name: "GuruGuruMaru"
+    year: 2026
+    past_listing: true
+    booth: "Booth A2"
+    lines:
       - "GuruGuruMaru"
     image: "img/gurugurumaru.png"
     url: "https://gurugurumaru.carrd.co/"
-  - lines:
+  - name: "Art with Fred"
+    year: 2026
+    past_listing: true
+    booth: "Booth V12"
+    lines:
       - "Art with Fred"
     image: "img/artwithfred.png"
     url: "https://www.tiktok.com/@artwfred"
-  - lines:
+  - name: "Grillboss Co."
+    year: 2026
+    past_listing: true
+    booth: "Booth C6"
+    lines:
       - "Grillboss Co."
     image: "img/grillboss.jpg"
     url: "https://egguv.carrd.co/"
-  - lines:
+  - name: "Birnam Hall"
+    year: 2026
+    past_listing: true
+    booth: "Booth D6"
+    lines:
       - "Birnam Hall"
     image: "img/Birnam Thumbnail.jpg"
     url: "https://www.instagram.com/birnamhall/"
-  - lines:
+  - name: "Agi - Uniphants + Velpi"
+    year: 2026
+    past_listing: true
+    booth: "Booth A1"
+    lines:
       - "Agi - Uniphants "
       - "+ Velpi"
     image: "img/Uniphant + Velpi.png"
     url: "https://x.com/purpleuniphants"
-  - lines:
+  - name: "Meiki"
+    year: 2026
+    past_listing: true
+    booth: "Booth C4"
+    lines:
       - "Meiki"
     image: "img/meiki.jpg"
     url: "https://sirmasterknight.carrd.co/"
-  - lines:
+  - name: "Pumplin Group"
+    year: 2026
+    past_listing: true
+    booth: "Booth C3"
+    lines:
       - "Pumplin "
       - "Group"
     image: "img/pumpking.jpg"
     url: "https://x.com/Sunnysiddedup"
-  - lines:
+  - name: "Siliconcat"
+    year: 2026
+    past_listing: true
+    booth: "Booth V01"
+    lines:
       - "Siliconcat"
     image: "img/siliconcat.png"
     url: "https://linktr.ee/siliconcat"
-  - lines:
+  - name: "GRAVEVINES"
+    year: 2026
+    past_listing: true
+    booth: "Booth F5"
+    lines:
       - "GRAVEVINES"
     image: "img/flanicon.png"
     url: "https://linktr.ee/gravevines"
-  - lines:
+  - name: "Archanciel's Magic Shop"
+    year: 2026
+    past_listing: true
+    booth: "Booth G5"
+    lines:
       - "Archanciel's "
       - "Magic Shop"
     image: "img/leminigensokyo.png"
     url: "https://x.com/lemon_mel0n"
-  - lines:
+  - name: "2Ru Project"
+    year: 2026
+    past_listing: true
+    booth: "Booth E4"
+    lines:
       - "2Ru Project"
     image: "img/raccoon.png"
     url: "https://www.instagram.com/2ru.project/"
-  - lines:
+  - name: "BRW"
+    year: 2026
+    past_listing: true
+    booth: "Booth H9"
+    lines:
       - "BRW"
     image: "img/BRW.jpg"
     url: "https://linktr.ee/BRW.2000"
-  - lines:
+  - name: "Cynicalfries and Blaidmiracle"
+    year: 2026
+    past_listing: true
+    booth: "Booth F5"
+    lines:
       - "Cynicalfries and "
       - "Blaidmiracle"
     image: "img/IMG_0823.png"
+    roster_image: "img/artists/cynicalfries.png"
     url: "https://x.com/blaidmiracle"
-  - lines:
+  - name: "xiaobbinc"
+    year: 2026
+    past_listing: true
+    booth: "Booth A3"
+    lines:
       - "xiaobbinc"
     image: "img/xiaobbinc.jpg"
     url: "https://x.com/xiaobbinc"
-  - lines:
+  - name: "Neo Sanctum"
+    year: 2026
+    past_listing: true
+    booth: "Booth B2"
+    lines:
       - "Neo Sanctum"
     image: "img/Neo Sanctum thing-01.png"
     url: "https://linktr.ee/neosanctum"
-  - lines:
+  - name: "Colorfulkitten Art"
+    year: 2026
+    past_listing: true
+    lines:
       - "Colorfulkitten "
       - "Art"
     image: "img/ckitten Mokou.jpg"
     url: "https://x.com/ckitten_cosplay"
-  - lines:
+  - name: "CodyYuki"
+    year: 2026
+    past_listing: true
+    booth: "Booth H2"
+    lines:
       - "CodyYuki"
     image: "img/codydiamond.png"
     url: "https://x.com/CodyYuki_"
-  - lines:
+  - name: "nono"
+    year: 2026
+    past_listing: true
+    booth: "Booth G4"
+    lines:
       - "nono"
     image: "img/nono.jpg"
     url: "https://x.com/notnoe_"
-  - lines:
+  - name: "GuruGuruMaru"
+    year: 2026
+    past_listing: true
+    booth: "Booth A2"
+    lines:
       - "GuruGuruMaru"
     image: "img/gurugurumaru.png"
     url: "https://gurugurumaru.carrd.co/"
-  - lines:
+  - name: "Art with Fred"
+    year: 2026
+    past_listing: true
+    booth: "Booth V12"
+    lines:
       - "Art with Fred"
     image: "img/artwithfred.png"
     url: "https://www.tiktok.com/@artwfred"
-  - lines:
+  - name: "Grillboss Co."
+    year: 2026
+    past_listing: true
+    booth: "Booth C6"
+    lines:
       - "Grillboss Co."
     image: "img/grillboss.jpg"
     url: "https://egguv.carrd.co/"
-  - lines:
+  - name: "Birnam Hall"
+    year: 2026
+    past_listing: true
+    booth: "Booth D6"
+    lines:
       - "Birnam Hall"
     image: "img/Birnam Thumbnail.jpg"
     url: "https://www.instagram.com/birnamhall/"
-  - lines:
+  - name: "Agi - Uniphants + Velpi"
+    year: 2026
+    past_listing: true
+    booth: "Booth A1"
+    lines:
       - "Agi - Uniphants "
       - "+ Velpi"
     image: "img/Uniphant + Velpi.png"
     url: "https://x.com/purpleuniphants"
+  - name: "Lemon-Creme"
+    year: 2026
+    past_listing: false
+    booth: "Booth FB02"
+    image: "img/Touhoufest_Icon_lemoncreme.png"
+    url: "https://www.etsy.com/shop/LemonCremeStudios"
+  - name: "Galaxian Recordings"
+    year: 2026
+    past_listing: false
+    booth: "Booth MC3"
+    image: "img/artists/galaxian.png"
+    bg_image: "img/lyricalive-logo-crop.png"
+    url: "https://galaxianrecordings.bandcamp.com/"
+  - name: "Lyrica Live"
+    year: 2026
+    past_listing: false
+    booth: "Booth A1"
+    image: "img/lyricalive-logo-crop.png"
+    url: "https://lyricalive.carrd.co/"
+  - name: "Twin Phoenix Interactive"
+    year: 2026
+    past_listing: false
+    booth: "Booth FG1"
+    image: "img/TwinPhoenixInteractive.png"
+    url: "https://twinphoenixinteractive.com/"
 
 apply_section:
   title: "Want to sell at the event?"

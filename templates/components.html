@@ -215,3 +215,18 @@
     </div>
   </div>
 {% endcomponent guest_avatar %}
+{% component exhibitor_extra_badge_price() -%}
+  {%- set reg = load_data(path="data/registration.yml") -%}
+  {{ reg.extra_badge_price }}
+{%- endcomponent exhibitor_extra_badge_price %}
+{% component exhibitor_tier(key, field="price") -%}
+  {%- set reg = load_data(path="data/registration.yml") -%}
+  {%- set tier = reg.exhibitor_tiers[key] -%}
+  {%- if field == "badges" -%}
+    {{ tier.badges_text }}
+  {%- elif field == "name" -%}
+    {{ tier.name }}
+  {%- else -%}
+    {{ tier.price }}
+  {%- endif -%}
+{%- endcomponent exhibitor_tier %}

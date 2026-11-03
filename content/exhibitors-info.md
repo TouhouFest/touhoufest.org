@@ -50,7 +50,7 @@ If you have any additional questions or concerns about our Vendor booths, please
 our email [exhibitors@touhoufest.org](mailto:exhibitors@touhoufest.org) or leave your question in
 the QnA channel on our official [Discord](https://discord.gg/touhoufest).
 
-For all exhibitor types, extra exhibitor badges are $50 each.
+For all exhibitor types, extra exhibitor badges are {{ <exhibitor_extra_badge_price /> }} each.
 
 ## Vendors
 
@@ -63,24 +63,24 @@ needed.
 - One (1) 10 X 10 Canopy
 - One (1) 6' Table
 - Two (2) chairs
-- Three (3) Exhibitor Badges
-- Cost: **$350**
+- {{ <exhibitor_tier key="vendor_booth_regular" field="badges" /> }}
+- Cost: **{{ <exhibitor_tier key="vendor_booth_regular" field="price" /> }}**
 
 **Premium Booth:**
 
 - One (1) 10 X 10 Canopy
 - Two (2) 6' Tables (corner set up)
 - Two (2) chairs
-- Three (3) Exhibitor Badges
-- Cost: **$400**
+- {{ <exhibitor_tier key="vendor_booth_premium" field="badges" /> }}
+- Cost: **{{ <exhibitor_tier key="vendor_booth_premium" field="price" /> }}**
 
 **Double Booth:**
 
 - Two (2) 10 X 10 Canopies
 - Two (2) 6' Tables
 - Four (4) chairs
-- Six (6) Exhibitor Badges
-- Cost: **$750**
+- {{ <exhibitor_tier key="vendor_booth_double" field="badges" /> }}
+- Cost: **{{ <exhibitor_tier key="vendor_booth_double" field="price" /> }}**
 
 ## Artist Alley
 
@@ -91,16 +91,16 @@ additional tables or chairs than what we are providing for you.
 
 - One (1) 3' Table Space
 - One (1) Chair
-- One (1) Exhibitor Badge
-- Cost: **$130**
+- {{ <exhibitor_tier key="vendor_artist_alley_half" field="badges" /> }}
+- Cost: **{{ <exhibitor_tier key="vendor_artist_alley_half" field="price" /> }}**
 - Recommended for new sellers or sellers looking to split a space
 
 **Full Table:**
 
 - One (1) 6' Table Space
 - Two (2) Chairs
-- Two (2) Exhibitor Badges
-- Cost: **$260**
+- {{ <exhibitor_tier key="vendor_artist_alley_full" field="badges" /> }}
+- Cost: **{{ <exhibitor_tier key="vendor_artist_alley_full" field="price" /> }}**
 - Recommended for sellers with more product offerings
 
 ## Fangame Tables
@@ -112,13 +112,13 @@ the **Ken Miller Rec Center**. All tables will be provided electric power.
 
 - One (1) 6' Table
 - Two (2) Chairs
-- Two (2) Exhibitor Badges
-- Cost: **$200**
+- {{ <exhibitor_tier key="vendor_fan_game_regular" field="badges" /> }}
+- Cost: **{{ <exhibitor_tier key="vendor_fan_game_regular" field="price" /> }}**
 
 **Premium Table (corner/bigger space)**
 
 - One (1) 6' Table
 - Three (3) Chairs
-- Three (3) Exhibitor Badges
+- {{ <exhibitor_tier key="vendor_fan_game_premium" field="badges" /> }}
 - Allowance for a wall set up
-- Cost: **$300**
+- Cost: **{{ <exhibitor_tier key="vendor_fan_game_premium" field="price" /> }}**

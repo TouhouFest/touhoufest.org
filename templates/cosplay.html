@@ -2,6 +2,7 @@
 {% block content %}
   {% set data = load_data(path="data/cosplay.yml") %}
   {% set sched = load_data(path="data/schedule.yml") %}
+  {% set shared = load_data(path="data/shared.yml") %}
   <div class="cosplay-page">
     <section class="cosplay-hero">
       <div class="cosplay-hero__bg" aria-hidden="true">
@@ -338,15 +339,15 @@
         <div class="tf-mod-divider-bottom cosplay-divider__bottom"
              aria-hidden="true"></div>
       </div>
-      {% for tab in data.maps.tabs %}
+      {% for tab in shared.maps.tabs %}
         <input type="radio"
                name="tf-cosplay-map-tab"
                id="tf-map-tab-{{ loop.index }}"
                class="tf-mod-map-radio"
-               {% if tab.active %} checked{% endif %}>
+               {% if loop.first %} checked{% endif %}>
       {% endfor %}
       <div class="cosplay-maps-tabs tf-mod-map-tabs">
-        {% for tab in data.maps.tabs %}
+        {% for tab in shared.maps.tabs %}
           <label for="tf-map-tab-{{ loop.index }}"
                  class="cosplay-map-tab tf-mod-map-tab tf-mod-map-tab--{{ loop.index }}">
             <span>{{ tab.label }}</span>
@@ -354,9 +355,14 @@
         {% endfor %}
       </div>
       <div class="cosplay-map-card tf-mod-map-stage">
-        {% for tab in data.maps.tabs %}
+        {% for tab in shared.maps.tabs %}
+          {% if loop.first %}
+            {% set tab_img = data.maps.card_image %}
+          {% else %}
+            {% set tab_img = tab.image %}
+          {% endif %}
           <div class="tf-mod-map-panel tf-mod-map-panel--{{ loop.index }}">
-            <img src="{{ <img_url path={tab.image} /> }}"
+            <img src="{{ <img_url path={tab_img} /> }}"
                  alt="{{ tab.alt }}"
                  class="cosplay-map-card__img"
                  loading="lazy"
@@ -365,7 +371,7 @@
         {% endfor %}
         <button type="button"
                 class="cosplay-map-card__zoom tf-mod-map-zoom"
-                aria-label="{{ data.maps.zoom_label }}">
+                aria-label="{{ shared.maps.zoom_label }}">
           <img class="tf-mod-map-zoom-circle"
                src="{{ <img_url path="img/shared/zoom_circle.svg" /> }}"
                alt=""

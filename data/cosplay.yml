@@ -175,20 +175,6 @@ maps:
   divider_image: "img/cosplay/divider_maps.jpg"
   card_image: "img/cosplay/event_map_card.png"
   card_alt: "TouhouFest Event Map"
-  zoom_label: "Zoom map"
-  tabs:
-    - label: "Event Map"
-      image: "img/cosplay/event_map_card.png"
-      alt: "TouhouFest Event Map"
-      active: true
-    - label: "Artist Alley Map"
-      image: "img/Toyota_Hall_2025_TF_AA_final copy.png"
-      alt: "TouhouFest Artist Alley Map"
-      active: false
-    - label: "Vendors Map"
-      image: "img/TF_2025_Festival_Plaza Vendors Final.png"
-      alt: "TouhouFest Vendors Map"
-      active: false
 
 callouts:
   - key: "guidelines"
