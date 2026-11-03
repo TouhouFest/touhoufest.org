@@ -335,10 +335,10 @@ body:has(.guests-hero-section) {
   padding: 0;
   @include flex-col-center;
   gap: 8px;
-  @each $i, $h in (1: 787px, 2: 774px, 3: 778px, 4: 839px, 5: 818px) {
+  @each $i, $h in (1: 787px, 2: 774px, 3: 839px, 4: 818px) {
     &:nth-child(#{$i}) {
       flex: none;
-      width: if($i < 4, 358.33px, 561.5px);
+      width: 561.5px;
       height: $h;
     }
   }
@@ -796,7 +796,8 @@ body:has(.guests-hero-section) {
   object-position: bottom center;
 }
 .performers-section {
-  @include guests-lock-h(1112px);
+  min-height: 1112px;
+  height: auto;
   margin: 56px auto 0;
   padding: 176px 0 48px;
   background-color: transparent;
@@ -825,13 +826,11 @@ body:has(.guests-hero-section) {
 .performer-item-card {
   width: 301px;
   max-width: 100%;
-  height: 358px;
+  min-height: 358px;
+  height: auto;
   @include flex-col-center;
   justify-content: flex-start;
   gap: 10px;
-  &:nth-child(1) {
-    height: 421px;
-  }
   .performer-name {
     color: #fffde7;
   }
@@ -839,9 +838,6 @@ body:has(.guests-hero-section) {
     flex: 1 0 0;
     color: #ffffff;
     text-align: center;
-  }
-  &:first-child .performer-desc {
-    text-align: left;
   }
 }
 .performer-label-wrap {
@@ -993,7 +989,7 @@ body:has(.guests-hero-section) .guests-page-content {
     flex: none;
   }
   .featured-guests-section {
-    @include guests-lock-h(4909px);
+    @include guests-lock-h(4062px);
   }
   .featured-guests-heading {
     height: 37px;
@@ -1005,7 +1001,7 @@ body:has(.guests-hero-section) .guests-page-content {
     min-width: 262px;
     width: 328px;
     max-width: 100%;
-    @each $i, $h in (1: 808px, 2: 816px, 3: 799px, 4: 1028px, 5: 965px) {
+    @each $i, $h in (1: 808px, 2: 816px, 3: 1028px, 4: 965px) {
       &:nth-child(#{$i}) {
         width: 328px;
         height: $h;
@@ -1013,11 +1009,6 @@ body:has(.guests-hero-section) .guests-page-content {
     }
     &:nth-child(2) .artist-bio-text p:nth-child(2) {
       padding-right: 0;
-    }
-    &:nth-child(3) .artist-card-ribbon {
-      height: 88px;
-      display: flex;
-      align-items: flex-end;
     }
   }
   .guests-thankyou-section {
@@ -1027,8 +1018,8 @@ body:has(.guests-hero-section) .guests-page-content {
     width: 100%;
     @each $sel, $rh, $bh, $gt in
       (
-        (":nth-child(1)", 1029.37px, 989.46px, 302px),
-        (":is(:nth-child(2), :nth-child(5))", 1269.37px, 1220.16px, 436px),
+        (":is(:nth-child(1), :nth-child(2))", 1029.37px, 989.46px, 302px),
+        (":nth-child(5)", 1269.37px, 1220.16px, 436px),
         (":is(:nth-child(3), :nth-child(4))", 1509.37px, 1450.85px, 569px)
       ) {
       &#{$sel} {
@@ -1147,7 +1138,8 @@ body:has(.guests-hero-section) .guests-page-content {
   }
   .performers-section {
     width: 328px;
-    @include guests-lock-h(2640px);
+    min-height: 2640px;
+    height: auto;
   }
   .performers-title {
     width: 390px;

@@ -100,7 +100,7 @@
       <h2 class="featured-guests-heading">{{ <event_date format="year" /> }} {{ guests_data.featured_section.title }}</h2>
       <div class="featured-guests-grid">
         {%- for guest in guests_data.featured %}
-          {%- set is_wide = loop.index >= 4 -%}
+          {%- set is_wide = true -%}
           <div class="featured-artist-card">
             <div class="artist-header-block">
               <div class="artist-role-label">{{ guest.role }}</div>

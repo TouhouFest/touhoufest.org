@@ -29,12 +29,6 @@ featured:
       - "Akai Ryusei is a Japan-based multi-creator who masters jazz, rock, and chiptune. With impressive piano technique and skillful self-production, he delivers worldwide a truly one-of-a kind sound born from game music roots."
       - "紅維流星は、日本を拠点にジャズ、ロック、チップチューンを自在に操るマルチクリエイター。圧巻のピアノと高度なセルフプロデュースで、ゲーム音楽をルーツにした唯一無二のサウンドを世界へ届けている。"
     socials:
-      - platform: "instagram"
-        label: "Instagram"
-        url: "https://www.instagram.com/"
-      - platform: "tiktok"
-        label: "Tiktok"
-        url: "https://www.tiktok.com/"
       - platform: "twitter"
         label: "Twitter"
         url: "https://x.com/akairyusei"
@@ -52,21 +46,6 @@ featured:
       - platform: "tiktok"
         label: "Tiktok"
         url: "https://www.tiktok.com/@yaboimatoi"
-  - role: "Band"
-    name: "YONA"
-    avatar: "/img/guests/featured_yona.png"
-    bio_paragraphs:
-      - "Body copy goes here. Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus..Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi."
-    socials:
-      - platform: "instagram"
-        label: "Instagram"
-        url: "https://www.instagram.com/"
-      - platform: "tiktok"
-        label: "Tiktok"
-        url: "https://www.tiktok.com/"
-      - platform: "twitter"
-        label: "Twitter"
-        url: "https://x.com/"
   - role: "COOL&CREATE"
     name: "beatMario"
     avatar: "/img/guests/featured_beatmario.png"
@@ -75,12 +54,9 @@ featured:
       - "In 2006, he began performing live more actively starting with the Touhou live event “Flowering Night.” His notable performances include: Animelo Summer Live 2009 with the debut of “Help me, ERINNNNNN!!” , hit single “Ringo Karenka”, sung by his mother Junko Ozaki (2012), collaboration with Sachiko Kobayashi at Comic Market (2014, 2015)  "
       - "In recent years, his music has also been frequently featured in rhythm games. In particular, the Touhou arrangement “Night of Nights” has ranked among the top-played songs in rhythm games from multiple companies."
     socials:
-      - platform: "instagram"
-        label: "Instagram"
-        url: "https://www.instagram.com/"
       - platform: "tiktok"
         label: "Tiktok"
-        url: "https://www.tiktok.com/"
+        url: "https://www.tiktok.com/@beatmario"
       - platform: "twitter"
         label: "Twitter"
         url: "https://x.com/beatmario"
@@ -94,13 +70,13 @@ featured:
     socials:
       - platform: "instagram"
         label: "Instagram"
-        url: "https://www.instagram.com/"
+        url: "https://www.instagram.com/maron47_jp/"
       - platform: "tiktok"
         label: "Tiktok"
-        url: "https://www.tiktok.com/"
+        url: "https://www.tiktok.com/@maron47_ton"
       - platform: "twitter"
         label: "Twitter"
-        url: "https://x.com/maron_iosys"
+        url: "https://x.com/maron47"
 
 thank_you:
   title: "Thank you!"
@@ -131,11 +107,11 @@ timeline:
         avatar: "/img/guests/tl_yaboimatoi.png"
         url: "https://www.youtube.com/@YaboiMatoi"
       - empty: false
-        name: "Suzukann"
+        name: "Suzukannn"
         avatar: "/img/guests/tl_suzukann.png"
         url: "https://x.com/suzukannn"
   - year_top: "20"
-    year_bottom: "27"
+    year_bottom: "26"
     bg_images:
       - "/img/guests/timeline_2_col1.png"
       - "/img/guests/timeline_2_col2.png"
@@ -146,17 +122,13 @@ timeline:
       - empty: false
         name: "Akai Ryu-sei"
         avatar: "/img/guests/tl_akai_ryusei.png"
-        url: "https://x.com/akairyusei"
+        url: "https://neets.tokyo/"
       - empty: true
     right_sections:
       - empty: false
         name: "Hoshibako Works"
         avatar: "/img/guests/tl_hoshibako.png"
         url: "https://hoshibako.thebase.in/"
-      - empty: false
-        name: "YONA"
-        avatar: "/img/guests/tl_yona.svg"
-        url: "https://x.com/"
   - year_top: "20"
     year_bottom: "25"
     bg_images:
@@ -174,14 +146,14 @@ timeline:
       - empty: false
         name: "Miko"
         avatar: "/img/guests/tl_miko.png"
-        url: "https://www.iosysos.com/"
+        url: "https://x.com/mikonyu"
     right_sections:
       - empty: false
         name: "Shihori"
         avatar: "/img/guests/tl_shihori.png"
         url: "https://www.shihori.com/"
       - empty: false
-        name: "Suzukann"
+        name: "Suzukannn"
         avatar: "/img/guests/tl_suzukann.png"
         url: "https://x.com/suzukannn"
       - empty: false
@@ -254,22 +226,21 @@ performers_section:
   title: "DJs & Performers"
 
 performers:
-  - name: "Name here"
+  - name: "Kamizuki"
     image: "/img/guests/perf_1.png"
-    label: "Coming back for a third year, please give a warm welcome back to the talented musicians of TAMusic!  .."
-    more_text: ".see more"
-  - name: "Name here"
+    label: "J-rock and ACG band based in Los Angeles performing high-energy, rhythm-driven Japanese rock arrangements live on stage."
+  - name: "DJ Halica"
     image: "/img/guests/perf_2.png"
-    label: "Label here"
-  - name: "Name here"
+    label: "DFW-based DJ spinning high-energy Touhou drum and bass sets with a mix of crowd-pleasers and underground tracks."
+  - name: "Neo Sanctum"
     image: "/img/guests/perf_3.png"
-    label: "Label here"
-  - name: "Name here"
+    label: "Live instrumental ensemble performing chamber, violin, and brass arrangements of classic Touhou Project soundtracks."
+  - name: "AfterGlow"
     image: "/img/guests/perf_4.png"
-    label: "Label here"
-  - name: "Name here"
+    label: "Live outdoor jam sessions and electronic Touhou arrangements performed at the Torino Festival Plaza stage."
+  - name: "Gensou Hard Dancers"
     image: "/img/guests/perf_5.png"
-    label: "Label here"
-  - name: "Name here"
+    label: "Shuffle and jumpstyle dance group bringing high-energy choreography to fan-favorite Touhou arrangements."
+  - name: "Maid Academy Cafe"
     image: "/img/guests/perf_6.png"
-    label: "Label here"
+    label: "Interactive cafe and stage troupe charming audiences with music, dance, and character-driven Touhou performances."
