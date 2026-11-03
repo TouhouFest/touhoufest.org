@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   {% set data = load_data(path="data/cosplay.yml") %}
+  {% set sched = load_data(path="data/schedule.yml") %}
   <div class="cosplay-page">
     <section class="cosplay-hero">
       <div class="cosplay-hero__bg" aria-hidden="true">
@@ -46,32 +47,47 @@
                aria-hidden="true"></div>
         </div>
         <div class="cosplay-schedule-box">
-          <div class="cosplay-schedule-tabs">
+          {% for tab in data.photoshoots.tabs %}
+            <input type="radio"
+                   name="cosplay-day-tab"
+                   id="cosplay-day-{{ tab.key }}"
+                   class="cosplay-schedule-radio"
+                   {% if tab.active %}checked{% endif %}>
+          {% endfor %}
+          <div class="cosplay-schedule-tabs" role="tablist">
             {% for tab in data.photoshoots.tabs %}
-              <div class="cosplay-schedule-tab{% if tab.active %} cosplay-schedule-tab--active{% endif %}{% if loop.index == 2 %} cosplay-schedule-tab--middle{% endif %}">
+              <label for="cosplay-day-{{ tab.key }}"
+                     class="cosplay-schedule-tab cosplay-schedule-tab--{{ tab.key }}{% if loop.index == 2 %} cosplay-schedule-tab--middle{% endif %}">
                 <span>{{ tab.label }}</span>
-              </div>
+              </label>
             {% endfor %}
           </div>
-          {% for event in data.photoshoots.events %}
-            <div class="cosplay-schedule-cell">
-              <h3 class="cosplay-schedule-cell__title">{{ event.title }}</h3>
-              <div class="cosplay-schedule-cell__time">
-                <span class="cosplay-icon cosplay-icon--clock"></span>
-                <span>{{ event.time }}</span>
-              </div>
-              <div class="cosplay-schedule-cell__info">
-                <div class="cosplay-schedule-cell__info-label">
-                  <span class="cosplay-icon cosplay-icon--person-burst"></span>
-                  <span>{{ data.photoshoots.characters_label }}</span>
+          {% for day in sched.days %}
+            {% for event in day.events %}
+              {% if event.category == "Cosplay Photoshoot" %}
+                <div class="cosplay-schedule-cell cosplay-schedule-cell--{{ day.key }}">
+                  <h3 class="cosplay-schedule-cell__title">{{ event.title }}</h3>
+                  <div class="cosplay-schedule-cell__time">
+                    <span class="cosplay-icon cosplay-icon--clock"></span>
+                    <span>{{ day.day_name }} | {{ event.time }}</span>
+                  </div>
+                  <div class="cosplay-schedule-cell__info">
+                    <div class="cosplay-schedule-cell__info-label">
+                      <span class="cosplay-icon cosplay-icon--person-burst"></span>
+                      <span>{{ data.photoshoots.characters_label }}</span>
+                    </div>
+                    <p class="cosplay-schedule-cell__characters">{{ event.characters }}</p>
+                  </div>
+                  <details class="cosplay-schedule-details">
+                    <summary class="cosplay-jumplink">
+                      <span class="cosplay-jumplink__text">{{ data.photoshoots.link_label }}</span>
+                      <span class="cosplay-icon cosplay-icon--caret-right"></span>
+                    </summary>
+                    <p class="cosplay-schedule-details__body">{{ event.description }}</p>
+                  </details>
                 </div>
-                <p class="cosplay-schedule-cell__characters">{{ event.characters }}</p>
-              </div>
-              <a href="{{ event.url }}" class="cosplay-jumplink">
-                <span class="cosplay-jumplink__text">{{ data.photoshoots.link_label }}</span>
-                <span class="cosplay-icon cosplay-icon--caret-right"></span>
-              </a>
-            </div>
+              {% endif %}
+            {% endfor %}
           {% endfor %}
         </div>
         <p class="cosplay-body-note">{{ data.photoshoots.note }}</p>
@@ -97,35 +113,42 @@
       </div>
       <p class="cosplay-body-note">{{ data.workshops.intro }}</p>
       <div class="cosplay-workshops-row">
-        {% for item in data.workshops.items %}
-          <article class="cosplay-workshop-card">
-            <div class="cosplay-workshop-card__header">
-              <h3 class="cosplay-workshop-card__title">{{ item.title }}</h3>
-              <div class="cosplay-workshop-card__image-pad">
-                <div class="cosplay-workshop-card__image-frame">
-                  <img src="{{ <img_url path={item.image} max_width={960} /> }}"
-                       alt="{{ item.image_alt }}"
-                       class="cosplay-workshop-card__image cosplay-workshop-card__image--{{ loop.index }}"
-                       loading="lazy"
-                       decoding="async">
+        {% set_global ws_idx = 0 %}
+        {% for day in sched.days %}
+          {% for item in day.events %}
+            {% if item.category == "Workshop" %}
+              {% set_global ws_idx = ws_idx + 1 %}
+              {% set ws_img = data.workshops.images | nth(n=ws_idx - 1) %}
+              {% if ws_idx > 1 %}
+                <div class="cosplay-ribbon cosplay-ribbon--mobile-only" aria-hidden="true"></div>
+              {% endif %}
+              <article class="cosplay-workshop-card">
+                <div class="cosplay-workshop-card__header">
+                  <h3 class="cosplay-workshop-card__title">{{ item.title }}</h3>
+                  <div class="cosplay-workshop-card__image-pad">
+                    <div class="cosplay-workshop-card__image-frame">
+                      <img src="{{ <img_url path={ws_img} max_width={960} /> }}"
+                           alt="{{ item.title }}"
+                           class="cosplay-workshop-card__image cosplay-workshop-card__image--{{ ws_idx }}"
+                           loading="lazy"
+                           decoding="async">
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="cosplay-workshop-card__loc-heading">
-              <span>{{ data.workshops.location_heading }}</span>
-              <span>{{ item.location_name }}</span>
-            </div>
-            <div class="cosplay-workshop-card__body">
-              <div class="cosplay-location-pill cosplay-location-pill--dark">
-                <span class="cosplay-icon cosplay-icon--location-dark"></span>
-                <span>{{ item.location_tag }}</span>
-              </div>
-              <p class="cosplay-workshop-card__desc">{{ item.description }}</p>
-            </div>
-          </article>
-          {% if not loop.last %}
-            <div class="cosplay-ribbon cosplay-ribbon--mobile-only" aria-hidden="true"></div>
-          {% endif %}
+                <div class="cosplay-workshop-card__loc-heading">
+                  <span>{{ data.workshops.location_heading }}</span>
+                  <span>{{ item.room }}</span>
+                </div>
+                <div class="cosplay-workshop-card__body">
+                  <div class="cosplay-location-pill cosplay-location-pill--dark">
+                    <span class="cosplay-icon cosplay-icon--location-dark"></span>
+                    <span>{{ data.workshops.location_tag }}</span>
+                  </div>
+                  <p class="cosplay-workshop-card__desc">{{ item.description }}</p>
+                </div>
+              </article>
+            {% endif %}
+          {% endfor %}
         {% endfor %}
       </div>
       <section class="cosplay-masquerade" id="masquerade">
@@ -210,9 +233,7 @@
                     </a>
                   </div>
                 </article>
-                {% if not loop.last %}
-                  <div class="cosplay-ribbon cosplay-ribbon--mobile-only" aria-hidden="true"></div>
-                {% endif %}
+                {% if not loop.last %}<div class="cosplay-ribbon cosplay-ribbon--mobile-only" aria-hidden="true"></div>{% endif %}
               {% endfor %}
             </div>
             {% if loop.first %}
