@@ -1,0 +1,78 @@
+// Staff Applications Page
+.tf-staff-hero.page-hero-banner.tf-faq-hero {
+  background: #30293e url("img/staff/hero_staff.avif") no-repeat center / cover;
+}
+.tf-staff-intro {
+  font: 400 16px / 1.3 var(--tf-font-body);
+  color: var(--tf-ink);
+  p {
+    margin: 0 0 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  a {
+    color: var(--tf-accent);
+    text-decoration: underline;
+    text-underline-position: from-font;
+  }
+}
+.tf-staff-accordion-list {
+  width: 100%;
+  margin: 0;
+  .tf-staff-job-title {
+    @include tf-h2;
+    color: var(--tf-accent);
+  }
+  .tf-staff-accordion-panel {
+    @include flex-column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .tf-staff-job-body {
+    width: 100%;
+    font: 400 16px / 1.3 var(--tf-font-body);
+    h3 {
+      font: 700 20px / 1.1 var(--tf-font-body);
+      color: var(--tf-ink);
+      margin: 28px 0 18px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    :is(p, ul, ol) {
+      margin: 0 0 10px;
+    }
+    li {
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    > :first-child {
+      margin-top: 0;
+    }
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+  .tf-staff-apply-btn {
+    @include tf-pill;
+    padding: 14px 39px 14px 47px;
+    min-height: 0;
+    height: auto;
+    background-color: var(--tf-accent);
+    color: var(--tf-text-title-dark);
+    border: none;
+    box-shadow: none;
+    text-decoration: underline;
+    text-underline-position: from-font;
+    .tf-icon-chevron-right {
+      width: 8px;
+      height: 16px;
+      margin-left: 0;
+      background-color: currentColor;
+      @include mask-stretch-var(var(--tf-svg-hotels-chevron));
+    }
+  }
+}
