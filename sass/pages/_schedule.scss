@@ -67,12 +67,6 @@ body:has(.page-hero-banner.is-schedule) {
         width: $w;
       }
     }
-    &:hover {
-      box-shadow: var(--tf-drop-shadow-hover, 0 4px 22px 3px rgba(191, 52, 68, 0.5));
-    }
-    &:active {
-      box-shadow: none;
-    }
   }
   :is(.schedule-app-icon-wrap, .schedule-app-icon) {
     width: 50px;
@@ -206,10 +200,6 @@ body:has(.page-hero-banner.is-schedule) {
   :is(.schedule-badge-btn, .schedule-newsletter-btn) {
     background-color: var(--tf-accent, #bf3444);
     color: var(--tf-text-title-dark, #fffde7);
-    &:hover {
-      background-color: var(--tf-accent-hover, #a82a39);
-      box-shadow: var(--tf-drop-shadow-hover, 0 4px 22px 3px rgba(191, 52, 68, 0.5));
-    }
   }
   :is(.schedule-badge-btn, .schedule-discord-btn, .schedule-newsletter-btn) {
     font-weight: 500;
@@ -284,10 +274,6 @@ body:has(.page-hero-banner.is-schedule) {
   .schedule-discord-btn {
     background-color: var(--tf-text-title-dark, #fffde7);
     color: var(--tf-surface-dark, #30293e);
-    &:hover {
-      background-color: #f7f3da;
-      box-shadow: var(--tf-drop-shadow-hover, 0 4px 22px 3px rgba(191, 52, 68, 0.5));
-    }
   }
   .schedule-newsletter-form {
     flex-wrap: nowrap;

@@ -116,7 +116,6 @@ $home-tx: 300ms ease-out;
       box-shadow $home-tx;
 
     &:hover {
-      box-shadow: 0 4px 22px 3px rgba(191, 52, 68, 0.5);
       color: var(--tf-text-title-dark);
       transform: none;
     }

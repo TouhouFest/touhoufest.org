@@ -233,14 +233,6 @@ body:has(.tf-vendors-page-body) :is(main, .page-body-container.container.tf-vend
   font-size: 18px;
   line-height: 20px;
   transition: transform $v-tx, box-shadow $v-tx, background-color $v-tx, color $v-tx;
-  &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-  &:active {
-    transform: translateY(0);
-    box-shadow: none;
-  }
   .tf-v-btn-label {
     text-decoration: underline;
     text-underline-offset: auto;

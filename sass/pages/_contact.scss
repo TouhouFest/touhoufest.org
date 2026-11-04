@@ -227,12 +227,6 @@ body:has(.tf-contact-page) {
     background-color: var(--tf-accent);
     color: var(--tf-text-title-dark);
     align-self: flex-start;
-    &:hover {
-      background-color: #a82a39;
-    }
-    &:active {
-      background-color: #8f2230;
-    }
     &:is(:hover, :active) {
       color: #fffde7;
     }
@@ -244,19 +238,9 @@ body:has(.tf-contact-page) {
   }
   .contact-callout-card {
     border: none;
-    &:hover {
-      transform: none;
-      box-shadow: none;
-    }
     .tf-btn-pill-white {
       background-color: var(--tf-text-title-dark);
       color: var(--tf-ink);
-      &:hover {
-        background-color: #fbf7eb;
-      }
-      &:active {
-        background-color: #efe9d8;
-      }
       &:is(:hover, :active) {
         color: #221a28;
       }
@@ -339,14 +323,6 @@ body:has(.tf-contact-page) {
       .tf-form-select:invalid {
         color: rgba(251, 247, 235, 0.5);
       }
-    }
-    .tf-btn-contact-submit:hover {
-      background-color: #ffd369;
-      color: #511154;
-    }
-    .contact-callout-card .tf-btn-pill-white:hover {
-      background-color: #6a186e;
-      color: #fbf7eb;
     }
   }
 }

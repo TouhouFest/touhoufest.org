@@ -9,13 +9,20 @@
   text-decoration: none;
   cursor: pointer;
 }
+$tf-all-pill-btns: ":is(.tf-btn, .tf-btn-white, .tf-btn-pill-white, .tf-btn-pill-red, .tf-btn-pill-cream, .tf-mod-callout-btn, .tf-mod-ofuda-btn, .home-cta-btn, .ev-btn-red:not(.ev-btn-disabled), .ev-btn-cream, .guests-pill-btn, .guests-discord-btn, .guests-newsletter-btn, .cosplay-btn-red, .cosplay-btn-cream, .tf-artists-feat-btn, .tf-artists-ofuda-btn, .tf-artists-discord-btn, .tf-v-btn-red, .tf-v-btn-cream, .schedule-app-btn, .schedule-badge-btn, .schedule-discord-btn, .schedule-newsletter-btn, .arcade-cabinet-btn)";
+$tf-red-pill-btns: ":is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red, .tf-btn-contact-submit, .home-cta-btn:not(.home-cta-btn-ko), .ev-btn-red:not(.ev-btn-disabled), .cosplay-btn-red, .tf-artists-ofuda-btn, .tf-v-btn-red, .schedule-badge-btn, .schedule-newsletter-btn, .guests-newsletter-btn, .arcade-cabinet-btn, .gaming-pill-btn-red)";
+$tf-cream-pill-btns: ":is(.tf-btn-white, .tf-btn-pill-white, .tf-btn-pill-cream, .tf-mod-callout-btn, .tf-mod-ofuda-btn, .home-cta-btn-ko, .ev-btn-cream, .guests-pill-btn.is-light, .guests-discord-btn, .cosplay-btn-cream, .tf-artists-feat-btn, .tf-artists-discord-btn, .tf-v-btn-cream, .schedule-app-btn, .schedule-discord-btn, .gaming-pill-btn-cream)";
+$tf-btn-icons: ":is(.tf-btn-carrot, .home-cta-chevron, .faq-callout-chevron, .tf-icon-chevron-right, .schedule-btn-carrot, .schedule-app-ext, .ev-btn-caret, .gaming-caret-right, .cosplay-icon--caret-right-light, .cosplay-icon--caret-right-dark, .cosplay-icon--external-dark, .tf-artists-feat-btn-icon, .tf-artists-ofuda-btn-icon, .tf-artists-discord-btn-icon, .tf-v-btn-chevron, .tf-v-btn-chevron-cream)";
+
 .tf-btn {
   gap: 0.5rem;
   padding: 14px 39px 14px 47px;
   font: 800 1rem var(--tf-font-heading);
   border: 2px solid transparent;
-  transition: background-color 300ms ease-out, color 300ms ease-out, border-color 300ms ease-out;
   min-height: 44px;
+}
+#{$tf-all-pill-btns} {
+  transition: background-color 300ms ease-out, color 300ms ease-out, border-color 300ms ease-out;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -36,8 +43,13 @@
 
 :is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red) {
   background-color: var(--tf-color-red, #bf3444);
+}
+#{$tf-red-pill-btns} {
   &::before {
     background: linear-gradient(90deg, #bf3444 25%, #ff4949 80%);
+  }
+  &:hover::before {
+    opacity: 1;
   }
   &:active {
     background-color: #ff4949;
@@ -92,18 +104,17 @@
   text-decoration-skip-ink: none;
   white-space: nowrap;
 }
-:is(.tf-btn-white, .tf-btn-pill-white) {
+#{$tf-cream-pill-btns} {
   &::before {
     background: linear-gradient(90deg, #fffde7 40.9%, #ff4949 100%);
+  }
+  &:hover::before {
+    opacity: 1;
   }
   &:active::before {
     background: linear-gradient(90deg, #ffffff 0%, #ff4949 100%);
     opacity: 1;
   }
-}
-:is(.tf-btn-primary, .tf-btn-danger, .tf-btn-pill-red):hover::before,
-:is(.tf-btn-white, .tf-btn-pill-white):hover::before {
-  opacity: 1;
 }
 
 .tf-btn-carrot {
@@ -117,10 +128,15 @@
   mask: url("#{$svg-chevron-right}") no-repeat center / contain;
   transform: none;
   flex-shrink: 0;
+}
+#{$tf-all-pill-btns} #{$tf-btn-icons} {
   transition: transform 300ms ease-out;
 }
-:is(.tf-btn:hover, a:hover, button:hover) .tf-btn-carrot {
-  transform: translateX(2px);
+#{$tf-all-pill-btns}:hover #{$tf-btn-icons} {
+  transform: translateX(10px);
+}
+#{$tf-all-pill-btns}:active #{$tf-btn-icons} {
+  transform: translateX(0);
 }
 
 @media screen and (max-width: 768px) {
