@@ -22,7 +22,7 @@ jobs:
           tool: zola@0.23.6,just@1.58.0,dprint@0.57.4
 
       - name: Install djlint
-        run: pipx install djlint
+        run: pipx install djlint==1.44.2
 
       - name: Run verification checks
         run: just check

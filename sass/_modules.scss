@@ -750,8 +750,8 @@
   justify-content: center;
 }
 .news-post-banner {
-  padding-top: 140px;
-  padding-bottom: 64px;
+  min-height: 403px;
+  padding: 207px 32px 64px;
 }
 .news-body {
   width: min(850px, calc(100% - 62px));
@@ -874,6 +874,10 @@
 @media screen and (max-width: 768px) {
   .news-hero-banner {
     min-height: 360px;
+  }
+  .news-post-banner {
+    min-height: 320px;
+    padding: 160px 16px 48px;
   }
   .news-grid {
     grid-template-columns: 1fr;

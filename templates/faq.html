@@ -4,13 +4,10 @@
 {% endblock header %}
 {% block content %}
   {%- set faq_data = load_data(path="data/faq.yml") -%}
-  {%- set sfx = "th,st,nd,rd,th,th,th,th,th,th,th,th,th,th,th,th,th,th,th,th,th,st,nd,rd,th,th,th,th,th,th,th,st" | split(pat=",") -%}
-  {%- set event_year = config.extra.event_end | date(format="%Y") -%}
-  {%- set pc = config.extra.deadlines.preregistration_close -%}
-  {%- set pc_day = (pc | date(format="%A, %B %-d")) ~ sfx[pc | date(format="%-d") | int] ~ (pc | date(format=" %Y")) -%}
-  {%- set pc_short = (pc | date(format="%B %-d")) ~ sfx[pc | date(format="%-d") | int] ~ (pc | date(format=" %Y")) -%}
-  {%- set br = config.extra.deadlines.badge_refund -%}
-  {%- set br_short = (br | date(format="%B %-d")) ~ sfx[br | date(format="%-d") | int] ~ (br | date(format=" %Y")) -%}
+  {%- set event_year = <event_date format="year" /> | trim -%}
+  {%- set pc_day = <deadline_date key="preregistration_close" format="day_no_comma" /> | trim -%}
+  {%- set pc_short = <deadline_date key="preregistration_close" format="no_comma" /> | trim -%}
+  {%- set br_short = <deadline_date key="badge_refund" format="no_comma" /> | trim -%}
   <div class="tf-faq-page-body">
     <div class="tf-faq-container">
       {%- for qa in faq_data.items -%}
