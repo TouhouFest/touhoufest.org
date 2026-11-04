@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="news-page">
+    <section class="tf-hero-banner page-hero-banner news-hero-banner">
+      <div class="divider-wave-bottom" aria-hidden="true"></div>
+      <div class="tf-hero-container">
+        <div class="tf-hero-box">
+          <h1 class="tf-hero-title">{{ section.title }}</h1>
+        </div>
+      </div>
+    </section>
+    <div class="news-body">
+      {%- if section.pages | length > 0 -%}
+        <div class="news-grid">
+          {%- for post in section.pages -%}
+            <article class="news-card">
+              {%- if post.extra.icon is defined and post.extra.icon -%}
+                <div class="news-card-icon">
+                  <img src="{{ <img_url path={post.extra.icon} /> }}"
+                       alt=""
+                       width="100"
+                       height="100"
+                       loading="lazy"
+                       decoding="async">
+                </div>
+              {%- endif -%}
+              <div class="news-card-content">
+                <div class="news-card-header">
+                  <h2 class="news-card-title">
+                    <a href="{{ post.permalink | safe }}">{{ post.title }}</a>
+                  </h2>
+                  {%- if post.date -%}
+                    <time class="news-card-date" datetime="{{ post.date }}">{{ post.date | date(format="%B %-d, %Y") }}</time>
+                  {%- endif -%}
+                </div>
+                <div class="news-card-excerpt">
+                  {%- if post.summary -%}
+                    {{ post.summary | safe }}
+                  {%- elif post.description -%}
+                    <p>{{ post.description }}</p>
+                  {%- else -%}
+                    <p>{{ post.content | striptags | truncate(length=220) }}</p>
+                  {%- endif -%}
+                </div>
+                <div class="news-card-footer">
+                  <a class="news-read-more" href="{{ post.permalink | safe }}">
+                    <span>Read more</span>
+                    <span class="tf-icon tf-icon-chevron-right" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      <div class="news-callouts">
+        {{ <newsletter extra_class="news-newsletter-callout" /> }}
+        <div class="tf-mod-callout tf-mod-callout--horiz is-discord news-discord-callout">
+          <div class="tf-mod-callout-icon">
+            <img src="{{ <img_url path="img/discord_card_icon.svg" /> }}"
+                 alt="Discord"
+                 width="100"
+                 height="100"
+                 loading="lazy"
+                 decoding="async">
+          </div>
+          <div class="tf-mod-callout-copy">
+            <h2 class="tf-mod-callout-title">Join the community on Discord</h2>
+            <p class="tf-mod-callout-desc">Join our community on the TouhouFest Official Discord server!</p>
+            <div>
+              <a href="{{ config.extra.socials.discord_invite | default(value='https://discord.gg/touhoufest') }}"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="tf-btn tf-btn-pill-white tf-mod-callout-btn">
+                <span>Join Discord</span>
+                <span class="tf-icon tf-icon-chevron-right ml-1" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

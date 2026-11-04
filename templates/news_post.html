@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="news-page news-post-page">
+    <section class="tf-mod-divider news-post-banner">
+      <div class="tf-mod-divider-bg" aria-hidden="true">
+        <img src="{{ <img_url path="hero.avif" /> }}" alt="" fetchpriority="high">
+      </div>
+      <div class="tf-mod-divider-vignette" aria-hidden="true"></div>
+      <div class="tf-mod-divider-inner">
+        <h1 class="tf-mod-divider-title">{{ page.title }}</h1>
+        {%- if page.date -%}
+          <p class="tf-mod-divider-subtitle">{{ page.date | date(format="%B %-d, %Y") }}</p>
+        {%- endif -%}
+      </div>
+      <div class="tf-mod-divider-bottom" aria-hidden="true"></div>
+    </section>
+    <div class="news-body">
+      <article class="news-post-article">
+        <div class="news-post-content">{{ page.content | safe }}</div>
+        <div class="news-post-back">
+          <a class="news-back-link" href="{{ get_url(path='news') }}">
+            <span class="tf-icon tf-icon-chevron-right news-back-chevron"
+                  aria-hidden="true"></span>
+            <span>Return to News</span>
+          </a>
+        </div>
+      </article>
+      <div class="news-callouts">
+        {{ <newsletter extra_class="news-newsletter-callout" /> }}
+        <div class="tf-mod-callout tf-mod-callout--horiz is-discord news-discord-callout">
+          <div class="tf-mod-callout-icon">
+            <img src="{{ <img_url path="img/discord_card_icon.svg" /> }}"
+                 alt="Discord"
+                 width="100"
+                 height="100"
+                 loading="lazy"
+                 decoding="async">
+          </div>
+          <div class="tf-mod-callout-copy">
+            <h2 class="tf-mod-callout-title">Join the community on Discord</h2>
+            <p class="tf-mod-callout-desc">Join our community on the TouhouFest Official Discord server!</p>
+            <div>
+              <a href="{{ config.extra.socials.discord_invite | default(value='https://discord.gg/touhoufest') }}"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="tf-btn tf-btn-pill-white tf-mod-callout-btn">
+                <span>Join Discord</span>
+                <span class="tf-icon tf-icon-chevron-right ml-1" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

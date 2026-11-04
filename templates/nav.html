@@ -1,6 +1,7 @@
 {# ==========================================================================
    Header & Navigation
    ========================================================================== #}
+{%- set news_section = get_section(path="news/_index.md") -%}
 <header class="tf-header">
   <div class="tf-nav-surface">
     <nav class="tf-nav-inner" role="navigation" aria-label="main navigation">
@@ -95,6 +96,13 @@
                  href="{{ get_url(path='about/event') }}">
                 <span>General Event Info</span>
               </a>
+              {%- if news_section.pages | length > 0 -%}
+                <a class="tf-nav-dropdown-item"
+                   role="menuitem"
+                   href="{{ get_url(path='news') }}">
+                  <span>News</span>
+                </a>
+              {%- endif -%}
               <a class="tf-nav-dropdown-item"
                  role="menuitem"
                  href="{{ get_url(path='schedule') }}">
@@ -213,6 +221,9 @@
         </summary>
         <div class="tf-mobile-submenu">
           <a class="tf-mobile-sublink" href="{{ get_url(path='about/event') }}">General Event Info</a>
+          {%- if news_section.pages | length > 0 -%}
+            <a class="tf-mobile-sublink" href="{{ get_url(path='news') }}">News</a>
+          {%- endif -%}
           <a class="tf-mobile-sublink" href="{{ get_url(path='schedule') }}">{{ <event_date format="year" /> }} Schedule</a>
           <a class="tf-mobile-sublink" href="{{ get_url(path='about/hotels') }}">Hotel Blocks</a>
           <a class="tf-mobile-sublink"
