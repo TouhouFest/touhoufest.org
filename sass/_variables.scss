@@ -122,6 +122,10 @@
     linear-gradient($deg, var(--tf-canvas-bg) 28.353%, var(--tf-canvas-end) 93.86%);
 }
 
+@function tf-round($val, $scale: 1) {
+  @return round($val * $scale) / $scale;
+}
+
 @function tf-mesh-ray($color, $cx, $cy, $rx-ratio, $ry-ratio, $w, $h, $axis: "y") {
   $rx: $rx-ratio * $w;
   $ry: $ry-ratio * $h;
@@ -132,20 +136,20 @@
   $smid: $b + 0.45 * (1 - $b);
   $rx-out: if($axis == "x", $rx + $pad, ($rx + 0.45 * $pad) / $smid);
   $ry-out: if($axis == "y", $ry + $pad, ($ry + 0.45 * $pad) / $smid);
-  $rx-pct: ($rx-out / $w) * 100%;
-  $ry-pct: ($ry-out / $h) * 100%;
+  $rx-pct: tf-round(($rx-out / $w) * 100%);
+  $ry-pct: tf-round(($ry-out / $h) * 100%);
   $att: ($rx / ($rx + 35)) * ($ry / ($ry + 35));
-  $s1: $b * 100%;
-  $s2: ($b + 0.25 * (1 - $b)) * 100%;
-  $s3: ($b + 0.5 * (1 - $b)) * 100%;
-  $s4: ($b + 0.75 * (1 - $b)) * 100%;
+  $s1: tf-round($b * 100%);
+  $s2: tf-round(($b + 0.25 * (1 - $b)) * 100%);
+  $s3: tf-round(($b + 0.5 * (1 - $b)) * 100%);
+  $s4: tf-round(($b + 0.75 * (1 - $b)) * 100%);
   @return radial-gradient(
     ellipse $rx-pct $ry-pct at $cx $cy,
-    rgba($color, 0.9 * $att) 0%,
-    rgba($color, 0.52 * $att) $s1,
-    rgba($color, 0.33 * $att) $s2,
-    rgba($color, 0.17 * $att) $s3,
-    rgba($color, 0.06 * $att) $s4,
+    rgba($color, tf-round(0.9 * $att, 100)) 0%,
+    rgba($color, tf-round(0.52 * $att, 100)) $s1,
+    rgba($color, tf-round(0.33 * $att, 100)) $s2,
+    rgba($color, tf-round(0.17 * $att, 100)) $s3,
+    rgba($color, tf-round(0.06 * $att, 100)) $s4,
     rgba($color, 0) 100%
   );
 }
@@ -153,17 +157,17 @@
 @function tf-rainbow-mesh-layers($w, $h, $far: false) {
   @if $far {
     @return (
-      tf-mesh-ray(#d505ff, 180.785%, -75.033%, 0.25521, 0.4548, $w, $h, "x"),
-      tf-mesh-ray(#1f90ba, 19.153%, -124.186%, 0.3125, 0.4887, $w, $h, "y"),
-      tf-mesh-ray(#ff4949, -48.903%, 187.113%, 0.27431, 0.4322, $w, $h, "x"),
-      tf-mesh-ray(#ffde05, 72.278%, 212.254%, 0.27431, 0.43503, $w, $h, "y")
+      tf-mesh-ray(#d505ff, 181%, -75%, 0.25521, 0.4548, $w, $h, "x"),
+      tf-mesh-ray(#1f90ba, 19%, -124%, 0.3125, 0.4887, $w, $h, "y"),
+      tf-mesh-ray(#ff4949, -49%, 187%, 0.27431, 0.4322, $w, $h, "x"),
+      tf-mesh-ray(#ffde05, 72%, 212%, 0.27431, 0.43503, $w, $h, "y")
     );
   }
   @return (
-    tf-mesh-ray(#d505ff, 128.702%, -24.186%, 0.25521, 0.4548, $w, $h, "x"),
-    tf-mesh-ray(#1f90ba, 19.153%, -56.39%, 0.3125, 0.4887, $w, $h, "y"),
-    tf-mesh-ray(#ff4949, -35.014%, 119.316%, 0.27431, 0.4322, $w, $h, "x"),
-    tf-mesh-ray(#ffde05, 72.278%, 155.757%, 0.27431, 0.43503, $w, $h, "y")
+    tf-mesh-ray(#d505ff, 129%, -24%, 0.25521, 0.4548, $w, $h, "x"),
+    tf-mesh-ray(#1f90ba, 19%, -56%, 0.3125, 0.4887, $w, $h, "y"),
+    tf-mesh-ray(#ff4949, -35%, 119%, 0.27431, 0.4322, $w, $h, "x"),
+    tf-mesh-ray(#ffde05, 72%, 156%, 0.27431, 0.43503, $w, $h, "y")
   );
 }
 

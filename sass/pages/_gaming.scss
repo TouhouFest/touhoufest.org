@@ -589,9 +589,6 @@ body:has(.gaming-page-shell) {
     width: 99.89%;
     height: 362px;
   }
-  .gaming-badge-cta-gradient {
-    @include tf-rainbow-mesh(849.088, 342.819, true);
-  }
   .gaming-badge-cta-stroke {
     border: 15px solid var(--tf-accent);
     border-bottom: none;

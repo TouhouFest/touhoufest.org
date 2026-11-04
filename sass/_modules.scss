@@ -1140,21 +1140,30 @@ body:has(:is(.tf-page-canvas, .guidelines-page-wrapper)) main {
   transition: 300ms ease-out;
   transition-property: transform, box-shadow, border-color, background-color;
   --tf-reg-card-grad: #fcf1e8;
-  @each $mod, $h, $vw, $vh in
-    (
-      (3col, 283px, 263.056, 290.204), (2col, 296px, 406.633, 303.535), (team, 275px, 406.633, 282)
-    ) {
-    &.is-#{$mod} {
-      height: $h;
-      min-height: $h;
-      background:
-        tf-rainbow-mesh-layers($vw, $vh),
-        linear-gradient(114.21deg, var(--tf-reg-card-grad) 55.472%, rgba(46, 40, 60, 0) 89.517%);
-    }
-  }
+  background:
+    var(--tf-app-mesh),
+    linear-gradient(114.21deg, var(--tf-reg-card-grad) 55.472%, rgba(46, 40, 60, 0) 89.517%);
   &.is-3col {
+    height: 283px;
+    min-height: 283px;
     padding: 48px 36px;
+    --tf-app-mesh: #{tf-rainbow-mesh-layers(263.056, 290.204)};
   }
+  &.is-2col {
+    height: 296px;
+    min-height: 296px;
+    --tf-app-mesh: #{tf-rainbow-mesh-layers(406.633, 303.535)};
+  }
+  &.is-team {
+    height: 275px;
+    min-height: 275px;
+  }
+}
+:is(.app-card.is-team, .ev-app-card-svg) {
+  --tf-app-mesh: #{tf-rainbow-mesh-layers(406.633, 282)};
+}
+:is(.ev-badge-cta-grad, .gaming-badge-cta-gradient) {
+  @include tf-rainbow-mesh(849.088, 342.819, true);
 }
 .app-card-inner {
   width: 100%;
