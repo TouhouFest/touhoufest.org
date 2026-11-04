@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   {% set ev = load_data(path="data/event.yml") -%}
+  {% set shared = load_data(path="data/shared.yml") -%}
   <div class="ev-page">
     <section class="ev-intro">
       <div class="tf-hero-banner ev-hero">
@@ -161,23 +162,23 @@
         </div>
       </div>
       <div class="ev-maps-body tf-mod-map">
-        {% for tab in ev.maps.tabs -%}
+        {% for tab in shared.maps.tabs -%}
           <input type="radio"
                  name="tf-event-map-tab"
                  id="tf-map-tab-{{ loop.index }}"
                  class="tf-mod-map-radio"
-                 {% if tab.active %} checked{% endif %}>
+                 {% if loop.first %} checked{% endif %}>
         {% endfor -%}
         <div class="ev-map-tabs tf-mod-map-tabs"
              role="tablist"
              aria-label="{{ ev.maps.tabs_aria }}">
-          {% for tab in ev.maps.tabs -%}
+          {% for tab in shared.maps.tabs -%}
             <label for="tf-map-tab-{{ loop.index }}"
                    class="ev-map-tab tf-mod-map-tab tf-mod-map-tab--{{ loop.index }}">{{ tab.label }}</label>
           {% endfor -%}
         </div>
         <div class="ev-map-frame tf-mod-map-stage">
-          {% for tab in ev.maps.tabs -%}
+          {% for tab in shared.maps.tabs -%}
             <div class="tf-mod-map-panel tf-mod-map-panel--{{ loop.index }}">
               <img src="{{ <img_url path={tab.image} /> }}"
                    alt="{{ tab.alt }}"

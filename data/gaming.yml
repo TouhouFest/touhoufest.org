@@ -187,19 +187,6 @@ maps:
   title_mobile: "TouhouFest Event Maps"
   image: "/img/gaming/event_map.png"
   alt: "TouhouFest Event Map"
-  tabs:
-    - label: "Event Map"
-      image: "/img/gaming/event_map.png"
-      alt: "TouhouFest Event Map"
-      active: false
-    - label: "Artist Alley Map"
-      image: "img/Toyota_Hall_2025_TF_AA_final copy.png"
-      alt: "TouhouFest Artist Alley Map"
-      active: false
-    - label: "Vendors Map"
-      image: "img/TF_2025_Festival_Plaza Vendors Final.png"
-      alt: "TouhouFest Vendors Map"
-      active: true
 
 badge_cta:
   title: "Full Weekend Badge"
