@@ -211,6 +211,23 @@ $home-tx: 300ms ease-out;
     background: linear-gradient(180.49deg, rgba(93, 4, 5, 0.72) 5.57%, rgba(48, 41, 62, 0.55) 100%);
     @include flex-col-center;
     text-align: center;
+    &::before {
+      content: "";
+      @include absolute-fill;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255, 60, 132, 0.72) 0%, rgba(184, 5, 154, 0) 100%);
+      opacity: 0;
+      transition: opacity $home-tx;
+      pointer-events: none;
+      z-index: 0;
+    }
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+    &:hover::before {
+      opacity: 1;
+    }
   }
 
   .home-hero-title {
@@ -377,7 +394,7 @@ $home-tx: 300ms ease-out;
       content: "";
       position: absolute;
       inset: -14px -6px -14px -6px;
-      border: 7px solid #ff4949;
+      border: 7px solid var(--tf-hover-accent);
       border-radius: 50%;
       opacity: 0;
       transform: scale(0.89) rotate(-39.8deg);

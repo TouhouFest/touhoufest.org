@@ -88,9 +88,6 @@ body:has(.page-hero-hotels) {
       box-shadow $hotels-tx;
     background-color: var(--tf-accent);
     color: var(--tf-text-title-dark);
-    &:hover {
-      box-shadow: 0 4px 22px 3px rgba(191, 52, 68, 0.5);
-    }
   }
 
   :is(.hotels-discord, .tf-teaser-card) .tf-mod-callout-btn {

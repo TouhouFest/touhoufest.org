@@ -179,9 +179,12 @@
   font: 400 16px / 1.3 "Open Sans", sans-serif;
   cursor: pointer;
   user-select: none;
-  transition: background-color 300ms ease-out, color 300ms ease-out;
+  transition: background-color 300ms ease-out, color 300ms ease-out, font-size 300ms ease-out;
   &:hover {
-    background-color: rgba(191, 52, 68, 0.12);
+    background-color: var(--tf-cosplay-tab-hover-bg);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
   }
   &--middle {
     border-inline: 1px solid var(--tf-accent);
