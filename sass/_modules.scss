@@ -215,7 +215,7 @@
     }
   }
 }
-:is(.gaming-discord-cta-card, .guests-discord-card, .intro-discord-card) {
+:is(.gaming-discord-cta-card, .guests-discord-card) {
   box-shadow: 3px 4px 13px 3px rgba(99, 15, 40, 0.15);
 }
 .tf-mod-callout--horiz {
@@ -1096,7 +1096,7 @@ body:has(:is(.tf-page-canvas, .guidelines-page-wrapper)) main {
     font-weight: 700;
     color: inherit;
   }
-  a {
+  a:not(.tf-btn-pill-red, .tf-btn-pill-cream) {
     color: var(--tf-accent, #bf3444);
     text-decoration: underline;
     font-weight: inherit;

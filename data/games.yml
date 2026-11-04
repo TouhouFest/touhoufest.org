@@ -79,6 +79,9 @@
 
 "
       image: /img/Th19cover.png
+    - name: "Touhou 20: 東方錦上京 ～ Fossilized Wonders"
+      desc: "A subtle, little-known incident is unfolding in Gensokyo as the same day quietly repeats itself. Tracing the disturbance to an untouchable sanctuary at the foot of Youkai Mountain, Reimu Hakurei and Marisa Kirisame arm themselves with mysterious Incident Stones imbued with the residual power of past resolved incidents—discovering that the sealed pyramid sanctuary resonates directly with their stones."
+      image: /img/Th20cover.jpg
 - name: PC-98 Era
   desc: The first five games in the Touhou Project series were made for the NEC PC-98 computer by a doujin circle known as Amusement Makers, of which ZUN was a part, hence why these games are usually referred and grouped separately.
   games:
