@@ -35,13 +35,16 @@
     h3 {
       font: 700 20px / 1.1 var(--tf-font-body);
       color: var(--tf-ink);
-      margin: 28px 0 18px;
+      margin: 34px 0 18px;
       &:first-child {
         margin-top: 0;
       }
     }
     :is(p, ul, ol) {
       margin: 0 0 10px;
+    }
+    :is(ul, ol) {
+      padding-left: 24px;
     }
     li {
       margin-bottom: 10px;
@@ -58,7 +61,6 @@
   }
   .tf-staff-apply-btn {
     @include tf-pill;
-    font-weight: 600;
     padding: 14px 39px 14px 47px;
     min-height: 0;
     height: auto;
