@@ -1,78 +1,94 @@
 {% extends "base.html" %}
 {% block header %}
-  <section class="page-hero-banner guidelines-hero-banner">
-    <div class="guidelines-hero-container">
-      <div class="tf-hero-box guidelines-hero-box">
-        <h1 class="tf-hero-title guidelines-hero-title">{{ section.title }}</h1>
-      </div>
-    </div>
-  </section>
+  {{ <page_header title={section.title} extra_class="tf-faq-hero tf-staff-hero" hide_bottom_wave={true} /> }}
 {% endblock header %}
 {% block content %}
-  {%- set data = load_data(path="data/guidelines.yml") -%}
-  <div class="guidelines-page-wrapper">
-    <div class="guidelines-content-container">
-      <div class="guidelines-markdown-body">{{ section.content | safe }}</div>
+  {%- set faq_data = load_data(path="data/faq.yml") -%}
+  {%- set default_apply_url = section.extra.apply_url | default(value="") -%}
+  {%- set default_apply_label = section.extra.apply_label | default(value="Apply Here") -%}
+  <div class="tf-faq-page-body">
+    <div class="tf-faq-container">
+      <div class="tf-staff-intro">{{ section.content | safe }}</div>
       <div class="tf-staff-accordion-list">
         {%- for job in section.pages -%}
+          {%- set job_apply_url = job.extra.apply_url | default(value=default_apply_url) -%}
+          {%- set job_apply_label = job.extra.apply_label | default(value=default_apply_label) -%}
           <details class="tf-accordion">
             <summary class="tf-faq-summary">
               <div class="tf-faq-summary-row tf-accordion-header">
-                <span class="tf-faq-q-text">{{ job.title }}</span>
+                <span class="tf-faq-q-text tf-staff-job-title">{{ job.title }}</span>
                 <span class="tf-faq-toggle-icon tf-accordion-toggle--plus"
                       aria-hidden="true"></span>
               </div>
               <div class="tf-faq-divider"></div>
             </summary>
-            <div class="tf-accordion-content guidelines-markdown-body tf-staff-job-body">{{ job.content | safe }}</div>
+            <div class="tf-accordion-content tf-staff-accordion-panel">
+              <div class="guidelines-markdown-body tf-staff-job-body">{{ job.content | safe }}</div>
+              {%- if job_apply_url -%}
+                <a href="{{ job_apply_url }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="tf-btn tf-btn-danger tf-staff-apply-btn">
+                  <span>{{ job_apply_label }}</span>
+                  <span class="tf-icon tf-icon-chevron-right"></span>
+                </a>
+              {%- endif -%}
+            </div>
           </details>
         {%- endfor -%}
       </div>
-      {%- if section.extra.apply_url -%}
-        <div class="tf-staff-apply-cta">
-          <a href="{{ section.extra.apply_url }}"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="tf-btn tf-btn-danger">
-            <span>{{ section.extra.apply_label | default(value="Apply here!") }}</span>
-            <span class="tf-icon tf-icon-chevron-right ml-1"></span>
-          </a>
-        </div>
-      {%- endif -%}
-      <div class="guidelines-callouts-container">
-        {% for card in data.callouts %}
-          <div class="tf-mod-callout tf-mod-callout--horiz guidelines-callout-card {% if loop.index == 1 %}is-red{% else %}is-discord{% endif %}">
-            <div class="tf-mod-callout-icon guidelines-card-icon-col">
-              <img src="{{ <img_url path={card.image} /> }}"
-                   alt="{{ card.title }}"
-                   class="{% if loop.index == 1 %}guidelines-faq-mascot{% else %}discord-card-icon{% endif %}"
-                   loading="lazy"
-                   decoding="async" />
+    </div>
+    <div class="tf-faq-callouts-container tf-mod-callout-grid">
+      {%- for card in faq_data.callouts -%}
+        <div class="faq-callout-card tf-mod-callout tf-mod-callout--vert {% if loop.index == 1 %}faq-callout-card-guidelines is-red{% else %}faq-callout-card-discord is-discord{% endif %}">
+          <div class="faq-callout-icon-wrap tf-mod-callout-icon">
+            {%- if loop.index == 1 -%}
+              <img src="{{ <img_url path="img/guidelines_icon.svg" /> }}"
+                   alt=""
+                   aria-hidden="true"
+                   width="100"
+                   height="100"
+                   class="faq-callout-icon" />
+            {%- else -%}
+              <span class="faq-discord-icon" aria-hidden="true"></span>
+            {%- endif -%}
+          </div>
+          <div class="faq-callout-content">
+            <div class="faq-callout-copy tf-mod-callout-copy">
+              <h3 class="faq-callout-title tf-mod-callout-title">{{ card.title }}</h3>
+              <p class="faq-callout-desc tf-mod-callout-desc">
+                {%- if loop.index == 1 and section.extra.guidelines_callout_desc -%}
+                  {{ section.extra.guidelines_callout_desc }}
+                {%- else -%}
+                  {{ card.desc }}
+                {%- endif -%}
+              </p>
             </div>
-            <div class="tf-mod-callout-copy guidelines-card-content-col">
-              <h2 class="tf-mod-callout-title guidelines-card-title">{{ card.title }}</h2>
-              <p class="tf-mod-callout-desc guidelines-card-desc">{{ card.description }}</p>
-              <div>
-                {% if loop.index == 2 %}
-                  <a href="{{ card.button_url }}"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     class="tf-btn tf-btn-pill-white tf-mod-callout-btn">
-                    <span>{{ card.button_text }}</span>
-                    <span class="tf-icon tf-icon-chevron-right ml-1"></span>
-                  </a>
-                {% else %}
-                  <a href="{{ get_url(path=card.button_url) }}"
-                     class="tf-btn tf-btn-pill-white tf-mod-callout-btn">
-                    <span>{{ card.button_text }}</span>
-                    <span class="tf-icon tf-icon-chevron-right ml-1"></span>
-                  </a>
-                {% endif %}
-              </div>
+            <div class="faq-callout-btn-wrap">
+              {%- if card.btn_url -%}
+                <a class="faq-callout-btn tf-mod-callout-btn tf-btn tf-btn-white"
+                   href="{{ card.btn_url }}"
+                   target="_blank"
+                   rel="noopener noreferrer">
+              {%- else -%}
+                <a class="faq-callout-btn tf-mod-callout-btn tf-btn tf-btn-white"
+                   href="{{ get_url(path=card.btn_path) }}">
+              {%- endif -%}
+                <span>{{ card.btn_label }}</span>
+                <svg class="faq-callout-chevron"
+                     width="15"
+                     height="16"
+                     viewBox="0 0 15 16"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg"
+                     aria-hidden="true">
+                  <path d="M11.3924 8.25644C11.8025 7.83806 11.8025 7.1586 11.3924 6.74021L5.09368 0.31379C4.6836 -0.104597 4.01764 -0.104597 3.60756 0.313789C3.19748 0.732176 3.19748 1.41164 3.60756 1.83002L9.16491 7.5L3.61084 13.17C3.20076 13.5884 3.20076 14.2678 3.61084 14.6862C4.02091 15.1046 4.68688 15.1046 5.09695 14.6862L11.3957 8.25979L11.3924 8.25644Z" fill="currentColor" />
+                </svg>
+              </a>
             </div>
           </div>
-        {% endfor %}
-      </div>
+        </div>
+      {%- endfor -%}
     </div>
   </div>
 {% endblock content %}

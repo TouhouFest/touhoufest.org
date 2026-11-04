@@ -1,5 +1,5 @@
 +++
-title = "Staff Applications"
+title = "Open Staff Positions"
 description = "Open staff positions and volunteer team opportunities for TouhouFest."
 template = "staff.html"
 sort_by = "weight"
@@ -7,7 +7,8 @@ aliases = ["staff-applications"]
 
 [extra]
 apply_url = "https://docs.google.com/forms/d/e/1FAIpQLScbV6NUt0eKrkXwlx_TCypdyorT0TJBurbE_9mhq13xIWRCvg/viewform?usp=sf_link"
-apply_label = "Apply here!"
+apply_label = "Apply Here"
+guidelines_callout_desc = "Before applying, please be sure to check these guidelines!"
 +++
 
 Staff are the backbone of any active fan convention. They’re the hardworking volunteers that make

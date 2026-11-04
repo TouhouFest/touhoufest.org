@@ -1,17 +1,16 @@
 +++
 title = "Cosplay Coordinator"
 weight = 1
+
+[extra]
+apply_url = "https://docs.google.com/forms/d/e/1FAIpQLSe7jRC6iQ56-LyPU2sIxXMgiHRl57NtrVo2BCfFpOhsAn8_og/viewform"
 +++
 
-»»»»»
-[APPLY HERE](https://docs.google.com/forms/d/e/1FAIpQLSe7jRC6iQ56-LyPU2sIxXMgiHRl57NtrVo2BCfFpOhsAn8_og/viewform)
-«««««
+### Basic Information
 
-**<ins>Basic Information</ins>**
+**Job Title:** Cosplay Coordinator
 
-**Job Title: Cosplay Coordinator**
-
-**Department: Public Relations**
+**Department:** Public Relations
 
 **Reports To:** Cosplay Manager
 
@@ -19,9 +18,9 @@ weight = 1
 
 **Job Type:** Program Coordinator
 
-**Location: Online and In Person**
+**Location:** Online and In Person
 
-**<ins>Position Overview</ins>**
+### Position Overview
 
 The Cosplay Coordinator will function as both the judge for the contest and the organizer. The
 Cosplay Coordinator is in charge of making/approving applications for the craftsmanship,
@@ -31,22 +30,22 @@ intros, and write a script for the contest. This role will be assisted by the Co
 Public Relations Director, but ultimately will need to complete every task related to the
 competition on their own.
 
-**<ins>Staff Duties</ins>**
+### Staff Duties
 
-1. Host the cosplay contest
-2. Write a script for the cosplay contest
-3. Judge the cosplay contest
-4. Create and approve applications for the cosplay contest
+- Host the cosplay contest
+- Write a script for the cosplay contest
+- Judge the cosplay contest
+- Create and approve applications for the cosplay contest
 
-**<ins>Requirements</ins>**
+### Requirements
 
-1. In person organization on the dates of the TouhouFest event
-2. Online availability at least 8 hours a month to assist with department needs
-3. Experience creating their own cosplays
+- In person organization on the dates of the TouhouFest event
+- Online availability at least 8 hours a month to assist with department needs
+- Experience creating their own cosplays
 
-**<ins>Preferences</ins>**
+### Preferences
 
-1. Experience hosting or judging a cosplay competition
-2. Experience using or creating patterns for sewing
-3. Experience both with a sewing machine and hand sewing
-4. A small following on social media, over 1k followers on either Twitter, Instagram, or Blue Sky
+- Experience hosting or judging a cosplay competition
+- Experience using or creating patterns for sewing
+- Experience both with a sewing machine and hand sewing
+- A small following on social media, over 1k followers on either Twitter, Instagram, or Blue Sky
