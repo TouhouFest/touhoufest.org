@@ -181,11 +181,13 @@ body:has(.page-hero-hotels) {
   color: var(--tf-ink);
 }
 .hotels-sublead a {
-  color: inherit;
+  color: var(--tf-accent);
   font-weight: 400;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color $hotels-tx;
   &:hover {
-    text-decoration: underline;
+    color: var(--tf-accent-hover);
   }
 }
 

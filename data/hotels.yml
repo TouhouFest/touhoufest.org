@@ -1,6 +1,5 @@
 intro_blocks:
-  - heading: "Official Event Hotel blocks"
-    sublead: 'Booking with the below hotel(s) supports TouhouFest, so it is strongly recommended that attendees book in the hotels listed above. In the event that there are no more available rooms, or the options do not suit your needs, alternative accommodations nearby can be found on this <a href="https://www.google.com/maps/search/hotels+near+Torrance+Cultural+Arts+Center,+Civic+Center+Drive,+Torrance,+CA/@33.830818,-118.3609346,14z?entry=ttu&g_ep=EgoyMDI1MDMyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Google Maps view</a>.'
+  - sublead: 'Booking with the above hotel(s) supports TouhouFest, so it is strongly recommended that attendees book in the hotels listed above. In the event that there are no more available rooms, or the options do not suit your needs, alternative accommodations nearby can be found on this <a href="https://www.google.com/maps/search/hotels+near+Torrance+Cultural+Arts+Center,+Civic+Center+Drive,+Torrance,+CA/@33.830818,-118.3609346,14z?entry=ttu&g_ep=EgoyMDI1MDMyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Google Maps view</a>.'
 
 hotels:
   - name: "Best Western Plus Avita Suites"

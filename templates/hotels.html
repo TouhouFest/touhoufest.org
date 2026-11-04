@@ -8,19 +8,6 @@
   {%- set hotel_data = load_data(path="data/hotels.yml") -%}
   <div class="hotels-page-container">
     <div class="hotels-main-group has-spacing-card">
-      {%- if hotel_data.intro_blocks %}
-        {%- for block in hotel_data.intro_blocks %}
-          <div class="hotels-intro-block has-spacing-card">
-            <h2 class="tf-heading tf-heading--2 hotels-heading">{{ block.heading }}</h2>
-            {%- if block.lead %}
-              <p class="tf-narrative tf-narrative--lead hotels-lead">{{ block.lead | safe }}</p>
-            {%- endif %}
-            {%- if block.sublead %}
-              <p class="tf-narrative hotels-sublead">{{ block.sublead | safe }}</p>
-            {%- endif %}
-          </div>
-        {%- endfor %}
-      {%- endif %}
       {%- for hotel in hotel_data.hotels %}
         <div class="hotel-block-card is-radius-md hotel-card-{{ loop.index }}">
           <div class="hotel-block-photo is-radius-md">
@@ -60,6 +47,21 @@
           </div>
         </div>
       {%- endfor %}
+      {%- if hotel_data.intro_blocks %}
+        {%- for block in hotel_data.intro_blocks %}
+          <div class="hotels-intro-block has-spacing-card">
+            {%- if block.heading %}
+              <h2 class="tf-heading tf-heading--2 hotels-heading">{{ block.heading }}</h2>
+            {%- endif %}
+            {%- if block.lead %}
+              <p class="tf-narrative tf-narrative--lead hotels-lead">{{ block.lead | safe }}</p>
+            {%- endif %}
+            {%- if block.sublead %}
+              <p class="tf-narrative hotels-sublead">{{ block.sublead | safe }}</p>
+            {%- endif %}
+          </div>
+        {%- endfor %}
+      {%- endif %}
     </div>
     {%- if hotel_data.badge_cta or hotel_data.teasers %}
       <div class="hotels-late-group has-spacing-card">
