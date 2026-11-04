@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block header %}
+  <section class="page-hero-banner guidelines-hero-banner exhibitors-info-hero">
+    <div class="guidelines-hero-container">
+      <div class="tf-hero-box guidelines-hero-box">
+        <h1 class="tf-hero-title guidelines-hero-title">{{ page.title }}</h1>
+      </div>
+    </div>
+  </section>
+{% endblock header %}
+{% block content %}
+  {%- set reg_data = load_data(path="data/registration.yml") -%}
+  <div class="tf-page-canvas">
+    <div class="tf-content-col exhibitors-info-content">
+      <div class="tf-jumplinks">
+        <h2 class="guidelines-jump-title">{{ page.extra.jumplinks_label }}</h2>
+        <ul class="guidelines-jump-list">
+          {% for item in page.extra.jumplinks %}
+            {%- if loop.index == 1 -%}
+              {%- set icon_name = "info" -%}
+            {%- elif loop.index == 2 -%}
+              {%- set icon_name = "store" -%}
+            {%- elif loop.index == 3 -%}
+              {%- set icon_name = "palette" -%}
+            {%- else -%}
+              {%- set icon_name = "gamepad" -%}
+            {%- endif -%}
+            <li class="guidelines-jump-item">
+              <a href="{{ item.url }}" class="tf-jumplink">
+                <span class="guidelines-jump-icon tf-icon tf-icon-{{ icon_name }}"></span>
+                <span class="guidelines-jump-text">{{ item.title }}</span>
+                <span class="tf-icon tf-icon-chevron-right guidelines-jump-arrow"></span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="tf-prose">{{ page.content | safe }}</div>
+      {% for sec in page.extra.sections %}
+        <section id="{{ sec.id }}" class="exhibitors-info-section">
+          <div class="exhibitors-info-section-head">
+            <h2 class="exhibitors-info-section-title">{{ sec.title }}</h2>
+            <p class="exhibitors-info-section-desc">{{ sec.description }}</p>
+          </div>
+          <div class="tf-info-card-grid">
+            {% for card in sec.cards %}
+              <div class="tf-info-card">
+                <h3 class="tf-info-card-title">{{ card.title }}</h3>
+                {% if card.subtitle %}<p class="tf-info-card-subtitle">{{ card.subtitle }}</p>{% endif %}
+                <ul class="tf-info-card-list">
+                  {% for li in card.items %}<li>{{ li }}</li>{% endfor %}
+                </ul>
+                <p class="tf-info-card-cost">{{ card.cost }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+      <div class="exhibitors-info-bottom">
+        <div class="app-grid-3">
+          {% for item in reg_data.applications.exhibitor.items %}
+            {{ <app_card title={item.title} status={item.status} description={item.description} url={item.url} button_text={item.button_text} card_cls="is-3col" /> }}
+          {% endfor %}
+        </div>
+        {% for card in page.extra.callouts %}
+          {%- if loop.index == 1 -%}
+            {{ <callout_card title={card.title} desc={card.description} btn_label={card.button_text} btn_path={card.button_url} theme="red" layout="horiz" icon={card.image} /> }}
+          {%- else -%}
+            {{ <callout_card title={card.title} desc={card.description} btn_label={card.button_text} btn_url={card.button_url} theme="discord" layout="horiz" icon={card.image} /> }}
+          {%- endif -%}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}
