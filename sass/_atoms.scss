@@ -94,8 +94,8 @@
   background: linear-gradient(90deg, transparent 0%, transparent 100%);
   transition: background 100ms ease-out, background-color 100ms ease-out, color 100ms ease-out;
   &:hover {
-    background: linear-gradient(90deg, var(--tf-surface-fill, #ffffff) 0%, transparent 100%);
-    background-color: rgba(255, 255, 255, 0.5);
+    background: var(--tf-faq-hover-grad);
+    background-color: var(--tf-faq-hover-bg);
   }
 }
 :is(.tf-faq-q-prefix, .tf-faq-q-text) {
