@@ -101,48 +101,8 @@
     </div>
     <div class="tf-faq-callouts-container tf-mod-callout-grid">
       {%- for card in faq_data.callouts -%}
-        <div class="faq-callout-card tf-mod-callout tf-mod-callout--vert {% if loop.index == 1 %}faq-callout-card-guidelines is-red{% else %}faq-callout-card-discord is-discord{% endif %}">
-          <div class="faq-callout-icon-wrap tf-mod-callout-icon">
-            {%- if loop.index == 1 -%}
-              <img src="{{ <img_url path="img/guidelines_icon.svg" /> }}"
-                   alt=""
-                   aria-hidden="true"
-                   width="100"
-                   height="100"
-                   class="faq-callout-icon" />
-            {%- else -%}
-              <span class="faq-discord-icon" aria-hidden="true"></span>
-            {%- endif -%}
-          </div>
-          <div class="faq-callout-content">
-            <div class="faq-callout-copy tf-mod-callout-copy">
-              <h3 class="faq-callout-title tf-mod-callout-title">{{ card.title }}</h3>
-              <p class="faq-callout-desc tf-mod-callout-desc">{{ card.desc }}</p>
-            </div>
-            <div class="faq-callout-btn-wrap">
-              {%- if card.btn_url -%}
-                <a class="faq-callout-btn tf-mod-callout-btn tf-btn tf-btn-white"
-                   href="{{ card.btn_url }}"
-                   target="_blank"
-                   rel="noopener noreferrer">
-              {%- else -%}
-                <a class="faq-callout-btn tf-mod-callout-btn tf-btn tf-btn-white"
-                   href="{{ get_url(path=card.btn_path) }}">
-              {%- endif -%}
-                <span>{{ card.btn_label }}</span>
-                <svg class="faq-callout-chevron"
-                     width="15"
-                     height="16"
-                     viewBox="0 0 15 16"
-                     fill="none"
-                     xmlns="http://www.w3.org/2000/svg"
-                     aria-hidden="true">
-                  <path d="M11.3924 8.25644C11.8025 7.83806 11.8025 7.1586 11.3924 6.74021L5.09368 0.31379C4.6836 -0.104597 4.01764 -0.104597 3.60756 0.313789C3.19748 0.732176 3.19748 1.41164 3.60756 1.83002L9.16491 7.5L3.61084 13.17C3.20076 13.5884 3.20076 14.2678 3.61084 14.6862C4.02091 15.1046 4.68688 15.1046 5.09695 14.6862L11.3957 8.25979L11.3924 8.25644Z" fill="currentColor" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
+        {%- if loop.index == 1 -%}{%- set card_theme = "red" -%}{%- else -%}{%- set card_theme = "discord" -%}{%- endif -%}
+        {{ <callout_card title={card.title} desc={card.desc} btn_label={card.btn_label} btn_url={card.btn_url | default(value="") } btn_path={card.btn_path | default(value="")} theme={card_theme} layout="vert" /> }}
       {%- endfor -%}
     </div>
   </div>

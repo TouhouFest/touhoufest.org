@@ -155,50 +155,7 @@
       <div class="register-content-container">
         <div class="{{ grid_cls }}">
           {% for item in sec.items %}
-            {%- set is_uber = (item.url | split(pat="registration.touhoufest.org") | length) > 1 -%}
-            {%- if is_uber -%}
-              {%- set uber_resp = load_data(url=item.url, format="plain", required=false) -%}
-              {%- if uber_resp and (uber_resp | split(pat="<form") | length) > 1 -%}
-                {%- set item_is_open = (item.status == "Open") -%}
-              {%- else -%}
-                {%- set item_is_open = false -%}
-              {%- endif -%}
-            {%- else -%}
-              {%- set item_is_open = (item.status == "Open") -%}
-            {%- endif -%}
-            <div class="app-card {{ card_cls }}">
-              <div class="app-card-inner">
-                <div class="app-card-top">
-                  <div class="app-badge-wrap">
-                    {% if item_is_open %}
-                      <span class="app-badge-open">OPEN</span>
-                    {% else %}
-                      <span class="app-badge-closed">CLOSED</span>
-                    {% endif %}
-                  </div>
-                  <h3 class="app-card-title">{{ item.title }}</h3>
-                  {% if item.description %}
-                    <p class="app-card-desc">{{ item.description }}</p>
-                  {% endif %}
-                </div>
-                {% if item_is_open %}
-                  {%- set is_external = (item.url | split(pat="://") | length) > 1 -%}
-                  {%- if is_external or item.url == "#" -%}
-                    {%- set resolved_url = item.url -%}
-                  {%- else -%}
-                    {%- set resolved_url = get_url(path=item.url) -%}
-                  {%- endif -%}
-                  <div class="app-card-bottom">
-                    <a href="{{ resolved_url }}"
-                       class="tf-btn-pill-red"
-                       {% if is_external %}target="_blank" rel="noopener noreferrer"{% endif %}>
-                      <span class="tf-btn-label">{{ item.button_text }}</span>
-                      <span class="tf-btn-carrot" aria-hidden="true"></span>
-                    </a>
-                  </div>
-                {% endif %}
-              </div>
-            </div>
+            {{ <app_card title={item.title} status={item.status} description={item.description} url={item.url} button_text={item.button_text} card_cls={card_cls} /> }}
           {% endfor %}
         </div>
         {% if sec_key == "content" %}

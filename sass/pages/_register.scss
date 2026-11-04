@@ -9,7 +9,7 @@
 :is(.register-content-container, .register-hero-content-container) {
   margin: 0 auto;
 }
-:is(.register-hero-content-container, .app-card-inner, .register-callout-card) {
+:is(.register-hero-content-container, .register-callout-card) {
   width: 100%;
 }
 .register-page-layout {
@@ -60,10 +60,10 @@
 .register-section-head {
   gap: 24px;
 }
-:is(.register-heading, .register-subheading, .app-card-title) {
+:is(.register-heading, .register-subheading) {
   color: var(--tf-accent, #bf3444);
 }
-:is(.register-narrative, .td-date, .td-price, .app-card-desc) {
+:is(.register-narrative, .td-date, .td-price) {
   color: var(--tf-ink, #30293e);
 }
 :is(.register-link, .cosplay-rules-link) {
@@ -77,30 +77,30 @@
     color: #9c2b37;
   }
 }
-:is(.register-hero-card, .app-card, .cosplay-masquerade-card) {
+:is(.register-hero-card, .cosplay-masquerade-card) {
   transition: 300ms ease-out;
   transition-property: transform, box-shadow, border-color, background-color;
 }
-:is(.app-card-top, .cosplay-card-copy) {
+.cosplay-card-copy {
   width: 100%;
   @include flex-column;
   align-items: flex-start;
   gap: 8px;
 }
-:is(.hero-card-right, .app-card-inner, .cosplay-masquerade-card, .callout-body) {
+:is(.hero-card-right, .cosplay-masquerade-card, .callout-body) {
   @include flex-column;
   align-items: flex-start;
   justify-content: center;
   gap: 24px;
 }
-:is(.hero-card-left, .hero-card-right, .app-card-inner) {
+:is(.hero-card-left, .hero-card-right) {
   position: relative;
   z-index: 2;
 }
-:is(.register-heading, .app-card-title, .cosplay-card-title) {
+:is(.register-heading, .cosplay-card-title) {
   @include tf-h2;
 }
-:is(.register-narrative, .app-card-desc, .cosplay-card-desc) {
+:is(.register-narrative, .cosplay-card-desc) {
   @include tf-body;
 }
 .register-hero-card {
@@ -157,25 +157,6 @@
 }
 .hero-card-title.is-mobile-title {
   display: none;
-}
-
-:is(.tf-btn-pill-red, .tf-btn-pill-cream) {
-  @include tf-pill;
-  font-weight: 600;
-  height: 48px;
-  padding: 14px 39px 14px 47px;
-  max-width: 100%;
-  border: none;
-}
-.tf-btn-pill-cream {
-  background-color: var(--tf-btn-ko-bg);
-  color: var(--tf-ink);
-}
-.tf-btn-label {
-  text-decoration: underline;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  white-space: nowrap;
 }
 
 .register-pricing-wrap {
@@ -309,67 +290,8 @@
     background-color: $bg;
   }
 }
-:is(.app-grid-3, .app-grid-2) {
-  display: grid;
-  margin: 0;
-  width: 100%;
-}
-.app-grid-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
-}
-.app-grid-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px;
-}
-.app-card {
-  border: 1px solid var(--tf-accent, #bf3444);
-  border-radius: 5px;
-  padding: 48px;
-  @include flex-column;
-  align-items: flex-start;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  --tf-reg-card-grad: #fcf1e8;
-  @each $mod, $h, $svg in
-    (
-      (3col, 283px, $svg-register-gradient-3col),
-      (2col, 296px, $svg-register-gradient-2col),
-      (team, 275px, $svg-register-gradient-team)
-    ) {
-    &.is-#{$mod} {
-      height: $h;
-      min-height: $h;
-      background:
-        url($svg) no-repeat center / 101% 103%,
-        linear-gradient(114.21deg, var(--tf-reg-card-grad) 55.472%, rgba(46, 40, 60, 0) 89.517%);
-    }
-  }
-  &.is-3col {
-    padding: 48px 36px;
-  }
-}
-.app-badge-wrap {
-  display: flex;
-  align-items: flex-end;
-}
-:is(.app-badge-open, .app-badge-closed) {
-  font: 700 16px / 1.3 var(--tf-font-body);
-  display: inline-block;
-  text-transform: uppercase;
-}
-:is(.pricing-stay-tuned, .app-badge-open, .cosplay-masquerade-card, .cosplay-rules-link) {
+:is(.pricing-stay-tuned, .cosplay-masquerade-card, .cosplay-rules-link) {
   color: var(--tf-on-accent-body);
-}
-.app-badge-open {
-  background-color: var(--tf-accent);
-  border-radius: 5px;
-  padding: 6px 7px;
-}
-.app-badge-closed {
-  color: var(--tf-text-muted);
-  padding: 6px 7px 6px 0;
 }
 .cosplay-masquerade-card {
   width: 100%;
@@ -429,12 +351,6 @@
 @media (max-width: 1150px) {
   .page-hero-banner.is-register {
     padding: 238px 32px 0;
-  }
-}
-@media (max-width: 960px) {
-  .app-grid-3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px;
   }
 }
 @media (max-width: 768px) {
@@ -574,15 +490,6 @@
     max-width: none;
     object-fit: fill;
   }
-  :is(.app-grid-3, .app-grid-2) {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .app-grid-3 {
-    gap: 32px;
-  }
-  .app-card.is-3col {
-    padding: 48px;
-  }
   .cosplay-masquerade-card {
     height: 494px;
     min-height: 494px;
@@ -647,12 +554,7 @@
   .is-register-divider {
     padding: 64px 16px;
   }
-  :is(.app-card, .app-card:is(.is-3col, .is-2col, .is-team)) {
-    height: auto;
-    min-height: 250px;
-    padding: 32px 24px;
-  }
-  :is(.app-card-title, .cosplay-card-title, .callout-title) {
+  :is(.cosplay-card-title, .callout-title) {
     font-size: 28px;
   }
   .cosplay-masquerade-card {
@@ -702,8 +604,5 @@
     background-color: rgba(203, 203, 210, 0.69);
     border-color: var(--tf-accent);
     color: rgba(0, 0, 0, 0.86);
-  }
-  .app-card {
-    --tf-reg-card-grad: var(--tf-canvas-bg);
   }
 }

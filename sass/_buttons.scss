@@ -74,6 +74,24 @@
 .tf-btn-pill-red {
   color: #fffde7;
 }
+:is(.tf-btn-pill-red, .tf-btn-pill-cream) {
+  @include tf-pill;
+  font-weight: 600;
+  height: 48px;
+  padding: 14px 39px 14px 47px;
+  max-width: 100%;
+  border: none;
+}
+.tf-btn-pill-cream {
+  background-color: var(--tf-btn-ko-bg);
+  color: var(--tf-ink);
+}
+.tf-btn-label {
+  text-decoration: underline;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  white-space: nowrap;
+}
 :is(.tf-btn-white, .tf-btn-pill-white) {
   &::before {
     background: linear-gradient(90deg, #fffde7 40.9%, #ff4949 100%);
