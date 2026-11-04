@@ -373,13 +373,38 @@ $home-tx: 300ms ease-out;
     padding: 20px 0;
     @include flex-col-center;
     gap: 10px;
+    .tf-guest-avatar::after {
+      content: "";
+      position: absolute;
+      inset: -14px -6px -14px -6px;
+      border: 7px solid #ff4949;
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(0.89) rotate(-39.8deg);
+      transition: opacity $home-tx, transform $home-tx;
+      pointer-events: none;
+    }
+    &:hover {
+      .tf-guest-avatar::after {
+        opacity: 1;
+        transform: scale(1) rotate(11.6deg);
+      }
+      .guest-teaser-name {
+        transform: translateY(-20px);
+      }
+      .guest-teaser-role {
+        transform: translateY(20px);
+      }
+    }
   }
   .guest-teaser-name {
     @include tf-h3;
     color: var(--tf-accent);
+    transition: transform $home-tx;
   }
   .guest-teaser-role {
     padding: 8px 0;
+    transition: transform $home-tx;
   }
 
   /* 5. Convention Pillars */
@@ -465,8 +490,27 @@ $home-tx: 300ms ease-out;
     transform: rotate(5deg);
     transition: transform $home-tx, box-shadow $home-tx;
     &:hover {
-      transform: rotate(5deg);
+      transform: rotate(2deg);
+      .polaroid-overlay {
+        opacity: 1;
+      }
     }
+  }
+  .polaroid-overlay {
+    position: absolute;
+    inset: 11px 12px 54px 11px;
+    border-radius: 5px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    @include flex-center;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity $home-tx;
+    pointer-events: none;
+  }
+  .polaroid-caption {
+    font: 700 24px / 1.2 "Poppins", sans-serif;
+    color: #fffde7;
+    text-align: center;
   }
 
   .polaroid-img {

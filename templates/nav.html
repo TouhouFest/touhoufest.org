@@ -2,6 +2,13 @@
    Header & Navigation
    ========================================================================== #}
 {%- set news_section = get_section(path="news/_index.md") -%}
+{%- set cp = current_path | default(value="") -%}
+{%- set seg = cp | split(pat="/") | nth(n=1) | default(value="") -%}
+{%- set is_register = (seg == "register") -%}
+{%- set is_about = (seg == "about" or seg == "schedule" or seg == "news") -%}
+{%- set is_features = (seg == "features") -%}
+{%- set is_exhibitors = (seg == "artists" or seg == "vendors" or seg == "exhibitors-info") -%}
+{%- set is_intro = (seg == "intro") -%}
 <header class="tf-header">
   <div class="tf-nav-surface">
     <nav class="tf-nav-inner" role="navigation" aria-label="main navigation">
@@ -84,77 +91,91 @@
           </a>
         </div>
         <div class="tf-nav-menu-row">
-          <a class="tf-nav-link" href="{{ get_url(path='register') }}">
+          <a class="tf-nav-link{% if is_register %} is-active{% endif %}"
+             href="{{ get_url(path='register') }}"
+             {% if cp == "/register/" %}aria-current="page"{% endif %}>
             <span>Registration &amp; Applications</span>
           </a>
           <div class="tf-nav-dropdown">
-            <a class="tf-nav-link has-chevron"
-               href="{{ get_url(path='about/event') }}">
+            <a class="tf-nav-link has-chevron{% if is_about %} is-active{% endif %}"
+               href="{{ get_url(path='about/event') }}"
+               {% if cp == "/about/event/" %}aria-current="page"{% endif %}>
               <span>About</span>
               <span class="tf-nav-chevron" aria-hidden="true"></span>
             </a>
             <div class="tf-nav-dropdown-menu" role="menu" aria-label="About submenu">
-              <a class="tf-nav-dropdown-item"
+              <a class="tf-nav-dropdown-item{% if cp == "/about/event/" %} is-active{% endif %}"
                  role="menuitem"
-                 href="{{ get_url(path='about/event') }}">
+                 href="{{ get_url(path='about/event') }}"
+                 {% if cp == "/about/event/" %}aria-current="page"{% endif %}>
                 <span>General Event Info</span>
               </a>
               {%- if news_section.pages | length > 0 -%}
-                <a class="tf-nav-dropdown-item"
+                <a class="tf-nav-dropdown-item{% if seg == "news" %} is-active{% endif %}"
                    role="menuitem"
-                   href="{{ get_url(path='news') }}">
+                   href="{{ get_url(path='news') }}"
+                   {% if cp == "/news/" %}aria-current="page"{% endif %}>
                   <span>News</span>
                 </a>
               {%- endif -%}
-              <a class="tf-nav-dropdown-item"
+              <a class="tf-nav-dropdown-item{% if seg == "schedule" %} is-active{% endif %}"
                  role="menuitem"
-                 href="{{ get_url(path='schedule') }}">
+                 href="{{ get_url(path='schedule') }}"
+                 {% if cp == "/schedule/" %}aria-current="page"{% endif %}>
                 <span>{{ <event_date format="year" /> }} Schedule</span>
               </a>
-              <a class="tf-nav-dropdown-item"
+              <a class="tf-nav-dropdown-item{% if cp == "/about/hotels/" %} is-active{% endif %}"
                  role="menuitem"
-                 href="{{ get_url(path='about/hotels') }}">
+                 href="{{ get_url(path='about/hotels') }}"
+                 {% if cp == "/about/hotels/" %}aria-current="page"{% endif %}>
                 <span>Hotel Blocks</span>
               </a>
-              <a class="tf-nav-dropdown-item"
+              <a class="tf-nav-dropdown-item{% if cp == "/about/guidelines/" %} is-active{% endif %}"
                  role="menuitem"
-                 href="{{ get_url(path='about/guidelines') }}">
+                 href="{{ get_url(path='about/guidelines') }}"
+                 {% if cp == "/about/guidelines/" %}aria-current="page"{% endif %}>
                 <span>Event Guidelines</span>
               </a>
-              <a class="tf-nav-dropdown-item"
+              <a class="tf-nav-dropdown-item{% if cp == "/about/faq/" %} is-active{% endif %}"
                  role="menuitem"
-                 href="{{ get_url(path='about/faq') }}">
+                 href="{{ get_url(path='about/faq') }}"
+                 {% if cp == "/about/faq/" %}aria-current="page"{% endif %}>
                 <span>FAQs</span>
               </a>
-              <a class="tf-nav-dropdown-item"
+              <a class="tf-nav-dropdown-item{% if cp == "/about/contact/" %} is-active{% endif %}"
                  role="menuitem"
-                 href="{{ get_url(path='about/contact') }}">
+                 href="{{ get_url(path='about/contact') }}"
+                 {% if cp == "/about/contact/" %}aria-current="page"{% endif %}>
                 <span>Contact Us</span>
               </a>
             </div>
           </div>
           <div class="tf-nav-dropdown">
-            <a class="tf-nav-link has-chevron"
-               href="{{ get_url(path='features/guests') }}">
+            <a class="tf-nav-link has-chevron{% if is_features %} is-active{% endif %}"
+               href="{{ get_url(path='features/guests') }}"
+               {% if cp == "/features/guests/" %}aria-current="page"{% endif %}>
               <span>Features</span>
               <span class="tf-nav-chevron" aria-hidden="true"></span>
             </a>
             <div class="tf-nav-dropdown-menu"
                  role="menu"
                  aria-label="Features submenu">
-              <a class="tf-nav-dropdown-item"
+              <a class="tf-nav-dropdown-item{% if cp == "/features/guests/" %} is-active{% endif %}"
                  role="menuitem"
-                 href="{{ get_url(path='features/guests') }}">
+                 href="{{ get_url(path='features/guests') }}"
+                 {% if cp == "/features/guests/" %}aria-current="page"{% endif %}>
                 <span>Guests &amp; Performances</span>
               </a>
-              <a class="tf-nav-dropdown-item"
+              <a class="tf-nav-dropdown-item{% if cp == "/features/gaming/" %} is-active{% endif %}"
                  role="menuitem"
-                 href="{{ get_url(path='features/gaming') }}">
+                 href="{{ get_url(path='features/gaming') }}"
+                 {% if cp == "/features/gaming/" %}aria-current="page"{% endif %}>
                 <span>Gaming</span>
               </a>
-              <a class="tf-nav-dropdown-item"
+              <a class="tf-nav-dropdown-item{% if cp == "/features/cosplay/" %} is-active{% endif %}"
                  role="menuitem"
-                 href="{{ get_url(path='features/cosplay') }}">
+                 href="{{ get_url(path='features/cosplay') }}"
+                 {% if cp == "/features/cosplay/" %}aria-current="page"{% endif %}>
                 <span>Cosplay</span>
               </a>
             </div>
@@ -166,26 +187,32 @@
             <span>Merch</span>
           </a>
           <div class="tf-nav-dropdown">
-            <a class="tf-nav-link has-chevron" href="{{ get_url(path='artists') }}">
+            <a class="tf-nav-link has-chevron{% if is_exhibitors %} is-active{% endif %}"
+               href="{{ get_url(path='artists') }}"
+               {% if cp == "/artists/" %}aria-current="page"{% endif %}>
               <span>Exhibitors</span>
               <span class="tf-nav-chevron" aria-hidden="true"></span>
             </a>
             <div class="tf-nav-dropdown-menu"
                  role="menu"
                  aria-label="Exhibitors submenu">
-              <a class="tf-nav-dropdown-item"
+              <a class="tf-nav-dropdown-item{% if cp == "/artists/" %} is-active{% endif %}"
                  role="menuitem"
-                 href="{{ get_url(path='artists') }}">
+                 href="{{ get_url(path='artists') }}"
+                 {% if cp == "/artists/" %}aria-current="page"{% endif %}>
                 <span>Artists</span>
               </a>
-              <a class="tf-nav-dropdown-item"
+              <a class="tf-nav-dropdown-item{% if cp == "/vendors/" %} is-active{% endif %}"
                  role="menuitem"
-                 href="{{ get_url(path='vendors') }}">
+                 href="{{ get_url(path='vendors') }}"
+                 {% if cp == "/vendors/" %}aria-current="page"{% endif %}>
                 <span>Vendors</span>
               </a>
             </div>
           </div>
-          <a class="tf-nav-link" href="{{ get_url(path='intro') }}">
+          <a class="tf-nav-link{% if is_intro %} is-active{% endif %}"
+             href="{{ get_url(path='intro') }}"
+             {% if cp == "/intro/" %}aria-current="page"{% endif %}>
             <span>Intro to Touhou Project</span>
           </a>
         </div>

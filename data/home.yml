@@ -48,6 +48,7 @@ pillars:
         url: "register"
     image: "img/home/polaroid-1.png"
     image_alt: "Performers on stage"
+    image_caption: "Cosplay Performance Competition 2026"
   - title: "Hotel Blocks"
     body: "Stay tuned for when TouhouFest Hotel blocks are announced!"
     buttons:
@@ -55,6 +56,7 @@ pillars:
         url: "about/hotels"
     image: "img/home/polaroid-2.png"
     image_alt: "Attendees in garden"
+    image_caption: "Fumo Meetup 2026"
   - title: "Download App"
     body: "Make sure you download our app before attending for the best TouhouFest experience!"
     buttons:
@@ -62,6 +64,7 @@ pillars:
         url: "about/event"
     image: "img/home/polaroid-3.png"
     image_alt: "Convention crowd group photo"
+    image_caption: "Closing Ceremonies, 2026"
   - title: "Have Questions?"
     body: "Check out our FAQs and Policies pages for answers."
     buttons:
@@ -71,6 +74,7 @@ pillars:
         url: "about/guidelines"
     image: "img/home/polaroid-4.png"
     image_alt: "Live concert performance"
+    image_caption: "TouhouFest LIVE 2025"
 
 venue:
   title: "Returning to Torrance"

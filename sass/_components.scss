@@ -193,11 +193,15 @@ picture {
   color: #30293e;
   text-decoration: none;
 }
-:is(.tf-nav-link, .tf-mobile-link):is(:hover, :focus-visible) {
+:is(.tf-nav-link, .tf-mobile-link):is(:hover, :focus-visible, .is-active) {
   color: var(--tf-accent, #bf3444);
   text-decoration: underline;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+}
+:is(.tf-nav-link, .tf-mobile-link, .tf-nav-dropdown-item, .tf-mobile-sublink).is-active {
+  color: var(--tf-accent, #bf3444);
+  font-weight: 700;
 }
 .tf-nav-link {
   display: inline-flex;
@@ -286,6 +290,7 @@ picture {
 }
 .tf-mobile-burger {
   display: none;
+  position: relative;
   align-items: center;
   justify-content: flex-end;
   width: 42px;
@@ -296,15 +301,26 @@ picture {
   padding: 0;
   cursor: pointer;
   flex-shrink: 0;
+  :is(.tf-burger-icon-open, .tf-burger-icon-close) {
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+  }
   .tf-burger-icon-close {
-    display: none;
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.8);
+    pointer-events: none;
   }
   &.is-active {
     .tf-burger-icon-open {
-      display: none;
+      opacity: 0;
+      transform: rotate(90deg) scale(0.8);
+      pointer-events: none;
     }
     .tf-burger-icon-close {
-      display: block;
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+      pointer-events: auto;
     }
   }
 }
@@ -313,6 +329,12 @@ picture {
   background: transparent;
   box-shadow: none;
   padding: 0 0 20px;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out,
+    display 300ms ease-out allow-discrete;
 }
 .tf-mobile-link {
   display: flex;
@@ -895,6 +917,12 @@ picture {
     flex-direction: column;
     max-width: 850px;
     margin: 0 auto;
+    opacity: 1;
+    transform: translateY(0);
+    @starting-style {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
   }
 }
 @media screen and (max-width: 768px) {
