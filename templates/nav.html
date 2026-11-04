@@ -73,77 +73,198 @@
         </div>
         <div class="tf-nav-menu-row">
           <a class="tf-nav-link" href="{{ get_url(path='register') }}">
-            <span>Registration &amp;
-              <br>
-            Applications</span>
+            <span>Registration &amp; Applications</span>
           </a>
-          <a class="tf-nav-link has-chevron"
-             href="{{ get_url(path='about/event') }}">
-            <span>About</span>
-            <svg class="tf-nav-chevron"
-                 width="12"
-                 height="8"
-                 viewBox="0 0 12 8"
-                 fill="none"
-                 xmlns="http://www.w3.org/2000/svg"
-                 aria-hidden="true">
-              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-          <a class="tf-nav-link has-chevron"
-             href="{{ get_url(path='features/guests') }}">
-            <span>Guests &amp;
-              <br>
-            Features</span>
-            <svg class="tf-nav-chevron"
-                 width="12"
-                 height="8"
-                 viewBox="0 0 12 8"
-                 fill="none"
-                 xmlns="http://www.w3.org/2000/svg"
-                 aria-hidden="true">
-              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-          <a class="tf-nav-link has-chevron" href="{{ get_url(path='artists') }}">
-            <span>Artists &amp;
-              <br>
-            Vendors</span>
-            <svg class="tf-nav-chevron"
-                 width="12"
-                 height="8"
-                 viewBox="0 0 12 8"
-                 fill="none"
-                 xmlns="http://www.w3.org/2000/svg"
-                 aria-hidden="true">
-              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
+          <div class="tf-nav-dropdown">
+            <a class="tf-nav-link has-chevron"
+               href="{{ get_url(path='about/event') }}">
+              <span>About</span>
+              <svg class="tf-nav-chevron"
+                   width="12"
+                   height="8"
+                   viewBox="0 0 12 8"
+                   fill="none"
+                   xmlns="http://www.w3.org/2000/svg"
+                   aria-hidden="true">
+                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <div class="tf-nav-dropdown-menu" role="menu" aria-label="About submenu">
+              <a class="tf-nav-dropdown-item"
+                 role="menuitem"
+                 href="{{ get_url(path='about/event') }}">
+                <span>General Event Info</span>
+              </a>
+              <a class="tf-nav-dropdown-item"
+                 role="menuitem"
+                 href="{{ get_url(path='schedule') }}">
+                <span>{{ <event_date format="year" /> }} Schedule</span>
+              </a>
+              <a class="tf-nav-dropdown-item"
+                 role="menuitem"
+                 href="{{ get_url(path='about/hotels') }}">
+                <span>Hotel Blocks</span>
+              </a>
+              <a class="tf-nav-dropdown-item"
+                 role="menuitem"
+                 href="{{ get_url(path='about/guidelines') }}">
+                <span>Event Guidelines</span>
+              </a>
+              <a class="tf-nav-dropdown-item"
+                 role="menuitem"
+                 href="{{ get_url(path='about/faq') }}">
+                <span>FAQs</span>
+              </a>
+              <a class="tf-nav-dropdown-item"
+                 role="menuitem"
+                 href="{{ get_url(path='about/contact') }}">
+                <span>Contact Us</span>
+              </a>
+            </div>
+          </div>
+          <div class="tf-nav-dropdown">
+            <a class="tf-nav-link has-chevron"
+               href="{{ get_url(path='features/guests') }}">
+              <span>Features</span>
+              <svg class="tf-nav-chevron"
+                   width="12"
+                   height="8"
+                   viewBox="0 0 12 8"
+                   fill="none"
+                   xmlns="http://www.w3.org/2000/svg"
+                   aria-hidden="true">
+                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <div class="tf-nav-dropdown-menu"
+                 role="menu"
+                 aria-label="Features submenu">
+              <a class="tf-nav-dropdown-item"
+                 role="menuitem"
+                 href="{{ get_url(path='features/guests') }}">
+                <span>Guests &amp; Performances</span>
+              </a>
+              <a class="tf-nav-dropdown-item"
+                 role="menuitem"
+                 href="{{ get_url(path='features/gaming') }}">
+                <span>Gaming</span>
+              </a>
+              <a class="tf-nav-dropdown-item"
+                 role="menuitem"
+                 href="{{ get_url(path='features/cosplay') }}">
+                <span>Cosplay</span>
+              </a>
+            </div>
+          </div>
           <a class="tf-nav-link"
              href="https://amp-organization.com/online-store/touhoufest-collection"
              target="_blank"
              rel="noopener noreferrer">
-            <span>TouhouFest Merch</span>
+            <span>Merch</span>
           </a>
+          <div class="tf-nav-dropdown">
+            <a class="tf-nav-link has-chevron" href="{{ get_url(path='artists') }}">
+              <span>Exhibitors</span>
+              <svg class="tf-nav-chevron"
+                   width="12"
+                   height="8"
+                   viewBox="0 0 12 8"
+                   fill="none"
+                   xmlns="http://www.w3.org/2000/svg"
+                   aria-hidden="true">
+                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <div class="tf-nav-dropdown-menu"
+                 role="menu"
+                 aria-label="Exhibitors submenu">
+              <a class="tf-nav-dropdown-item"
+                 role="menuitem"
+                 href="{{ get_url(path='artists') }}">
+                <span>Artists</span>
+              </a>
+              <a class="tf-nav-dropdown-item"
+                 role="menuitem"
+                 href="{{ get_url(path='vendors') }}">
+                <span>Vendors</span>
+              </a>
+            </div>
+          </div>
           <a class="tf-nav-link" href="{{ get_url(path='intro') }}">
-            <span>Intro to
-              <br>
-            Touhou Project</span>
+            <span>Intro to Touhou Project</span>
           </a>
         </div>
       </div>
     </nav>
     <div id="tf-navbar-menu" class="navbar-menu tf-mobile-drawer">
       <a class="tf-mobile-link" href="{{ get_url(path='register') }}">Registration &amp; Applications</a>
-      <a class="tf-mobile-link" href="{{ get_url(path='about/event') }}">About</a>
-      <a class="tf-mobile-link" href="{{ get_url(path='about/hotels') }}">Hotels</a>
-      <a class="tf-mobile-link" href="{{ get_url(path='schedule') }}">Schedule</a>
-      <a class="tf-mobile-link" href="{{ get_url(path='features/guests') }}">Guests &amp; Features</a>
-      <a class="tf-mobile-link" href="{{ get_url(path='artists') }}">Artists &amp; Vendors</a>
+      <details class="tf-mobile-dropdown">
+        <summary class="tf-mobile-link tf-mobile-summary">
+          <span>About</span>
+          <svg class="tf-nav-chevron"
+               width="12"
+               height="8"
+               viewBox="0 0 12 8"
+               fill="none"
+               xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true">
+            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </summary>
+        <div class="tf-mobile-submenu">
+          <a class="tf-mobile-sublink" href="{{ get_url(path='about/event') }}">General Event Info</a>
+          <a class="tf-mobile-sublink" href="{{ get_url(path='schedule') }}">{{ <event_date format="year" /> }} Schedule</a>
+          <a class="tf-mobile-sublink" href="{{ get_url(path='about/hotels') }}">Hotel Blocks</a>
+          <a class="tf-mobile-sublink"
+             href="{{ get_url(path='about/guidelines') }}">Event Guidelines</a>
+          <a class="tf-mobile-sublink" href="{{ get_url(path='about/faq') }}">FAQs</a>
+          <a class="tf-mobile-sublink" href="{{ get_url(path='about/contact') }}">Contact Us</a>
+        </div>
+      </details>
+      <details class="tf-mobile-dropdown">
+        <summary class="tf-mobile-link tf-mobile-summary">
+          <span>Features</span>
+          <svg class="tf-nav-chevron"
+               width="12"
+               height="8"
+               viewBox="0 0 12 8"
+               fill="none"
+               xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true">
+            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </summary>
+        <div class="tf-mobile-submenu">
+          <a class="tf-mobile-sublink"
+             href="{{ get_url(path='features/guests') }}">Guests &amp; Performances</a>
+          <a class="tf-mobile-sublink"
+             href="{{ get_url(path='features/gaming') }}">Gaming</a>
+          <a class="tf-mobile-sublink"
+             href="{{ get_url(path='features/cosplay') }}">Cosplay</a>
+        </div>
+      </details>
       <a class="tf-mobile-link"
          href="https://amp-organization.com/online-store/touhoufest-collection"
          target="_blank"
-         rel="noopener noreferrer">TouhouFest Merch</a>
+         rel="noopener noreferrer">Merch</a>
+      <details class="tf-mobile-dropdown">
+        <summary class="tf-mobile-link tf-mobile-summary">
+          <span>Exhibitors</span>
+          <svg class="tf-nav-chevron"
+               width="12"
+               height="8"
+               viewBox="0 0 12 8"
+               fill="none"
+               xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true">
+            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </summary>
+        <div class="tf-mobile-submenu">
+          <a class="tf-mobile-sublink" href="{{ get_url(path='artists') }}">Artists</a>
+          <a class="tf-mobile-sublink" href="{{ get_url(path='vendors') }}">Vendors</a>
+        </div>
+      </details>
       <a class="tf-mobile-link" href="{{ get_url(path='intro') }}">Intro to Touhou Project</a>
     </div>
   </div>
