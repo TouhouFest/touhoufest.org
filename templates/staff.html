@@ -15,7 +15,7 @@
       <div class="guidelines-markdown-body">{{ section.content | safe }}</div>
       <div class="tf-staff-accordion-list">
         {%- for job in section.pages -%}
-          <details class="tf-accordion"{% if loop.first %} open{% endif %}>
+          <details class="tf-accordion">
             <summary class="tf-faq-summary">
               <div class="tf-faq-summary-row tf-accordion-header">
                 <span class="tf-faq-q-text">{{ job.title }}</span>

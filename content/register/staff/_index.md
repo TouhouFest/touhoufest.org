@@ -10,8 +10,6 @@ apply_url = "https://docs.google.com/forms/d/e/1FAIpQLScbV6NUt0eKrkXwlx_TCypdyor
 apply_label = "Apply here!"
 +++
 
-## Open Staff Positions
-
 Staff are the backbone of any active fan convention. They’re the hardworking volunteers that make
 all of the magic happen. TouhouFest is not possible without the dedicated and passionate service of
 the staff. On this page, all currently open positions will be listed, alongside a role description,

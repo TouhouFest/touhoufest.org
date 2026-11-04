@@ -14,7 +14,7 @@
   <div class="tf-faq-page-body">
     <div class="tf-faq-container">
       {%- for qa in faq_data.items -%}
-        <details class="tf-accordion" open>
+        <details class="tf-accordion">
           <summary class="tf-faq-summary">
             <div class="tf-faq-summary-row tf-accordion-header">
               <span class="tf-faq-q-prefix">Q:</span>
@@ -71,7 +71,7 @@
               <h3 class="tf-faq-subsection-title">{{ sec.title }}</h3>
               <div class="tf-faq-reg-list">
                 {%- for qa in sec.items -%}
-                  <details class="tf-accordion" open>
+                  <details class="tf-accordion">
                     <summary class="tf-faq-summary">
                       <div class="tf-faq-summary-row tf-accordion-header">
                         <span class="tf-faq-q-prefix">Q:</span>
@@ -102,11 +102,6 @@
         </div>
       {%- endif -%}
     </div>
-    <script>
-if (window.innerWidth <= 768) {
-document.querySelectorAll('.tf-faq-container .tf-accordion').forEach(function(el) { el.removeAttribute('open'); });
-}
-    </script>
     <div class="tf-faq-callouts-container tf-mod-callout-grid">
       {%- for card in faq_data.callouts -%}
         <div class="faq-callout-card tf-mod-callout tf-mod-callout--vert {% if loop.index == 1 %}faq-callout-card-guidelines is-red{% else %}faq-callout-card-discord is-discord{% endif %}">
