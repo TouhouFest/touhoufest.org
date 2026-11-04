@@ -172,11 +172,23 @@ $home-tx: 300ms ease-out;
   }
 
   /* 1. Hero Banner */
-  :is(.home-section-bg-img, .pillar-mesh-bg) {
+  .home-section-bg-img {
     @include absolute-fill;
     object-fit: cover;
     pointer-events: none;
     z-index: 0;
+  }
+  .pillar-mesh-bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    aspect-ratio: 853.427 / 265.593;
+    min-width: 100%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+    @include tf-rainbow-mesh(853.427, 265.593);
   }
 
   .home-hero-banner {

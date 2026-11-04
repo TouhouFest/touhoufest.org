@@ -3,7 +3,6 @@
    ========================================================================== */
 
 $gaming-tx: 300ms ease-out;
-$gaming-badge-grad: "data:image/svg+xml;utf8,<svg preserveAspectRatio='none' overflow='visible' width='849.088' height='342.819' viewBox='0 0 849.088 342.819' fill='none' xmlns='http://www.w3.org/2000/svg'><g clip-path='url(%23clip0)'><g filter='url(%23f0)'><ellipse cx='613.701' cy='727.647' rx='232.91' ry='149.136' fill='%23FFDE05'/></g><g filter='url(%23f1)'><ellipse cx='-415.229' cy='641.459' rx='232.91' ry='148.167' fill='%23FF4949'/></g><g filter='url(%23f2)'><ellipse cx='162.623' cy='-425.734' rx='265.34' ry='167.536' fill='%231F90BA'/></g><g filter='url(%23f3)'><ellipse cx='1535.02' cy='-257.229' rx='216.694' ry='155.915' fill='%23D505FF'/></g></g><defs><filter id='f0' x='240.791' y='438.511' width='745.819' height='578.272' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f1' x='-788.138' y='353.292' width='745.819' height='576.335' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f2' x='-242.717' y='-733.27' width='810.68' height='615.071' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><filter id='f3' x='1178.33' y='-553.144' width='713.389' height='591.829' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='70'/></filter><clipPath id='clip0'><rect width='849.088' height='342.819' fill='white'/></clipPath></defs></svg>";
 
 body:has(.gaming-page-shell) {
   background-color: var(--tf-canvas-bg);
@@ -591,7 +590,7 @@ body:has(.gaming-page-shell) {
     height: 362px;
   }
   .gaming-badge-cta-gradient {
-    background: url($gaming-badge-grad) no-repeat left top / 100% 100%;
+    @include tf-rainbow-mesh(849.088, 342.819, true);
   }
   .gaming-badge-cta-stroke {
     border: 15px solid var(--tf-accent);

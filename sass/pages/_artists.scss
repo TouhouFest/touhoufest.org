@@ -234,13 +234,11 @@ body:has(.tf-artists-page) > main {
   left: 0;
   right: 35.9%;
   height: 384.17px;
+  @include tf-rainbow-mesh(258.955, 384.175, true);
 }
-:is(.tf-artists-feat-glow-desktop, .tf-artists-roster-back-fill) {
+.tf-artists-roster-back-fill {
   width: 100%;
   height: 100%;
-}
-.tf-artists-feat-glow-desktop {
-  display: block;
 }
 :is(.tf-artists-feat-corner, .tf-artists-feat-corner-mirror, .tf-artists-feat-corner-border) {
   width: 44px;
@@ -557,6 +555,7 @@ body:has(.tf-artists-page) > main {
   }
   .tf-artists-feat-top-glow {
     right: 0.11%;
+    @include tf-rainbow-mesh(327.647, 777, true);
   }
   :is(.tf-artists-roster-dots, .tf-artists-divider-bg-photo) {
     display: none;

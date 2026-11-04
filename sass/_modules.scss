@@ -1140,17 +1140,15 @@ body:has(:is(.tf-page-canvas, .guidelines-page-wrapper)) main {
   transition: 300ms ease-out;
   transition-property: transform, box-shadow, border-color, background-color;
   --tf-reg-card-grad: #fcf1e8;
-  @each $mod, $h, $svg in
+  @each $mod, $h, $vw, $vh in
     (
-      (3col, 283px, $svg-register-gradient-3col),
-      (2col, 296px, $svg-register-gradient-2col),
-      (team, 275px, $svg-register-gradient-team)
+      (3col, 283px, 263.056, 290.204), (2col, 296px, 406.633, 303.535), (team, 275px, 406.633, 282)
     ) {
     &.is-#{$mod} {
       height: $h;
       min-height: $h;
       background:
-        url($svg) no-repeat center / 101% 103%,
+        tf-rainbow-mesh-layers($vw, $vh),
         linear-gradient(114.21deg, var(--tf-reg-card-grad) 55.472%, rgba(46, 40, 60, 0) 89.517%);
     }
   }

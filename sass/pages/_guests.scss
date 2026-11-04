@@ -107,7 +107,12 @@ body:has(.guests-hero-section) {
   right: 0;
   height: 850.928px;
   transform: rotate(180deg);
-  background: url($svg-guests-hero-vignette) center top / 100% 100% no-repeat;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 7, 36, 0) 14.7%,
+    rgba(6, 7, 36, 0.312) 24.838%,
+    rgba(6, 7, 36, 0.8) 43.987%
+  );
 }
 .guests-hero-divider-bottom {
   background-color: var(--tf-surface-paper);
@@ -165,10 +170,10 @@ body:has(.guests-hero-section) {
   width: calc(100% + 2px);
   height: calc(100% + 2px);
   max-width: none;
-  object-fit: fill;
   display: block;
   pointer-events: none;
   z-index: 1;
+  @include tf-rainbow-mesh(850, 188);
 }
 .hero-featured-cards-row {
   width: 850px;
@@ -225,8 +230,8 @@ body:has(.guests-hero-section) {
 }
 .hero-card-top-grad {
   max-width: none;
-  object-fit: fill;
   display: block;
+  @include tf-rainbow-mesh(412.558, 609, true);
 }
 .hero-card-border-stroke {
   border: 15px solid var(--tf-accent);
@@ -980,6 +985,9 @@ body:has(.guests-hero-section) .guests-page-content {
     min-height: 169px;
     max-height: none;
     padding: 48px 24px;
+  }
+  .guests-hero-title-grad {
+    @include tf-rainbow-mesh(328, 580);
   }
   .guests-hero-title {
     font-size: 40px;

@@ -262,9 +262,7 @@
       </div>
       <div class="ev-badge-cta">
         <div class="ev-badge-cta-bg" aria-hidden="true">
-          <img src="{{ <img_url path="img/event/cta_gradient.svg" /> }}"
-               alt=""
-               class="ev-badge-cta-grad">
+          <div class="ev-badge-cta-grad"></div>
           {% for side in ["left", "right"] %}
             <div class="hero-card-streamer hero-card-streamer-{{ side }}">
               <div class="ev-badge-accent-wrap">
@@ -367,10 +365,7 @@
           <div class="ev-app-card">
             <div class="ev-app-card-grad{% if role.status == "CLOSED" %} ev-app-card-grad-full{% endif %}">
               <div class="ev-app-card-box{% if role.status == "CLOSED" %} ev-app-card-box-full{% endif %}">
-                <img src="{{ <img_url path="img/event/amp_gradient.svg" /> }}"
-                     alt=""
-                     class="ev-app-card-svg"
-                     aria-hidden="true">
+                <div class="ev-app-card-svg" aria-hidden="true"></div>
                 <div class="ev-app-card-content">
                   <div class="ev-app-card-top">
                     <span class="{% if role.status == "OPEN" %}ev-badge-open{% else %}ev-badge-closed{% endif %}">{{ role.status }}</span>

@@ -21,13 +21,7 @@
               <p class="guests-hero-subtitle">{{ guests_data.hero.subtitle_prefix }} {{ <event_date format="year" /> }} {{ guests_data.hero.subtitle_suffix }}</p>
             </div>
           </div>
-          <picture>
-            <source media="(max-width: 768px)"
-                    srcset="{{ <img_url path="img/guests/hero_title_gradient_mobile.svg" /> }}" />
-            <img src="{{ <img_url path="img/guests/hero_title_gradient.svg" /> }}"
-                 alt=""
-                 class="guests-hero-title-grad is-desktop" />
-          </picture>
+          <div class="guests-hero-title-grad is-desktop" aria-hidden="true"></div>
         </div>
       </div>
       {% if guests_data.hero.cards and guests_data.featured_status != "coming_soon" %}
@@ -36,9 +30,7 @@
             <div class="hero-feature-card">
               <div class="hero-feature-card-core">
                 <div class="hero-feature-card-bg">
-                  <img src="{{ <img_url path="img/guests/card_top_gradient.svg" /> }}"
-                       alt=""
-                       class="hero-card-top-grad" />
+                  <div class="hero-card-top-grad" aria-hidden="true"></div>
                   <div class="hero-card-border-stroke"></div>
                   <div class="hero-card-streamer hero-card-streamer-left">
                     <img src="{{ <img_url path="img/shared/card_streamer.svg" /> }}"

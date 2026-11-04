@@ -51,15 +51,7 @@
                   </div>
                 </div>
                 <div class="tf-artists-feat-frame" aria-hidden="true">
-                  <div class="tf-artists-feat-top-glow">
-                    <picture>
-                      <source media="(max-width: 768px)"
-                              srcset="{{ <img_url path="img/artists/card_top_gradient_mobile.svg" /> }}" />
-                      <img class="tf-artists-feat-glow-desktop"
-                           src="{{ <img_url path="img/artists/card_top_gradient.svg" /> }}"
-                           alt="" />
-                    </picture>
-                  </div>
+                  <div class="tf-artists-feat-top-glow"></div>
                   {% for side in ["left", "right"] %}
                     <div class="tf-artists-feat-corner tf-artists-feat-corner--{{ side }}">
                       {% if side == "right" %}<div class="tf-artists-feat-corner-mirror">{% endif %}
