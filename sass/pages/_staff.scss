@@ -58,6 +58,7 @@
   }
   .tf-staff-apply-btn {
     @include tf-pill;
+    font-weight: 600;
     padding: 14px 39px 14px 47px;
     min-height: 0;
     height: auto;

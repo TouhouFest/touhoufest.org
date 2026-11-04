@@ -805,7 +805,7 @@ picture {
   margin-bottom: 1rem;
   overflow: clip;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  transition: border-color 200ms ease-out, box-shadow 200ms ease-out;
+  transition: border-color 300ms ease-out, box-shadow 300ms ease-out;
   &[open] {
     border-color: var(--tf-color-red, #bf3444);
     box-shadow: 0 4px 12px rgba(191, 52, 68, 0.1);
@@ -831,7 +831,7 @@ picture {
     position: absolute;
     background-color: currentColor;
     border-radius: 2px;
-    transition: transform 200ms ease-out, opacity 200ms ease-out;
+    transition: transform 300ms ease-out, opacity 300ms ease-out;
   }
   &::before {
     width: 26px;
@@ -950,9 +950,10 @@ picture {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  :root:not(#_):not(#_) *,
+  :root:not(#_):not(#_) *::before,
+  :root:not(#_):not(#_) *::after,
+  :root:not(#_):not(#_) *::details-content {
     transition-duration: 0.01ms;
     animation-duration: 0.01ms;
   }

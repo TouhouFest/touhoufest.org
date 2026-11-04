@@ -221,6 +221,20 @@
 }
 .cosplay-schedule-details {
   width: 100%;
+  interpolate-size: allow-keywords;
+  &::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow: clip;
+    transition:
+      block-size 300ms ease-out,
+      opacity 300ms ease-out,
+      content-visibility 300ms ease-out allow-discrete;
+  }
+  &[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
   summary {
     list-style: none;
     cursor: pointer;
@@ -608,6 +622,7 @@
   }
   &--caret-right {
     background-color: var(--tf-accent);
+    transition: transform 300ms ease-out;
   }
   &--caret-right-light {
     background-color: #fffde7;
