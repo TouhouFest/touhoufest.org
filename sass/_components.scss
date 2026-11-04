@@ -174,6 +174,11 @@ picture {
 }
 .tf-nav-socials a {
   color: #30293e;
+  transition: color 100ms ease-out, opacity 100ms ease-out;
+  &:hover {
+    color: var(--tf-accent-hover, #ff6b7d);
+    opacity: 0.85;
+  }
 }
 .tf-nav-menu-row {
   padding: 16px 0 0;
@@ -422,6 +427,21 @@ picture {
   font: 400 14px/1.3 var(--tf-font-body);
   color: #000000;
   outline: none;
+  transition:
+    background-color 300ms ease-out,
+    opacity 300ms ease-out,
+    border-color 300ms ease-out,
+    box-shadow 300ms ease-out;
+  &:hover {
+    opacity: 1;
+  }
+  &:focus,
+  &:focus-visible {
+    background-color: #ffffff;
+    opacity: 1;
+    border-color: #ff4949;
+    box-shadow: 0 0 0 3px rgba(255, 73, 73, 0.25);
+  }
   &::placeholder {
     color: #000000;
     opacity: 1;
@@ -436,6 +456,7 @@ picture {
   font-family: var(--tf-font-body);
   line-height: 1.3;
   color: #ffffff;
+  transition: font-size 100ms ease-out, color 100ms ease-out;
   &.is-light-label {
     width: 90px;
     text-align: right;
@@ -470,7 +491,10 @@ picture {
   background-color: #fbf7eb;
   border: none;
   border-radius: 80px;
-  transition: background-color 300ms ease-out, border-color 300ms ease-out;
+  transition:
+    background-color 300ms ease-out,
+    border-color 300ms ease-out,
+    box-shadow 100ms ease-out;
   &:before {
     position: absolute;
     content: "";
@@ -482,6 +506,9 @@ picture {
     filter: drop-shadow(3px 4px 6.5px rgba(99, 15, 40, 0.15));
     transition: transform 100ms ease-out, background-image 100ms ease-out;
   }
+}
+#theme-toggle:focus-visible + .tf-theme-slider {
+  box-shadow: 0 0 0 3px rgba(255, 73, 73, 0.4);
 }
 #theme-toggle:checked + .tf-theme-slider {
   background-color: #221a28;

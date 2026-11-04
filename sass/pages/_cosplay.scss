@@ -179,6 +179,10 @@
   font: 400 16px / 1.3 "Open Sans", sans-serif;
   cursor: pointer;
   user-select: none;
+  transition: background-color 300ms ease-out, color 300ms ease-out;
+  &:hover {
+    background-color: rgba(191, 52, 68, 0.12);
+  }
   &--middle {
     border-inline: 1px solid var(--tf-accent);
   }
@@ -550,7 +554,6 @@
 .cosplay-map-tab {
   height: auto;
   line-height: 1.1;
-  transition: none;
 }
 .cosplay-map-card {
   width: min(842px, calc(100% - 62px));

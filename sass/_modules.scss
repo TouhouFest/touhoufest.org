@@ -41,7 +41,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  transition:
+    background 300ms ease-out,
+    background-color 300ms ease-out,
+    color 300ms ease-out,
+    border-color 300ms ease-out;
+  &:hover {
+    background: linear-gradient(90deg, rgba(191, 52, 68, 0.15) 0%, #fffde7 100%);
+    background-color: rgba(191, 52, 68, 0.15);
+    border-color: #bf3444;
+  }
 }
 .tf-mod-map-tab.is-active,
 #tf-map-tab-1:checked ~ .tf-mod-map-tabs .tf-mod-map-tab--1,
@@ -63,9 +72,11 @@
 }
 .tf-mod-map-panel {
   display: none;
+  opacity: 0;
   @include absolute-fill;
   border-radius: 5px;
   overflow: hidden;
+  transition: opacity 300ms ease-out, display 300ms ease-out allow-discrete;
   :where(img) {
     @include absolute-fill;
     object-fit: cover;
@@ -78,6 +89,10 @@
 #tf-map-tab-2:checked ~ .tf-mod-map-stage .tf-mod-map-panel--2,
 #tf-map-tab-3:checked ~ .tf-mod-map-stage .tf-mod-map-panel--3 {
   display: block;
+  opacity: 1;
+  @starting-style {
+    opacity: 0;
+  }
 }
 :is(.tf-mod-map-zoom, .tf-mod-pager-arrow) {
   padding: 0;
@@ -85,6 +100,13 @@
   background: transparent;
   filter: drop-shadow(3px 4px 6.5px rgba(99, 15, 40, 0.2));
   cursor: pointer;
+  transition: transform 300ms ease-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(1);
+  }
 }
 .tf-mod-map-zoom {
   position: absolute;
@@ -449,6 +471,20 @@
   align-items: flex-start;
   background: var(--tf-surface-paper, #fffde7);
   box-sizing: border-box;
+}
+:is(.ofuda-sticker-card, .ev-ofuda-card, .tf-mod-ofuda) {
+  transition:
+    transform 300ms ease-out,
+    box-shadow 300ms ease-out,
+    border-color 300ms ease-out,
+    background-color 300ms ease-out;
+  &:hover {
+    transform: translateY(-24px);
+    box-shadow: var(--tf-drop-shadow-hover, 0 4px 22px 3px rgba(191, 52, 68, 0.5));
+  }
+  &:active {
+    transform: translateY(0);
+  }
 }
 .tf-mod-ofuda-decor {
   @include absolute-fill;
@@ -1035,6 +1071,16 @@ body:has(:is(.tf-page-canvas, .guidelines-page-wrapper)) main {
   min-height: 20px;
   line-height: 1;
 }
+:is(.tf-jumplink, .guidelines-jump-link, .cosplay-jumplink, .cosplay-guest-link, .gaming-item-link, .gaming-prize-jumplink, .gaming-wave-item, .artist-social-item, .timeline-pill-link, .tf-artists-polaroid-link, .tf-v-polaroid-link, a.hotel-info-pill) {
+  transition: gap 300ms ease-out, opacity 300ms ease-out, color 300ms ease-out;
+  &:hover {
+    gap: 20px;
+    opacity: 0.85;
+  }
+  &:active {
+    gap: 10px;
+  }
+}
 :is(.tf-jumplink, .guidelines-jump-link, .cosplay-jumplink) {
   display: inline-flex;
   align-items: center;
@@ -1042,9 +1088,32 @@ body:has(:is(.tf-page-canvas, .guidelines-page-wrapper)) main {
   gap: 10px;
   text-decoration: none;
   color: var(--tf-accent);
-  transition: opacity 300ms ease-out;
+}
+:is(.home-hero-glass-card, .pillar-card, .app-card:not(:has(.app-badge-closed)), .ev-app-card:not(:has(.ev-btn-disabled))) {
+  transition:
+    transform 300ms ease-out,
+    box-shadow 300ms ease-out,
+    border-color 300ms ease-out,
+    background-color 300ms ease-out;
   &:hover {
-    opacity: 0.85;
+    border-color: #ff4949;
+    box-shadow: inset 0 0 0 10px #ff4949;
+  }
+  &:active {
+    box-shadow: none;
+  }
+}
+:is(.register-hero-card, .schedule-badge-card, .ev-badge-cta, .hotels-badge-card, .gaming-badge-cta-card, .hero-feature-card, .tf-artists-feat-card, .tf-v-fcard, .callout-2x2-card, .register-callout-card, .faq-callout-card, .schedule-discord-card, .tf-mod-callout) {
+  transition:
+    transform 300ms ease-out,
+    box-shadow 300ms ease-out,
+    border-color 300ms ease-out,
+    background-color 300ms ease-out;
+  &:hover {
+    box-shadow: var(--tf-drop-shadow-hover, 0 4px 22px 3px rgba(191, 52, 68, 0.5));
+  }
+  &:active {
+    box-shadow: none;
   }
 }
 :is(.guidelines-jump-icon, .guidelines-jump-arrow) {

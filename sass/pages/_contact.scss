@@ -154,9 +154,16 @@ body:has(.tf-contact-page) {
       box-shadow: none;
       transition: 300ms ease-out;
       transition-property: background-color, color, border-color, box-shadow;
+      &:hover {
+        border-bottom-color: #ff4949;
+      }
       &:focus {
         outline: none;
         box-shadow: 0 0 0 3px rgba(191, 52, 68, 0.18);
+      }
+      &:disabled {
+        background-color: #cbcbd2;
+        cursor: not-allowed;
       }
     }
     :is(.tf-form-input, .tf-form-select) {
@@ -167,6 +174,9 @@ body:has(.tf-contact-page) {
     }
     .tf-select-wrapper {
       position: relative;
+      &:focus-within .tf-select-chevron {
+        transform: rotate(180deg);
+      }
     }
     .tf-form-select {
       padding: 0 44px 0 21px;
@@ -187,6 +197,7 @@ body:has(.tf-contact-page) {
       background-color: #30293e;
       -webkit-mask: var(--tf-svg-chevron-down) center / 16px 15px no-repeat;
       mask: var(--tf-svg-chevron-down) center / 16px 15px no-repeat;
+      transition: transform 300ms ease-out;
     }
     .tf-form-textarea {
       height: 172px;
