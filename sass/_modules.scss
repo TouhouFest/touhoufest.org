@@ -599,6 +599,7 @@
 }
 :is(.tf-artists-roster-name, .tf-v-rcard-name) {
   font: 500 18px / 22px "Poppins", sans-serif;
+  transition: color 300ms ease-out, font-size 300ms ease-out;
 }
 :is(.tf-artists-roster-frame, .tf-v-rcard-frame) {
   width: 192px;
@@ -612,6 +613,46 @@
 }
 :is(.tf-artists-roster-table, .tf-v-rcard-table) {
   font: 400 12px / 16px "Open Sans", sans-serif;
+}
+:is(.tf-artists-roster-link, .tf-v-rcard-visit) {
+  opacity: 0;
+  transition: opacity 300ms ease-out, gap 300ms ease-out;
+}
+:is(.tf-artists-roster-avatar, .tf-v-rcard-img-pad, .tf-v-rcard-img-box) {
+  transition: inset 300ms ease-out, height 300ms ease-out;
+}
+:is(.tf-artists-roster-dots, .tf-v-rcard-dots) {
+  transition: bottom 300ms ease-out;
+}
+@media (min-width: 769px) {
+  :is(.tf-artists-roster-card, .tf-v-rcard):hover {
+    :is(.tf-artists-roster-name, .tf-v-rcard-name) {
+      color: var(--tf-accent, #bf3444);
+      font-size: 20px;
+      font-weight: 800;
+      text-decoration: underline;
+    }
+    :is(.tf-artists-roster-table, .tf-v-rcard-table) {
+      font-weight: 700;
+    }
+    :is(.tf-artists-roster-link, .tf-v-rcard-visit) {
+      opacity: 1;
+    }
+    .tf-artists-roster-avatar {
+      inset: 0 16px 48px 0;
+    }
+    :is(.tf-v-rcard-img-pad, .tf-v-rcard-img-box) {
+      height: 144px;
+    }
+    :is(.tf-artists-roster-dots, .tf-v-rcard-dots) {
+      bottom: 35px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  :is(.tf-artists-roster-link, .tf-v-rcard-visit) {
+    opacity: 1;
+  }
 }
 .tf-mod-pager {
   @include flex-center;
