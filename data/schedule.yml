@@ -341,7 +341,7 @@ days:
         category: "Cosplay Photoshoot"
         characters: "Please wait warmly!"
         description: "We are preparing the cosplay schedule for 2027!"#      - time: "11:00 AM - 11:25 AM"
-     - time: "11:00 AM - 11:45 AM"
+      - time: "11:00 AM - 11:45 AM"
         title: "What the Hell? - Quick History of Bullet Hells / Danmaku"
         room: "Drawing & Painting Studio"
         category: "Panels"
