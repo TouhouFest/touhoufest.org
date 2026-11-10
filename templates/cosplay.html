@@ -92,64 +92,66 @@
         </div>
         <p class="cosplay-body-note">{{ data.photoshoots.note }}</p>
       </section>
-      <div class="tf-mod-divider cosplay-divider cosplay-divider--workshops">
+		  <div class="tf-mod-divider cosplay-divider cosplay-divider--workshops">
         <div class="tf-mod-divider-bg cosplay-divider__bg" aria-hidden="true">
           <img src="{{ <img_url path={data.workshops.divider_image} /> }}"
-               srcset="{{ <img_srcset path={data.workshops.divider_image} /> }}"
-               sizes="100vw"
-               alt=""
-               class="cosplay-divider__bg-img cosplay-divider__bg-img--workshops"
-               loading="lazy"
-               decoding="async">
+             srcset="{{ <img_srcset path={data.workshops.divider_image} /> }}"
+             sizes="100vw"
+             alt=""
+             class="cosplay-divider__bg-img cosplay-divider__bg-img--workshops"
+             loading="lazy"
+             decoding="async">
           <div class="tf-mod-divider-vignette cosplay-divider__vignette"></div>
         </div>
         <div class="tf-mod-divider-top cosplay-divider__top-gohei"
-             aria-hidden="true"></div>
+           aria-hidden="true"></div>
         <div class="tf-mod-divider-inner cosplay-divider__content">
           <h2 class="tf-mod-divider-title cosplay-divider__title">{{ <event_date format="year" /> }} {{ data.workshops.title }}</h2>
         </div>
         <div class="tf-mod-divider-bottom cosplay-divider__bottom"
-             aria-hidden="true"></div>
-      </div>
-      <p class="cosplay-body-note">{{ data.workshops.intro }}</p>
-      <div class="cosplay-workshops-row">
-        {% set_global ws_idx = 0 %}
-        {% for day in sched.days %}
-          {% for item in day.events %}
+           aria-hidden="true"></div>
+        </div>
+        <p class="cosplay-body-note">{{ data.workshops.intro }}</p>
+        <div class="cosplay-workshops-row">
+        {% if data.workshops.status != "coming_soon" %}      
+          {% set_global ws_idx = 0 %}
+          {% for day in sched.days %}
+            {% for item in day.events %}
             {% if item.category == "Workshop" %}
               {% set_global ws_idx = ws_idx + 1 %}
               {% set ws_img = data.workshops.images | nth(n=ws_idx - 1) %}
               {% if ws_idx > 1 %}
-                <div class="cosplay-ribbon cosplay-ribbon--mobile-only" aria-hidden="true"></div>
+              <div class="cosplay-ribbon cosplay-ribbon--mobile-only" aria-hidden="true"></div>
               {% endif %}
               <article class="cosplay-workshop-card">
-                <div class="cosplay-workshop-card__header">
-                  <h3 class="cosplay-workshop-card__title">{{ item.title }}</h3>
-                  <div class="cosplay-workshop-card__image-pad">
-                    <div class="cosplay-workshop-card__image-frame">
-                      <img src="{{ <img_url path={ws_img} max_width={960} /> }}"
-                           alt="{{ item.title }}"
-                           class="cosplay-workshop-card__image cosplay-workshop-card__image--{{ ws_idx }}"
-                           loading="lazy"
-                           decoding="async">
-                    </div>
-                  </div>
+              <div class="cosplay-workshop-card__header">
+                <h3 class="cosplay-workshop-card__title">{{ item.title }}</h3>
+                <div class="cosplay-workshop-card__image-pad">
+                <div class="cosplay-workshop-card__image-frame">
+                  <img src="{{ <img_url path={ws_img} max_width={960} /> }}"
+                     alt="{{ item.title }}"
+                     class="cosplay-workshop-card__image cosplay-workshop-card__image--{{ ws_idx }}"
+                     loading="lazy"
+                     decoding="async">
                 </div>
-                <div class="cosplay-workshop-card__loc-heading">
-                  <span>{{ data.workshops.location_heading }}</span>
-                  <span>{{ item.room }}</span>
                 </div>
-                <div class="cosplay-workshop-card__body">
-                  <div class="cosplay-location-pill cosplay-location-pill--dark">
-                    <span class="cosplay-icon cosplay-icon--location-dark"></span>
-                    <span>{{ data.workshops.location_tag }}</span>
-                  </div>
-                  <p class="cosplay-workshop-card__desc">{{ item.description }}</p>
+              </div>
+              <div class="cosplay-workshop-card__loc-heading">
+                <span>{{ data.workshops.location_heading }}</span>
+                <span>{{ item.room }}</span>
+              </div>
+              <div class="cosplay-workshop-card__body">
+                <div class="cosplay-location-pill cosplay-location-pill--dark">
+                <span class="cosplay-icon cosplay-icon--location-dark"></span>
+                <span>{{ data.workshops.location_tag }}</span>
                 </div>
+                <p class="cosplay-workshop-card__desc">{{ item.description }}</p>
+              </div>
               </article>
             {% endif %}
+            {% endfor %}
           {% endfor %}
-        {% endfor %}
+        {% endif %}
       </div>
       <section class="cosplay-masquerade" id="masquerade">
         <div class="tf-mod-divider cosplay-divider cosplay-divider--masquerade">
@@ -348,7 +350,7 @@
       <div class="cosplay-maps-tabs tf-mod-map-tabs">
         {% for tab in data.maps.tabs %}
           <label for="tf-map-tab-{{ loop.index }}"
-                 class="cosplay-map-tab tf-mod-map-tab tf-mod-map-tab--{{ loop.index }}">
+                 class="tf-mod-map-tab tf-mod-map-tab--{{ loop.index }} cosplay-map-tab"
             <span>{{ tab.label }}</span>
           </label>
         {% endfor %}
