@@ -315,6 +315,10 @@
 }
 
 /* Block 2: Workshops */
+.cosplay-workshops {
+  gap: 43px;
+  padding-bottom: 5px;
+}
 .cosplay-workshops-row {
   gap: 24px;
 }
@@ -367,11 +371,14 @@
   padding-bottom: 48px;
 }
 .cosplay-categories-row {
+  display: flex;
+  align-items: stretch;
   gap: 8px;
   justify-content: center;
 }
 .cosplay-category-card {
   flex: 0 0 278px;
+  display: flex;
   width: 278px;
   max-width: 278px;
   min-width: 0;
@@ -400,6 +407,7 @@
   }
 }
 :is(.cosplay-btn-red, .cosplay-btn-cream) {
+  margin-top: auto;
   padding: 14px 39px 14px 47px;
   border-radius: 35px;
   display: inline-flex;
@@ -552,6 +560,7 @@
   margin: 19px 0 46px;
 }
 .cosplay-maps-tabs {
+  height: auto;
   width: min(850px, calc(100% - 62px));
 }
 .cosplay-map-tab {
